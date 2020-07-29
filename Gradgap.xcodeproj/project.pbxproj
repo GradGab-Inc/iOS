@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A0424D149C7006C37FD /* AppDelegate.swift */; };
-		22D64A0724D149C7006C37FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A0624D149C7006C37FD /* SceneDelegate.swift */; };
 		22D64A0924D149C7006C37FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A0824D149C7006C37FD /* ViewController.swift */; };
 		22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0A24D149C7006C37FD /* Main.storyboard */; };
 		22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0D24D149CD006C37FD /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		22D64A0124D149C7006C37FD /* Gradgap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gradgap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D64A0424D149C7006C37FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22D64A0624D149C7006C37FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		22D64A0824D149C7006C37FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22D64A0B24D149C7006C37FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22D64A0D24D149CD006C37FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				22D64A0424D149C7006C37FD /* AppDelegate.swift */,
-				22D64A0624D149C7006C37FD /* SceneDelegate.swift */,
 				22D64A0824D149C7006C37FD /* ViewController.swift */,
 				22D64A0A24D149C7006C37FD /* Main.storyboard */,
 				22D64A0D24D149CD006C37FD /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				22D64A0924D149C7006C37FD /* ViewController.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
-				22D64A0724D149C7006C37FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +290,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
