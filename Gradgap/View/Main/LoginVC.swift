@@ -48,7 +48,10 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func clickToSignIn(_ sender: Any) {
+//        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+//        self.navigationController?.pushViewController(vc, animated: true)
         
+        AppDelegate().sharedDelegate().navigateToDashBoard()
     }
     
     @IBAction func clickToShowShowPassword(_ sender: UIButton) {

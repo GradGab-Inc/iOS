@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import NVActivityIndicatorView
+import MFSideMenu
 
 
 @UIApplicationMain
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var activityLoader : NVActivityIndicatorView!
+    var container : MFSideMenuContainerViewController = MFSideMenuContainerViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -58,6 +60,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         activityLoader = nil
     }
 
+    // MARK:- Navigate To Dashboard
+    
+    func navigateToDashBoard()
+    {
+        let rootVC: MFSideMenuContainerViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
+        container = rootVC
+        var navController: UINavigationController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "DashboardVCNav") as! UINavigationController
+        if #available(iOS 9.0, *) {
+            let vc : HomeVC = STORYBOARD.HOME.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            navController = UINavigationController(rootViewController: vc)
+            navController.isNavigationBarHidden = true
+            
+            let leftSideMenuVC: UIViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SideMenuContentVC")
+            container.menuWidth = 300
+            container.panMode = MFSideMenuPanModeSideMenu
+            container.menuSlideAnimationEnabled = false
+            container.leftMenuViewController = leftSideMenuVC
+            container.centerViewController = navController
+            
+            container.view.layer.masksToBounds = false
+            container.view.layer.shadowOffset = CGSize(width: 10, height: 10)
+            container.view.layer.shadowOpacity = 0.5
+            container.view.layer.shadowRadius = 5
+            container.view.layer.shadowColor = UIColor.clear.cgColor
+            
+            let rootNavigatioVC : UINavigationController = self.window?.rootViewController
+                as! UINavigationController
+            rootNavigatioVC.pushViewController(container, animated: false)
+        }
+    }
     
     //MARK:- AppDelegate Method
     func applicationWillResignActive(_ application: UIApplication) {

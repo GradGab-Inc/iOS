@@ -135,6 +135,17 @@ struct INFO_TITLE {
     static var info3 = "Create a profile, pick a few schools, and we’ll match you with mentors who share the same interests."
 }
 
+struct SIDEMENU_DATA {
+    static var PROFILE = "Profile"
+    static var NOTI = "Notifications"
+    static var MY_ERNING = "My Earnings"
+    static var BANK = "Bank Details"
+    static var REFER = "Refer to friends"
+    static var SETTING = "Settings"
+}
+
+
+
 //enum ViewListType:Int{
 //    case SAVED = 1
 //    case VIEWED

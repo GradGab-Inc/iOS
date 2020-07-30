@@ -982,6 +982,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="715"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJz-E5-mqg">
+                                <rect key="frame" x="0.0" y="20" width="320" height="656"/>
+                                <color key="backgroundColor" name="LightColor"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfc-Kk-cqf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
@@ -1000,24 +1004,20 @@
                                     <constraint firstItem="LUw-m0-V9X" firstAttribute="centerY" secondItem="Dfc-Kk-cqf" secondAttribute="centerY" id="xxv-Sh-FuZ"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJz-E5-mqg">
-                                <rect key="frame" x="0.0" y="80" width="320" height="494"/>
-                                <color key="backgroundColor" name="LightColor"/>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X68-7a-z3h">
                                 <rect key="frame" x="0.0" y="80" width="320" height="465"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lU-d0-wiG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="459.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Are you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0D-m1-4ZS">
-                                                <rect key="frame" x="97" y="24" width="126" height="23.5"/>
+                                                <rect key="frame" x="94.5" y="24" width="131" height="24.5"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDk-e5-o8t">
-                                                <rect key="frame" x="15" y="63.5" width="290" height="37.5"/>
+                                                <rect key="frame" x="15" y="64.5" width="290" height="39"/>
                                                 <string key="text">I’m interested in meeting current 
 student mentors and I am in …</string>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -1025,7 +1025,7 @@ student mentors and I am in …</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE3-Vz-4ei" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="126" width="270" height="48"/>
+                                                <rect key="frame" x="25" y="128.5" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="2Fr-yl-U6B"/>
@@ -1044,7 +1044,7 @@ student mentors and I am in …</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBn-Vu-c9R" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="194" width="270" height="48"/>
+                                                <rect key="frame" x="25" y="196.5" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="lmd-Z9-WJm"/>
@@ -1063,7 +1063,7 @@ student mentors and I am in …</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emM-eu-5E5" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="262" width="270" height="48"/>
+                                                <rect key="frame" x="25" y="264.5" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="tEN-7Q-nEY"/>
@@ -1082,7 +1082,7 @@ student mentors and I am in …</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qm-xO-SyD" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="330" width="270" height="48"/>
+                                                <rect key="frame" x="25" y="332.5" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="vdv-AH-nqr"/>
@@ -1101,7 +1101,7 @@ student mentors and I am in …</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hss-PE-b3K">
-                                                <rect key="frame" x="20" y="398" width="280" height="33"/>
+                                                <rect key="frame" x="20" y="400.5" width="280" height="35"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <state key="normal" title="Are you a Parent ?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1202,7 +1202,7 @@ prospective students.</string>
                             <constraint firstItem="oeJ-f0-bkN" firstAttribute="trailing" secondItem="UJz-E5-mqg" secondAttribute="trailing" id="6ZY-V6-AEu"/>
                             <constraint firstItem="UJz-E5-mqg" firstAttribute="leading" secondItem="oeJ-f0-bkN" secondAttribute="leading" id="BKR-Iq-YK5"/>
                             <constraint firstItem="X68-7a-z3h" firstAttribute="top" secondItem="Dfc-Kk-cqf" secondAttribute="bottom" id="EcW-bU-QqX"/>
-                            <constraint firstItem="UJz-E5-mqg" firstAttribute="top" secondItem="Dfc-Kk-cqf" secondAttribute="bottom" id="IMe-a0-3Vi"/>
+                            <constraint firstItem="UJz-E5-mqg" firstAttribute="top" secondItem="Dfc-Kk-cqf" secondAttribute="bottom" constant="-60" id="IMe-a0-3Vi"/>
                             <constraint firstItem="Dfc-Kk-cqf" firstAttribute="top" secondItem="oeJ-f0-bkN" secondAttribute="top" id="NcK-Ha-jSK"/>
                             <constraint firstItem="X68-7a-z3h" firstAttribute="trailing" secondItem="oeJ-f0-bkN" secondAttribute="trailing" id="O65-G3-hVK"/>
                             <constraint firstItem="K3K-nI-2ux" firstAttribute="leading" secondItem="oeJ-f0-bkN" secondAttribute="leading" id="ZMj-bH-IE3"/>
@@ -1211,7 +1211,7 @@ prospective students.</string>
                             <constraint firstItem="Dfc-Kk-cqf" firstAttribute="leading" secondItem="oeJ-f0-bkN" secondAttribute="leading" id="mNz-6r-clU"/>
                             <constraint firstItem="X68-7a-z3h" firstAttribute="leading" secondItem="oeJ-f0-bkN" secondAttribute="leading" id="uAE-U4-hJd"/>
                             <constraint firstItem="K3K-nI-2ux" firstAttribute="top" secondItem="X68-7a-z3h" secondAttribute="bottom" id="vGO-7h-pf3"/>
-                            <constraint firstItem="oeJ-f0-bkN" firstAttribute="bottom" secondItem="UJz-E5-mqg" secondAttribute="bottom" constant="141" id="xuf-oa-e06"/>
+                            <constraint firstItem="oeJ-f0-bkN" firstAttribute="bottom" secondItem="UJz-E5-mqg" secondAttribute="bottom" constant="39" id="xuf-oa-e06"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oeJ-f0-bkN"/>
                     </view>
@@ -1311,7 +1311,7 @@ prospective students.</string>
                     <viewLayoutGuide key="safeArea" id="eUy-VL-n4q"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="4519" y="214"/>
+            <point key="canvasLocation" x="4518.75" y="213.90845070422534"/>
         </scene>
         <!--Want To MeetVC-->
         <scene sceneID="QJO-9m-Vkx">

@@ -13,6 +13,8 @@ target 'Gradgap' do
   pod 'Toast-Swift'
   pod 'SDWebImage'
   pod 'ActiveLabel'
+  pod 'MFSideMenu'
+  
   
   # Pods for Gradgap
 

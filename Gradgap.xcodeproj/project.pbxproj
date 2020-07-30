@@ -11,6 +11,14 @@
 		22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0A24D149C7006C37FD /* Main.storyboard */; };
 		22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0D24D149CD006C37FD /* Assets.xcassets */; };
 		22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0F24D149CD006C37FD /* LaunchScreen.storyboard */; };
+		880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880248D924D2C5E5005539B5 /* HomeVC.swift */; };
+		880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880248DC24D2C8D7005539B5 /* HomeBookingTVC.swift */; };
+		880248DF24D2C8D7005539B5 /* HomeBookingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880248DD24D2C8D7005539B5 /* HomeBookingTVC.xib */; };
+		880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880248E024D2C8E6005539B5 /* HomeTVC.swift */; };
+		880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880248E124D2C8E6005539B5 /* HomeTVC.xib */; };
+		880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880248E424D2EBC2005539B5 /* SidemenuVC.swift */; };
+		880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880248E624D2EBEE005539B5 /* SideMenuTVC.swift */; };
+		880248E924D2EBEE005539B5 /* SideMenuTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880248E724D2EBEE005539B5 /* SideMenuTVC.xib */; };
 		881690DE24D2820E00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */; };
 		881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */; };
 		881690E024D2820E00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */; };
@@ -75,6 +83,8 @@
 		88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */; };
 		88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */; };
 		88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804824D2A830003603A2 /* WantToMeetVC.swift */; };
+		88D1804B24D2ABB1003603A2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D1804A24D2ABB1003603A2 /* Home.storyboard */; };
+		C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +96,15 @@
 		22D64A1024D149CD006C37FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D64A1224D149CD006C37FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564A455D62B1793775EEC062 /* Pods-Gradgap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gradgap.release.xcconfig"; path = "Target Support Files/Pods-Gradgap/Pods-Gradgap.release.xcconfig"; sourceTree = "<group>"; };
+		80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gradgap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880248D924D2C5E5005539B5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		880248DC24D2C8D7005539B5 /* HomeBookingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingTVC.swift; sourceTree = "<group>"; };
+		880248DD24D2C8D7005539B5 /* HomeBookingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBookingTVC.xib; sourceTree = "<group>"; };
+		880248E024D2C8E6005539B5 /* HomeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVC.swift; sourceTree = "<group>"; };
+		880248E124D2C8E6005539B5 /* HomeTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVC.xib; sourceTree = "<group>"; };
+		880248E424D2EBC2005539B5 /* SidemenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidemenuVC.swift; sourceTree = "<group>"; };
+		880248E624D2EBEE005539B5 /* SideMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVC.swift; sourceTree = "<group>"; };
+		880248E724D2EBEE005539B5 /* SideMenuTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTVC.xib; sourceTree = "<group>"; };
 		881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Light Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Regular PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft ExtraBold PERSONAL USE.otf"; sourceTree = "<group>"; };
@@ -152,6 +171,7 @@
 		88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeMentorVC.swift; sourceTree = "<group>"; };
 		88D1804824D2A830003603A2 /* WantToMeetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToMeetVC.swift; sourceTree = "<group>"; };
+		88D1804A24D2ABB1003603A2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +192,7 @@
 				22D64A0324D149C7006C37FD /* Gradgap */,
 				22D64A0224D149C7006C37FD /* Products */,
 				980B3FECC49C49C48DDCA68A /* Pods */,
+				E9548580B617477EF9B90BD6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,11 +215,34 @@
 				88AEE85A24D15A78002225E9 /* Custom Class */,
 				22D64A0424D149C7006C37FD /* AppDelegate.swift */,
 				22D64A0A24D149C7006C37FD /* Main.storyboard */,
+				88D1804A24D2ABB1003603A2 /* Home.storyboard */,
 				22D64A0D24D149CD006C37FD /* Assets.xcassets */,
 				22D64A0F24D149CD006C37FD /* LaunchScreen.storyboard */,
 				22D64A1224D149CD006C37FD /* Info.plist */,
 			);
 			path = Gradgap;
+			sourceTree = "<group>";
+		};
+		880248D824D2C5CF005539B5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				880248D924D2C5E5005539B5 /* HomeVC.swift */,
+				880248E424D2EBC2005539B5 /* SidemenuVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		880248DB24D2C5EA005539B5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				880248E024D2C8E6005539B5 /* HomeTVC.swift */,
+				880248E124D2C8E6005539B5 /* HomeTVC.xib */,
+				880248DC24D2C8D7005539B5 /* HomeBookingTVC.swift */,
+				880248DD24D2C8D7005539B5 /* HomeBookingTVC.xib */,
+				880248E624D2EBEE005539B5 /* SideMenuTVC.swift */,
+				880248E724D2EBEE005539B5 /* SideMenuTVC.xib */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		881690CF24D281DE00EE427E /* CustomFont */ = {
@@ -329,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				88AEE8CD24D169B2002225E9 /* Main */,
+				880248DB24D2C5EA005539B5 /* Home */,
 			);
 			path = CustomXIB;
 			sourceTree = "<group>";
@@ -337,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				88AEE8CE24D169B8002225E9 /* Main */,
+				880248D824D2C5CF005539B5 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +434,14 @@
 				564A455D62B1793775EEC062 /* Pods-Gradgap.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E9548580B617477EF9B90BD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D1804B24D2ABB1003603A2 /* Home.storyboard in Resources */,
 				881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */,
 				881690DE24D2820E00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf in Resources */,
 				881690E324D2820E00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf in Resources */,
@@ -458,17 +514,20 @@
 				22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */,
 				881690E524D2820E00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
+				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */,
 				881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */,
 				88AEE8BB24D15A78002225E9 /* countries.json in Resources */,
 				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
 				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
+				880248E924D2EBEE005539B5 /* SideMenuTVC.xib in Resources */,
 				881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */,
 				88AEE8D524D16EFA002225E9 /* InfoCVC.xib in Resources */,
 				22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */,
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
 				881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */,
+				880248DF24D2C8D7005539B5 /* HomeBookingTVC.xib in Resources */,
 				881690E224D2820E00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,7 +589,9 @@
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
+				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
+				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88AEE8AC24D15A78002225E9 /* TableViewCell.swift in Sources */,
@@ -545,9 +606,11 @@
 				881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */,
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
 				88AEE8BC24D15A78002225E9 /* Validation.swift in Sources */,
+				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
 				88AEE8BD24D15A78002225E9 /* SHA1.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
+				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,
 				88AEE8C724D15A78002225E9 /* UIImage+ProportionalFill.m in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
@@ -555,6 +618,7 @@
 				88AEE8B124D15A78002225E9 /* TextView.swift in Sources */,
 				88AEE8B324D15A78002225E9 /* Button.swift in Sources */,
 				88AEE8B524D15A78002225E9 /* GlobalConstant.swift in Sources */,
+				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88AEE8A724D15A78002225E9 /* Label.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
