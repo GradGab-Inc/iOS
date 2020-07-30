@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1937635EC0C7825A6F00D277 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C13C58CC6BD6BF758CB85B2 /* Pods_Gradgap.framework */; };
 		22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64A0424D149C7006C37FD /* AppDelegate.swift */; };
 		22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0A24D149C7006C37FD /* Main.storyboard */; };
 		22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0D24D149CD006C37FD /* Assets.xcassets */; };
 		22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D64A0F24D149CD006C37FD /* LaunchScreen.storyboard */; };
+		881690DE24D2820E00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */; };
+		881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */; };
+		881690E024D2820E00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */; };
+		881690E124D2820E00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D324D2820C00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf */; };
+		881690E224D2820E00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D424D2820D00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf */; };
+		881690E324D2820E00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D524D2820D00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf */; };
+		881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D624D2820D00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf */; };
+		881690E524D2820E00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D724D2820D00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf */; };
+		881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D824D2820D00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf */; };
+		881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D924D2820D00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf */; };
+		881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DA24D2820D00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf */; };
+		881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DB24D2820D00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf */; };
+		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
+		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
+		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
 		88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */; };
 		88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85E24D15A78002225E9 /* Array+RUI.swift */; };
 		88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */; };
@@ -58,6 +72,9 @@
 		88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88AEE8D724D1754F002225E9 /* OnboardingCVC.xib */; };
 		88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE8DA24D19B52002225E9 /* SignUpVC.swift */; };
 		88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE8DC24D19E93002225E9 /* LoginVC.swift */; };
+		88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */; };
+		88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */; };
+		88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804824D2A830003603A2 /* WantToMeetVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,8 +85,22 @@
 		22D64A0D24D149CD006C37FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22D64A1024D149CD006C37FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D64A1224D149CD006C37FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C13C58CC6BD6BF758CB85B2 /* Pods_Gradgap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gradgap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		564A455D62B1793775EEC062 /* Pods-Gradgap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gradgap.release.xcconfig"; path = "Target Support Files/Pods-Gradgap/Pods-Gradgap.release.xcconfig"; sourceTree = "<group>"; };
+		881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Light Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Regular PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft ExtraBold PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D324D2820C00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D424D2820D00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D524D2820D00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Thin Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D624D2820D00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Thin PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D724D2820D00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Regular Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D824D2820D00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Medium Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690D924D2820D00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Medium PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690DA24D2820D00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Light PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690DB24D2820D00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
+		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
 		88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Type.swift"; sourceTree = "<group>"; };
 		88AEE85E24D15A78002225E9 /* Array+RUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RUI.swift"; sourceTree = "<group>"; };
 		88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Copy.swift"; sourceTree = "<group>"; };
@@ -118,6 +149,9 @@
 		88AEE8D724D1754F002225E9 /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		88AEE8DA24D19B52002225E9 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		88AEE8DC24D19E93002225E9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeMentorVC.swift; sourceTree = "<group>"; };
+		88D1804824D2A830003603A2 /* WantToMeetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToMeetVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +159,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1937635EC0C7825A6F00D277 /* Pods_Gradgap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +171,6 @@
 				22D64A0324D149C7006C37FD /* Gradgap */,
 				22D64A0224D149C7006C37FD /* Products */,
 				980B3FECC49C49C48DDCA68A /* Pods */,
-				815E5E943F0231C38C0B2B0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +185,7 @@
 		22D64A0324D149C7006C37FD /* Gradgap */ = {
 			isa = PBXGroup;
 			children = (
+				881690CF24D281DE00EE427E /* CustomFont */,
 				88AEE8C924D15CFD002225E9 /* CustomXIB */,
 				88AEE8CA24D15D1A002225E9 /* View */,
 				88AEE8CB24D15D1F002225E9 /* ViewModel */,
@@ -167,12 +200,25 @@
 			path = Gradgap;
 			sourceTree = "<group>";
 		};
-		815E5E943F0231C38C0B2B0B /* Frameworks */ = {
+		881690CF24D281DE00EE427E /* CustomFont */ = {
 			isa = PBXGroup;
 			children = (
-				2C13C58CC6BD6BF758CB85B2 /* Pods_Gradgap.framework */,
+				881690D324D2820C00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf */,
+				881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */,
+				881690D424D2820D00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf */,
+				881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */,
+				881690DB24D2820D00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf */,
+				881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */,
+				881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */,
+				881690DA24D2820D00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf */,
+				881690D824D2820D00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf */,
+				881690D924D2820D00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf */,
+				881690D724D2820D00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf */,
+				881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */,
+				881690D524D2820D00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf */,
+				881690D624D2820D00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf */,
 			);
-			name = Frameworks;
+			path = CustomFont;
 			sourceTree = "<group>";
 		};
 		88AEE85A24D15A78002225E9 /* Custom Class */ = {
@@ -326,6 +372,10 @@
 				88AEE8CF24D16D80002225E9 /* OnboardingVC.swift */,
 				88AEE8DA24D19B52002225E9 /* SignUpVC.swift */,
 				88AEE8DC24D19E93002225E9 /* LoginVC.swift */,
+				881690EC24D286E000EE427E /* EmailVerificationVC.swift */,
+				88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */,
+				88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */,
+				88D1804824D2A830003603A2 /* WantToMeetVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -400,12 +450,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */,
+				881690DE24D2820E00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf in Resources */,
+				881690E324D2820E00EE427E /* MADE Tommy Soft Thin Outline PERSONAL USE.otf in Resources */,
+				881690E024D2820E00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf in Resources */,
+				881690E124D2820E00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf in Resources */,
 				22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */,
+				881690E524D2820E00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
+				881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */,
+				881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */,
 				88AEE8BB24D15A78002225E9 /* countries.json in Resources */,
+				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
+				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
+				881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */,
 				88AEE8D524D16EFA002225E9 /* InfoCVC.xib in Resources */,
 				22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */,
+				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
+				881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */,
+				881690E224D2820E00EE427E /* MADE Tommy Soft Bold Outline PERSONAL USE.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,10 +524,12 @@
 			files = (
 				88AEE8AA24D15A78002225E9 /* CollectionView.swift in Sources */,
 				88AEE8D824D1754F002225E9 /* OnboardingCVC.swift in Sources */,
+				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				88AEE8A824D15A78002225E9 /* View.swift in Sources */,
 				88AEE8A924D15A78002225E9 /* DatePicker.swift in Sources */,
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
+				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
@@ -476,6 +542,7 @@
 				88AEE8BE24D15A78002225E9 /* SweetAlert.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
 				88AEE8A424D15A78002225E9 /* UIImage+RUI.swift in Sources */,
+				881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */,
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
 				88AEE8BC24D15A78002225E9 /* Validation.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
@@ -501,6 +568,7 @@
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
+				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,
 				88AEE8B924D15A78002225E9 /* BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,7 +43,8 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func clickToForgotPassword(_ sender: Any) {
-        
+        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "ForgotPasswordVC") as! ForgotPasswordVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToSignIn(_ sender: Any) {

@@ -71,7 +71,9 @@ class SignUpVC: UIViewController {
      }
     
     @IBAction func clickToSignUp(_ sender: Any) {
-        
+        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "EmailVerificationVC") as! EmailVerificationVC
+        vc.fromSignup = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToLogin(_ sender: Any) {

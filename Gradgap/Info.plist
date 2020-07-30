@@ -41,5 +41,22 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MADE Tommy Soft Black Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Black PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Bold Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Bold PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft ExtraBold PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Light Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Light PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Medium Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Medium PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Regular Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Regular PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Thin Outline PERSONAL USE.otf</string>
+		<string>MADE Tommy Soft Thin PERSONAL USE.otf</string>
+	</array>
 </dict>
 </plist>
