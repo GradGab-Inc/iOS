@@ -74,7 +74,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         if tableView == homeTblView {
             guard let cell = homeTblView.dequeueReusableCell(withIdentifier: "HomeTVC", for: indexPath) as? HomeTVC
                 else {
-                return TableViewCell()
+                return UITableViewCell()
             }
             cell.titleLbl.text = titleArr[indexPath.row]
             cell.subLbl.text = subTitleArr[indexPath.row]
@@ -84,7 +84,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         else{
             guard let cell = bookingTblView.dequeueReusableCell(withIdentifier: "HomeBookingTVC", for: indexPath) as? HomeBookingTVC
                 else {
-                return TableViewCell()
+                return UITableViewCell()
             }
             cell.bookedBtn.isHidden = true
             cell.joinBtn.isHidden = true

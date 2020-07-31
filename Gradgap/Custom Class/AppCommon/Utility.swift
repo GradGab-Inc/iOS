@@ -12,7 +12,6 @@ import AVFoundation
 //import SKPhotoBrowser
 import SDWebImage
 import SafariServices
-import Toast_Swift
 
 struct PLATFORM {
     static var isSimulator: Bool {
@@ -69,25 +68,6 @@ func getTableBackgroundViewForNoData(_ str:String, size:CGSize) -> UIView {
     return noDataLabel
 }
 
-func setImageBackgroundImage(_ imgView : UIImageView, _ strUrl : String, _ placeHolderImg : String)
-{
-    if strUrl == "" {
-        imgView.image = UIImage.init(named: placeHolderImg)
-        return
-    }
-    var newStrUrl = strUrl
-    if strUrl.contains(" ") {
-        newStrUrl = strUrl.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-    }
-    imgView.sd_setImage(with: URL(string: newStrUrl), placeholderImage: UIImage.init(named: placeHolderImg)) { (image, error, SDImageCacheType, url) in
-        if image != nil {
-            imgView.image = image?.imageCropped(toFit: CGSize(width: imgView.frame.size.width, height: imgView.frame.size.height))
-        }else{
-            imgView.image = UIImage.init(named: placeHolderImg)
-        }
-    }
-}
-
 func setImageAspectFit(_ imgView : UIImageView, _ strUrl : String, _ placeHolderImg : String)
 {
     if strUrl == "" {
@@ -102,23 +82,6 @@ func setImageAspectFit(_ imgView : UIImageView, _ strUrl : String, _ placeHolder
             imgView.image = UIImage.init(named: placeHolderImg)
         }
     }
-}
-
-func setButtonBackgroundImage(_ button : UIButton, _ strUrl : String)
-{
-    if strUrl == "" {
-        button.setBackgroundImage(UIImage.init(named: "avtar"), for: .normal)
-        return
-    }
-    button.sd_setBackgroundImage(with: URL(string: strUrl), for: UIControl.State.normal, completed: { (image, error, SDImageCacheType, url) in
-        if image != nil{
-            button.setBackgroundImage(image?.imageCropped(toFit: CGSize(width: button.frame.size.width, height: button.frame.size.height)), for: .normal)
-        }
-        else
-        {
-            button.setBackgroundImage(UIImage.init(named: "avtar"), for: .normal)
-        }
-    })
 }
 
 func setButtonImage(_ button : UIButton, _ strUrl : String, _ placeholder : String)
@@ -139,9 +102,8 @@ func setButtonImage(_ button : UIButton, _ strUrl : String, _ placeholder : Stri
 //MARK:- Toast
 func displayToast(_ message:String)
 {
-    UIApplication.topViewController()?.view.makeToast(getTranslate(message))
-//    let toast = Toast(text: getTranslate(message))
-//    toast.show()
+    let toast = Toast(text: getTranslate(message))
+    toast.show()
 }
 
 func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")

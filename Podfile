@@ -6,13 +6,10 @@ target 'Gradgap' do
   use_frameworks!
 
   pod 'SainiUtils'
-  pod 'XLPagerTabStrip', '~> 9.0'
   pod 'NVActivityIndicatorView'
   pod 'IQKeyboardManagerSwift'
   pod 'Toaster'
-  pod 'Toast-Swift'
   pod 'SDWebImage'
-  pod 'ActiveLabel'
   pod 'MFSideMenu'
   
   

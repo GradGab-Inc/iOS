@@ -18,11 +18,8 @@ var otp : String = ""
 let ITUNES_URL = ""
 let APPLE_LANGUAGE_KEY = "AppleLanguages"
 
-//let GOOGLE_KEY = "AIzaSyATrKIWITsawxsFU266wSzEpfHQDRnx7hg"
 let CLIENT_ID = "89503098735-s5d2ik5ah6i3ei60r113rtt9th706gh3.apps.googleusercontent.com"
 let GOOGLE_PLACE_ID = "AIzaSyBAW5TIjkcjxUUuY37NTtcDJSXyzXXqVSw"
-
-let COLOUR_ARR = ["#06BD8C","#FB5895","#CC837B","#0E66B7","#308995","#667EEA","#64B6FF","#33D17C"]
 
 struct SCREEN
 {
@@ -98,28 +95,6 @@ struct IMAGE {
 struct STORYBOARD {
     static var MAIN = UIStoryboard(name: "Main", bundle: nil)
     static var HOME = UIStoryboard(name: "Home", bundle: nil)
-    static var MY_ITEMS = UIStoryboard(name: "MyItems", bundle: nil)
-    static var VIEW_LISTS = UIStoryboard(name: "ViewLists", bundle: nil)
-    static var PROFILE = UIStoryboard(name: "Profile", bundle: nil)
-}
-
-struct NOTIFICATION {
-    static var UPDATE_CURRENT_USER_DATA     =   "UPDATE_CURRENT_USER_DATA"
-    static var REDICT_TAB_BAR               =   "REDICT_TAB_BAR"
-    static var NOTIFICATION_TAB_CLICK       =   "NOTIFICATION_TAB_CLICK"
-    static var ADD_SORT                     =   "ADD_SORT"
-    static var ADD_FILTER                   =   "ADD_FILTER"
-    static var GET_ABOUT_DATA               =   "GET_ABOUT_DATA"
-    static var RELOAD_ADDRESS_DATA          =   "RELOAD_ADDRESS_DATA"
-    static var RELOAD_BID_NOW               =   "RELOAD_BID_NOW"
-    static var PRIVATE_AUCTION_CLICK        =   "PRIVATE_AUCTION_CLICK"
-    static var RELOAD_HOME_DATA             =   "RELOAD_HOME_DATA"
-    static var REDIRECT_TO_LOGIN            =   "REDIRECT_TO_LOGIN"
-}
-
-struct REDIRECT_TYPE {
-    static var REDIRECT_PRODUCT_DETAIL      =   "REDIRECT_PRODUCT_DETAIL"
-    
 }
 
 
@@ -143,11 +118,3 @@ struct SIDEMENU_DATA {
     static var REFER = "Refer to friends"
     static var SETTING = "Settings"
 }
-
-
-
-//enum ViewListType:Int{
-//    case SAVED = 1
-//    case VIEWED
-//}
-

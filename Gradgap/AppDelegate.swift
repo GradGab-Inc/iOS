@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             container.view.layer.shadowOffset = CGSize(width: 10, height: 10)
             container.view.layer.shadowOpacity = 0.5
             container.view.layer.shadowRadius = 5
-            container.view.layer.shadowColor = UIColor.clear.cgColor
+            container.view.layer.shadowColor = UIColor.black.cgColor
             
             let rootNavigatioVC : UINavigationController = self.window?.rootViewController
                 as! UINavigationController

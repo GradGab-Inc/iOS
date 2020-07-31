@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class OnboardingVC: UIViewController {
 
@@ -59,14 +60,14 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             guard let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCVC", for: indexPath) as? OnboardingCVC else {
-                return CollectionViewCell()
+                return UICollectionViewCell()
             }
 
             return cell
         }
         else {
             guard let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: "InfoCVC", for: indexPath) as? InfoCVC else {
-                return CollectionViewCell()
+                return UICollectionViewCell()
             }
             
             cell.titleLbl.text = infoArr[indexPath.row - 1]
