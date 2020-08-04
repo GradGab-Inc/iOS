@@ -13,8 +13,21 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var sidemenuTbl: UITableView!
     
-    var arr = [SIDEMENU_DATA.PROFILE, SIDEMENU_DATA.NOTI, SIDEMENU_DATA.MY_ERNING, SIDEMENU_DATA.BANK, SIDEMENU_DATA.REFER, SIDEMENU_DATA.SETTING]
-    var img = ["ic_profile_hm","ic_notifications","ic_myearnings_hm","ic_bankdetails_hm","ic_profile_hm","ic_settings_hm"]
+    struct SIDEMENU_DATA {
+        static var PROFILE = "Profile"
+        static var NOTI = "Notifications"
+        static var BOOKING = "Bookings"
+        static var FAVORITE = "Favorites"
+        static var TRANSACTION = "Transactions"
+        static var PAY_METHODE = "Payment Method"
+        static var REFER_FRIEND = "Refer to Friends"
+        static var SETTING = "Settings"
+    }
+
+    
+    
+    var arr = [SIDEMENU_DATA.PROFILE, SIDEMENU_DATA.NOTI, SIDEMENU_DATA.BOOKING, SIDEMENU_DATA.FAVORITE, SIDEMENU_DATA.TRANSACTION,SIDEMENU_DATA.PAY_METHODE, SIDEMENU_DATA.REFER_FRIEND, SIDEMENU_DATA.SETTING]
+    var img = ["ic_profile_hm", "ic_notifications", "ic_bookings_hm", "ic_favorites_hm", "ic_myearnings_hm", "ic_paymentmethod_hm", "ic_refer_hm", "ic_settings_hm"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

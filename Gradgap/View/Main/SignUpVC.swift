@@ -27,7 +27,7 @@ class SignUpVC: UIViewController {
 
     //MARK: - configUI
     private func configUI() {
-//        setUpActiveLabel()
+
     }
     
     //MARK: - Button Click
@@ -79,43 +79,5 @@ class SignUpVC: UIViewController {
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-//    func setUpActiveLabel()  {
-//        let tearmsType = ActiveType.custom(pattern: "\\sTerms & Conditions\\b") //Looks for "Terms & Conditions"
-//        let privacyType = ActiveType.custom(pattern: "\\sPrivacy Policy\\b") //Looks for "Privacy Policy"
-//
-//        termsLbl.enabledTypes.append(tearmsType)
-//        termsLbl.enabledTypes.append(privacyType)
-//
-//        termsLbl.customize { label in
-//            termsLbl.text = "By Signing Up, you agree to our Terms & Conditions and Privacy Policy."
-//            termsLbl.numberOfLines = 0
-//            termsLbl.lineSpacing = 2
-//  //        termsLbl.font = UIFont(name: SFUI_MEDIUM, size: 12.0)
-//            termsLbl.textColor = WhiteColor
-//            termsLbl.mentionColor = RedColor
-//
-//            termsLbl.handleMentionTap { self.clickToTeamsPolicy("Mention", message: $0) }
-//
-//            //Custom types
-//            termsLbl.customColor[tearmsType] = RedColor
-//            termsLbl.customColor[privacyType] = RedColor
-//
-//            termsLbl.handleCustomTap(for: tearmsType) { self.clickToTeamsPolicy("Custom type", message: $0) }
-//            termsLbl.handleCustomTap(for: privacyType) { self.clickToTeamsPolicy("Custom type", message: $0) }
-//        }
-//    }
-    
-//    func clickToTeamsPolicy(_ title: String, message: String) {
-//        if message == "Terms & Conditions"
-//        {
-//            print("Terms & Conditions")
-//        }
-//        else if message == "Privacy Policy"
-//        {
-//            print("Privacy Policy")
-//        }
-//    }
     
 }

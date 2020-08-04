@@ -57,6 +57,15 @@ func getTimeStringFromDateString1(strDate : String) -> String    // 09:56 AM
     return dateFormatter1.string(from: date1)
 }
 
+func getDateStringFromDate(date : Date, format : String) -> String
+{
+    let dateFormatter = DateFormatter()
+//    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.locale = NSLocale.current
+    dateFormatter.dateFormat = format
+    return dateFormatter.string(from: date)
+}
+
 
 //MARK: Date difference
 func getDifferenceFromCurrentTime(_ timeStemp : Double) -> Int

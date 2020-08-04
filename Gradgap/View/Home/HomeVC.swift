@@ -16,8 +16,14 @@ class HomeVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var noDataLbl: UILabel!
     
+    @IBOutlet var completeProfileBackView: UIView!
+    @IBOutlet var joinCallBackView: UIView!
+    
+    
     var titleArr = ["Chat","Virtual Tour","Interview Prep"]
     var subTitleArr = ["Video chat with a current student.","Get a live 1 hour campus tour.","45 Min Mock Interview Prep or Mock interview."]
+    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +39,9 @@ class HomeVC: UIViewController {
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
+        completeProfileBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+        joinCallBackView.isHidden = true
     }
     
     //MARK: - Button Click
@@ -46,8 +55,18 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func clickToCompleteProfile(_ sender: Any) {
+        completeProfileBackView.isHidden = true
+    }
+    
+    @IBAction func clickToJoinNowCall(_ sender: Any) {
+        joinCallBackView.isHidden = true
+    }
+    
     
 }
 
@@ -66,7 +85,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             return 120
         }
         else {
-           return 116
+           return 126
         }
     }
     
@@ -90,6 +109,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isHidden = true
             if indexPath.row == 0 {
                 cell.joinBtn.isHidden = false
+                cell.joinBtn.tag = indexPath.row
+                cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
             }
             else {
                 cell.bookedBtn.isHidden = false
@@ -100,6 +121,18 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if tableView == homeTblView {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+           
+        }
     }
+    
+    @objc func clickToJoinCall(_ sender : UIButton) {
+        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+        JoinCallVC.setUp(0)
+    }
+    
 }

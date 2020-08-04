@@ -113,8 +113,10 @@ struct INFO_TITLE {
 struct SIDEMENU_DATA {
     static var PROFILE = "Profile"
     static var NOTI = "Notifications"
-    static var MY_ERNING = "My Earnings"
-    static var BANK = "Bank Details"
-    static var REFER = "Refer to friends"
+    static var BOOKING = "Bookings"
+    static var FAVORITE = "Favorites"
+    static var TRANSACTION = "Transactions"
+    static var PAY_METHODE = "Payment Method"
+    static var REFER_FRIEND = "Refer to Friends"
     static var SETTING = "Settings"
 }

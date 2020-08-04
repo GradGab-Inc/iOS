@@ -229,7 +229,7 @@
                                                         <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="First Name"/>
                                                         </userDefinedRuntimeAttributes>
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBE-NU-TkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1808" y="261"/>
+            <point key="canvasLocation" x="1793" y="261"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="xNC-mf-wEv">
@@ -838,7 +838,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejW-R7-O1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2493.75" y="137.32394366197184"/>
+            <point key="canvasLocation" x="2464" y="138"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="zXI-b9-3Dx">
@@ -1483,7 +1483,7 @@ prospective students.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XhH-Ev-cwC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3165" y="137"/>
+            <point key="canvasLocation" x="3133" y="138"/>
         </scene>
     </scenes>
     <resources>
