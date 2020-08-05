@@ -10,6 +10,7 @@ import UIKit
 
 class BookChatVC: UIViewController {
 
+    @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageLbl: UILabel!
@@ -25,18 +26,26 @@ class BookChatVC: UIViewController {
         configUI()
     }
     
+    //MARK: - viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar.headerLbl.text = "Book Chat"
+        navigationBar.filterBtn.isHidden = true
+        navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
+    }
+    
     //MARK: - configUI
     func configUI() {
        timeCollectionView.register(UINib(nibName: "BookChatCVC", bundle: nil), forCellWithReuseIdentifier: "BookChatCVC")
     }
     
     //MARK: - Button Click
-    @IBAction func clickToBack(_ sender: Any) {
+    @objc func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func clickToConversation(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ConversationStarterVC") as! ConversationStarterVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToNext(_ sender: Any) {

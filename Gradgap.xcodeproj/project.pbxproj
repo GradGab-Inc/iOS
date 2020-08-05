@@ -84,6 +84,8 @@
 		88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F4A21824D991CA00C780CB /* CustomHeaderTVC.swift */; };
 		88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F4A21B24D9926500C780CB /* CustomQuestionTVC.swift */; };
 		88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F4A21C24D9926500C780CB /* CustomQuestionTVC.xib */; };
+		88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */; };
+		88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */; };
 		88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABB24D3D431009F5E78 /* MD5.swift */; };
 		88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABD24D3D5E0009F5E78 /* Label.swift */; };
 		C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */; };
@@ -172,6 +174,8 @@
 		88F4A21824D991CA00C780CB /* CustomHeaderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTVC.swift; sourceTree = "<group>"; };
 		88F4A21B24D9926500C780CB /* CustomQuestionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQuestionTVC.swift; sourceTree = "<group>"; };
 		88F4A21C24D9926500C780CB /* CustomQuestionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomQuestionTVC.xib; sourceTree = "<group>"; };
+		88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseNavigationBar.swift; sourceTree = "<group>"; };
+		88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReuseNavigationBar.xib; sourceTree = "<group>"; };
 		88FF6ABB24D3D431009F5E78 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		88FF6ABD24D3D5E0009F5E78 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -413,6 +417,8 @@
 			children = (
 				88F4A20B24D973D600C780CB /* JoinCallView.swift */,
 				88F4A20D24D973E200C780CB /* JoinCallView.xib */,
+				88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */,
+				88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */,
 			);
 			path = ReusableComponent;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
+				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
 				881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */,
 				881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */,
 				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
@@ -650,6 +657,7 @@
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
+				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,

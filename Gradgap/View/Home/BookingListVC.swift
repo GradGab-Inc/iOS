@@ -10,6 +10,7 @@ import UIKit
 
 class BookingListVC: UIViewController {
 
+    @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var bookingTblView: UITableView!
     
     @IBOutlet var filterBackView: UIView!
@@ -29,6 +30,13 @@ class BookingListVC: UIViewController {
 
         configUI()
         
+    }
+    
+    //MARK: - viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar.headerLbl.text = "Bookings"
+        navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
+        navigationBar.filterBtn.addTarget(self, action: #selector(self.clickToFilter), for: .touchUpInside)
     }
     
     //MARK: - configUI

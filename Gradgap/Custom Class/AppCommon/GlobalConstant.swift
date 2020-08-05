@@ -120,3 +120,11 @@ struct SIDEMENU_DATA {
     static var REFER_FRIEND = "Refer to Friends"
     static var SETTING = "Settings"
 }
+
+struct CONVERSATION_DATA {
+    static var GENERAL_QUE = "General Questions"
+    static var ACADEMIC = "Academics / Career"
+    static var SOCIAL = "Extracurricular / Social Science"
+    static var CAMPUS = "Campus Life"
+}
+
