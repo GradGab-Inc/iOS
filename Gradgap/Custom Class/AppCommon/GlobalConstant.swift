@@ -128,3 +128,66 @@ struct CONVERSATION_DATA {
     static var CAMPUS = "Campus Life"
 }
 
+struct GENERAL_QUE {
+    static var QUESTION1 = "What are your favorite things about the school?"
+    static var QUESTION2 = "What are your favorite things about the school?"
+    static var QUESTION3 = "What is the general culture/atmosphere?"
+    static var QUESTION4 = "Things you wish you knew before you got here"
+}
+
+struct ACADEMIC {
+    static var QUESTION1 = "What’s your class schedule like/how many classes or credits do you have each semester?"
+    static var QUESTION2 = "What’s your workload/How much time do you spend studying?"
+    static var QUESTION3 = "What’s it like being a [your major] major?"
+    static var QUESTION4 = "What are the most popular classes and/or professors?"
+    static var QUESTION5 = "What’s it like signing up for class? Do you usually get your first choice?"
+    static var QUESTION6 = "What career resources does your school offer?"
+    static var QUESTION7 = "What was/is it like finding an internship?"
+    static var QUESTION8 = "What’s the alumni network like?"
+}
+
+struct SOCIAL {
+    static var QUESTION1 = "What do students do on the weekends?"
+    static var QUESTION2 = "What are the popular hangouts around campus?"
+    static var QUESTION3 = "What are the sports teams/events like?"
+    static var QUESTION4 = "Are intramural sports popular? What sports do people play?"
+    static var QUESTION5 = "What are some of the clubs you belong to or unique clubs on campus?"
+    static var QUESTION6 = "What is the Greek Life like?"
+    static var QUESTION7 = "What’s the social/party scene like?"
+    static var QUESTION8 = "What are popular restaurants or bars that students go to?"
+}
+
+struct CAMPUS {
+    static var QUESTION1 = "What are the dorms like?"
+    static var QUESTION2 = "Do I need a car? What’s parking like?"
+    static var QUESTION3 = "What are the food options? What’s most popular?"
+    static var QUESTION4 = "What’s off-campus housing like?"
+    static var QUESTION5 = "Are there any fun facts or campus traditions?"
+    static var QUESTION6 = "What’s the campus like? Are there any unique buildings or landmarks?"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

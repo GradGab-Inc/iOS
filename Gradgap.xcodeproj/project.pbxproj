@@ -37,6 +37,9 @@
 		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
+		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
+		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
+		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
 		88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */; };
 		88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85E24D15A78002225E9 /* Array+RUI.swift */; };
 		88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */; };
@@ -127,6 +130,9 @@
 		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
+		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
+		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
+		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
 		88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Type.swift"; sourceTree = "<group>"; };
 		88AEE85E24D15A78002225E9 /* Array+RUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RUI.swift"; sourceTree = "<group>"; };
 		88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Copy.swift"; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 				8806B5B924D93A840005FDCE /* BookingListVC.swift */,
 				88F4A20F24D9855D00C780CB /* BookChatVC.swift */,
 				88F4A21524D9916900C780CB /* ConversationStarterVC.swift */,
+				8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -447,6 +454,8 @@
 			children = (
 				88F4A21124D986DB00C780CB /* BookChatCVC.swift */,
 				88F4A21224D986DB00C780CB /* BookChatCVC.xib */,
+				8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */,
+				8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -548,6 +557,7 @@
 				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
 				880248E924D2EBEE005539B5 /* SideMenuTVC.xib in Resources */,
 				881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */,
+				8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */,
 				88AEE8D524D16EFA002225E9 /* InfoCVC.xib in Resources */,
 				22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */,
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
@@ -611,6 +621,7 @@
 			files = (
 				88AEE8D824D1754F002225E9 /* OnboardingCVC.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
+				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				88AEE8A824D15A78002225E9 /* View.swift in Sources */,
 				88F4A21324D986DB00C780CB /* BookChatCVC.swift in Sources */,
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
@@ -620,6 +631,7 @@
 				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
+				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88AEE8C124D15A78002225E9 /* Preference.swift in Sources */,

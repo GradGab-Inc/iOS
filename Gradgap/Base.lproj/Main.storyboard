@@ -235,7 +235,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.40113336267605632" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="nG8-ga-ULB" firstAttribute="centerY" secondItem="taE-vI-a0o" secondAttribute="centerY" id="BOs-lk-Wmg"/>
                                                     <constraint firstItem="qch-oM-7yG" firstAttribute="leading" secondItem="nG8-ga-ULB" secondAttribute="trailing" constant="8" id="Ck7-r4-MgY"/>
@@ -271,7 +271,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.40165602992957744" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="e8e-dU-8iH" secondAttribute="bottom" constant="7" id="5GK-GG-nOn"/>
                                                     <constraint firstItem="e8e-dU-8iH" firstAttribute="top" secondItem="eUV-gQ-3jj" secondAttribute="top" constant="7" id="bP0-sM-VCZ"/>
@@ -307,7 +307,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.39838248239436619" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="ej2-Ft-Q8i" firstAttribute="leading" secondItem="W0y-Of-xbH" secondAttribute="leading" constant="15" id="7B2-JP-9GD"/>
                                                     <constraint firstAttribute="trailing" secondItem="uUI-ij-gCB" secondAttribute="trailing" constant="8" id="AzS-xb-Hdk"/>
@@ -343,7 +343,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.395081426056338" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="CPf-yC-hi9"/>
                                                     <constraint firstAttribute="bottom" secondItem="M7p-JT-2V2" secondAttribute="bottom" constant="7" id="NXx-py-TW9"/>
@@ -389,7 +389,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.40459947183098594" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="ui8-rU-9zp" firstAttribute="leading" secondItem="c3a-40-mvQ" secondAttribute="trailing" constant="8" id="AnC-BD-fQT"/>
                                                     <constraint firstAttribute="bottom" secondItem="ui8-rU-9zp" secondAttribute="bottom" constant="7" id="FR0-oD-HeU"/>
@@ -438,7 +438,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="0.39821742957746481" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="aHr-W0-lXi" firstAttribute="leading" secondItem="ZGf-e9-auP" secondAttribute="trailing" constant="8" id="47K-ms-vKc"/>
                                                     <constraint firstItem="aHr-W0-lXi" firstAttribute="top" secondItem="BcK-Bx-WRc" secondAttribute="top" constant="7" id="7EP-JG-Brz"/>
@@ -634,7 +634,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="0.40454445422535212" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="kn0-fF-dAq" firstAttribute="leading" secondItem="ZJF-3B-ii1" secondAttribute="leading" constant="15" id="2on-Qg-0sS"/>
                                             <constraint firstItem="kn0-fF-dAq" firstAttribute="centerY" secondItem="ZJF-3B-ii1" secondAttribute="centerY" id="4dK-qw-gex"/>
@@ -680,7 +680,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="1" alpha="0.40132592429577463" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ypD-d7-bMJ" firstAttribute="top" secondItem="UTu-vj-vou" secondAttribute="top" constant="5" id="Fno-o5-rUk"/>
                                             <constraint firstItem="Rgs-Fw-Am8" firstAttribute="leading" secondItem="UTu-vj-vou" secondAttribute="leading" constant="15" id="KXC-c9-IrD"/>
@@ -910,7 +910,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.396484375" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="G5W-8S-3Qx" firstAttribute="top" secondItem="Btr-rU-r80" secondAttribute="top" constant="7" id="SAg-kn-Aeo"/>
                                     <constraint firstAttribute="bottom" secondItem="G5W-8S-3Qx" secondAttribute="bottom" constant="7" id="Yal-Vj-rqA"/>
@@ -1225,22 +1225,22 @@ prospective students.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbe-AT-sLw" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                            <rect key="frame" x="30" y="99" width="260" height="370"/>
+                            <rect key="frame" x="40" y="84" width="240" height="400"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-gi-fgv">
-                                    <rect key="frame" x="0.0" y="0.0" width="260" height="190"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="215"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="190" id="om8-xo-LxI"/>
+                                        <constraint firstAttribute="height" constant="215" id="om8-xo-LxI"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up as if you were your child!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oef-oF-NoF">
-                                    <rect key="frame" x="8" y="210" width="244" height="19"/>
+                                    <rect key="frame" x="8" y="235" width="224" height="19"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aj-ha-mfs" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="254" width="210" height="48"/>
+                                    <rect key="frame" x="25" y="279" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="Rq9-7z-zu1"/>
@@ -1259,7 +1259,7 @@ prospective students.</string>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgA-fs-Hll" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="310" width="210" height="48"/>
+                                    <rect key="frame" x="25" y="335" width="190" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="4c9-W6-ONi"/>
@@ -1289,7 +1289,7 @@ prospective students.</string>
                                 <constraint firstItem="oef-oF-NoF" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="8" id="VCJ-EC-tjk"/>
                                 <constraint firstItem="6uo-gi-fgv" firstAttribute="top" secondItem="wbe-AT-sLw" secondAttribute="top" id="Ypv-ZA-Mhr"/>
                                 <constraint firstItem="jgA-fs-Hll" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="25" id="f5j-K8-ku0"/>
-                                <constraint firstAttribute="height" constant="370" id="fqb-uc-1Ya"/>
+                                <constraint firstAttribute="height" constant="400" id="fqb-uc-1Ya"/>
                                 <constraint firstItem="6uo-gi-fgv" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" id="n83-h8-LAz"/>
                                 <constraint firstAttribute="trailing" secondItem="oef-oF-NoF" secondAttribute="trailing" constant="8" id="rPs-Wz-oSL"/>
                                 <constraint firstAttribute="trailing" secondItem="jgA-fs-Hll" secondAttribute="trailing" constant="25" id="ucx-Kl-sbs"/>
@@ -1301,11 +1301,11 @@ prospective students.</string>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.59908670774647887" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="wbe-AT-sLw" firstAttribute="centerY" secondItem="mfb-UZ-mpj" secondAttribute="centerY" id="PIt-oE-eXP"/>
-                        <constraint firstItem="eUy-VL-n4q" firstAttribute="trailing" secondItem="wbe-AT-sLw" secondAttribute="trailing" constant="30" id="QSc-TF-VIX"/>
-                        <constraint firstItem="wbe-AT-sLw" firstAttribute="leading" secondItem="eUy-VL-n4q" secondAttribute="leading" constant="30" id="Tgo-sV-hwU"/>
+                        <constraint firstItem="eUy-VL-n4q" firstAttribute="trailing" secondItem="wbe-AT-sLw" secondAttribute="trailing" constant="40" id="QSc-TF-VIX"/>
+                        <constraint firstItem="wbe-AT-sLw" firstAttribute="leading" secondItem="eUy-VL-n4q" secondAttribute="leading" constant="40" id="Tgo-sV-hwU"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="eUy-VL-n4q"/>
                 </view>

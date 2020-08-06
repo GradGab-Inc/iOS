@@ -109,7 +109,7 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG1-y1-dhx">
-                                        <rect key="frame" x="15" y="91.5" width="290" height="37.5"/>
+                                        <rect key="frame" x="15" y="90.5" width="290" height="39"/>
                                         <string key="text">You don't have any booking yet.
 Book a chat or tour above!</string>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -137,10 +137,10 @@ Book a chat or tour above!</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-Fl-XMw">
-                                <rect key="frame" x="78.5" y="80" width="163.5" height="26"/>
+                                <rect key="frame" x="76" y="80" width="168" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-4Z-gkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="gjP-ge-3J3"/>
                                         </constraints>
@@ -149,7 +149,7 @@ Book a chat or tour above!</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anaya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zg-Rr-wGg">
-                                        <rect key="frame" x="102" y="0.0" width="61.5" height="26"/>
+                                        <rect key="frame" x="102" y="0.0" width="66" height="27"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -167,7 +167,7 @@ Book a chat or tour above!</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="71D-I8-bEp">
-                                <rect key="frame" x="0.0" y="126" width="320" height="202"/>
+                                <rect key="frame" x="0.0" y="127" width="320" height="201"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xEd-an-y6h" id="WzI-bF-ybb"/>
@@ -236,7 +236,7 @@ Book a chat or tour above!</string>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your profile is incomplete!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOe-E8-KP5">
-                                    <rect key="frame" x="8" y="220" width="224" height="21"/>
+                                    <rect key="frame" x="8" y="220" width="224" height="22.5"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -261,7 +261,7 @@ Book a chat or tour above!</string>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgc-4x-6Lj">
-                                    <rect key="frame" x="8" y="251" width="224" height="56"/>
+                                    <rect key="frame" x="8" y="252.5" width="224" height="58.5"/>
                                     <string key="text">Finish your profile to meet
 mentors at your dream
 schools.</string>
@@ -326,7 +326,7 @@ schools.</string>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your call with XXX starts in 30 minutes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJU-Nu-Yct">
-                                    <rect key="frame" x="20" y="225" width="200" height="37.5"/>
+                                    <rect key="frame" x="20" y="225" width="200" height="39"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -351,7 +351,7 @@ schools.</string>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Join link is also available on your booking screen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKK-sj-YwG">
-                                    <rect key="frame" x="20" y="277.5" width="200" height="28"/>
+                                    <rect key="frame" x="20" y="279" width="200" height="29.5"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -446,22 +446,22 @@ schools.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-EM-PXT" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                            <rect key="frame" x="15" y="67" width="290" height="434"/>
+                            <rect key="frame" x="20" y="66" width="280" height="436"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-1u-aDx">
-                                    <rect key="frame" x="10" y="58" width="270" height="20"/>
+                                    <rect key="frame" x="10" y="58" width="260" height="21"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDp-d5-z5g">
-                                    <rect key="frame" x="10" y="213" width="101.5" height="20"/>
+                                    <rect key="frame" x="10" y="214" width="105" height="21"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-U7-e51" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="328" width="240" height="48"/>
+                                    <rect key="frame" x="25" y="330" width="230" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="ZDc-Ea-PID"/>
@@ -480,10 +480,10 @@ schools.</string>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-T8-3BL">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aax-2J-t7C">
-                                            <rect key="frame" x="125" y="15" width="40" height="21"/>
+                                            <rect key="frame" x="119" y="15" width="42.5" height="22.5"/>
                                             <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                             <color key="textColor" name="AppColor"/>
                                             <nil key="highlightedColor"/>
@@ -497,19 +497,19 @@ schools.</string>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcJ-rN-zqd">
-                                    <rect key="frame" x="10" y="103" width="270" height="80"/>
+                                    <rect key="frame" x="10" y="104" width="260" height="80"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLw-j6-d47">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.5" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="80"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FROM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRs-ZE-Sjb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40.5" height="16.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="39.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-cT-akz" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="26.5" width="127.5" height="42"/>
+                                                    <rect key="frame" x="0.0" y="27.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="ZcN-mG-jbc">
                                                             <rect key="frame" x="12" y="13" width="16" height="16"/>
@@ -519,13 +519,13 @@ schools.</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06/18/2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqn-RL-FTT">
-                                                            <rect key="frame" x="36" y="13" width="83.5" height="16.5"/>
+                                                            <rect key="frame" x="36" y="12.5" width="78.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLz-eA-R1t">
-                                                            <rect key="frame" x="0.0" y="0.0" width="127.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="42"/>
                                                             <connections>
                                                                 <action selector="clickToFromDate:" destination="M0c-hf-1J2" eventType="touchUpInside" id="8Xt-9c-MLX"/>
                                                             </connections>
@@ -561,16 +561,16 @@ schools.</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNF-PW-cEY">
-                                            <rect key="frame" x="142.5" y="0.0" width="127.5" height="80"/>
+                                            <rect key="frame" x="137.5" y="0.0" width="122.5" height="80"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWc-12-w2L">
-                                                    <rect key="frame" x="0.0" y="0.0" width="19" height="16.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="19" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-8a-e5g" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="26.5" width="127.5" height="42"/>
+                                                    <rect key="frame" x="0.0" y="27.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-cj-Dwz">
                                                             <rect key="frame" x="12" y="13" width="16" height="16"/>
@@ -580,13 +580,13 @@ schools.</string>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06/18/2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPu-MN-RwK">
-                                                            <rect key="frame" x="36" y="13" width="83.5" height="16.5"/>
+                                                            <rect key="frame" x="36" y="12.5" width="78.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hph-8S-aHk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="127.5" height="42"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="122.5" height="42"/>
                                                             <connections>
                                                                 <action selector="clickToToDate:" destination="M0c-hf-1J2" eventType="touchUpInside" id="xau-3A-lwR"/>
                                                             </connections>
@@ -636,7 +636,7 @@ schools.</string>
                                     </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-w9-sry">
-                                    <rect key="frame" x="0.0" y="253" width="290" height="50"/>
+                                    <rect key="frame" x="0.0" y="255" width="280" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="sHj-Bf-5HA"/>
@@ -647,7 +647,7 @@ schools.</string>
                                     </connections>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwG-jf-c5Q" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="384" width="240" height="48"/>
+                                    <rect key="frame" x="25" y="386" width="230" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="eBF-hH-qgf"/>
@@ -700,8 +700,8 @@ schools.</string>
                     <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.60189260563380287" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="pGf-EM-PXT" firstAttribute="centerY" secondItem="SOL-p2-WiB" secondAttribute="centerY" id="bBf-VR-DFC"/>
-                        <constraint firstItem="0h3-Ms-xea" firstAttribute="trailing" secondItem="pGf-EM-PXT" secondAttribute="trailing" constant="15" id="kME-xl-ELf"/>
-                        <constraint firstItem="pGf-EM-PXT" firstAttribute="leading" secondItem="0h3-Ms-xea" secondAttribute="leading" constant="15" id="kgD-h4-4ci"/>
+                        <constraint firstItem="0h3-Ms-xea" firstAttribute="trailing" secondItem="pGf-EM-PXT" secondAttribute="trailing" constant="20" id="kME-xl-ELf"/>
+                        <constraint firstItem="pGf-EM-PXT" firstAttribute="leading" secondItem="0h3-Ms-xea" secondAttribute="leading" constant="20" id="kgD-h4-4ci"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="0h3-Ms-xea"/>
                 </view>
@@ -757,7 +757,7 @@ schools.</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrw-wx-jMH" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="40" y="485" width="240" height="48"/>
+                                <rect key="frame" x="45" y="485" width="230" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="qM1-Oy-5Ph"/>
@@ -776,15 +776,15 @@ schools.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conversation Starters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgt-uY-ION">
-                                <rect key="frame" x="77" y="443.5" width="136.5" height="16.5"/>
+                                <rect key="frame" x="75" y="442.5" width="140.5" height="17.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-Zd-HVB">
-                                <rect key="frame" x="214.5" y="437" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-Zd-HVB">
+                                <rect key="frame" x="75" y="436.5" width="165" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="6Gd-8E-3yW"/>
+                                    <constraint firstAttribute="width" constant="165" id="6Gd-8E-3yW"/>
                                     <constraint firstAttribute="height" constant="30" id="RYP-YJ-5cx"/>
                                 </constraints>
                                 <state key="normal" image="ic_questionmark_outline"/>
@@ -793,14 +793,14 @@ schools.</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ike-ca-Y1o">
-                                <rect key="frame" x="77" y="462" width="136.5" height="1"/>
+                                <rect key="frame" x="75" y="462" width="140.5" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="pp1-JH-vbo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask a few quick questions!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nje-fN-yeI">
-                                <rect key="frame" x="80" y="377" width="160" height="49"/>
+                                <rect key="frame" x="80" y="377" width="160" height="51.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -808,14 +808,14 @@ schools.</string>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
-                            <constraint firstItem="Jhb-Zd-HVB" firstAttribute="leading" secondItem="pgt-uY-ION" secondAttribute="trailing" constant="1" id="4Tp-WO-xAL"/>
+                            <constraint firstItem="Jhb-Zd-HVB" firstAttribute="leading" secondItem="pgt-uY-ION" secondAttribute="trailing" constant="-140.5" id="4Tp-WO-xAL"/>
                             <constraint firstItem="v0v-l4-zFc" firstAttribute="bottom" secondItem="Jrw-wx-jMH" secondAttribute="bottom" constant="35" id="57z-5L-Av8"/>
                             <constraint firstItem="TyR-RM-s4P" firstAttribute="leading" secondItem="v0v-l4-zFc" secondAttribute="leading" constant="20" id="5k1-uB-dV1"/>
                             <constraint firstItem="TyR-RM-s4P" firstAttribute="top" secondItem="HOe-h8-V0n" secondAttribute="bottom" constant="35" id="6B8-uN-0QI"/>
                             <constraint firstItem="v0v-l4-zFc" firstAttribute="trailing" secondItem="TyR-RM-s4P" secondAttribute="trailing" constant="20" id="Ema-K1-Ad0"/>
                             <constraint firstItem="HOe-h8-V0n" firstAttribute="top" secondItem="c05-uw-7UC" secondAttribute="bottom" constant="10" id="Gps-2B-vLw"/>
                             <constraint firstItem="ike-ca-Y1o" firstAttribute="top" secondItem="pgt-uY-ION" secondAttribute="bottom" constant="2" id="Ie2-99-OMk"/>
-                            <constraint firstItem="Jrw-wx-jMH" firstAttribute="leading" secondItem="v0v-l4-zFc" secondAttribute="leading" constant="40" id="MFE-VU-aL4"/>
+                            <constraint firstItem="Jrw-wx-jMH" firstAttribute="leading" secondItem="v0v-l4-zFc" secondAttribute="leading" constant="45" id="MFE-VU-aL4"/>
                             <constraint firstItem="Jrw-wx-jMH" firstAttribute="top" secondItem="pgt-uY-ION" secondAttribute="bottom" constant="25" id="Q1g-vA-co6"/>
                             <constraint firstItem="HOe-h8-V0n" firstAttribute="leading" secondItem="v0v-l4-zFc" secondAttribute="leading" constant="15" id="Rkk-KC-y06"/>
                             <constraint firstItem="v0v-l4-zFc" firstAttribute="trailing" secondItem="HOe-h8-V0n" secondAttribute="trailing" constant="15" id="Tfw-Xc-zfx"/>
@@ -823,7 +823,7 @@ schools.</string>
                             <constraint firstItem="c05-uw-7UC" firstAttribute="top" secondItem="v0v-l4-zFc" secondAttribute="top" id="cgz-RI-enE"/>
                             <constraint firstItem="nje-fN-yeI" firstAttribute="top" secondItem="TyR-RM-s4P" secondAttribute="bottom" constant="30" id="fVX-Au-syv"/>
                             <constraint firstItem="c05-uw-7UC" firstAttribute="leading" secondItem="v0v-l4-zFc" secondAttribute="leading" id="frV-dJ-gSv"/>
-                            <constraint firstItem="v0v-l4-zFc" firstAttribute="trailing" secondItem="Jrw-wx-jMH" secondAttribute="trailing" constant="40" id="fxP-oM-VnU"/>
+                            <constraint firstItem="v0v-l4-zFc" firstAttribute="trailing" secondItem="Jrw-wx-jMH" secondAttribute="trailing" constant="45" id="fxP-oM-VnU"/>
                             <constraint firstItem="pgt-uY-ION" firstAttribute="centerX" secondItem="Rdr-eI-qXF" secondAttribute="centerX" constant="-14.75" id="hNw-D1-1gZ"/>
                             <constraint firstItem="c05-uw-7UC" firstAttribute="trailing" secondItem="v0v-l4-zFc" secondAttribute="trailing" id="qOF-Ca-Qzm"/>
                             <constraint firstItem="Jhb-Zd-HVB" firstAttribute="centerY" secondItem="pgt-uY-ION" secondAttribute="centerY" id="qku-o6-eil"/>
@@ -888,6 +888,263 @@ schools.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4v-Ab-CQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2349.375" y="108.80281690140845"/>
+        </scene>
+        <!--School ListVC-->
+        <scene sceneID="mfy-3Q-j0b">
+            <objects>
+                <viewController storyboardIdentifier="SchoolListVC" id="bMM-K6-gO0" customClass="SchoolListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OCh-AF-iD5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdl-G0-D9W" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="JbR-LP-Pqu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What school are you interested in ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R19-u5-RBB">
+                                <rect key="frame" x="15" y="80" width="297" height="22.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSk-Gx-IlO" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="15" y="117.5" width="290" height="48"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-1P-Sop">
+                                        <rect key="frame" x="15" y="16" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="T6Z-uQ-c1C"/>
+                                            <constraint firstAttribute="height" constant="16" id="Y8X-W6-EtX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for colleges" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-II-nxS" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="39" y="7" width="243" height="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="Search for colleges"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.40454445420000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="2ws-mT-sEz"/>
+                                    <constraint firstItem="EhY-1P-Sop" firstAttribute="leading" secondItem="RSk-Gx-IlO" secondAttribute="leading" constant="15" id="3Y6-6J-m44"/>
+                                    <constraint firstAttribute="trailing" secondItem="HTT-II-nxS" secondAttribute="trailing" constant="8" id="EWl-WA-4Je"/>
+                                    <constraint firstItem="EhY-1P-Sop" firstAttribute="centerY" secondItem="RSk-Gx-IlO" secondAttribute="centerY" id="TC3-6B-TgP"/>
+                                    <constraint firstItem="HTT-II-nxS" firstAttribute="leading" secondItem="EhY-1P-Sop" secondAttribute="trailing" constant="8" id="TDo-Lp-3oU"/>
+                                    <constraint firstItem="HTT-II-nxS" firstAttribute="top" secondItem="RSk-Gx-IlO" secondAttribute="top" constant="7" id="UiW-gE-GAc"/>
+                                    <constraint firstAttribute="bottom" secondItem="HTT-II-nxS" secondAttribute="bottom" constant="7" id="las-lW-EgS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="net-Ih-wHd">
+                                <rect key="frame" x="0.0" y="181.5" width="320" height="386.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are adding mentors from new schools daily. let us know if you don't see a school you're interested in." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-7Y-cJJ">
+                                        <rect key="frame" x="15" y="331" width="290" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-Wm-ehL">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="bMM-K6-gO0" id="erb-RE-ieZ"/>
+                                            <outlet property="delegate" destination="bMM-K6-gO0" id="NA5-XN-5oM"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" id="HLD-jB-ADs"/>
+                                    <constraint firstAttribute="trailing" secondItem="mA5-7Y-cJJ" secondAttribute="trailing" constant="15" id="LzH-tv-PRw"/>
+                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="top" secondItem="net-Ih-wHd" secondAttribute="top" id="M7O-pk-Hgr"/>
+                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" constant="15" id="eyU-rC-171"/>
+                                    <constraint firstAttribute="bottom" secondItem="mA5-7Y-cJJ" secondAttribute="bottom" constant="8" id="hUC-ML-pu8"/>
+                                    <constraint firstAttribute="trailing" secondItem="MIN-Wm-ehL" secondAttribute="trailing" id="iQk-Ug-AwS"/>
+                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="top" secondItem="MIN-Wm-ehL" secondAttribute="bottom" constant="10" id="nge-hV-VDW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-oI-w0k">
+                                <rect key="frame" x="0.0" y="181.5" width="320" height="386.5"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CEn-5q-eVA">
+                                        <rect key="frame" x="0.0" y="19" width="320" height="150"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="da6-YM-zUV"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Axk-9B-N7g">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WJi-WJ-p3u">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="bMM-K6-gO0" id="drG-ER-u5C"/>
+                                            <outlet property="delegate" destination="bMM-K6-gO0" id="x84-YX-Tck"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sC-K1-dgz">
+                                        <rect key="frame" x="0.0" y="8" width="320" height="3"/>
+                                        <color key="backgroundColor" white="1" alpha="0.4021564640410959" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="cUq-jE-KmG"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-Hg-Hm5" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="45" y="318.5" width="230" height="48"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="cMq-MC-365"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToNext:" destination="bMM-K6-gO0" eventType="touchUpInside" id="t4a-L3-g0z"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOX-bU-hwu">
+                                        <rect key="frame" x="0.0" y="184" width="320" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="don't see a school you are interested in? Let us konw" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-a9-kIU">
+                                                <rect key="frame" x="39" y="8" width="261" height="34.5"/>
+                                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                                <color key="textColor" name="RedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHO-5A-1FM">
+                                                <rect key="frame" x="15" y="8" width="16" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="16" id="Sr0-Vi-yLA"/>
+                                                    <constraint firstAttribute="height" constant="20" id="h2f-VS-3iA"/>
+                                                </constraints>
+                                                <state key="normal" image="ic_questionmark_red"/>
+                                                <connections>
+                                                    <action selector="clickToConversation:" destination="zp7-wO-ZOi" eventType="touchUpInside" id="ztc-CJ-jwB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" name="AppColor"/>
+                                        <constraints>
+                                            <constraint firstItem="IHO-5A-1FM" firstAttribute="top" secondItem="KOX-bU-hwu" secondAttribute="top" constant="8" id="1nM-Hl-y8i"/>
+                                            <constraint firstItem="IHO-5A-1FM" firstAttribute="leading" secondItem="KOX-bU-hwu" secondAttribute="leading" constant="15" id="HZ2-zx-tg6"/>
+                                            <constraint firstAttribute="bottom" secondItem="a2V-a9-kIU" secondAttribute="bottom" constant="8" id="NL9-K4-JlQ"/>
+                                            <constraint firstItem="a2V-a9-kIU" firstAttribute="top" secondItem="KOX-bU-hwu" secondAttribute="top" constant="8" id="dQi-oP-9he"/>
+                                            <constraint firstAttribute="trailing" secondItem="a2V-a9-kIU" secondAttribute="trailing" constant="20" id="v7a-ST-pFs"/>
+                                            <constraint firstItem="a2V-a9-kIU" firstAttribute="leading" secondItem="IHO-5A-1FM" secondAttribute="trailing" constant="8" id="vzx-AW-cGe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="9sC-K1-dgz" firstAttribute="top" secondItem="BWf-oI-w0k" secondAttribute="top" constant="8" id="9cW-PZ-QtI"/>
+                                    <constraint firstItem="hmq-Hg-Hm5" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" constant="45" id="Et1-wR-duj"/>
+                                    <constraint firstItem="hmq-Hg-Hm5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KOX-bU-hwu" secondAttribute="bottom" constant="10" id="Nbd-DP-hmR"/>
+                                    <constraint firstAttribute="bottom" secondItem="hmq-Hg-Hm5" secondAttribute="bottom" constant="20" id="WpV-FJ-IKk"/>
+                                    <constraint firstAttribute="trailing" secondItem="hmq-Hg-Hm5" secondAttribute="trailing" constant="45" id="cqx-TN-vp1"/>
+                                    <constraint firstItem="KOX-bU-hwu" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" id="eak-AY-8ps"/>
+                                    <constraint firstItem="KOX-bU-hwu" firstAttribute="top" secondItem="CEn-5q-eVA" secondAttribute="bottom" constant="15" id="hA1-wL-UkQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="CEn-5q-eVA" secondAttribute="trailing" id="o9J-p3-kfo"/>
+                                    <constraint firstAttribute="trailing" secondItem="9sC-K1-dgz" secondAttribute="trailing" id="p7c-bG-nl1"/>
+                                    <constraint firstItem="9sC-K1-dgz" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" id="pUD-ZW-DZk"/>
+                                    <constraint firstItem="CEn-5q-eVA" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" id="qQx-vV-2Z3"/>
+                                    <constraint firstAttribute="trailing" secondItem="KOX-bU-hwu" secondAttribute="trailing" id="s1F-Yj-S3a"/>
+                                    <constraint firstItem="CEn-5q-eVA" firstAttribute="top" secondItem="9sC-K1-dgz" secondAttribute="bottom" constant="8" id="xmW-Bx-dCH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="BWf-oI-w0k" firstAttribute="bottom" secondItem="414-Nm-SaY" secondAttribute="bottom" id="5tp-bn-7NQ"/>
+                            <constraint firstItem="Rdl-G0-D9W" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" id="7ex-ca-Iiz"/>
+                            <constraint firstItem="RSk-Gx-IlO" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" constant="15" id="7zo-7Z-da1"/>
+                            <constraint firstItem="R19-u5-RBB" firstAttribute="top" secondItem="Rdl-G0-D9W" secondAttribute="bottom" constant="20" id="Fei-VI-9Yx"/>
+                            <constraint firstItem="RSk-Gx-IlO" firstAttribute="top" secondItem="R19-u5-RBB" secondAttribute="bottom" constant="15" id="MQ7-eQ-LqJ"/>
+                            <constraint firstItem="net-Ih-wHd" firstAttribute="top" secondItem="RSk-Gx-IlO" secondAttribute="bottom" constant="16" id="P2z-1k-yus"/>
+                            <constraint firstItem="net-Ih-wHd" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" id="Q2s-yJ-G63"/>
+                            <constraint firstItem="Rdl-G0-D9W" firstAttribute="top" secondItem="414-Nm-SaY" secondAttribute="top" id="enN-dT-SXp"/>
+                            <constraint firstItem="Rdl-G0-D9W" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="kPz-aS-4Ji"/>
+                            <constraint firstItem="BWf-oI-w0k" firstAttribute="top" secondItem="RSk-Gx-IlO" secondAttribute="bottom" constant="16" id="nae-P8-BAq"/>
+                            <constraint firstItem="BWf-oI-w0k" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="odA-1c-7Mn"/>
+                            <constraint firstItem="BWf-oI-w0k" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" id="pLC-df-5Ee"/>
+                            <constraint firstItem="R19-u5-RBB" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" constant="15" id="qv3-rv-dTv"/>
+                            <constraint firstItem="net-Ih-wHd" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="t7h-tc-0Dd"/>
+                            <constraint firstItem="414-Nm-SaY" firstAttribute="trailing" secondItem="RSk-Gx-IlO" secondAttribute="trailing" constant="15" id="v7z-50-ThE"/>
+                            <constraint firstItem="net-Ih-wHd" firstAttribute="bottom" secondItem="414-Nm-SaY" secondAttribute="bottom" id="vv1-Xi-cXv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="414-Nm-SaY"/>
+                    </view>
+                    <connections>
+                        <outlet property="interetedLbl" destination="a2V-a9-kIU" id="ujc-2v-wUa"/>
+                        <outlet property="navigationBar" destination="Rdl-G0-D9W" id="fIr-jC-N53"/>
+                        <outlet property="schoolCollectionView" destination="CEn-5q-eVA" id="gZw-4w-Zqj"/>
+                        <outlet property="schoolCollectionViewHeightConstraint" destination="da6-YM-zUV" id="fek-V9-jel"/>
+                        <outlet property="schoolListBackView" destination="net-Ih-wHd" id="J2c-ne-1UP"/>
+                        <outlet property="searchTxt" destination="HTT-II-nxS" id="6oD-4Y-oxj"/>
+                        <outlet property="selectedSchoolBackView" destination="BWf-oI-w0k" id="OL9-2K-rSI"/>
+                        <outlet property="tblView" destination="MIN-Wm-ehL" id="fxc-RA-yAh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GIi-Dz-JPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3011.25" y="108.80281690140845"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="N2s-g5-ivA">
+            <objects>
+                <viewController id="bqC-wT-CZf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EUt-qB-MDW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Xv-wwr" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FO8-ts-Ey6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vw6-Xv-wwr" secondAttribute="trailing" id="UpX-bz-R2g"/>
+                            <constraint firstItem="Vw6-Xv-wwr" firstAttribute="leading" secondItem="EUt-qB-MDW" secondAttribute="leading" id="Xd6-oE-Ick"/>
+                            <constraint firstItem="Vw6-Xv-wwr" firstAttribute="top" secondItem="EUt-qB-MDW" secondAttribute="top" id="aEb-LO-gs5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Kj-eh-gjz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ep0-oL-xZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3694" y="111"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gxj-DX-SQ0">
@@ -957,19 +1214,19 @@ schools.</string>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atz-Qz-USF">
-                                        <rect key="frame" x="98" y="122" width="210" height="26"/>
+                                        <rect key="frame" x="98" y="122" width="210" height="27"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16E-UV-w3i">
-                                        <rect key="frame" x="98" y="156" width="21" height="17.5"/>
+                                        <rect key="frame" x="98" y="157" width="21" height="18.5"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij6-U4-FyN" customClass="FloatRatingView" customModule="SainiUtils">
-                                        <rect key="frame" x="127" y="157.5" width="110" height="15"/>
+                                        <rect key="frame" x="127" y="159" width="110" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="RyI-tE-Yt8"/>
@@ -1061,6 +1318,8 @@ schools.</string>
         <image name="ic_logo_header" width="141" height="27"/>
         <image name="ic_profile_home" width="28.5" height="28.5"/>
         <image name="ic_questionmark_outline" width="16" height="16"/>
+        <image name="ic_questionmark_red" width="16" height="16"/>
+        <image name="ic_search" width="15" height="15"/>
         <image name="star_white" width="20" height="20"/>
         <image name="star_white_on" width="20" height="20"/>
         <image name="temp_pro" width="881" height="863"/>
@@ -1072,6 +1331,9 @@ schools.</string>
         </namedColor>
         <namedColor name="LightColor">
             <color red="0.093999996781349182" green="0.56099998950958252" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedColor">
+            <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RedColor">
             <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

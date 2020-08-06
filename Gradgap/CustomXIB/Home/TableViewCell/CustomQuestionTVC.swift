@@ -11,6 +11,7 @@ import UIKit
 class CustomQuestionTVC: UITableViewCell {
 
     @IBOutlet weak var answerLbl: UILabel!
+    @IBOutlet weak var bottomBorderView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
