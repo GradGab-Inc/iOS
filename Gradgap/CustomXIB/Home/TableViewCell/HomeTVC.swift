@@ -10,6 +10,7 @@ import UIKit
 
 class HomeTVC: UITableViewCell {
 
+    @IBOutlet weak var backImg: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var subLbl: UILabel!
     

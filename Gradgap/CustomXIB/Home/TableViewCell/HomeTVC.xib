@@ -81,6 +81,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="backImg" destination="2Rc-Dw-EaS" id="7vk-Dg-iv3"/>
                 <outlet property="subLbl" destination="isR-LY-lQb" id="fvi-PL-mhg"/>
                 <outlet property="titleLbl" destination="wEh-2f-yVm" id="mRm-DY-g2P"/>
             </connections>

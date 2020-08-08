@@ -1227,7 +1227,7 @@ prospective students.</string>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbe-AT-sLw" customClass="View" customModule="Gradgap" customModuleProvider="target">
                             <rect key="frame" x="40" y="84" width="240" height="400"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-gi-fgv">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Signup_parent" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-gi-fgv">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="215"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="215" id="om8-xo-LxI"/>
@@ -1487,6 +1487,7 @@ prospective students.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_Signup_parent" width="213.5" height="160.5"/>
         <image name="ic_apple" width="16.5" height="20.5"/>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_contactnumber" width="16" height="16"/>

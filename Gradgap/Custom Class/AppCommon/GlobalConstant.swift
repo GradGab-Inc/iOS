@@ -166,6 +166,24 @@ struct CAMPUS {
     static var QUESTION6 = "What’s the campus like? Are there any unique buildings or landmarks?"
 }
 
+struct INTERESTARR {
+    static var INTEREST1 = "Dorms"
+    static var INTEREST2 = "School Athletics"
+    static var INTEREST3 = "Campus Events"
+    static var INTEREST4 = "Intramural Athletics"
+    static var INTEREST5 = "Clubs"
+    static var INTEREST6 = "Classes"
+    static var INTEREST7 = "Social life"
+    static var INTEREST8 = "Greek Life"
+    static var INTEREST9 = "Music"
+    static var INTEREST10 = "Career Planning"
+    static var INTEREST11 = "Application Process"
+    static var INTEREST12 = "Transfer"
+    static var INTEREST13 = "Diversity"
+    static var INTEREST14 = "Community"
+    static var INTEREST15 = "Affordability"
+}
+
 
 
 

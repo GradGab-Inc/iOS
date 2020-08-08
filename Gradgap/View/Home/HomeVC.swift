@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     var titleArr = ["Chat","Virtual Tour","Interview Prep"]
     var subTitleArr = ["Video chat with a current student.","Get a live 1 hour campus tour.","45 Min Mock Interview Prep or Mock interview."]
     let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
-    
+    let backImgArr = ["Image_Chat","Image_Virtual_Tour","Image_Interview Prep"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +97,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
             cell.titleLbl.text = titleArr[indexPath.row]
             cell.subLbl.text = subTitleArr[indexPath.row]
+            cell.backImg.image = UIImage.init(named: backImgArr[indexPath.row])
             
             return cell
         }
