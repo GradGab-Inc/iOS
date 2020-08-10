@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="NotificationTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pa7-Z0-3vQ">
+                        <rect key="frame" x="8" y="0.0" width="304" height="82"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="t20-Yo-ulX" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="8" y="15" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8du-xl-AJ5"/>
+                                    <constraint firstAttribute="height" constant="50" id="yjC-86-fZu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have video chat booking with Mrs. Anurima today at 10:30 AM." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-wh-7af">
+                                <rect key="frame" x="66" y="24.5" width="228" height="33"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBp-R2-KBM">
+                                <rect key="frame" x="8" y="81" width="288" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="0.29904216609589029" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="nEp-3W-VJY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pvE-wh-7af" firstAttribute="leading" secondItem="t20-Yo-ulX" secondAttribute="trailing" constant="8" id="0rc-wV-Nn9"/>
+                            <constraint firstItem="t20-Yo-ulX" firstAttribute="leading" secondItem="Pa7-Z0-3vQ" secondAttribute="leading" constant="8" id="1iI-VB-dUk"/>
+                            <constraint firstItem="t20-Yo-ulX" firstAttribute="top" secondItem="Pa7-Z0-3vQ" secondAttribute="top" constant="15" id="TpW-Su-g3c"/>
+                            <constraint firstAttribute="trailing" secondItem="WBp-R2-KBM" secondAttribute="trailing" constant="8" id="V8e-7G-8sN"/>
+                            <constraint firstItem="WBp-R2-KBM" firstAttribute="leading" secondItem="Pa7-Z0-3vQ" secondAttribute="leading" constant="8" id="ceH-Tn-XnV"/>
+                            <constraint firstAttribute="trailing" secondItem="pvE-wh-7af" secondAttribute="trailing" constant="10" id="e7b-De-1bT"/>
+                            <constraint firstItem="pvE-wh-7af" firstAttribute="centerY" secondItem="Pa7-Z0-3vQ" secondAttribute="centerY" id="h6z-Iu-2Qs"/>
+                            <constraint firstItem="WBp-R2-KBM" firstAttribute="top" secondItem="t20-Yo-ulX" secondAttribute="bottom" constant="16" id="ljI-PE-Mwb"/>
+                            <constraint firstAttribute="bottom" secondItem="WBp-R2-KBM" secondAttribute="bottom" id="uIl-gW-0Gt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Pa7-Z0-3vQ" secondAttribute="bottom" id="2h4-F0-O0j"/>
+                    <constraint firstItem="Pa7-Z0-3vQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="76k-O1-8jR"/>
+                    <constraint firstItem="Pa7-Z0-3vQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JtY-Gn-y4d"/>
+                    <constraint firstAttribute="trailing" secondItem="Pa7-Z0-3vQ" secondAttribute="trailing" constant="8" id="nrv-xu-crw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="AppColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="131.8840579710145" y="153.01339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="temp_pro" width="881" height="863"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

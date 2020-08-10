@@ -29,49 +29,39 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edh-Ge-2CX">
                     <rect key="frame" x="0.0" y="0.0" width="403" height="60"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vg6-m8-3od">
-                            <rect key="frame" x="8" y="0.0" width="387" height="60"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwd-g3-Ee2">
-                                    <rect key="frame" x="0.0" y="0.0" width="40" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="bOl-sX-Kkc"/>
-                                    </constraints>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                    <state key="normal" image="ic_backarrow"/>
-                                </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-CL-yqm">
-                                    <rect key="frame" x="40" y="0.0" width="307" height="60"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-kJ-YFp">
-                                            <rect key="frame" x="131.5" y="18" width="44.5" height="21"/>
-                                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="ea4-kJ-YFp" firstAttribute="centerX" secondItem="VKu-CL-yqm" secondAttribute="centerX" id="98B-3W-cGm"/>
-                                        <constraint firstItem="ea4-kJ-YFp" firstAttribute="top" secondItem="VKu-CL-yqm" secondAttribute="top" constant="18" id="CyR-0V-zNZ"/>
-                                    </constraints>
-                                </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-jM-5d2">
-                                    <rect key="frame" x="347" y="0.0" width="40" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="Xml-W1-6KD"/>
-                                    </constraints>
-                                    <state key="normal" image="ic_filter"/>
-                                </button>
-                            </subviews>
-                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-kJ-YFp">
+                            <rect key="frame" x="179.5" y="0.0" width="44.5" height="60"/>
+                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mg-jM-5d2">
+                            <rect key="frame" x="355" y="0.0" width="40" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Xml-W1-6KD"/>
+                            </constraints>
+                            <state key="normal" image="ic_filter"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwd-g3-Ee2">
+                            <rect key="frame" x="8" y="0.0" width="40" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="bOl-sX-Kkc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                            <state key="normal" image="ic_backarrow"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" name="AppColor"/>
                     <constraints>
-                        <constraint firstItem="Vg6-m8-3od" firstAttribute="leading" secondItem="Edh-Ge-2CX" secondAttribute="leading" constant="8" id="95l-lY-oNW"/>
-                        <constraint firstAttribute="trailing" secondItem="Vg6-m8-3od" secondAttribute="trailing" constant="8" id="DFS-OA-Vtf"/>
-                        <constraint firstAttribute="bottom" secondItem="Vg6-m8-3od" secondAttribute="bottom" id="St5-ai-9pD"/>
-                        <constraint firstItem="Vg6-m8-3od" firstAttribute="top" secondItem="Edh-Ge-2CX" secondAttribute="top" id="fZt-gj-nzY"/>
+                        <constraint firstItem="ea4-kJ-YFp" firstAttribute="centerX" secondItem="Edh-Ge-2CX" secondAttribute="centerX" id="2cw-ZO-wtA"/>
+                        <constraint firstItem="cwd-g3-Ee2" firstAttribute="leading" secondItem="Edh-Ge-2CX" secondAttribute="leading" constant="8" id="9gh-kP-Rzu"/>
+                        <constraint firstItem="5Mg-jM-5d2" firstAttribute="top" secondItem="Edh-Ge-2CX" secondAttribute="top" id="K6N-Mp-Fag"/>
+                        <constraint firstAttribute="bottom" secondItem="cwd-g3-Ee2" secondAttribute="bottom" id="MUz-5r-83F"/>
+                        <constraint firstAttribute="bottom" secondItem="ea4-kJ-YFp" secondAttribute="bottom" id="VXM-uo-Cow"/>
+                        <constraint firstAttribute="trailing" secondItem="5Mg-jM-5d2" secondAttribute="trailing" constant="8" id="f3m-4N-GnX"/>
+                        <constraint firstItem="cwd-g3-Ee2" firstAttribute="top" secondItem="Edh-Ge-2CX" secondAttribute="top" id="kkT-5M-T3u"/>
+                        <constraint firstAttribute="bottom" secondItem="5Mg-jM-5d2" secondAttribute="bottom" id="rUB-gP-bIc"/>
+                        <constraint firstItem="ea4-kJ-YFp" firstAttribute="top" secondItem="Edh-Ge-2CX" secondAttribute="top" id="x1Y-fK-UXi"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="gradientBackgroundTypeAdapter">

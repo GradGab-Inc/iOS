@@ -95,6 +95,7 @@ struct IMAGE {
 struct STORYBOARD {
     static var MAIN = UIStoryboard(name: "Main", bundle: nil)
     static var HOME = UIStoryboard(name: "Home", bundle: nil)
+    static var PROFILE = UIStoryboard(name: "Profile", bundle: nil)
 }
 
 

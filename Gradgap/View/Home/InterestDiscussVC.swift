@@ -53,7 +53,7 @@ class InterestDiscussVC: UIViewController {
     
 }
 
-
+//MARK: - CollectionView Delegate
 extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return InterestArr.count

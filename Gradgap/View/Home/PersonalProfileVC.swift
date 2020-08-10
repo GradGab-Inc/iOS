@@ -22,6 +22,7 @@ class PersonalProfileVC: UIViewController {
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var bottomProgressBackView: UIView!
     @IBOutlet weak var submitBtn: Button!
+    @IBOutlet weak var percentLbl: UILabel!
     
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -52,7 +53,7 @@ class PersonalProfileVC: UIViewController {
         bottomProgressBackView.isHidden = false
         progressView.progress = 0.0
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
-
+        percentLbl.text = "0%"
     }
     
     
@@ -66,7 +67,9 @@ class PersonalProfileVC: UIViewController {
             bottomProgressBackView.isHidden = false
             currentQurstion = currentQurstion - 1
             selectQuestion(currentQurstion)
-            progressView.progress = progressView.progress - 0.25
+            let prog : Float = currentQurstion == 3 ? 0.50 : 0.25
+            progressView.progress = progressView.progress - prog
+            percentLbl.text = String(Int(progressView.progress * 100)) + "%"
         }
     }
 
@@ -90,6 +93,7 @@ class PersonalProfileVC: UIViewController {
             currentQurstion = currentQurstion + 1
             selectQuestion(currentQurstion)
             progressView.progress = progressView.progress + 0.25
+            percentLbl.text = String(Int(progressView.progress * 100)) + "%"
         }
     }
     

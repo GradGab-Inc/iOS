@@ -55,7 +55,7 @@ class BookChatVC: UIViewController {
     
 }
 
-
+//MARK: - CollectionView Delegate
 extension BookChatVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

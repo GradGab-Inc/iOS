@@ -99,7 +99,7 @@ class BookingListVC: UIViewController {
     
 }
 
-
+//MARK: - TableView Delegate
 extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == bookingTblView {

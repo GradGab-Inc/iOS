@@ -40,6 +40,12 @@
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
+		888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CBF24E10D11008E27E0 /* BookVC.swift */; };
+		888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CC124E127B2008E27E0 /* FavoriteVC.swift */; };
+		888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CC324E127CE008E27E0 /* FavoriteTVC.swift */; };
+		888C6CC624E127CE008E27E0 /* FavoriteTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888C6CC424E127CE008E27E0 /* FavoriteTVC.xib */; };
+		888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CC724E12E12008E27E0 /* NotificationTVC.swift */; };
+		888C6CCA24E12E12008E27E0 /* NotificationTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888C6CC824E12E12008E27E0 /* NotificationTVC.xib */; };
 		88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */; };
 		88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85E24D15A78002225E9 /* Array+RUI.swift */; };
 		88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */; };
@@ -77,6 +83,10 @@
 		88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */; };
 		88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804824D2A830003603A2 /* WantToMeetVC.swift */; };
 		88D1804B24D2ABB1003603A2 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D1804A24D2ABB1003603A2 /* Home.storyboard */; };
+		88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F261BB24E13DA0009EECE3 /* NotificationVC.swift */; };
+		88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */; };
+		88F261C024E155EC009EECE3 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88F261BF24E155EC009EECE3 /* Profile.storyboard */; };
+		88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F261C224E15727009EECE3 /* MentorsProfileVC.swift */; };
 		88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F28BB524DEA56A00DDBC41 /* InterestDiscussVC.swift */; };
 		88F28BB924DEB9ED00DDBC41 /* PersonalProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F28BB724DEB9ED00DDBC41 /* PersonalProfileVC.swift */; };
 		88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F4A20B24D973D600C780CB /* JoinCallView.swift */; };
@@ -92,6 +102,10 @@
 		88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */; };
 		88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */; };
 		88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F93EBE24DE8B5400CFFD45 /* QuestionListVC.swift */; };
+		88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F95A8524E104C900DFD0E7 /* BookingHeaderTVC.swift */; };
+		88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F95A8624E104C900DFD0E7 /* BookingHeaderTVC.xib */; };
+		88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F95A8924E1063B00DFD0E7 /* CustomBookTVC.swift */; };
+		88F95A8C24E1063B00DFD0E7 /* CustomBookTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F95A8A24E1063B00DFD0E7 /* CustomBookTVC.xib */; };
 		88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABB24D3D431009F5E78 /* MD5.swift */; };
 		88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABD24D3D5E0009F5E78 /* Label.swift */; };
 		C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */; };
@@ -136,6 +150,12 @@
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
+		888C6CBF24E10D11008E27E0 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
+		888C6CC124E127B2008E27E0 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		888C6CC324E127CE008E27E0 /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
+		888C6CC424E127CE008E27E0 /* FavoriteTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTVC.xib; sourceTree = "<group>"; };
+		888C6CC724E12E12008E27E0 /* NotificationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTVC.swift; sourceTree = "<group>"; };
+		888C6CC824E12E12008E27E0 /* NotificationTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTVC.xib; sourceTree = "<group>"; };
 		88AEE85D24D15A78002225E9 /* UIDevice+Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Type.swift"; sourceTree = "<group>"; };
 		88AEE85E24D15A78002225E9 /* Array+RUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+RUI.swift"; sourceTree = "<group>"; };
 		88AEE85F24D15A78002225E9 /* NSObject+Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Copy.swift"; sourceTree = "<group>"; };
@@ -173,6 +193,10 @@
 		88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeMentorVC.swift; sourceTree = "<group>"; };
 		88D1804824D2A830003603A2 /* WantToMeetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToMeetVC.swift; sourceTree = "<group>"; };
 		88D1804A24D2ABB1003603A2 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		88F261BB24E13DA0009EECE3 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmBookingVC.swift; sourceTree = "<group>"; };
+		88F261BF24E155EC009EECE3 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		88F261C224E15727009EECE3 /* MentorsProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorsProfileVC.swift; sourceTree = "<group>"; };
 		88F28BB524DEA56A00DDBC41 /* InterestDiscussVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestDiscussVC.swift; sourceTree = "<group>"; };
 		88F28BB724DEB9ED00DDBC41 /* PersonalProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalProfileVC.swift; sourceTree = "<group>"; };
 		88F4A20B24D973D600C780CB /* JoinCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCallView.swift; sourceTree = "<group>"; };
@@ -188,6 +212,10 @@
 		88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseNavigationBar.swift; sourceTree = "<group>"; };
 		88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReuseNavigationBar.xib; sourceTree = "<group>"; };
 		88F93EBE24DE8B5400CFFD45 /* QuestionListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListVC.swift; sourceTree = "<group>"; };
+		88F95A8524E104C900DFD0E7 /* BookingHeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHeaderTVC.swift; sourceTree = "<group>"; };
+		88F95A8624E104C900DFD0E7 /* BookingHeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingHeaderTVC.xib; sourceTree = "<group>"; };
+		88F95A8924E1063B00DFD0E7 /* CustomBookTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookTVC.swift; sourceTree = "<group>"; };
+		88F95A8A24E1063B00DFD0E7 /* CustomBookTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomBookTVC.xib; sourceTree = "<group>"; };
 		88FF6ABB24D3D431009F5E78 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		88FF6ABD24D3D5E0009F5E78 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +263,7 @@
 				22D64A0424D149C7006C37FD /* AppDelegate.swift */,
 				22D64A0A24D149C7006C37FD /* Main.storyboard */,
 				88D1804A24D2ABB1003603A2 /* Home.storyboard */,
+				88F261BF24E155EC009EECE3 /* Profile.storyboard */,
 				22D64A0D24D149CD006C37FD /* Assets.xcassets */,
 				22D64A0F24D149CD006C37FD /* LaunchScreen.storyboard */,
 				22D64A1224D149CD006C37FD /* Info.plist */,
@@ -254,6 +283,10 @@
 				88F93EBE24DE8B5400CFFD45 /* QuestionListVC.swift */,
 				88F28BB524DEA56A00DDBC41 /* InterestDiscussVC.swift */,
 				88F28BB724DEB9ED00DDBC41 /* PersonalProfileVC.swift */,
+				888C6CBF24E10D11008E27E0 /* BookVC.swift */,
+				888C6CC124E127B2008E27E0 /* FavoriteVC.swift */,
+				88F261BB24E13DA0009EECE3 /* NotificationVC.swift */,
+				88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -376,6 +409,7 @@
 			children = (
 				88AEE8CD24D169B2002225E9 /* Main */,
 				880248DB24D2C5EA005539B5 /* Home */,
+				88F261C424E15775009EECE3 /* Profile */,
 			);
 			path = CustomXIB;
 			sourceTree = "<group>";
@@ -385,6 +419,7 @@
 			children = (
 				88AEE8CE24D169B8002225E9 /* Main */,
 				880248D824D2C5CF005539B5 /* Home */,
+				88F261C124E1570F009EECE3 /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,6 +463,21 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		88F261C124E1570F009EECE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				88F261C224E15727009EECE3 /* MentorsProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		88F261C424E15775009EECE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		88F4A20A24D9738300C780CB /* ReusableComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +504,14 @@
 				88F4A21724D991CA00C780CB /* CustomHeaderTVC.xib */,
 				88F4A21B24D9926500C780CB /* CustomQuestionTVC.swift */,
 				88F4A21C24D9926500C780CB /* CustomQuestionTVC.xib */,
+				88F95A8524E104C900DFD0E7 /* BookingHeaderTVC.swift */,
+				88F95A8624E104C900DFD0E7 /* BookingHeaderTVC.xib */,
+				88F95A8924E1063B00DFD0E7 /* CustomBookTVC.swift */,
+				88F95A8A24E1063B00DFD0E7 /* CustomBookTVC.xib */,
+				888C6CC324E127CE008E27E0 /* FavoriteTVC.swift */,
+				888C6CC424E127CE008E27E0 /* FavoriteTVC.xib */,
+				888C6CC724E12E12008E27E0 /* NotificationTVC.swift */,
+				888C6CC824E12E12008E27E0 /* NotificationTVC.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -554,9 +612,11 @@
 				881690E124D2820E00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf in Resources */,
 				22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */,
 				881690E524D2820E00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf in Resources */,
+				88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
 				88F4A21424D986DB00C780CB /* BookChatCVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
+				88F261C024E155EC009EECE3 /* Profile.storyboard in Resources */,
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
 				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
@@ -564,11 +624,14 @@
 				881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */,
 				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
 				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
+				888C6CC624E127CE008E27E0 /* FavoriteTVC.xib in Resources */,
 				880248E924D2EBEE005539B5 /* SideMenuTVC.xib in Resources */,
 				881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */,
+				88F95A8C24E1063B00DFD0E7 /* CustomBookTVC.xib in Resources */,
 				8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */,
 				88AEE8D524D16EFA002225E9 /* InfoCVC.xib in Resources */,
 				22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */,
+				888C6CCA24E12E12008E27E0 /* NotificationTVC.xib in Resources */,
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
@@ -635,8 +698,10 @@
 				88F4A21324D986DB00C780CB /* BookChatCVC.swift in Sources */,
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
+				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
+				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
@@ -646,6 +711,7 @@
 				88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */,
 				88AEE8C124D15A78002225E9 /* Preference.swift in Sources */,
 				88AEE8A224D15A78002225E9 /* NSError+RUI.swift in Sources */,
+				88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */,
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
 				88AEE8A624D15A78002225E9 /* Colors.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
@@ -656,11 +722,13 @@
 				8806B5BD24D945500005FDCE /* FilterTVC.swift in Sources */,
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
+				88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */,
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
+				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
 				88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */,
@@ -669,10 +737,14 @@
 				88AEE8B524D15A78002225E9 /* GlobalConstant.swift in Sources */,
 				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
+				888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */,
+				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
+				88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
+				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
 				8806B5BA24D93A840005FDCE /* BookingListVC.swift in Sources */,
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,

@@ -51,7 +51,8 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickToProfile(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
@@ -70,6 +71,7 @@ class HomeVC: UIViewController {
     
 }
 
+//MARK: - TableView Delegate
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == homeTblView {

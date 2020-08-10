@@ -70,15 +70,18 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
         else if indexPath.row == 1
         {
-            
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2
         {
-            
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 3
         {
-            
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "FavoriteVC") as! FavoriteVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
