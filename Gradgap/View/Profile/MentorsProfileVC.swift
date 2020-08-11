@@ -43,8 +43,6 @@ class MentorsProfileVC: UIViewController {
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
         
-        timeCollectionView.reloadData()
-        timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
     }
     
     //MARK: - configUI
@@ -53,6 +51,7 @@ class MentorsProfileVC: UIViewController {
         mentorCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         noDataLbl.isHidden = true
         
+        timeCollectionView.reloadData()
     }
     
     //MARK: - Button Click
@@ -153,7 +152,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == timeCollectionView {
-            timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
+            timeCollectionViewHeightConstraint.constant = 90
             return CGSize(width: timeCollectionView.frame.size.width/3, height: 45)
         }
         else{

@@ -40,6 +40,7 @@
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
+		88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88687A5B24E27BA0000A62F7 /* ProfileVC.swift */; };
 		888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CBF24E10D11008E27E0 /* BookVC.swift */; };
 		888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CC124E127B2008E27E0 /* FavoriteVC.swift */; };
 		888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888C6CC324E127CE008E27E0 /* FavoriteTVC.swift */; };
@@ -79,6 +80,7 @@
 		88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88AEE8D724D1754F002225E9 /* OnboardingCVC.xib */; };
 		88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE8DA24D19B52002225E9 /* SignUpVC.swift */; };
 		88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AEE8DC24D19E93002225E9 /* LoginVC.swift */; };
+		88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */; };
 		88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */; };
 		88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */; };
 		88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1804824D2A830003603A2 /* WantToMeetVC.swift */; };
@@ -150,6 +152,7 @@
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
+		88687A5B24E27BA0000A62F7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		888C6CBF24E10D11008E27E0 /* BookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookVC.swift; sourceTree = "<group>"; };
 		888C6CC124E127B2008E27E0 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		888C6CC324E127CE008E27E0 /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		88AEE8D724D1754F002225E9 /* OnboardingCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCVC.xib; sourceTree = "<group>"; };
 		88AEE8DA24D19B52002225E9 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		88AEE8DC24D19E93002225E9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailVC.swift; sourceTree = "<group>"; };
 		88D1804424D28C6C003603A2 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		88D1804624D29C4F003603A2 /* BecomeMentorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeMentorVC.swift; sourceTree = "<group>"; };
 		88D1804824D2A830003603A2 /* WantToMeetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WantToMeetVC.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 				888C6CC124E127B2008E27E0 /* FavoriteVC.swift */,
 				88F261BB24E13DA0009EECE3 /* NotificationVC.swift */,
 				88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */,
+				88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				88F261C224E15727009EECE3 /* MentorsProfileVC.swift */,
+				88687A5B24E27BA0000A62F7 /* ProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -731,6 +737,7 @@
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
+				88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */,
 				88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */,
 				88AEE8B124D15A78002225E9 /* TextView.swift in Sources */,
 				88AEE8B324D15A78002225E9 /* Button.swift in Sources */,
@@ -754,6 +761,7 @@
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
 				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
+				88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,
 				88F28BB924DEB9ED00DDBC41 /* PersonalProfileVC.swift in Sources */,

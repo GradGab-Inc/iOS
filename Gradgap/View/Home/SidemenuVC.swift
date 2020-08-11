@@ -66,7 +66,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
         if indexPath.row == 0
         {
-            
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 1
         {
