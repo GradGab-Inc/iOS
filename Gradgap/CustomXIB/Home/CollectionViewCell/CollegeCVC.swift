@@ -12,6 +12,7 @@ class CollegeCVC: UICollectionViewCell {
 
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var backView: View!
+    @IBOutlet weak var cancelBtn: Button!
     
     
     override func awakeFromNib() {

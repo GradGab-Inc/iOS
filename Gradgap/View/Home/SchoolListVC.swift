@@ -116,6 +116,7 @@ extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, U
             return UICollectionViewCell()
         }
         
+        cell.cancelBtn.isHidden = true
         return cell
     }
     

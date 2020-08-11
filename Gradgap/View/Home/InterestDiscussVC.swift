@@ -76,6 +76,7 @@ extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSour
             cell.backView.backgroundColor = colorFromHex(hex: "2B3E68")
         }
         
+        cell.cancelBtn.isHidden = true
         return cell
     }
     

@@ -52,7 +52,8 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func clickToEditProfile(_ sender: Any) {
-        
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToEditPersonalProfile(_ sender: Any) {
@@ -86,6 +87,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5
             
+            cell.cancelBtn.isHidden = true
             return cell
         }
         else{
@@ -99,6 +101,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5
             
+            cell.cancelBtn.isHidden = true
             return cell
         }
         

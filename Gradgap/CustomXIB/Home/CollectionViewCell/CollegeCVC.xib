@@ -24,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPT-Ei-c7e" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                        <rect key="frame" x="5" y="5" width="83" height="55"/>
+                        <rect key="frame" x="7" y="6" width="79" height="53"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanford" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSQ-hy-rS9">
-                                <rect key="frame" x="6" y="5" width="71" height="45"/>
+                                <rect key="frame" x="6" y="5" width="67" height="43"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -52,24 +52,43 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-ZW-VJY" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                        <rect key="frame" x="75" y="2" width="16" height="16"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="WVA-Ec-buD"/>
+                            <constraint firstAttribute="height" constant="16" id="g6N-TH-NxL"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="1" minY="1" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" image="ic_cross_red"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="oPT-Ei-c7e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="4G4-6g-BaT"/>
-                <constraint firstAttribute="bottom" secondItem="oPT-Ei-c7e" secondAttribute="bottom" constant="5" id="AlK-YQ-rps"/>
-                <constraint firstItem="oPT-Ei-c7e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="dfv-x9-ZX3"/>
-                <constraint firstAttribute="trailing" secondItem="oPT-Ei-c7e" secondAttribute="trailing" constant="5" id="ggr-kM-kT0"/>
+                <constraint firstItem="oPT-Ei-c7e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="4G4-6g-BaT"/>
+                <constraint firstAttribute="bottom" secondItem="oPT-Ei-c7e" secondAttribute="bottom" constant="6" id="AlK-YQ-rps"/>
+                <constraint firstItem="gi3-ZW-VJY" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" constant="-4" id="bge-yZ-eTr"/>
+                <constraint firstItem="oPT-Ei-c7e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="dfv-x9-ZX3"/>
+                <constraint firstAttribute="trailing" secondItem="oPT-Ei-c7e" secondAttribute="trailing" constant="7" id="ggr-kM-kT0"/>
+                <constraint firstItem="gi3-ZW-VJY" firstAttribute="trailing" secondItem="oPT-Ei-c7e" secondAttribute="trailing" constant="5" id="yvX-1U-v6J"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="93" height="50"/>
             <connections>
                 <outlet property="backView" destination="oPT-Ei-c7e" id="XlA-Om-BnF"/>
+                <outlet property="cancelBtn" destination="gi3-ZW-VJY" id="HRP-7s-cc1"/>
                 <outlet property="lbl" destination="aSQ-hy-rS9" id="wDF-eJ-1Bk"/>
             </connections>
             <point key="canvasLocation" x="163.04347826086959" y="153.01339285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ic_cross_red" width="10.5" height="10.5"/>
         <namedColor name="RedColor">
             <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

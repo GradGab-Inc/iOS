@@ -116,6 +116,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
                 cell.backView.borderColorTypeAdapter = 1
             }
             
+            cell.cancelBtn.isHidden = true
             return cell
         }
         else{
@@ -129,6 +130,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             cell.backView.backgroundColor = YellowColor
             cell.backView.borderColorTypeAdapter = 10
             
+            cell.cancelBtn.isHidden = true
             return cell
         }
         

@@ -120,6 +120,8 @@ extension BookVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
 
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 12.0)
         cell.lbl.text = "11:30 AM"
+        
+        cell.cancelBtn.isHidden = true
         return cell
         
     }

@@ -11,7 +11,7 @@ target 'Gradgap' do
   pod 'Toaster'
   pod 'SDWebImage'
   pod 'MFSideMenu'
-  
+  pod 'FSCalendar'
   
   # Pods for Gradgap
 
