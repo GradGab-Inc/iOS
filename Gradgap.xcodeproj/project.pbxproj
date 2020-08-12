@@ -111,6 +111,10 @@
 		88FAB29624E29F9C0060D577 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FAB29524E29F9C0060D577 /* EditProfileVC.swift */; };
 		88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FAB29724E2B5BB0060D577 /* StudentEnrollVC.swift */; };
 		88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */; };
+		88FE979724E3BC84007A9352 /* CalenderDateListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */; };
+		88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE979824E3BDB2007A9352 /* CalenderListTVC.swift */; };
+		88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FE979924E3BDB2007A9352 /* CalenderListTVC.xib */; };
+		88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */; };
 		88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABB24D3D431009F5E78 /* MD5.swift */; };
 		88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABD24D3D5E0009F5E78 /* Label.swift */; };
 		C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */; };
@@ -226,6 +230,10 @@
 		88FAB29524E29F9C0060D577 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		88FAB29724E2B5BB0060D577 /* StudentEnrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEnrollVC.swift; sourceTree = "<group>"; };
 		88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorHomeVC.swift; sourceTree = "<group>"; };
+		88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderDateListVC.swift; sourceTree = "<group>"; };
+		88FE979824E3BDB2007A9352 /* CalenderListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderListTVC.swift; sourceTree = "<group>"; };
+		88FE979924E3BDB2007A9352 /* CalenderListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalenderListTVC.xib; sourceTree = "<group>"; };
+		88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorBookingDetailVC.swift; sourceTree = "<group>"; };
 		88FF6ABB24D3D431009F5E78 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		88FF6ABD24D3D5E0009F5E78 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +307,8 @@
 				88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */,
 				88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */,
 				88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */,
+				88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */,
+				88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -527,6 +537,8 @@
 				888C6CC424E127CE008E27E0 /* FavoriteTVC.xib */,
 				888C6CC724E12E12008E27E0 /* NotificationTVC.swift */,
 				888C6CC824E12E12008E27E0 /* NotificationTVC.xib */,
+				88FE979824E3BDB2007A9352 /* CalenderListTVC.swift */,
+				88FE979924E3BDB2007A9352 /* CalenderListTVC.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -630,6 +642,7 @@
 				88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
 				88F4A21424D986DB00C780CB /* BookChatCVC.xib in Resources */,
+				88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
 				88F261C024E155EC009EECE3 /* Profile.storyboard in Resources */,
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
@@ -710,6 +723,7 @@
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				88AEE8A824D15A78002225E9 /* View.swift in Sources */,
+				88FE979724E3BC84007A9352 /* CalenderDateListVC.swift in Sources */,
 				88F4A21324D986DB00C780CB /* BookChatCVC.swift in Sources */,
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
@@ -724,6 +738,7 @@
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
+				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */,
 				88AEE8C124D15A78002225E9 /* Preference.swift in Sources */,
@@ -740,6 +755,7 @@
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
 				88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */,
+				88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */,
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,

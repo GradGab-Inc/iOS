@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import FSCalendar
 
 class MentorHomeVC: UIViewController {
 
     @IBOutlet weak var bookingTblView: UITableView!
     @IBOutlet weak var bookingTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var noDataLbl: UILabel!
+    @IBOutlet weak var homeCalender: FSCalendar!
+    @IBOutlet weak var headerLbl: UILabel!
+    @IBOutlet weak var topHeaderDateLbl: UILabel!
+    
+    @IBOutlet var completeProfileBackView: UIView!
+    
+    
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter
+    }()
+    private var currentPage: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +42,12 @@ class MentorHomeVC: UIViewController {
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
-    
+        headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
+        topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
+        
+        completeProfileBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+        
     }
     
     
@@ -42,7 +61,22 @@ class MentorHomeVC: UIViewController {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    @IBAction func clickToNextMonth(_ sender: Any) {
+        let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: homeCalender.currentPage)
+        homeCalender.setCurrentPage(nextMonth!, animated: true)
+    }
+    
+    @IBAction func clickToPreviousMonth(_ sender: Any) {
+      let nextMonth = Calendar.current.date(byAdding: .month, value: -1, to: homeCalender.currentPage)
+      homeCalender.setCurrentPage(nextMonth!, animated: true)
+    }
+    
+    @IBAction func clickToCompleteProfile(_ sender: Any) {
+        completeProfileBackView.isHidden = false
+    }
+    
+    
 }
 
 
@@ -86,4 +120,22 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
 //        JoinCallVC.setUp(0)
     }
     
+}
+
+
+extension MentorHomeVC : FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("did select date \(self.dateFormatter.string(from: date))")
+        let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
+        print("selected dates is \(selectedDates)")
+        topHeaderDateLbl.text = getDateStringFromDate(date: date, format: "MMMM dd/MM/yyyy")
+        if monthPosition == .next || monthPosition == .previous {
+            calendar.setCurrentPage(date, animated: true)
+        }
+    }
+
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        print("\(self.dateFormatter.string(from: calendar.currentPage))")
+        headerLbl.text = getDateStringFromDate(date: calendar.currentPage, format: "MMMM yyyy")
+    }
 }
