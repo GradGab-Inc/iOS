@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class BookingListVC: UIViewController {
 
@@ -95,6 +96,10 @@ class BookingListVC: UIViewController {
                 self.fromDateLbl.text = getDateStringFromDate(date: self.selectedDate, format: "MM/dd/YYYY")
             }
         }
+    }
+    
+    deinit {
+        log.success("BookingListVC Memory deallocated!")/
     }
     
 }

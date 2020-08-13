@@ -26,6 +26,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPT-Ei-c7e" customClass="View" customModule="Gradgap" customModuleProvider="target">
                         <rect key="frame" x="7" y="6" width="79" height="53"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-BJ-4qy">
+                                <rect key="frame" x="0.0" y="0.0" width="79" height="53"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanford" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSQ-hy-rS9">
                                 <rect key="frame" x="6" y="5" width="67" height="43"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -35,6 +38,10 @@
                         </subviews>
                         <color key="backgroundColor" name="RedColor"/>
                         <constraints>
+                            <constraint firstItem="xkn-BJ-4qy" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" id="7QU-l9-Wvw"/>
+                            <constraint firstAttribute="trailing" secondItem="xkn-BJ-4qy" secondAttribute="trailing" id="CQJ-Ob-KeV"/>
+                            <constraint firstItem="xkn-BJ-4qy" firstAttribute="leading" secondItem="oPT-Ei-c7e" secondAttribute="leading" id="ghI-9b-hyl"/>
+                            <constraint firstAttribute="bottom" secondItem="xkn-BJ-4qy" secondAttribute="bottom" id="k8k-kM-X75"/>
                             <constraint firstItem="aSQ-hy-rS9" firstAttribute="leading" secondItem="oPT-Ei-c7e" secondAttribute="leading" constant="6" id="lDS-1m-7js"/>
                             <constraint firstItem="aSQ-hy-rS9" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" constant="5" id="lQV-cF-NVl"/>
                             <constraint firstAttribute="trailing" secondItem="aSQ-hy-rS9" secondAttribute="trailing" constant="6" id="oKk-YG-HSE"/>
@@ -82,6 +89,7 @@
             <connections>
                 <outlet property="backView" destination="oPT-Ei-c7e" id="XlA-Om-BnF"/>
                 <outlet property="cancelBtn" destination="gi3-ZW-VJY" id="HRP-7s-cc1"/>
+                <outlet property="imgView" destination="xkn-BJ-4qy" id="ha8-7x-Dmm"/>
                 <outlet property="lbl" destination="aSQ-hy-rS9" id="wDF-eJ-1Bk"/>
             </connections>
             <point key="canvasLocation" x="163.04347826086959" y="153.01339285714286"/>

@@ -82,6 +82,10 @@ class MentorsProfileVC: UIViewController {
         
     }
 
+    deinit {
+        log.success("MentorsProfileVC Memory deallocated!")/
+    }
+    
 }
 
 

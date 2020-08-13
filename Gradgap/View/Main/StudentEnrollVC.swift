@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class StudentEnrollVC: UIViewController {
 
@@ -48,6 +49,10 @@ class StudentEnrollVC: UIViewController {
         CameraAttachment.shared.imagePickedBlock = { pic in
             self.profileImgView.image = pic
         }
+    }
+    
+    deinit {
+        log.success("StudentEnrollVC Memory deallocated!")/
     }
     
 }

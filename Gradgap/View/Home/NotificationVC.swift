@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class NotificationVC: UIViewController {
 
@@ -22,7 +23,7 @@ class NotificationVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Favorites"
+        navigationBar.headerLbl.text = "Notification"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -37,7 +38,9 @@ class NotificationVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-
+    deinit {
+        log.success("NotificationVC Memory deallocated!")/
+    }
 }
 
 
@@ -63,7 +66,5 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-    
-    
+    }    
 }

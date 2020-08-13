@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class PersonalProfileVC: UIViewController {
 
@@ -101,10 +102,13 @@ class PersonalProfileVC: UIViewController {
         
     }
     
-    
     func selectQuestion(_ index : Int) {
         numberLbl.text = countArr[index]
         questionLbl.text = questionArr[index]
+    }
+    
+    deinit {
+        log.success("PersonalProfileVC Memory deallocated!")/
     }
     
 }

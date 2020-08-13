@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class SchoolListVC: UIViewController {
 
@@ -75,6 +76,9 @@ class SchoolListVC: UIViewController {
         
     }
 
+    deinit {
+        log.success("SchoolListVC Memory deallocated!")/
+    }
     
 }
 
@@ -105,7 +109,7 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
+//MARK: - CollectionView Delegate
 extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5

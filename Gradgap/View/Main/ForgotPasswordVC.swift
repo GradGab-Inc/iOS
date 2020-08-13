@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class ForgotPasswordVC: UIViewController {
 
@@ -29,5 +30,10 @@ class ForgotPasswordVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    deinit {
+        log.success("ForgotPasswordVC Memory deallocated!")/
+    }
+
     
 }

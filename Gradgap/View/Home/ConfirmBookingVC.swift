@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class ConfirmBookingVC: UIViewController {
 
@@ -60,9 +61,8 @@ class ConfirmBookingVC: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    
-    
-    
-    
+    deinit {
+        log.success("ConfirmBookingVC Memory deallocated!")/
+    }
     
 }

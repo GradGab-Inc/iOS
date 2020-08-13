@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class HomeVC: UIViewController {
 
@@ -68,6 +69,9 @@ class HomeVC: UIViewController {
         joinCallBackView.isHidden = true
     }
     
+    deinit {
+        log.success("HomeVC Memory deallocated!")/
+    }
     
 }
 

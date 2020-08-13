@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import SainiUtils
 
 class MentorHomeVC: UIViewController {
 
@@ -76,6 +77,9 @@ class MentorHomeVC: UIViewController {
         completeProfileBackView.isHidden = false
     }
     
+    deinit {
+        log.success("MentorHomeVC Memory deallocated!")/
+    }
     
 }
 

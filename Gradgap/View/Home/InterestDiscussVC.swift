@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class InterestDiscussVC: UIViewController {
 
@@ -49,6 +50,10 @@ class InterestDiscussVC: UIViewController {
     @IBAction func clickToSubmit(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    deinit {
+        log.success("InterestDiscussVC Memory deallocated!")/
     }
     
 }

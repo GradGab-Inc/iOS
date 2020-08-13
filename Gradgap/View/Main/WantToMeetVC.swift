@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class WantToMeetVC: UIViewController {
 
@@ -25,6 +26,10 @@ class WantToMeetVC: UIViewController {
     
     @IBAction func clickToMBAStudent(_ sender: Any) {
         
+    }
+    
+    deinit {
+        log.success("WantToMeetVC Memory deallocated!")/
     }
     
 }

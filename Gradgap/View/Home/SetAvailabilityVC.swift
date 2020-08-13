@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class SetAvailabilityVC: UIViewController {
 
@@ -50,6 +51,10 @@ class SetAvailabilityVC: UIViewController {
         tblViewHeightConstraint.constant = CGFloat(setCount * 265)
     }
     
+    deinit {
+        log.success("SetAvailabilityVC Memory deallocated!")/
+    }
+    
 }
 
 
@@ -68,8 +73,6 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
-        
-        
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -94,7 +97,6 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    
     
     @objc func clickToSelectWeek(_ sender : UIButton)  {
         DatePickerManager.shared.showPicker(title: "Select Week", selected: "91", strings: weekArr) { [weak self](school, index, success) in

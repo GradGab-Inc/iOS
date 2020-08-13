@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class BookChatVC: UIViewController {
 
@@ -51,6 +52,10 @@ class BookChatVC: UIViewController {
     @IBAction func clickToNext(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    deinit {
+        log.success("BookChatVC Memory deallocated!")/
     }
     
 }

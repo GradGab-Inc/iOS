@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class MentorBookingDetailVC: UIViewController {
 
@@ -81,6 +82,10 @@ class MentorBookingDetailVC: UIViewController {
         
     }
     
+    deinit {
+        log.success("MentorBookingDetailVC Memory deallocated!")/
+    }
+    
 }
 
 
@@ -91,7 +96,6 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = learnCollectionView.dequeueReusableCell(withReuseIdentifier: "CollegeCVC", for: indexPath) as? CollegeCVC else {
             return UICollectionViewCell()
         }

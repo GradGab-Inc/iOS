@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class SignUpVC: UIViewController {
 
@@ -80,4 +81,8 @@ class SignUpVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    deinit {
+        log.success("SignUpVC Memory deallocated!")/
+    }
 }

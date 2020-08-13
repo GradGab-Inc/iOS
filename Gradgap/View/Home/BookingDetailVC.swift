@@ -93,6 +93,8 @@ class BookingDetailVC: UIViewController {
         
     }
     
-    
+    deinit {
+        log.success("BookingDetailVC Memory deallocated!")/
+    }
     
 }

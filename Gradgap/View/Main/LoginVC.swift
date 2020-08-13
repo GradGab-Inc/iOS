@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class LoginVC: UIViewController {
 
@@ -65,5 +66,8 @@ class LoginVC: UIViewController {
          }
      }
     
-
+    deinit {
+        log.success("LoginVC Memory deallocated!")/
+    }
+    
 }

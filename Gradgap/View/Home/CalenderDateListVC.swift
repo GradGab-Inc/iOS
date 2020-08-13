@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class CalenderDateListVC: UIViewController {
 
@@ -37,6 +38,10 @@ class CalenderDateListVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    deinit {
+        log.success("CalenderDateListVC Memory deallocated!")/
+    }
+    
 }
 
 
@@ -64,7 +69,6 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
         }
         
        return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

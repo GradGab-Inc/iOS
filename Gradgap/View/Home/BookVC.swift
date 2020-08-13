@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class BookVC: UIViewController {
 
@@ -59,6 +60,10 @@ class BookVC: UIViewController {
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "EEE MM/dd/YYYY"), for: .normal)
             }
         }
+    }
+    
+    deinit {
+        log.success("BookVC Memory deallocated!")/
     }
     
 }

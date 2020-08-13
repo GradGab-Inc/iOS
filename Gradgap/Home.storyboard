@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lgg-3d-93U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cBu-sI-9hu">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -441,7 +441,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9V2-vr-ULa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-398" y="923"/>
+            <point key="canvasLocation" x="-399" y="867"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="w2s-9Y-Ykv">
@@ -2202,7 +2202,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="LJZ-Rq-oYQ"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1686" y="1044"/>
+            <point key="canvasLocation" x="1686" y="989"/>
         </scene>
         <!--NotificationVC-->
         <scene sceneID="TW5-hi-V4f">
@@ -2247,7 +2247,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbJ-Eh-t6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="922"/>
+            <point key="canvasLocation" x="1022" y="866"/>
         </scene>
         <!--Confirm BookingVC-->
         <scene sceneID="7p3-u3-vSu">
@@ -2902,7 +2902,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="JVN-lS-Llh"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="341" y="1061"/>
+            <point key="canvasLocation" x="362" y="1005"/>
         </scene>
         <!--Booking ListVC-->
         <scene sceneID="CpL-4H-aES">
@@ -4032,7 +4032,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ep0-oL-xZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3690" y="108"/>
+            <point key="canvasLocation" x="3692" y="311"/>
         </scene>
         <!--Interest DiscussVC-->
         <scene sceneID="27y-jv-Nqz">
@@ -4139,7 +4139,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlI-I0-LPj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4374.375" y="101.40845070422536"/>
+            <point key="canvasLocation" x="4371" y="110"/>
         </scene>
         <!--Personal ProfileVC-->
         <scene sceneID="xay-2x-Tkb">
@@ -4475,7 +4475,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkr-A8-6Eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5058.75" y="100.35211267605634"/>
+            <point key="canvasLocation" x="5055" y="109"/>
         </scene>
         <!--BookVC-->
         <scene sceneID="lyQ-Ba-buz">
@@ -4546,7 +4546,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR2-c1-Fdt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5737.5" y="100.35211267605634"/>
+            <point key="canvasLocation" x="5723" y="110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gxj-DX-SQ0">
@@ -4627,7 +4627,7 @@ schools.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij6-U4-FyN" customClass="FloatRatingView" customModule="SainiUtils">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij6-U4-FyN" customClass="FloatRatingView" customModule="SainiUtils">
                                         <rect key="frame" x="127" y="157.5" width="110" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

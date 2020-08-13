@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class BecomeMentorVC: UIViewController {
 
@@ -62,5 +63,8 @@ class BecomeMentorVC: UIViewController {
         parentBackView.isHidden = true
     }
     
+    deinit {
+        log.success("BecomeMentorVC Memory deallocated!")/
+    }
 
 }

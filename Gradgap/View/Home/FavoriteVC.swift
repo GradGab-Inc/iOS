@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class FavoriteVC: UIViewController {
 
@@ -37,6 +38,10 @@ class FavoriteVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    deinit {
+        log.success("FavoriteVC Memory deallocated!")/
+    }
+    
 }
 
 
@@ -57,13 +62,11 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 }

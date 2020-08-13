@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SainiUtils
 
 class ConversationStarterVC: UIViewController {
 
@@ -44,6 +45,11 @@ class ConversationStarterVC: UIViewController {
     @objc func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    deinit {
+        log.success("ConversationStarterVC Memory deallocated!")/
+    }
+    
 }
 
 //MARK: - TableView Delegate
