@@ -21,6 +21,8 @@ let APPLE_LANGUAGE_KEY = "AppleLanguages"
 let CLIENT_ID = "89503098735-s5d2ik5ah6i3ei60r113rtt9th706gh3.apps.googleusercontent.com"
 let GOOGLE_PLACE_ID = "AIzaSyBAW5TIjkcjxUUuY37NTtcDJSXyzXXqVSw"
 
+let weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
 struct SCREEN
 {
     static var WIDTH = UIScreen.main.bounds.size.width
@@ -111,6 +113,15 @@ struct INFO_TITLE {
     static var info3 = "Create a profile, pick a few schools, and we’ll match you with mentors who share the same interests."
 }
 
+struct  MENTOR_SIDEMENU_DATA {
+    static var PROFILE = "Profile"
+    static var NOTI = "Notifications"
+    static var MY_EARN = "My Earnings"
+    static var BANK_DETAIL = "Bank Details"
+    static var REFER_FRIEND = "Refer to Friends"
+    static var SETTING = "Settings"
+}
+
 struct SIDEMENU_DATA {
     static var PROFILE = "Profile"
     static var NOTI = "Notifications"
@@ -121,6 +132,7 @@ struct SIDEMENU_DATA {
     static var REFER_FRIEND = "Refer to Friends"
     static var SETTING = "Settings"
 }
+
 
 struct CONVERSATION_DATA {
     static var GENERAL_QUE = "General Questions"

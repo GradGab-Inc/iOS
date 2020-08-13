@@ -101,6 +101,9 @@
 		88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F4A21824D991CA00C780CB /* CustomHeaderTVC.swift */; };
 		88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F4A21B24D9926500C780CB /* CustomQuestionTVC.swift */; };
 		88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F4A21C24D9926500C780CB /* CustomQuestionTVC.xib */; };
+		88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F56D5B24E5030A00C25DCA /* SetAvailabilityTVC.swift */; };
+		88F56D5E24E5030A00C25DCA /* SetAvailabilityTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F56D5C24E5030A00C25DCA /* SetAvailabilityTVC.xib */; };
+		88F56D6024E50DB400C25DCA /* SetAvailabilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F56D5F24E50DB400C25DCA /* SetAvailabilityVC.swift */; };
 		88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */; };
 		88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */; };
 		88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F93EBE24DE8B5400CFFD45 /* QuestionListVC.swift */; };
@@ -220,6 +223,9 @@
 		88F4A21824D991CA00C780CB /* CustomHeaderTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderTVC.swift; sourceTree = "<group>"; };
 		88F4A21B24D9926500C780CB /* CustomQuestionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQuestionTVC.swift; sourceTree = "<group>"; };
 		88F4A21C24D9926500C780CB /* CustomQuestionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomQuestionTVC.xib; sourceTree = "<group>"; };
+		88F56D5B24E5030A00C25DCA /* SetAvailabilityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityTVC.swift; sourceTree = "<group>"; };
+		88F56D5C24E5030A00C25DCA /* SetAvailabilityTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetAvailabilityTVC.xib; sourceTree = "<group>"; };
+		88F56D5F24E50DB400C25DCA /* SetAvailabilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityVC.swift; sourceTree = "<group>"; };
 		88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseNavigationBar.swift; sourceTree = "<group>"; };
 		88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReuseNavigationBar.xib; sourceTree = "<group>"; };
 		88F93EBE24DE8B5400CFFD45 /* QuestionListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListVC.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 				88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */,
 				88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */,
 				88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */,
+				88F56D5F24E50DB400C25DCA /* SetAvailabilityVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -539,6 +546,8 @@
 				888C6CC824E12E12008E27E0 /* NotificationTVC.xib */,
 				88FE979824E3BDB2007A9352 /* CalenderListTVC.swift */,
 				88FE979924E3BDB2007A9352 /* CalenderListTVC.xib */,
+				88F56D5B24E5030A00C25DCA /* SetAvailabilityTVC.swift */,
+				88F56D5C24E5030A00C25DCA /* SetAvailabilityTVC.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -649,6 +658,7 @@
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
 				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
 				881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */,
+				88F56D5E24E5030A00C25DCA /* SetAvailabilityTVC.xib in Resources */,
 				881690E924D2820E00EE427E /* MADE Tommy Soft ExtraBold Outline PERSONAL USE.otf in Resources */,
 				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
 				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
@@ -779,7 +789,9 @@
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
+				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
+				88F56D6024E50DB400C25DCA /* SetAvailabilityVC.swift in Sources */,
 				8806B5BA24D93A840005FDCE /* BookingListVC.swift in Sources */,
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
