@@ -93,6 +93,18 @@ class BookingDetailVC: UIViewController {
         
     }
     
+    @IBAction func clickToOk(_ sender: Any) {
+        bookingCantCancelBackView.isHidden = true
+    }
+    
+    @IBAction func clickToCancelNo(_ sender: Any) {
+        cancelBookingBackView.isHidden = true
+    }
+    
+    @IBAction func clickToCancelYes(_ sender: Any) {
+        cancelBookingBackView.isHidden = true
+    }
+    
     deinit {
         log.success("BookingDetailVC Memory deallocated!")/
     }

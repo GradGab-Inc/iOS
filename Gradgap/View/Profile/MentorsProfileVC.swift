@@ -79,7 +79,8 @@ class MentorsProfileVC: UIViewController {
     }
     
     @IBAction func clickToBookMentor(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ConfirmBookingVC") as! ConfirmBookingVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     deinit {

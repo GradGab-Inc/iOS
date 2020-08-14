@@ -19,7 +19,6 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var walletBalanceLbl: UILabel!
-    @IBOutlet weak var applyCouponTxt: TextField!
     @IBOutlet weak var subTotalLbl: UILabel!
     @IBOutlet weak var walletBallenceLbl: UILabel!
     @IBOutlet weak var toBePaidLbl: UILabel!
@@ -53,7 +52,7 @@ class ConfirmBookingVC: UIViewController {
     }
 
     @IBAction func clickToApplyCoupon(_ sender: Any) {
-        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -64,7 +63,7 @@ class ConfirmBookingVC: UIViewController {
     }
     
     @IBAction func clickToBackToHome(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     deinit {

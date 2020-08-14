@@ -73,7 +73,8 @@ class SchoolListVC: UIViewController {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-        
+        let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        openUrlInSafari(strUrl: url!)
     }
 
     deinit {
