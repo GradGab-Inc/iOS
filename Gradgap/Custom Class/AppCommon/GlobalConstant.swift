@@ -197,7 +197,13 @@ struct INTERESTARR {
     static var INTEREST15 = "Affordability"
 }
 
-
+struct  SETTING_ARR {
+    static var ABOUT = "About Us"
+    static var TERMS = "Terms & Connditions"
+    static var PRIVACY = "Privacy Policy"
+    static var HELP = "Help"
+    static var LOGOUT = "Logout"
+}
 
 
 

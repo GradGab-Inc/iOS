@@ -51,6 +51,10 @@ class SetAvailabilityVC: UIViewController {
         tblViewHeightConstraint.constant = CGFloat(setCount * 265)
     }
     
+    @IBAction func clickToSubmit(_ sender: Any) {
+        
+    }
+    
     deinit {
         log.success("SetAvailabilityVC Memory deallocated!")/
     }

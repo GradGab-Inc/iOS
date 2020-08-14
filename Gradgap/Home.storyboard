@@ -1524,6 +1524,9 @@ schools.</string>
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToSubmit:" destination="Lgg-3d-93U" eventType="touchUpInside" id="nbo-Gi-aHw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fj-SR-uTp">
                                 <rect key="frame" x="15" y="216" width="200" height="40"/>
@@ -1594,6 +1597,86 @@ schools.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4l-OR-aIQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2347.5" y="2025"/>
+        </scene>
+        <!--Refer FriendVC-->
+        <scene sceneID="AWd-M0-tt2">
+            <objects>
+                <viewController storyboardIdentifier="ReferFriendVC" id="WrR-Xi-5qy" customClass="ReferFriendVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PW7-aw-0J3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rah-RW-Fec" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mMn-yA-ifn"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_refer" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-4c-2kH">
+                                <rect key="frame" x="0.0" y="60" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WLz-4c-2kH" secondAttribute="height" multiplier="1:1" id="wlU-JZ-mpG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REFER A FRIEND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlw-JM-Lfs">
+                                <rect key="frame" x="49" y="75" width="222" height="33"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a 10% off coupon by referring 5 friends !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
+                                <rect key="frame" x="30" y="415" width="260" height="42"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-9O-RDP" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="40" y="480" width="240" height="48"/>
+                                <color key="backgroundColor" name="RedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Ery-av-ha2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <state key="normal" title="Refer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToRefer:" destination="WrR-Xi-5qy" eventType="touchUpInside" id="V1y-ZE-f6h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="rah-RW-Fec" firstAttribute="trailing" secondItem="cfb-oB-0Yz" secondAttribute="trailing" id="10b-Cp-7tt"/>
+                            <constraint firstItem="www-Qm-f6H" firstAttribute="top" secondItem="WLz-4c-2kH" secondAttribute="bottom" constant="35" id="4XA-Ta-pis"/>
+                            <constraint firstItem="cfb-oB-0Yz" firstAttribute="bottom" secondItem="TVi-9O-RDP" secondAttribute="bottom" constant="40" id="74D-eV-x4c"/>
+                            <constraint firstItem="WLz-4c-2kH" firstAttribute="top" secondItem="rah-RW-Fec" secondAttribute="bottom" id="All-af-Dej"/>
+                            <constraint firstItem="WLz-4c-2kH" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" id="FxG-jH-2Ev"/>
+                            <constraint firstItem="Zlw-JM-Lfs" firstAttribute="top" secondItem="rah-RW-Fec" secondAttribute="bottom" constant="15" id="HZN-pa-dSR"/>
+                            <constraint firstItem="www-Qm-f6H" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" constant="30" id="JaP-4p-SAs"/>
+                            <constraint firstItem="cfb-oB-0Yz" firstAttribute="trailing" secondItem="www-Qm-f6H" secondAttribute="trailing" constant="30" id="RHS-IX-Jui"/>
+                            <constraint firstItem="cfb-oB-0Yz" firstAttribute="trailing" secondItem="TVi-9O-RDP" secondAttribute="trailing" constant="40" id="Vfx-qC-3gs"/>
+                            <constraint firstItem="rah-RW-Fec" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" id="XgV-as-pJg"/>
+                            <constraint firstItem="rah-RW-Fec" firstAttribute="top" secondItem="cfb-oB-0Yz" secondAttribute="top" id="bzZ-5x-09R"/>
+                            <constraint firstItem="TVi-9O-RDP" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" constant="40" id="kb2-YP-XwK"/>
+                            <constraint firstItem="Zlw-JM-Lfs" firstAttribute="centerX" secondItem="PW7-aw-0J3" secondAttribute="centerX" id="nB3-hj-eR8"/>
+                            <constraint firstItem="WLz-4c-2kH" firstAttribute="trailing" secondItem="cfb-oB-0Yz" secondAttribute="trailing" id="yiA-Zj-Irg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cfb-oB-0Yz"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="rah-RW-Fec" id="Vg8-Td-Ax5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-6S-8Z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039" y="2025"/>
         </scene>
         <!--Booking DetailVC-->
         <scene sceneID="mhT-6B-9sD">
@@ -2202,7 +2285,52 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="LJZ-Rq-oYQ"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1686" y="989"/>
+            <point key="canvasLocation" x="2349" y="990"/>
+        </scene>
+        <!--Apply CouponVC-->
+        <scene sceneID="92l-Oh-TtP">
+            <objects>
+                <viewController storyboardIdentifier="ApplyCouponVC" id="mHj-Xb-eTq" customClass="ApplyCouponVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LND-Q4-Kt9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-jX-ze6" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="31r-aH-WdE"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ryn-qB-Doc">
+                                <rect key="frame" x="0.0" y="75" width="320" height="493"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mHj-Xb-eTq" id="JVi-bP-tYf"/>
+                                    <outlet property="delegate" destination="mHj-Xb-eTq" id="Fof-CD-e5t"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="FSl-jX-ze6" firstAttribute="trailing" secondItem="p63-fI-49V" secondAttribute="trailing" id="1oG-bV-bEy"/>
+                            <constraint firstItem="p63-fI-49V" firstAttribute="bottom" secondItem="ryn-qB-Doc" secondAttribute="bottom" id="4QL-zZ-WfT"/>
+                            <constraint firstItem="ryn-qB-Doc" firstAttribute="top" secondItem="FSl-jX-ze6" secondAttribute="bottom" constant="15" id="8sd-7Q-wJl"/>
+                            <constraint firstItem="FSl-jX-ze6" firstAttribute="top" secondItem="p63-fI-49V" secondAttribute="top" id="UvA-bF-n13"/>
+                            <constraint firstItem="p63-fI-49V" firstAttribute="trailing" secondItem="ryn-qB-Doc" secondAttribute="trailing" id="j0P-LQ-wfb"/>
+                            <constraint firstItem="ryn-qB-Doc" firstAttribute="leading" secondItem="p63-fI-49V" secondAttribute="leading" id="o4j-VM-oE9"/>
+                            <constraint firstItem="FSl-jX-ze6" firstAttribute="leading" secondItem="p63-fI-49V" secondAttribute="leading" id="oE8-hl-eDy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p63-fI-49V"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="FSl-jX-ze6" id="EUX-HQ-AOc"/>
+                        <outlet property="tblView" destination="ryn-qB-Doc" id="WfL-tR-Vyt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLM-Xo-y40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="867"/>
         </scene>
         <!--NotificationVC-->
         <scene sceneID="TW5-hi-V4f">
@@ -2247,7 +2375,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbJ-Eh-t6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="866"/>
+            <point key="canvasLocation" x="1686" y="866"/>
         </scene>
         <!--Confirm BookingVC-->
         <scene sceneID="7p3-u3-vSu">
@@ -2465,14 +2593,24 @@ schools.</string>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnM-d4-bau">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
+                                                                        <connections>
+                                                                            <action selector="clickToApplyCoupon:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="10V-7i-Dfi"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="AppColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="OaG-G9-69d" secondAttribute="trailing" constant="8" id="4jU-5W-M1y"/>
                                                                     <constraint firstAttribute="height" constant="48" id="AZf-1H-bgw"/>
                                                                     <constraint firstItem="E4e-dA-fOK" firstAttribute="centerY" secondItem="v6C-OQ-uPm" secondAttribute="centerY" id="EPT-PE-dc7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="SnM-d4-bau" secondAttribute="trailing" id="EPk-X9-ZHx"/>
+                                                                    <constraint firstItem="SnM-d4-bau" firstAttribute="top" secondItem="v6C-OQ-uPm" secondAttribute="top" id="KGq-Ip-iOs"/>
                                                                     <constraint firstItem="OaG-G9-69d" firstAttribute="leading" secondItem="E4e-dA-fOK" secondAttribute="trailing" constant="10" id="Lxg-jv-5nm"/>
                                                                     <constraint firstAttribute="bottom" secondItem="OaG-G9-69d" secondAttribute="bottom" constant="7" id="TKM-Zw-bSk"/>
+                                                                    <constraint firstItem="SnM-d4-bau" firstAttribute="leading" secondItem="v6C-OQ-uPm" secondAttribute="leading" id="XCg-1l-ECm"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="SnM-d4-bau" secondAttribute="bottom" id="dZR-oh-Etz"/>
                                                                     <constraint firstItem="OaG-G9-69d" firstAttribute="top" secondItem="v6C-OQ-uPm" secondAttribute="top" constant="7" id="oJq-Gd-B8B"/>
                                                                     <constraint firstItem="E4e-dA-fOK" firstAttribute="leading" secondItem="v6C-OQ-uPm" secondAttribute="leading" constant="15" id="tLI-vK-Nht"/>
                                                                 </constraints>
@@ -2827,7 +2965,6 @@ schools.</string>
                     <size key="freeformSize" width="320" height="830"/>
                     <connections>
                         <outlet property="additionalTopicTxt" destination="5kM-pE-6nN" id="Hha-2g-IzU"/>
-                        <outlet property="applyCouponTxt" destination="OaG-G9-69d" id="xUd-qi-4ZS"/>
                         <outlet property="bookingStatusBackView" destination="9St-A3-6iC" id="dlM-nJ-6GI"/>
                         <outlet property="collegeNameLbl" destination="xMW-O0-YB2" id="dMV-H3-uoM"/>
                         <outlet property="dateLbl" destination="qhl-km-Gks" id="aco-fg-Fi9"/>
@@ -2902,7 +3039,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="JVN-lS-Llh"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="362" y="1005"/>
+            <point key="canvasLocation" x="361.875" y="1004.5774647887324"/>
         </scene>
         <!--Booking ListVC-->
         <scene sceneID="CpL-4H-aES">
@@ -4754,6 +4891,7 @@ schools.</string>
         <image name="ic_questionmark_outline" width="16" height="16"/>
         <image name="ic_questionmark_red" width="16" height="16"/>
         <image name="ic_red_circle" width="100" height="100"/>
+        <image name="ic_refer" width="375" height="379.5"/>
         <image name="ic_right" width="12" height="12"/>
         <image name="ic_search" width="15" height="15"/>
         <image name="ic_service" width="4" height="16"/>

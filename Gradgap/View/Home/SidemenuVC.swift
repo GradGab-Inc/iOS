@@ -58,8 +58,14 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.menuContainerViewController.toggleLeftSideMenuCompletion(nil)
         if indexPath.row == 0
         {
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
-            self.navigationController?.pushViewController(vc, animated: true)
+            if isMentor {
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         else if indexPath.row == 1
         {
@@ -86,6 +92,46 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
+        }
+        else if indexPath.row == 4
+        {
+            if isMentor {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ReferFriendVC") as! ReferFriendVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "TransactionVC") as! TransactionVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else if indexPath.row == 5
+        {
+            if isMentor {
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                
+            }
+        }
+        else if indexPath.row == 6
+        {
+            if isMentor {
+                
+            }
+            else {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ReferFriendVC") as! ReferFriendVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else {
+            if isMentor {
+                
+            }
+            else {
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

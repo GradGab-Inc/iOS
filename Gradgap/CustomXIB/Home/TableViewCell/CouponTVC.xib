@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Bold PERSONAL USE.otf">
+            <string>MADETommySoft-Bold</string>
+        </array>
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CouponTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xw-Yp-Jjv" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <rect key="frame" x="15" y="5" width="290" height="145"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3H-iu-aED" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="16" height="145"/>
+                                <color key="backgroundColor" name="Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="uh1-Bw-p97"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="25%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp4-jG-NXo">
+                                <rect key="frame" x="31" y="15" width="63.5" height="37"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="30"/>
+                                <color key="textColor" name="LightColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Discount Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fua-2p-hgp">
+                                <rect key="frame" x="102.5" y="24.5" width="109.5" height="18"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Note : Discount is only applicable Using stripe payments." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkS-e0-lfy">
+                                <rect key="frame" x="31" y="60" width="244" height="34.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkR-uk-m01" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="185" y="102" width="90" height="35"/>
+                                <color key="backgroundColor" name="Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="1nx-go-Ppd"/>
+                                    <constraint firstAttribute="height" constant="35" id="9XQ-J8-Dpb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Bold" family="MADE Tommy Soft" pointSize="11"/>
+                                <state key="normal" title="APPLY"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="N3H-iu-aED" secondAttribute="bottom" id="3LF-qO-Ep5"/>
+                            <constraint firstItem="Fp4-jG-NXo" firstAttribute="leading" secondItem="N3H-iu-aED" secondAttribute="trailing" constant="15" id="5LJ-Te-tsO"/>
+                            <constraint firstAttribute="bottom" secondItem="fkR-uk-m01" secondAttribute="bottom" constant="8" id="7y3-Lx-vph"/>
+                            <constraint firstItem="tkS-e0-lfy" firstAttribute="leading" secondItem="N3H-iu-aED" secondAttribute="trailing" constant="15" id="C0G-lS-HSr"/>
+                            <constraint firstItem="fua-2p-hgp" firstAttribute="centerY" secondItem="Fp4-jG-NXo" secondAttribute="centerY" id="J8g-00-R0w"/>
+                            <constraint firstItem="N3H-iu-aED" firstAttribute="top" secondItem="3xw-Yp-Jjv" secondAttribute="top" id="QSi-7g-ySX"/>
+                            <constraint firstItem="N3H-iu-aED" firstAttribute="leading" secondItem="3xw-Yp-Jjv" secondAttribute="leading" id="Ye6-fH-xFw"/>
+                            <constraint firstItem="tkS-e0-lfy" firstAttribute="top" secondItem="Fp4-jG-NXo" secondAttribute="bottom" constant="8" id="am9-6s-ans"/>
+                            <constraint firstItem="fkR-uk-m01" firstAttribute="top" secondItem="tkS-e0-lfy" secondAttribute="bottom" constant="7.5" id="dSY-s8-0nR"/>
+                            <constraint firstAttribute="trailing" secondItem="fkR-uk-m01" secondAttribute="trailing" constant="15" id="jSj-DN-dfE"/>
+                            <constraint firstAttribute="trailing" secondItem="tkS-e0-lfy" secondAttribute="trailing" constant="15" id="jpR-h4-v3U"/>
+                            <constraint firstItem="Fp4-jG-NXo" firstAttribute="top" secondItem="3xw-Yp-Jjv" secondAttribute="top" constant="15" id="lS4-GT-RbL"/>
+                            <constraint firstItem="fua-2p-hgp" firstAttribute="leading" secondItem="Fp4-jG-NXo" secondAttribute="trailing" constant="8" id="w06-vN-5Po"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3xw-Yp-Jjv" secondAttribute="trailing" constant="15" id="gVK-sG-lXv"/>
+                    <constraint firstItem="3xw-Yp-Jjv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="iFS-yY-9yJ"/>
+                    <constraint firstItem="3xw-Yp-Jjv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ig6-4N-bqO"/>
+                    <constraint firstAttribute="bottom" secondItem="3xw-Yp-Jjv" secondAttribute="bottom" constant="5" id="kiz-yp-Dll"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="applyBtn" destination="fkR-uk-m01" id="9M1-HT-HaX"/>
+                <outlet property="noteLbl" destination="tkS-e0-lfy" id="NQ7-HN-gs3"/>
+                <outlet property="perecentLbl" destination="Fp4-jG-NXo" id="lTX-1V-E1i"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Color">
+            <color red="1" green="0.81999999284744263" blue="0.0080000003799796104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightColor">
+            <color red="0.093999996781349182" green="0.56099998950958252" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

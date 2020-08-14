@@ -52,6 +52,12 @@ class ConfirmBookingVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func clickToApplyCoupon(_ sender: Any) {
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     @IBAction func clickToConfirmBooking(_ sender: Any) {
         bookingStatusBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: bookingStatusBackView)
