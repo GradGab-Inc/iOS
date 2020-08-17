@@ -12,21 +12,21 @@ import Foundation
 struct LoginResponse: Codable {
     let code: Int
     let message: String
-    let data: LoginData?
+    let data: UserDataModel?
     let format, timestamp: String
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         code = try values.decodeIfPresent(Int.self, forKey: .code) ?? DocumentDefaultValues.Empty.int
         message = try values.decodeIfPresent(String.self, forKey: .message) ?? DocumentDefaultValues.Empty.string
-        data = try values.decodeIfPresent(LoginData.self, forKey: .data) ?? nil
+        data = try values.decodeIfPresent(UserDataModel.self, forKey: .data) ?? nil
         format = try values.decodeIfPresent(String.self, forKey: .format) ?? DocumentDefaultValues.Empty.string
         timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? DocumentDefaultValues.Empty.string
     }
 }
 
-// MARK: - LoginData
-struct LoginData: Codable {
+// MARK: - UserDataModel
+struct UserDataModel: Codable {
     let accessToken: String
     let user: User?
     
@@ -34,6 +34,11 @@ struct LoginData: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         accessToken = try values.decodeIfPresent(String.self, forKey: .accessToken) ?? DocumentDefaultValues.Empty.string
         user = try values.decodeIfPresent(User.self, forKey: .user) ?? nil
+    }
+    
+    init() {
+        accessToken = DocumentDefaultValues.Empty.string
+        user = User.init()
     }
 }
 
@@ -77,6 +82,27 @@ struct User: Codable {
         firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? DocumentDefaultValues.Empty.string
         email = try values.decodeIfPresent(String.self, forKey: .email) ?? DocumentDefaultValues.Empty.string
     }
+    
+    init() {
+        personality =  Personality.init()
+        lastName = DocumentDefaultValues.Empty.string
+        image = DocumentDefaultValues.Empty.string
+        userType = DocumentDefaultValues.Empty.int
+        studyingIn = DocumentDefaultValues.Empty.int
+        anticipateYear = DocumentDefaultValues.Empty.int
+        scoreSAT = DocumentDefaultValues.Empty.double
+        scoreACT = DocumentDefaultValues.Empty.int
+        gpa = DocumentDefaultValues.Empty.int
+        ethnicity = DocumentDefaultValues.Empty.string
+        subjects = []
+        bio = DocumentDefaultValues.Empty.string
+        major = DocumentDefaultValues.Empty.string
+        otherLanguage = DocumentDefaultValues.Empty.string
+        id = DocumentDefaultValues.Empty.string
+        firstName = DocumentDefaultValues.Empty.string
+        email = DocumentDefaultValues.Empty.string
+    }
+    
 }
 
 // MARK: - Personality
@@ -89,5 +115,12 @@ struct Personality: Codable {
         energyFromBeingWithOthers = try values.decodeIfPresent(Int.self, forKey: .energyFromBeingWithOthers) ?? DocumentDefaultValues.Empty.int
         goWithFlow = try values.decodeIfPresent(Int.self, forKey: .goWithFlow) ?? DocumentDefaultValues.Empty.int
         informationFromOthers = try values.decodeIfPresent(Int.self, forKey: .informationFromOthers) ?? DocumentDefaultValues.Empty.int
+    }
+    
+    init() {
+        decisionOnLogic = DocumentDefaultValues.Empty.int
+        energyFromBeingWithOthers = DocumentDefaultValues.Empty.int
+        goWithFlow = DocumentDefaultValues.Empty.int
+        informationFromOthers = DocumentDefaultValues.Empty.int
     }
 }

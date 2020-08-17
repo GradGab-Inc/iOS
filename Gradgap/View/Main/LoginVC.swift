@@ -91,11 +91,11 @@ class LoginVC: UIViewController {
 //MARK: - LoginDelegate
 extension LoginVC: LoginDelegate{
     func didRecieveLoginResponse(response: LoginResponse) {
-        log.success(response.message)/
-        AppModel.shared.currentUser = response.data?.user
-        AppModel.shared.token = response.data!.accessToken
-        UserDefaults.standard.set(response.data?.accessToken, forKey: UserDefaultKeys.token)
-        UserDefaults.standard.set(encodable: response.data?.user, forKey: UserDefaultKeys.currentUser)
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        setLoginUserData(response.data!.self)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
         AppDelegate().sharedDelegate().navigateToDashBoard()
     }
 }

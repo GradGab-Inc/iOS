@@ -14,6 +14,7 @@ class Preference: NSObject {
     static let sharedInstance = Preference()
     
     let IS_USER_LOGIN_KEY       =   "IS_USER_LOGIN"
+    let IS_USER_SOCIAL_LOGIN_KEY  =   "IS_USER_SOCIAL_LOGIN"
     let USER_DATA_KEY           =   "USER_DATA"
     let IS_USER_INFO_SHOW       =   "IS_USER_INFO_SHOW"
     let DEFAULT_ADDRESS         =   "DEFAULT_ADDRESS"
@@ -71,21 +72,33 @@ func isUserLogin() -> Bool
     return isUserLogin == nil ? false:(isUserLogin as! Bool)
 }
 
-//func setLoginUserData(_ dictData: UserDataModel)
-//{
-//    print(dictData)
-//    UserDefaults.standard.set(encodable: dictData, forKey: Preference.sharedInstance.USER_DATA_KEY)
-//    setIsUserLogin(isUserLogin: true)
-//}
-//
-//func getLoginUserData() -> UserDataModel?
-//{
-//    if let data = UserDefaults.standard.get(UserDataModel.self, forKey: Preference.sharedInstance.USER_DATA_KEY)
-//    {
-//        return data
-//    }
-//    return nil
-//}
+func setLoginUserData(_ dictData: UserDataModel)
+{
+    print(dictData)
+    UserDefaults.standard.set(encodable: dictData, forKey: Preference.sharedInstance.USER_DATA_KEY)
+    setIsUserLogin(isUserLogin: true)
+}
+
+func getLoginUserData() -> UserDataModel?
+{
+    if let data = UserDefaults.standard.get(UserDataModel.self, forKey: Preference.sharedInstance.USER_DATA_KEY)
+    {
+        return data
+    }
+    return nil
+}
+
+//MARK: - User login boolean
+func setIsSocialUser(isUserLogin: Bool)
+{
+    setDataToPreference(data: isUserLogin as AnyObject, forKey: Preference.sharedInstance.IS_USER_SOCIAL_LOGIN_KEY)
+}
+
+func isSocialUser() -> Bool
+{
+    let isSocialUser = getDataFromPreference(key: Preference.sharedInstance.IS_USER_SOCIAL_LOGIN_KEY)
+    return isSocialUser == nil ? false:(isSocialUser as! Bool)
+}
 
 
 func setIsUserShownInfo(isUserLogin: Bool)
