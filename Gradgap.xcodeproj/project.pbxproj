@@ -133,6 +133,9 @@
 		88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABB24D3D431009F5E78 /* MD5.swift */; };
 		88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF6ABD24D3D5E0009F5E78 /* Label.swift */; };
 		C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */; };
+		FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44301E24EA6C7D00AC9CF2 /* API_Helper.swift */; };
+		FA44302124EA6C7D00AC9CF2 /* API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */; };
+		FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302224EA6CE500AC9CF2 /* AppModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -266,6 +269,9 @@
 		88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorBookingDetailVC.swift; sourceTree = "<group>"; };
 		88FF6ABB24D3D431009F5E78 /* MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		88FF6ABD24D3D5E0009F5E78 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		FA44301E24EA6C7D00AC9CF2 /* API_Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_Helper.swift; sourceTree = "<group>"; };
+		FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_Manager.swift; sourceTree = "<group>"; };
+		FA44302224EA6CE500AC9CF2 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +307,7 @@
 		22D64A0324D149C7006C37FD /* Gradgap */ = {
 			isa = PBXGroup;
 			children = (
+				FA44301D24EA6C3800AC9CF2 /* ProjectHelper */,
 				88F4A20A24D9738300C780CB /* ReusableComponent */,
 				881690CF24D281DE00EE427E /* CustomFont */,
 				88AEE8C924D15CFD002225E9 /* CustomXIB */,
@@ -496,6 +503,7 @@
 		88AEE8CC24D15D27002225E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA44302224EA6CE500AC9CF2 /* AppModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +630,15 @@
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA44301D24EA6C3800AC9CF2 /* ProjectHelper */ = {
+			isa = PBXGroup;
+			children = (
+				FA44301E24EA6C7D00AC9CF2 /* API_Helper.swift */,
+				FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */,
+			);
+			path = ProjectHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -787,6 +804,7 @@
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
+				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
 				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */,
@@ -794,6 +812,7 @@
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
+				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
@@ -826,6 +845,7 @@
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
+				FA44302124EA6C7D00AC9CF2 /* API_Manager.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
 				88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */,
 				88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */,
@@ -1007,7 +1027,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6Q233F3ZPX;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1029,7 +1049,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6Q233F3ZPX;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

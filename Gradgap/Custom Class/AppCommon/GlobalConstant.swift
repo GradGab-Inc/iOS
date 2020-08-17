@@ -205,6 +205,10 @@ struct  SETTING_ARR {
     static var LOGOUT = "Logout"
 }
 
+//MARK:- AppColors
+struct AppColors{
+    static let LoaderColor =  UIColor.blue
+}
 
 
 
