@@ -143,6 +143,7 @@
 		FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */; };
 		FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */; };
 		FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303724EA89CE00AC9CF2 /* SetAvailabilityRequest.swift */; };
+		FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303924EA8CDB00AC9CF2 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -286,6 +287,7 @@
 		FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
 		FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFavouriteRequest.swift; sourceTree = "<group>"; };
 		FA44303724EA89CE00AC9CF2 /* SetAvailabilityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityRequest.swift; sourceTree = "<group>"; };
+		FA44303924EA8CDB00AC9CF2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = Gradgap/Model/SetAvailabiltyModel/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +512,7 @@
 		88AEE8CB24D15D1F002225E9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FA44303924EA8CDB00AC9CF2 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
+				FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */,
 				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
 				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
