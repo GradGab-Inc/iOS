@@ -210,25 +210,12 @@ struct AppColors{
     static let LoaderColor =  UIColor.blue
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//MARK:- DocumentDefaultValues
+struct DocumentDefaultValues{
+    struct Empty{
+        static let string =  ""
+        static let int =  0
+        static let bool = false
+        static let double = 0.0
+    }
+}

@@ -142,6 +142,7 @@
 		FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302E24EA78F700AC9CF2 /* UpdateRequest.swift */; };
 		FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */; };
 		FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */; };
+		FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303724EA89CE00AC9CF2 /* SetAvailabilityRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,6 +285,7 @@
 		FA44302E24EA78F700AC9CF2 /* UpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRequest.swift; sourceTree = "<group>"; };
 		FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
 		FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFavouriteRequest.swift; sourceTree = "<group>"; };
+		FA44303724EA89CE00AC9CF2 /* SetAvailabilityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +517,7 @@
 		88AEE8CC24D15D27002225E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA44303624EA89AB00AC9CF2 /* SetAvailabiltyModel */,
 				FA44303324EA79F900AC9CF2 /* UpdateFavouriteModel */,
 				FA44303024EA798E00AC9CF2 /* UserDetailModel */,
 				FA44302D24EA78DD00AC9CF2 /* UpdateModel */,
@@ -705,6 +708,14 @@
 				FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */,
 			);
 			path = UpdateFavouriteModel;
+			sourceTree = "<group>";
+		};
+		FA44303624EA89AB00AC9CF2 /* SetAvailabiltyModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44303724EA89CE00AC9CF2 /* SetAvailabilityRequest.swift */,
+			);
+			path = SetAvailabiltyModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -933,6 +944,7 @@
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
+				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
 				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
