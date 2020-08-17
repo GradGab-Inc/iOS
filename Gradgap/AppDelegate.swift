@@ -25,6 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
         
+        if isUserLogin() {
+            if getLoginUserData() != nil {
+                AppModel.shared.currentUser = UserDataModel.init()
+                AppModel.shared.currentUser = getLoginUserData()!
+                print(AppModel.shared.currentUser)
+            }
+            navigateToDashBoard()
+        }
+        else {
+            AppModel.shared.currentUser = UserDataModel.init()
+            navigateToLogin()
+        }
+        
+        
         return true
     }
 
@@ -64,8 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         activityLoader = nil
     }
 
-    // MARK:- Navigate To Dashboard
+    //MARK:- Navigation
+    func navigateToLogin() {
+        let navigationVC = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SelectLoginVCNav") as! UINavigationController
+        UIApplication.shared.keyWindow?.rootViewController = navigationVC
+    }
     
+    // MARK:- Navigate To Dashboard
     func navigateToDashBoard()
     {
         let rootVC: MFSideMenuContainerViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MFSideMenuContainerViewController") as! MFSideMenuContainerViewController

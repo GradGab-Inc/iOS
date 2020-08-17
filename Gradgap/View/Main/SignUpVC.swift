@@ -74,6 +74,7 @@ class SignUpVC: UIViewController {
      }
     
     @IBAction func clickToSignUp(_ sender: Any) {
+        self.view.endEditing(true)
         guard let firstName = firstNameTxt.text else { return }
         guard let lastName = lastNameTxt.text else { return }
         guard let email = emailTxt.text else { return }
@@ -82,6 +83,7 @@ class SignUpVC: UIViewController {
         guard let confirmPassword = confirmPasswordTxt.text else { return }
         let fcmToken = AppModel.shared.fcmToken
         let device = AppModel.shared.device
+        
         if firstName == DocumentDefaultValues.Empty.string {
             displayToast("Kindly enter your First Name")
         }
@@ -110,6 +112,7 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func clickToLogin(_ sender: Any) {
+        self.view.endEditing(true)
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
