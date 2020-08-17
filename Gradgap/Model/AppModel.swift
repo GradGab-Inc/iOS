@@ -10,7 +10,7 @@ import Foundation
 //MARK: - AppModel
 class AppModel: NSObject {
     static let shared = AppModel()
-//    var currentUser: User!
+    var currentUser: User!
     var isSocialLogin: Bool = Bool()
     var fcmToken: String = ""
     var token = ""
