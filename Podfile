@@ -12,6 +12,7 @@ target 'Gradgap' do
   pod 'SDWebImage'
   pod 'MFSideMenu'
   pod 'FSCalendar'
+  pod 'Alamofire','4.9.1'
   
   # Pods for Gradgap
 
