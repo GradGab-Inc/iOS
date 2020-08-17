@@ -136,6 +136,12 @@
 		FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44301E24EA6C7D00AC9CF2 /* API_Helper.swift */; };
 		FA44302124EA6C7D00AC9CF2 /* API_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */; };
 		FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302224EA6CE500AC9CF2 /* AppModel.swift */; };
+		FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302524EA779A00AC9CF2 /* SignUpRequest.swift */; };
+		FA44302924EA781C00AC9CF2 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302824EA781C00AC9CF2 /* LoginRequest.swift */; };
+		FA44302C24EA786900AC9CF2 /* ResendVerificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302B24EA786900AC9CF2 /* ResendVerificationRequest.swift */; };
+		FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44302E24EA78F700AC9CF2 /* UpdateRequest.swift */; };
+		FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */; };
+		FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -272,6 +278,12 @@
 		FA44301E24EA6C7D00AC9CF2 /* API_Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_Helper.swift; sourceTree = "<group>"; };
 		FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_Manager.swift; sourceTree = "<group>"; };
 		FA44302224EA6CE500AC9CF2 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		FA44302524EA779A00AC9CF2 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		FA44302824EA781C00AC9CF2 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		FA44302B24EA786900AC9CF2 /* ResendVerificationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendVerificationRequest.swift; sourceTree = "<group>"; };
+		FA44302E24EA78F700AC9CF2 /* UpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRequest.swift; sourceTree = "<group>"; };
+		FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRequest.swift; sourceTree = "<group>"; };
+		FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFavouriteRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +515,12 @@
 		88AEE8CC24D15D27002225E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA44303324EA79F900AC9CF2 /* UpdateFavouriteModel */,
+				FA44303024EA798E00AC9CF2 /* UserDetailModel */,
+				FA44302D24EA78DD00AC9CF2 /* UpdateModel */,
+				FA44302A24EA784E00AC9CF2 /* ResendVerificationModel */,
+				FA44302724EA77F500AC9CF2 /* LoginModel */,
+				FA44302424EA778500AC9CF2 /* SignUpModel */,
 				FA44302224EA6CE500AC9CF2 /* AppModel.swift */,
 			);
 			path = Model;
@@ -639,6 +657,54 @@
 				FA44301F24EA6C7D00AC9CF2 /* API_Manager.swift */,
 			);
 			path = ProjectHelper;
+			sourceTree = "<group>";
+		};
+		FA44302424EA778500AC9CF2 /* SignUpModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44302524EA779A00AC9CF2 /* SignUpRequest.swift */,
+			);
+			path = SignUpModel;
+			sourceTree = "<group>";
+		};
+		FA44302724EA77F500AC9CF2 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44302824EA781C00AC9CF2 /* LoginRequest.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		FA44302A24EA784E00AC9CF2 /* ResendVerificationModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44302B24EA786900AC9CF2 /* ResendVerificationRequest.swift */,
+			);
+			path = ResendVerificationModel;
+			sourceTree = "<group>";
+		};
+		FA44302D24EA78DD00AC9CF2 /* UpdateModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44302E24EA78F700AC9CF2 /* UpdateRequest.swift */,
+			);
+			path = UpdateModel;
+			sourceTree = "<group>";
+		};
+		FA44303024EA798E00AC9CF2 /* UserDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44303124EA79A700AC9CF2 /* UserDetailRequest.swift */,
+			);
+			path = UserDetailModel;
+			sourceTree = "<group>";
+		};
+		FA44303324EA79F900AC9CF2 /* UpdateFavouriteModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA44303424EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift */,
+			);
+			path = UpdateFavouriteModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -791,6 +857,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
 				88AEE8D824D1754F002225E9 /* OnboardingCVC.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
@@ -815,10 +882,12 @@
 				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
+				FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */,
 				88AEE8C124D15A78002225E9 /* Preference.swift in Sources */,
+				FA44302C24EA786900AC9CF2 /* ResendVerificationRequest.swift in Sources */,
 				88AEE8A224D15A78002225E9 /* NSError+RUI.swift in Sources */,
 				88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */,
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
@@ -846,6 +915,7 @@
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
 				FA44302124EA6C7D00AC9CF2 /* API_Manager.swift in Sources */,
+				FA44302924EA781C00AC9CF2 /* LoginRequest.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
 				88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */,
 				88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */,
@@ -863,6 +933,7 @@
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
+				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
@@ -874,6 +945,7 @@
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
+				FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */,
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
 				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
