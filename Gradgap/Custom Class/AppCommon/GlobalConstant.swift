@@ -219,3 +219,9 @@ struct DocumentDefaultValues{
         static let double = 0.0
     }
 }
+
+//MARK: - UserDefaultKeys
+struct UserDefaultKeys {
+    static let currentUser = "currentUser"
+    static let token = "accessToken"
+}
