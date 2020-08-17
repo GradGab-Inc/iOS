@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollegeCVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="93" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="93" height="65"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPT-Ei-c7e" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <rect key="frame" x="7" y="6" width="79" height="53"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-BJ-4qy">
+                                <rect key="frame" x="0.0" y="0.0" width="79" height="53"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanford" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSQ-hy-rS9">
+                                <rect key="frame" x="6" y="5" width="67" height="43"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="RedColor"/>
+                        <constraints>
+                            <constraint firstItem="xkn-BJ-4qy" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" id="7QU-l9-Wvw"/>
+                            <constraint firstAttribute="trailing" secondItem="xkn-BJ-4qy" secondAttribute="trailing" id="CQJ-Ob-KeV"/>
+                            <constraint firstItem="xkn-BJ-4qy" firstAttribute="leading" secondItem="oPT-Ei-c7e" secondAttribute="leading" id="ghI-9b-hyl"/>
+                            <constraint firstAttribute="bottom" secondItem="xkn-BJ-4qy" secondAttribute="bottom" id="k8k-kM-X75"/>
+                            <constraint firstItem="aSQ-hy-rS9" firstAttribute="leading" secondItem="oPT-Ei-c7e" secondAttribute="leading" constant="6" id="lDS-1m-7js"/>
+                            <constraint firstItem="aSQ-hy-rS9" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" constant="5" id="lQV-cF-NVl"/>
+                            <constraint firstAttribute="trailing" secondItem="aSQ-hy-rS9" secondAttribute="trailing" constant="6" id="oKk-YG-HSE"/>
+                            <constraint firstAttribute="bottom" secondItem="aSQ-hy-rS9" secondAttribute="bottom" constant="5" id="uUr-Lj-CxF"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderColorTypeAdapter">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi3-ZW-VJY" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                        <rect key="frame" x="75" y="2" width="16" height="16"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="WVA-Ec-buD"/>
+                            <constraint firstAttribute="height" constant="16" id="g6N-TH-NxL"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="1" minY="1" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" image="ic_cross_red"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="oPT-Ei-c7e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="4G4-6g-BaT"/>
+                <constraint firstAttribute="bottom" secondItem="oPT-Ei-c7e" secondAttribute="bottom" constant="6" id="AlK-YQ-rps"/>
+                <constraint firstItem="gi3-ZW-VJY" firstAttribute="top" secondItem="oPT-Ei-c7e" secondAttribute="top" constant="-4" id="bge-yZ-eTr"/>
+                <constraint firstItem="oPT-Ei-c7e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="dfv-x9-ZX3"/>
+                <constraint firstAttribute="trailing" secondItem="oPT-Ei-c7e" secondAttribute="trailing" constant="7" id="ggr-kM-kT0"/>
+                <constraint firstItem="gi3-ZW-VJY" firstAttribute="trailing" secondItem="oPT-Ei-c7e" secondAttribute="trailing" constant="5" id="yvX-1U-v6J"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="93" height="50"/>
+            <connections>
+                <outlet property="backView" destination="oPT-Ei-c7e" id="XlA-Om-BnF"/>
+                <outlet property="cancelBtn" destination="gi3-ZW-VJY" id="HRP-7s-cc1"/>
+                <outlet property="imgView" destination="xkn-BJ-4qy" id="ha8-7x-Dmm"/>
+                <outlet property="lbl" destination="aSQ-hy-rS9" id="wDF-eJ-1Bk"/>
+            </connections>
+            <point key="canvasLocation" x="163.04347826086959" y="153.01339285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_cross_red" width="10.5" height="10.5"/>
+        <namedColor name="RedColor">
+            <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

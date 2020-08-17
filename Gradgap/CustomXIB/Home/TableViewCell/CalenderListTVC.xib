@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CalenderListTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmI-rT-NAV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jw-Rd-E3L">
+                                <rect key="frame" x="15" y="19.5" width="33" height="16.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3og-vC-hJo">
+                                <rect key="frame" x="72" y="27" width="233" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="0.49636130136986301" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="U7O-lv-qHh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-R1-LtD" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="89" y="2" width="216" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting with Sanjay Singh, Video Chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELe-7Y-ym5">
+                                        <rect key="frame" x="8" y="8" width="200" height="35"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="33C8A3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ELe-7Y-ym5" secondAttribute="trailing" constant="8" id="DVI-6f-lX9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ELe-7Y-ym5" secondAttribute="bottom" constant="8" id="HTs-F1-Wrr"/>
+                                    <constraint firstItem="ELe-7Y-ym5" firstAttribute="top" secondItem="1eb-R1-LtD" secondAttribute="top" constant="8" id="ZMq-9o-8wg"/>
+                                    <constraint firstItem="ELe-7Y-ym5" firstAttribute="leading" secondItem="1eb-R1-LtD" secondAttribute="leading" constant="8" id="kJm-TQ-UzW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0jw-Rd-E3L" firstAttribute="centerY" secondItem="MmI-rT-NAV" secondAttribute="centerY" id="9sc-mu-BiT"/>
+                            <constraint firstItem="3og-vC-hJo" firstAttribute="centerY" secondItem="MmI-rT-NAV" secondAttribute="centerY" id="RfU-bL-SQs"/>
+                            <constraint firstItem="3og-vC-hJo" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="72" id="Sf7-f1-9IT"/>
+                            <constraint firstItem="0jw-Rd-E3L" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="15" id="e2d-gs-BYI"/>
+                            <constraint firstItem="1eb-R1-LtD" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" constant="2" id="fE1-TP-i1V"/>
+                            <constraint firstAttribute="bottom" secondItem="1eb-R1-LtD" secondAttribute="bottom" constant="2" id="iQp-dx-a5C"/>
+                            <constraint firstItem="1eb-R1-LtD" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="89" id="pfQ-g8-QIN"/>
+                            <constraint firstAttribute="trailing" secondItem="3og-vC-hJo" secondAttribute="trailing" constant="15" id="x9S-8R-Vdb"/>
+                            <constraint firstAttribute="trailing" secondItem="1eb-R1-LtD" secondAttribute="trailing" constant="15" id="ygK-IC-KIC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="MmI-rT-NAV" secondAttribute="trailing" id="MSN-up-2EQ"/>
+                    <constraint firstItem="MmI-rT-NAV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ejT-TX-VhU"/>
+                    <constraint firstItem="MmI-rT-NAV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kdo-PH-emH"/>
+                    <constraint firstAttribute="bottom" secondItem="MmI-rT-NAV" secondAttribute="bottom" id="x0l-aU-EgW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="1eb-R1-LtD" id="AAx-aB-c4z"/>
+                <outlet property="eventLbl" destination="ELe-7Y-ym5" id="yfJ-7Q-C3M"/>
+                <outlet property="timeLbl" destination="0jw-Rd-E3L" id="lXM-V9-L3a"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="153.01339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="33C8A3">
+            <color red="0.20000000298023224" green="0.7839999794960022" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JoinCallView" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppS-dd-doo">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <connections>
+                        <action selector="clickToNotNow:" destination="iN0-l3-epB" eventType="touchUpInside" id="zBQ-uh-SEb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bsd-mr-OvL" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                    <rect key="frame" x="40" y="89" width="240" height="390"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-vd-Ne9">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="205" id="DOt-xN-1md"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_callstarting" translatesAutoresizingMaskIntoConstraints="NO" id="g7q-Xd-tFI">
+                            <rect key="frame" x="25" y="31" width="190" height="169"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="169" id="hqi-o7-oni"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your call with XXX starts in 30 minutes." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7O-ei-lhB">
+                            <rect key="frame" x="20" y="225" width="200" height="37.5"/>
+                            <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJN-Mg-ThZ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <rect key="frame" x="25" y="317" width="190" height="48"/>
+                            <color key="backgroundColor" name="RedColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="9gP-H4-hrB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                            <state key="normal" title="Join Now">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clickToJoinNow:" destination="iN0-l3-epB" eventType="touchUpInside" id="PfU-Zt-ELU"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Join link is also available on your booking screen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuF-fU-M7A">
+                            <rect key="frame" x="20" y="277.5" width="200" height="28"/>
+                            <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="AppColor"/>
+                    <constraints>
+                        <constraint firstItem="g7q-Xd-tFI" firstAttribute="top" secondItem="Bsd-mr-OvL" secondAttribute="top" constant="31" id="7PT-Og-Zts"/>
+                        <constraint firstItem="XYS-vd-Ne9" firstAttribute="leading" secondItem="Bsd-mr-OvL" secondAttribute="leading" id="Fee-Du-eeC"/>
+                        <constraint firstAttribute="bottom" secondItem="mJN-Mg-ThZ" secondAttribute="bottom" constant="25" id="HBI-ja-gP5"/>
+                        <constraint firstAttribute="height" constant="390" id="JRL-oz-C8k"/>
+                        <constraint firstAttribute="trailing" secondItem="mJN-Mg-ThZ" secondAttribute="trailing" constant="25" id="OcP-Ma-Dur"/>
+                        <constraint firstItem="s7O-ei-lhB" firstAttribute="leading" secondItem="Bsd-mr-OvL" secondAttribute="leading" constant="20" id="R2u-KJ-jPL"/>
+                        <constraint firstAttribute="trailing" secondItem="XYS-vd-Ne9" secondAttribute="trailing" id="UjE-oK-MFR"/>
+                        <constraint firstAttribute="trailing" secondItem="QuF-fU-M7A" secondAttribute="trailing" constant="20" id="XZ5-NC-4yr"/>
+                        <constraint firstItem="g7q-Xd-tFI" firstAttribute="leading" secondItem="Bsd-mr-OvL" secondAttribute="leading" constant="25" id="fxR-iL-9cV"/>
+                        <constraint firstItem="mJN-Mg-ThZ" firstAttribute="leading" secondItem="Bsd-mr-OvL" secondAttribute="leading" constant="25" id="gSk-Ue-yFG"/>
+                        <constraint firstItem="s7O-ei-lhB" firstAttribute="top" secondItem="g7q-Xd-tFI" secondAttribute="bottom" constant="25" id="hmH-gb-Nz6"/>
+                        <constraint firstAttribute="trailing" secondItem="s7O-ei-lhB" secondAttribute="trailing" constant="20" id="mrU-Qw-6U4"/>
+                        <constraint firstAttribute="trailing" secondItem="g7q-Xd-tFI" secondAttribute="trailing" constant="25" id="myS-gt-WWU"/>
+                        <constraint firstItem="QuF-fU-M7A" firstAttribute="leading" secondItem="Bsd-mr-OvL" secondAttribute="leading" constant="20" id="qAI-as-lf4"/>
+                        <constraint firstItem="XYS-vd-Ne9" firstAttribute="top" secondItem="Bsd-mr-OvL" secondAttribute="top" id="syV-IO-D6h"/>
+                        <constraint firstItem="QuF-fU-M7A" firstAttribute="top" secondItem="s7O-ei-lhB" secondAttribute="bottom" constant="15" id="zLJ-Zl-rok"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.60414832746478875" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ppS-dd-doo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4fO-Sb-3FZ"/>
+                <constraint firstItem="Bsd-mr-OvL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="98j-x1-lm2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ppS-dd-doo" secondAttribute="trailing" id="BJd-Xr-sHF"/>
+                <constraint firstItem="ppS-dd-doo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IMm-ex-2L1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bsd-mr-OvL" secondAttribute="trailing" constant="40" id="ShM-sz-aQc"/>
+                <constraint firstItem="Bsd-mr-OvL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gHh-QX-Icg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ppS-dd-doo" secondAttribute="bottom" id="zmP-4R-nUg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="noteLbl" destination="QuF-fU-M7A" id="Ltz-sP-hkH"/>
+                <outlet property="startsTimeLbl" destination="s7O-ei-lhB" id="s85-jI-pb3"/>
+            </connections>
+            <point key="canvasLocation" x="131.25" y="153.16901408450704"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_callstarting" width="220.5" height="155"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedColor">
+            <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

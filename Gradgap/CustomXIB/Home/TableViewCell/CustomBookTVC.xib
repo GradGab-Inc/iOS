@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="128" id="KGk-i7-Jjw" customClass="CustomBookTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-nl-WaV" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <rect key="frame" x="8" y="4" width="304" height="117"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-hp-aTC" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="10" y="12" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="aVA-bz-vo3"/>
+                                    <constraint firstAttribute="height" constant="50" id="cok-nf-mLj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ronita Mukherji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRr-Zx-W0u">
+                                <rect key="frame" x="68" y="18" width="130" height="17.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-op-ox9" customClass="FloatRatingView" customModule="SainiUtils">
+                                <rect key="frame" x="206" y="20" width="90" height="14"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="HSa-HR-czm"/>
+                                    <constraint firstAttribute="height" constant="14" id="itH-Je-H4O"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="ic_star_yellow_outline"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="ic_star_yellow_filled"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devendernath International School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCO-VC-V6N">
+                                <rect key="frame" x="68" y="40.5" width="228" height="14"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="12"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Von-Ga-Rco">
+                                <rect key="frame" x="30" y="70" width="266" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="oiL-ot-LMe"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QAr-fs-K0x">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JCO-VC-V6N" firstAttribute="leading" secondItem="Mca-hp-aTC" secondAttribute="trailing" constant="8" id="6yw-iN-KlI"/>
+                            <constraint firstItem="Von-Ga-Rco" firstAttribute="leading" secondItem="7zb-nl-WaV" secondAttribute="leading" constant="30" id="HHn-fi-s4h"/>
+                            <constraint firstItem="Mca-hp-aTC" firstAttribute="top" secondItem="7zb-nl-WaV" secondAttribute="top" constant="12" id="MRe-kR-Yyf"/>
+                            <constraint firstAttribute="trailing" secondItem="JCO-VC-V6N" secondAttribute="trailing" constant="8" id="TaX-Ph-fZb"/>
+                            <constraint firstItem="uRr-Zx-W0u" firstAttribute="top" secondItem="7zb-nl-WaV" secondAttribute="top" constant="18" id="VjT-Br-pf8"/>
+                            <constraint firstAttribute="trailing" secondItem="Von-Ga-Rco" secondAttribute="trailing" constant="8" id="aSG-1Q-vXQ"/>
+                            <constraint firstItem="uRr-Zx-W0u" firstAttribute="leading" secondItem="Mca-hp-aTC" secondAttribute="trailing" constant="8" id="gDe-yT-7fO"/>
+                            <constraint firstItem="EKo-op-ox9" firstAttribute="leading" secondItem="uRr-Zx-W0u" secondAttribute="trailing" constant="8" id="itt-Ak-Ey4"/>
+                            <constraint firstAttribute="trailing" secondItem="EKo-op-ox9" secondAttribute="trailing" constant="8" id="m8y-sY-9lE"/>
+                            <constraint firstItem="EKo-op-ox9" firstAttribute="centerY" secondItem="uRr-Zx-W0u" secondAttribute="centerY" id="mQq-90-bnn"/>
+                            <constraint firstItem="Von-Ga-Rco" firstAttribute="top" secondItem="Mca-hp-aTC" secondAttribute="bottom" constant="8" id="maL-t1-UHl"/>
+                            <constraint firstItem="JCO-VC-V6N" firstAttribute="top" secondItem="uRr-Zx-W0u" secondAttribute="bottom" constant="5" id="tJ6-5V-hyY"/>
+                            <constraint firstItem="Mca-hp-aTC" firstAttribute="leading" secondItem="7zb-nl-WaV" secondAttribute="leading" constant="10" id="wc5-5N-jbX"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="7zb-nl-WaV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Enm-e0-meG"/>
+                    <constraint firstItem="7zb-nl-WaV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="cuH-Na-phc"/>
+                    <constraint firstAttribute="bottom" secondItem="7zb-nl-WaV" secondAttribute="bottom" constant="4" id="cuq-55-ZFn"/>
+                    <constraint firstAttribute="trailing" secondItem="7zb-nl-WaV" secondAttribute="trailing" constant="8" id="gh9-7X-JrV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="AppColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collegeNameLbl" destination="JCO-VC-V6N" id="lyL-Qk-mKK"/>
+                <outlet property="nameLbl" destination="uRr-Zx-W0u" id="iBA-DK-hWA"/>
+                <outlet property="profileImgView" destination="Mca-hp-aTC" id="8fo-KI-GZd"/>
+                <outlet property="ratingView" destination="EKo-op-ox9" id="APx-4t-nNr"/>
+                <outlet property="timeCollectionView" destination="Von-Ga-Rco" id="FNm-qe-rUO"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="155.02232142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_star_yellow_filled" width="13" height="13"/>
+        <image name="ic_star_yellow_outline" width="14.5" height="14"/>
+        <image name="temp_pro" width="881" height="863"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
