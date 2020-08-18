@@ -15,6 +15,9 @@ class AppModel: NSObject {
     var fcmToken: String = ""
     var token = ""
     var device = "iOS"
+    
+    var majorListArr : [MajorListDataModel] = [MajorListDataModel]()
+    
 }
 
 

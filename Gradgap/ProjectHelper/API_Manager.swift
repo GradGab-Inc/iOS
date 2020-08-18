@@ -42,16 +42,16 @@ public class APIManager {
     }
     
     func getJsonHeaderWithToken() -> [String:String]{
-        return ["Content-Type":"application/json", "Authorization":AppModel.shared.token]
+        return ["Content-Type":"application/json", "Authorization":AppModel.shared.currentUser.accessToken]
     }
     
     func getMultipartHeaderWithToken() -> [String:String]{
-        return ["Content-Type":"multipart/form-data", "Authorization":AppModel.shared.token]
+        return ["Content-Type":"multipart/form-data", "Authorization":AppModel.shared.currentUser.accessToken]
     }
     
     
     func getx_www_orm_urlencoded() -> [String:String]{
-        return ["Content-Type":"x-www-form-urlencoded", "Authorization":AppModel.shared.token]
+        return ["Content-Type":"x-www-form-urlencoded", "Authorization":AppModel.shared.currentUser.accessToken]
     }
     
     func networkErrorMsg()

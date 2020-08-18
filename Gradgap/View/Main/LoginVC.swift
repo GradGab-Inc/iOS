@@ -89,13 +89,23 @@ class LoginVC: UIViewController {
 }
 
 //MARK: - LoginDelegate
-extension LoginVC: LoginDelegate{
+extension LoginVC: LoginDelegate {
     func didRecieveLoginResponse(response: LoginResponse) {
         log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
         setLoginUserData(response.data!.self)
         setIsUserLogin(isUserLogin: true)
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = response.data
-        AppDelegate().sharedDelegate().navigateToDashBoard()
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 3 {
+            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }        
     }
 }

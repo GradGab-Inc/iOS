@@ -1112,7 +1112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="715"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UJz-E5-mqg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_background_home" translatesAutoresizingMaskIntoConstraints="NO" id="UJz-E5-mqg">
                                 <rect key="frame" x="0.0" y="20" width="320" height="656"/>
                                 <color key="backgroundColor" name="LightColor"/>
                             </imageView>
@@ -1621,6 +1621,7 @@ prospective students.</string>
         <image name="ic_Signup_parent" width="213.5" height="160.5"/>
         <image name="ic_apple" width="16.5" height="20.5"/>
         <image name="ic_backarrow" width="11" height="17"/>
+        <image name="ic_background_home" width="375" height="710"/>
         <image name="ic_contactnumber" width="16" height="16"/>
         <image name="ic_email" width="15" height="10"/>
         <image name="ic_emailverify" width="131" height="150.5"/>
