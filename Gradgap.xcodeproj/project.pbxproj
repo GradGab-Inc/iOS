@@ -43,6 +43,9 @@
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */; };
+		8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CD7724EBDAC80079E7CB /* SchoolListView.xib */; };
+		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
@@ -196,6 +199,9 @@
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
+		8825CD7724EBDAC80079E7CB /* SchoolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolListView.xib; sourceTree = "<group>"; };
+		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
@@ -577,6 +583,7 @@
 				880BB9F624EB8F5F00134D1F /* MajorListViewModel.swift */,
 				880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */,
 				880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */,
+				8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -630,6 +637,8 @@
 				88F4A20D24D973E200C780CB /* JoinCallView.xib */,
 				88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */,
 				88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */,
+				8825CD7724EBDAC80079E7CB /* SchoolListView.xib */,
+				8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */,
 			);
 			path = ReusableComponent;
 			sourceTree = "<group>";
@@ -836,6 +845,7 @@
 				88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
 				88F261C024E155EC009EECE3 /* Profile.storyboard in Resources */,
+				8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */,
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
 				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
@@ -1005,9 +1015,11 @@
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
+				8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */,
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
+				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,
 				FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */,
 				880BB9FD24EB957D00134D1F /* SchoolSearchListViewModel.swift in Sources */,
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,

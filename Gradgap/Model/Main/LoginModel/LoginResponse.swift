@@ -27,8 +27,8 @@ struct LoginResponse: Codable {
 
 // MARK: - UserDataModel
 struct UserDataModel: Codable {
-    let accessToken: String
-    let user: User?
+    var accessToken: String
+    var user: User?
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -48,7 +48,7 @@ struct User: Codable {
     let lastName, image: String
     let userType, studyingIn, anticipateYear: Int
     let scoreSAT: Double
-    let scoreACT, gpa: Int
+    let scoreACT, gpa: Double
     let ethnicity: String
     let subjects: [Int]
     let bio, major, otherLanguage, id: String
@@ -71,8 +71,8 @@ struct User: Codable {
         studyingIn = try values.decodeIfPresent(Int.self, forKey: .studyingIn) ?? DocumentDefaultValues.Empty.int
         anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? DocumentDefaultValues.Empty.int
         scoreSAT = try values.decodeIfPresent(Double.self, forKey: .scoreSAT) ?? DocumentDefaultValues.Empty.double
-        scoreACT = try values.decodeIfPresent(Int.self, forKey: .scoreACT) ?? DocumentDefaultValues.Empty.int
-        gpa = try values.decodeIfPresent(Int.self, forKey: .gpa) ?? DocumentDefaultValues.Empty.int
+        scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? DocumentDefaultValues.Empty.double
+        gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? DocumentDefaultValues.Empty.double
         ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? DocumentDefaultValues.Empty.string
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? DocumentDefaultValues.Empty.string
@@ -91,8 +91,8 @@ struct User: Codable {
         studyingIn = DocumentDefaultValues.Empty.int
         anticipateYear = DocumentDefaultValues.Empty.int
         scoreSAT = DocumentDefaultValues.Empty.double
-        scoreACT = DocumentDefaultValues.Empty.int
-        gpa = DocumentDefaultValues.Empty.int
+        scoreACT = DocumentDefaultValues.Empty.double
+        gpa = DocumentDefaultValues.Empty.double
         ethnicity = DocumentDefaultValues.Empty.string
         subjects = []
         bio = DocumentDefaultValues.Empty.string

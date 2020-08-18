@@ -121,99 +121,79 @@ public class APIManager {
     }
     
     //MARK:- MULTIPART_IS_COOL
-    func MULTIPART_IS_COOL(_ imageData : Data,param: [String: Any],api: String,login: Bool, _ completion: @escaping (_ dictArr: Data?) -> Void){
-        if !APIManager.isConnectedToNetwork()
-        {
-            APIManager().networkErrorMsg()
-            return
-        }
-        
-        DispatchQueue.main.async {
-            UIViewController.top?.view.sainiShowLoader(loaderColor: AppColors.LoaderColor)
-        }
-        var headerParams :[String : String] = [String : String]()
-        if login == true{
-            headerParams = getMultipartHeaderWithToken()
-        }
-        else{
-            headerParams = getMultipartHeader()
-        }
-        var params :[String : Any] = [String : Any] ()
-        
-        params["data"] = toJson(param)//Converting Array into JSON Object
-        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-        log.info("PARAMS: \(Log.stats()) \(params)")/
-        
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
-            for (key, value) in params {
-                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-            }
-            if imageData.count != 0
-            {
-                multipartFormData.append(imageData, withName: "image", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
-            }
-        }, usingThreshold: UInt64.init(), to: api, method: .post
-        , headers: headerParams) { (result) in
-            switch result{
-            case .success(let upload, _, _):
-                
-                upload.uploadProgress(closure: { (Progress) in
-                    log.inprocess("Upload Progress: \(Progress.fractionCompleted)")/
-                })
-                upload.responseJSON { response in
-                    
-                    DispatchQueue.main.async {
-                        UIViewController.top?.view.sainiRemoveLoader()
-                    }
-                    
-                    log.result("\(String(describing: response.result.value))")/
-                    log.ln("prettyJSON Start \n")/
-                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
-                    log.ln("prettyJSON End \n")/
-                    if let result = response.result.value as? [String:Any]{
-                        if let code = result["code"] as? Int{
-                            if(code == 100){
-                                if login == true{
-                                    log.success("\(Log.stats()) User Logged In Successfully!")/
-                                }
-                                else{
-                                    log.success("\(Log.stats()) User register Successfully!")/
-                                }
-                                DispatchQueue.main.async {
-                                    completion(response.data)
-                                }
-                                return
-                            }
-                            else{
-                                if let message = result["message"] as? String{
-                                    log.error("\(Log.stats()) \(message)")/
-                                    UIViewController.top?.view.sainiShowToast(message:message)
-                                }
-                                return
-                            }
-                        }
-                        if let message = result["message"] as? String{
-                            log.error("\(Log.stats()) \(message)")/
-                            UIViewController.top?.view.sainiShowToast(message:message)
-                            return
-                        }
-                    }
-                    if let error = response.result.error
-                    {
-                        log.error("\(Log.stats()) \(error)")/
-                        UIViewController.top?.view.sainiShowToast(message:error.localizedDescription)
-                        return
-                    }
-                }
-                
-            case .failure(let error):
-                
-                log.error("\(Log.stats()) \(error)")/
-                UIViewController.top?.view.sainiShowToast(message:"Server Error please check server logs.")
-                break
-            }
-        }
-    }
+     func MULTIPART_IS_COOL(_ imageData : Data,param: [String: Any],api: String,login: Bool, fileName:String,_ completion: @escaping (_ dictArr: Data?) -> Void){
+         if !APIManager.isConnectedToNetwork()
+         {
+             APIManager().networkErrorMsg()
+             return
+         }
+         
+         DispatchQueue.main.async {
+             showLoader()
+         }
+         var headerParams :[String : String] = [String : String]()
+         if login == true {
+             headerParams = getMultipartHeaderWithToken()
+         }
+         else{
+             headerParams = getMultipartHeader()
+         }
+         var params :[String : Any] = [String : Any] ()
+         
+         params["data"] = toJson(param)//Converting Array into JSON Object
+         log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+         log.info("PARAMS: \(Log.stats()) \(params)")/
+         
+         Alamofire.upload(multipartFormData: { (multipartFormData) in
+             for (key, value) in params {
+                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+             }
+             if imageData.count != 0
+             {
+                 multipartFormData.append(imageData, withName: fileName, fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
+             }
+         }, usingThreshold: UInt64.init(), to: api, method: .post
+         , headers: headerParams) { (result) in
+             switch result{
+             case .success(let upload, _, _):
+                 
+                 upload.uploadProgress(closure: { (Progress) in
+                     log.inprocess("Upload Progress: \(Progress.fractionCompleted)")/
+                 })
+                 upload.responseJSON { response in
+                     
+                     DispatchQueue.main.async {
+                         removeLoader()
+                     }
+                     
+                     log.result("\(String(describing: response.result.value))")/
+                     log.ln("prettyJSON Start \n")/
+                     log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
+                     log.ln("prettyJSON End \n")/
+                     switch response.result{
+                     case .success:
+                         log.result("\(String(describing: response.result.value))")/
+                         log.ln("prettyJSON Start \n")/
+                         log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
+                         log.ln("prettyJSON End \n")/
+                         DispatchQueue.main.async {
+                             completion(response.data)
+                         }
+                     case .failure(let error):
+                         log.error("\(Log.stats()) \(error)")/
+                         
+                         break
+                     }
+                 }
+                 
+             case .failure(let error):
+                 
+                 log.error("\(Log.stats()) \(error)")/
+                 
+                 break
+             }
+         }
+     }
     
     //MARK: - CREATE_VIDEO_POST
     func CREATE_VIDEO_POST(_ videoData : Data,param: [String: Any],api: String,login: Bool, _ completion: @escaping (_ dictArr: Data?) -> Void){

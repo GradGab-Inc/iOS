@@ -50,4 +50,10 @@ struct MajorListDataModel: Codable {
         shortName = try values.decodeIfPresent(String.self, forKey: .shortName) ?? ""
     }
     
+    init() {
+        id = ""
+        name = ""
+        shortName = ""
+    }
+    
 }

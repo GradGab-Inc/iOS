@@ -74,7 +74,7 @@ class MentorHomeVC: UIViewController {
     }
     
     @IBAction func clickToCompleteProfile(_ sender: Any) {
-        completeProfileBackView.isHidden = false
+        completeProfileBackView.isHidden = true
     }
     
     deinit {

@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class QuestionListVC: UIViewController {
+class QuestionListVC: UIViewController, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var startingSchoolTxt: UITextField!
@@ -20,6 +20,12 @@ class QuestionListVC: UIViewController {
     @IBOutlet weak var actTxt: UITextField!
     @IBOutlet weak var gpaTxt: UITextField!
     
+    let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
+    var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
+    
+    var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
+    var selectedMajor : MajorListDataModel = MajorListDataModel.init()
+    var selectedLanguage : MajorListDataModel = MajorListDataModel.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +43,9 @@ class QuestionListVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
-        
+        listVC.delegate = self
+        profileUpadateVM.delegate = self
     }
-    
     
     //MARK: - Button Click
     @objc func clickToBack(_ sender: Any) {
@@ -47,7 +53,8 @@ class QuestionListVC: UIViewController {
     }
     
     @IBAction func clickToSelectStartingSchool(_ sender: Any) {
-        DatePickerManager.shared.showPicker(title: "Select School", selected: "91", strings: ["ABC","XYZ"]) { [weak self](school, index, success) in
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Year", selected: "2020", strings: graduationYear) { [weak self](school, index, success) in
             if school != nil {
                 self?.startingSchoolTxt.text = school
             }
@@ -56,25 +63,90 @@ class QuestionListVC: UIViewController {
     }
     
     @IBAction func clickToPlanedMajor(_ sender: Any) {
-        DatePickerManager.shared.showPicker(title: "Select School", selected: "91", strings: ["ABC","XYZ"]) { [weak self](school, index, success) in
-            if school != nil {
-                self?.startingSchoolTxt.text = school
-            }
-            self?.view.endEditing(true)
-        }
+        self.view.endEditing(true)
+        displaySubViewtoParentView(self.view, subview: listVC)
+        listVC.flag = 1
+        listVC.setUp()
+        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSeelctLanguage(_ sender: Any) {
-        
+        self.view.endEditing(true)
+        displaySubViewtoParentView(self.view, subview: listVC)
+        listVC.flag = 2
+        listVC.setUp()
+        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.view.endEditing(true)
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+        
+        guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text else {
+            return
+        }
+        if school.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if major.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if language.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if identift.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if sat.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if act.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else if gpa.trimmed.count == 0 {
+            displayToast("Please enter stsrting year")
+        }
+        else {
+            var schoolArr : [String] = [String]()
+            for item in selectedSchoolListArr {
+                schoolArr.append(item.id)
+            }
+
+            let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: true)
+            profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+        }
+    }
+    
+    func getSelectedMajorArray(_ selectedData: MajorListDataModel) {
+        majorTxt.text = selectedData.name
+        selectedMajor = selectedData
+    }
+    
+    func getSelectedLanguageArray(_ selectedData: MajorListDataModel) {
+        languageTxt.text = selectedData.name
+        selectedLanguage = selectedData
     }
     
     deinit {
         log.success("QuestionListVC Memory deallocated!")/
     }
     
+}
+
+
+extension QuestionListVC : ProfileUpdateSuccessDelegate {
+    func didReceivedData(response: LoginResponse) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        setLoginUserData(response.data!.self)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

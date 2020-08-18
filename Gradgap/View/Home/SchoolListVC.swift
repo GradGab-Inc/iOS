@@ -53,6 +53,10 @@ class SchoolListVC: UIViewController {
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
+        interetedLbl.sainiAddTapGesture {
+            let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            openUrlInSafari(strUrl: url!)
+        }
         
         schoolListVM.delegate = self
         
@@ -82,8 +86,14 @@ class SchoolListVC: UIViewController {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-        let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        openUrlInSafari(strUrl: url!)
+        if selectedSchoolListArr.count != 0 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
+            vc.selectedSchoolListArr = selectedSchoolListArr
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            displayToast("Please select school")
+        }
     }
 
     deinit {

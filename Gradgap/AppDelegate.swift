@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                else if AppModel.shared.currentUser.user?.userType == 3 {
 //                    navigateToLogin()
 //                }
-                getMajorList()
             }
         }
         else {
@@ -155,12 +154,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func getMajorList() {
-        var majorListVM : MajorListViewModel = MajorListViewModel()
-        majorListVM.delegate = self
-        majorListVM.majorList()
-    }
-    
     //MARK:- AppDelegate Method
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -205,9 +198,3 @@ extension UIApplication {
 }
 
 
-extension AppDelegate : MajorListSuccessDelegate {
-    func didReceivedData(response: MajorListModel) {
-        AppModel.shared.majorListArr = response.data
-        
-    }
-}

@@ -22,6 +22,7 @@ let CLIENT_ID = "89503098735-s5d2ik5ah6i3ei60r113rtt9th706gh3.apps.googleusercon
 let GOOGLE_PLACE_ID = "AIzaSyBAW5TIjkcjxUUuY37NTtcDJSXyzXXqVSw"
 
 let weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+let graduationYear = ["2020", "2021",  "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2035"]
 
 struct SCREEN
 {

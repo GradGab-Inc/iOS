@@ -17,6 +17,7 @@ class AppModel: NSObject {
     var device = "iOS"
     
     var majorListArr : [MajorListDataModel] = [MajorListDataModel]()
+    var languageListArr : [MajorListDataModel] = [MajorListDataModel]()
     
 }
 

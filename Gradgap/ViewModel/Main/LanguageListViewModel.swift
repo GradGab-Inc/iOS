@@ -11,7 +11,7 @@ import SainiUtils
 
 
 protocol LanguageListSuccessDelegate {
-    func didReceivedData(response: MajorListModel)
+    func didReceivedLanguageData(response: MajorListModel)
 }
 
 struct LanguageListViewModel {
@@ -25,7 +25,7 @@ struct LanguageListViewModel {
                         let success = try JSONDecoder().decode(MajorListModel.self, from: response!) // decode the response into success model
                         switch success.code {
                         case 100:
-                            self.delegate?.didReceivedData(response: success)
+                            self.delegate?.didReceivedLanguageData(response: success)
                             break
                         default:
                             log.error("\(Log.stats()) \(success.message)")/
