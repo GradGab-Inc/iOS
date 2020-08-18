@@ -127,7 +127,7 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = response.data
         
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
