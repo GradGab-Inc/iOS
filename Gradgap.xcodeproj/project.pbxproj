@@ -42,6 +42,16 @@
 		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
+		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
+		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
+		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
+		8822682824ED23D600E88254 /* AvailabilityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682724ED23D600E88254 /* AvailabilityRequest.swift */; };
+		8822682A24ED2F1500E88254 /* SetFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */; };
+		8822682C24ED305E00E88254 /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */; };
+		8822682E24ED316A00E88254 /* FavoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682D24ED316A00E88254 /* FavoriteListModel.swift */; };
+		8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */; };
+		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
+		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
 		8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */; };
 		8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CD7724EBDAC80079E7CB /* SchoolListView.xib */; };
@@ -199,6 +209,16 @@
 		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
+		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
+		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
+		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
+		8822682724ED23D600E88254 /* AvailabilityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityRequest.swift; sourceTree = "<group>"; };
+		8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetFavoriteViewModel.swift; sourceTree = "<group>"; };
+		8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
+		8822682D24ED316A00E88254 /* FavoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModel.swift; sourceTree = "<group>"; };
+		8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookingViewModel.swift; sourceTree = "<group>"; };
+		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
+		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
 		8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
 		8825CD7724EBDAC80079E7CB /* SchoolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolListView.xib; sourceTree = "<group>"; };
@@ -385,8 +405,8 @@
 				88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */,
 				88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */,
 				88FAB29724E2B5BB0060D577 /* StudentEnrollVC.swift */,
-				88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */,
 				88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */,
+				88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */,
 				88F56D5F24E50DB400C25DCA /* SetAvailabilityVC.swift */,
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
@@ -428,6 +448,12 @@
 			isa = PBXGroup;
 			children = (
 				882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */,
+				8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */,
+				8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */,
+				8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */,
+				8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */,
+				8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */,
+				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -435,6 +461,10 @@
 		882AF39524ED028000DCB5AB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8822683124ED3B0700E88254 /* BookingRequest.swift */,
+				8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */,
+				8822682724ED23D600E88254 /* AvailabilityRequest.swift */,
+				8822682D24ED316A00E88254 /* FavoriteListModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -951,13 +981,17 @@
 				88FE979724E3BC84007A9352 /* CalenderDateListVC.swift in Sources */,
 				88F4A21324D986DB00C780CB /* BookChatCVC.swift in Sources */,
 				88AEE8B024D15A78002225E9 /* TextField.swift in Sources */,
+				8822682E24ED316A00E88254 /* FavoriteListModel.swift in Sources */,
+				8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
+				8822682824ED23D600E88254 /* AvailabilityRequest.swift in Sources */,
 				88FAB29624E29F9C0060D577 /* EditProfileVC.swift in Sources */,
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
 				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
+				8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */,
 				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */,
 				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
@@ -965,6 +999,7 @@
 				FA44303C24EA9A5E00AC9CF2 /* LoginResponse.swift in Sources */,
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
+				8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */,
 				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
@@ -993,9 +1028,11 @@
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,
+				8822682A24ED2F1500E88254 /* SetFavoriteViewModel.swift in Sources */,
 				88862EB524E6699800533CBA /* TransactionVC.swift in Sources */,
 				88FA2E4A24E64DC0000C67CE /* ApplyCouponVC.swift in Sources */,
 				88FA2E4D24E64E40000C67CE /* CouponTVC.swift in Sources */,
+				8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
@@ -1008,12 +1045,14 @@
 				88AEE8B124D15A78002225E9 /* TextView.swift in Sources */,
 				88AEE8B324D15A78002225E9 /* Button.swift in Sources */,
 				88AEE8B524D15A78002225E9 /* GlobalConstant.swift in Sources */,
+				8822682C24ED305E00E88254 /* FavoriteListViewModel.swift in Sources */,
 				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88862EAF24E6612600533CBA /* HelpVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
 				888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */,
 				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
+				8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */,
 				880BB9F924EB922400134D1F /* MajorListModel.swift in Sources */,
 				88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
@@ -1034,6 +1073,7 @@
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
+				8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
 				8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */,
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,

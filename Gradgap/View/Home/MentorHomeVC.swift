@@ -62,8 +62,8 @@ class MentorHomeVC: UIViewController {
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToNextMonth(_ sender: Any) {
@@ -140,6 +140,10 @@ extension MentorHomeVC : FSCalendarDelegate {
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
         }
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "CalenderDateListVC") as! CalenderDateListVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {

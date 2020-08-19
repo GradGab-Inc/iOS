@@ -31,6 +31,7 @@ struct API {
         static let set                    = BASE_URL + "availability/set"
         static let mentorList             = BASE_URL + "availability/mentorList"
         static let delete                 = BASE_URL + "availability/delete"
+        static let update                 = BASE_URL + "availability/update"
     }
     
     struct FAVOURITES {
@@ -75,6 +76,7 @@ struct GCD{
         static let set = DispatchQueue(label: "com.app.AVAILABILITY_set", qos: .background, attributes: .concurrent)    //2
         static let mentorList = DispatchQueue(label: "com.app.AVAILABILITY_mentorList", qos: .utility, attributes: .concurrent) //3
         static let delete = DispatchQueue(label: "com.app.AVAILABILITY_delete", qos: .background, attributes: .concurrent)  //4
+        static let update = DispatchQueue(label: "com.app.AVAILABILITY_update", qos: .background, attributes: .concurrent)  //5
     }
     
     struct FAVOURITES {

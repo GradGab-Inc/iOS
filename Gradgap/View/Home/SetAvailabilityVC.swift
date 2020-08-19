@@ -15,6 +15,9 @@ class SetAvailabilityVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
     
+    var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
+    var arr = ["Chat","Interview Prep","Virtual Tour"]
+    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     var setCount : Int = 0
     
     override func viewDidLoad() {
@@ -34,10 +37,15 @@ class SetAvailabilityVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "SetAvailabilityTVC", bundle: nil), forCellReuseIdentifier: "SetAvailabilityTVC")
-       
-        setCount = 1
-        tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        availabilityVM.delegate = self
+        
+        if availabilityListArr.count == 0 {
+            let availability : AvailabilityDataModel = AvailabilityDataModel.init()
+            availabilityListArr.append(availability)
+            setCount = availabilityListArr.count
+            tblView.reloadData()
+            tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        }
     }
     
     //MARK: - Button Click
@@ -46,13 +54,19 @@ class SetAvailabilityVC: UIViewController {
     }
     
     @IBAction func clickToAddNewInterval(_ sender: Any) {
-        setCount = setCount + 1
-        tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        addAvailabilityData()
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
         
+    }
+    
+    func addAvailabilityData() {
+        let availability : AvailabilityDataModel = AvailabilityDataModel.init()
+        availabilityListArr.append(availability)
+        setCount = availabilityListArr.count
+        tblView.reloadData()
+        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
     }
     
     deinit {
@@ -61,11 +75,24 @@ class SetAvailabilityVC: UIViewController {
     
 }
 
+extension SetAvailabilityVC : SetAvailabilityDelegate {
+    func didRecieveSetAvailabilityResponse(response: AvailabiltyListModel) {
+        
+    }
+    
+    func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
+        
+    }
+    
+    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
+        
+    }
+}
 
 //MARK: - TableView Delegate
 extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return setCount
+        return availabilityListArr.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,6 +104,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
+        
+        let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
+        cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
+        cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
+        cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -103,29 +135,36 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectWeek(_ sender : UIButton)  {
-        DatePickerManager.shared.showPicker(title: "Select Week", selected: "91", strings: weekArr) { [weak self](school, index, success) in
-            if school != nil {
-               // self?.startingSchoolTxt.text = school
+        DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
+            if week != nil {
+                self?.availabilityListArr[sender.tag].weekDay = index
+                self?.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
             self?.view.endEditing(true)
         }
     }
     
     @objc func clickToSelectFromTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPicker(title: "Select Time", selected: "91", strings: ["08:00 AM","09:00 AM","10:00 AM"]) { [weak self](school, index, success) in
-            if school != nil {
-               // self?.startingSchoolTxt.text = school
+        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+            if !cancel && date != nil {
+                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                print(finalDate)
+                self.availabilityListArr[sender.tag].startTime = finalDate
+                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
-            self?.view.endEditing(true)
+            self.view.endEditing(true)
         }
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPicker(title: "Select Time", selected: "91", strings: ["08:00 AM","09:00 AM","10:00 AM"]) { [weak self](school, index, success) in
-            if school != nil {
-               // self?.startingSchoolTxt.text = school
+        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+            if !cancel && date != nil {
+                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+                print(finalDate)
+                self.availabilityListArr[sender.tag].endTime = finalDate
+                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
-            self?.view.endEditing(true)
+            self.view.endEditing(true)
         }
     }
     
@@ -135,12 +174,13 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         tblViewHeightConstraint.constant = CGFloat(setCount * 265)
     }
     
+    
 }
 
 //MARK: - CollectionView Delegate
 extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return arr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -149,14 +189,54 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-        cell.lbl.text = "Virtual Tour"
-        
-        cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
-        cell.backView.borderColorTypeAdapter = 0
+        cell.lbl.text = arr[indexPath.row]
+//        cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         cell.backView.cornerRadius = 5
+        
+        if availabilityListArr[indexPath.section].type == indexPath.row + 1 {
+            cell.backView.backgroundColor = RedColor
+        }
+        else {
+            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+        }
+        
+//
+//        if indexPath.row == 0 {
+//            if availabilityListArr[indexPath.section].type == 3 {
+//                cell.backView.backgroundColor = RedColor
+//            }
+//        }
+//        else if indexPath.row == 1 {
+//            if availabilityListArr[indexPath.section].type == 2 {
+//                cell.backView.backgroundColor = RedColor
+//            }
+//        }
+//        else if indexPath.row == 2 {
+//            if availabilityListArr[indexPath.section].type == 1 {
+//                cell.backView.backgroundColor = RedColor
+//            }
+//        }
+//        else {
+//            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+//        }
         
         cell.cancelBtn.isHidden = true
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if indexPath.row == 0 {
+//            self.availabilityListArr[indexPath.section].type = 1
+//        }
+//        else if indexPath.row == 1 {
+//            self.availabilityListArr[indexPath.section].type = 2
+//        }
+//        else if indexPath.row == 2 {
+//            self.availabilityListArr[indexPath.section].type = 3
+//        }
+        self.availabilityListArr[indexPath.section].type = indexPath.row + 1
+        self.tblView.reloadRows(at: [IndexPath(item: indexPath.section, section: 0)], with: .automatic)
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

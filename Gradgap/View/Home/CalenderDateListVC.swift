@@ -13,6 +13,10 @@ class CalenderDateListVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var updateBtn: Button!
+    
+    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
+    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,9 @@ class CalenderDateListVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
+        
+        dateListVM.delegate = self
+        dateListVM.availabilityList()
     }
     
     //MARK: - Button Click
@@ -38,17 +45,35 @@ class CalenderDateListVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func clickToUpdateAvailabilityBack(_ sender: Any) {
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SetAvailabilityVC") as! SetAvailabilityVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     deinit {
         log.success("CalenderDateListVC Memory deallocated!")/
     }
     
 }
 
+extension CalenderDateListVC : AvailabilityListDelegate {
+    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+        availabilityListArr = [AvailabilityDataModel]()
+        availabilityListArr = response.data
+        tblView.reloadData()
+         
+        if availabilityListArr.count == 0 {
+            updateBtn.setTitle("Set Availability", for: .normal)
+        }
+    }
+}
+
 
 //MARK: - TableView Delegate
 extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return timeSloteArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -61,12 +86,14 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if indexPath.row == 1 || indexPath.row == 7 {
-            cell.backView.isHidden = false
-        }
-        else {
-            cell.backView.isHidden = true
-        }
+        cell.timeLbl.text = timeSloteArr[indexPath.row]
+        
+//        if indexPath.row == 1 || indexPath.row == 7 {
+//            cell.backView.isHidden = false
+//        }
+//        else {
+//            cell.backView.isHidden = true
+//        }
         
        return cell
     }

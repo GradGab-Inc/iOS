@@ -816,6 +816,9 @@ schools.</string>
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToUpdateAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="XSw-rS-lW6"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-fU-Gzq">
                                 <rect key="frame" x="0.0" y="68" width="320" height="417"/>
@@ -844,6 +847,7 @@ schools.</string>
                     <connections>
                         <outlet property="navigationBar" destination="6cO-Mp-Ztk" id="xwU-gB-Kow"/>
                         <outlet property="tblView" destination="QrJ-fU-Gzq" id="1qv-cR-a1D"/>
+                        <outlet property="updateBtn" destination="Pe7-3Q-dWw" id="xDe-G4-DqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-yc-rUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -855,7 +859,7 @@ schools.</string>
             <objects>
                 <viewController storyboardIdentifier="MentorBookingDetailVC" id="tCO-4M-tin" customClass="MentorBookingDetailVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zt4-wp-VW5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1050"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qq3-Gr-Rbh" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
@@ -2392,7 +2396,7 @@ schools.</string>
             <objects>
                 <viewController storyboardIdentifier="ConfirmBookingVC" id="Mlc-hK-Nzy" customClass="ConfirmBookingVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYc-3c-gMl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="830"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1we-U8-Bgg" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
@@ -3779,7 +3783,7 @@ schools.</string>
             <objects>
                 <viewController storyboardIdentifier="QuestionListVC" id="bqC-wT-CZf" customClass="QuestionListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EUt-qB-MDW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="950"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Xv-wwr" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">

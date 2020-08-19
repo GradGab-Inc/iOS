@@ -526,29 +526,23 @@ func getCountryList(_ type : Int) -> [String]
     return [String]()
 }
 
-func setUpAddressData(_ address : String,_ city : String,_ country : String) -> String {
-    if address != "" && city != "" && country != "" {
-        return "\(address), \(city), \(country)"
-    }
-    else if address != "" && city == "" && country == "" {
-        return "\(address)"
-    }
-    else if address == "" && city != "" && country == "" {
-        return "\(city)"
-    }
-    else if address == "" && city == "" && country != "" {
-        return "\(country)"
-    }
-    else if address == "" && city != "" && country != "" {
-        return "\(city), \(country)"
-    }
-    else if address != "" && city == "" && country != "" {
-        return "\(address), \(country)"
-    }
-    else if address != "" && city != "" && country == "" {
-        return "\(address), \(city)"
-    }
-    else {
+func getWeekDay(_ tag : Int) -> String {
+    switch tag {
+    case 0:
+        return "Sunday"
+    case 1:
+        return "Monday"
+    case 2:
+        return "Tuesday"
+    case 3:
+        return "Wednesday"
+    case 4:
+        return "Thursday"
+    case 5:
+        return "Friday"
+    case 6:
+        return "Saturday"
+    default:
         return ""
     }
 }
