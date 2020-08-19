@@ -31,7 +31,8 @@ class PersonalProfileVC: UIViewController {
     var countArr = ["1 of 4","2 of 4","3 of 4","4 of 4"]
     
     var currentQurstion : Int = 0
-    
+    var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
+    var selectedIndex : [Int] = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,8 @@ class PersonalProfileVC: UIViewController {
         progressView.progress = 0.0
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
         percentLbl.text = "0%"
+        
+        profileUpadateVM.delegate = self
     }
     
     
@@ -110,5 +113,21 @@ class PersonalProfileVC: UIViewController {
     deinit {
         log.success("PersonalProfileVC Memory deallocated!")/
     }
-    
+}
+
+
+extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
+    func didReceivedData(response: LoginResponse) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data!.user
+        setLoginUserData(userData)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

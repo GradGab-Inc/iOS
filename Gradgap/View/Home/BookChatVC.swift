@@ -50,8 +50,8 @@ class BookChatVC: UIViewController {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {

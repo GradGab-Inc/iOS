@@ -13,7 +13,7 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var sidemenuTbl: UITableView!
     
-    var isMentor : Bool = false
+    var isMentor : Bool = AppModel.shared.currentUser.user?.userType == 1 ? false : true
     
     var arr = [SIDEMENU_DATA.PROFILE, SIDEMENU_DATA.NOTI, SIDEMENU_DATA.BOOKING, SIDEMENU_DATA.FAVORITE, SIDEMENU_DATA.TRANSACTION,SIDEMENU_DATA.PAY_METHODE, SIDEMENU_DATA.REFER_FRIEND, SIDEMENU_DATA.SETTING]
     var img = ["ic_profile_hm", "ic_notifications", "ic_bookings_hm", "ic_favorites_hm", "ic_myearnings_hm", "ic_paymentmethod_hm", "ic_refer_hm", "ic_settings_hm"]

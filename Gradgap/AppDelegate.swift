@@ -30,8 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 AppModel.shared.currentUser = UserDataModel.init()
                 AppModel.shared.currentUser = getLoginUserData()!
                 print(AppModel.shared.currentUser)
+                
+                AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+                
+//                if AppModel.shared.currentUser.user?.userType == 1 {
+//                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+//                }
+//                else if AppModel.shared.currentUser.user?.userType == 2 {
+//                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+//                }
+//                else if AppModel.shared.currentUser.user?.userType == 3 {
+//                    navigateToLogin()
+//                }
             }
-            navigateToDashBoard()
         }
         else {
             AppModel.shared.currentUser = UserDataModel.init()
@@ -85,13 +96,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK:- Navigate To Dashboard
-    func navigateToDashBoard()
+    func navigateToMenteeDashBoard()
     {
         let rootVC: MFSideMenuContainerViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
         container = rootVC
         var navController: UINavigationController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "DashboardVCNav") as! UINavigationController
         if #available(iOS 9.0, *) {
             let vc : HomeVC = STORYBOARD.HOME.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            navController = UINavigationController(rootViewController: vc)
+            navController.isNavigationBarHidden = true
+            
+            let leftSideMenuVC: UIViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SideMenuContentVC")
+            container.menuWidth = 300
+            container.panMode = MFSideMenuPanModeSideMenu
+            container.menuSlideAnimationEnabled = false
+            container.leftMenuViewController = leftSideMenuVC
+            container.centerViewController = navController
+            
+            container.view.layer.masksToBounds = false
+            container.view.layer.shadowOffset = CGSize(width: 10, height: 10)
+            container.view.layer.shadowOpacity = 0.5
+            container.view.layer.shadowRadius = 5
+            container.view.layer.shadowColor = UIColor.black.cgColor
+            
+            let rootNavigatioVC : UINavigationController = self.window?.rootViewController
+                as! UINavigationController
+            rootNavigatioVC.pushViewController(container, animated: false)
+        }
+    }
+    
+    func navigateToMentorDashBoard()
+    {
+        let rootVC: MFSideMenuContainerViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MFSideMenuContainerViewController") as! MFSideMenuContainerViewController
+        container = rootVC
+        var navController: UINavigationController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorDashboardNavVC") as! UINavigationController
+        if #available(iOS 9.0, *) {
+            let vc : MentorHomeVC = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorHomeVC") as! MentorHomeVC
             navController = UINavigationController(rootViewController: vc)
             navController.isNavigationBarHidden = true
             
@@ -156,3 +196,5 @@ extension UIApplication {
         return base
     }
 }
+
+

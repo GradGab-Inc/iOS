@@ -23,6 +23,10 @@ class SchoolListVC: UIViewController {
     @IBOutlet weak var interetedLbl: UILabel!
     
     
+    var schoolListVM : SchoolSearchListViewModel = SchoolSearchListViewModel()
+    var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
+    var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,12 +48,17 @@ class SchoolListVC: UIViewController {
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         
         searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
       
         let attributedString = NSMutableAttributedString.init(string: "don't see a school you are interested in? Let us konw")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
+        interetedLbl.sainiAddTapGesture {
+            let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            openUrlInSafari(strUrl: url!)
+        }
+        
+        schoolListVM.delegate = self
         
         schoolListBackView.isHidden = false
         selectedSchoolBackView.isHidden = true
@@ -60,9 +69,13 @@ class SchoolListVC: UIViewController {
         selectedSchoolBackView.isHidden = true
         
         if searchTxt.text?.trimmed != "" {
-            
+            var request = SchoolSearchRequest(text: searchTxt.text ?? "")
+            schoolListVM.schoolSearchList(request: request)
         }
         else {
+            schoolListBackView.isHidden = true
+            selectedSchoolBackView.isHidden = false
+            schoolListArr = [MajorListDataModel]()
             self.tblView.reloadData()
         }
     }
@@ -73,8 +86,14 @@ class SchoolListVC: UIViewController {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-        let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        openUrlInSafari(strUrl: url!)
+        if selectedSchoolListArr.count != 0 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
+            vc.selectedSchoolListArr = selectedSchoolListArr
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            displayToast("Please select school")
+        }
     }
 
     deinit {
@@ -83,10 +102,19 @@ class SchoolListVC: UIViewController {
     
 }
 
+extension SchoolListVC : SchoolSearchListSuccessDelegate {
+    func didReceivedData(response: MajorListModel) {
+        schoolListArr = [MajorListDataModel]()
+        schoolListArr = response.data
+        tblView.reloadData()
+    }
+}
+
+
 //MARK: - TableView Delegate
 extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return schoolListArr.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,10 +127,19 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.answerLbl.text = schoolListArr[indexPath.row].name
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = selectedSchoolListArr.firstIndex { (data) -> Bool in
+            data.id == schoolListArr[indexPath.row].id
+        }
+        if index == nil {
+            selectedSchoolListArr.append(schoolListArr[indexPath.row])
+        }
+        
         schoolListBackView.isHidden = true
         selectedSchoolBackView.isHidden = false
         schoolCollectionView.reloadData()
@@ -113,7 +150,7 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
 //MARK: - CollectionView Delegate
 extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return selectedSchoolListArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -121,7 +158,10 @@ extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, U
             return UICollectionViewCell()
         }
         
+        cell.lbl.text = selectedSchoolListArr[indexPath.row].shortName
+        
         cell.cancelBtn.isHidden = true
+        schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
         return cell
     }
     

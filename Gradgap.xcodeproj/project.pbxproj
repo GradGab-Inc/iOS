@@ -22,6 +22,11 @@
 		8806B5BA24D93A840005FDCE /* BookingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8806B5B924D93A840005FDCE /* BookingListVC.swift */; };
 		8806B5BD24D945500005FDCE /* FilterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8806B5BB24D945500005FDCE /* FilterTVC.swift */; };
 		8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8806B5BC24D945500005FDCE /* FilterTVC.xib */; };
+		880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BB9F624EB8F5F00134D1F /* MajorListViewModel.swift */; };
+		880BB9F924EB922400134D1F /* MajorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BB9F824EB922400134D1F /* MajorListModel.swift */; };
+		880BB9FB24EB941800134D1F /* LanguageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */; };
+		880BB9FD24EB957D00134D1F /* SchoolSearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */; };
+		880BB9FF24EBB41700134D1F /* SchoolListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880BB9FE24EBB41700134D1F /* SchoolListRequest.swift */; };
 		881690DE24D2820E00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */; };
 		881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */; };
 		881690E024D2820E00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */; };
@@ -38,6 +43,9 @@
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */; };
+		8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CD7724EBDAC80079E7CB /* SchoolListView.xib */; };
+		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
@@ -170,6 +178,11 @@
 		8806B5B924D93A840005FDCE /* BookingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingListVC.swift; sourceTree = "<group>"; };
 		8806B5BB24D945500005FDCE /* FilterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTVC.swift; sourceTree = "<group>"; };
 		8806B5BC24D945500005FDCE /* FilterTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTVC.xib; sourceTree = "<group>"; };
+		880BB9F624EB8F5F00134D1F /* MajorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListViewModel.swift; sourceTree = "<group>"; };
+		880BB9F824EB922400134D1F /* MajorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorListModel.swift; sourceTree = "<group>"; };
+		880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewModel.swift; sourceTree = "<group>"; };
+		880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchListViewModel.swift; sourceTree = "<group>"; };
+		880BB9FE24EBB41700134D1F /* SchoolListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListRequest.swift; sourceTree = "<group>"; };
 		881690D024D2820C00EE427E /* MADE Tommy Soft Light Outline PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Light Outline PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690D124D2820C00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Regular PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690D224D2820C00EE427E /* MADE Tommy Soft ExtraBold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft ExtraBold PERSONAL USE.otf"; sourceTree = "<group>"; };
@@ -186,6 +199,9 @@
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
+		8825CD7724EBDAC80079E7CB /* SchoolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolListView.xib; sourceTree = "<group>"; };
+		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
@@ -564,6 +580,10 @@
 				FA44303924EA8CDB00AC9CF2 /* SignUpViewModel.swift */,
 				FA44303D24EA9C9D00AC9CF2 /* LoginViewModel.swift */,
 				88D6F58224EAA9FD00BAD28E /* ResendVerificcationViewModel.swift */,
+				880BB9F624EB8F5F00134D1F /* MajorListViewModel.swift */,
+				880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */,
+				880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */,
+				8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -571,6 +591,8 @@
 		88D6F58124EAA98F00BAD28E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				880BB9F824EB922400134D1F /* MajorListModel.swift */,
+				880BB9FE24EBB41700134D1F /* SchoolListRequest.swift */,
 				FA44303624EA89AB00AC9CF2 /* SetAvailabiltyModel */,
 				FA44303324EA79F900AC9CF2 /* UpdateFavouriteModel */,
 				FA44303024EA798E00AC9CF2 /* UserDetailModel */,
@@ -615,6 +637,8 @@
 				88F4A20D24D973E200C780CB /* JoinCallView.xib */,
 				88F8670324DA6B15002F603C /* ReuseNavigationBar.swift */,
 				88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */,
+				8825CD7724EBDAC80079E7CB /* SchoolListView.xib */,
+				8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */,
 			);
 			path = ReusableComponent;
 			sourceTree = "<group>";
@@ -821,6 +845,7 @@
 				88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
 				88F261C024E155EC009EECE3 /* Profile.storyboard in Resources */,
+				8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */,
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
 				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
@@ -898,6 +923,7 @@
 			files = (
 				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
 				88AEE8D824D1754F002225E9 /* OnboardingCVC.swift in Sources */,
+				880BB9FB24EB941800134D1F /* LanguageListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,
@@ -968,10 +994,13 @@
 				888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */,
 				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
+				880BB9F924EB922400134D1F /* MajorListModel.swift in Sources */,
 				88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
+				880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */,
+				880BB9FF24EBB41700134D1F /* SchoolListRequest.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
 				FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */,
 				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
@@ -986,10 +1015,13 @@
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
+				8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */,
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
+				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,
 				FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */,
+				880BB9FD24EB957D00134D1F /* SchoolSearchListViewModel.swift in Sources */,
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
 				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,

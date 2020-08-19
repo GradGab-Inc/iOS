@@ -16,7 +16,7 @@ class InterestDiscussVC: UIViewController {
     
     var selectedIndex : [Int] = [Int]()
     var InterestArr = [INTERESTARR.INTEREST1, INTERESTARR.INTEREST2, INTERESTARR.INTEREST3, INTERESTARR.INTEREST4, INTERESTARR.INTEREST5, INTERESTARR.INTEREST6, INTERESTARR.INTEREST7, INTERESTARR.INTEREST8, INTERESTARR.INTEREST9, INTERESTARR.INTEREST10, INTERESTARR.INTEREST11, INTERESTARR.INTEREST12, INTERESTARR.INTEREST13, INTERESTARR.INTEREST14, INTERESTARR.INTEREST15]
-    
+    var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class InterestDiscussVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         interestCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
+        
+        profileUpadateVM.delegate = self
     }
     
     
@@ -44,12 +46,21 @@ class InterestDiscussVC: UIViewController {
     }
 
     @IBAction func clickToSelectAll(_ sender: Any) {
-        
+        selectedIndex = [Int]()
+        for i in 0...14 {
+            selectedIndex.append(i + 1)
+        }
+        interestCollectionView.reloadData()
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if selectedIndex.count != 0 {
+            let request = UpdateRequest(subjects: selectedIndex, changeUserType: false)
+            profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+        }
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {
@@ -57,6 +68,23 @@ class InterestDiscussVC: UIViewController {
     }
     
 }
+
+extension InterestDiscussVC : ProfileUpdateSuccessDelegate {
+    func didReceivedData(response: LoginResponse) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data!.user
+        setLoginUserData(userData)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 
 //MARK: - CollectionView Delegate
 extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
@@ -71,7 +99,7 @@ extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.lbl.text = InterestArr[indexPath.row]
         let index = selectedIndex.firstIndex { (data) -> Bool in
-            data == indexPath.row
+            data - 1 == indexPath.row
         }
         if index != nil {
             cell.backView.backgroundColor = RedColor
@@ -87,13 +115,13 @@ extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = selectedIndex.firstIndex { (data) -> Bool in
-            data == indexPath.row
+            data == indexPath.row + 1
         }
         if index != nil {
             selectedIndex.remove(at: index!)
         }
         else {
-            selectedIndex.append(indexPath.row)
+            selectedIndex.append(indexPath.row + 1)
         }
         
         interestCollectionView.reloadData()

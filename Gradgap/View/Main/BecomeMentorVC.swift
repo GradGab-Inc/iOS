@@ -40,7 +40,6 @@ class BecomeMentorVC: UIViewController {
         else {
             
         }
-        
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "WantToMeetVC") as! WantToMeetVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -51,12 +50,13 @@ class BecomeMentorVC: UIViewController {
     }
     
     @IBAction func clickToBecomMentor(_ sender: Any) {
-        
+        AppDelegate().sharedDelegate().navigateToMentorDashBoard()
     }
     
     @IBAction func clickToSignUp(_ sender: Any) {
-        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        parentBackView.isHidden = true
     }
     
     @IBAction func clickToCancel(_ sender: Any) {

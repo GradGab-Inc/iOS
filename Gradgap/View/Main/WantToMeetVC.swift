@@ -21,11 +21,11 @@ class WantToMeetVC: UIViewController {
     
     //MARK: - Button Click
     @IBAction func clickToCollegeStudent(_ sender: Any) {
-        
+        AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
     }
     
     @IBAction func clickToMBAStudent(_ sender: Any) {
-        
+        AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
     }
     
     deinit {
