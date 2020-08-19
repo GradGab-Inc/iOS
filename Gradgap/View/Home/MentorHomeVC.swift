@@ -35,6 +35,13 @@ class MentorHomeVC: UIViewController {
         configUI()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if AppModel.shared.currentUser.user?.userType == 3 {
+            completeProfileBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+        }
+    }
 
     //MARK: - configUI
     func configUI() {
@@ -45,10 +52,6 @@ class MentorHomeVC: UIViewController {
         bookingTblViewHeightConstraint.constant = 234
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
         topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
-        
-        completeProfileBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: completeProfileBackView)
-        
     }
     
     
@@ -74,7 +77,8 @@ class MentorHomeVC: UIViewController {
     }
     
     @IBAction func clickToCompleteProfile(_ sender: Any) {
-        completeProfileBackView.isHidden = true
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "StudentEnrollVC") as! StudentEnrollVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {

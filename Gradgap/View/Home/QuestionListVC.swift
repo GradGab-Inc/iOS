@@ -27,6 +27,9 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     var selectedMajor : MajorListDataModel = MajorListDataModel.init()
     var selectedLanguage : MajorListDataModel = MajorListDataModel.init()
     
+    var selectImg : UIImage = UIImage()
+    var isMentor : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -81,11 +84,6 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
         
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-        
         guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text else {
             return
         }
@@ -115,9 +113,17 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             for item in selectedSchoolListArr {
                 schoolArr.append(item.id)
             }
-
-            let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: true)
-            profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+            
+            if isMentor {
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2)
+                let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
+                profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
+            }
+            else {
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 1)
+                profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+            }
+            
         }
     }
     
@@ -142,9 +148,7 @@ extension QuestionListVC : ProfileUpdateSuccessDelegate {
     func didReceivedData(response: LoginResponse) {
         log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
         setLoginUserData(response.data!.self)
-        setIsUserLogin(isUserLogin: true)
-        setIsSocialUser(isUserLogin: false)
-        AppModel.shared.currentUser = response.data
+        AppModel.shared.currentUser = getLoginUserData()
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
         self.navigationController?.pushViewController(vc, animated: true)

@@ -36,18 +36,22 @@ class SignUpVC: UIViewController {
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
+        self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clickToFacebook(_ sender: Any) {
+        self.view.endEditing(true)
         
     }
     
     @IBAction func clickToApple(_ sender: Any) {
+        self.view.endEditing(true)
         
     }
     
     @IBAction func clickToGoogle(_ sender: Any) {
+        self.view.endEditing(true)
         
     }
     

@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 AppModel.shared.currentUser = getLoginUserData()!
                 print(AppModel.shared.currentUser)
                 
-                AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
                 
 //                if AppModel.shared.currentUser.user?.userType == 1 {
 //                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
 //                }
 //                else if AppModel.shared.currentUser.user?.userType == 3 {
+//                    continueToLogout()
 //                    navigateToLogin()
 //                }
             }
@@ -92,6 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK:- Navigation
     func navigateToLogin() {
         let navigationVC = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SelectLoginVCNav") as! UINavigationController
+        UIApplication.shared.keyWindow?.rootViewController = navigationVC
+    }
+    
+    func navigateToWhoYouAre() {
+        let navigationVC = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SelectWhoYouAreVCNav") as! UINavigationController
         UIApplication.shared.keyWindow?.rootViewController = navigationVC
     }
     
@@ -152,6 +158,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 as! UINavigationController
             rootNavigatioVC.pushViewController(container, animated: false)
         }
+    }
+    
+    func continueToLogout() {
+        removeUserDefaultValues()
+        AppModel.shared.resetAllModel()
+        self.navigateToLogin()
     }
     
     //MARK:- AppDelegate Method

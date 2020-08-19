@@ -30,9 +30,9 @@ class PersonalProfileVC: UIViewController {
     var questionArr = ["1. I get energy from being with others :","2. I prefer to get information from observing rather than explanation :","3. I make decisions based on logic rather than feeling :","4. I prefer to have a set plan rather than “go with the flow” :"]
     var countArr = ["1 of 4","2 of 4","3 of 4","4 of 4"]
     
-    var currentQurstion : Int = 0
+    var currentQuestion : Int = 0
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
-    var selectedIndex : [Int] = [Int]()
+    var selectedIndex : [Int : Int] = [Int : Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class PersonalProfileVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
-        selectQuestion(currentQurstion)
+        selectQuestion(currentQuestion)
         submitBtn.isHidden = true
         bottomProgressBackView.isHidden = false
         progressView.progress = 0.0
@@ -63,21 +63,95 @@ class PersonalProfileVC: UIViewController {
     
     //MARK: - Button Click
     @objc func clickToBack(_ sender: UIButton) {
-        if currentQurstion == 0 {
+        if currentQuestion == 0 {
             self.navigationController?.popViewController(animated: true)
         }
         else {
             submitBtn.isHidden = true
             bottomProgressBackView.isHidden = false
-            currentQurstion = currentQurstion - 1
-            selectQuestion(currentQurstion)
-            let prog : Float = currentQurstion == 3 ? 0.50 : 0.25
-            progressView.progress = progressView.progress - prog
+            currentQuestion = currentQuestion - 1
+            selectQuestion(currentQuestion)
+//            let prog : Float = currentQuestion == 3 ? 0.50 : 0.25
+//            progressView.progress = progressView.progress - prog
+            
+            setupProgress()
             percentLbl.text = String(Int(progressView.progress * 100)) + "%"
+            print(currentQuestion)
+            
+            let index = selectedIndex.firstIndex { (data) -> Bool in
+                data.key == currentQuestion
+            }
+            if index != nil {
+                resetAllBtn()
+                setupSelection(selectedIndex[index!].value)
+            }
+            
         }
     }
 
     @IBAction func clickToSelectAnswer(_ sender: UIButton) {
+        resetAllBtn()
+        sender.isSelected = true
+        
+        print(currentQuestion)
+        if currentQuestion == 3 {
+            submitBtn.isHidden = false
+            bottomProgressBackView.isHidden = true
+            
+            if let value = selectedIndex[currentQuestion] {
+                selectedIndex[currentQuestion] = sender.tag
+            }
+            else {
+                selectedIndex[currentQuestion] = sender.tag
+            }
+        }
+        else {
+            if let value = selectedIndex[currentQuestion] {
+                selectedIndex[currentQuestion] = sender.tag
+            }
+            else {
+                selectedIndex[currentQuestion] = sender.tag
+            }
+            print(selectedIndex)
+            currentQuestion = currentQuestion + 1
+            selectQuestion(currentQuestion)
+            progressView.progress = progressView.progress + 0.25
+            percentLbl.text = String(Int(progressView.progress * 100)) + "%"
+            
+            let index = selectedIndex.firstIndex { (data) -> Bool in
+                data.key == currentQuestion
+            }
+            if index != nil {
+                setupSelection(selectedIndex[index!].value)
+            }
+            
+            
+        }
+    }
+    
+    @IBAction func clickToSubmit(_ sender: Any) {
+        var request : UpdateRequest = UpdateRequest()
+        if let value = selectedIndex[0] {
+            request.energyFromBeingWithOthers = value
+        }
+        if let value = selectedIndex[1] {
+            request.informationFromOthers = value
+        }
+        if let value = selectedIndex[2] {
+            request.decisionOnLogic = value
+        }
+        if let value = selectedIndex[3] {
+            request.goWithFlow = value
+        }
+        profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+    }
+    
+    func selectQuestion(_ index : Int) {
+        numberLbl.text = countArr[index]
+        questionLbl.text = questionArr[index]
+    }
+    
+    func resetAllBtn() {
         firstBtn.isSelected = false
         secondBtn.isSelected = false
         thirdBtn.isSelected = false
@@ -85,29 +159,40 @@ class PersonalProfileVC: UIViewController {
         fifthBtn.isSelected = false
         sixthBtn.isSelected = false
         sevenBtn.isSelected = false
-        
-        sender.isSelected = true
-        
-        print(currentQurstion)
-        if currentQurstion == 3 {
-            submitBtn.isHidden = false
-            bottomProgressBackView.isHidden = true
-        }
-        else {
-            currentQurstion = currentQurstion + 1
-            selectQuestion(currentQurstion)
-            progressView.progress = progressView.progress + 0.25
-            percentLbl.text = String(Int(progressView.progress * 100)) + "%"
+    }
+    
+    func setupSelection(_ tag : Int) {
+        resetAllBtn()
+        switch tag {
+        case 1:
+            firstBtn.isSelected = true
+        case 2:
+            secondBtn.isSelected = true
+        case 3:
+            thirdBtn.isSelected = true
+        case 4:
+            forthBtn.isSelected = true
+        case 5:
+            fifthBtn.isSelected = true
+        case 6:
+            sixthBtn.isSelected = true
+        case 7:
+            sevenBtn.isSelected = true
+        default:
+            break
         }
     }
     
-    @IBAction func clickToSubmit(_ sender: Any) {
-        
-    }
-    
-    func selectQuestion(_ index : Int) {
-        numberLbl.text = countArr[index]
-        questionLbl.text = questionArr[index]
+    func setupProgress() {
+        if currentQuestion == 0 {
+            progressView.progress = 0.25
+        }
+        else if currentQuestion == 1 {
+            progressView.progress = 0.50
+        }
+        else if currentQuestion == 2 {
+            progressView.progress = 0.75
+        }
     }
     
     deinit {
@@ -123,11 +208,8 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         userData.accessToken = AppModel.shared.currentUser.accessToken
         userData.user = response.data!.user
         setLoginUserData(userData)
-        setIsUserLogin(isUserLogin: true)
-        setIsSocialUser(isUserLogin: false)
-        AppModel.shared.currentUser = response.data
+        AppModel.shared.currentUser = getLoginUserData()
         
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

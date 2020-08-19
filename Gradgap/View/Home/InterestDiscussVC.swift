@@ -55,12 +55,12 @@ class InterestDiscussVC: UIViewController {
     
     @IBAction func clickToSubmit(_ sender: Any) {
         if selectedIndex.count != 0 {
-            let request = UpdateRequest(subjects: selectedIndex, changeUserType: false)
+            let request = UpdateRequest(subjects: selectedIndex)
             profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
         }
-        
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        else {
+            displayToast("Please select subject")
+        }
     }
     
     deinit {
@@ -76,9 +76,7 @@ extension InterestDiscussVC : ProfileUpdateSuccessDelegate {
         userData.accessToken = AppModel.shared.currentUser.accessToken
         userData.user = response.data!.user
         setLoginUserData(userData)
-        setIsUserLogin(isUserLogin: true)
-        setIsSocialUser(isUserLogin: false)
-        AppModel.shared.currentUser = response.data
+        AppModel.shared.currentUser = getLoginUserData()
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
         self.navigationController?.pushViewController(vc, animated: true)

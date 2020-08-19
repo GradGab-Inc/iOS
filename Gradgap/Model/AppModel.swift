@@ -19,6 +19,12 @@ class AppModel: NSObject {
     var majorListArr : [MajorListDataModel] = [MajorListDataModel]()
     var languageListArr : [MajorListDataModel] = [MajorListDataModel]()
     
+    func resetAllModel()
+    {
+        currentUser = UserDataModel.init()
+        token = ""
+    }
+    
 }
 
 
