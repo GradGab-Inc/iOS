@@ -8,6 +8,26 @@
 
 import Foundation
 
+struct SetAvailabiltyRequest: Encodable {
+    var availability: [AvailabiltyRequest]
+    var timezone : Int
+}
+
+struct AvailabiltyRequest: Encodable {
+    var startTime: Int?
+    var endTime: Int?
+    var type: Int?
+    var weekDay: Int?
+    
+    init(startTime: Int? = nil,endTime:Int? = nil,type:Int? = nil,weekDay:Int? = nil){
+        
+        self.startTime = startTime
+        self.endTime = endTime
+        self.type = type
+        self.weekDay = weekDay
+    }
+}
+
 
 struct AvailabiltyDeleteRequest: Encodable {
     var availabilityRef: String

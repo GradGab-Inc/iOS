@@ -16,3 +16,20 @@ struct CreateBookingRequest: Encodable {
     var timeSlot: Int
     var callTime: Int
 }
+
+
+struct MentorListRequest: Encodable {
+    var callType: Int?
+    var callTime: String?
+    var dateTime: String?
+    
+    init(callType: Int? = nil,callTime:String? = nil,dateTime:String? = nil) {
+        
+        self.callType = callType
+        self.callTime = callTime
+        self.dateTime = dateTime
+        
+    }
+    
+}
+

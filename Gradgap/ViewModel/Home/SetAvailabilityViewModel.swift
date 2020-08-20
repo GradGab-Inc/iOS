@@ -10,7 +10,7 @@ import Foundation
 import SainiUtils
 
 protocol SetAvailabilityDelegate {
-    func didRecieveSetAvailabilityResponse(response: AvailabiltyListModel)
+    func didRecieveSetAvailabilityResponse(response: SuccessModel)
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel)
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel)
 }
@@ -18,12 +18,12 @@ protocol SetAvailabilityDelegate {
 struct SetAvailabilityViewModel {
     var delegate: SetAvailabilityDelegate?
     
-    func setAvailability(signUpRequest: SignUpRequest) {
+    func setAvailability(request: SetAvailabiltyRequest) {
         GCD.AVAILABILITY.set.async {
-            APIManager.sharedInstance.I_AM_COOL(params: signUpRequest.toJSON(), api: API.AVAILABILITY.set, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.set, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(AvailabiltyListModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveSetAvailabilityResponse(response: success.self)
@@ -40,9 +40,9 @@ struct SetAvailabilityViewModel {
         }
     }
     
-    func deleteAvailability(signUpRequest: AvailabiltyDeleteRequest) {
+    func deleteAvailability(request: AvailabiltyDeleteRequest) {
         GCD.AVAILABILITY.delete.async {
-            APIManager.sharedInstance.I_AM_COOL(params: signUpRequest.toJSON(), api: API.AVAILABILITY.delete, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.delete, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
@@ -62,9 +62,9 @@ struct SetAvailabilityViewModel {
         }
     }
     
-    func updateAvailability(signUpRequest: SignUpRequest) {
+    func updateAvailability(request: SignUpRequest) {
         GCD.AVAILABILITY.update.async {
-            APIManager.sharedInstance.I_AM_COOL(params: signUpRequest.toJSON(), api: API.AVAILABILITY.update, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.update, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(AvailabiltyListModel.self, from: response!) // decode the response into model

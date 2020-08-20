@@ -14,11 +14,11 @@ class SetAvailabilityVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitBtn: Button!
     
     var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
     var arr = ["Chat","Interview Prep","Virtual Tour"]
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
-    var setCount : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +38,8 @@ class SetAvailabilityVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "SetAvailabilityTVC", bundle: nil), forCellReuseIdentifier: "SetAvailabilityTVC")
         availabilityVM.delegate = self
-        
-        if availabilityListArr.count == 0 {
-            let availability : AvailabilityDataModel = AvailabilityDataModel.init()
-            availabilityListArr.append(availability)
-            setCount = availabilityListArr.count
-            tblView.reloadData()
-            tblViewHeightConstraint.constant = CGFloat(setCount * 265)
-        }
+        tblViewHeightConstraint.constant = 0
+        submitBtn.isHidden = true
     }
     
     //MARK: - Button Click
@@ -58,15 +52,40 @@ class SetAvailabilityVC: UIViewController {
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        
+        if availabilityListArr.count != 0 {
+            var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
+            for item in availabilityListArr {
+                var dict : AvailabiltyRequest = AvailabiltyRequest()
+                dict.startTime = getMinuteFromDateString(strDate: item.startTime)
+                dict.endTime = getMinuteFromDateString(strDate: item.endTime)
+                dict.weekDay = item.weekDay
+                dict.type = item.type
+                dictArr.append(dict)
+            }
+            let request = SetAvailabiltyRequest(availability: dictArr, timezone: timeZoneOffsetInMinutes())
+            availabilityVM.setAvailability(request: request)
+        }
     }
     
     func addAvailabilityData() {
-        let availability : AvailabilityDataModel = AvailabilityDataModel.init()
-        availabilityListArr.append(availability)
-        setCount = availabilityListArr.count
-        tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        submitBtn.isHidden = false
+        if let lastData = availabilityListArr.last {
+            if lastData.weekDay == -1 || lastData.startTime == "" || lastData.endTime == "" || lastData.type == 0  {
+                displayToast("Please fill the above data")
+            }
+            else {
+                let availability : AvailabilityDataModel = AvailabilityDataModel.init()
+                availabilityListArr.append(availability)
+                tblView.reloadData()
+                tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+            }
+        }
+        else {
+            let availability : AvailabilityDataModel = AvailabilityDataModel.init()
+            availabilityListArr.append(availability)
+            tblView.reloadData()
+            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+        }
     }
     
     deinit {
@@ -76,8 +95,9 @@ class SetAvailabilityVC: UIViewController {
 }
 
 extension SetAvailabilityVC : SetAvailabilityDelegate {
-    func didRecieveSetAvailabilityResponse(response: AvailabiltyListModel) {
-        
+    func didRecieveSetAvailabilityResponse(response: SuccessModel) {
+        displayToast(response.message)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -106,6 +126,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
+        print(dict)
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
         cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
         cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
@@ -122,11 +143,13 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.deleteBtn.tag = indexPath.row
         cell.deleteBtn.addTarget(self, action: #selector(self.clickToDeleteTime), for: .touchUpInside)
         
+        cell.availableCollectionView.tag = indexPath.row
         cell.availableCollectionView.delegate = self
         cell.availableCollectionView.dataSource = self
         cell.availableCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
+        cell.availableCollectionView.reloadData()
 
-        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
         return cell
     }
     
@@ -169,11 +192,10 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToDeleteTime(_ sender : UIButton) {
-        setCount = setCount - 1
+        availabilityListArr.remove(at: sender.tag)
         tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(setCount * 265)
+        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
     }
-    
     
 }
 
@@ -190,57 +212,25 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
         cell.lbl.text = arr[indexPath.row]
-//        cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         cell.backView.cornerRadius = 5
         
-        if availabilityListArr[indexPath.section].type == indexPath.row + 1 {
+        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
             cell.backView.backgroundColor = RedColor
         }
         else {
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         }
         
-//
-//        if indexPath.row == 0 {
-//            if availabilityListArr[indexPath.section].type == 3 {
-//                cell.backView.backgroundColor = RedColor
-//            }
-//        }
-//        else if indexPath.row == 1 {
-//            if availabilityListArr[indexPath.section].type == 2 {
-//                cell.backView.backgroundColor = RedColor
-//            }
-//        }
-//        else if indexPath.row == 2 {
-//            if availabilityListArr[indexPath.section].type == 1 {
-//                cell.backView.backgroundColor = RedColor
-//            }
-//        }
-//        else {
-//            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
-//        }
-        
         cell.cancelBtn.isHidden = true
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if indexPath.row == 0 {
-//            self.availabilityListArr[indexPath.section].type = 1
-//        }
-//        else if indexPath.row == 1 {
-//            self.availabilityListArr[indexPath.section].type = 2
-//        }
-//        else if indexPath.row == 2 {
-//            self.availabilityListArr[indexPath.section].type = 3
-//        }
-        self.availabilityListArr[indexPath.section].type = indexPath.row + 1
-        self.tblView.reloadRows(at: [IndexPath(item: indexPath.section, section: 0)], with: .automatic)
-        collectionView.reloadData()
+        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
+        tblView.reloadRows(at: [IndexPath(item: collectionView.tag, section: 0)], with: .automatic)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         return CGSize(width: collectionView.frame.size.width/3, height: 45)
     }
     

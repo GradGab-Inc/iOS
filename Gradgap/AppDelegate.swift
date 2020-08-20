@@ -31,18 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 AppModel.shared.currentUser = getLoginUserData()!
                 print(AppModel.shared.currentUser)
                 
-                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+//                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
                 
-//                if AppModel.shared.currentUser.user?.userType == 1 {
-//                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
-//                }
-//                else if AppModel.shared.currentUser.user?.userType == 2 {
-//                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
-//                }
-//                else if AppModel.shared.currentUser.user?.userType == 3 {
-//                    continueToLogout()
-//                    navigateToLogin()
-//                }
+                if AppModel.shared.currentUser.user?.userType == 1 {
+                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+                }
+                else if AppModel.shared.currentUser.user?.userType == 2 {
+                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+                }
+                else if AppModel.shared.currentUser.user?.userType == 3 {
+                    continueToLogout()
+                    navigateToLogin()
+                }
             }
         }
         else {

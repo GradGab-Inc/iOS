@@ -16,7 +16,11 @@ class BookVC: UIViewController {
     @IBOutlet weak var dateBtn: UIButton!
     @IBOutlet weak var noDataLbl: UILabel!
     
+    var selectedType : Int = 1
+    var selectedChatTime : Int = 0
     var selectedDate : Date!
+    var mentorListVM : MentorListViewModel = MentorListViewModel()
+    var mentorListArr : [MentorListDataModel] = [MentorListDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,18 @@ class BookVC: UIViewController {
         dateBtn.setTitle(getDateStringFromDate(date: Date(), format: "EEE MM/dd/YYYY"), for: .normal)
         
         noDataLbl.isHidden = true
+        mentorListVM.delegate = self
+        
+        if selectedType == 1 {
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+        }
+        else if selectedType == 2  {
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: "60", dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+        }
+        else {
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: "45", dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+        }
+        
     }
     
     //MARK: - Button Click
@@ -53,7 +69,7 @@ class BookVC: UIViewController {
         {
             selectedDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: Date(), max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                
@@ -67,6 +83,16 @@ class BookVC: UIViewController {
     }
     
 }
+
+extension BookVC : MentorListDelegate {
+    func didRecieveMentorListResponse(response: MentorListModel) {
+        mentorListArr = [MentorListDataModel]()
+        mentorListArr = response.data
+        tblView.reloadData()
+    }
+}
+
+
 
 //MARK: - TableView Delegate
 extension BookVC : UITableViewDelegate, UITableViewDataSource {

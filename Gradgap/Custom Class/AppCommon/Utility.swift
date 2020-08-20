@@ -547,6 +547,21 @@ func getWeekDay(_ tag : Int) -> String {
     }
 }
 
+func getCallTime(_ tag : Int) -> String {
+    switch tag {
+    case 0:
+        return "15"
+    case 1:
+        return "30"
+    case 2:
+        return "45"
+    case 3:
+        return "60"
+    default:
+        return ""
+    }
+}
+
 //MARK: - Attribute Label
 func setUpAttributeLabel(_ label : UILabel, _ colorText : String, _ simpleText : String)  {
     let string: NSMutableAttributedString = NSMutableAttributedString(string: colorText + simpleText)

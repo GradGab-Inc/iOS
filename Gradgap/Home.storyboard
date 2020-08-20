@@ -1594,6 +1594,7 @@ schools.</string>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="yEw-Nh-BQ8" id="og2-b0-Gu1"/>
+                        <outlet property="submitBtn" destination="9uD-eP-1cI" id="cHG-oe-Mlm"/>
                         <outlet property="tblView" destination="SiM-KK-Qtz" id="rCq-gI-umj"/>
                         <outlet property="tblViewHeightConstraint" destination="DK3-yO-AuL" id="5As-yp-5ib"/>
                     </connections>

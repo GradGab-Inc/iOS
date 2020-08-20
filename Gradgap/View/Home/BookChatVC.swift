@@ -20,7 +20,6 @@ class BookChatVC: UIViewController {
     var timeArr = ["15","30","45","60"]
     var selectedIndex : Int = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +49,10 @@ class BookChatVC: UIViewController {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
+        vc.selectedType = 1
+        vc.selectedChatTime = selectedIndex
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {
