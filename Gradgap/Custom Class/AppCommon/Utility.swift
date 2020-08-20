@@ -547,18 +547,18 @@ func getWeekDay(_ tag : Int) -> String {
     }
 }
 
-func getCallTime(_ tag : Int) -> String {
+func getCallTime(_ tag : Int) -> Int {
     switch tag {
     case 0:
-        return "15"
+        return 15
     case 1:
-        return "30"
+        return 30
     case 2:
-        return "45"
+        return 45
     case 3:
-        return "60"
+        return 60
     default:
-        return ""
+        return 0
     }
 }
 
@@ -583,27 +583,27 @@ extension Data {
 }
 
 //MARK: - downloadCachedImage
-//extension UIImageView {
-//    func downloadCachedImage(placeholder: String,urlString: String) {
-//        self.sainiShowLoader(loaderColor:  #colorLiteral(red: 0.06274509804, green: 0.1058823529, blue: 0.2235294118, alpha: 1))
-//        let options: SDWebImageOptions = [.scaleDownLargeImages, .continueInBackground, .avoidAutoSetImage]
-//        let placeholder = UIImage(named: placeholder)
-//        self.sd_setImage(with: URL(string: API.IMAGE_URL + urlString), placeholderImage: placeholder, options: options) { (image, _, cacheType,_ ) in
-//            self.sainiRemoveLoader()
-//            guard image != nil else {
-//                self.sainiRemoveLoader()
-//                return
-//            }
-//            guard cacheType != .memory, cacheType != .disk else {
-//                self.image = image
-//                self.sainiRemoveLoader()
-//                return
-//            }
-//            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
-//                self.sainiRemoveLoader()
-//                self.image = image
-//                return
-//            }, completion: nil)
-//        }
-//    }
-//}
+extension UIImageView {
+    func downloadCachedImage(placeholder: String,urlString: String) {
+        self.sainiShowLoader(loaderColor:  #colorLiteral(red: 0.06274509804, green: 0.1058823529, blue: 0.2235294118, alpha: 1))
+        let options: SDWebImageOptions = [.scaleDownLargeImages, .continueInBackground, .avoidAutoSetImage]
+        let placeholder = UIImage(named: placeholder)
+        self.sd_setImage(with: URL(string: API.IMAGE_URL + urlString), placeholderImage: placeholder, options: options) { (image, _, cacheType,_ ) in
+            self.sainiRemoveLoader()
+            guard image != nil else {
+                self.sainiRemoveLoader()
+                return
+            }
+            guard cacheType != .memory, cacheType != .disk else {
+                self.image = image
+                self.sainiRemoveLoader()
+                return
+            }
+            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.sainiRemoveLoader()
+                self.image = image
+                return
+            }, completion: nil)
+        }
+    }
+}

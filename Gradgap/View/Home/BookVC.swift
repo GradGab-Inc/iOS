@@ -18,9 +18,9 @@ class BookVC: UIViewController {
     
     var selectedType : Int = 1
     var selectedChatTime : Int = 0
-    var selectedDate : Date!
+    var selectedDate : Date = Date()
     var mentorListVM : MentorListViewModel = MentorListViewModel()
-    var mentorListArr : [MentorListDataModel] = [MentorListDataModel]()
+    var mentorListArr : [MentorSectionModel] = [MentorSectionModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,19 +43,22 @@ class BookVC: UIViewController {
         tblView.register(UINib(nibName: "BookingHeaderTVC", bundle: nil), forCellReuseIdentifier: "BookingHeaderTVC")
         dateBtn.setTitle(getDateStringFromDate(date: Date(), format: "EEE MM/dd/YYYY"), for: .normal)
         
-        noDataLbl.isHidden = true
+        noDataLbl.isHidden = false
         mentorListVM.delegate = self
+        serviceCall()
         
+    }
+    
+    func serviceCall() {
         if selectedType == 1 {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
         }
         else if selectedType == 2  {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: "60", dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
         }
         else {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: "45", dateTime: getDateStringFromDate(date: Date(), format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: 45, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
         }
-        
     }
     
     //MARK: - Button Click
@@ -74,6 +77,7 @@ class BookVC: UIViewController {
                 self.selectedDate = date!
                
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "EEE MM/dd/YYYY"), for: .normal)
+                self.serviceCall()
             }
         }
     }
@@ -86,27 +90,34 @@ class BookVC: UIViewController {
 
 extension BookVC : MentorListDelegate {
     func didRecieveMentorListResponse(response: MentorListModel) {
-        mentorListArr = [MentorListDataModel]()
+        mentorListArr = [MentorSectionModel]()
         mentorListArr = response.data
+        
+        if mentorListArr.count == 0 {
+            noDataLbl.isHidden = false
+        }
+        else {
+            noDataLbl.isHidden = true
+        }
+        
         tblView.reloadData()
     }
 }
 
 
-
 //MARK: - TableView Delegate
 extension BookVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return mentorListArr.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return mentorListArr[section].data.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tblView.dequeueReusableCell(withIdentifier: "BookingHeaderTVC") as! BookingHeaderTVC
-        
+        header.headerLbl.text = mentorListArr[section].id
         return header.contentView
     }
     
@@ -124,43 +135,42 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.timeCollectionView.delegate = self
-        cell.timeCollectionView.dataSource = self
-        cell.timeCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-
-       return cell
+        let dict : MentorListDataModel = mentorListArr[indexPath.section].data[indexPath.row]
+        cell.nameLbl.text = dict.name
+        cell.collegeNameLbl.text = dict.schoolName
+        cell.ratingView.rating = Double(dict.averageRating)
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
         
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-}
+        cell.arrData = dict.availableTimings
+        cell.timeCollectionView.reloadData()
 
-//MARK: - CollectionView Delegate
-extension BookVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollegeCVC", for: indexPath) as? CollegeCVC else {
-            return UICollectionViewCell()
-        }
-
-        cell.lbl.font = UIFont(name: "MADETommySoft", size: 12.0)
-        cell.lbl.text = "11:30 AM"
-        
-        cell.cancelBtn.isHidden = true
         return cell
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: 85, height: 36)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
+        
+        vc.selectedUserId = mentorListArr[indexPath.section].data[indexPath.row].id
+        vc.selectedType = selectedType
+        if selectedType == 1 {
+            vc.selectedCallTime = getCallTime(selectedChatTime)
+        }
+        else if selectedType == 2  {
+            vc.selectedCallTime = 60
+        }
+        else {
+            vc.selectedCallTime = 45
+        }
+        vc.selectedDate = selectedDate
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension BookVC : CustomBookTVCDelegate {
+    func didRecieveCustomBookTVCResponse(_ timeSlote: Int) {
+        
+    }
 }
 

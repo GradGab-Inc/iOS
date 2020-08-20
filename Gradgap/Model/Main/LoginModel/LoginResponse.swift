@@ -123,4 +123,6 @@ struct Personality: Codable {
         goWithFlow = DocumentDefaultValues.Empty.int
         informationFromOthers = DocumentDefaultValues.Empty.int
     }
+    
+    
 }

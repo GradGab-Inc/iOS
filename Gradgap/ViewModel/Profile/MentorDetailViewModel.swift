@@ -1,5 +1,5 @@
 //
-//  MentorListViewModel.swift
+//  MentorDetailViewModel.swift
 //  Gradgap
 //
 //  Created by iMac on 20/08/20.
@@ -9,22 +9,22 @@
 import Foundation
 import SainiUtils
 
-protocol MentorListDelegate {
-    func didRecieveMentorListResponse(response: MentorListModel)
+protocol MentorDetailDelegate {
+    func didRecieveMentorDetailResponse(response: MentorDetailModel)
 }
 
-struct MentorListViewModel {
-    var delegate: MentorListDelegate?
+struct MentorDetailViewModel {
+    var delegate: MentorDetailDelegate?
     
-    func getMentorList(request : MentorListRequest) {
-        GCD.AVAILABILITY.mentorList.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.mentorList, Loader: true, isMultipart: false) { (response) in
+    func getMentorDetail(request : MentorDetailRequest) {
+        GCD.USER.details.async {
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.details, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(MentorListModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(MentorDetailModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
-                            self.delegate?.didRecieveMentorListResponse(response: success.self)
+                            self.delegate?.didRecieveMentorDetailResponse(response: success.self)
                             break
                         default:
                             log.error("\(Log.stats()) \(success.message)")/

@@ -1,0 +1,108 @@
+//
+//  MentorDetailModel.swift
+//  Gradgap
+//
+//  Created by iMac on 20/08/20.
+//  Copyright © 2020 AppKnit. All rights reserved.
+//
+
+import Foundation
+
+// MARK: - Welcome
+struct MentorDetailModel: Codable {
+    let code: Int
+    let message: String
+    let data: MentorData?
+    let format, timestamp: String
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        code = try values.decodeIfPresent(Int.self, forKey: .code) ?? 0
+        message = try values.decodeIfPresent(String.self, forKey: .message) ?? ""
+        data = try values.decodeIfPresent(MentorData.self, forKey: .data) ?? nil
+        format = try values.decodeIfPresent(String.self, forKey: .format) ?? ""
+        timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? ""
+    }
+}
+
+// MARK: - DataClass
+struct MentorData: Codable {
+    let id, firstName, lastName, email: String
+    let image: String
+    let userType, studyingIn, anticipateYear: Int
+    let major: String
+    let scoreSAT, scoreACT, gpa: Int
+    let ethnicity: String
+    let subjects: [Int]
+    let bio, enrollmentID: String
+    let personality: Personality?
+    let schoolName: [String]
+    let averageRating: Int
+    let availableTimings: [Int]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case firstName, lastName, email, image, userType, studyingIn, anticipateYear, major, scoreSAT, scoreACT
+        case gpa = "GPA"
+        case ethnicity, subjects, bio
+        case enrollmentID = "enrollmentId"
+        case personality, schoolName, averageRating, availableTimings
+    }
+    
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
+        firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
+        lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
+        email = try values.decodeIfPresent(String.self, forKey: .email) ?? ""
+        image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
+        major = try values.decodeIfPresent(String.self, forKey: .major) ?? ""
+        userType = try values.decodeIfPresent(Int.self, forKey: .userType) ?? 0
+        studyingIn = try values.decodeIfPresent(Int.self, forKey: .studyingIn) ?? 0
+        anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? 0
+        scoreSAT = try values.decodeIfPresent(Int.self, forKey: .scoreSAT) ?? 0
+        scoreACT = try values.decodeIfPresent(Int.self, forKey: .scoreACT) ?? 0
+        gpa = try values.decodeIfPresent(Int.self, forKey: .gpa) ?? 0
+        subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
+        ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? ""
+        bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
+        enrollmentID = try values.decodeIfPresent(String.self, forKey: .enrollmentID) ?? ""
+        averageRating = try values.decodeIfPresent(Int.self, forKey: .averageRating) ?? 0
+        availableTimings = try values.decodeIfPresent([Int].self, forKey: .availableTimings) ?? []
+        schoolName = try values.decodeIfPresent([String].self, forKey: .schoolName) ?? []
+        personality = try values.decodeIfPresent(Personality.self, forKey: .personality) ?? nil
+        
+    }
+    
+    init() {
+        id = ""
+        firstName = ""
+        lastName = ""
+        email = ""
+        image = ""
+        major = ""
+        userType = 0
+        studyingIn = 0
+        anticipateYear = 0
+        scoreSAT = 0
+        scoreACT = 0
+        gpa = 0
+        subjects = []
+        ethnicity = ""
+        bio = ""
+        enrollmentID = ""
+        averageRating = 0
+        availableTimings = []
+        schoolName = []
+        personality = Personality.init()
+        
+    }
+    
+}
+
+
+
+

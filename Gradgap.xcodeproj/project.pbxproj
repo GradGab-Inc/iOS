@@ -53,6 +53,9 @@
 		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
 		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		8824D90924EE7CA00041F7CE /* MentorDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824D90824EE7CA00041F7CE /* MentorDetailViewModel.swift */; };
+		8824D90B24EE7D7E0041F7CE /* MentorListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */; };
+		8824D90F24EE889C0041F7CE /* MentorDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824D90E24EE889C0041F7CE /* MentorDetailModel.swift */; };
 		8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */; };
 		8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CD7724EBDAC80079E7CB /* SchoolListView.xib */; };
 		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
@@ -222,6 +225,9 @@
 		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		8824D90824EE7CA00041F7CE /* MentorDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorDetailViewModel.swift; sourceTree = "<group>"; };
+		8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListRequest.swift; sourceTree = "<group>"; };
+		8824D90E24EE889C0041F7CE /* MentorDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorDetailModel.swift; sourceTree = "<group>"; };
 		8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
 		8825CD7724EBDAC80079E7CB /* SchoolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolListView.xib; sourceTree = "<group>"; };
 		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
@@ -448,6 +454,22 @@
 			path = CustomFont;
 			sourceTree = "<group>";
 		};
+		8824D90C24EE88460041F7CE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8824D90824EE7CA00041F7CE /* MentorDetailViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8824D90D24EE88590041F7CE /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8824D90E24EE889C0041F7CE /* MentorDetailModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		882AF39224ECF93400DCB5AB /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +493,7 @@
 				8822682724ED23D600E88254 /* AvailabilityRequest.swift */,
 				8822682D24ED316A00E88254 /* FavoriteListModel.swift */,
 				88287A8524EE5A9500745DFB /* MentorListModel.swift */,
+				8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -588,8 +611,9 @@
 		88AEE8CB24D15D1F002225E9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				882AF39224ECF93400DCB5AB /* Home */,
 				88D6F58024EAA95C00BAD28E /* Main */,
+				882AF39224ECF93400DCB5AB /* Home */,
+				8824D90C24EE88460041F7CE /* Profile */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -597,8 +621,9 @@
 		88AEE8CC24D15D27002225E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				882AF39524ED028000DCB5AB /* Home */,
 				88D6F58124EAA98F00BAD28E /* Main */,
+				882AF39524ED028000DCB5AB /* Home */,
+				8824D90D24EE88590041F7CE /* Profile */,
 				FA44302224EA6CE500AC9CF2 /* AppModel.swift */,
 			);
 			path = Model;
@@ -1033,6 +1058,7 @@
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,
 				88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */,
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
+				8824D90B24EE7D7E0041F7CE /* MentorListRequest.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,
 				8822682A24ED2F1500E88254 /* SetFavoriteViewModel.swift in Sources */,
@@ -1080,11 +1106,13 @@
 				88D6F58324EAA9FD00BAD28E /* ResendVerificcationViewModel.swift in Sources */,
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
+				8824D90924EE7CA00041F7CE /* MentorDetailViewModel.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
 				8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */,
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
+				8824D90F24EE889C0041F7CE /* MentorDetailModel.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
 				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,

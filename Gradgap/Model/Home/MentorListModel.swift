@@ -12,7 +12,7 @@ import Foundation
 struct MentorListModel: Codable {
     let code: Int
     let message: String
-    let data: [MentorListDataModel]
+    let data: [MentorSectionModel]
     let page, limit, size: Int
     let hasMore: Bool
     let format, timestamp: String
@@ -22,7 +22,7 @@ struct MentorListModel: Codable {
         
         code = try values.decodeIfPresent(Int.self, forKey: .code) ?? 0
         message = try values.decodeIfPresent(String.self, forKey: .message) ?? ""
-        data = try values.decodeIfPresent([MentorListDataModel].self, forKey: .data) ?? []
+        data = try values.decodeIfPresent([MentorSectionModel].self, forKey: .data) ?? []
         page = try values.decodeIfPresent(Int.self, forKey: .page) ?? 0
         limit = try values.decodeIfPresent(Int.self, forKey: .limit) ?? 0
         size = try values.decodeIfPresent(Int.self, forKey: .size) ?? 0
@@ -32,6 +32,30 @@ struct MentorListModel: Codable {
     }
     
 }
+
+// MARK: - WelcomeDatum
+struct MentorSectionModel: Codable {
+    let id: String
+    let data: [MentorListDataModel]
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case data
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
+        data = try values.decodeIfPresent([MentorListDataModel].self, forKey: .data) ?? []
+    }
+    
+    init() {
+        id = ""
+        data = [MentorListDataModel].init()
+    }
+}
+
 
 // MARK: - Datum
 struct MentorListDataModel: Codable {
