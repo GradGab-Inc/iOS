@@ -12,17 +12,23 @@ import UIKit
 protocol selectedSchoolDelegate {
     func getSelectedMajorArray(_ selectedData : MajorListDataModel)
     func getSelectedLanguageArray(_ selectedData : MajorListDataModel)
+    func getSelectedSchoolArray(_ selectedData : MajorListDataModel)
 }
-
 
 
 class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var searchTxt: UITextField!
+    @IBOutlet weak var searchBackView: View!
+    
     
     var flag : Int = 1
     var isRegisterd : Bool = false
     var delegate : selectedSchoolDelegate?
+    
+    var schoolListVM : SchoolSearchListViewModel = SchoolSearchListViewModel()
+    var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     
     var majorListVM : MajorListViewModel = MajorListViewModel()
     var majorListArr : [MajorListDataModel] = [MajorListDataModel]()
@@ -62,6 +68,7 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         
         if flag == 1 {
+            searchBackView.isHidden = true
             majorListVM.delegate = self
             if majorListArr.count == 0 {
                 majorListVM.majorList()
@@ -72,6 +79,7 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
             }
         }
         else if flag == 2 {
+            searchBackView.isHidden = true
             languageListVM.delegate = self
             if languageListArr.count == 0 {
                 languageListVM.languageList()
@@ -81,7 +89,26 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
                 tblView.reloadData()
             }
         }
+        else if flag == 3 {
+            searchBackView.isHidden = false
+            schoolListVM.delegate = self
+            searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+            listArr = schoolListArr
+            tblView.reloadData()
+        }
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if searchTxt.text?.trimmed != "" {
+            let request = SchoolSearchRequest(text: searchTxt.text ?? "")
+            schoolListVM.schoolSearchList(request: request)
+        }
+        else {
+            schoolListArr = [MajorListDataModel]()
+            self.tblView.reloadData()
+        }
+    }
+    
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -114,6 +141,10 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        printData(indexPath.row)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if flag == 1 {
             delegate?.getSelectedMajorArray(listArr[indexPath.row])
@@ -123,10 +154,14 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
             delegate?.getSelectedLanguageArray(listArr[indexPath.row])
             self.removeFromSuperview()
         }
+        else if flag == 3 {
+            delegate?.getSelectedSchoolArray(listArr[indexPath.row])
+            self.removeFromSuperview()
+        }
     }
 }
 
-extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate {
+extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate, SchoolSearchListSuccessDelegate {
     func didReceivedMajorData(response: MajorListModel) {
         majorListArr = [MajorListDataModel]()
         majorListArr = response.data
@@ -141,5 +176,11 @@ extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate
         tblView.reloadData()
     }
     
+    func didReceivedData(response: MajorListModel) {
+        schoolListArr = [MajorListDataModel]()
+        schoolListArr = response.data
+        listArr = response.data
+        tblView.reloadData()
+    }
 
 }

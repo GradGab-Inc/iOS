@@ -16,7 +16,7 @@ protocol HomeBookingListDelegate {
 struct HomeBookingListViewModel {
     var delegate: HomeBookingListDelegate?
     
-    func createUser(signUpRequest: SignUpRequest) {
+    func getBookingList(signUpRequest: SignUpRequest) {
         GCD.BOOKING.bookingList.async {
             APIManager.sharedInstance.I_AM_COOL(params: signUpRequest.toJSON(), api: API.BOOKING.bookingList, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty

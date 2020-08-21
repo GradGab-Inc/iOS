@@ -21,6 +21,7 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var dateBtn: UIButton!
     @IBOutlet weak var noDataLbl: UILabel!
     @IBOutlet weak var bioLbl: UILabel!
+    @IBOutlet weak var favoriteBtn: Button!
     
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
@@ -31,6 +32,8 @@ class MentorsProfileVC: UIViewController {
     var topicMentor = ["Social Life","Academics","Applying with Low Test Score"]
     var mentorDetailVM : MentorDetailViewModel = MentorDetailViewModel()
     var menterDetail : MentorData = MentorData.init()
+    
+    var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     
     var selectedUserId : String = String()
     var selectedType : Int = 1
@@ -60,13 +63,17 @@ class MentorsProfileVC: UIViewController {
         mentorCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         noDataLbl.isHidden = true
         
+        self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MMMM dd, yyyy"), for: .normal)
+        dataSetup()
+        
+        addToFavoriteVM.delegate = self
         mentorDetailVM.delegate = self
-        getMentorDetailServiceCall()
+        getMentorDetailServiceCall(true)
     }
     
-    func getMentorDetailServiceCall() {
+    func getMentorDetailServiceCall(_ isLoader : Bool) {
         let request : MentorDetailRequest = MentorDetailRequest(callType: selectedType, userId: selectedUserId, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), callTime: selectedCallTime)
-        mentorDetailVM.getMentorDetail(request: request)
+        mentorDetailVM.getMentorDetail(request: request, isLoader: isLoader)
     }
     
     //MARK: - Button Click
@@ -75,7 +82,12 @@ class MentorsProfileVC: UIViewController {
     }
     
     @IBAction func clickToFavorite(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        if menterDetail.isFavourite {
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
+        }
+        else{
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
+        }
     }
     
     @IBAction func clickToSelectDate(_ sender: Any) {
@@ -89,7 +101,7 @@ class MentorsProfileVC: UIViewController {
                 self.selectedDate = date!
               
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MMMM dd, yyyy"), for: .normal)
-                self.getMentorDetailServiceCall()
+                self.getMentorDetailServiceCall(true)
             }
         }
     }
@@ -106,7 +118,12 @@ class MentorsProfileVC: UIViewController {
 }
 
 
-extension MentorsProfileVC : MentorDetailDelegate {
+extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
+    func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        displayToast(response.message)
+        getMentorDetailServiceCall(false)
+    }
+    
     func didRecieveMentorDetailResponse(response: MentorDetailModel) {
         menterDetail = response.data ?? MentorData.init()
         dataSetup()
@@ -115,23 +132,31 @@ extension MentorsProfileVC : MentorDetailDelegate {
     func dataSetup() {
         profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: menterDetail.image)
         nameLbl.text = "\(menterDetail.firstName) \(menterDetail.lastName)"
-        collegeNameLbl.text = menterDetail.schoolName.first ?? ""
+        collegeNameLbl.text = menterDetail.school.first?.name ?? ""
         courceNameLbl.text = menterDetail.major
         bioLbl.text = menterDetail.bio
         rateLbl.text = "\(menterDetail.averageRating)"
         ratingView.rating = Double(menterDetail.averageRating)
         
-        timeDataArr = menterDetail.availableTimings
-        timeCollectionView.reloadData()
-        timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
+        if menterDetail.availableTimings.count != 0 {
+            noDataLbl.isHidden = true
+            timeDataArr = menterDetail.availableTimings
+            timeCollectionView.reloadData()
+            timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
+        }
+        else {
+            noDataLbl.isHidden = false
+        }
         
         if menterDetail.subjects.count != 0 {
             subjectArr = [String]()
             for i in menterDetail.subjects {
-                subjectArr.append(InterestArr[i + 1])
+                subjectArr.append(InterestArr[i - 1])
             }
             mentorCollectionView.reloadData()
         }
+        
+        favoriteBtn.isSelected = menterDetail.isFavourite
         
     }
 }
@@ -153,8 +178,14 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
                 return UICollectionViewCell()
             }
             
+            let str : Int = timeDataArr[indexPath.row]
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 12.0)
-            cell.lbl.text = "11:30 AM"
+            
+            let timeZone = timeZoneOffsetInMinutes()
+            let time = minutesToHoursMinutes(minutes: str + timeZone)
+            
+            cell.lbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
+            
             let index = selectedIndex.firstIndex { (data) -> Bool in
                 data == indexPath.row
             }
@@ -168,6 +199,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             }
             
             cell.cancelBtn.isHidden = true
+            timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
             return cell
         }
         else{
@@ -176,7 +208,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 12.0)
-            cell.lbl.text = topicMentor[indexPath.row]
+            cell.lbl.text = subjectArr[indexPath.row]
             cell.lbl.textColor = AppColor
             cell.backView.backgroundColor = YellowColor
             cell.backView.borderColorTypeAdapter = 10
@@ -205,7 +237,6 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == timeCollectionView {
-            timeCollectionViewHeightConstraint.constant = 90
             return CGSize(width: timeCollectionView.frame.size.width/3, height: 45)
         }
         else{

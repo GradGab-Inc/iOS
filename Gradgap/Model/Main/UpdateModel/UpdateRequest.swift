@@ -24,8 +24,10 @@ struct UpdateRequest: Encodable {
     var GPA: Float?
     var subjects: [Int]?
     var changeUserType : Int?
+    var firstName : String?
+    var lastName : String?
     
-    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil){
+    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil){
         
         self.schools = schools
         self.anticipateYear = anticipateYear
@@ -41,6 +43,8 @@ struct UpdateRequest: Encodable {
         self.GPA = GPA
         self.subjects = subjects
         self.changeUserType = changeUserType
+        self.firstName = firstName
+        self.lastName = lastName
     }
     
     

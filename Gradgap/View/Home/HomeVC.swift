@@ -26,6 +26,9 @@ class HomeVC: UIViewController {
     let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     let backImgArr = ["Image_Chat","Image_Virtual_Tour","Image_Interview Prep"]
     
+    var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,6 +51,9 @@ class HomeVC: UIViewController {
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
         
+//        bookingListVM.delegate = self
+//        bookingListVM.
+        
         joinCallBackView.isHidden = true
     }
     
@@ -63,8 +69,12 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @IBAction func clickToCompleteProfile(_ sender: Any) {
@@ -81,6 +91,10 @@ class HomeVC: UIViewController {
     }
     
 }
+
+//extension HomeVC :   {
+//    
+//}
 
 //MARK: - TableView Delegate
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -133,7 +147,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
            return cell
         }
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == homeTblView {
             if indexPath.row == 0 {

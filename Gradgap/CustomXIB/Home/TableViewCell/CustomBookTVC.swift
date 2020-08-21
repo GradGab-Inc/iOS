@@ -10,7 +10,7 @@ import UIKit
 import SainiUtils
 
 protocol CustomBookTVCDelegate {
-    func didRecieveCustomBookTVCResponse(_ timeSlote : Int)
+    func didRecieveCustomBookTVCResponse(_ id : String,_ timeSlote : Int)
 }
 
 
@@ -24,6 +24,7 @@ class CustomBookTVC: UITableViewCell {
     @IBOutlet weak var timeCollectionView: UICollectionView!
     
     var arrData : [Int] = [Int]()
+    var userId : String = String()
     var delegate : CustomBookTVCDelegate?
     
     override func awakeFromNib() {
@@ -72,7 +73,7 @@ extension CustomBookTVC : UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didRecieveCustomBookTVCResponse(arrData[indexPath.row])
+        delegate?.didRecieveCustomBookTVCResponse(userId, arrData[indexPath.row])
     }
     
 }

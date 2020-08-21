@@ -15,10 +15,10 @@ protocol MentorDetailDelegate {
 
 struct MentorDetailViewModel {
     var delegate: MentorDetailDelegate?
-    
-    func getMentorDetail(request : MentorDetailRequest) {
+        
+    func getMentorDetail(request : MentorDetailRequest, isLoader : Bool) {
         GCD.USER.details.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.details, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.details, Loader: isLoader, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(MentorDetailModel.self, from: response!) // decode the response into model

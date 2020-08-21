@@ -24,6 +24,9 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var interestCollectionView: UICollectionView!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     
+    var subjectArr : [String] = [String]()
+    var schoolNameArr : [MajorListDataModel] = [MajorListDataModel]()
+    var profileUpadateVM : MenteeDetailViewModel = MenteeDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +40,43 @@ class ProfileVC: UIViewController {
         navigationBar.headerLbl.text = "Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
+        renderProfile()
     }
     
     //MARK: - configUI
     func configUI() {
         interestCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-
+        profileUpadateVM.delegate = self
+        
+        profileUpadateVM.getMenteeProfileDetail()
+    }
+    
+    //MARK:- renderEditProfile
+    private func renderProfile() {
+        if let profileData = AppModel.shared.currentUser.user {
+            self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
+            nameLbl.text = "\(profileData.firstName) \(profileData.lastName)"
+            emailLbl.text = profileData.email
+            bioLbl.text = profileData.bio
+            startingYearLbl.text = "\(profileData.anticipateYear)"
+            majorLbl.text = profileData.major
+            languageLbl.text = profileData.otherLanguage
+            satLbl.text = "\(profileData.scoreSAT)"
+            
+            if profileData.subjects.count != 0 {
+                subjectArr = [String]()
+                for i in profileData.subjects {
+                    subjectArr.append(InterestArr[i - 1])
+                }
+                interestCollectionView.reloadData()
+            }
+            
+            if profileData.school.count != 0 {
+                schoolNameArr = profileData.school
+                schoolCollectionView.reloadData()
+            }
+        }
     }
     
     //MARK: - Button Click
@@ -67,15 +99,28 @@ class ProfileVC: UIViewController {
     
 }
 
+extension ProfileVC : MenteeDetailDelegate {
+    func didRecieveMenteeDetailResponse(response: MenteeDetailModel) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data
+        setLoginUserData(userData)
+        AppModel.shared.currentUser = getLoginUserData()
+        
+        renderProfile()
+    }
+}
+
 
 //MARK: - CollectionView Delegate
 extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == interestCollectionView {
-            return 3
+            return subjectArr.count
         }
         else {
-            return 3
+            return schoolNameArr.count
         }
     }
     
@@ -86,7 +131,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = "Social Life"
+            cell.lbl.text = subjectArr[indexPath.row]
             
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
@@ -101,7 +146,8 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = "DAV"
+            cell.lbl.text = schoolNameArr[indexPath.row].shortName
+            
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5

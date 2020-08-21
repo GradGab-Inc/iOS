@@ -169,8 +169,22 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
 }
 
 extension BookVC : CustomBookTVCDelegate {
-    func didRecieveCustomBookTVCResponse(_ timeSlote: Int) {
+    func didRecieveCustomBookTVCResponse(_ id : String,_ timeSlote: Int) {
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
         
+        vc.selectedUserId = id
+        vc.selectedType = selectedType
+        if selectedType == 1 {
+            vc.selectedCallTime = getCallTime(selectedChatTime)
+        }
+        else if selectedType == 2  {
+            vc.selectedCallTime = 60
+        }
+        else {
+            vc.selectedCallTime = 45
+        }
+        vc.selectedDate = selectedDate
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

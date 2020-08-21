@@ -137,6 +137,10 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
         selectedLanguage = selectedData
     }
     
+    func getSelectedSchoolArray(_ selectedData: MajorListDataModel) {
+        
+    }
+    
     deinit {
         log.success("QuestionListVC Memory deallocated!")/
     }
