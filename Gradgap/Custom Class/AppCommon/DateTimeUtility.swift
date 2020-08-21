@@ -33,10 +33,9 @@ func getDateFromDateString(strDate : String) -> Date    // Today, 09:56 AM
 {
     let dateFormatter1 = DateFormatter()
     dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    dateFormatter1.dateFormat = "HH:mm"
     return dateFormatter1.date(from: strDate)!
 }
-
 
 func getDateStringFromDateString(strDate : String, formate : String) -> String    // Today, 09:56 AM
 {
@@ -57,6 +56,16 @@ func getTimeStringFromDateString1(strDate : String) -> String    // 09:56 AM
     return dateFormatter1.string(from: date1)
 }
 
+func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
+{
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    let date1 =  dateFormatter1.date(from: strDate)!
+    dateFormatter1.dateFormat = "HH:mm"
+    return dateFormatter1.string(from: date1).minuteFromString
+}
+
 func getDateStringFromDate(date : Date, format : String) -> String
 {
     let dateFormatter = DateFormatter()
@@ -66,6 +75,15 @@ func getDateStringFromDate(date : Date, format : String) -> String
     return dateFormatter.string(from: date)
 }
 
+func getHourStringFromHoursString(strDate : String, formate : String) -> String
+{
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.dateFormat = "HH:mm"
+    let date1 =  dateFormatter1.date(from: strDate)!
+    dateFormatter1.dateFormat = formate //"MMMM dd"
+    return dateFormatter1.string(from: date1)
+}
 
 //MARK: Date difference
 func getDifferenceFromCurrentTime(_ timeStemp : Double) -> Int
@@ -80,4 +98,27 @@ func getCurrentDate() -> Date
 {
     let currentDate : Date = Date()
     return currentDate
+}
+
+func timeZoneOffsetInMinutes() -> Int {
+    let seconds = TimeZone.current.secondsFromGMT()
+    let minutes = abs(seconds / 60)
+    return minutes
+}
+
+func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {
+    return (minutes / 60, (minutes % 60))
+}
+
+extension String {
+    var integer: Int {
+        return Int(self) ?? 0
+    }
+
+    var minuteFromString : Int{
+        let components: Array = self.components(separatedBy: ":")
+        let hours = components[0].integer
+        let minutes = components[1].integer
+        return Int((hours * 60) + minutes)
+    }
 }

@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zb-nl-WaV" customClass="View" customModule="Gradgap" customModuleProvider="target">
                         <rect key="frame" x="8" y="4" width="304" height="117"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-hp-aTC" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="Mca-hp-aTC" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
                                 <rect key="frame" x="10" y="12" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="aVA-bz-vo3"/>
@@ -96,6 +96,7 @@
                             <constraint firstAttribute="trailing" secondItem="EKo-op-ox9" secondAttribute="trailing" constant="8" id="m8y-sY-9lE"/>
                             <constraint firstItem="EKo-op-ox9" firstAttribute="centerY" secondItem="uRr-Zx-W0u" secondAttribute="centerY" id="mQq-90-bnn"/>
                             <constraint firstItem="Von-Ga-Rco" firstAttribute="top" secondItem="Mca-hp-aTC" secondAttribute="bottom" constant="8" id="maL-t1-UHl"/>
+                            <constraint firstAttribute="bottom" secondItem="Von-Ga-Rco" secondAttribute="bottom" constant="11" id="moT-Ep-e7h"/>
                             <constraint firstItem="JCO-VC-V6N" firstAttribute="top" secondItem="uRr-Zx-W0u" secondAttribute="bottom" constant="5" id="tJ6-5V-hyY"/>
                             <constraint firstItem="Mca-hp-aTC" firstAttribute="leading" secondItem="7zb-nl-WaV" secondAttribute="leading" constant="10" id="wc5-5N-jbX"/>
                         </constraints>

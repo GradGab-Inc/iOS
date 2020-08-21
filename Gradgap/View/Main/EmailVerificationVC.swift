@@ -33,6 +33,7 @@ class EmailVerificationVC: UIViewController {
     
     //MARK: - Button Click
     @IBAction func clickToOk(_ sender: UIButton) {
+        self.view.endEditing(true)
         self.navigationController?.popToRootViewController(animated: true)
 //        if fromSignup {
 //            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC

@@ -526,30 +526,39 @@ func getCountryList(_ type : Int) -> [String]
     return [String]()
 }
 
-func setUpAddressData(_ address : String,_ city : String,_ country : String) -> String {
-    if address != "" && city != "" && country != "" {
-        return "\(address), \(city), \(country)"
-    }
-    else if address != "" && city == "" && country == "" {
-        return "\(address)"
-    }
-    else if address == "" && city != "" && country == "" {
-        return "\(city)"
-    }
-    else if address == "" && city == "" && country != "" {
-        return "\(country)"
-    }
-    else if address == "" && city != "" && country != "" {
-        return "\(city), \(country)"
-    }
-    else if address != "" && city == "" && country != "" {
-        return "\(address), \(country)"
-    }
-    else if address != "" && city != "" && country == "" {
-        return "\(address), \(city)"
-    }
-    else {
+func getWeekDay(_ tag : Int) -> String {
+    switch tag {
+    case 0:
+        return "Sunday"
+    case 1:
+        return "Monday"
+    case 2:
+        return "Tuesday"
+    case 3:
+        return "Wednesday"
+    case 4:
+        return "Thursday"
+    case 5:
+        return "Friday"
+    case 6:
+        return "Saturday"
+    default:
         return ""
+    }
+}
+
+func getCallTime(_ tag : Int) -> Int {
+    switch tag {
+    case 0:
+        return 15
+    case 1:
+        return 30
+    case 2:
+        return 45
+    case 3:
+        return 60
+    default:
+        return 0
     }
 }
 
@@ -574,27 +583,27 @@ extension Data {
 }
 
 //MARK: - downloadCachedImage
-//extension UIImageView {
-//    func downloadCachedImage(placeholder: String,urlString: String) {
-//        self.sainiShowLoader(loaderColor:  #colorLiteral(red: 0.06274509804, green: 0.1058823529, blue: 0.2235294118, alpha: 1))
-//        let options: SDWebImageOptions = [.scaleDownLargeImages, .continueInBackground, .avoidAutoSetImage]
-//        let placeholder = UIImage(named: placeholder)
-//        self.sd_setImage(with: URL(string: API.IMAGE_URL + urlString), placeholderImage: placeholder, options: options) { (image, _, cacheType,_ ) in
-//            self.sainiRemoveLoader()
-//            guard image != nil else {
-//                self.sainiRemoveLoader()
-//                return
-//            }
-//            guard cacheType != .memory, cacheType != .disk else {
-//                self.image = image
-//                self.sainiRemoveLoader()
-//                return
-//            }
-//            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
-//                self.sainiRemoveLoader()
-//                self.image = image
-//                return
-//            }, completion: nil)
-//        }
-//    }
-//}
+extension UIImageView {
+    func downloadCachedImage(placeholder: String,urlString: String) {
+        self.sainiShowLoader(loaderColor:  #colorLiteral(red: 0.06274509804, green: 0.1058823529, blue: 0.2235294118, alpha: 1))
+        let options: SDWebImageOptions = [.scaleDownLargeImages, .continueInBackground, .avoidAutoSetImage]
+        let placeholder = UIImage(named: placeholder)
+        self.sd_setImage(with: URL(string: API.IMAGE_URL + urlString), placeholderImage: placeholder, options: options) { (image, _, cacheType,_ ) in
+            self.sainiRemoveLoader()
+            guard image != nil else {
+                self.sainiRemoveLoader()
+                return
+            }
+            guard cacheType != .memory, cacheType != .disk else {
+                self.image = image
+                self.sainiRemoveLoader()
+                return
+            }
+            UIView.transition(with: self, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                self.sainiRemoveLoader()
+                self.image = image
+                return
+            }, completion: nil)
+        }
+    }
+}

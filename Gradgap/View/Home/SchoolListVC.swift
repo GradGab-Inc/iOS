@@ -22,7 +22,8 @@ class SchoolListVC: UIViewController {
     @IBOutlet weak var selectedSchoolBackView: UIView!
     @IBOutlet weak var interetedLbl: UILabel!
     
-    
+    var selectImg : UIImage = UIImage()
+    var isMentor : Bool = false
     var schoolListVM : SchoolSearchListViewModel = SchoolSearchListViewModel()
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
@@ -69,7 +70,7 @@ class SchoolListVC: UIViewController {
         selectedSchoolBackView.isHidden = true
         
         if searchTxt.text?.trimmed != "" {
-            var request = SchoolSearchRequest(text: searchTxt.text ?? "")
+            let request = SchoolSearchRequest(text: searchTxt.text ?? "")
             schoolListVM.schoolSearchList(request: request)
         }
         else {
@@ -89,6 +90,10 @@ class SchoolListVC: UIViewController {
         if selectedSchoolListArr.count != 0 {
             let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
             vc.selectedSchoolListArr = selectedSchoolListArr
+            if isMentor {
+                vc.isMentor = true
+                vc.selectImg = selectImg
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
@@ -133,13 +138,19 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = selectedSchoolListArr.firstIndex { (data) -> Bool in
-            data.id == schoolListArr[indexPath.row].id
-        }
-        if index == nil {
+        if isMentor {
+            selectedSchoolListArr = [MajorListDataModel]()
             selectedSchoolListArr.append(schoolListArr[indexPath.row])
         }
-        
+        else {
+            let index = selectedSchoolListArr.firstIndex { (data) -> Bool in
+                data.id == schoolListArr[indexPath.row].id
+            }
+            if index == nil {
+                selectedSchoolListArr.append(schoolListArr[indexPath.row])
+            }
+        }
+
         schoolListBackView.isHidden = true
         selectedSchoolBackView.isHidden = false
         schoolCollectionView.reloadData()

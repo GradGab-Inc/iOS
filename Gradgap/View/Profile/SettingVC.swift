@@ -96,7 +96,7 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            
+            AppDelegate().sharedDelegate().continueToLogout()
         }
     }
 }

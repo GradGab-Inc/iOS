@@ -23,9 +23,9 @@ struct UpdateRequest: Encodable {
     var scoreACT: Float?
     var GPA: Float?
     var subjects: [Int]?
-    var changeUserType : Bool?
+    var changeUserType : Int?
     
-    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Bool? = false){
+    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil){
         
         self.schools = schools
         self.anticipateYear = anticipateYear

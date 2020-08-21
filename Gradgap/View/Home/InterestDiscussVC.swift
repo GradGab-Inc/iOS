@@ -15,7 +15,6 @@ class InterestDiscussVC: UIViewController {
     @IBOutlet weak var interestCollectionView: UICollectionView!
     
     var selectedIndex : [Int] = [Int]()
-    var InterestArr = [INTERESTARR.INTEREST1, INTERESTARR.INTEREST2, INTERESTARR.INTEREST3, INTERESTARR.INTEREST4, INTERESTARR.INTEREST5, INTERESTARR.INTEREST6, INTERESTARR.INTEREST7, INTERESTARR.INTEREST8, INTERESTARR.INTEREST9, INTERESTARR.INTEREST10, INTERESTARR.INTEREST11, INTERESTARR.INTEREST12, INTERESTARR.INTEREST13, INTERESTARR.INTEREST14, INTERESTARR.INTEREST15]
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     
     override func viewDidLoad() {
@@ -55,12 +54,12 @@ class InterestDiscussVC: UIViewController {
     
     @IBAction func clickToSubmit(_ sender: Any) {
         if selectedIndex.count != 0 {
-            let request = UpdateRequest(subjects: selectedIndex, changeUserType: false)
+            let request = UpdateRequest(subjects: selectedIndex)
             profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
         }
-        
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        else {
+            displayToast("Please select subject")
+        }
     }
     
     deinit {
@@ -76,9 +75,7 @@ extension InterestDiscussVC : ProfileUpdateSuccessDelegate {
         userData.accessToken = AppModel.shared.currentUser.accessToken
         userData.user = response.data!.user
         setLoginUserData(userData)
-        setIsUserLogin(isUserLogin: true)
-        setIsSocialUser(isUserLogin: false)
-        AppModel.shared.currentUser = response.data
+        AppModel.shared.currentUser = getLoginUserData()
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
         self.navigationController?.pushViewController(vc, animated: true)

@@ -29,10 +29,12 @@ class ForgotPasswordVC: UIViewController {
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
+        self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
+        self.view.endEditing(true)
         guard let email = emailTxt.text else {
            return
         }

@@ -14,6 +14,7 @@ class StudentEnrollVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var profileImgView: ImageView!
     
+    var selectImg : UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +42,22 @@ class StudentEnrollVC: UIViewController {
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        
+        if selectImg.size.width != 0 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
+            vc.selectImg = selectImg
+            vc.isMentor = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            displayToast("Please select student enrollment ID.")
+        }
     }
     
     @IBAction func clickToUpload(_ sender: Any) {
         CameraAttachment.shared.showAttachmentActionSheet(vc: self)
         CameraAttachment.shared.imagePickedBlock = { pic in
             self.profileImgView.image = pic
+            self.selectImg = pic
         }
     }
     

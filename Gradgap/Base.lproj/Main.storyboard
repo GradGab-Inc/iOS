@@ -110,137 +110,6 @@
             </objects>
             <point key="canvasLocation" x="1128.75" y="138.38028169014083"/>
         </scene>
-        <!--Student EnrollVC-->
-        <scene sceneID="1u7-Kn-XMq">
-            <objects>
-                <viewController storyboardIdentifier="StudentEnrollVC" id="QBH-H1-VN7" customClass="StudentEnrollVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mii-qg-dHc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jS-fk-21X" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="fFj-U4-MFv"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-ZE-vns">
-                                <rect key="frame" x="0.0" y="60" width="320" height="160"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_side-menu_topimage" translatesAutoresizingMaskIntoConstraints="NO" id="SRm-Nb-agN">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="q8U-9h-e6X" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
-                                        <rect key="frame" x="110" y="30" width="100" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="Dsv-kf-RC8"/>
-                                            <constraint firstAttribute="height" constant="100" id="z3a-08-ZKY"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="50"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="E9R-zm-M2V"/>
-                                    <constraint firstItem="SRm-Nb-agN" firstAttribute="leading" secondItem="9SI-ZE-vns" secondAttribute="leading" id="Nnc-86-eQm"/>
-                                    <constraint firstAttribute="trailing" secondItem="SRm-Nb-agN" secondAttribute="trailing" id="NqY-mN-Z3z"/>
-                                    <constraint firstAttribute="bottom" secondItem="SRm-Nb-agN" secondAttribute="bottom" id="XSR-NB-UQc"/>
-                                    <constraint firstItem="SRm-Nb-agN" firstAttribute="top" secondItem="9SI-ZE-vns" secondAttribute="top" id="Xsb-cS-Ewx"/>
-                                    <constraint firstItem="q8U-9h-e6X" firstAttribute="centerX" secondItem="9SI-ZE-vns" secondAttribute="centerX" id="hgU-YV-IwX"/>
-                                    <constraint firstItem="q8U-9h-e6X" firstAttribute="centerY" secondItem="9SI-ZE-vns" secondAttribute="centerY" id="lEz-ok-uKS"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Enrollment ID ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-Z0-F5u">
-                                <rect key="frame" x="15" y="240" width="186.5" height="21"/>
-                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload your student enrollment ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-2c-TSg">
-                                <rect key="frame" x="15" y="271" width="276.5" height="21"/>
-                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrT-xV-WGl" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="110" y="327" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="0.69587435787671237" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="f2g-HI-UYz"/>
-                                    <constraint firstAttribute="width" constant="100" id="ohE-El-dbI"/>
-                                </constraints>
-                                <state key="normal" image="ic_upload"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clickToUpload:" destination="QBH-H1-VN7" eventType="touchUpInside" id="BRB-53-zby"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5F-Wa-tnB">
-                                <rect key="frame" x="135.5" y="437" width="49" height="17.5"/>
-                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
-                                <color key="textColor" name="RedColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yn-66-uU9" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="25" y="490" width="270" height="48"/>
-                                <color key="backgroundColor" name="RedColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="AS0-H9-S0I"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clickToSubmit:" destination="QBH-H1-VN7" eventType="touchUpInside" id="F2f-Yq-LdT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" name="AppColor"/>
-                        <constraints>
-                            <constraint firstItem="wVb-2c-TSg" firstAttribute="top" secondItem="MHi-Z0-F5u" secondAttribute="bottom" constant="10" id="7UK-45-gCU"/>
-                            <constraint firstItem="Z5F-Wa-tnB" firstAttribute="top" secondItem="MrT-xV-WGl" secondAttribute="bottom" constant="10" id="8PY-ge-PVW"/>
-                            <constraint firstItem="2jS-fk-21X" firstAttribute="top" secondItem="RrA-Gv-Tks" secondAttribute="top" id="9gi-Iq-ZWn"/>
-                            <constraint firstItem="Z5F-Wa-tnB" firstAttribute="centerX" secondItem="mii-qg-dHc" secondAttribute="centerX" id="MXn-bK-utY"/>
-                            <constraint firstItem="RrA-Gv-Tks" firstAttribute="bottom" secondItem="5yn-66-uU9" secondAttribute="bottom" constant="30" id="Owu-n5-Z8X"/>
-                            <constraint firstItem="5yn-66-uU9" firstAttribute="leading" secondItem="RrA-Gv-Tks" secondAttribute="leading" constant="25" id="PlS-BZ-hNI"/>
-                            <constraint firstItem="wVb-2c-TSg" firstAttribute="leading" secondItem="RrA-Gv-Tks" secondAttribute="leading" constant="15" id="QnV-dj-ke3"/>
-                            <constraint firstItem="9SI-ZE-vns" firstAttribute="top" secondItem="2jS-fk-21X" secondAttribute="bottom" id="Sfz-M5-c19"/>
-                            <constraint firstItem="9SI-ZE-vns" firstAttribute="leading" secondItem="RrA-Gv-Tks" secondAttribute="leading" id="Z7h-Qh-Vmc"/>
-                            <constraint firstItem="9SI-ZE-vns" firstAttribute="trailing" secondItem="RrA-Gv-Tks" secondAttribute="trailing" id="bi0-UM-B9L"/>
-                            <constraint firstItem="2jS-fk-21X" firstAttribute="leading" secondItem="RrA-Gv-Tks" secondAttribute="leading" id="bq8-Fb-sNB"/>
-                            <constraint firstItem="MHi-Z0-F5u" firstAttribute="top" secondItem="9SI-ZE-vns" secondAttribute="bottom" constant="20" id="dbc-eW-t8h"/>
-                            <constraint firstItem="MHi-Z0-F5u" firstAttribute="leading" secondItem="RrA-Gv-Tks" secondAttribute="leading" constant="15" id="f12-pW-Fgi"/>
-                            <constraint firstItem="2jS-fk-21X" firstAttribute="trailing" secondItem="RrA-Gv-Tks" secondAttribute="trailing" id="hdZ-12-nvq"/>
-                            <constraint firstItem="MrT-xV-WGl" firstAttribute="centerY" secondItem="mii-qg-dHc" secondAttribute="centerY" constant="93" id="iDu-xX-7W9"/>
-                            <constraint firstItem="RrA-Gv-Tks" firstAttribute="trailing" secondItem="5yn-66-uU9" secondAttribute="trailing" constant="25" id="iuQ-Va-ONS"/>
-                            <constraint firstItem="MrT-xV-WGl" firstAttribute="centerX" secondItem="mii-qg-dHc" secondAttribute="centerX" id="y6D-Gm-tUz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="RrA-Gv-Tks"/>
-                    </view>
-                    <connections>
-                        <outlet property="navigationBar" destination="2jS-fk-21X" id="ocw-WO-5Bv"/>
-                        <outlet property="profileImgView" destination="q8U-9h-e6X" id="9dB-BS-aol"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DfP-EA-bUT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1129" y="1159"/>
-        </scene>
         <!--Sign UpVC-->
         <scene sceneID="wGh-a2-DuQ">
             <objects>
@@ -1345,6 +1214,7 @@ prospective students.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oeJ-f0-bkN"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YzO-16-BAh"/>
                     <size key="freeformSize" width="320" height="715"/>
                     <connections>
                         <outlet property="parentBackView" destination="mfb-UZ-mpj" id="eWm-zx-lJK"/>
@@ -1441,7 +1311,7 @@ prospective students.</string>
                     <viewLayoutGuide key="safeArea" id="eUy-VL-n4q"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="4518.75" y="213.90845070422534"/>
+            <point key="canvasLocation" x="1129" y="1182"/>
         </scene>
         <!--Want To MeetVC-->
         <scene sceneID="QJO-9m-Vkx">
@@ -1534,7 +1404,7 @@ prospective students.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkF-iT-697" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5198" y="136"/>
+            <point key="canvasLocation" x="1793" y="1181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="InA-lH-0Ed">
@@ -1616,6 +1486,24 @@ prospective students.</string>
             </objects>
             <point key="canvasLocation" x="3133" y="138"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wq8-og-Nou">
+            <objects>
+                <navigationController storyboardIdentifier="SelectWhoYouAreVCNav" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="b2d-eB-4n1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yl5-E9-Hmn">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rGN-Rh-apv" kind="relationship" relationship="rootViewController" id="CW0-PG-Xge"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uar-9I-QQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="379" y="1182"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_Signup_parent" width="213.5" height="160.5"/>
@@ -1631,9 +1519,6 @@ prospective students.</string>
         <image name="ic_name" width="14" height="17"/>
         <image name="ic_password" width="12" height="16"/>
         <image name="ic_showpassword" width="17" height="11"/>
-        <image name="ic_side-menu_topimage" width="325" height="198"/>
-        <image name="ic_upload" width="56" height="36"/>
-        <image name="temp_pro" width="881" height="863"/>
         <namedColor name="AppColor">
             <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -26,9 +26,18 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mentorCollectionView: UICollectionView!
     
-    var selectedDate : Date!
+    var selectedDate : Date = Date()
     var selectedIndex : [Int] = [Int]()
     var topicMentor = ["Social Life","Academics","Applying with Low Test Score"]
+    var mentorDetailVM : MentorDetailViewModel = MentorDetailViewModel()
+    var menterDetail : MentorData = MentorData.init()
+    
+    var selectedUserId : String = String()
+    var selectedType : Int = 1
+    var selectedCallTime : Int = Int()
+    
+    var timeDataArr : [Int] = [Int]()
+    var subjectArr : [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +60,13 @@ class MentorsProfileVC: UIViewController {
         mentorCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         noDataLbl.isHidden = true
         
-        timeCollectionView.reloadData()
+        mentorDetailVM.delegate = self
+        getMentorDetailServiceCall()
+    }
+    
+    func getMentorDetailServiceCall() {
+        let request : MentorDetailRequest = MentorDetailRequest(callType: selectedType, userId: selectedUserId, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), callTime: selectedCallTime)
+        mentorDetailVM.getMentorDetail(request: request)
     }
     
     //MARK: - Button Click
@@ -74,6 +89,7 @@ class MentorsProfileVC: UIViewController {
                 self.selectedDate = date!
               
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MMMM dd, yyyy"), for: .normal)
+                self.getMentorDetailServiceCall()
             }
         }
     }
@@ -90,14 +106,44 @@ class MentorsProfileVC: UIViewController {
 }
 
 
+extension MentorsProfileVC : MentorDetailDelegate {
+    func didRecieveMentorDetailResponse(response: MentorDetailModel) {
+        menterDetail = response.data ?? MentorData.init()
+        dataSetup()
+    }
+    
+    func dataSetup() {
+        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: menterDetail.image)
+        nameLbl.text = "\(menterDetail.firstName) \(menterDetail.lastName)"
+        collegeNameLbl.text = menterDetail.schoolName.first ?? ""
+        courceNameLbl.text = menterDetail.major
+        bioLbl.text = menterDetail.bio
+        rateLbl.text = "\(menterDetail.averageRating)"
+        ratingView.rating = Double(menterDetail.averageRating)
+        
+        timeDataArr = menterDetail.availableTimings
+        timeCollectionView.reloadData()
+        timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
+        
+        if menterDetail.subjects.count != 0 {
+            subjectArr = [String]()
+            for i in menterDetail.subjects {
+                subjectArr.append(InterestArr[i + 1])
+            }
+            mentorCollectionView.reloadData()
+        }
+        
+    }
+}
+
 //MARK: - CollectionView Delegate
 extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == timeCollectionView {
-            return 6
+            return timeDataArr.count
         }
         else {
-            return 3
+            return subjectArr.count
         }
     }
     
@@ -125,7 +171,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             return cell
         }
         else{
-            guard let cell = timeCollectionView.dequeueReusableCell(withReuseIdentifier: "CollegeCVC", for: indexPath) as? CollegeCVC else {
+            guard let cell = mentorCollectionView.dequeueReusableCell(withReuseIdentifier: "CollegeCVC", for: indexPath) as? CollegeCVC else {
                 return UICollectionViewCell()
             }
             

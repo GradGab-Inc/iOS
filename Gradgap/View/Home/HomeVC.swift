@@ -32,6 +32,13 @@ class HomeVC: UIViewController {
         configUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if AppModel.shared.currentUser.user?.userType == 3 {
+            completeProfileBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+        }
+    }
+    
     //MARK: - configUI
     func configUI() {
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
@@ -40,8 +47,7 @@ class HomeVC: UIViewController {
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
-        completeProfileBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+        
         joinCallBackView.isHidden = true
     }
     
@@ -54,8 +60,6 @@ class HomeVC: UIViewController {
     @IBAction func clickToProfile(_ sender: Any) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
@@ -132,8 +136,20 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == homeTblView {
-            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
-            self.navigationController?.pushViewController(vc, animated: true)
+            if indexPath.row == 0 {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
+                if indexPath.row == 1 {
+                    vc.selectedType = 3
+                }
+                else if indexPath.row == 2 {
+                    vc.selectedType = 2
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         else {
            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC

@@ -816,6 +816,9 @@ schools.</string>
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToUpdateAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="XSw-rS-lW6"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-fU-Gzq">
                                 <rect key="frame" x="0.0" y="68" width="320" height="417"/>
@@ -844,6 +847,7 @@ schools.</string>
                     <connections>
                         <outlet property="navigationBar" destination="6cO-Mp-Ztk" id="xwU-gB-Kow"/>
                         <outlet property="tblView" destination="QrJ-fU-Gzq" id="1qv-cR-a1D"/>
+                        <outlet property="updateBtn" destination="Pe7-3Q-dWw" id="xDe-G4-DqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-yc-rUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1481,7 +1485,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUH-9d-Xiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="2159"/>
+            <point key="canvasLocation" x="1686" y="2108"/>
         </scene>
         <!--Set AvailabilityVC-->
         <scene sceneID="WAP-eG-hgr">
@@ -1590,6 +1594,7 @@ schools.</string>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="yEw-Nh-BQ8" id="og2-b0-Gu1"/>
+                        <outlet property="submitBtn" destination="9uD-eP-1cI" id="cHG-oe-Mlm"/>
                         <outlet property="tblView" destination="SiM-KK-Qtz" id="rCq-gI-umj"/>
                         <outlet property="tblViewHeightConstraint" destination="DK3-yO-AuL" id="5As-yp-5ib"/>
                     </connections>
@@ -4640,7 +4645,7 @@ schools.</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Au1-Pj-SvL">
-                                <rect key="frame" x="0.0" y="112" width="320" height="456"/>
+                                <rect key="frame" x="0.0" y="124" width="320" height="444"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="TM2-zR-3Fl" id="uli-8g-nAg"/>
@@ -4648,13 +4653,13 @@ schools.</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry! There are no mentors available on this date. Please change the date." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCi-an-dRV">
-                                <rect key="frame" x="20" y="247.5" width="280" height="73.5"/>
+                                <rect key="frame" x="20" y="249" width="280" height="70"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHZ-NT-Vbr">
-                                <rect key="frame" x="85" y="72" width="150" height="20"/>
+                                <rect key="frame" x="85" y="72" width="150" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="VuV-IO-rar"/>
                                 </constraints>
@@ -4874,6 +4879,137 @@ schools.</string>
             </objects>
             <point key="canvasLocation" x="-398" y="2025"/>
         </scene>
+        <!--Student EnrollVC-->
+        <scene sceneID="nZA-Gw-rjC">
+            <objects>
+                <viewController storyboardIdentifier="StudentEnrollVC" id="Ur1-qs-to0" customClass="StudentEnrollVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYz-3D-9iR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-4n-nMY" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8mM-rx-eQU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXi-My-H2v">
+                                <rect key="frame" x="0.0" y="60" width="320" height="160"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_side-menu_topimage" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-1Z-W4s">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile" translatesAutoresizingMaskIntoConstraints="NO" id="ZdI-L7-KFK" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="110" y="30" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="aZv-Wp-hXo"/>
+                                            <constraint firstAttribute="width" constant="100" id="eNc-uw-PZ4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ZdI-L7-KFK" firstAttribute="centerX" secondItem="vXi-My-H2v" secondAttribute="centerX" id="453-39-Q4q"/>
+                                    <constraint firstAttribute="height" constant="160" id="FV9-ox-BDN"/>
+                                    <constraint firstItem="ZdI-L7-KFK" firstAttribute="centerY" secondItem="vXi-My-H2v" secondAttribute="centerY" id="NLH-LQ-xc6"/>
+                                    <constraint firstAttribute="bottom" secondItem="J3G-1Z-W4s" secondAttribute="bottom" id="SNe-b3-6xY"/>
+                                    <constraint firstItem="J3G-1Z-W4s" firstAttribute="top" secondItem="vXi-My-H2v" secondAttribute="top" id="bUr-pD-9Ym"/>
+                                    <constraint firstItem="J3G-1Z-W4s" firstAttribute="leading" secondItem="vXi-My-H2v" secondAttribute="leading" id="bpS-lP-omj"/>
+                                    <constraint firstAttribute="trailing" secondItem="J3G-1Z-W4s" secondAttribute="trailing" id="qjJ-q1-ARR"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Enrollment ID ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-Zm-KMa">
+                                <rect key="frame" x="15" y="240" width="186.5" height="21"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload your student enrollment ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95x-HU-eEm">
+                                <rect key="frame" x="15" y="271" width="276.5" height="21"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-Ds-g9Z" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="110" y="327" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.98799997569999998" green="0.059000000359999999" blue="0.27500000600000002" alpha="0.69587435789999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5ki-9f-7Jv"/>
+                                    <constraint firstAttribute="height" constant="100" id="bc3-g7-kAu"/>
+                                </constraints>
+                                <state key="normal" image="ic_upload"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToUpload:" destination="Ur1-qs-to0" eventType="touchUpInside" id="ZM9-uv-pYd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWf-oI-MvX">
+                                <rect key="frame" x="135.5" y="437" width="49" height="17.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                <color key="textColor" name="RedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-t3-r4U" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="25" y="490" width="270" height="48"/>
+                                <color key="backgroundColor" name="RedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="yRp-3i-huJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToSubmit:" destination="Ur1-qs-to0" eventType="touchUpInside" id="l8g-u8-ECA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="vXi-My-H2v" firstAttribute="leading" secondItem="wOv-SB-hO9" secondAttribute="leading" id="0a9-GJ-AMl"/>
+                            <constraint firstItem="95x-HU-eEm" firstAttribute="top" secondItem="OM2-Zm-KMa" secondAttribute="bottom" constant="10" id="BpI-sR-qVg"/>
+                            <constraint firstItem="OM2-Zm-KMa" firstAttribute="top" secondItem="vXi-My-H2v" secondAttribute="bottom" constant="20" id="C9Q-Sc-L5q"/>
+                            <constraint firstItem="bZs-Ds-g9Z" firstAttribute="centerY" secondItem="zYz-3D-9iR" secondAttribute="centerY" constant="93" id="H9A-4A-JyA"/>
+                            <constraint firstItem="wOv-SB-hO9" firstAttribute="trailing" secondItem="tD9-t3-r4U" secondAttribute="trailing" constant="25" id="LYf-Gq-PSL"/>
+                            <constraint firstItem="qiQ-4n-nMY" firstAttribute="leading" secondItem="wOv-SB-hO9" secondAttribute="leading" id="NdN-4U-K1r"/>
+                            <constraint firstItem="bZs-Ds-g9Z" firstAttribute="centerX" secondItem="zYz-3D-9iR" secondAttribute="centerX" id="P46-dA-pOB"/>
+                            <constraint firstItem="qiQ-4n-nMY" firstAttribute="top" secondItem="wOv-SB-hO9" secondAttribute="top" id="SUv-ju-9QD"/>
+                            <constraint firstItem="vXi-My-H2v" firstAttribute="trailing" secondItem="wOv-SB-hO9" secondAttribute="trailing" id="UT2-92-FEx"/>
+                            <constraint firstItem="qiQ-4n-nMY" firstAttribute="trailing" secondItem="wOv-SB-hO9" secondAttribute="trailing" id="Wyg-he-2e1"/>
+                            <constraint firstItem="vXi-My-H2v" firstAttribute="top" secondItem="qiQ-4n-nMY" secondAttribute="bottom" id="aV9-hM-90b"/>
+                            <constraint firstItem="tD9-t3-r4U" firstAttribute="leading" secondItem="wOv-SB-hO9" secondAttribute="leading" constant="25" id="cLx-fj-bdk"/>
+                            <constraint firstItem="95x-HU-eEm" firstAttribute="leading" secondItem="wOv-SB-hO9" secondAttribute="leading" constant="15" id="cRH-xh-8TI"/>
+                            <constraint firstItem="wOv-SB-hO9" firstAttribute="bottom" secondItem="tD9-t3-r4U" secondAttribute="bottom" constant="30" id="eo5-31-GEp"/>
+                            <constraint firstItem="OM2-Zm-KMa" firstAttribute="leading" secondItem="wOv-SB-hO9" secondAttribute="leading" constant="15" id="j6Y-QW-5qi"/>
+                            <constraint firstItem="XWf-oI-MvX" firstAttribute="top" secondItem="bZs-Ds-g9Z" secondAttribute="bottom" constant="10" id="kGE-Ru-llb"/>
+                            <constraint firstItem="XWf-oI-MvX" firstAttribute="centerX" secondItem="zYz-3D-9iR" secondAttribute="centerX" id="naF-L6-DcN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wOv-SB-hO9"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="qiQ-4n-nMY" id="tw1-ni-J47"/>
+                        <outlet property="profileImgView" destination="ZdI-L7-KFK" id="NfA-eu-Tqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="paU-8R-I96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1238" y="2025"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Ico_calendar" width="16" height="16"/>
@@ -4897,6 +5033,7 @@ schools.</string>
         <image name="ic_logo_header" width="141" height="27"/>
         <image name="ic_myearnings_hm" width="16" height="14.5"/>
         <image name="ic_personality_profile_selected" width="80" height="80"/>
+        <image name="ic_profile" width="25" height="25"/>
         <image name="ic_profile_home" width="28.5" height="28.5"/>
         <image name="ic_questionmark_outline" width="16" height="16"/>
         <image name="ic_questionmark_red" width="16" height="16"/>
@@ -4906,6 +5043,7 @@ schools.</string>
         <image name="ic_search" width="15" height="15"/>
         <image name="ic_service" width="4" height="16"/>
         <image name="ic_side-menu_topimage" width="325" height="198"/>
+        <image name="ic_upload" width="56" height="36"/>
         <image name="ic_white_circle" width="100" height="100"/>
         <image name="plus" catalog="system" width="64" height="58"/>
         <image name="star_white" width="20" height="20"/>
