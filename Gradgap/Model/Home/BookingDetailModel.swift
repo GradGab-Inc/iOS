@@ -1,0 +1,86 @@
+//
+//  BookingDetailModel.swift
+//  Gradgap
+//
+//  Created by iMac on 22/08/20.
+//  Copyright © 2020 AppKnit. All rights reserved.
+//
+
+import Foundation
+
+
+// MARK: - BookingDetailModel
+struct BookingDetailModel: Codable {
+    let code: Int
+    let message: String
+    let data: BookingDetail?
+    let format, timestamp: String
+    
+    init(from decoder: Decoder) throws {
+           let values = try decoder.container(keyedBy: CodingKeys.self)
+           
+           code = try values.decodeIfPresent(Int.self, forKey: .code) ?? 0
+           message = try values.decodeIfPresent(String.self, forKey: .message) ?? ""
+           data = try values.decodeIfPresent(BookingDetail.self, forKey: .data) ?? nil
+           format = try values.decodeIfPresent(String.self, forKey: .format) ?? ""
+           timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? ""
+       }
+    
+}
+
+// MARK: - BookingDetail
+struct BookingDetail: Codable {
+    let id, menteeRef, mentorRef, image: String
+    let name, schoolName, additionalTopics, dateTime: String
+    let subjects: [Int]
+    let anticipateYear, status, callTime, callType: Int
+    let amount: Int
+    let isFavourite: Bool
+    let averageRating: Double
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case menteeRef, mentorRef, image, name, schoolName, additionalTopics, dateTime, subjects, anticipateYear, status, callTime, callType, amount, isFavourite, averageRating
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
+        menteeRef = try values.decodeIfPresent(String.self, forKey: .menteeRef) ?? ""
+        mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
+        name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
+        schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName) ?? ""
+        additionalTopics = try values.decodeIfPresent(String.self, forKey: .additionalTopics) ?? ""
+        image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
+        dateTime = try values.decodeIfPresent(String.self, forKey: .dateTime) ?? ""
+        callTime = try values.decodeIfPresent(Int.self, forKey: .callTime) ?? 0
+        status = try values.decodeIfPresent(Int.self, forKey: .status) ?? 0
+        anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? 0
+        callType = try values.decodeIfPresent(Int.self, forKey: .callType) ?? 0
+        amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
+        subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
+        isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
+        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0.0
+    }
+    
+    
+    init() {
+        id = ""
+        menteeRef = ""
+        mentorRef = ""
+        name = ""
+        schoolName = ""
+        additionalTopics = ""
+        image = ""
+        dateTime = ""
+        callTime = 0
+        status = 0
+        anticipateYear = 0
+        callType = 0
+        amount = 0
+        subjects = []
+        isFavourite = false
+        averageRating = 0.0
+    }
+}

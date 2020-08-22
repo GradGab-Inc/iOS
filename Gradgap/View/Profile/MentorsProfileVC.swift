@@ -28,10 +28,10 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var mentorCollectionView: UICollectionView!
     
     var selectedDate : Date = Date()
-    var selectedIndex : [Int] = [Int]()
+    var selectedIndex : Int = -1
     var topicMentor = ["Social Life","Academics","Applying with Low Test Score"]
     var mentorDetailVM : MentorDetailViewModel = MentorDetailViewModel()
-    var menterDetail : MentorData = MentorData.init()
+    var mentorDetail : MentorData = MentorData.init()
     
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     
@@ -82,7 +82,7 @@ class MentorsProfileVC: UIViewController {
     }
     
     @IBAction func clickToFavorite(_ sender: UIButton) {
-        if menterDetail.isFavourite {
+        if mentorDetail.isFavourite {
             addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
         }
         else{
@@ -107,8 +107,19 @@ class MentorsProfileVC: UIViewController {
     }
     
     @IBAction func clickToBookMentor(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ConfirmBookingVC") as! ConfirmBookingVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if selectedIndex != -1 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ConfirmBookingVC") as! ConfirmBookingVC
+            vc.mentorDetail  = mentorDetail
+            vc.selectedType = selectedType
+            vc.selectedCallTime = selectedCallTime
+            vc.selectedDate = selectedDate
+            vc.selectedTimeSlot = timeDataArr[selectedIndex]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            displayToast("Please select time slot")
+        }
+        
     }
 
     deinit {
@@ -120,44 +131,49 @@ class MentorsProfileVC: UIViewController {
 
 extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
-        displayToast(response.message)
         getMentorDetailServiceCall(false)
     }
     
     func didRecieveMentorDetailResponse(response: MentorDetailModel) {
-        menterDetail = response.data ?? MentorData.init()
+        mentorDetail = response.data ?? MentorData.init()
         dataSetup()
     }
     
     func dataSetup() {
-        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: menterDetail.image)
-        nameLbl.text = "\(menterDetail.firstName) \(menterDetail.lastName)"
-        collegeNameLbl.text = menterDetail.school.first?.name ?? ""
-        courceNameLbl.text = menterDetail.major
-        bioLbl.text = menterDetail.bio
-        rateLbl.text = "\(menterDetail.averageRating)"
-        ratingView.rating = Double(menterDetail.averageRating)
+        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: mentorDetail.image)
+        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName)"
+        collegeNameLbl.text = mentorDetail.school.first?.name ?? ""
+        courceNameLbl.text = mentorDetail.major
+        bioLbl.text = mentorDetail.bio
+        rateLbl.text = "\(mentorDetail.averageRating)"
+        ratingView.rating = Double(mentorDetail.averageRating)
         
-        if menterDetail.availableTimings.count != 0 {
+        if mentorDetail.availableTimings.count != 0 {
             noDataLbl.isHidden = true
-            timeDataArr = menterDetail.availableTimings
+            timeDataArr = mentorDetail.availableTimings
             timeCollectionView.reloadData()
             timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
         }
         else {
+            timeCollectionViewHeightConstraint.constant = 80
+            timeDataArr = [Int]()
+            timeCollectionView.reloadData()
             noDataLbl.isHidden = false
         }
         
-        if menterDetail.subjects.count != 0 {
+        if mentorDetail.subjects.count != 0 {
             subjectArr = [String]()
-            for i in menterDetail.subjects {
+            for i in mentorDetail.subjects {
                 subjectArr.append(InterestArr[i - 1])
             }
             mentorCollectionView.reloadData()
         }
+        else {
+            subjectArr = [String]()
+            mentorCollectionView.reloadData()
+        }
         
-        favoriteBtn.isSelected = menterDetail.isFavourite
-        
+        favoriteBtn.isSelected = mentorDetail.isFavourite
     }
 }
 
@@ -186,10 +202,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             
             cell.lbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
             
-            let index = selectedIndex.firstIndex { (data) -> Bool in
-                data == indexPath.row
-            }
-            if index != nil {
+            if selectedIndex == indexPath.row {
                 cell.backView.backgroundColor = LightBlueColor
                 cell.backView.borderColorTypeAdapter = 7
             }
@@ -221,16 +234,16 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == timeCollectionView {
-            let index = selectedIndex.firstIndex { (data) -> Bool in
-                data == indexPath.row
-            }
-            if index != nil {
-                selectedIndex.remove(at: index!)
-            }
-            else {
-                selectedIndex.append(indexPath.row)
-            }
-            
+//            let index = selectedIndex.firstIndex { (data) -> Bool in
+//                data == indexPath.row
+//            }
+//            if index != nil {
+//                selectedIndex.remove(at: index!)
+//            }
+//            else {
+//                selectedIndex.append(indexPath.row)
+//            }
+            selectedIndex = indexPath.row
             timeCollectionView.reloadData()
         }
     }

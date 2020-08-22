@@ -15,7 +15,32 @@ struct CreateBookingRequest: Encodable {
     var mentorRef: String
     var timeSlot: Int
     var callTime: Int
+    var additionalTopics: String
 }
 
 
+struct BookingListRequest: Encodable {
+    var status: Int?
+    var dateStart: String?
+    var dateEnd: String?
+    var limit: Int?
+    
+    init(status: Int? = nil,dateStart:String? = nil,dateEnd:String? = nil, limit:Int? = nil){
+        
+        self.status = status
+        self.dateStart = dateStart
+        self.dateEnd = dateEnd
+        self.limit = limit
+    }
+}
 
+
+struct GetBookingDetailRequest: Encodable {
+    var bookingRef: String
+}
+
+
+struct GetBookingActionRequest: Encodable {
+    var bookingRef: String
+    var status: Int
+}

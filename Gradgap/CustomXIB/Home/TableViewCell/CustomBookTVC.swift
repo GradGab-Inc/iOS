@@ -73,7 +73,7 @@ extension CustomBookTVC : UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didRecieveCustomBookTVCResponse(userId, arrData[indexPath.row])
+        delegate?.didRecieveCustomBookTVCResponse(userId, indexPath.row)
     }
     
 }

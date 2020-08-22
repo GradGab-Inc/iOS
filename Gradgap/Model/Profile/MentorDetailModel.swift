@@ -38,13 +38,13 @@ struct MentorData: Codable {
     let bio, enrollmentID: String
     let personality: Personality?
     let school: [MajorListDataModel]
-    let averageRating: Int
+    let averageRating, amount: Int
     let availableTimings: [Int]
     let isFavourite: Bool
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case firstName, lastName, email, image, userType, studyingIn, anticipateYear, major, scoreSAT, scoreACT
+        case firstName, lastName, email, image, userType, studyingIn, anticipateYear, major, scoreSAT, scoreACT, amount
         case gpa = "GPA"
         case ethnicity, subjects, bio
         case enrollmentID = "enrollmentId"
@@ -67,6 +67,7 @@ struct MentorData: Codable {
         scoreSAT = try values.decodeIfPresent(Int.self, forKey: .scoreSAT) ?? 0
         scoreACT = try values.decodeIfPresent(Int.self, forKey: .scoreACT) ?? 0
         gpa = try values.decodeIfPresent(Int.self, forKey: .gpa) ?? 0
+        amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? ""
         bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
@@ -101,6 +102,7 @@ struct MentorData: Codable {
         school = [MajorListDataModel].init()
         personality = Personality.init()
         isFavourite = false
+        amount = 0
         
     }
     

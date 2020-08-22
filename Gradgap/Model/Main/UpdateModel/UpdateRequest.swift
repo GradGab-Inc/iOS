@@ -25,9 +25,9 @@ struct UpdateRequest: Encodable {
     var subjects: [Int]?
     var changeUserType : Int?
     var firstName : String?
-    var lastName : String?
+    var lastName, bio : String?
     
-    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil){
+    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil, bio:String? = nil){
         
         self.schools = schools
         self.anticipateYear = anticipateYear
@@ -45,6 +45,7 @@ struct UpdateRequest: Encodable {
         self.changeUserType = changeUserType
         self.firstName = firstName
         self.lastName = lastName
+        self.bio = bio
     }
     
     

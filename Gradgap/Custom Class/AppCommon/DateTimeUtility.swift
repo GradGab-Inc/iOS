@@ -33,7 +33,7 @@ func getDateFromDateString(strDate : String) -> Date    // Today, 09:56 AM
 {
     let dateFormatter1 = DateFormatter()
     dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter1.dateFormat = "HH:mm"
+    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter1.date(from: strDate)!
 }
 

@@ -26,6 +26,14 @@ class ConfirmBookingVC: UIViewController {
     
     @IBOutlet var bookingStatusBackView: UIView!
     
+    var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
+    var mentorDetail : MentorData = MentorData.init()
+    var selectedType : Int = 1
+    var selectedCallTime : Int = Int()
+    var selectedDate : Date = Date()
+    var selectedTimeSlot : Int = Int()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +52,26 @@ class ConfirmBookingVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         bookingStatusBackView.isHidden = true
+        createBookingVM.delegate = self
+        renderProfile()
+    }
+    
+    func renderProfile()  {
+        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName)"
+        collegeNameLbl.text = mentorDetail.school.first?.name
+        priceLbl.text = "$\(mentorDetail.amount)"
+        dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
+        durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
+        
+        let timeZone = timeZoneOffsetInMinutes()
+        let time = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone)
+        let time1 = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone + selectedCallTime)
+        
+        timeLbl.text = "\(getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")) - \(getHourStringFromHoursString(strDate: "\(time1.hours):\(time1.leftMinutes)", formate: "hh:mm a"))"
+        
+        subTotalLbl.text = "$\(mentorDetail.amount)"
+        walletBalanceLbl.text = "$0"
+        toBePaidLbl.text = "$\(mentorDetail.amount)"
     }
     
     //MARK: - Button Click
@@ -58,16 +86,30 @@ class ConfirmBookingVC: UIViewController {
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
-        bookingStatusBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: bookingStatusBackView)
+        let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
+        let str = minutesToHoursMinutes(minutes: selectedTimeSlot)
+        let finalDate = "\(date) \(str.hours):\(str.leftMinutes)"
+        
+        let request = CreateBookingRequest(callType: selectedType, dateTime: finalDate, mentorRef: mentorDetail.id, timeSlot: selectedTimeSlot, callTime: selectedCallTime, additionalTopics: additionalTopicTxt.text)
+
+        createBookingVM.createBooking(request: request)
     }
     
     @IBAction func clickToBackToHome(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     deinit {
         log.success("ConfirmBookingVC Memory deallocated!")/
     }
     
+}
+
+
+extension ConfirmBookingVC : CreateBookingDelegate {
+    func didRecieveCreateBookingResponse(response: SuccessModel) {
+        displayToast(response.message)
+        bookingStatusBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: bookingStatusBackView)
+    }
 }
