@@ -9,11 +9,12 @@
 import UIKit
 import SainiUtils
 
-class EditProfileVC: UIViewController {
+class EditProfileVC: UIViewController, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
-    @IBOutlet weak var profileImgBtn: Button!
-    @IBOutlet weak var nameTxt: UITextField!
+    @IBOutlet weak var profileImgView: ImageView!
+    @IBOutlet weak var firstNameTxt: UITextField!
+    @IBOutlet weak var lastNameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var bioTextView: TextView!
     @IBOutlet weak var startingSchoolTxt: UITextField!
@@ -28,8 +29,17 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var interestCollectHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     
+    var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
+    let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
     var selectedIndex : [Int] = [Int]()
-    var InterestArr = [INTERESTARR.INTEREST1, INTERESTARR.INTEREST2, INTERESTARR.INTEREST3, INTERESTARR.INTEREST4, INTERESTARR.INTEREST5, INTERESTARR.INTEREST6, INTERESTARR.INTEREST7, INTERESTARR.INTEREST8, INTERESTARR.INTEREST9, INTERESTARR.INTEREST10, INTERESTARR.INTEREST11, INTERESTARR.INTEREST12, INTERESTARR.INTEREST13, INTERESTARR.INTEREST14, INTERESTARR.INTEREST15]
+    var schoolNameArr : [MajorListDataModel] = [MajorListDataModel]()
+    var isNewImgUpload : Bool = false
+    var profileData : User = User.init()
+    
+    var selectedMajor : MajorListDataModel = MajorListDataModel.init()
+    var isMajorChange : Bool = false
+    var selectedLanguage : MajorListDataModel = MajorListDataModel.init()
+    var isLanguageChange : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,31 +58,193 @@ class EditProfileVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        listVC.delegate = self
         interestCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-
+        profileUpadateVM.delegate = self
+        profilPicGesture()
+        renderProfile()
     }
+    
+    private func profilPicGesture(){
+        profileImgView.sainiAddTapGesture {
+            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+            CameraAttachment.shared.imagePickedBlock = { pic in
+                self.profileImgView.image = pic
+                self.isNewImgUpload = true
+            }
+        }
+    }
+    
+    private func renderProfile() {
+        profileData = AppModel.shared.currentUser.user ?? User.init()
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
+        firstNameTxt.text = profileData.firstName
+        lastNameTxt.text = profileData.lastName
+        emailTxt.text = profileData.email
+        bioTextView.text = profileData.bio
+        startingSchoolTxt.text = "\(profileData.anticipateYear)"
+        majorTxt.text = profileData.major
+        languageTxt.text = profileData.otherLanguage
+        astTxt.text = "\(profileData.scoreSAT)"
+        actTxt.text = "\(profileData.scoreACT)"
+        gpaTxt.text = "\(profileData.gpa)"
+       
+        if profileData.subjects.count != 0 {
+            selectedIndex = [Int]()
+            for i in profileData.subjects {
+                selectedIndex.append(i)
+            }
+            interestCollectionView.reloadData()
+        }
+       
+        if profileData.school.count != 0 {
+            schoolNameArr = profileData.school
+            schoolCollectionView.reloadData()
+        }
+   }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
-    @IBAction func clickToEditImage(_ sender: Any) {
-        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-        CameraAttachment.shared.imagePickedBlock = { pic in
-            self.profileImgBtn.setImage(pic, for: .normal)
+    
+    @IBAction func clickToSubmit(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let sat = astTxt.text, let act = actTxt.text, let gpa = gpaTxt.text else {
+            return
+        }
+        if firstName.trimmed.count == 0 {
+            displayToast("Please enter your first name")
+        }
+        if lastName.trimmed.count == 0 {
+            displayToast("Please enter your last name")
+        }
+        if school.trimmed.count == 0 {
+            displayToast("Please select staring year")
+        }
+        else if major.trimmed.count == 0 {
+            displayToast("Please select planned major")
+        }
+        else if language.trimmed.count == 0 {
+            displayToast("Please select language")
+        }
+        else if sat.trimmed.count == 0 {
+            displayToast("Please enter test score SAT")
+        }
+        else if act.trimmed.count == 0 {
+            displayToast("Please enter test score ACT")
+        }
+        else if gpa.trimmed.count == 0 {
+            displayToast("Please enter GPA")
+        }
+        else if schoolNameArr.count == 0 {
+            displayToast("Please select school or college")
+        }
+        else if selectedIndex.count == 0 {
+            displayToast("Please select subject")
+        }
+            
+        else {
+            var schoolArr : [String] = [String]()
+            for item in schoolNameArr {
+                schoolArr.append(item.id)
+            }
+            
+            var request : UpdateRequest = UpdateRequest()
+            if isMajorChange {
+                request.major = selectedMajor.id
+            }
+            if isLanguageChange {
+                request.otherLanguage = selectedLanguage.id
+            }
+            request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), scoreSAT: Float(sat), scoreACT: Float(act), GPA: Float(gpa), subjects: selectedIndex, firstName: firstName, lastName: lastName)
+            
+            if isNewImgUpload {
+                let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
+            }
+            else {
+                profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+            }
+            
         }
     }
     
-    @IBAction func clickToSubmit(_ sender: Any) {
-        
+    @IBAction func clickToSelectYear(_ sender: Any) {
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Year", selected: "2020", strings: graduationYear) { [weak self](school, index, success) in
+            if school != nil {
+                self?.startingSchoolTxt.text = school
+            }
+            self?.view.endEditing(true)
+        }
+    }
+    
+    @IBAction func clickToPlanedMajor(_ sender: Any) {
+        self.view.endEditing(true)
+        displaySubViewtoParentView(self.view, subview: listVC)
+        listVC.flag = 1
+        listVC.setUp()
+        listVC.tblView.reloadData()
+    }
+    
+    @IBAction func clickToSelectLanguage(_ sender: Any) {
+        self.view.endEditing(true)
+        displaySubViewtoParentView(self.view, subview: listVC)
+        listVC.flag = 2
+        listVC.setUp()
+        listVC.tblView.reloadData()
+    }
+    
+    @IBAction func clickToSearch(_ sender: Any) {
+        self.view.endEditing(true)
+        displaySubViewtoParentView(self.view, subview: listVC)
+        listVC.flag = 3
+        listVC.setUp()
+        listVC.tblView.reloadData()
+    }
+
+    func getSelectedMajorArray(_ selectedData: MajorListDataModel) {
+        majorTxt.text = selectedData.name
+        selectedMajor = selectedData
+        isMajorChange = true
+    }
+    
+    func getSelectedLanguageArray(_ selectedData: MajorListDataModel) {
+        languageTxt.text = selectedData.name
+        selectedLanguage = selectedData
+        isLanguageChange = true
+    }
+    
+    func getSelectedSchoolArray(_ selectedData: MajorListDataModel) {
+        let index = schoolNameArr.firstIndex { (data) -> Bool in
+            data.id == selectedData.id
+        }
+        if index == nil {
+            schoolNameArr.append(selectedData)
+        }
+        schoolCollectionView.reloadData()
     }
     
     deinit {
         log.success("EditProfileVC Memory deallocated!")/
     }
     
+}
+
+extension EditProfileVC : ProfileUpdateSuccessDelegate {
+    func didReceivedData(response: LoginResponse) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data!.user
+        setLoginUserData(userData)
+        AppModel.shared.currentUser = getLoginUserData()
+        
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 
@@ -83,7 +255,7 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             return InterestArr.count
         }
         else {
-            return 3
+            return schoolNameArr.count
         }
     }
     
@@ -95,8 +267,9 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
             cell.lbl.text = InterestArr[indexPath.row]
+            print(indexPath.row)
             let index = selectedIndex.firstIndex { (data) -> Bool in
-                data == indexPath.row
+                data - 1 == indexPath.row
             }
             if index != nil {
                 cell.backView.backgroundColor = RedColor
@@ -116,31 +289,31 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = "DAV"
+            cell.lbl.text = schoolNameArr[indexPath.row].shortName
             cell.backView.backgroundColor = RedColor
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5
             
+            cell.cancelBtn.tag = indexPath.row
             cell.cancelBtn.isHidden = false
             cell.cancelBtn.addTarget(self, action: #selector(self.clickToDelete), for: .touchUpInside)
-            cell.cancelBtn.tag = indexPath.row
+            
             return cell
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == interestCollectionView {
             let index = selectedIndex.firstIndex { (data) -> Bool in
-                data == indexPath.row
+                data == indexPath.row + 1
             }
             if index != nil {
                 selectedIndex.remove(at: index!)
             }
             else {
-                selectedIndex.append(indexPath.row)
+                selectedIndex.append(indexPath.row + 1)
             }
-            
+            print(selectedIndex)
             interestCollectionView.reloadData()
         }
     }
@@ -151,12 +324,13 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             return CGSize(width: interestCollectionView.frame.size.width/3, height: 65)
         }
         else{
-            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 45)
+            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
         }
     }
     
     @objc func clickToDelete(_ sender : UIButton)  {
-        
+        schoolNameArr.remove(at: sender.tag)
+        schoolCollectionView.reloadData()
     }
     
 }

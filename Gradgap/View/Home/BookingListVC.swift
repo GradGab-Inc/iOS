@@ -108,7 +108,7 @@ class BookingListVC: UIViewController {
 extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == bookingTblView {
-            return 8
+            return 25
         }
         else {
             return filterArr.count
@@ -170,6 +170,11 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        printData(indexPath.row)
+    }
+
     
     @objc func clickToSelectFilter(_ sender : UIButton) {
         let index = filterSelectArr.firstIndex { (data) -> Bool in

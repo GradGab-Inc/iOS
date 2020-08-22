@@ -53,13 +53,14 @@ struct User: Codable {
     let subjects: [Int]
     let bio, major, otherLanguage, id: String
     let firstName, email: String
+    let school: [MajorListDataModel]
 
     enum CodingKeys: String, CodingKey {
         case personality, lastName, image, userType, studyingIn, anticipateYear, scoreSAT, scoreACT
         case gpa = "GPA"
         case ethnicity, subjects, bio, major, otherLanguage
         case id = "_id"
-        case firstName, email
+        case firstName, email, school
     }
     
     init(from decoder: Decoder) throws {
@@ -81,6 +82,7 @@ struct User: Codable {
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? DocumentDefaultValues.Empty.string
         firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? DocumentDefaultValues.Empty.string
         email = try values.decodeIfPresent(String.self, forKey: .email) ?? DocumentDefaultValues.Empty.string
+        school = try values.decodeIfPresent([MajorListDataModel].self, forKey: .school) ?? []
     }
     
     init() {
@@ -101,6 +103,7 @@ struct User: Codable {
         id = DocumentDefaultValues.Empty.string
         firstName = DocumentDefaultValues.Empty.string
         email = DocumentDefaultValues.Empty.string
+        school = [MajorListDataModel].init()
     }
     
 }

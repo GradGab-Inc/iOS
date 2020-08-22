@@ -33,8 +33,3 @@ struct AvailabiltyDeleteRequest: Encodable {
     var availabilityRef: String
 }
 
-
-struct FavoriteItemRequest : Encodable {
-    var status:Bool
-    var itemRef:String
-}
