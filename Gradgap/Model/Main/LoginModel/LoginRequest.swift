@@ -12,3 +12,8 @@ struct LoginRequest: Encodable {
     var email, password: String
     var device, fcmToken: String
 }
+
+
+struct SwitchProfileRequest: Encodable {
+    var switchUserType: Int
+}

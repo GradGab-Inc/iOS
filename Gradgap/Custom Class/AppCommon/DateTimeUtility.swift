@@ -122,3 +122,24 @@ extension String {
         return Int((hours * 60) + minutes)
     }
 }
+
+func getTimeStampFromDateString(_ strDate : String) -> Double {
+    let date = getDateFromDateString(strDate: strDate)
+    return getTimestampFromDate(date: date)
+}
+
+func getDifferenceFromCurrentTimeInHourInDays(_ str : String) -> Bool
+{
+    let timestamp : Double = getTimeStampFromDateString(str)
+    let interval : Int = getDifferenceFromCurrentTime(timestamp)
+
+    let hours : Int = interval/(60*60)
+    
+    var timeAgo : String = ""
+    if hours < 24 && hours > 0
+    {
+        return true
+    }
+    
+    return false
+}

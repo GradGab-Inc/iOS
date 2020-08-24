@@ -44,17 +44,22 @@ class HomeVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+        
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         noDataLbl.isHidden = true
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
-        
         bookingListVM.delegate = self
-        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+        refreshBookingList()
         
         joinCallBackView.isHidden = true
+    }
+    
+    @objc func refreshBookingList() {
+        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
     }
     
     //MARK: - Button Click
@@ -137,15 +142,15 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
+            cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
             cell.nameLbl.text = dict.name
             cell.collegeNameLbl.text = dict.schoolName
-            cell.timeLbl.text = ""
+            cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
             cell.joinBtn.isHidden = true
             cell.bookedBtn.isHidden = false
             cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
             cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
-            cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
             bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
             return cell

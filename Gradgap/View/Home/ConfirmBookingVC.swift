@@ -97,6 +97,7 @@ class ConfirmBookingVC: UIViewController {
     
     @IBAction func clickToBackToHome(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
     }
     
     deinit {

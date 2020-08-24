@@ -12,13 +12,17 @@ import SainiUtils
 class QuestionListVC: UIViewController, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
+    @IBOutlet weak var startingSchoolLbl: UILabel!
     @IBOutlet weak var startingSchoolTxt: UITextField!
+    @IBOutlet weak var majorLbl: UILabel!
     @IBOutlet weak var majorTxt: UITextField!
     @IBOutlet weak var languageTxt: UITextField!
     @IBOutlet weak var identifyTxt: UITextField!
     @IBOutlet weak var satTxt: UITextField!
     @IBOutlet weak var actTxt: UITextField!
     @IBOutlet weak var gpaTxt: UITextField!
+    @IBOutlet weak var currentPathBackView: UIView!
+    @IBOutlet weak var collegePathTxt: UITextField!
     
     let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
@@ -48,6 +52,13 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     func configUI() {
         listVC.delegate = self
         profileUpadateVM.delegate = self
+        
+        currentPathBackView.isHidden = true
+        if isMentor {
+            startingSchoolLbl.text = "What year do you anticipate graduating ? *"
+            majorLbl.text = "Current Major *"
+            currentPathBackView.isHidden = false
+        }
     }
     
     //MARK: - Button Click
@@ -80,6 +91,17 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
         listVC.setUp()
         listVC.tblView.reloadData()
     }
+    
+    @IBAction func clickToCollegePath(_ sender: Any) {
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Path", selected: "From High School", strings: collegePathArr) { [weak self](school, index, success) in
+            if school != nil {
+                self?.collegePathTxt.text = school
+            }
+            self?.view.endEditing(true)
+        }
+    }
+    
     
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
@@ -115,7 +137,7 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             }
             
             if isMentor {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2)
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2, collegePath: 0)
                 let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
                 profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
             }

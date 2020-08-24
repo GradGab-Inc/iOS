@@ -59,7 +59,7 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0
         {
             if isMentor {
-                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorProfileDisplayVC") as! MentorProfileDisplayVC
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {

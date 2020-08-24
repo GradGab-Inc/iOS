@@ -14,11 +14,12 @@ class MentorBookingDetailVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var profileImgView: ImageView!
     @IBOutlet weak var nameLbl: UILabel!
+    
+    @IBOutlet weak var joincallBackView: UIView!
     @IBOutlet weak var joinCallBtn: Button!
     
     @IBOutlet weak var confirmRejectBackView: UIView!
     @IBOutlet weak var additionalLbl: UILabel!
-    
     @IBOutlet weak var learnCollectionView: UICollectionView!
     @IBOutlet weak var anticipentLbl: UILabel!
     @IBOutlet weak var serviceLbl: UILabel!
@@ -29,6 +30,13 @@ class MentorBookingDetailVC: UIViewController {
     @IBOutlet weak var cancelBtn: Button!
     
     var type : Int = 0
+    var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
+    var bookingDetail : BookingDetail = BookingDetail.init()
+    var selectedBooking : BookingListDataModel = BookingListDataModel.init()
+    var selectedDate = Date()
+    var selectedStartDate = Date()
+    var subjectArr : [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +57,14 @@ class MentorBookingDetailVC: UIViewController {
     func configUI() {
         learnCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         
-        if type == 1 {
-            joinCallBtn.isHidden = true
-            cancelBtn.isHidden = true
-            confirmRejectBackView.isHidden = false
-        }
-        else{
-            confirmRejectBackView.isHidden = true
-            joinCallBtn.isHidden = false
-            cancelBtn.isHidden = false
-        }
+        bookingDetailVM.delegate = self
+        bookingActionVM.delegate = self
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        
+        joincallBackView.isHidden = true
+        joinCallBtn.isHidden = true
+        cancelBtn.isHidden = true
+        confirmRejectBackView.isHidden = true
     }
     
     //MARK: - Button Click
@@ -71,15 +77,17 @@ class MentorBookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToConfirm(_ sender: Any) {
-        
+        let request = GetBookingActionRequest(bookingRef: selectedBooking.id, status: BookingStatus.BOOKED)
+        bookingActionVM.getBookingAction(request: request)
     }
     
     @IBAction func clickToReject(_ sender: Any) {
-        
+        let request = GetBookingActionRequest(bookingRef: selectedBooking.id, status: BookingStatus.REJECT)
+        bookingActionVM.getBookingAction(request: request)
     }
     
     @IBAction func clickToCancel(_ sender: Any) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     deinit {
@@ -92,7 +100,7 @@ class MentorBookingDetailVC: UIViewController {
 //MARK: - CollectionView Delegate
 extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return subjectArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,7 +109,7 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
         }
         
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 14.0)
-        cell.lbl.text = "Social Life"
+        cell.lbl.text = subjectArr[indexPath.row]
         
         cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         cell.backView.borderColorTypeAdapter = 0
@@ -115,4 +123,60 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: learnCollectionView.frame.size.width/3, height: 65)
     }
 
+}
+
+
+extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        displayToast(response.message)
+        self.navigationController?.popToRootViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+    }
+        
+    func didRecieveBookingDetailResponse(response: BookingDetailModel) {
+        bookingDetail = response.data ?? BookingDetail.init()
+        renderBookingDetail()
+    }
+    
+    func renderBookingDetail() {
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
+        nameLbl.text = bookingDetail.name
+        scheduledLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
+        durationLbl.text = "\(bookingDetail.callTime) min"
+        serviceLbl.text = getCallType(bookingDetail.callType)
+        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+        additionalLbl.text = bookingDetail.additionalTopics
+        anticipentLbl.text = "\(bookingDetail.anticipateYear)"
+        
+        if bookingDetail.status == BookingStatus.PENDING {
+            joincallBackView.isHidden = true
+            joinCallBtn.isHidden = true
+            cancelBtn.isHidden = true
+            confirmRejectBackView.isHidden = false
+        }
+        else if bookingDetail.status == BookingStatus.BOOKED {
+            confirmRejectBackView.isHidden = true
+            joincallBackView.isHidden = false
+            joinCallBtn.isHidden = false
+            cancelBtn.isHidden = false
+        }
+        else {
+            confirmRejectBackView.isHidden = true
+            joincallBackView.isHidden = true
+            joinCallBtn.isHidden = true
+            cancelBtn.isHidden = true
+        }
+        
+        if bookingDetail.subjects.count != 0 {
+            subjectArr = [String]()
+            for i in bookingDetail.subjects {
+                subjectArr.append(InterestArr[i - 1])
+            }
+            learnCollectionView.reloadData()
+        }
+        else {
+            subjectArr = [String]()
+            learnCollectionView.reloadData()
+        }
+    }
 }

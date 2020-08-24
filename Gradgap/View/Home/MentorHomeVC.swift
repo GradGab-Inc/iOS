@@ -21,6 +21,9 @@ class MentorHomeVC: UIViewController {
     
     @IBOutlet var completeProfileBackView: UIView!
     
+    var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
+    
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -45,15 +48,24 @@ class MentorHomeVC: UIViewController {
 
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         noDataLbl.isHidden = true
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
+        
+        bookingListVM.delegate = self
+        refreshBookingList()
+        
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
         topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
     }
     
+    @objc func refreshBookingList() {
+        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+    }
     
     //MARK: - Button Click
     @IBAction func clickToSideMenu(_ sender: Any) {
@@ -62,8 +74,8 @@ class MentorHomeVC: UIViewController {
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToNextMonth(_ sender: Any) {
@@ -87,11 +99,20 @@ class MentorHomeVC: UIViewController {
     
 }
 
+extension MentorHomeVC : HomeBookingListDelegate {
+   func didRecieveHomeBookingListResponse(response: BookingListModel) {
+       bookingArr = [BookingListDataModel]()
+       bookingArr = response.data
+       bookingTblView.reloadData()
+       
+       noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+   }
+}
 
 //MARK: - TableView Delegate
 extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return bookingArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -103,23 +124,32 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
-        cell.bookedBtn.isHidden = true
+        
+        let dict : BookingListDataModel = bookingArr[indexPath.row]
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
+        cell.nameLbl.text = dict.name
+        cell.collegeNameLbl.text = "\(getCallType(dict.callType)) \(dict.callTime) Minutes"
+        cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
         cell.joinBtn.isHidden = true
-        if indexPath.row == 0 {
+        cell.bookedBtn.isHidden = true
+        if dict.status == 3 {
             cell.joinBtn.isHidden = false
-            cell.joinBtn.tag = indexPath.row
-            cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
+            cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
+            cell.joinBtn.setTitle("Confirm", for: .normal)
         }
         else {
             cell.bookedBtn.isHidden = false
+            cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+            cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
         }
-
-       return cell
+        bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
+        return cell
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
+        vc.selectedBooking = bookingArr[indexPath.row]
        self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -143,7 +173,6 @@ extension MentorHomeVC : FSCalendarDelegate {
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "CalenderDateListVC") as! CalenderDateListVC
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {

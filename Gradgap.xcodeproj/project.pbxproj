@@ -65,6 +65,7 @@
 		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
 		8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */; };
 		8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */; };
+		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
 		88287A8424EE576900745DFB /* MentorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8324EE576900745DFB /* MentorListViewModel.swift */; };
 		88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8524EE5A9500745DFB /* MentorListModel.swift */; };
 		882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */; };
@@ -243,6 +244,7 @@
 		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
 		8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailModel.swift; sourceTree = "<group>"; };
 		8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingActionViewModel.swift; sourceTree = "<group>"; };
+		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
 		88287A8324EE576900745DFB /* MentorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListViewModel.swift; sourceTree = "<group>"; };
 		88287A8524EE5A9500745DFB /* MentorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListModel.swift; sourceTree = "<group>"; };
 		882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingListViewModel.swift; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */,
 				880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */,
 				8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */,
+				8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
 				88AEE8A624D15A78002225E9 /* Colors.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
+				8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */,
 				88AEE8A424D15A78002225E9 /* UIImage+RUI.swift in Sources */,
 				881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */,
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
