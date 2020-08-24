@@ -63,6 +63,8 @@
 		8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */; };
 		8825CD7824EBDAC80079E7CB /* SchoolListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8825CD7724EBDAC80079E7CB /* SchoolListView.xib */; };
 		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
+		8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */; };
+		8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */; };
 		88287A8424EE576900745DFB /* MentorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8324EE576900745DFB /* MentorListViewModel.swift */; };
 		88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8524EE5A9500745DFB /* MentorListModel.swift */; };
 		882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */; };
@@ -239,6 +241,8 @@
 		8825CD7524EBCE1D0079E7CB /* ProfileUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateViewModel.swift; sourceTree = "<group>"; };
 		8825CD7724EBDAC80079E7CB /* SchoolListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolListView.xib; sourceTree = "<group>"; };
 		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
+		8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailModel.swift; sourceTree = "<group>"; };
+		8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingActionViewModel.swift; sourceTree = "<group>"; };
 		88287A8324EE576900745DFB /* MentorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListViewModel.swift; sourceTree = "<group>"; };
 		88287A8524EE5A9500745DFB /* MentorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListModel.swift; sourceTree = "<group>"; };
 		882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingListViewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 				880248D924D2C5E5005539B5 /* HomeVC.swift */,
 				880248E424D2EBC2005539B5 /* SidemenuVC.swift */,
 				8806B5B924D93A840005FDCE /* BookingListVC.swift */,
+				88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */,
 				88F4A20F24D9855D00C780CB /* BookChatVC.swift */,
 				888C6CBF24E10D11008E27E0 /* BookVC.swift */,
 				88F4A21524D9916900C780CB /* ConversationStarterVC.swift */,
@@ -418,9 +423,8 @@
 				88F28BB524DEA56A00DDBC41 /* InterestDiscussVC.swift */,
 				88F28BB724DEB9ED00DDBC41 /* PersonalProfileVC.swift */,
 				888C6CC124E127B2008E27E0 /* FavoriteVC.swift */,
-				88F261BB24E13DA0009EECE3 /* NotificationVC.swift */,
 				88F261BD24E150FC009EECE3 /* ConfirmBookingVC.swift */,
-				88C41D1524E25E5000D10D63 /* BookingDetailVC.swift */,
+				88F261BB24E13DA0009EECE3 /* NotificationVC.swift */,
 				88FAB29924E2CB8F0060D577 /* MentorHomeVC.swift */,
 				88FAB29724E2B5BB0060D577 /* StudentEnrollVC.swift */,
 				88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */,
@@ -485,8 +489,9 @@
 			children = (
 				882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */,
 				8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */,
-				88287A8324EE576900745DFB /* MentorListViewModel.swift */,
 				8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */,
+				8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */,
+				88287A8324EE576900745DFB /* MentorListViewModel.swift */,
 				8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */,
 				8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */,
 				8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */,
@@ -500,6 +505,7 @@
 			children = (
 				8822683124ED3B0700E88254 /* BookingRequest.swift */,
 				88248B8324EFA64C0094C375 /* BookingListModel.swift */,
+				8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */,
 				8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */,
 				8822682724ED23D600E88254 /* AvailabilityRequest.swift */,
 				8822682D24ED316A00E88254 /* FavoriteListModel.swift */,
@@ -1013,6 +1019,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */,
 				88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */,
 				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
 				88AEE8D824D1754F002225E9 /* OnboardingCVC.swift in Sources */,
@@ -1110,6 +1117,7 @@
 				880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */,
 				880BB9FF24EBB41700134D1F /* SchoolListRequest.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
+				8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */,
 				FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */,
 				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
 				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,

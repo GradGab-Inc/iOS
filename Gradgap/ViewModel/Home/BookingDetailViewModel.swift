@@ -10,18 +10,18 @@ import Foundation
 import SainiUtils
 
 protocol BookingDetailDelegate {
-    func didRecieveBookingDetailResponse(response: SuccessModel)
+    func didRecieveBookingDetailResponse(response: BookingDetailModel)
 }
 
 struct BookingDetailViewModel {
     var delegate: BookingDetailDelegate?
     
-    func getBookingDetail(request : CreateBookingRequest) {
+    func getBookingDetail(request : GetBookingDetailRequest) {
         GCD.BOOKING.bookingDetail.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.BOOKING.bookingDetail, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.BOOKING.bookingDetail, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(BookingDetailModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveBookingDetailResponse(response: success.self)

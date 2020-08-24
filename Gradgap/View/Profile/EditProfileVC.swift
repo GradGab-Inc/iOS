@@ -112,7 +112,7 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
         
-        guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let sat = astTxt.text, let act = actTxt.text, let gpa = gpaTxt.text else {
+        guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let sat = astTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let bio = bioTextView.text else {
             return
         }
         if firstName.trimmed.count == 0 {
@@ -159,7 +159,18 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
             if isLanguageChange {
                 request.otherLanguage = selectedLanguage.id
             }
-            request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), scoreSAT: Float(sat), scoreACT: Float(act), GPA: Float(gpa), subjects: selectedIndex, firstName: firstName, lastName: lastName)
+            
+            request.schools = schoolArr
+            request.anticipateYear = Int(school)
+            request.scoreSAT = Float(sat)
+            request.scoreACT = Float(act)
+            request.GPA = Float(gpa)
+            request.subjects = selectedIndex
+            request.firstName = firstName
+            request.lastName = lastName
+            request.bio = bio
+            
+    //        request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), scoreSAT: Float(sat), scoreACT: Float(act), GPA: Float(gpa), subjects: selectedIndex, firstName: firstName, lastName: lastName, bio: bio)
             
             if isNewImgUpload {
                 let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)

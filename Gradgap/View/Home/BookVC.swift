@@ -45,6 +45,7 @@ class BookVC: UIViewController {
         
         noDataLbl.isHidden = false
         mentorListVM.delegate = self
+        
         serviceCall()
         
     }
@@ -142,6 +143,8 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
         
         cell.arrData = dict.availableTimings
+        cell.userId = dict.id
+        cell.delegate = self
         cell.timeCollectionView.reloadData()
 
         return cell
@@ -173,6 +176,7 @@ extension BookVC : CustomBookTVCDelegate {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
         
         vc.selectedUserId = id
+        vc.selectedIndex = timeSlote
         vc.selectedType = selectedType
         if selectedType == 1 {
             vc.selectedCallTime = getCallTime(selectedChatTime)

@@ -21,6 +21,7 @@ class BookingDetailVC: UIViewController {
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var serviceLbl: UILabel!
     @IBOutlet weak var paymentLbl: UILabel!
+    @IBOutlet weak var favoriteBtn: Button!
     
     @IBOutlet weak var joinCallBtn: Button!
     @IBOutlet weak var cancelBookingBtn: Button!
@@ -29,8 +30,11 @@ class BookingDetailVC: UIViewController {
     @IBOutlet var bookingCantCancelBackView: UIView!
     @IBOutlet var cancelBookingBackView: UIView!
     
-    
+    var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
+    var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
+    var bookingDetail : BookingDetail = BookingDetail.init()
     var type : Int = 0
+    var selectedBooking : BookingListDataModel = BookingListDataModel.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +65,11 @@ class BookingDetailVC: UIViewController {
         
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
+        
+        addToFavoriteVM.delegate = self
+        bookingDetailVM.delegate = self
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        
     }
     
     //MARK: - Button Click
@@ -69,12 +78,17 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToViewProfile(_ sender: Any) {
-        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToFavorite(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        if bookingDetail.isFavourite {
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: false))
+        }
+        else{
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: true))
+        }
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
@@ -109,4 +123,29 @@ class BookingDetailVC: UIViewController {
         log.success("BookingDetailVC Memory deallocated!")/
     }
     
+}
+
+
+extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate {
+    func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+    }
+    
+    func didRecieveBookingDetailResponse(response: BookingDetailModel) {
+        bookingDetail = response.data ?? BookingDetail.init()
+        renderBookingDetail()
+    }
+    
+    func renderBookingDetail() {
+        nameLbl.text = bookingDetail.name
+        collegeNameLbl.text = bookingDetail.schoolName
+        rateLbl.text = "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating
+        dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
+        durationLbl.text = "\(bookingDetail.callTime) min"
+        serviceLbl.text = ""
+        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+
+        favoriteBtn.isSelected = bookingDetail.isFavourite
+    }
 }

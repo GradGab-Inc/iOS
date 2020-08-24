@@ -562,6 +562,55 @@ func getCallTime(_ tag : Int) -> Int {
     }
 }
 
+func getCallType(_ tag : Int) -> String {
+    switch tag {
+    case 1:
+        return "Chat"
+    case 2:
+        return "Interview Prep"
+    default:
+        return "Virtual Tour"
+    }
+}
+
+func getbookingType(_ tag : Int) -> String {
+    switch tag {
+    case 1:
+        return "Booked"
+    case 2:
+        return "Cancelled"
+    case 3:
+        return "Pending"
+    case 4:
+        return "Reject"
+    default:
+        return ""
+    }
+}
+
+func getbookingColor(_ tag : Int) -> UIColor {
+    switch tag {
+    case 1:
+        return colorFromHex(hex: "#33C8A3")
+    case 2:
+        return RedColor
+    case 3:
+        return LightBlueColor
+    case 4:
+        return RedColor
+    default:
+        return UIColor()
+    }
+}
+
+func displayBookingDate(_ date : String, callTime : Int) -> String {
+    let date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
+    let date2 = getDateFromDateString(strDate: date).sainiAddMinutes(Double(callTime))
+    let date3 = getDateStringFromDate(date: date2, format: "hh:mm a")
+    
+    return "\(date1) - \(date3)"
+}
+
 //MARK: - Attribute Label
 func setUpAttributeLabel(_ label : UILabel, _ colorText : String, _ simpleText : String)  {
     let string: NSMutableAttributedString = NSMutableAttributedString(string: colorText + simpleText)

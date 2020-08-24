@@ -51,8 +51,8 @@ class HomeVC: UIViewController {
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
         
-//        bookingListVM.delegate = self
-//        bookingListVM.
+        bookingListVM.delegate = self
+        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
         
         joinCallBackView.isHidden = true
     }
@@ -69,12 +69,8 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     @IBAction func clickToCompleteProfile(_ sender: Any) {
@@ -92,9 +88,15 @@ class HomeVC: UIViewController {
     
 }
 
-//extension HomeVC :   {
-//    
-//}
+extension HomeVC : HomeBookingListDelegate {
+    func didRecieveHomeBookingListResponse(response: BookingListModel) {
+        bookingArr = [BookingListDataModel]()
+        bookingArr = response.data
+        bookingTblView.reloadData()
+        
+        noDataLbl.isHidden = bookingArr.count == 0 ? false : true        
+    }
+ }
 
 //MARK: - TableView Delegate
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -103,7 +105,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             return 3
         }
         else{
-           return 2
+            return bookingArr.count
         }
     }
     
@@ -133,18 +135,20 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
                 else {
                 return UITableViewCell()
             }
-            cell.bookedBtn.isHidden = true
+            
+            let dict : BookingListDataModel = bookingArr[indexPath.row]
+            cell.nameLbl.text = dict.name
+            cell.collegeNameLbl.text = dict.schoolName
+            cell.timeLbl.text = ""
+            
             cell.joinBtn.isHidden = true
-            if indexPath.row == 0 {
-                cell.joinBtn.isHidden = false
-                cell.joinBtn.tag = indexPath.row
-                cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
-            }
-            else {
-                cell.bookedBtn.isHidden = false
-            }
-
-           return cell
+            cell.bookedBtn.isHidden = false
+            cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+            cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
+            
+            bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
+            return cell
         }
     }
         
@@ -166,8 +170,9 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
         else {
-           let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
-           self.navigationController?.pushViewController(vc, animated: true)
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+            vc.selectedBooking = bookingArr[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

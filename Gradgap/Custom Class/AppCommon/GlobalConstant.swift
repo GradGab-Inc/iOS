@@ -230,3 +230,10 @@ struct UserDefaultKeys {
     static let currentUser = "currentUser"
     static let token = "accessToken"
 }
+
+struct BookingStatus {
+    static let BOOKED =  1
+    static let CANCELLED =  2
+    static let PENDING = 3
+    static let REJECT = 4
+}
