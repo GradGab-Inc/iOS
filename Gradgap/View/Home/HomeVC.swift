@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var bookingTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var noDataLbl: UILabel!
+    @IBOutlet weak var viewAllBtn: UIButton!
     
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var joinCallBackView: UIView!
@@ -39,6 +40,7 @@ class HomeVC: UIViewController {
         if AppModel.shared.currentUser.user?.userType == 3 {
             completeProfileBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+            viewAllBtn.isHidden = true
         }
         else {
             completeProfileBackView.isHidden = true
@@ -55,6 +57,7 @@ class HomeVC: UIViewController {
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
+        
         bookingListVM.delegate = self
         refreshBookingList()
         
@@ -102,7 +105,8 @@ extension HomeVC : HomeBookingListDelegate {
         bookingArr = response.data
         bookingTblView.reloadData()
         
-        noDataLbl.isHidden = bookingArr.count == 0 ? false : true        
+        noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+        viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
     }
  }
 

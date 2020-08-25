@@ -18,7 +18,7 @@ class MentorHomeVC: UIViewController {
     @IBOutlet weak var homeCalender: FSCalendar!
     @IBOutlet weak var headerLbl: UILabel!
     @IBOutlet weak var topHeaderDateLbl: UILabel!
-    
+    @IBOutlet weak var viewAllBtn: UIButton!
     @IBOutlet var completeProfileBackView: UIView!
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
@@ -104,11 +104,15 @@ class MentorHomeVC: UIViewController {
 
 extension MentorHomeVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {
-       bookingArr = [BookingListDataModel]()
-       bookingArr = response.data
-       bookingTblView.reloadData()
+        bookingArr = [BookingListDataModel]()
+        bookingArr = response.data
+        bookingTblView.reloadData()
        
-       noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+        noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+        viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
+        if bookingArr.count == 0 {
+            bookingTblViewHeightConstraint.constant = 126
+        }
    }
 }
 

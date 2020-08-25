@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cBu-sI-9hu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -215,6 +215,7 @@ Book a chat or tour above!</string>
                         <outlet property="joinCallBackView" destination="oJ0-5w-zRP" id="BO1-Lm-nFL"/>
                         <outlet property="nameLbl" destination="7Zg-Rr-wGg" id="u9M-V6-jah"/>
                         <outlet property="noDataLbl" destination="fG1-y1-dhx" id="Sbs-R6-ivM"/>
+                        <outlet property="viewAllBtn" destination="CVe-Wc-DVr" id="pvP-KV-s81"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMI-nO-CwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -693,6 +694,7 @@ schools.</string>
                         <outlet property="homeCalender" destination="7eD-G4-EbD" id="pt6-6V-uQg"/>
                         <outlet property="noDataLbl" destination="F8G-hy-FeA" id="8rs-LB-bSU"/>
                         <outlet property="topHeaderDateLbl" destination="hbL-Pu-Yyh" id="rGq-1M-nwB"/>
+                        <outlet property="viewAllBtn" destination="z0Q-op-eCg" id="X2b-Ki-Mn7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9w-ag-xVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

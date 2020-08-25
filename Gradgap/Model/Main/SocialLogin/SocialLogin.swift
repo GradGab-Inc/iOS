@@ -148,9 +148,10 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
         let userId = appleIDCredential.user
         let socialToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
         guard let email = appleIDCredential.email else { return }
-        guard let name = appleIDCredential.fullName?.nickname else { return }
+        guard let firstname = appleIDCredential.fullName?.givenName else { return }
+        guard let lastname = appleIDCredential.fullName?.familyName else { return }
         
-        let socialRequest = SocialLoginRequest(socialToken: socialToken, socialIdentifier: SocialType.apple.rawValue, firstName: name, lastName: "", socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
+        let socialRequest = SocialLoginRequest(socialToken: socialToken, socialIdentifier: SocialType.apple.rawValue, firstName: firstname, lastName: lastname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
         
         log.info("PARAMS: \(Log.stats()) \(socialRequest)")/
         socialLoginVM.socialLogin(request: socialRequest)

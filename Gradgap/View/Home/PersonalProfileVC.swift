@@ -219,6 +219,31 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         setLoginUserData(userData)
         AppModel.shared.currentUser = getLoginUserData()
         
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        var isRedirect = false
+        for controller in self.navigationController!.viewControllers as Array {
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                if controller.isKind(of: HomeVC.self) {
+                    isRedirect = true
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+            else if AppModel.shared.currentUser.user?.userType == 2 {
+                if controller.isKind(of: MentorHomeVC.self) {
+                    isRedirect = true
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
+        if !isRedirect {
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+            }
+            else if AppModel.shared.currentUser.user?.userType == 2 {
+                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+            }
+        }
     }
 }
