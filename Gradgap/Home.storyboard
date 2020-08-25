@@ -3936,7 +3936,6 @@ schools.</string>
                                                                         <state key="normal" image="ic_dropdownarrow"/>
                                                                         <connections>
                                                                             <action selector="clickToCollegePath:" destination="bqC-wT-CZf" eventType="touchUpInside" id="u0d-OC-G6V"/>
-                                                                            <action selector="clickToPlanedMajor:" destination="bqC-wT-CZf" eventType="touchUpInside" id="SIR-SA-Ce9"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -4839,12 +4838,11 @@ schools.</string>
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-aJ-sAY" customClass="Button" customModule="Gradgap" customModuleProvider="target">
                                         <rect key="frame" x="20" y="114" width="66" height="66"/>
-                                        <color key="backgroundColor" name="BorderColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="66" id="9bZ-Qj-dn3"/>
                                             <constraint firstAttribute="height" constant="66" id="JTm-05-Bc7"/>
                                         </constraints>
-                                        <state key="normal" image="temp_pro"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderColorTypeAdapter">
                                                 <integer key="value" value="1"/>
@@ -4857,6 +4855,14 @@ schools.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xuu-2B-lbg" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="21" y="115" width="64" height="64"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="32"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atz-Qz-USF">
                                         <rect key="frame" x="98" y="122" width="210" height="26"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="22"/>
@@ -4905,12 +4911,16 @@ schools.</string>
                                     <constraint firstItem="16E-UV-w3i" firstAttribute="leading" secondItem="jIc-aJ-sAY" secondAttribute="trailing" constant="12" id="0mf-ju-Z3s"/>
                                     <constraint firstItem="16E-UV-w3i" firstAttribute="top" secondItem="atz-Qz-USF" secondAttribute="bottom" constant="8" id="3p8-0U-TMa"/>
                                     <constraint firstAttribute="height" constant="210" id="Bhs-7P-PhZ"/>
+                                    <constraint firstItem="jIc-aJ-sAY" firstAttribute="leading" secondItem="xuu-2B-lbg" secondAttribute="leading" constant="-1" id="Bx9-ur-zVa"/>
                                     <constraint firstItem="wd7-dT-czL" firstAttribute="top" secondItem="qcZ-YD-Moq" secondAttribute="top" constant="27" id="EUw-hT-yuq"/>
+                                    <constraint firstItem="jIc-aJ-sAY" firstAttribute="bottom" secondItem="xuu-2B-lbg" secondAttribute="bottom" constant="1" id="F9V-WN-y2u"/>
+                                    <constraint firstItem="jIc-aJ-sAY" firstAttribute="top" secondItem="xuu-2B-lbg" secondAttribute="top" constant="-1" id="HwD-b8-IYY"/>
                                     <constraint firstAttribute="trailing" secondItem="wd7-dT-czL" secondAttribute="trailing" constant="8" id="Kaq-JM-sBd"/>
                                     <constraint firstAttribute="trailing" secondItem="atz-Qz-USF" secondAttribute="trailing" constant="12" id="Msf-z4-cbT"/>
                                     <constraint firstAttribute="bottom" secondItem="jIc-aJ-sAY" secondAttribute="bottom" constant="30" id="Q7Q-7O-NQK"/>
                                     <constraint firstItem="atz-Qz-USF" firstAttribute="leading" secondItem="jIc-aJ-sAY" secondAttribute="trailing" constant="12" id="Rcn-7f-byj"/>
                                     <constraint firstAttribute="bottom" secondItem="Dlx-3d-ai3" secondAttribute="bottom" id="Vwm-9n-6NK"/>
+                                    <constraint firstItem="jIc-aJ-sAY" firstAttribute="trailing" secondItem="xuu-2B-lbg" secondAttribute="trailing" constant="1" id="Wu6-eV-X7F"/>
                                     <constraint firstAttribute="trailing" secondItem="Dlx-3d-ai3" secondAttribute="trailing" id="YDd-aH-hh7"/>
                                     <constraint firstItem="Dlx-3d-ai3" firstAttribute="top" secondItem="qcZ-YD-Moq" secondAttribute="top" id="ZiO-jd-wYd"/>
                                     <constraint firstItem="Ij6-U4-FyN" firstAttribute="centerY" secondItem="16E-UV-w3i" secondAttribute="centerY" id="kFT-1L-9c7"/>
@@ -4944,6 +4954,10 @@ schools.</string>
                         <viewLayoutGuide key="safeArea" id="Dss-CA-4Qh"/>
                     </view>
                     <connections>
+                        <outlet property="nameLbl" destination="atz-Qz-USF" id="ZWk-wb-6Sq"/>
+                        <outlet property="profileImgView" destination="xuu-2B-lbg" id="K5d-W0-A3e"/>
+                        <outlet property="rateLbl" destination="16E-UV-w3i" id="SQH-2N-KTI"/>
+                        <outlet property="ratingView" destination="Ij6-U4-FyN" id="0qf-x6-SXk"/>
                         <outlet property="sidemenuTbl" destination="jND-vI-ODZ" id="3uM-Yp-0Ib"/>
                     </connections>
                 </viewController>
@@ -5003,7 +5017,7 @@ schools.</string>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZdI-L7-KFK" firstAttribute="centerX" secondItem="vXi-My-H2v" secondAttribute="centerX" id="453-39-Q4q"/>
                                     <constraint firstAttribute="height" constant="160" id="FV9-ox-BDN"/>
@@ -5147,9 +5161,6 @@ schools.</string>
         </namedColor>
         <namedColor name="AppColor">
             <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BorderColor">
-            <color red="0.94499999284744263" green="0.9570000171661377" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RedColor">
             <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

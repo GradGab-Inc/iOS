@@ -46,7 +46,7 @@ class MentorProfileDisplayVC: UIViewController {
         navigationBar.headerLbl.text = "Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
+        renderProfile()
     }
     
     //MARK: - configUI
@@ -57,7 +57,6 @@ class MentorProfileDisplayVC: UIViewController {
         
         profileUpadateVM.delegate = self
         profileUpadateVM.getMenteeProfileDetail()
-        renderProfile()
     }
     
     //MARK:- renderEditProfile
@@ -75,7 +74,6 @@ class MentorProfileDisplayVC: UIViewController {
             ratingView.rating = profileData.averageRating
             collegePathLbl.text = getCollegePathString(profileData.collegePath)
             
-            
             if profileData.subjects.count != 0 {
                 subjectArr = [String]()
                 for i in profileData.subjects {
@@ -90,6 +88,7 @@ class MentorProfileDisplayVC: UIViewController {
             }
             
             if profileData.enrollmentId != "" {
+                enrollmentArr = [String]()
                 enrollmentArr.append(profileData.enrollmentId)
                 enrollCollectionView.reloadData()
             }
@@ -187,8 +186,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             cell.backView.backgroundColor = ClearColor
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 0
-            cell.imgView.image = UIImage.init(named: enrollmentArr[indexPath.row])
-            
+            cell.imgView.downloadCachedImage(placeholder: "ic_profile", urlString:  enrollmentArr[indexPath.row])
             cell.cancelBtn.isHidden = true
             return cell
         }

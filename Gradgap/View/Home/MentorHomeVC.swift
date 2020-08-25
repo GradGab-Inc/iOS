@@ -44,6 +44,9 @@ class MentorHomeVC: UIViewController {
             completeProfileBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: completeProfileBackView)
         }
+        else {
+            completeProfileBackView.isHidden = true
+        }
     }
 
     //MARK: - configUI

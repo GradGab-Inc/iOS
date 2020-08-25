@@ -10,7 +10,11 @@ import UIKit
 import IQKeyboardManagerSwift
 import NVActivityIndicatorView
 import MFSideMenu
-
+import FBSDKLoginKit
+import GoogleSignIn
+import UserNotifications
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,13 +29,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
         
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        
+        //Push Notification
+        registerPushNotification(application)
+        
+        //Facebook Login
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Google Login
+        GIDSignIn.sharedInstance().clientID = CLIENT_ID
+        
         if isUserLogin() {
             if getLoginUserData() != nil {
                 AppModel.shared.currentUser = UserDataModel.init()
                 AppModel.shared.currentUser = getLoginUserData()!
                 print(AppModel.shared.currentUser)
-                
-//                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
                 
                 if AppModel.shared.currentUser.user?.userType == 1 {
                     AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
@@ -51,9 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        
         return true
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
+    }
     
     //MARK:- Share Appdelegate
     func storyboard() -> UIStoryboard
@@ -189,8 +207,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+  //MARK:- Notification
+     func registerPushNotification(_ application: UIApplication)
+     {
+         if #available(iOS 10.0, *) {
+             // For iOS 10 display notification (sent via APNS)
+             UNUserNotificationCenter.current().delegate = self
+             
+             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+             UNUserNotificationCenter.current().requestAuthorization(
+                 options: authOptions,
+                 completionHandler: {_,_ in })
+         } else {
+             let settings: UIUserNotificationSettings =
+                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+             application.registerUserNotificationSettings(settings)
+         }
+         application.registerForRemoteNotifications()
+     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("Notification registered")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Unable to register for remote notifications: \(error.localizedDescription)")
+    }
+     
+     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+         if let messageID = userInfo["gcmMessageIDKey"] {
+             print("Message ID: \(messageID)")
+         }
+         
+         // Print full message.
+         print(userInfo)
+     }
+     
+     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+     {
+         print(userInfo)
+         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+         // This notification is not auth related, developer should handle it.
+         
+         completionHandler(UIBackgroundFetchResult.newData)
+//         NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: CHAT_NOTIFICATION.UPDATE_MESSAGE_BADGE), object: nil)
+     }
+    
+    func getFCMToken() -> String
+    {
+        let newToken = Messaging.messaging().fcmToken!
+        setPushToken(newToken)
+        return newToken
+    }
 
 }
+
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        if getPushToken() == ""
+        {
+            setPushToken(fcmToken)
+            print(fcmToken)
+        }
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        //print("Received data message: \(remoteMessage.appData)")
+    }
+}
+
 
 extension UIApplication {
     class func topViewController(base: UIViewController? = (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController) -> UIViewController? {
@@ -209,4 +295,61 @@ extension UIApplication {
     }
 }
 
+// MARK:- Push Notification
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        _ = notification.request.content.userInfo
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if UIApplication.shared.applicationState == .inactive
+        {
+            _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(delayForNotification(tempTimer:)), userInfo: userInfo, repeats: false)
+        }
+        else
+        {
+            notificationHandler(userInfo as! [String : Any])
+        }
+        
+        completionHandler()
+    }
+    
+    @objc func delayForNotification(tempTimer:Timer)
+    {
+        notificationHandler(tempTimer.userInfo as! [String : Any])
+    }
+    
+    //Redirect to screen
+    func notificationHandler(_ dict : [String : Any])
+    {
+        printData(dict)
+        if !isUserLogin() {
+            return
+        }
+                
+//        if let type : String = dict["refType"] as? String, let itemRef : String = dict["itemRef"] as? String {
+//            if type == String(NotifiacetionStatusType.Outbid.rawValue) || type == String(NotifiacetionStatusType.Won.rawValue) || type == String(NotifiacetionStatusType.Lost.rawValue) || type == String(NotifiacetionStatusType.Delivered.rawValue) {
+//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TAB_BAR), object: ["tabIndex":0])
+//                delay(1.0) {
+//                    let item : [String : String] = ["itemRef":itemRef]
+//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.NOTIFICATION_TAB_CLICK), object: item)
+//                }
+//            } else if type == String(NotifiacetionStatusType.Private.rawValue) {
+//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TAB_BAR), object: ["tabIndex":0])
+//                delay(1.0) {
+//                    let item : [String : String] = ["itemRef":itemRef]
+//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.PRIVATE_AUCTION_CLICK), object: item)
+//                }
+//            }
+//        }
+    }
+}
 

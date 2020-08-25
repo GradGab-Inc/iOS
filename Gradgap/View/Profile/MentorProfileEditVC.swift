@@ -56,7 +56,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         navigationBar.headerLbl.text = "Edit Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
+        renderProfile()
     }
     
     //MARK: - configUI
@@ -67,7 +67,6 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         listVC.delegate = self
         profileUpadateVM.delegate = self
         profilPicGesture()
-        renderProfile()
     }
     
     private func profilPicGesture(){
@@ -257,12 +256,14 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     }
     
     func getSelectedSchoolArray(_ selectedData: MajorListDataModel) {
-        let index = schoolNameArr.firstIndex { (data) -> Bool in
-            data.id == selectedData.id
-        }
-        if index == nil {
-            schoolNameArr.append(selectedData)
-        }
+//        let index = schoolNameArr.firstIndex { (data) -> Bool in
+//            data.id == selectedData.id
+//        }
+//        if index == nil {
+//            schoolNameArr.append(selectedData)
+//        }
+        schoolNameArr = [MajorListDataModel]()
+        schoolNameArr.append(selectedData)
         schoolCollectionView.reloadData()
     }
     

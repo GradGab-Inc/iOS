@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>611977964118-b7pvhpm6mdti5ntfqqs6pfnv0h7ufmcg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.611977964118-b7pvhpm6mdti5ntfqqs6pfnv0h7ufmcg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD5mv8-59xaWTmvPDbtLDGPAczf3JOBJRg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>611977964118</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.Gradgaps</string>
+	<key>PROJECT_ID</key>
+	<string>gradgap</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gradgap.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:611977964118:ios:aa8c94f3d4da8ea8d969f7</string>
+	<key>DATABASE_URL</key>
+	<string>https://gradgap.firebaseio.com</string>
+</dict>
+</plist>

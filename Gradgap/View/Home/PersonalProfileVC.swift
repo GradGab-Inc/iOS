@@ -219,6 +219,6 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         setLoginUserData(userData)
         AppModel.shared.currentUser = getLoginUserData()
         
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
