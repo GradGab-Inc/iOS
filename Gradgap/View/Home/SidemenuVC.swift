@@ -8,10 +8,16 @@
 
 import UIKit
 import MFSideMenu
+import SainiUtils
 
 class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var sidemenuTbl: UITableView!
+    @IBOutlet weak var profileImgView: ImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var rateLbl: UILabel!
+    @IBOutlet weak var ratingView: FloatRatingView!
+    
     
     var isMentor : Bool = AppModel.shared.currentUser.user?.userType == 1 ? false : true
     
@@ -26,6 +32,17 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         sidemenuTbl.register(UINib(nibName: "SideMenuTVC", bundle: nil), forCellReuseIdentifier: "SideMenuTVC")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupProfileData()
+    }
+    
+    func setupProfileData() {
+        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: AppModel.shared.currentUser.user?.image ?? "")
+        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "") \(AppModel.shared.currentUser.user?.lastName ?? "")"
+        rateLbl.text = "\(AppModel.shared.currentUser.user?.averageRating ?? 0.0)"
+        ratingView.rating = Double(AppModel.shared.currentUser.user?.averageRating ?? 0.0)
     }
     
     //MARK: - Button Click
@@ -59,7 +76,7 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0
         {
             if isMentor {
-                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorProfileDisplayVC") as! MentorProfileDisplayVC
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {

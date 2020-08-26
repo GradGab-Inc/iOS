@@ -18,13 +18,14 @@ var otp : String = ""
 let ITUNES_URL = ""
 let APPLE_LANGUAGE_KEY = "AppleLanguages"
 
-let CLIENT_ID = "89503098735-s5d2ik5ah6i3ei60r113rtt9th706gh3.apps.googleusercontent.com"
-let GOOGLE_PLACE_ID = "AIzaSyBAW5TIjkcjxUUuY37NTtcDJSXyzXXqVSw"
+let CLIENT_ID = "611977964118-b7pvhpm6mdti5ntfqqs6pfnv0h7ufmcg.apps.googleusercontent.com"
 
 let weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 let graduationYear = ["2020", "2021",  "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2035"]
 
 let timeSloteArr = ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "10 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "10 PM", "12 PM",]
+
+let collegePathArr = ["From High School", "Transfer", "Community College", "Work"]
 
 var InterestArr = [INTERESTARR.INTEREST1, INTERESTARR.INTEREST2, INTERESTARR.INTEREST3, INTERESTARR.INTEREST4, INTERESTARR.INTEREST5, INTERESTARR.INTEREST6, INTERESTARR.INTEREST7, INTERESTARR.INTEREST8, INTERESTARR.INTEREST9, INTERESTARR.INTEREST10, INTERESTARR.INTEREST11, INTERESTARR.INTEREST12, INTERESTARR.INTEREST13, INTERESTARR.INTEREST14, INTERESTARR.INTEREST15]
 
@@ -103,6 +104,11 @@ struct STORYBOARD {
     static var MAIN = UIStoryboard(name: "Main", bundle: nil)
     static var HOME = UIStoryboard(name: "Home", bundle: nil)
     static var PROFILE = UIStoryboard(name: "Profile", bundle: nil)
+}
+
+struct NOTIFICATION {
+    static var UPDATE_MENTEE_HOME_DATA     =   "UPDATE_MENTEE_HOME_DATA"
+    static var UPDATE_MENTOR_HOME_DATA     =   "UPDATE_MENTOR_HOME_DATA"
 }
 
 
@@ -236,4 +242,10 @@ struct BookingStatus {
     static let CANCELLED =  2
     static let PENDING = 3
     static let REJECT = 4
+}
+
+
+struct ProfileStatus {
+    static let MENTEE =  1
+    static let MENTOR =  2
 }

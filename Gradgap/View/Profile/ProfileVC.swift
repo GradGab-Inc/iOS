@@ -47,8 +47,8 @@ class ProfileVC: UIViewController {
     func configUI() {
         interestCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-        profileUpadateVM.delegate = self
         
+        profileUpadateVM.delegate = self
         profileUpadateVM.getMenteeProfileDetail()
     }
     
@@ -90,7 +90,9 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func clickToEditPersonalProfile(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+        vc.isFromProfile = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {

@@ -426,9 +426,16 @@ public class APIManager {
                 log.ln("prettyJSON Start \n")/
                 log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
                 log.ln("prettyJSON End \n")/
-                if let result = response.result.value as? [String:Any]{
+                if let result = response.result.value as? [String:Any] {
                     if let code = result["code"] as? Int{
                         if(code == 100){
+                            log.success("\(Log.stats()) SUCCESS")/
+                            DispatchQueue.main.async {
+                                completion(response.data)
+                            }
+                            return
+                        }
+                        if(code == 424){
                             log.success("\(Log.stats()) SUCCESS")/
                             DispatchQueue.main.async {
                                 completion(response.data)

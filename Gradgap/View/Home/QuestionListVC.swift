@@ -12,13 +12,17 @@ import SainiUtils
 class QuestionListVC: UIViewController, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
+    @IBOutlet weak var startingSchoolLbl: UILabel!
     @IBOutlet weak var startingSchoolTxt: UITextField!
+    @IBOutlet weak var majorLbl: UILabel!
     @IBOutlet weak var majorTxt: UITextField!
     @IBOutlet weak var languageTxt: UITextField!
     @IBOutlet weak var identifyTxt: UITextField!
     @IBOutlet weak var satTxt: UITextField!
     @IBOutlet weak var actTxt: UITextField!
     @IBOutlet weak var gpaTxt: UITextField!
+    @IBOutlet weak var currentPathBackView: UIView!
+    @IBOutlet weak var collegePathTxt: UITextField!
     
     let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
@@ -29,6 +33,7 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     
     var selectImg : UIImage = UIImage()
     var isMentor : Bool = false
+    var collegePathIndex : Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +53,13 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     func configUI() {
         listVC.delegate = self
         profileUpadateVM.delegate = self
+        
+        currentPathBackView.isHidden = true
+        if isMentor {
+            startingSchoolLbl.text = "What year do you anticipate graduating ? *"
+            majorLbl.text = "Current Major *"
+            currentPathBackView.isHidden = false
+        }
     }
     
     //MARK: - Button Click
@@ -81,32 +93,47 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
         listVC.tblView.reloadData()
     }
     
+    @IBAction func clickToCollegePath(_ sender: Any) {
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Path", selected: "From High School", strings: collegePathArr) { [weak self](school, index, success) in
+            if school != nil {
+                self?.collegePathTxt.text = school
+                self?.collegePathIndex = index
+            }
+            self?.view.endEditing(true)
+        }
+    }
+    
+    
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
         
-        guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text else {
+        guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let path = collegePathTxt.text else {
             return
         }
         if school.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter year")
         }
         else if major.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter major")
         }
         else if language.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter other language")
         }
         else if identift.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter identify")
         }
         else if sat.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter test score SAT")
         }
         else if act.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter test score ACT")
         }
         else if gpa.trimmed.count == 0 {
-            displayToast("Please enter stsrting year")
+            displayToast("Please enter GPA")
+        }
+        else if isMentor && (path.trimmed.count == 0 || collegePathIndex == -1) {
+            displayToast("Please enter college path")
         }
         else {
             var schoolArr : [String] = [String]()
@@ -115,15 +142,14 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             }
             
             if isMentor {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2)
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2, collegePath: collegePathIndex)
                 let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-                profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
+                profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
             }
             else {
                 let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 1)
                 profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
             }
-            
         }
     }
     

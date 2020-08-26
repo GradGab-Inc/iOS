@@ -14,6 +14,13 @@ target 'Gradgap' do
   pod 'FSCalendar'
   pod 'Alamofire','4.9.1'
   
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
+  #pod 'GooglePlaces'
+  
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+  
   # Pods for Gradgap
 
 end

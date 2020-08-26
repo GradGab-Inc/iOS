@@ -568,8 +568,10 @@ func getCallType(_ tag : Int) -> String {
         return "Chat"
     case 2:
         return "Interview Prep"
-    default:
+    case 3:
         return "Virtual Tour"
+    default:
+        return ""
     }
 }
 
@@ -583,6 +585,21 @@ func getbookingType(_ tag : Int) -> String {
         return "Pending"
     case 4:
         return "Reject"
+    default:
+        return ""
+    }
+}
+
+func getCollegePathString(_ tag : Int) -> String {
+    switch tag {
+    case 0:
+        return "From High School"
+    case 1:
+        return "Transfer"
+    case 2:
+        return "Community College"
+    case 3:
+        return "Work"
     default:
         return ""
     }

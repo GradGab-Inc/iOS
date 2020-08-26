@@ -38,12 +38,12 @@ struct BookingListModel: Codable {
 // MARK: - BookingListDataModel
 struct BookingListDataModel: Codable {
     let id, menteeRef, mentorRef, name: String
-    let schoolName, dateTime: String
-    let status, callTime: Int
+    let schoolName, dateTime, image: String
+    let status, callTime, callType: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case menteeRef, mentorRef, name, schoolName, dateTime, status, callTime
+        case menteeRef, mentorRef, name, schoolName, dateTime, status, callTime, image, callType
     }
     
     init(from decoder: Decoder) throws {
@@ -52,22 +52,26 @@ struct BookingListDataModel: Codable {
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         status = try values.decodeIfPresent(Int.self, forKey: .status) ?? 0
         callTime = try values.decodeIfPresent(Int.self, forKey: .callTime) ?? 0
+        callType = try values.decodeIfPresent(Int.self, forKey: .callType) ?? 0
         mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
         menteeRef = try values.decodeIfPresent(String.self, forKey: .menteeRef) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
         schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName) ?? ""
         dateTime = try values.decodeIfPresent(String.self, forKey: .dateTime) ?? ""
+        image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
     }
     
     init() {
         id = ""
         status = 0
         callTime = 0
+        callType = 0
         mentorRef = ""
         menteeRef = ""
         name = ""
         schoolName = ""
         dateTime = ""
+        image = ""
     }
     
 }

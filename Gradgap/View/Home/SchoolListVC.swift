@@ -133,7 +133,6 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.answerLbl.text = schoolListArr[indexPath.row].name
-        
         return cell
     }
     
@@ -150,7 +149,6 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
                 selectedSchoolListArr.append(schoolListArr[indexPath.row])
             }
         }
-
         schoolListBackView.isHidden = true
         selectedSchoolBackView.isHidden = false
         schoolCollectionView.reloadData()

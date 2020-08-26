@@ -16,7 +16,7 @@ protocol BookingActionDelegate {
 struct BookingActionViewModel {
     var delegate: BookingActionDelegate?
     
-    func getBookingDetail(request : GetBookingActionRequest) {
+    func getBookingAction(request : GetBookingActionRequest) {
         GCD.BOOKING.action.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.BOOKING.action, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
@@ -24,6 +24,9 @@ struct BookingActionViewModel {
                         let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
+                            self.delegate?.didRecieveBookingActionResponse(response: success.self)
+                            break
+                        case 424:
                             self.delegate?.didRecieveBookingActionResponse(response: success.self)
                             break
                         default:

@@ -29,6 +29,10 @@ class MentorProfileDisplayVC: UIViewController {
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var enrollCollectionView: UICollectionView!
     
+    var profileUpadateVM : MenteeDetailViewModel = MenteeDetailViewModel()
+    var subjectArr : [String] = [String]()
+    var schoolNameArr : [MajorListDataModel] = [MajorListDataModel]()
+    var enrollmentArr : [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,7 @@ class MentorProfileDisplayVC: UIViewController {
         navigationBar.headerLbl.text = "Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
+        renderProfile()
     }
     
     //MARK: - configUI
@@ -50,7 +54,47 @@ class MentorProfileDisplayVC: UIViewController {
         subjectCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         enrollCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
+        
+        profileUpadateVM.delegate = self
+        profileUpadateVM.getMenteeProfileDetail()
     }
+    
+    //MARK:- renderEditProfile
+    private func renderProfile() {
+        if let profileData = AppModel.shared.currentUser.user {
+            self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
+            nameLbl.text = "\(profileData.firstName) \(profileData.lastName)"
+            emailLbl.text = profileData.email
+            bioLbl.text = profileData.bio
+            graduateYearLbl.text = "\(profileData.anticipateYear)"
+            majorLbl.text = profileData.major
+            languageLbl.text = profileData.otherLanguage
+            satLbl.text = "\(profileData.scoreSAT)"
+            rateLbl.text = "\(profileData.averageRating)"
+            ratingView.rating = profileData.averageRating
+            collegePathLbl.text = getCollegePathString(profileData.collegePath)
+            
+            if profileData.subjects.count != 0 {
+                subjectArr = [String]()
+                for i in profileData.subjects {
+                    subjectArr.append(InterestArr[i - 1])
+                }
+                subjectCollectionView.reloadData()
+            }
+            
+            if profileData.school.count != 0 {
+                schoolNameArr = profileData.school
+                schoolCollectionView.reloadData()
+            }
+            
+            if profileData.enrollmentId != "" {
+                enrollmentArr = [String]()
+                enrollmentArr.append(profileData.enrollmentId)
+                enrollCollectionView.reloadData()
+            }
+        }
+    }
+    
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -63,7 +107,9 @@ class MentorProfileDisplayVC: UIViewController {
     }
     
     @IBAction func clickToEditPersonalProfile(_ sender: Any) {
-        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+        vc.isFromProfile = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     deinit {
@@ -72,18 +118,31 @@ class MentorProfileDisplayVC: UIViewController {
     
 }
 
+extension MentorProfileDisplayVC : MenteeDetailDelegate {
+    func didRecieveMenteeDetailResponse(response: MenteeDetailModel) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data
+        setLoginUserData(userData)
+        AppModel.shared.currentUser = getLoginUserData()
+        
+        renderProfile()
+    }
+}
+
 
 //MARK: - CollectionView Delegate
 extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == subjectCollectionView {
-            return 3
+            return subjectArr.count
         }
         else if collectionView == schoolCollectionView {
-            return 3
+            return schoolNameArr.count
         }
         else {
-            return 1
+            return enrollmentArr.count
         }
     }
     
@@ -94,7 +153,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = "Social Life"
+            cell.lbl.text = subjectArr[indexPath.row]
             
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
@@ -109,7 +168,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = "Social Life"
+            cell.lbl.text = schoolNameArr[indexPath.row].shortName
             
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
@@ -127,8 +186,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             cell.backView.backgroundColor = ClearColor
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 0
-            cell.imgView.image = UIImage.init(named: "student-id-card-500x500-2")
-            
+            cell.imgView.downloadCachedImage(placeholder: "ic_profile", urlString:  enrollmentArr[indexPath.row])
             cell.cancelBtn.isHidden = true
             return cell
         }

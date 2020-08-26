@@ -30,11 +30,16 @@ class BookingDetailVC: UIViewController {
     @IBOutlet var bookingCantCancelBackView: UIView!
     @IBOutlet var cancelBookingBackView: UIView!
     
+    var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingDetail : BookingDetail = BookingDetail.init()
     var type : Int = 0
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
+    var selectedDate = Date()
+    var selectedStartDate = Date()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +57,17 @@ class BookingDetailVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
-        if type == 1 {
-            joinCallBtn.isHidden = true
-            cancelBookingBtn.isHidden = true
-            rebookCallBtn.isHidden = false
-        }
-        else {
-            joinCallBtn.isHidden = false
-            cancelBookingBtn.isHidden = false
-            rebookCallBtn.isHidden = true
-        }
+        joinCallBtn.isHidden = true
+        cancelBookingBtn.isHidden = true
+        rebookCallBtn.isHidden = true
         
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
         
+        createBookingVM.delegate = self
         addToFavoriteVM.delegate = self
         bookingDetailVM.delegate = self
+        bookingActionVM.delegate = self
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         
     }
@@ -86,7 +86,7 @@ class BookingDetailVC: UIViewController {
         if bookingDetail.isFavourite {
             addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: false))
         }
-        else{
+        else {
             addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: true))
         }
     }
@@ -96,15 +96,20 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToCancelBooking(_ sender: Any) {
-//        bookingCantCancelBackView.isHidden = false
-//        displaySubViewtoParentView(self.view, subview: bookingCantCancelBackView)
-        
-        cancelBookingBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: cancelBookingBackView)
+        if getDifferenceFromCurrentTimeInHourInDays(bookingDetail.dateTime) {
+            bookingCantCancelBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: bookingCantCancelBackView)
+        }
+        else {
+            cancelBookingBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: cancelBookingBackView)
+        }
     }
     
     @IBAction func clickToRebookCall(_ sender: Any) {
-        
+        let request = CreateBookingRequest(callType: bookingDetail.callType, dateTime: bookingDetail.dateTime, mentorRef: bookingDetail.mentorRef, timeSlot: bookingDetail.timeSlot, callTime: bookingDetail.callTime, additionalTopics: bookingDetail.additionalTopics)
+
+        createBookingVM.createBooking(request: request)
     }
     
     @IBAction func clickToOk(_ sender: Any) {
@@ -116,7 +121,8 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToCancelYes(_ sender: Any) {
-        cancelBookingBackView.isHidden = true
+        let request = GetBookingActionRequest(bookingRef: selectedBooking.id, status: BookingStatus.CANCELLED)
+        bookingActionVM.getBookingAction(request: request)
     }
     
     deinit {
@@ -126,7 +132,34 @@ class BookingDetailVC: UIViewController {
 }
 
 
-extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate {
+extension BookingDetailVC : CreateBookingDelegate {
+    func didRecieveCreateBookingResponse(response: SuccessModel) {
+        displayToast(response.message)
+        
+        cancelBookingBackView.isHidden = true
+        bookingCantCancelBackView.isHidden = true
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+    }
+}
+
+
+extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        displayToast(response.message)
+        
+        if response.code == 424  {
+            cancelBookingBackView.isHidden = true
+            bookingCantCancelBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: bookingCantCancelBackView)
+        }
+        else {
+            cancelBookingBackView.isHidden = true
+            bookingCantCancelBackView.isHidden = true
+            bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        }
+        
+    }
+    
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
     }
@@ -137,15 +170,33 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate {
     }
     
     func renderBookingDetail() {
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         nameLbl.text = bookingDetail.name
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
         dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
-        serviceLbl.text = ""
+        serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isSelected = bookingDetail.isFavourite
+        
+        if bookingDetail.status == BookingStatus.BOOKED {
+            joinCallBtn.isHidden = false
+            cancelBookingBtn.isHidden = false
+            rebookCallBtn.isHidden = true
+        }
+        else if bookingDetail.status == BookingStatus.CANCELLED || bookingDetail.status == BookingStatus.REJECT {
+            joinCallBtn.isHidden = true
+            cancelBookingBtn.isHidden = true
+            rebookCallBtn.isHidden = false
+        }
+        else {
+            joinCallBtn.isHidden = true
+            cancelBookingBtn.isHidden = false
+            rebookCallBtn.isHidden = true
+        }
+        
     }
 }

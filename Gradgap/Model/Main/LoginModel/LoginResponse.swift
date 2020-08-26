@@ -46,19 +46,20 @@ struct UserDataModel: Codable {
 struct User: Codable {
     let personality: Personality?
     let lastName, image: String
-    let userType, studyingIn, anticipateYear: Int
+    let userType, studyingIn, anticipateYear, collegePath: Int
     let scoreSAT: Double
-    let scoreACT, gpa: Double
+    let scoreACT, gpa, averageRating: Double
     let ethnicity: String
     let subjects: [Int]
-    let bio, major, otherLanguage, id: String
+    let bio, major, otherLanguage, id, enrollmentId: String
     let firstName, email: String
     let school: [MajorListDataModel]
+    
 
     enum CodingKeys: String, CodingKey {
-        case personality, lastName, image, userType, studyingIn, anticipateYear, scoreSAT, scoreACT
+        case personality, lastName, image, userType, studyingIn, anticipateYear, scoreSAT, scoreACT, enrollmentId
         case gpa = "GPA"
-        case ethnicity, subjects, bio, major, otherLanguage
+        case ethnicity, subjects, bio, major, otherLanguage, averageRating, collegePath
         case id = "_id"
         case firstName, email, school
     }
@@ -69,10 +70,12 @@ struct User: Codable {
         lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? DocumentDefaultValues.Empty.string
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? DocumentDefaultValues.Empty.string
         userType = try values.decodeIfPresent(Int.self, forKey: .userType) ?? DocumentDefaultValues.Empty.int
+        collegePath = try values.decodeIfPresent(Int.self, forKey: .collegePath) ?? DocumentDefaultValues.Empty.int
         studyingIn = try values.decodeIfPresent(Int.self, forKey: .studyingIn) ?? DocumentDefaultValues.Empty.int
         anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? DocumentDefaultValues.Empty.int
         scoreSAT = try values.decodeIfPresent(Double.self, forKey: .scoreSAT) ?? DocumentDefaultValues.Empty.double
         scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? DocumentDefaultValues.Empty.double
+        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? DocumentDefaultValues.Empty.double
         gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? DocumentDefaultValues.Empty.double
         ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? DocumentDefaultValues.Empty.string
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
@@ -83,6 +86,7 @@ struct User: Codable {
         firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? DocumentDefaultValues.Empty.string
         email = try values.decodeIfPresent(String.self, forKey: .email) ?? DocumentDefaultValues.Empty.string
         school = try values.decodeIfPresent([MajorListDataModel].self, forKey: .school) ?? []
+        enrollmentId = try values.decodeIfPresent(String.self, forKey: .enrollmentId) ?? DocumentDefaultValues.Empty.string
     }
     
     init() {
@@ -92,8 +96,10 @@ struct User: Codable {
         userType = DocumentDefaultValues.Empty.int
         studyingIn = DocumentDefaultValues.Empty.int
         anticipateYear = DocumentDefaultValues.Empty.int
+        collegePath = DocumentDefaultValues.Empty.int
         scoreSAT = DocumentDefaultValues.Empty.double
         scoreACT = DocumentDefaultValues.Empty.double
+        averageRating = DocumentDefaultValues.Empty.double
         gpa = DocumentDefaultValues.Empty.double
         ethnicity = DocumentDefaultValues.Empty.string
         subjects = []
@@ -104,6 +110,7 @@ struct User: Codable {
         firstName = DocumentDefaultValues.Empty.string
         email = DocumentDefaultValues.Empty.string
         school = [MajorListDataModel].init()
+        enrollmentId = DocumentDefaultValues.Empty.string
     }
     
 }

@@ -33,7 +33,8 @@ class PersonalProfileVC: UIViewController {
     var currentQuestion : Int = 0
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     var selectedIndex : [Int : Int] = [Int : Int]()
-    
+    var isFromProfile : Bool = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,9 +54,19 @@ class PersonalProfileVC: UIViewController {
         selectQuestion(currentQuestion)
         submitBtn.isHidden = true
         bottomProgressBackView.isHidden = false
+        
         progressView.progress = 0.0
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 5)
         percentLbl.text = "0%"
+        
+        if isFromProfile {
+            let personality = AppModel.shared.currentUser.user?.personality ?? Personality.init()
+            selectedIndex[0] = personality.energyFromBeingWithOthers
+            selectedIndex[1] = personality.informationFromOthers
+            selectedIndex[2] = personality.decisionOnLogic
+            selectedIndex[3] = personality.goWithFlow
+            setupSelection(personality.energyFromBeingWithOthers)
+        }
         
         profileUpadateVM.delegate = self
     }
@@ -124,8 +135,6 @@ class PersonalProfileVC: UIViewController {
             if index != nil {
                 setupSelection(selectedIndex[index!].value)
             }
-            
-            
         }
     }
     
@@ -210,6 +219,31 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         setLoginUserData(userData)
         AppModel.shared.currentUser = getLoginUserData()
         
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        var isRedirect = false
+        for controller in self.navigationController!.viewControllers as Array {
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                if controller.isKind(of: HomeVC.self) {
+                    isRedirect = true
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+            else if AppModel.shared.currentUser.user?.userType == 2 {
+                if controller.isKind(of: MentorHomeVC.self) {
+                    isRedirect = true
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
+        if !isRedirect {
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+            }
+            else if AppModel.shared.currentUser.user?.userType == 2 {
+                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+            }
+        }
     }
 }

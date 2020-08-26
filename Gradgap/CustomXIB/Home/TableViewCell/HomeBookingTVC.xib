@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZB-j9-ikU" customClass="View" customModule="Gradgap" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="7" width="320" height="112"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="4An-az-xvT" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="4An-az-xvT" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
                                 <rect key="frame" x="20" y="10" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Nh2-zJ-Hr2"/>
@@ -57,20 +57,20 @@
                                     <constraint firstAttribute="height" constant="1" id="6ow-iy-OcR"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today 9:00 - 10:00 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qm-39-xwW">
-                                <rect key="frame" x="20" y="80" width="157" height="15.5"/>
-                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today 9:00 - 10:00 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="0Qm-39-xwW">
+                                <rect key="frame" x="20" y="80" width="167" height="15.5"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6s-E6-NjW" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="185" y="74" width="115" height="30"/>
+                                <rect key="frame" x="195" y="74" width="105" height="30"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mkz-Ib-8Hu"/>
-                                    <constraint firstAttribute="width" constant="115" id="qUv-QQ-TV9"/>
+                                    <constraint firstAttribute="width" constant="105" id="qUv-QQ-TV9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 <state key="normal" title="Join the call" image="ic_contactnumber">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

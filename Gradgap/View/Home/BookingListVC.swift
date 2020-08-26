@@ -19,15 +19,17 @@ class BookingListVC: UIViewController {
     @IBOutlet weak var filterTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var fromDateLbl: UILabel!
     @IBOutlet weak var toDateLbl: UILabel!
+    @IBOutlet weak var noDataLbl: UILabel!
     
-    var filterArr = ["Booked","Completed","Cancelled"]
-    private var filterSelectArr = [Int]()
-    var selectedDate : Date!
-    var selectedStartDate : Date!
-    var selectedEndDate : Date!
+    var mentorArr = ["Confirmed","Unconfirmed"]
+    var menteeArr = ["Booked","Cancelled","Pending","Rejected"]
+    var filterArr : [String] = [String]()
+    
+    private var filterSelectIndex = 0
+    var selectedDate = Date()
+    var selectedStartDate = Date()
+    var selectedEndDate = Date()
     let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
-    
-    
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     
@@ -50,9 +52,17 @@ class BookingListVC: UIViewController {
     func configUI() {
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            filterArr = menteeArr
+        }
+        else {
+            filterArr = mentorArr
+        }
+        
         filterBackView.isHidden = true
-        self.fromDateLbl.text = getDateStringFromDate(date: Date(), format: "MM/dd/YYYY")
-        self.toDateLbl.text = getDateStringFromDate(date: Date(), format: "MM/dd/YYYY")
+        self.fromDateLbl.text = getDateStringFromDate(date: selectedStartDate, format: "MM/dd/YYYY")
+        selectedEndDate = Calendar.current.date(byAdding: .day, value: 1, to: self.selectedStartDate) ?? Date()
+        self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         bookingListVM.delegate = self
         bookingListVM.getBookingList(request: BookingListRequest())
@@ -72,7 +82,7 @@ class BookingListVC: UIViewController {
         var request : BookingListRequest = BookingListRequest()
         request.dateStart = fromDateLbl.text
         request.dateEnd = toDateLbl.text
-        
+        request.status = filterSelectIndex + 1
         bookingListVM.getBookingList(request: request)
         filterBackView.isHidden = true
     }
@@ -87,12 +97,14 @@ class BookingListVC: UIViewController {
         {
             selectedStartDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedStartDate, min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedStartDate = date!
                
-                self.fromDateLbl.text = getDateStringFromDate(date: self.selectedDate, format: "MM/dd/YYYY")
-                self.toDateLbl.text = ""
+                self.fromDateLbl.text = getDateStringFromDate(date: self.selectedStartDate, format: "MM/dd/YYYY")
+                
+                self.selectedEndDate = Calendar.current.date(byAdding: .day, value: 1, to: self.selectedStartDate) ?? Date()
+                self.toDateLbl.text = getDateStringFromDate(date: self.selectedEndDate, format: "MM/dd/YYYY")
             }
         }
     }
@@ -103,11 +115,12 @@ class BookingListVC: UIViewController {
         {
             selectedEndDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedStartDate, min: Date(), max: nil) { (date, cancel) in
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedStartDate)!
+        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedEndDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedEndDate = date!
               
-                self.fromDateLbl.text = getDateStringFromDate(date: self.selectedDate, format: "MM/dd/YYYY")
+                self.toDateLbl.text = getDateStringFromDate(date: self.selectedEndDate, format: "MM/dd/YYYY")
             }
         }
     }
@@ -120,9 +133,11 @@ class BookingListVC: UIViewController {
 
 extension BookingListVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {
-       bookingArr = [BookingListDataModel]()
-       bookingArr = response.data
-       bookingTblView.reloadData()
+        bookingArr = [BookingListDataModel]()
+        bookingArr = response.data
+        bookingTblView.reloadData()
+    
+        noDataLbl.isHidden = bookingArr.count == 0 ? false : true
    }
 }
 
@@ -155,15 +170,32 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             }
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
+            cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
             cell.nameLbl.text = dict.name
-            cell.collegeNameLbl.text = dict.schoolName
-            cell.timeLbl.text = ""
-             
-            cell.joinBtn.isHidden = true
-            cell.bookedBtn.isHidden = false
-            cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
-            cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
+            
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                cell.collegeNameLbl.text = dict.schoolName
+                cell.joinBtn.isHidden = true
+                cell.bookedBtn.isHidden = false
+                cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+                cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            }
+            else {
+                cell.joinBtn.isHidden = true
+                cell.bookedBtn.isHidden = true
+                cell.collegeNameLbl.text = "\(getCallType(dict.callType)) \(dict.callTime) Minutes"
+                if dict.status == 3 {
+                    cell.joinBtn.isHidden = false
+                    cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
+                    cell.joinBtn.setTitle("Confirm", for: .normal)
+                }
+                else {
+                    cell.bookedBtn.isHidden = false
+                    cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+                    cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+                }
+            }
             
             return cell
         }
@@ -176,10 +208,7 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             
             cell.selectBtn.tag = indexPath.row
             cell.selectBtn.addTarget(self, action: #selector(self.clickToSelectFilter), for: .touchUpInside)
-            let index = filterSelectArr.firstIndex { (data) -> Bool in
-                data == indexPath.row
-            }
-            if index != nil {
+            if filterSelectIndex == indexPath.row {
                 cell.selectBtn.isSelected = true
             }
             else {
@@ -192,9 +221,17 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
-        vc.selectedBooking = bookingArr[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+            vc.selectedBooking = bookingArr[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
+             vc.selectedBooking = bookingArr[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -203,15 +240,7 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
 
     
     @objc func clickToSelectFilter(_ sender : UIButton) {
-        let index = filterSelectArr.firstIndex { (data) -> Bool in
-            data == sender.tag
-        }
-        if index == nil {
-            filterSelectArr.append(sender.tag)
-        }
-        else{
-            filterSelectArr.remove(at: index!)
-        }
+        filterSelectIndex = sender.tag
         filterTblView.reloadData()
     }
     

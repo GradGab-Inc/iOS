@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var bookingTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var noDataLbl: UILabel!
+    @IBOutlet weak var viewAllBtn: UIButton!
     
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var joinCallBackView: UIView!
@@ -39,11 +40,17 @@ class HomeVC: UIViewController {
         if AppModel.shared.currentUser.user?.userType == 3 {
             completeProfileBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+            viewAllBtn.isHidden = true
+        }
+        else {
+            completeProfileBackView.isHidden = true
         }
     }
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+        
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         noDataLbl.isHidden = true
@@ -52,9 +59,13 @@ class HomeVC: UIViewController {
         bookingTblViewHeightConstraint.constant = 234
         
         bookingListVM.delegate = self
-        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+        refreshBookingList()
         
         joinCallBackView.isHidden = true
+    }
+    
+    @objc func refreshBookingList() {
+        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
     }
     
     //MARK: - Button Click
@@ -94,7 +105,8 @@ extension HomeVC : HomeBookingListDelegate {
         bookingArr = response.data
         bookingTblView.reloadData()
         
-        noDataLbl.isHidden = bookingArr.count == 0 ? false : true        
+        noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+        viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
     }
  }
 
@@ -137,15 +149,15 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
+            cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
             cell.nameLbl.text = dict.name
             cell.collegeNameLbl.text = dict.schoolName
-            cell.timeLbl.text = ""
+            cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
             cell.joinBtn.isHidden = true
             cell.bookedBtn.isHidden = false
             cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
             cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
-            cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
             bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
             return cell

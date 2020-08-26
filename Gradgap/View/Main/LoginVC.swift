@@ -8,8 +8,9 @@
 
 import UIKit
 import SainiUtils
+import GoogleSignIn
 
-class LoginVC: UIViewController {
+class LoginVC: SocialLogin {
 
     private var loginVM: LoginViewModel = LoginViewModel()
     
@@ -37,14 +38,21 @@ class LoginVC: UIViewController {
     
     @IBAction func clickToFacebook(_ sender: Any) {
         self.view.endEditing(true)
+        loginWithFacebook()
     }
     
     @IBAction func clickToApple(_ sender: Any) {
         self.view.endEditing(true)
+        actionHandleAppleSignin()
     }
     
     @IBAction func clickToGoogle(_ sender: Any) {
         self.view.endEditing(true)
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.signOut()
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func clickToForgotPassword(_ sender: Any) {

@@ -33,14 +33,14 @@ struct BookingDetail: Codable {
     let id, menteeRef, mentorRef, image: String
     let name, schoolName, additionalTopics, dateTime: String
     let subjects: [Int]
-    let anticipateYear, status, callTime, callType: Int
+    let anticipateYear, status, callTime, callType, timeSlot: Int
     let amount: Int
     let isFavourite: Bool
     let averageRating: Double
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case menteeRef, mentorRef, image, name, schoolName, additionalTopics, dateTime, subjects, anticipateYear, status, callTime, callType, amount, isFavourite, averageRating
+        case menteeRef, mentorRef, image, name, schoolName, additionalTopics, dateTime, subjects, anticipateYear, status, callTime, callType, amount, isFavourite, averageRating, timeSlot
     }
     
     init(from decoder: Decoder) throws {
@@ -59,6 +59,7 @@ struct BookingDetail: Codable {
         anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? 0
         callType = try values.decodeIfPresent(Int.self, forKey: .callType) ?? 0
         amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
+        timeSlot = try values.decodeIfPresent(Int.self, forKey: .timeSlot) ?? 0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
         averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0.0
@@ -71,7 +72,7 @@ struct BookingDetail: Codable {
         mentorRef = ""
         name = ""
         schoolName = ""
-        additionalTopics = ""
+        additionalTopics = " "
         image = ""
         dateTime = ""
         callTime = 0
@@ -79,6 +80,7 @@ struct BookingDetail: Codable {
         anticipateYear = 0
         callType = 0
         amount = 0
+        timeSlot = 0
         subjects = []
         isFavourite = false
         averageRating = 0.0
