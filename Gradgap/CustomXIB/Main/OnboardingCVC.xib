@@ -33,18 +33,26 @@
                                     <constraint firstAttribute="width" secondItem="WDe-y3-mve" secondAttribute="height" multiplier="180:143" id="oHN-4N-uIC"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr3-pF-NMm">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kxe-Zd-HF9" secondAttribute="trailing" id="0Ob-FN-TNn"/>
                             <constraint firstItem="6bo-oW-Xj0" firstAttribute="top" secondItem="Dz3-e8-3mY" secondAttribute="top" id="40r-6o-3jK"/>
+                            <constraint firstAttribute="trailing" secondItem="Kr3-pF-NMm" secondAttribute="trailing" id="4Ii-os-0xF"/>
                             <constraint firstAttribute="trailing" secondItem="6bo-oW-Xj0" secondAttribute="trailing" id="D9W-8F-Eew"/>
                             <constraint firstAttribute="bottom" secondItem="kxe-Zd-HF9" secondAttribute="bottom" id="F1B-DX-sdM"/>
                             <constraint firstItem="kxe-Zd-HF9" firstAttribute="leading" secondItem="Dz3-e8-3mY" secondAttribute="leading" id="IPV-yv-Vhr"/>
                             <constraint firstAttribute="trailing" secondItem="WDe-y3-mve" secondAttribute="trailing" constant="70" id="NmS-g1-FON"/>
+                            <constraint firstItem="Kr3-pF-NMm" firstAttribute="leading" secondItem="Dz3-e8-3mY" secondAttribute="leading" id="RwU-vP-ysX"/>
+                            <constraint firstItem="Kr3-pF-NMm" firstAttribute="top" secondItem="Dz3-e8-3mY" secondAttribute="top" id="UUh-ji-Rke"/>
                             <constraint firstAttribute="bottom" secondItem="6bo-oW-Xj0" secondAttribute="bottom" id="XJ9-u9-C2c"/>
                             <constraint firstItem="WDe-y3-mve" firstAttribute="centerY" secondItem="Dz3-e8-3mY" secondAttribute="centerY" id="jTb-ym-uJ4"/>
                             <constraint firstItem="WDe-y3-mve" firstAttribute="leading" secondItem="Dz3-e8-3mY" secondAttribute="leading" constant="70" id="mn2-Q5-NpQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Kr3-pF-NMm" secondAttribute="bottom" id="oNa-kj-KgB"/>
                             <constraint firstItem="6bo-oW-Xj0" firstAttribute="leading" secondItem="Dz3-e8-3mY" secondAttribute="leading" id="vjO-aG-bcJ"/>
                             <constraint firstItem="kxe-Zd-HF9" firstAttribute="top" secondItem="Dz3-e8-3mY" secondAttribute="top" id="yX1-nS-xt1"/>
                         </constraints>
@@ -59,6 +67,9 @@
                 <constraint firstAttribute="bottom" secondItem="Dz3-e8-3mY" secondAttribute="bottom" id="Iuw-hW-fDe"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="videoView" destination="Kr3-pF-NMm" id="nxh-dX-dq2"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
         </collectionViewCell>
     </objects>

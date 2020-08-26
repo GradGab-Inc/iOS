@@ -15,8 +15,12 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var updateBtn: Button!
     
-    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
-    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+//    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
+//    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    
+    var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
+    var selectedDate : Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +40,21 @@ class CalenderDateListVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
-        dateListVM.delegate = self
-        dateListVM.availabilityList()
+//        dateListVM.delegate = self
+//        dateListVM.availabilityList()
+        
+        
+        bookingListVM.delegate = self
+        refreshBookingList()
+    }
+    
+    @objc func refreshBookingList() {
+        let endDate = getDateStringFromDate(date: self.selectedDate, format: "yyyy-MM-dd")
+        
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
+        let startDate = getDateStringFromDate(date: maxDate, format: "yyyy-MM-dd")
+        
+        bookingListVM.getBookingList(request: BookingListRequest(dateStart: "\(startDate) 6:30:00", dateEnd: "\(endDate) 6:30:00"))
     }
     
     //MARK: - Button Click
@@ -57,23 +74,30 @@ class CalenderDateListVC: UIViewController {
     
 }
 
-extension CalenderDateListVC : AvailabilityListDelegate {
-    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
-        availabilityListArr = [AvailabilityDataModel]()
-        availabilityListArr = response.data
-        tblView.reloadData()
-         
-        if availabilityListArr.count == 0 {
-            updateBtn.setTitle("Set Availability", for: .normal)
-        }
-    }
-}
+//extension CalenderDateListVC : AvailabilityListDelegate {
+//    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+//        availabilityListArr = [AvailabilityDataModel]()
+//        availabilityListArr = response.data
+//        tblView.reloadData()
+//
+//        if availabilityListArr.count == 0 {
+//            updateBtn.setTitle("Set Availability", for: .normal)
+//        }
+//    }
+//}
 
+extension CalenderDateListVC : HomeBookingListDelegate {
+   func didRecieveHomeBookingListResponse(response: BookingListModel) {
+        bookingArr = [BookingListDataModel]()
+        bookingArr = response.data
+        tblView.reloadData()
+   }
+}
 
 //MARK: - TableView Delegate
 extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeSloteArr.count
+        return bookingArr.count//timeSloteArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,7 +110,14 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.timeLbl.text = timeSloteArr[indexPath.row]
+        let dict : BookingListDataModel = bookingArr[indexPath.row]
+        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh a")
+        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+        let time2 = getDateStringFromDate(date: date2, format: "hh a")
+        
+        cell.timeLbl.text = "\(time1) - \(time2)"
+        cell.eventLbl.text = "Meeting with \(dict.name) \(getbookingType(dict.status))"
+
         
 //        if indexPath.row == 1 || indexPath.row == 7 {
 //            cell.backView.isHidden = false
@@ -99,7 +130,9 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+       vc.selectedBooking = bookingArr[indexPath.row]
+       self.navigationController?.pushViewController(vc, animated: true)
     }
         
 }

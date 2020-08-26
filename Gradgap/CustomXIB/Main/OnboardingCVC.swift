@@ -10,6 +10,9 @@ import UIKit
 
 class OnboardingCVC: UICollectionViewCell {
 
+    @IBOutlet weak var videoView: UIView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

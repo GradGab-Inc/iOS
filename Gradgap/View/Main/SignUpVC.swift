@@ -90,7 +90,6 @@ class SignUpVC: SocialLogin {
         guard let contactNumber = contactNumberTxt.text else { return }
         guard let password = passwordTxt.text else { return }
         guard let confirmPassword = confirmPasswordTxt.text else { return }
-        let fcmToken = AppModel.shared.fcmToken
         let device = AppModel.shared.device
         
         if firstName == DocumentDefaultValues.Empty.string {
@@ -115,7 +114,7 @@ class SignUpVC: SocialLogin {
             displayToast("Password doesn't match")
         }
         else {
-            let signUpRequest = SignUpRequest(firstName: firstName, lastName: lastName, email: email, password: password, contactCode: "+91", contactNumber: contactNumber, device: device, fcmToken: fcmToken)
+            let signUpRequest = SignUpRequest(firstName: firstName, lastName: lastName, email: email, password: password, contactCode: "+91", contactNumber: contactNumber, device: device, fcmToken: getPushToken())
             signUpVM.createUser(signUpRequest: signUpRequest)
         }
     }

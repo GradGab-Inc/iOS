@@ -143,11 +143,13 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isHidden = false
             cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
             cell.joinBtn.setTitle("Confirm", for: .normal)
+            cell.joinBtn.isUserInteractionEnabled = false
         }
         else {
             cell.bookedBtn.isHidden = false
             cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
             cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            cell.bookedBtn.isUserInteractionEnabled = false
         }
         bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
         return cell
@@ -179,6 +181,7 @@ extension MentorHomeVC : FSCalendarDelegate {
         }
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "CalenderDateListVC") as! CalenderDateListVC
+        vc.selectedDate = date
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

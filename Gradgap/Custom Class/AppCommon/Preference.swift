@@ -56,7 +56,7 @@ func getPushToken() -> String
     {
         return token
     }
-    return "" //AppDelegate().sharedDelegate().getFCMToken()
+    return AppDelegate().sharedDelegate().getFCMToken()
 }
 
 

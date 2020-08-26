@@ -61,50 +61,6 @@ public class APIManager {
     }
     
     //MARK:- ERROR CODES
-//    func handleError(errorCode: Int) -> String {
-//        switch errorCode {
-//        case 101:
-//            return "Missing Required Properties"
-//        case 102:
-//            return "Connection Error"
-//        case 103:
-//            return "Requested user not found"
-//        case 104:
-//            return "Username/Password error"
-//        case 105:
-//            return "Nothing Modified/ No changes Made"
-//        case 106:
-//            return "Invalid Access Token"
-//        case 107:
-//            return "This Email id is already registered."
-//        case 108:
-//            return "Invalid OTP type."
-//        case 109:
-//            return "Token not verified."
-//        case 110:
-//            return "Email id already verified."
-//        case 111:
-//            return "Verficiation code try has been expired. Request a new token."
-//        case 112:
-//            return "verification code has been expired. Token expires in 24 hours."
-//        case 113:
-//            return "Invlid URL provided for verification."
-//        case 114:
-//            return "Broken reference found."
-//        case 115:
-//            return "Profile seems to have missing region data or you are trying to post in wrong region."
-//        case 400:
-//            return "Malformed Authorization token error when token in invalid or has been expired."
-//        case 500:
-//            return "Generic error or some default error"
-//
-//        default:
-//            return ""
-//        }
-//
-//    }
-    
-    //MARK:- ERROR CODES
     func handleError(errorCode: Int, _ message : String) {
         switch errorCode {
         case 101:
@@ -117,7 +73,6 @@ public class APIManager {
         default:
             print(message)
         }
-        
     }
     
     //MARK:- MULTIPART_IS_COOL
@@ -319,9 +274,8 @@ public class APIManager {
             }
             if imageData.count != 0
             {
-                multipartFormData.append(imageData, withName: "picture", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
-                
-                multipartFormData.append(imageData2, withName: "picture2", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
+                multipartFormData.append(imageData, withName: "image", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
+                multipartFormData.append(imageData2, withName: "enrollmentId", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
             }
             
         }, usingThreshold: UInt64.init(), to: api, method: .post
@@ -342,7 +296,7 @@ public class APIManager {
                     log.ln("prettyJSON Start \n")/
                     log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
                     log.ln("prettyJSON End \n")/
-                    if let result = response.result.value as? [String:Any]{
+                    if let result = response.result.value as? [String:Any] {
                         if let code = result["code"] as? Int{
                             if(code == 100){
                                 

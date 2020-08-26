@@ -3655,13 +3655,13 @@
                                                         </connections>
                                                     </collectionView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-jZ-Ieg">
-                                                        <rect key="frame" x="241" y="16" width="71" height="30"/>
+                                                        <rect key="frame" x="245" y="16" width="67" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="AgU-ik-nYH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <state key="normal" title="Add more">
+                                                        <state key="normal" title="Add New">
                                                             <color key="titleColor" name="RedColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>

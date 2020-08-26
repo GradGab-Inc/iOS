@@ -16,7 +16,7 @@ class FavoriteVC: UIViewController {
     
     var favoriteListVM : FavoriteListViewModel = FavoriteListViewModel()
     var favoriteListArr : [FavoriteDataModel] = [FavoriteDataModel]()
-    
+    var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class FavoriteVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "FavoriteTVC", bundle: nil), forCellReuseIdentifier: "FavoriteTVC")
         favoriteListVM.delegate = self
+        addToFavoriteVM.delegate = self
         favoriteListVM.getFavoriteList()
     }
     
@@ -50,7 +51,11 @@ class FavoriteVC: UIViewController {
     
 }
 
-extension FavoriteVC : FavoriteListDelegate {
+extension FavoriteVC : FavoriteListDelegate, SetFavoriteDelegate {
+    func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        favoriteListVM.getFavoriteList()
+    }
+    
     func didRecieveFavoriteListResponse(response: FavoriteListModel) {
         favoriteListArr = [FavoriteDataModel]()
         favoriteListArr = response.data
@@ -79,8 +84,10 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         cell.collegeNameLbl.text = dict.schoolName
         cell.ratinglbl.text = "\(dict.averageRating)"
         cell.ratingView.rating = dict.averageRating
-        cell.ratingBtn.tag = indexPath.row
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
+        cell.ratingBtn.tag = indexPath.row
+        cell.ratingBtn.addTarget(self, action: #selector(self.clickToFavorite), for: .touchUpInside)
+        
         
         return cell
     }
@@ -89,6 +96,11 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
         vc.selectedUserId = favoriteListArr[indexPath.row].mentorRef
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func clickToFavorite(_ sender : UIButton) {
+        let dict : FavoriteDataModel = favoriteListArr[sender.tag]
+        addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: dict.mentorRef, status: false))
     }
     
 }

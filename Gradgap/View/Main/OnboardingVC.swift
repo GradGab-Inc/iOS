@@ -8,15 +8,19 @@
 
 import UIKit
 import SainiUtils
+import AVKit
 
 class OnboardingVC: UIViewController {
 
     @IBOutlet weak var infoCollectionView: UICollectionView!
     @IBOutlet weak var pageControll: UIPageControl!
+    @IBOutlet weak var videoView: UIView!
     
     var infoArr = [INFO_TITLE.info1, INFO_TITLE.info2, INFO_TITLE.info3]
     var imgArr = ["ic_onboarding_illustartion_first","ic_onboarding_illustartion_secong","ic_onboarding_illustartion_third"]
     var backColor = [AppColor, LightBlueColor, YellowColor, AppColor]
+    var player: AVPlayer!
+    var layer: AVPlayerLayer = AVPlayerLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,19 @@ class OnboardingVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        
+      //  initializeVideoPlayerWithVideo("GradGab")
+    }
+    
+    func initializeVideoPlayerWithVideo(_ resourse : String) {
+        let videoString:String? = Bundle.main.path(forResource: resourse, ofType: "mp4")
+        guard let unwrappedVideoPath = videoString else {return}
+        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
+        self.player = AVPlayer(url: videoUrl)
+        layer = AVPlayerLayer(player: player)
+        layer.frame = self.view.bounds
+        self.videoView.layer.addSublayer(layer)
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        player?.play()
     }
     
     //MARK: - configUI
@@ -63,6 +79,18 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 return UICollectionViewCell()
             }
 
+            let videoString:String? = Bundle.main.path(forResource: "GradGab", ofType: "mp4")
+            if let unwrappedVideoPath = videoString {
+                let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
+                self.player = AVPlayer(url: videoUrl)
+                
+                layer = AVPlayerLayer(player: player)
+                layer.frame = self.view.bounds
+                cell.videoView.layer.addSublayer(layer)
+                layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                
+                player?.play()
+            }
             return cell
         }
         else {

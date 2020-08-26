@@ -53,6 +53,7 @@
 		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
 		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		8823A2CB24F6666000EA5BA4 /* GradGab.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */; };
 		88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */; };
 		88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88248B8124EF99D60094C375 /* MenteeDetailModel.swift */; };
 		88248B8424EFA64D0094C375 /* BookingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88248B8324EFA64C0094C375 /* BookingListModel.swift */; };
@@ -236,6 +237,7 @@
 		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GradGab.mp4; sourceTree = "<group>"; };
 		88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeDetailViewModel.swift; sourceTree = "<group>"; };
 		88248B8124EF99D60094C375 /* MenteeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeDetailModel.swift; sourceTree = "<group>"; };
 		88248B8324EFA64C0094C375 /* BookingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingListModel.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				22D64A0F24D149CD006C37FD /* LaunchScreen.storyboard */,
 				22D64A1224D149CD006C37FD /* Info.plist */,
 				882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */,
+				8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */,
 			);
 			path = Gradgap;
 			sourceTree = "<group>";
@@ -963,6 +966,7 @@
 				881690E124D2820E00EE427E /* MADE Tommy Soft Black Outline PERSONAL USE.otf in Resources */,
 				22D64A1124D149CD006C37FD /* LaunchScreen.storyboard in Resources */,
 				881690E524D2820E00EE427E /* MADE Tommy Soft Regular Outline PERSONAL USE.otf in Resources */,
+				8823A2CB24F6666000EA5BA4 /* GradGab.mp4 in Resources */,
 				88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
 				88F4A21424D986DB00C780CB /* BookChatCVC.xib in Resources */,
