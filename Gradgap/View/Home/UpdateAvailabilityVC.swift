@@ -1,21 +1,20 @@
 //
-//  SetAvailabilityVC.swift
+//  UpdateAvailabilityVC.swift
 //  Gradgap
 //
-//  Created by iMac on 13/08/20.
+//  Created by iMac on 27/08/20.
 //  Copyright © 2020 AppKnit. All rights reserved.
 //
 
 import UIKit
 import SainiUtils
 
-class SetAvailabilityVC: UIViewController {
+class UpdateAvailabilityVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
-    @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitBtn: Button!
     
+    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
     var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
     var arr = ["Chat","Interview Prep","Virtual Tour"]
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
@@ -24,12 +23,11 @@ class SetAvailabilityVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-        
     }
-    
+ 
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Set Availability"
+        navigationBar.headerLbl.text = "Update Availability"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -37,9 +35,11 @@ class SetAvailabilityVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "SetAvailabilityTVC", bundle: nil), forCellReuseIdentifier: "SetAvailabilityTVC")
+        
+        dateListVM.delegate = self
+        dateListVM.availabilityList()
+        
         availabilityVM.delegate = self
-        tblViewHeightConstraint.constant = 0
-        submitBtn.isHidden = true
     }
     
     //MARK: - Button Click
@@ -47,17 +47,13 @@ class SetAvailabilityVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func clickToAddNewInterval(_ sender: Any) {
-        addAvailabilityData()
-    }
-    
     @IBAction func clickToSubmit(_ sender: Any) {
         if availabilityListArr.count != 0 {
             var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
                 var dict : AvailabiltyRequest = AvailabiltyRequest()
-                dict.startTime = item.startTime
-                dict.endTime = item.endTime
+//                dict.startTime = getMinuteFromDateString(strDate: item.startTime)
+//                dict.endTime = getMinuteFromDateString(strDate: item.endTime)
                 dict.weekDay = item.weekDay
                 dict.type = item.type
                 dictArr.append(dict)
@@ -67,41 +63,22 @@ class SetAvailabilityVC: UIViewController {
         }
     }
     
-    func addAvailabilityData() {
-        submitBtn.isHidden = false
-        if let lastData = availabilityListArr.last {
-            if lastData.weekDay == -1 || lastData.startTime == 0 || lastData.endTime == 0 || lastData.type == 0  {
-                displayToast("Please fill the above data")
-            }
-            else {
-                let availability : AvailabilityDataModel = AvailabilityDataModel.init()
-                availabilityListArr.append(availability)
-                tblView.reloadData()
-                tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
-            }
-        }
-        else {
-            let availability : AvailabilityDataModel = AvailabilityDataModel.init()
-            availabilityListArr.append(availability)
-            tblView.reloadData()
-            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
-        }
-    }
-    
-    deinit {
-        log.success("SetAvailabilityVC Memory deallocated!")/
-    }
-    
 }
 
-extension SetAvailabilityVC : SetAvailabilityDelegate {
+
+extension UpdateAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate {
+    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+        availabilityListArr = response.data
+        tblView.reloadData()
+    }
+    
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
-        
+        dateListVM.availabilityList()
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
@@ -109,8 +86,9 @@ extension SetAvailabilityVC : SetAvailabilityDelegate {
     }
 }
 
+
 //MARK: - TableView Delegate
-extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
+extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return availabilityListArr.count
     }
@@ -128,20 +106,9 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
         print(dict)
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
-//        cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
-//        cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
-        
-//
-//        let timeZone = timeZoneOffsetInMinutes()
-//        let time = minutesToHoursMinutes(minutes: dict.startTime + timeZone)
-//        cell.fromLbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
-//
-//        let time1 = minutesToHoursMinutes(minutes: dict.endTime + timeZone)
-//        cell.toLbl.text = getHourStringFromHoursString(strDate: "\(time1.hours):\(time1.leftMinutes)", formate: "hh:mm a")
         
         cell.fromLbl.text = getHourMinuteTime(dict.startTime)
         cell.toLbl.text = getHourMinuteTime(dict.endTime)
-        
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -152,7 +119,6 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.toBtn.tag = indexPath.row
         cell.toBtn.addTarget(self, action: #selector(self.clickToSelectToTime), for: .touchUpInside)
         
-        cell.deleteBtn.isHidden = true
         cell.deleteBtn.tag = indexPath.row
         cell.deleteBtn.addTarget(self, action: #selector(self.clickToDeleteTime), for: .touchUpInside)
         
@@ -161,8 +127,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.availableCollectionView.dataSource = self
         cell.availableCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         cell.availableCollectionView.reloadData()
-
-        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+        
         return cell
     }
     
@@ -205,15 +170,16 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToDeleteTime(_ sender : UIButton) {
+        let dict : AvailabilityDataModel = availabilityListArr[sender.tag]
+        availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
         availabilityListArr.remove(at: sender.tag)
         tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
     }
     
 }
 
 //MARK: - CollectionView Delegate
-extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+extension UpdateAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arr.count
     }
@@ -249,3 +215,17 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
+
+extension Date{
+  //MARK:- sainiHoursFrom
+  public func sainiMinFrom(_ date: Date) -> Double {
+    return Double(Calendar.current.dateComponents([.minute], from: date, to: self).minute!)
+  }
+  func toString( dateFormat format : String ) -> String
+  {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = format
+    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+    return dateFormatter.string(from: self)
+  }
+}

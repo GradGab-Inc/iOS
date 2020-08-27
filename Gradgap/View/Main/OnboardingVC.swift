@@ -31,19 +31,7 @@ class OnboardingVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-      //  initializeVideoPlayerWithVideo("GradGab")
-    }
-    
-    func initializeVideoPlayerWithVideo(_ resourse : String) {
-        let videoString:String? = Bundle.main.path(forResource: resourse, ofType: "mp4")
-        guard let unwrappedVideoPath = videoString else {return}
-        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
-        self.player = AVPlayer(url: videoUrl)
-        layer = AVPlayerLayer(player: player)
-        layer.frame = self.view.bounds
-        self.videoView.layer.addSublayer(layer)
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        player?.play()
+      
     }
     
     //MARK: - configUI
@@ -63,6 +51,10 @@ class OnboardingVC: UIViewController {
     @IBAction func clickToLogin(_ sender: Any) {
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    deinit {
+        log.success("OnboardingVC Memory deallocated!")/
     }
     
 }
@@ -88,8 +80,12 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 layer.frame = self.view.bounds
                 cell.videoView.layer.addSublayer(layer)
                 layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-                
                 player?.play()
+                
+                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player.currentItem, queue: .main) { [weak self] _ in
+                    self?.player?.seek(to: CMTime.zero)
+                    self?.player?.play()
+                }
             }
             return cell
         }
@@ -109,7 +105,7 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
        
         return CGSize(width: SCREEN.WIDTH, height: infoCollectionView.frame.size.height)
     }
-    
+     
 }
 
 

@@ -17,9 +17,9 @@ protocol MajorListSuccessDelegate {
 struct MajorListViewModel {
     var delegate: MajorListSuccessDelegate?
     
-    func majorList() {
+    func majorList(request : MorePageRequest) {
         GCD.MAJOR.majorList.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.MAJOR.majorList, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.MAJOR.majorList, Loader: false, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(MajorListModel.self, from: response!) // decode the response into success model

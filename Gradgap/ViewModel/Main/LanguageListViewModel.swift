@@ -17,9 +17,9 @@ protocol LanguageListSuccessDelegate {
 struct LanguageListViewModel {
     var delegate: LanguageListSuccessDelegate?
     
-    func languageList() {
+    func languageList(request : MorePageRequest) {
         GCD.LANGUAGES.languageList.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.LANGUAGES.languageList, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.LANGUAGES.languageList, Loader: false, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(MajorListModel.self, from: response!) // decode the response into success model

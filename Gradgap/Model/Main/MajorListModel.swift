@@ -17,6 +17,12 @@ struct MajorListModel: Codable {
     let hasMore: Bool
     let format, timestamp: String
     
+    enum CodingKeys: String, CodingKey {
+        case code
+        case message, data, format, timestamp
+        case page, limit, size, hasMore
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -29,6 +35,18 @@ struct MajorListModel: Codable {
         hasMore = try values.decodeIfPresent(Bool.self, forKey: .hasMore) ?? false
         format = try values.decodeIfPresent(String.self, forKey: .format) ?? ""
         timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? ""
+    }
+    
+    init() {
+        code = 0
+        message = ""
+        data = []
+        page = 0
+        limit = 0
+        size = 0
+        hasMore = false
+        format = ""
+        timestamp = ""
     }
     
 }

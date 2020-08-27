@@ -14,9 +14,10 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var updateBtn: Button!
+    @IBOutlet weak var setBtn: Button!
     
-//    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
-//    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
+    var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
@@ -31,7 +32,7 @@ class CalenderDateListVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = getDateStringFromDate(date: Date(), format: "EE, MMMM dd, yyyy")
+        navigationBar.headerLbl.text = getDateStringFromDate(date: selectedDate, format: "EE, MMMM dd, yyyy")
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -40,9 +41,8 @@ class CalenderDateListVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
-//        dateListVM.delegate = self
-//        dateListVM.availabilityList()
-        
+        dateListVM.delegate = self
+        dateListVM.availabilityList()
         
         bookingListVM.delegate = self
         refreshBookingList()
@@ -54,7 +54,7 @@ class CalenderDateListVC: UIViewController {
         let maxDate : Date = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
         let startDate = getDateStringFromDate(date: maxDate, format: "yyyy-MM-dd")
         
-        bookingListVM.getBookingList(request: BookingListRequest(dateStart: "\(startDate) 6:30:00", dateEnd: "\(endDate) 6:30:00"))
+        bookingListVM.getBookingList(request: BookingListRequest(status: 1, dateStart: "\(startDate) 6:30:00", dateEnd: "\(endDate) 18:30:00"))
     }
     
     //MARK: - Button Click
@@ -63,6 +63,11 @@ class CalenderDateListVC: UIViewController {
     }
     
     @IBAction func clickToUpdateAvailabilityBack(_ sender: Any) {
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "UpdateAvailabilityVC") as! UpdateAvailabilityVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func clickToSetAvailabilityBack(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SetAvailabilityVC") as! SetAvailabilityVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -74,17 +79,14 @@ class CalenderDateListVC: UIViewController {
     
 }
 
-//extension CalenderDateListVC : AvailabilityListDelegate {
-//    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
-//        availabilityListArr = [AvailabilityDataModel]()
-//        availabilityListArr = response.data
-//        tblView.reloadData()
-//
-//        if availabilityListArr.count == 0 {
-//            updateBtn.setTitle("Set Availability", for: .normal)
-//        }
-//    }
-//}
+extension CalenderDateListVC : AvailabilityListDelegate {
+    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+        availabilityListArr = [AvailabilityDataModel]()
+        availabilityListArr = response.data
+        tblView.reloadData()
+        updateBtn.isHidden = availabilityListArr.count == 0 ? true : false
+    }
+}
 
 extension CalenderDateListVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {

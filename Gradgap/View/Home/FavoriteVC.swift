@@ -13,6 +13,7 @@ class FavoriteVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var noDataLbl: UILabel!
     
     var favoriteListVM : FavoriteListViewModel = FavoriteListViewModel()
     var favoriteListArr : [FavoriteDataModel] = [FavoriteDataModel]()
@@ -35,6 +36,8 @@ class FavoriteVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "FavoriteTVC", bundle: nil), forCellReuseIdentifier: "FavoriteTVC")
+        
+        noDataLbl.isHidden = true
         favoriteListVM.delegate = self
         addToFavoriteVM.delegate = self
         favoriteListVM.getFavoriteList()
@@ -60,6 +63,8 @@ extension FavoriteVC : FavoriteListDelegate, SetFavoriteDelegate {
         favoriteListArr = [FavoriteDataModel]()
         favoriteListArr = response.data
         tblView.reloadData()
+        
+        noDataLbl.isHidden = favoriteListArr.count == 0 ? false : true
     }
 }
 

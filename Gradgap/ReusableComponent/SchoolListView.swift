@@ -26,6 +26,10 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
     var flag : Int = 1
     var isRegisterd : Bool = false
     var delegate : selectedSchoolDelegate?
+    var majorCurrentPage : Int = 1
+    var languageCurrentPage : Int = 1
+    var schoolCurrentPage : Int = 1
+    var dataModel : MajorListModel = MajorListModel()
     
     var schoolListVM : SchoolSearchListViewModel = SchoolSearchListViewModel()
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
@@ -65,13 +69,12 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
         tblView.register(UINib.init(nibName: "CustomQuestionTVC", bundle: nil), forCellReuseIdentifier: "CustomQuestionTVC")
         listArr = [MajorListDataModel]()
         tblView.reloadData()
-        
+        searchBackView.isHidden = true
         
         if flag == 1 {
-            searchBackView.isHidden = true
             majorListVM.delegate = self
             if majorListArr.count == 0 {
-                majorListVM.majorList()
+                serviceCallMajor()
             }
             else {
                 listArr = majorListArr
@@ -79,10 +82,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
             }
         }
         else if flag == 2 {
-            searchBackView.isHidden = true
             languageListVM.delegate = self
             if languageListArr.count == 0 {
-                languageListVM.languageList()
+                serviceCallLanguage()
             }
             else {
                 listArr = languageListArr
@@ -100,14 +102,31 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if searchTxt.text?.trimmed != "" {
-            let request = SchoolSearchRequest(text: searchTxt.text ?? "")
-            schoolListVM.schoolSearchList(request: request)
+            schoolCurrentPage = 1
+            serviceCallSchool()
         }
         else {
             schoolListArr = [MajorListDataModel]()
+            listArr = [MajorListDataModel]()
             self.tblView.reloadData()
         }
     }
+    
+    func serviceCallMajor()  {
+        let request = MorePageRequest(page: majorCurrentPage)
+        majorListVM.majorList(request: request)
+    }
+    
+    func serviceCallLanguage()  {
+        let request = MorePageRequest(page: languageCurrentPage)
+        languageListVM.languageList(request: request)
+    }
+    
+    func serviceCallSchool() {
+        let request = SchoolSearchRequest(text: searchTxt.text ?? "", page: schoolCurrentPage)
+        schoolListVM.schoolSearchList(request: request)
+    }
+    
     
     
     //MARK: - Button Click
@@ -142,7 +161,31 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        printData(indexPath.row)
+        print(indexPath.row)
+        if flag == 1 {
+             if listArr.count - 2 == indexPath.row {
+                if dataModel.hasMore {
+                    majorCurrentPage = majorCurrentPage + 1
+                    serviceCallMajor()
+                }
+            }
+        }
+        else if flag == 2 {
+            if listArr.count - 2 == indexPath.row {
+                if dataModel.hasMore {
+                    languageCurrentPage = languageCurrentPage + 1
+                    serviceCallLanguage()
+                }
+            }
+        }
+        else if flag == 3 {
+             if listArr.count - 2 == indexPath.row {
+                if dataModel.hasMore {
+                    schoolCurrentPage = schoolCurrentPage + 1
+                    serviceCallSchool()
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -163,23 +206,41 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
 
 extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate, SchoolSearchListSuccessDelegate {
     func didReceivedMajorData(response: MajorListModel) {
-        majorListArr = [MajorListDataModel]()
-        majorListArr = response.data
-        listArr = response.data
+        dataModel = response
+        if majorCurrentPage == 1 {
+            majorListArr = [MajorListDataModel]()
+            listArr = [MajorListDataModel]()
+        }
+        for item in response.data {
+            majorListArr.append(item)
+            listArr.append(item)
+        }
         tblView.reloadData()
     }
     
     func didReceivedLanguageData(response: MajorListModel) {
-        languageListArr = [MajorListDataModel]()
-        languageListArr = response.data
-        listArr = response.data
+        dataModel = response
+        if languageCurrentPage == 1 {
+            listArr = [MajorListDataModel]()
+            languageListArr = [MajorListDataModel]()
+        }
+        for item in response.data {
+            languageListArr.append(item)
+            listArr.append(item)
+        }
         tblView.reloadData()
     }
     
     func didReceivedData(response: MajorListModel) {
-        schoolListArr = [MajorListDataModel]()
-        schoolListArr = response.data
-        listArr = response.data
+        dataModel = response
+        if schoolCurrentPage == 1 {
+            schoolListArr = [MajorListDataModel]()
+            listArr = [MajorListDataModel]()
+        }
+        for item in response.data {
+            schoolListArr.append(item)
+            listArr.append(item)
+        }
         tblView.reloadData()
     }
 

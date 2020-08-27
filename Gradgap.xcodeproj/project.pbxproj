@@ -74,6 +74,7 @@
 		882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */; };
 		882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */; };
 		882E44FE24F4EB980012FFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */; };
+		88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */; };
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
@@ -259,6 +260,7 @@
 		882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginRequest.swift; sourceTree = "<group>"; };
 		882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginModel.swift; sourceTree = "<group>"; };
 		882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailabilityVC.swift; sourceTree = "<group>"; };
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				88FE979C24E3C335007A9352 /* MentorBookingDetailVC.swift */,
 				88FE979624E3BC84007A9352 /* CalenderDateListVC.swift */,
 				88F56D5F24E50DB400C25DCA /* SetAvailabilityVC.swift */,
+				88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */,
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
 			);
@@ -541,13 +544,6 @@
 			path = SocialLogin;
 			sourceTree = "<group>";
 		};
-		88862EA724E6587D00533CBA /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
 		88AEE85A24D15A78002225E9 /* Custom Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,7 +632,6 @@
 			children = (
 				88AEE8CD24D169B2002225E9 /* Main */,
 				880248DB24D2C5EA005539B5 /* Home */,
-				88F261C424E15775009EECE3 /* Profile */,
 			);
 			path = CustomXIB;
 			sourceTree = "<group>";
@@ -687,7 +682,6 @@
 			isa = PBXGroup;
 			children = (
 				88AEE8CF24D16D80002225E9 /* OnboardingVC.swift */,
-				882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */,
 				88AEE8DA24D19B52002225E9 /* SignUpVC.swift */,
 				88AEE8DC24D19E93002225E9 /* LoginVC.swift */,
 				881690EC24D286E000EE427E /* EmailVerificationVC.swift */,
@@ -704,6 +698,7 @@
 				FA44303924EA8CDB00AC9CF2 /* SignUpViewModel.swift */,
 				FA44303D24EA9C9D00AC9CF2 /* LoginViewModel.swift */,
 				88D6F58224EAA9FD00BAD28E /* ResendVerificcationViewModel.swift */,
+				882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */,
 				880BB9F624EB8F5F00134D1F /* MajorListViewModel.swift */,
 				880BB9FA24EB941800134D1F /* LanguageListViewModel.swift */,
 				880BB9FC24EB957D00134D1F /* SchoolSearchListViewModel.swift */,
@@ -744,14 +739,6 @@
 				88862EB024E663EB00533CBA /* ContactAdminVC.swift */,
 				88862EB224E6656200533CBA /* FaqVC.swift */,
 				88862EB424E6699800533CBA /* TransactionVC.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		88F261C424E15775009EECE3 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				88862EA724E6587D00533CBA /* TableViewCell */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1181,6 +1168,7 @@
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */,
+				88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */,
 				8824D90924EE7CA00041F7CE /* MentorDetailViewModel.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */,

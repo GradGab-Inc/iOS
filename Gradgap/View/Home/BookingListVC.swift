@@ -80,11 +80,12 @@ class BookingListVC: UIViewController {
     
     @IBAction func clickToApply(_ sender: Any) {
         var request : BookingListRequest = BookingListRequest()
-        request.dateStart = fromDateLbl.text
-        request.dateEnd = toDateLbl.text
+        request.dateStart = "\(getDateStringFromDate(date: self.selectedStartDate, format: "yyyy-MM-dd")) 6:30:00" //fromDateLbl.text
+        request.dateEnd = "\(getDateStringFromDate(date: self.selectedEndDate, format: "yyyy-MM-dd")) 18:30:00" //toDateLbl.text
         request.status = filterSelectIndex + 1
         bookingListVM.getBookingList(request: request)
         filterBackView.isHidden = true
+        
     }
     
     @IBAction func clickToCancel(_ sender: Any) {

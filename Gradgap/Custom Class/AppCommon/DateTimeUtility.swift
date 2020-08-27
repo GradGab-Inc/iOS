@@ -47,15 +47,6 @@ func getDateStringFromDateString(strDate : String, formate : String) -> String  
     return dateFormatter1.string(from: date1)
 }
 
-func getTimeStringFromDateString1(strDate : String) -> String    // 09:56 AM
-{
-    let dateFormatter1 = DateFormatter()
-    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    let date1 =  dateFormatter1.date(from: strDate)!
-    dateFormatter1.dateFormat = "HH:mm a"
-    return dateFormatter1.string(from: date1)
-}
-
 func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
 {
     let dateFormatter1 = DateFormatter()

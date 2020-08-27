@@ -140,7 +140,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 1
         listVC.setUp()
-        listVC.tblView.reloadData()
+//        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSelectLanguage(_ sender: Any) {
@@ -148,7 +148,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 2
         listVC.setUp()
-        listVC.tblView.reloadData()
+//        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSelectCollegePath(_ sender: Any) {

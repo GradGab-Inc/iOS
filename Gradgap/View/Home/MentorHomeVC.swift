@@ -67,7 +67,15 @@ class MentorHomeVC: UIViewController {
     }
     
     @objc func refreshBookingList() {
-        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+        let endDate = getDateStringFromDate(date: Date(), format: "yyyy-MM-dd")
+        
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        let startDate = getDateStringFromDate(date: maxDate, format: "yyyy-MM-dd")
+        
+        bookingListVM.getBookingList(request: BookingListRequest(dateStart: "\(startDate) 6:30:00", dateEnd: "\(endDate) 18:30:00", limit : 2))
+        
+        
+//        bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
     }
     
     //MARK: - Button Click
