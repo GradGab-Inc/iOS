@@ -52,14 +52,15 @@ class UpdateAvailabilityVC: UIViewController {
             var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
                 var dict : AvailabiltyRequest = AvailabiltyRequest()
-//                dict.startTime = getMinuteFromDateString(strDate: item.startTime)
-//                dict.endTime = getMinuteFromDateString(strDate: item.endTime)
+                dict.availabilityRef = item.id
+                dict.startTime = item.startTime
+                dict.endTime = item.endTime
                 dict.weekDay = item.weekDay
                 dict.type = item.type
                 dictArr.append(dict)
             }
             let request = SetAvailabiltyRequest(availability: dictArr, timezone: timeZoneOffsetInMinutes())
-            availabilityVM.setAvailability(request: request)
+            availabilityVM.updateAvailability(request: request)
         }
     }
     
@@ -70,6 +71,10 @@ extension UpdateAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelega
     func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = response.data
         tblView.reloadData()
+        
+        if availabilityListArr.count == 0 {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
@@ -82,7 +87,7 @@ extension UpdateAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelega
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -107,8 +112,8 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         print(dict)
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
         
-        cell.fromLbl.text = getHourMinuteTime(dict.startTime)
-        cell.toLbl.text = getHourMinuteTime(dict.endTime)
+        cell.fromLbl.text = getHourMinuteTime(dict.startTime, dict.timezone)
+        cell.toLbl.text = getHourMinuteTime(dict.endTime, dict.timezone)
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -170,10 +175,15 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToDeleteTime(_ sender : UIButton) {
-        let dict : AvailabilityDataModel = availabilityListArr[sender.tag]
-        availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
-        availabilityListArr.remove(at: sender.tag)
-        tblView.reloadData()
+        showAlertWithOption(getTranslate("confirmation"), message: "Are you sure you want to delete this time slot", btns: [getTranslate("cancel"),getTranslate("ok")], completionConfirm: {
+            
+            let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
+            self.availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
+            
+        }) {
+            
+        }
+        
     }
     
 }

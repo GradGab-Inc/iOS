@@ -16,9 +16,9 @@ protocol FavoriteListDelegate {
 struct FavoriteListViewModel {
     var delegate: FavoriteListDelegate?
     
-    func getFavoriteList() {
+    func getFavoriteList(request : MorePageRequest) {
         GCD.FAVOURITES.favList.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.FAVOURITES.favList, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.FAVOURITES.favList, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(FavoriteListModel.self, from: response!) // decode the response into model

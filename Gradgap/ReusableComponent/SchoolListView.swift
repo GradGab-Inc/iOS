@@ -16,7 +16,7 @@ protocol selectedSchoolDelegate {
 }
 
 
-class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
+class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var searchTxt: UITextField!
@@ -134,7 +134,6 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.endEditing(true)
         self.removeFromSuperview()
     }
-    
     
     //MARK: - Tableview Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

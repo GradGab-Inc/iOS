@@ -24,13 +24,15 @@ struct BookingListRequest: Encodable {
     var dateStart: String?
     var dateEnd: String?
     var limit: Int?
+    var page : Int?
     
-    init(status: Int? = nil,dateStart:String? = nil,dateEnd:String? = nil, limit:Int? = nil){
+    init(status: Int? = nil,dateStart:String? = nil,dateEnd:String? = nil, limit:Int? = nil, page:Int? = nil){
         
         self.status = status
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.limit = limit
+        self.page = page
     }
 }
 

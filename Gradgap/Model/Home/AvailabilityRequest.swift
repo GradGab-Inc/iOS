@@ -18,13 +18,15 @@ struct AvailabiltyRequest: Encodable {
     var endTime: Int?
     var type: Int?
     var weekDay: Int?
+    var availabilityRef : String?
     
-    init(startTime: Int? = nil,endTime:Int? = nil,type:Int? = nil,weekDay:Int? = nil){
+    init(startTime: Int? = nil,endTime:Int? = nil,type:Int? = nil,weekDay:Int? = nil,availabilityRef:String? = nil){
         
         self.startTime = startTime
         self.endTime = endTime
         self.type = type
         self.weekDay = weekDay
+        self.availabilityRef = availabilityRef
     }
 }
 

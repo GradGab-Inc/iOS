@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class SchoolListVC: UIViewController {
+class SchoolListVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
@@ -66,6 +66,8 @@ class SchoolListVC: UIViewController {
         
         schoolListBackView.isHidden = false
         selectedSchoolBackView.isHidden = true
+        
+        searchTxt.delegate = self
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -87,6 +89,15 @@ class SchoolListVC: UIViewController {
     func serviceCallSchool() {
         let request = SchoolSearchRequest(text: searchTxt.text ?? "", page: schoolCurrentPage)
         schoolListVM.schoolSearchList(request: request)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("ok")
+        return true
     }
     
     //MARK: - Button Click
@@ -150,6 +161,7 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(true)
         if isMentor {
             selectedSchoolListArr = [MajorListDataModel]()
             selectedSchoolListArr.append(schoolListArr[indexPath.row])

@@ -39,22 +39,30 @@ class CalenderDateListVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDateList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
         dateListVM.delegate = self
-        dateListVM.availabilityList()
+        refreshDateList()
         
         bookingListVM.delegate = self
         refreshBookingList()
     }
     
-    @objc func refreshBookingList() {
-        let endDate = getDateStringFromDate(date: self.selectedDate, format: "yyyy-MM-dd")
+    @objc func refreshBookingList() {        
+        let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+        var request : BookingListRequest = BookingListRequest()
+        request.dateStart = getDateInUTC(selectedDate)
+        request.dateEnd = getDateInUTC(endDate)
+        request.status = 1
         
-        let maxDate : Date = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
-        let startDate = getDateStringFromDate(date: maxDate, format: "yyyy-MM-dd")
+        bookingListVM.getBookingList(request: request)
         
-        bookingListVM.getBookingList(request: BookingListRequest(status: 1, dateStart: "\(startDate) 6:30:00", dateEnd: "\(endDate) 18:30:00"))
+    }
+    
+    @objc func refreshDateList()  {
+        dateListVM.availabilityList()
     }
     
     //MARK: - Button Click
@@ -132,7 +140,7 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
        vc.selectedBooking = bookingArr[indexPath.row]
        self.navigationController?.pushViewController(vc, animated: true)
     }

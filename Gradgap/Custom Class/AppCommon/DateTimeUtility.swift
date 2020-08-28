@@ -66,6 +66,15 @@ func getDateStringFromDate(date : Date, format : String) -> String
     return dateFormatter.string(from: date)
 }
 
+func getDateUTCStringFromDate(date : Date, format : String) -> String
+{
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC") //Set timezone that you want
+    dateFormatter.locale = NSLocale.current
+    dateFormatter.dateFormat = format
+    return dateFormatter.string(from: date)
+}
+
 func getHourStringFromHoursString(strDate : String, formate : String) -> String
 {
     let dateFormatter1 = DateFormatter()
@@ -133,4 +142,20 @@ func getDifferenceFromCurrentTimeInHourInDays(_ str : String) -> Bool
     }
     
     return false
+}
+
+
+func getDateInUTC(_ date : Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = NSTimeZone.local
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    var strDate =  dateFormatter.string(from: date)
+    strDate = strDate + " 00:00:00"
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    let date1 =  dateFormatter1.date(from: strDate)!
+    dateFormatter1.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    dateFormatter1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+    let finalDate = dateFormatter1.string(from: date1)
+    return finalDate
 }

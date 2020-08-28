@@ -628,11 +628,11 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
     return "\(date1) - \(date3)"
 }
 
-func getHourMinuteTime(_ minute : Int) -> String {
+func getHourMinuteTime(_ minute: Int, _ timeZone: Int) -> String {
     var calendar = Calendar(identifier: .gregorian)
     calendar.timeZone = TimeZone(secondsFromGMT: 0)!
     let startOfDate = calendar.startOfDay(for: Date())
-    return (startOfDate.sainiAddMinutes(Double(minute - 330)).toString(dateFormat: "hh:mm a"))
+    return (startOfDate.sainiAddMinutes(Double(minute - timeZone)).toString(dateFormat: "hh:mm a"))
 }
 
 //MARK: - Attribute Label

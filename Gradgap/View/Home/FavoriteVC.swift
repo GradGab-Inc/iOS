@@ -18,6 +18,10 @@ class FavoriteVC: UIViewController {
     var favoriteListVM : FavoriteListViewModel = FavoriteListViewModel()
     var favoriteListArr : [FavoriteDataModel] = [FavoriteDataModel]()
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var currentPage : Int = 1
+    var dataModel : FavoriteListModel = FavoriteListModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,18 @@ class FavoriteVC: UIViewController {
         noDataLbl.isHidden = true
         favoriteListVM.delegate = self
         addToFavoriteVM.delegate = self
-        favoriteListVM.getFavoriteList()
+        favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
+    }
+    
+    //MARK: - Refresh data
+    @objc func refreshDataSetUp() {
+        refreshControl.endRefreshing()
+        currentPage = 1
+        favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
     }
     
     //MARK: - Button Click
@@ -56,7 +71,7 @@ class FavoriteVC: UIViewController {
 
 extension FavoriteVC : FavoriteListDelegate, SetFavoriteDelegate {
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
-        favoriteListVM.getFavoriteList()
+        refreshDataSetUp()
     }
     
     func didRecieveFavoriteListResponse(response: FavoriteListModel) {
@@ -95,6 +110,16 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if favoriteListArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                currentPage = currentPage + 1
+                favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
