@@ -141,7 +141,7 @@ Book a chat or tour above!</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZS-Fl-XMw">
-                                <rect key="frame" x="78.5" y="80" width="163.5" height="26"/>
+                                <rect key="frame" x="63" y="80" width="194" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-4Z-gkU">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>
@@ -152,8 +152,8 @@ Book a chat or tour above!</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anaya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zg-Rr-wGg">
-                                        <rect key="frame" x="102" y="0.0" width="61.5" height="26"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zg-Rr-wGg">
+                                        <rect key="frame" x="102" y="0.0" width="92" height="26"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@ Book a chat or tour above!</string>
                                     <constraint firstAttribute="trailing" secondItem="7Zg-Rr-wGg" secondAttribute="trailing" id="yYk-fR-qgU"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="71D-I8-bEp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="71D-I8-bEp">
                                 <rect key="frame" x="0.0" y="126" width="320" height="202"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -422,13 +422,22 @@ schools.</string>
                                     <outlet property="delegate" destination="3UG-Br-Uit" id="8UB-vD-9nl"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any favourite yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pd-ki-Jgc">
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="s8d-bB-emc" firstAttribute="trailing" secondItem="lsj-bg-dmk" secondAttribute="trailing" id="5T9-20-bZ7"/>
                             <constraint firstItem="s8d-bB-emc" firstAttribute="leading" secondItem="lsj-bg-dmk" secondAttribute="leading" id="Ehi-90-TAL"/>
                             <constraint firstItem="8wm-F9-xTn" firstAttribute="trailing" secondItem="lsj-bg-dmk" secondAttribute="trailing" id="Gfi-dd-v75"/>
+                            <constraint firstItem="0Pd-ki-Jgc" firstAttribute="centerY" secondItem="hgZ-48-e5A" secondAttribute="centerY" id="LYh-w6-Cgi"/>
+                            <constraint firstItem="0Pd-ki-Jgc" firstAttribute="leading" secondItem="lsj-bg-dmk" secondAttribute="leading" constant="15" id="WAo-Bq-UAw"/>
                             <constraint firstItem="8wm-F9-xTn" firstAttribute="top" secondItem="lsj-bg-dmk" secondAttribute="top" id="ZbC-XK-pmj"/>
+                            <constraint firstItem="lsj-bg-dmk" firstAttribute="trailing" secondItem="0Pd-ki-Jgc" secondAttribute="trailing" constant="15" id="aQv-U9-zBe"/>
                             <constraint firstItem="s8d-bB-emc" firstAttribute="bottom" secondItem="lsj-bg-dmk" secondAttribute="bottom" id="eXa-Hf-0RF"/>
                             <constraint firstItem="8wm-F9-xTn" firstAttribute="leading" secondItem="lsj-bg-dmk" secondAttribute="leading" id="irx-SF-Eri"/>
                             <constraint firstItem="s8d-bB-emc" firstAttribute="top" secondItem="8wm-F9-xTn" secondAttribute="bottom" constant="8" id="y2U-En-cbA"/>
@@ -437,6 +446,7 @@ schools.</string>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="8wm-F9-xTn" id="AKV-eE-gXm"/>
+                        <outlet property="noDataLbl" destination="0Pd-ki-Jgc" id="4dm-uQ-djb"/>
                         <outlet property="tblView" destination="s8d-bB-emc" id="I6P-mo-VW1"/>
                     </connections>
                 </viewController>
@@ -803,27 +813,51 @@ schools.</string>
                                     <constraint firstAttribute="height" constant="60" id="fVN-P1-6C0"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-3Q-dWw" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="30" y="495" width="260" height="48"/>
-                                <color key="backgroundColor" name="RedColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="can-Al-VGz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                <state key="normal" title="Update Availability">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clickToUpdateAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="XSw-rS-lW6"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q91-co-hut">
+                                <rect key="frame" x="20" y="437" width="280" height="111"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-3Q-dWw" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="48"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="can-Al-VGz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Update Availability">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToUpdateAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="XSw-rS-lW6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yd-zG-bJJ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="63" width="280" height="48"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="mJm-rT-zaF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Set Availability">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToSetAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="T9a-XH-7Tv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-fU-Gzq">
-                                <rect key="frame" x="0.0" y="68" width="320" height="417"/>
+                                <rect key="frame" x="0.0" y="68" width="320" height="349"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="cDx-I7-eDX" id="QHN-yh-PLB"/>
@@ -833,28 +867,29 @@ schools.</string>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
-                            <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="Pe7-3Q-dWw" secondAttribute="trailing" constant="30" id="7AC-40-wCf"/>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="trailing" secondItem="W4I-QE-UQH" secondAttribute="trailing" id="AAk-Ar-xlr"/>
+                            <constraint firstItem="Q91-co-hut" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" constant="20" id="ADO-3E-mwq"/>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="top" secondItem="W4I-QE-UQH" secondAttribute="top" id="IE5-Fp-bcg"/>
+                            <constraint firstItem="Q91-co-hut" firstAttribute="top" secondItem="QrJ-fU-Gzq" secondAttribute="bottom" constant="20" id="IMN-Rj-8Gn"/>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" id="KrH-w6-4Qk"/>
                             <constraint firstItem="QrJ-fU-Gzq" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" id="MNC-cQ-vHM"/>
-                            <constraint firstItem="Pe7-3Q-dWw" firstAttribute="top" secondItem="QrJ-fU-Gzq" secondAttribute="bottom" constant="10" id="NnR-ag-X2v"/>
+                            <constraint firstItem="W4I-QE-UQH" firstAttribute="bottom" secondItem="Q91-co-hut" secondAttribute="bottom" constant="20" id="ZPW-WY-fJp"/>
+                            <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="Q91-co-hut" secondAttribute="trailing" constant="20" id="bgd-BB-DtI"/>
                             <constraint firstItem="QrJ-fU-Gzq" firstAttribute="top" secondItem="6cO-Mp-Ztk" secondAttribute="bottom" constant="8" id="fSG-1r-Jj1"/>
-                            <constraint firstItem="Pe7-3Q-dWw" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" constant="30" id="gh2-WQ-Bjx"/>
                             <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="QrJ-fU-Gzq" secondAttribute="trailing" id="k5T-sU-kl8"/>
-                            <constraint firstItem="W4I-QE-UQH" firstAttribute="bottom" secondItem="Pe7-3Q-dWw" secondAttribute="bottom" constant="25" id="kqd-3U-fVN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W4I-QE-UQH"/>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="6cO-Mp-Ztk" id="xwU-gB-Kow"/>
+                        <outlet property="setBtn" destination="0Yd-zG-bJJ" id="hwm-C6-vVH"/>
                         <outlet property="tblView" destination="QrJ-fU-Gzq" id="1qv-cR-a1D"/>
                         <outlet property="updateBtn" destination="Pe7-3Q-dWw" id="xDe-G4-DqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-yc-rUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="2025"/>
+            <point key="canvasLocation" x="1021.875" y="2025"/>
         </scene>
         <!--Mentor Booking DetailVC-->
         <scene sceneID="gV4-qP-Qdy">
@@ -880,7 +915,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-xC-kaO">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="Qoo-5D-2B1" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qoo-5D-2B1" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Evv-dM-D2X"/>
@@ -902,7 +937,7 @@ schools.</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hwh-Ae-lnL">
                                                         <rect key="frame" x="87" y="12.5" width="225" height="75"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sahil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-pE-uHG">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6W-pE-uHG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="225" height="25"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="20"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1048,7 +1083,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkm-yi-8qJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkm-yi-8qJ">
                                                         <rect key="frame" x="54" y="40.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1092,7 +1127,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stg-VG-T7h">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stg-VG-T7h">
                                                         <rect key="frame" x="54" y="40.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1137,7 +1172,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50 Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXl-JK-f5D">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXl-JK-f5D">
                                                         <rect key="frame" x="54" y="40.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1288,10 +1323,10 @@ schools.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-pm-xgM" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="55" width="76" height="39"/>
+                                                        <rect key="frame" x="15" y="55" width="44.5" height="39"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9Q-L9-hWS">
-                                                                <rect key="frame" x="20" y="10" width="36" height="19"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9Q-L9-hWS">
+                                                                <rect key="frame" x="20" y="10" width="4.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1355,7 +1390,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 26, 2020 , 11:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-wP-Qtc">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-wP-Qtc">
                                                         <rect key="frame" x="54" y="40.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1607,6 +1642,73 @@ schools.</string>
             </objects>
             <point key="canvasLocation" x="2347.5" y="2025"/>
         </scene>
+        <!--Update AvailabilityVC-->
+        <scene sceneID="0Av-Xd-uFC">
+            <objects>
+                <viewController storyboardIdentifier="UpdateAvailabilityVC" id="ZOu-LZ-J43" customClass="UpdateAvailabilityVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wCB-z1-IUz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TP-dx-oAJ" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Qpe-rQ-DfH"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BQ3-IF-VBT">
+                                <rect key="frame" x="0.0" y="70" width="320" height="420"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZOu-LZ-J43" id="fpS-df-o1U"/>
+                                    <outlet property="delegate" destination="ZOu-LZ-J43" id="emc-Rx-Enq"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-bZ-kMM" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="20" y="500" width="285" height="48"/>
+                                <color key="backgroundColor" name="RedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="knU-7g-1m0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToSubmit:" destination="ZOu-LZ-J43" eventType="touchUpInside" id="elI-tZ-kDv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="bZS-bZ-kMM" firstAttribute="top" secondItem="BQ3-IF-VBT" secondAttribute="bottom" constant="10" id="3VL-gZ-2et"/>
+                            <constraint firstAttribute="trailing" secondItem="2TP-dx-oAJ" secondAttribute="trailing" id="Awe-ML-Pa0"/>
+                            <constraint firstItem="2TP-dx-oAJ" firstAttribute="top" secondItem="rvR-qD-w8L" secondAttribute="top" id="LWj-aI-4Xi"/>
+                            <constraint firstAttribute="bottom" secondItem="bZS-bZ-kMM" secondAttribute="bottom" constant="20" id="Pt4-21-bRt"/>
+                            <constraint firstItem="2TP-dx-oAJ" firstAttribute="leading" secondItem="wCB-z1-IUz" secondAttribute="leading" id="V46-wM-P9h"/>
+                            <constraint firstItem="bZS-bZ-kMM" firstAttribute="leading" secondItem="wCB-z1-IUz" secondAttribute="leading" constant="20" id="gRS-tT-8sB"/>
+                            <constraint firstItem="BQ3-IF-VBT" firstAttribute="top" secondItem="2TP-dx-oAJ" secondAttribute="bottom" constant="10" id="iBq-au-orW"/>
+                            <constraint firstItem="BQ3-IF-VBT" firstAttribute="leading" secondItem="rvR-qD-w8L" secondAttribute="leading" id="kV7-E7-rKy"/>
+                            <constraint firstAttribute="trailing" secondItem="bZS-bZ-kMM" secondAttribute="trailing" constant="15" id="scP-8S-xF3"/>
+                            <constraint firstItem="BQ3-IF-VBT" firstAttribute="trailing" secondItem="rvR-qD-w8L" secondAttribute="trailing" id="yog-Gm-Faw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rvR-qD-w8L"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="2TP-dx-oAJ" id="hPf-eM-AZo"/>
+                        <outlet property="tblView" destination="BQ3-IF-VBT" id="ps1-rc-BWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceR-vR-vuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3022.5" y="2025"/>
+        </scene>
         <!--Refer FriendVC-->
         <scene sceneID="AWd-M0-tt2">
             <objects>
@@ -1685,7 +1787,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-6S-8Z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3039" y="2025"/>
+            <point key="canvasLocation" x="3713" y="2025"/>
         </scene>
         <!--Booking DetailVC-->
         <scene sceneID="mhT-6B-9sD">
@@ -1711,7 +1813,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-Gc-Atx">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="sYZ-dX-OVK" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sYZ-dX-OVK" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Aft-hV-nlb"/>
@@ -1723,13 +1825,13 @@ schools.</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sahil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEb-rN-Hz0">
-                                                        <rect key="frame" x="83" y="20" width="44" height="23.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEb-rN-Hz0">
+                                                        <rect key="frame" x="83" y="20" width="83.5" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devendernath International School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH9-gt-GuI">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH9-gt-GuI">
                                                         <rect key="frame" x="83" y="48.5" width="229" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1843,7 +1945,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934931506844" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 26, 2020 , 11:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ze-1p-YZo">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ze-1p-YZo">
                                                         <rect key="frame" x="54" y="41.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1887,7 +1989,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFz-y8-USb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFz-y8-USb">
                                                         <rect key="frame" x="54" y="41.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1931,7 +2033,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3b-Nx-wRB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3b-Nx-wRB">
                                                         <rect key="frame" x="54" y="41.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1976,7 +2078,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50 Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz4-KM-K7w">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz4-KM-K7w">
                                                         <rect key="frame" x="54" y="41.5" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3605,6 +3707,9 @@ schools.</string>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="Search for colleges"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="bMM-K6-gO0" id="nii-ZP-R7e"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.40454445420000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4865,13 +4970,13 @@ schools.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Somya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atz-Qz-USF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atz-Qz-USF">
                                         <rect key="frame" x="98" y="122" width="210" height="26"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16E-UV-w3i">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16E-UV-w3i">
                                         <rect key="frame" x="98" y="156" width="21" height="17.5"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5154,7 +5259,6 @@ schools.</string>
         <image name="plus" catalog="system" width="64" height="58"/>
         <image name="star_white" width="20" height="20"/>
         <image name="star_white_on" width="20" height="20"/>
-        <image name="temp_pro" width="881" height="863"/>
         <namedColor name="33C8A3">
             <color red="0.20000000298023224" green="0.7839999794960022" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

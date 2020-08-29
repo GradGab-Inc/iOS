@@ -14,9 +14,14 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var updateBtn: Button!
+    @IBOutlet weak var setBtn: Button!
     
     var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    
+    var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
+    var selectedDate : Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +32,36 @@ class CalenderDateListVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = getDateStringFromDate(date: Date(), format: "EE, MMMM dd, yyyy")
+        navigationBar.headerLbl.text = getDateStringFromDate(date: selectedDate, format: "EE, MMMM dd, yyyy")
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDateList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
         dateListVM.delegate = self
+        refreshDateList()
+        
+        bookingListVM.delegate = self
+        refreshBookingList()
+    }
+    
+    @objc func refreshBookingList() {        
+        let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+        var request : BookingListRequest = BookingListRequest()
+        request.dateStart = getDateInUTC(selectedDate)
+        request.dateEnd = getDateInUTC(endDate)
+        request.status = 1
+        
+        bookingListVM.getBookingList(request: request)
+        
+    }
+    
+    @objc func refreshDateList()  {
         dateListVM.availabilityList()
     }
     
@@ -46,6 +71,11 @@ class CalenderDateListVC: UIViewController {
     }
     
     @IBAction func clickToUpdateAvailabilityBack(_ sender: Any) {
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "UpdateAvailabilityVC") as! UpdateAvailabilityVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func clickToSetAvailabilityBack(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SetAvailabilityVC") as! SetAvailabilityVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -62,18 +92,22 @@ extension CalenderDateListVC : AvailabilityListDelegate {
         availabilityListArr = [AvailabilityDataModel]()
         availabilityListArr = response.data
         tblView.reloadData()
-         
-        if availabilityListArr.count == 0 {
-            updateBtn.setTitle("Set Availability", for: .normal)
-        }
+        updateBtn.isHidden = availabilityListArr.count == 0 ? true : false
     }
 }
 
+extension CalenderDateListVC : HomeBookingListDelegate {
+   func didRecieveHomeBookingListResponse(response: BookingListModel) {
+        bookingArr = [BookingListDataModel]()
+        bookingArr = response.data
+        tblView.reloadData()
+   }
+}
 
 //MARK: - TableView Delegate
 extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeSloteArr.count
+        return bookingArr.count//timeSloteArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,7 +120,14 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.timeLbl.text = timeSloteArr[indexPath.row]
+        let dict : BookingListDataModel = bookingArr[indexPath.row]
+        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh a")
+        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+        let time2 = getDateStringFromDate(date: date2, format: "hh a")
+        
+        cell.timeLbl.text = "\(time1) - \(time2)"
+        cell.eventLbl.text = "Meeting with \(dict.name) \(getbookingType(dict.status))"
+
         
 //        if indexPath.row == 1 || indexPath.row == 7 {
 //            cell.backView.isHidden = false
@@ -99,7 +140,9 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
+       vc.selectedBooking = bookingArr[indexPath.row]
+       self.navigationController?.pushViewController(vc, animated: true)
     }
         
 }

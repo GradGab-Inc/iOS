@@ -13,9 +13,14 @@ class FavoriteVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var noDataLbl: UILabel!
     
     var favoriteListVM : FavoriteListViewModel = FavoriteListViewModel()
     var favoriteListArr : [FavoriteDataModel] = [FavoriteDataModel]()
+    var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var currentPage : Int = 1
+    var dataModel : FavoriteListModel = FavoriteListModel()
     
     
     override func viewDidLoad() {
@@ -35,8 +40,22 @@ class FavoriteVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "FavoriteTVC", bundle: nil), forCellReuseIdentifier: "FavoriteTVC")
+        
+        noDataLbl.isHidden = true
         favoriteListVM.delegate = self
-        favoriteListVM.getFavoriteList()
+        addToFavoriteVM.delegate = self
+        favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
+    }
+    
+    //MARK: - Refresh data
+    @objc func refreshDataSetUp() {
+        refreshControl.endRefreshing()
+        currentPage = 1
+        favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
     }
     
     //MARK: - Button Click
@@ -50,11 +69,17 @@ class FavoriteVC: UIViewController {
     
 }
 
-extension FavoriteVC : FavoriteListDelegate {
+extension FavoriteVC : FavoriteListDelegate, SetFavoriteDelegate {
+    func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        refreshDataSetUp()
+    }
+    
     func didRecieveFavoriteListResponse(response: FavoriteListModel) {
         favoriteListArr = [FavoriteDataModel]()
         favoriteListArr = response.data
         tblView.reloadData()
+        
+        noDataLbl.isHidden = favoriteListArr.count == 0 ? false : true
     }
 }
 
@@ -79,16 +104,33 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         cell.collegeNameLbl.text = dict.schoolName
         cell.ratinglbl.text = "\(dict.averageRating)"
         cell.ratingView.rating = dict.averageRating
-        cell.ratingBtn.tag = indexPath.row
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
+        cell.ratingBtn.tag = indexPath.row
+        cell.ratingBtn.addTarget(self, action: #selector(self.clickToFavorite), for: .touchUpInside)
+        
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if favoriteListArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                currentPage = currentPage + 1
+                favoriteListVM.getFavoriteList(request: MorePageRequest(page: currentPage))
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
         vc.selectedUserId = favoriteListArr[indexPath.row].mentorRef
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func clickToFavorite(_ sender : UIButton) {
+        let dict : FavoriteDataModel = favoriteListArr[sender.tag]
+        addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: dict.mentorRef, status: false))
     }
     
 }

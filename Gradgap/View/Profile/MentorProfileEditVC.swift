@@ -36,6 +36,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     var selectedIndex : [Int] = [Int]()
     var schoolNameArr : [MajorListDataModel] = [MajorListDataModel]()
     var isNewImgUpload : Bool = false
+    var isNewEnrollIdUpload : Bool = false
     var profileData : User = User.init()
     var enrollmentArr : [String] = [String]()
     var selectedMajor : MajorListDataModel = MajorListDataModel.init()
@@ -43,6 +44,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     var selectedLanguage : MajorListDataModel = MajorListDataModel.init()
     var isLanguageChange : Bool = false
     var collegePathIndex : Int = -1
+    var selectedEnrollId : UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +111,11 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         }
         
         if profileData.enrollmentId != "" {
+            enrollmentArr = [String]()
             enrollmentArr.append(profileData.enrollmentId)
+            enrollCollectionView.reloadData()
+        }
+        else {
             enrollCollectionView.reloadData()
         }
     }
@@ -134,7 +140,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 1
         listVC.setUp()
-        listVC.tblView.reloadData()
+//        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSelectLanguage(_ sender: Any) {
@@ -142,7 +148,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 2
         listVC.setUp()
-        listVC.tblView.reloadData()
+//        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSelectCollegePath(_ sender: Any) {
@@ -165,7 +171,15 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     }
     
     @IBAction func clickToAddMore(_ sender: Any) {
-        
+        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+        CameraAttachment.shared.imagePickedBlock = { pic in
+            self.selectedEnrollId = pic
+            self.isNewEnrollIdUpload = true
+            
+            self.enrollmentArr = [String]()
+            self.enrollmentArr.append(" ")
+            self.enrollCollectionView.reloadData()
+        }
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
@@ -233,9 +247,18 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
                 request.bio = bio
                 request.collegePath = collegePathIndex
                                 
-                if isNewImgUpload {
+                if isNewImgUpload && !isNewEnrollIdUpload {
                     let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
+                }
+                else if !isNewImgUpload && isNewEnrollIdUpload {
+                    let imageData = sainiCompressImage(image: selectedEnrollId)
+                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                }
+                else if isNewImgUpload && isNewEnrollIdUpload {
+                    let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                    let imageData1 = sainiCompressImage(image: selectedEnrollId)
+                    profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
                 else {
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
@@ -256,12 +279,6 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     }
     
     func getSelectedSchoolArray(_ selectedData: MajorListDataModel) {
-//        let index = schoolNameArr.firstIndex { (data) -> Bool in
-//            data.id == selectedData.id
-//        }
-//        if index == nil {
-//            schoolNameArr.append(selectedData)
-//        }
         schoolNameArr = [MajorListDataModel]()
         schoolNameArr.append(selectedData)
         schoolCollectionView.reloadData()
@@ -350,7 +367,13 @@ extension MentorProfileEditVC : UICollectionViewDelegate, UICollectionViewDataSo
             cell.backView.backgroundColor = ClearColor
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 0
-            cell.imgView.image = UIImage.init(named: enrollmentArr[indexPath.row])
+            
+            if isNewEnrollIdUpload {
+                cell.imgView.image = selectedEnrollId
+            }
+            else {
+                cell.imgView.downloadCachedImage(placeholder: "ic_profile", urlString:  enrollmentArr[indexPath.row])
+            }
             
             cell.cancelBtn.isHidden = true
             return cell

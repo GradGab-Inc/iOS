@@ -53,7 +53,8 @@ class HomeVC: UIViewController {
         
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
-        noDataLbl.isHidden = true
+//        noDataLbl.isHidden = true
+        viewAllBtn.isHidden = true
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 234
@@ -75,8 +76,13 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func clickToProfile(_ sender: Any) {
-        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+//        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {

@@ -30,9 +30,12 @@ class BookingListVC: UIViewController {
     var selectedStartDate = Date()
     var selectedEndDate = Date()
     let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
+    var currentPage : Int = 1
+    
+    var dataModel : BookingListModel = BookingListModel()
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
-    
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,18 @@ class BookingListVC: UIViewController {
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         bookingListVM.delegate = self
-        bookingListVM.getBookingList(request: BookingListRequest())
+        bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        bookingTblView.refreshControl = refreshControl
+    }
+    
+    //MARK: - Refresh data
+    @objc func refreshDataSetUp() {
+        refreshControl.endRefreshing()
+        currentPage = 1
+        bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
     }
     
     //MARK: - Button Click
@@ -80,8 +94,10 @@ class BookingListVC: UIViewController {
     
     @IBAction func clickToApply(_ sender: Any) {
         var request : BookingListRequest = BookingListRequest()
-        request.dateStart = fromDateLbl.text
-        request.dateEnd = toDateLbl.text
+                
+        request.dateStart = getDateInUTC(selectedStartDate)
+        let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedEndDate)!
+        request.dateEnd = getDateInUTC(endDate)
         request.status = filterSelectIndex + 1
         bookingListVM.getBookingList(request: request)
         filterBackView.isHidden = true
@@ -119,7 +135,7 @@ class BookingListVC: UIViewController {
         DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedEndDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedEndDate = date!
-              
+            
                 self.toDateLbl.text = getDateStringFromDate(date: self.selectedEndDate, format: "MM/dd/YYYY")
             }
         }
@@ -133,10 +149,14 @@ class BookingListVC: UIViewController {
 
 extension BookingListVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {
-        bookingArr = [BookingListDataModel]()
-        bookingArr = response.data
+        dataModel = response
+        if currentPage == 1 {
+            bookingArr = [BookingListDataModel]()
+        }
+        for item in response.data {
+            bookingArr.append(item)
+        }
         bookingTblView.reloadData()
-    
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
    }
 }
@@ -220,6 +240,18 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView == bookingTblView {
+            print(indexPath.row)
+            if bookingArr.count - 2 == indexPath.row {
+                if dataModel.hasMore {
+                    currentPage = currentPage + 1
+                    bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if AppModel.shared.currentUser.user?.userType == 1 {
             let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
@@ -233,17 +265,11 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        printData(indexPath.row)
-    }
-
-    
+        
     @objc func clickToSelectFilter(_ sender : UIButton) {
         filterSelectIndex = sender.tag
         filterTblView.reloadData()
     }
-    
     
     @objc func clickToJoinCall(_ sender : UIButton) {
         displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)

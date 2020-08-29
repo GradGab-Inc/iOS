@@ -10,5 +10,9 @@ import Foundation
 
 struct SchoolSearchRequest: Encodable {
     var text: String
+    var page: Int
 }
 
+struct MorePageRequest : Encodable {
+    var page: Int
+}

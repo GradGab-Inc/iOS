@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class SchoolListVC: UIViewController {
+class SchoolListVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
@@ -24,9 +24,12 @@ class SchoolListVC: UIViewController {
     
     var selectImg : UIImage = UIImage()
     var isMentor : Bool = false
+    var dataModel : MajorListModel = MajorListModel()
     var schoolListVM : SchoolSearchListViewModel = SchoolSearchListViewModel()
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
+    var schoolCurrentPage : Int = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +66,8 @@ class SchoolListVC: UIViewController {
         
         schoolListBackView.isHidden = false
         selectedSchoolBackView.isHidden = true
+        
+        searchTxt.delegate = self
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -70,8 +75,8 @@ class SchoolListVC: UIViewController {
         selectedSchoolBackView.isHidden = true
         
         if searchTxt.text?.trimmed != "" {
-            let request = SchoolSearchRequest(text: searchTxt.text ?? "")
-            schoolListVM.schoolSearchList(request: request)
+            schoolCurrentPage = 1
+            serviceCallSchool()
         }
         else {
             schoolListBackView.isHidden = true
@@ -79,6 +84,20 @@ class SchoolListVC: UIViewController {
             schoolListArr = [MajorListDataModel]()
             self.tblView.reloadData()
         }
+    }
+    
+    func serviceCallSchool() {
+        let request = SchoolSearchRequest(text: searchTxt.text ?? "", page: schoolCurrentPage)
+        schoolListVM.schoolSearchList(request: request)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("ok")
+        return true
     }
     
     //MARK: - Button Click
@@ -109,8 +128,13 @@ class SchoolListVC: UIViewController {
 
 extension SchoolListVC : SchoolSearchListSuccessDelegate {
     func didReceivedData(response: MajorListModel) {
-        schoolListArr = [MajorListDataModel]()
-        schoolListArr = response.data
+        dataModel = response
+        if schoolCurrentPage == 1 {
+            schoolListArr = [MajorListDataModel]()
+        }
+        for item in response.data {
+            schoolListArr.append(item)
+        }
         tblView.reloadData()
     }
 }
@@ -137,6 +161,7 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.view.endEditing(true)
         if isMentor {
             selectedSchoolListArr = [MajorListDataModel]()
             selectedSchoolListArr.append(schoolListArr[indexPath.row])
@@ -154,6 +179,15 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
         schoolCollectionView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if schoolListArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                schoolCurrentPage = schoolCurrentPage + 1
+                serviceCallSchool()
+            }
+        }
+    }
 }
 
 //MARK: - CollectionView Delegate

@@ -61,4 +61,29 @@ struct ProfileUpdateViewModel {
             }
         }
     }
+    
+    func updateProfileWithTwoImage(request: UpdateRequest, imageData: Data, imageData1: Data) {
+        GCD.USER.update.async {
+            APIManager.sharedInstance.MULTIPART_IS_COOL_With_Pictures(imageData, imageData1, param: request.toJSON(), api: API.USER.update, login: true) { (response) in
+                if response != nil{                             //if response is not empty
+                    do {
+                        let success = try JSONDecoder().decode(LoginResponse.self, from: response!) // decode the response into success model
+                        switch success.code {
+                        case 100:
+                            self.delegate?.didReceivedData(response: success)
+                            break
+                        default:
+                            APIManager.sharedInstance.handleError(errorCode: success.code, success.message)
+                            log.error("\(Log.stats()) \(success.message)")/
+                        }
+                    }
+                    catch let err {
+                        log.error("ERROR OCCURED WHILE DECODING: \(Log.stats()) \(err)")/
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

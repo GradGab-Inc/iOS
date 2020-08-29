@@ -65,7 +65,7 @@ class LoginVC: SocialLogin {
         guard let email = emailTxt.text else { return }
         guard let password = passwordTxt.text else { return }
         let device = AppModel.shared.device
-        let fcmToken = AppModel.shared.fcmToken
+        
         if email == DocumentDefaultValues.Empty.string {
             displayToast("Kindly enter your email")
         }
@@ -76,7 +76,7 @@ class LoginVC: SocialLogin {
             displayToast("Kindly enter your password")
         }
         else {
-            let loginRequest = LoginRequest(email: email, password: password, device: device, fcmToken: fcmToken)
+            let loginRequest = LoginRequest(email: email, password: password, device: device, fcmToken: getPushToken())
             loginVM.loginUser(loginRequest: loginRequest)
         }
     }

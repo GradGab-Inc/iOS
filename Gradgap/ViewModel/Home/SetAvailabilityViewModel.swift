@@ -62,7 +62,7 @@ struct SetAvailabilityViewModel {
         }
     }
     
-    func updateAvailability(request: SignUpRequest) {
+    func updateAvailability(request: SetAvailabiltyRequest) {
         GCD.AVAILABILITY.update.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.update, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty

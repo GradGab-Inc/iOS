@@ -92,6 +92,9 @@ class MentorProfileDisplayVC: UIViewController {
                 enrollmentArr.append(profileData.enrollmentId)
                 enrollCollectionView.reloadData()
             }
+            else {
+                enrollCollectionView.reloadData()
+            }
         }
     }
     

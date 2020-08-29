@@ -23,7 +23,7 @@ class MentorHomeVC: UIViewController {
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
-    
+    var selectedDate : Date = Date()
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -46,6 +46,7 @@ class MentorHomeVC: UIViewController {
         }
         else {
             completeProfileBackView.isHidden = true
+            homeCalender.reloadData()
         }
     }
 
@@ -54,10 +55,11 @@ class MentorHomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
-        noDataLbl.isHidden = true
+//        noDataLbl.isHidden = true
+        viewAllBtn.isHidden = true
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 234
+        bookingTblViewHeightConstraint.constant = 252
         
         bookingListVM.delegate = self
         refreshBookingList()
@@ -107,11 +109,11 @@ extension MentorHomeVC : HomeBookingListDelegate {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
         bookingTblView.reloadData()
-       
+        
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 126
+            bookingTblViewHeightConstraint.constant = 200
         }
    }
 }
@@ -143,11 +145,13 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isHidden = false
             cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
             cell.joinBtn.setTitle("Confirm", for: .normal)
+            cell.joinBtn.isUserInteractionEnabled = false
         }
         else {
             cell.bookedBtn.isHidden = false
             cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
             cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            cell.bookedBtn.isUserInteractionEnabled = false
         }
         bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
         return cell
@@ -179,6 +183,7 @@ extension MentorHomeVC : FSCalendarDelegate {
         }
         
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "CalenderDateListVC") as! CalenderDateListVC
+        vc.selectedDate = date
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

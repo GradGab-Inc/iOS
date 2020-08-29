@@ -35,15 +35,15 @@ struct AvailabiltyListModel: Codable {
 // MARK: - Datum
 struct AvailabilityDataModel: Codable {
     let deleted: Bool
-    var id, startTime, endTime: String
-    var type, weekDay: Int
+    var id : String
+    var type, weekDay, startTime, endTime, timezone: Int
     let mentorRef: String
     let datumV, v: Int?
 
     enum CodingKeys: String, CodingKey {
         case deleted
         case id = "_id"
-        case startTime, endTime, type, weekDay, mentorRef
+        case startTime, endTime, type, weekDay, mentorRef, timezone
         case datumV = "v"
         case v = "__v"
     }
@@ -58,8 +58,9 @@ struct AvailabilityDataModel: Codable {
         weekDay = try values.decodeIfPresent(Int.self, forKey: .weekDay) ?? 0
         datumV = try values.decodeIfPresent(Int.self, forKey: .datumV) ?? 0
         mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
-        startTime = try values.decodeIfPresent(String.self, forKey: .startTime) ?? ""
-        endTime = try values.decodeIfPresent(String.self, forKey: .endTime) ?? ""
+        startTime = try values.decodeIfPresent(Int.self, forKey: .startTime) ?? 0
+        endTime = try values.decodeIfPresent(Int.self, forKey: .endTime) ?? 0
+        timezone = try values.decodeIfPresent(Int.self, forKey: .timezone) ?? 0
     }
     
     init() {
@@ -70,8 +71,9 @@ struct AvailabilityDataModel: Codable {
         weekDay = -1
         datumV = 0
         mentorRef = ""
-        startTime = ""
-        endTime = ""
+        startTime = 0
+        endTime = 0
+        timezone = 0
     }
     
 }

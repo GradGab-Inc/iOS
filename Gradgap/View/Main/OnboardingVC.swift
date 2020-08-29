@@ -8,15 +8,19 @@
 
 import UIKit
 import SainiUtils
+import AVKit
 
 class OnboardingVC: UIViewController {
 
     @IBOutlet weak var infoCollectionView: UICollectionView!
     @IBOutlet weak var pageControll: UIPageControl!
+    @IBOutlet weak var videoView: UIView!
     
     var infoArr = [INFO_TITLE.info1, INFO_TITLE.info2, INFO_TITLE.info3]
     var imgArr = ["ic_onboarding_illustartion_first","ic_onboarding_illustartion_secong","ic_onboarding_illustartion_third"]
     var backColor = [AppColor, LightBlueColor, YellowColor, AppColor]
+    var player: AVPlayer!
+    var layer: AVPlayerLayer = AVPlayerLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,7 @@ class OnboardingVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        
+      
     }
     
     //MARK: - configUI
@@ -49,6 +53,10 @@ class OnboardingVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    deinit {
+        log.success("OnboardingVC Memory deallocated!")/
+    }
+    
 }
 
 
@@ -63,6 +71,22 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 return UICollectionViewCell()
             }
 
+            let videoString:String? = Bundle.main.path(forResource: "GradGab", ofType: "mp4")
+            if let unwrappedVideoPath = videoString {
+                let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
+                self.player = AVPlayer(url: videoUrl)
+                
+                layer = AVPlayerLayer(player: player)
+                layer.frame = self.view.bounds
+                cell.videoView.layer.addSublayer(layer)
+                layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                player?.play()
+                
+                NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player.currentItem, queue: .main) { [weak self] _ in
+                    self?.player?.seek(to: CMTime.zero)
+                    self?.player?.play()
+                }
+            }
             return cell
         }
         else {
@@ -81,7 +105,7 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
        
         return CGSize(width: SCREEN.WIDTH, height: infoCollectionView.frame.size.height)
     }
-    
+     
 }
 
 

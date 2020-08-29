@@ -12,7 +12,7 @@ class AppModel: NSObject {
     static let shared = AppModel()
     var currentUser: UserDataModel!
     var isSocialLogin: Bool = Bool()
-    var fcmToken: String = ""
+//    var fcmToken: String = ""
     var token = ""
     var device = "iOS"
     

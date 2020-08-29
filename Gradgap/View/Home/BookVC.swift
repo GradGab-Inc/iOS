@@ -22,6 +22,10 @@ class BookVC: UIViewController {
     var mentorListVM : MentorListViewModel = MentorListViewModel()
     var mentorListArr : [MentorSectionModel] = [MentorSectionModel]()
     
+    var currentPage : Int = 1
+    var dataModel : MentorListModel = MentorListModel()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,18 +52,28 @@ class BookVC: UIViewController {
         
         serviceCall()
         
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
     }
     
     func serviceCall() {
         if selectedType == 1 {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
         }
         else if selectedType == 2  {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
         }
         else {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: 45, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: 45, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
         }
+    }
+    
+    //MARK: - Refresh data
+    @objc func refreshDataSetUp() {
+        refreshControl.endRefreshing()
+        currentPage = 1
+        serviceCall()
     }
     
     //MARK: - Button Click
@@ -91,16 +105,14 @@ class BookVC: UIViewController {
 
 extension BookVC : MentorListDelegate {
     func didRecieveMentorListResponse(response: MentorListModel) {
-        mentorListArr = [MentorSectionModel]()
-        mentorListArr = response.data
-        
-        if mentorListArr.count == 0 {
-            noDataLbl.isHidden = false
+        dataModel = response
+        if currentPage == 1 {
+            mentorListArr = [MentorSectionModel]()
         }
-        else {
-            noDataLbl.isHidden = true
+        for item in response.data {
+            mentorListArr.append(item)
         }
-        
+        noDataLbl.isHidden = mentorListArr.count == 0 ? false : true
         tblView.reloadData()
     }
 }
@@ -167,6 +179,18 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         }
         vc.selectedDate = selectedDate
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView == tblView {
+            print(indexPath.row)
+            if mentorListArr.count - 2 == indexPath.row {
+                if dataModel.hasMore {
+                    currentPage = currentPage + 1
+                    serviceCall()
+                }
+            }
+        }
     }
     
 }

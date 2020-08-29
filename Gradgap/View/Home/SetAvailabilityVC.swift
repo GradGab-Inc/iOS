@@ -55,12 +55,18 @@ class SetAvailabilityVC: UIViewController {
         if availabilityListArr.count != 0 {
             var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
-                var dict : AvailabiltyRequest = AvailabiltyRequest()
-                dict.startTime = getMinuteFromDateString(strDate: item.startTime)
-                dict.endTime = getMinuteFromDateString(strDate: item.endTime)
-                dict.weekDay = item.weekDay
-                dict.type = item.type
-                dictArr.append(dict)
+                if item.weekDay == -1 || item.startTime == 0 || item.endTime == 0 || item.type == 0  {
+                    displayToast("Please fill the above data")
+                    return
+                }
+                else {
+                    var dict : AvailabiltyRequest = AvailabiltyRequest()
+                    dict.startTime = item.startTime
+                    dict.endTime = item.endTime
+                    dict.weekDay = item.weekDay
+                    dict.type = item.type
+                    dictArr.append(dict)
+                }
             }
             let request = SetAvailabiltyRequest(availability: dictArr, timezone: timeZoneOffsetInMinutes())
             availabilityVM.setAvailability(request: request)
@@ -70,7 +76,7 @@ class SetAvailabilityVC: UIViewController {
     func addAvailabilityData() {
         submitBtn.isHidden = false
         if let lastData = availabilityListArr.last {
-            if lastData.weekDay == -1 || lastData.startTime == "" || lastData.endTime == "" || lastData.type == 0  {
+            if lastData.weekDay == -1 || lastData.startTime == 0 || lastData.endTime == 0 || lastData.type == 0  {
                 displayToast("Please fill the above data")
             }
             else {
@@ -97,7 +103,8 @@ class SetAvailabilityVC: UIViewController {
 extension SetAvailabilityVC : SetAvailabilityDelegate {
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -128,8 +135,20 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
         print(dict)
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
-        cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
-        cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
+//        cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
+//        cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
+        
+
+//        let timeZone = timeZoneOffsetInMinutes()
+//        let time = minutesToHoursMinutes(minutes: dict.startTime + timeZone)
+//        cell.fromLbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
+//
+//        let time1 = minutesToHoursMinutes(minutes: dict.endTime + timeZone)
+//        cell.toLbl.text = getHourStringFromHoursString(strDate: "\(time1.hours):\(time1.leftMinutes)", formate: "hh:mm a")
+        
+        cell.fromLbl.text = dict.startTime == 0 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
+        cell.toLbl.text = dict.endTime == 0 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
+        
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -140,6 +159,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.toBtn.tag = indexPath.row
         cell.toBtn.addTarget(self, action: #selector(self.clickToSelectToTime), for: .touchUpInside)
         
+        cell.deleteBtn.isHidden = true
         cell.deleteBtn.tag = indexPath.row
         cell.deleteBtn.addTarget(self, action: #selector(self.clickToDeleteTime), for: .touchUpInside)
         
@@ -172,7 +192,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
-                self.availabilityListArr[sender.tag].startTime = finalDate
+                self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
             self.view.endEditing(true)
@@ -184,7 +204,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
-                self.availabilityListArr[sender.tag].endTime = finalDate
+                self.availabilityListArr[sender.tag].endTime = getMinuteFromDateString(strDate: finalDate)
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
             self.view.endEditing(true)

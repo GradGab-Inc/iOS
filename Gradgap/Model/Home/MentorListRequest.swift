@@ -13,13 +13,14 @@ struct MentorListRequest: Encodable {
     var callType: Int?
     var callTime: Int?
     var dateTime: String?
+    var page: Int?
     
-    init(callType: Int? = nil,callTime:Int? = nil,dateTime:String? = nil) {
+    init(callType: Int? = nil,callTime:Int? = nil,dateTime:String? = nil,page:Int? = nil) {
         
         self.callType = callType
         self.callTime = callTime
         self.dateTime = dateTime
-        
+        self.page = page
     }
 }
 

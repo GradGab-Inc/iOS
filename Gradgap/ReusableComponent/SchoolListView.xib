@@ -44,6 +44,9 @@
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="Search"/>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="iN0-l3-epB" id="W4P-YD-rdz"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
