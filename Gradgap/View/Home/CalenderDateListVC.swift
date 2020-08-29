@@ -22,6 +22,8 @@ class CalenderDateListVC: UIViewController {
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var selectedDate : Date = Date()
+    var timeSlots = [Double]()
+    var arrSkipIndex = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,7 @@ class CalenderDateListVC: UIViewController {
         
         bookingListVM.delegate = self
         refreshBookingList()
+            
     }
     
     @objc func refreshBookingList() {        
@@ -100,14 +103,44 @@ extension CalenderDateListVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
+        setupTimeData()
         tblView.reloadData()
    }
+    
+    
+    //hide time cell if slot already booked
+    func setupTimeData()
+    {
+        arrSkipIndex = [Int]()
+        for i in 0..<timeSloteArr.count {
+            let tempTime = timeSloteArr[i]
+            let index = bookingArr.firstIndex { (temp) -> Bool in
+                getDateStringFromDateString(strDate: temp.dateTime, formate: "hh:mm a") == tempTime
+            }
+            if index != nil {
+                let duration = bookingArr[index!].callTime
+                if let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + timeSloteArr[i], format: "dd-MM-yyyy hh:mm a") {
+                    let endDate = Calendar.current.date(byAdding: .minute, value: duration, to: startDate)!
+                    let endTime = getDateStringFromDate1(date: endDate, format: "hh:mm a")
+                    arrSkipIndex.append(i)
+                    for j in i..<timeSloteArr.count {
+                        if (j+1) != timeSloteArr.count {
+                            if endTime == timeSloteArr[j+1] {
+                                break
+                            }
+                            arrSkipIndex.append(j+1)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 //MARK: - TableView Delegate
 extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookingArr.count//timeSloteArr.count
+        return timeSloteArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -120,29 +153,40 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let dict : BookingListDataModel = bookingArr[indexPath.row]
-        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh a")
-        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
-        let time2 = getDateStringFromDate(date: date2, format: "hh a")
+ //       let dict : BookingListDataModel = bookingArr[indexPath.row]
+//        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh:mm a")
+//        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+//        let time2 = getDateStringFromDate(date: date2, format: "hh:mm a")
         
-        cell.timeLbl.text = "\(time1) - \(time2)"
-        cell.eventLbl.text = "Meeting with \(dict.name) \(getbookingType(dict.status))"
+        cell.eventLbl.text = ""
+        cell.timeLbl.text = timeSloteArr[indexPath.row]//"\(time1) - \(time2)"
 
+        if arrSkipIndex.contains(indexPath.row) {
+            cell.backView.isHidden = false
+        }else{
+            cell.backView.isHidden = true
+        }
         
-//        if indexPath.row == 1 || indexPath.row == 7 {
-//            cell.backView.isHidden = false
-//        }
-//        else {
-//            cell.backView.isHidden = true
-//        }
+        let index = bookingArr.firstIndex { (temp) -> Bool in
+            getDateStringFromDateString(strDate: temp.dateTime, formate: "hh:mm a") == timeSloteArr[indexPath.row]
+        }
+        if index != nil {
+            let dict = bookingArr[index!]
+            cell.eventLbl.text = "Meeting with \(dict.name) \(getbookingType(dict.status))"
+        }
         
-       return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
-       vc.selectedBooking = bookingArr[indexPath.row]
-       self.navigationController?.pushViewController(vc, animated: true)
+//        let index = bookingArr.firstIndex { (temp) -> Bool in
+//            getDateStringFromDateString(strDate: temp.dateTime, formate: "hh:mm a") == timeSloteArr[indexPath.row]
+//        }
+//        if index != nil {
+//            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
+//            vc.selectedBooking = bookingArr[index!]
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
         
 }

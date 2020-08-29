@@ -226,6 +226,7 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
                 if controller.isKind(of: HomeVC.self) {
                     isRedirect = true
                     self.navigationController!.popToViewController(controller, animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
                     break
                 }
             }
@@ -233,6 +234,7 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
                 if controller.isKind(of: MentorHomeVC.self) {
                     isRedirect = true
                     self.navigationController!.popToViewController(controller, animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
                     break
                 }
             }

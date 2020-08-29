@@ -568,6 +568,7 @@
                         <outlet property="firstNameTxt" destination="qch-oM-7yG" id="d45-J9-XVe"/>
                         <outlet property="lastNameTxt" destination="e8e-dU-8iH" id="KDJ-Qd-Yq6"/>
                         <outlet property="passwordTxt" destination="ui8-rU-9zp" id="zAq-Mk-Eg0"/>
+                        <outlet property="termsLbl" destination="iFW-B8-rMJ" id="nbL-U1-pLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBE-NU-TkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -888,7 +889,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GradGab will send you an email with instrucutions to reset your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr5-aU-h3a">
                                 <rect key="frame" x="15" y="148" width="290" height="37.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="0.70056668133802813" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fa-9l-3Wp">

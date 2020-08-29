@@ -53,6 +53,7 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
             picker.maximumDate = max
             picker.timeZone = self.timeZone
             picker.datePickerMode = .time
+            picker.minuteInterval = 15
         }, completion: completion)
     }
     

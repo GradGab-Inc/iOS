@@ -46,8 +46,9 @@ class MentorHomeVC: UIViewController {
         }
         else {
             completeProfileBackView.isHidden = true
-            homeCalender.reloadData()
         }
+        
+        homeCalender.reloadData()
     }
 
     //MARK: - configUI
@@ -55,8 +56,18 @@ class MentorHomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
-//        noDataLbl.isHidden = true
         viewAllBtn.isHidden = true
+        
+        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 16.0), NSAttributedString.Key.foregroundColor : UIColor.black]
+        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 16.0), NSAttributedString.Key.foregroundColor : UIColor.red]
+        
+        let attributedString1 = NSMutableAttributedString(string: "You don’t have any bookings yet, ", attributes: attrs1)
+        let attributedString2 = NSMutableAttributedString(string:"Refer ", attributes: attrs2)
+        let attributedString3 = NSMutableAttributedString(string: "Refer some friends.", attributes: attrs1)
+        
+        attributedString1.append(attributedString2)
+        attributedString1.append(attributedString3)
+        noDataLbl.attributedText = attributedString1
         
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 252
@@ -110,6 +121,8 @@ extension MentorHomeVC : HomeBookingListDelegate {
         bookingArr = response.data
         bookingTblView.reloadData()
         
+        homeCalender.reloadData()
+    
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {

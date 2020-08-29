@@ -26,24 +26,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmI-rT-NAV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08 AM - 09 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jw-Rd-E3L">
-                                <rect key="frame" x="10" y="19.5" width="88" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:15 AM " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jw-Rd-E3L">
+                                <rect key="frame" x="10" y="0.0" width="70" height="15.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="0St-VX-H9H"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3og-vC-hJo">
-                                <rect key="frame" x="104" y="27" width="201" height="1"/>
+                                <rect key="frame" x="90" y="0.0" width="215" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="0.49636130136986301" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="U7O-lv-qHh"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-R1-LtD" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="120" y="2" width="185" height="51"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-R1-LtD">
+                                <rect key="frame" x="105" y="0.0" width="200" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting with Sanjay Singh, Video Chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELe-7Y-ym5">
-                                        <rect key="frame" x="8" y="8" width="169" height="35"/>
+                                        <rect key="frame" x="8" y="8" width="184" height="33"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -52,26 +55,21 @@
                                 <color key="backgroundColor" name="33C8A3"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ELe-7Y-ym5" secondAttribute="trailing" constant="8" id="DVI-6f-lX9"/>
-                                    <constraint firstAttribute="bottom" secondItem="ELe-7Y-ym5" secondAttribute="bottom" constant="8" id="HTs-F1-Wrr"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ELe-7Y-ym5" secondAttribute="bottom" constant="8" id="HTs-F1-Wrr"/>
                                     <constraint firstItem="ELe-7Y-ym5" firstAttribute="top" secondItem="1eb-R1-LtD" secondAttribute="top" constant="8" id="ZMq-9o-8wg"/>
                                     <constraint firstItem="ELe-7Y-ym5" firstAttribute="leading" secondItem="1eb-R1-LtD" secondAttribute="leading" constant="8" id="kJm-TQ-UzW"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0jw-Rd-E3L" firstAttribute="centerY" secondItem="MmI-rT-NAV" secondAttribute="centerY" id="9sc-mu-BiT"/>
-                            <constraint firstItem="3og-vC-hJo" firstAttribute="centerY" secondItem="MmI-rT-NAV" secondAttribute="centerY" id="RfU-bL-SQs"/>
-                            <constraint firstItem="3og-vC-hJo" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="104" id="Sf7-f1-9IT"/>
+                            <constraint firstItem="0jw-Rd-E3L" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="Ima-WH-GWO"/>
+                            <constraint firstItem="3og-vC-hJo" firstAttribute="leading" secondItem="0jw-Rd-E3L" secondAttribute="trailing" constant="10" id="Ipx-at-hZQ"/>
+                            <constraint firstItem="3og-vC-hJo" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="TdA-ES-4ll"/>
                             <constraint firstItem="0jw-Rd-E3L" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="10" id="e2d-gs-BYI"/>
-                            <constraint firstItem="1eb-R1-LtD" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" constant="2" id="fE1-TP-i1V"/>
-                            <constraint firstAttribute="bottom" secondItem="1eb-R1-LtD" secondAttribute="bottom" constant="2" id="iQp-dx-a5C"/>
-                            <constraint firstItem="1eb-R1-LtD" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="120" id="pfQ-g8-QIN"/>
+                            <constraint firstItem="1eb-R1-LtD" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="fE1-TP-i1V"/>
+                            <constraint firstAttribute="bottom" secondItem="1eb-R1-LtD" secondAttribute="bottom" id="iQp-dx-a5C"/>
+                            <constraint firstItem="1eb-R1-LtD" firstAttribute="leading" secondItem="0jw-Rd-E3L" secondAttribute="trailing" constant="25" id="qzW-dQ-VbI"/>
                             <constraint firstAttribute="trailing" secondItem="3og-vC-hJo" secondAttribute="trailing" constant="15" id="x9S-8R-Vdb"/>
                             <constraint firstAttribute="trailing" secondItem="1eb-R1-LtD" secondAttribute="trailing" constant="15" id="ygK-IC-KIC"/>
                         </constraints>

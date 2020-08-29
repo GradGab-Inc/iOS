@@ -29,6 +29,14 @@ func getDateStringFromServerTimeStemp(_ timeStemp:Double) -> String {
     return dateFormatter.string(from: date)
 }
 
+func getDateFromDateString(strDate : String, format : String) -> Date?
+{
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.dateFormat = format
+    return dateFormatter.date(from: strDate)
+}
+
 func getDateFromDateString(strDate : String) -> Date    // Today, 09:56 AM
 {
     let dateFormatter1 = DateFormatter()
@@ -55,6 +63,15 @@ func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
     let date1 =  dateFormatter1.date(from: strDate)!
     dateFormatter1.dateFormat = "HH:mm"
     return dateFormatter1.string(from: date1).minuteFromString
+}
+
+func getDateStringFromDate1(date : Date, format : String) -> String
+{
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.locale = NSLocale.current
+    dateFormatter.dateFormat = format
+    return dateFormatter.string(from: date)
 }
 
 func getDateStringFromDate(date : Date, format : String) -> String

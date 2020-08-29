@@ -92,7 +92,8 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        schoolListBackView.isHidden = false
+        selectedSchoolBackView.isHidden = true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {

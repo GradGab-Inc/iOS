@@ -131,24 +131,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
-        
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
-        print(dict)
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
-//        cell.fromLbl.text = dict.startTime == "" ? "" : getDateStringFromDateString(strDate: dict.startTime, formate: "hh:mm a")
-//        cell.toLbl.text = dict.endTime == "" ? "" : getDateStringFromDateString(strDate: dict.endTime, formate: "hh:mm a")
-        
-
-//        let timeZone = timeZoneOffsetInMinutes()
-//        let time = minutesToHoursMinutes(minutes: dict.startTime + timeZone)
-//        cell.fromLbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
-//
-//        let time1 = minutesToHoursMinutes(minutes: dict.endTime + timeZone)
-//        cell.toLbl.text = getHourStringFromHoursString(strDate: "\(time1.hours):\(time1.leftMinutes)", formate: "hh:mm a")
         
         cell.fromLbl.text = dict.startTime == 0 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
         cell.toLbl.text = dict.endTime == 0 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
-        
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)

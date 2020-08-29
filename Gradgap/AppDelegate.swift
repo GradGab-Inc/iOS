@@ -54,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     AppDelegate().sharedDelegate().navigateToMentorDashBoard()
                 }
                 else if AppModel.shared.currentUser.user?.userType == 3 {
-                    continueToLogout()
                     navigateToLogin()
                 }
             }
