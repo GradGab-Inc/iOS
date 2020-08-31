@@ -114,7 +114,7 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         
         cell.fromLbl.text = getHourMinuteTime(dict.startTime, dict.timezone)
         cell.toLbl.text = getHourMinuteTime(dict.endTime, dict.timezone)
-        
+                
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
         

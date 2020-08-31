@@ -19,15 +19,15 @@ struct UpdateRequest: Encodable {
     var decisionOnLogic: Int?
     var goWithFlow: Int?
     var ethnicity: String?
-    var scoreSAT: Float?
-    var scoreACT: Float?
-    var GPA: Float?
+    var scoreSAT: Double?
+    var scoreACT: Double?
+    var GPA: Double?
     var subjects: [Int]?
     var changeUserType, collegePath : Int?
     var firstName : String?
     var lastName, bio : String?
     
-    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Float? = nil, ethnicity:String? = nil, scoreACT:Float? = nil, GPA:Float? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil, bio:String? = nil, collegePath:Int? = nil){
+    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Double? = nil, ethnicity:String? = nil, scoreACT:Double? = nil, GPA:Double? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil, bio:String? = nil, collegePath:Int? = nil){
         
         self.schools = schools
         self.anticipateYear = anticipateYear

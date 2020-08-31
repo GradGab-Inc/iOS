@@ -62,7 +62,7 @@ class ProfileVC: UIViewController {
             startingYearLbl.text = "\(profileData.anticipateYear)"
             majorLbl.text = profileData.major
             languageLbl.text = profileData.otherLanguage
-            satLbl.text = "\(profileData.scoreSAT)"
+            satLbl.text = String(format: "%.01f", profileData.scoreSAT)//"\(profileData.scoreSAT)"
             
             if profileData.subjects.count != 0 {
                 subjectArr = [String]()

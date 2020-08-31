@@ -234,10 +234,10 @@ Book a chat or tour above!</string>
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_complete_profile" translatesAutoresizingMaskIntoConstraints="NO" id="evk-F7-pIa">
-                                    <rect key="frame" x="25" y="31" width="190" height="169"/>
+                                    <rect key="frame" x="20" y="31" width="200" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="169" id="FxN-ej-GJC"/>
+                                        <constraint firstAttribute="height" constant="180" id="tPj-RS-Bv0"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your profile is incomplete!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOe-E8-KP5">
@@ -278,21 +278,21 @@ schools.</string>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="FCc-y6-BNt" secondAttribute="trailing" constant="25" id="1fs-Y4-ljN"/>
+                                <constraint firstItem="evk-F7-pIa" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" constant="31" id="F7f-no-LmT"/>
+                                <constraint firstItem="evk-F7-pIa" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="20" id="KvQ-6D-lDu"/>
                                 <constraint firstItem="lBy-UB-Oc4" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" id="WD1-0l-OcM"/>
-                                <constraint firstAttribute="trailing" secondItem="evk-F7-pIa" secondAttribute="trailing" constant="25" id="YmL-er-jRE"/>
+                                <constraint firstItem="cOe-E8-KP5" firstAttribute="top" secondItem="lBy-UB-Oc4" secondAttribute="bottom" constant="15" id="YdL-OT-39O"/>
                                 <constraint firstItem="Qgc-4x-6Lj" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="8" id="Z5n-PM-AdI"/>
+                                <constraint firstAttribute="trailing" secondItem="evk-F7-pIa" secondAttribute="trailing" constant="20" id="cX1-oM-r4b"/>
                                 <constraint firstItem="Qgc-4x-6Lj" firstAttribute="top" secondItem="cOe-E8-KP5" secondAttribute="bottom" constant="10" id="dh3-QN-XWA"/>
                                 <constraint firstItem="FCc-y6-BNt" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="25" id="fhO-Gg-1bV"/>
                                 <constraint firstAttribute="height" constant="390" id="mPF-8I-0wi"/>
                                 <constraint firstAttribute="trailing" secondItem="lBy-UB-Oc4" secondAttribute="trailing" id="n8g-Hj-yIW"/>
-                                <constraint firstItem="cOe-E8-KP5" firstAttribute="top" secondItem="evk-F7-pIa" secondAttribute="bottom" constant="20" id="nxO-G0-lbC"/>
                                 <constraint firstAttribute="trailing" secondItem="cOe-E8-KP5" secondAttribute="trailing" constant="8" id="qHn-eP-PhQ"/>
-                                <constraint firstItem="evk-F7-pIa" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" constant="31" id="skC-Gk-wa5"/>
                                 <constraint firstItem="cOe-E8-KP5" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="8" id="u22-mw-HM6"/>
                                 <constraint firstItem="lBy-UB-Oc4" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" id="u5s-ck-Tzy"/>
                                 <constraint firstAttribute="trailing" secondItem="Qgc-4x-6Lj" secondAttribute="trailing" constant="8" id="wZ6-v6-UZ2"/>
                                 <constraint firstAttribute="bottom" secondItem="FCc-y6-BNt" secondAttribute="bottom" constant="20" id="x17-Uz-iOY"/>
-                                <constraint firstItem="evk-F7-pIa" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="25" id="x2H-3p-lV0"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -520,18 +520,18 @@ schools.</string>
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don’t have any bookings yet, Refer some friends." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-hy-FeA">
-                                        <rect key="frame" x="15" y="91.5" width="290" height="37.5"/>
-                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                        <rect key="frame" x="30" y="90" width="260" height="40"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="F8G-hy-FeA" secondAttribute="trailing" constant="15" id="2Yg-Da-FYf"/>
+                                    <constraint firstAttribute="trailing" secondItem="F8G-hy-FeA" secondAttribute="trailing" constant="30" id="2Yg-Da-FYf"/>
                                     <constraint firstItem="z0Q-op-eCg" firstAttribute="leading" secondItem="Hvj-Di-fSb" secondAttribute="leading" id="5No-Ox-aOb"/>
                                     <constraint firstAttribute="trailing" secondItem="UMg-7f-IE6" secondAttribute="trailing" id="AwF-BZ-kOI"/>
-                                    <constraint firstItem="F8G-hy-FeA" firstAttribute="leading" secondItem="Hvj-Di-fSb" secondAttribute="leading" constant="15" id="Chc-zP-ac4"/>
+                                    <constraint firstItem="F8G-hy-FeA" firstAttribute="leading" secondItem="Hvj-Di-fSb" secondAttribute="leading" constant="30" id="Chc-zP-ac4"/>
                                     <constraint firstItem="F8G-hy-FeA" firstAttribute="centerY" secondItem="Hvj-Di-fSb" secondAttribute="centerY" id="FaD-Ia-HPg"/>
                                     <constraint firstAttribute="bottom" secondItem="z0Q-op-eCg" secondAttribute="bottom" id="NgX-mk-rF6"/>
                                     <constraint firstItem="UMg-7f-IE6" firstAttribute="top" secondItem="Hvj-Di-fSb" secondAttribute="top" constant="19" id="WCg-Mu-I1g"/>
@@ -723,10 +723,10 @@ schools.</string>
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_complete_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-Ib-KBF">
-                                    <rect key="frame" x="25" y="31" width="190" height="169"/>
+                                    <rect key="frame" x="20" y="31" width="200" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="169" id="mgL-Yb-uRB"/>
+                                        <constraint firstAttribute="height" constant="180" id="IIA-Ct-f6Y"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You’re almost there !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0g-ED-PL3">
@@ -769,15 +769,15 @@ schools.</string>
                                 <constraint firstAttribute="height" constant="390" id="6Gp-WA-QUN"/>
                                 <constraint firstItem="eym-aW-IIG" firstAttribute="top" secondItem="wWC-06-iGz" secondAttribute="top" id="92O-a3-MUo"/>
                                 <constraint firstItem="L0g-ED-PL3" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="8" id="BXL-UX-hXH"/>
+                                <constraint firstItem="Nnd-Ib-KBF" firstAttribute="top" secondItem="wWC-06-iGz" secondAttribute="top" constant="31" id="CKv-EP-Nce"/>
+                                <constraint firstItem="L0g-ED-PL3" firstAttribute="top" secondItem="eym-aW-IIG" secondAttribute="bottom" constant="15" id="GrQ-bV-UTC"/>
                                 <constraint firstAttribute="trailing" secondItem="eym-aW-IIG" secondAttribute="trailing" id="Ifj-5C-xJk"/>
                                 <constraint firstItem="PjP-q0-Vid" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="25" id="L7X-Px-mZE"/>
                                 <constraint firstItem="eym-aW-IIG" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" id="LAk-13-ZIW"/>
-                                <constraint firstItem="L0g-ED-PL3" firstAttribute="top" secondItem="Nnd-Ib-KBF" secondAttribute="bottom" constant="20" id="NVY-Tp-aT1"/>
+                                <constraint firstAttribute="trailing" secondItem="Nnd-Ib-KBF" secondAttribute="trailing" constant="20" id="SBu-pZ-5tW"/>
+                                <constraint firstItem="Nnd-Ib-KBF" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="20" id="V80-L8-KLi"/>
                                 <constraint firstAttribute="trailing" secondItem="PjP-q0-Vid" secondAttribute="trailing" constant="25" id="YJf-2o-1Kk"/>
-                                <constraint firstItem="Nnd-Ib-KBF" firstAttribute="top" secondItem="wWC-06-iGz" secondAttribute="top" constant="31" id="mVn-db-E1d"/>
-                                <constraint firstItem="Nnd-Ib-KBF" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="25" id="p23-dB-WZN"/>
                                 <constraint firstItem="hhK-dK-HKM" firstAttribute="top" secondItem="L0g-ED-PL3" secondAttribute="bottom" constant="10" id="pz4-Cd-s0H"/>
-                                <constraint firstAttribute="trailing" secondItem="Nnd-Ib-KBF" secondAttribute="trailing" constant="25" id="sTo-9B-P4b"/>
                                 <constraint firstItem="hhK-dK-HKM" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="8" id="xVp-zT-CHc"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -3225,39 +3225,11 @@ schools.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-EM-PXT" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                            <rect key="frame" x="20" y="67" width="280" height="434"/>
+                            <rect key="frame" x="20" y="66" width="280" height="436"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-1u-aDx">
-                                    <rect key="frame" x="10" y="58" width="260" height="20"/>
-                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDp-d5-z5g">
-                                    <rect key="frame" x="10" y="213" width="101.5" height="20"/>
-                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-U7-e51" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="328" width="230" height="48"/>
-                                    <color key="backgroundColor" name="RedColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="ZDc-Ea-PID"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="14"/>
-                                    <state key="normal" title="Apply">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="24"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="clickToApply:" destination="M0c-hf-1J2" eventType="touchUpInside" id="5bl-cg-CLZ"/>
-                                    </connections>
-                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="KCb-YH-ccC">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="436"/>
+                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-T8-3BL">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
                                     <subviews>
@@ -3268,15 +3240,24 @@ schools.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="aax-2J-t7C" firstAttribute="top" secondItem="lJL-T8-3BL" secondAttribute="top" constant="15" id="5nl-Jx-WQf"/>
                                         <constraint firstAttribute="height" constant="50" id="J7G-Md-OzA"/>
                                         <constraint firstItem="aax-2J-t7C" firstAttribute="centerX" secondItem="lJL-T8-3BL" secondAttribute="centerX" id="VMy-Ry-Cde"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-1u-aDx">
+                                    <rect key="frame" x="10" y="58" width="260" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="9Wv-lJ-03m"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcJ-rN-zqd">
-                                    <rect key="frame" x="10" y="103" width="260" height="80"/>
+                                    <rect key="frame" x="10" y="104" width="260" height="80"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLw-j6-d47">
                                             <rect key="frame" x="0.0" y="0.0" width="122.5" height="80"/>
@@ -3414,8 +3395,17 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="80" id="wm5-4y-D7Q"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDp-d5-z5g">
+                                    <rect key="frame" x="10" y="214" width="101.5" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="JbK-Uk-Wy2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b0J-w9-sry">
-                                    <rect key="frame" x="0.0" y="253" width="280" height="50"/>
+                                    <rect key="frame" x="0.0" y="255" width="280" height="50"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="sHj-Bf-5HA"/>
@@ -3425,8 +3415,27 @@ schools.</string>
                                         <outlet property="delegate" destination="M0c-hf-1J2" id="JlK-K5-gCL"/>
                                     </connections>
                                 </tableView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-U7-e51" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="330" width="230" height="48"/>
+                                    <color key="backgroundColor" name="RedColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="ZDc-Ea-PID"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="14"/>
+                                    <state key="normal" title="Apply">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickToApply:" destination="M0c-hf-1J2" eventType="touchUpInside" id="5bl-cg-CLZ"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwG-jf-c5Q" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="384" width="230" height="48"/>
+                                    <rect key="frame" x="25" y="386" width="230" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="eBF-hH-qgf"/>
@@ -3447,11 +3456,14 @@ schools.</string>
                             </subviews>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
+                                <constraint firstItem="KCb-YH-ccC" firstAttribute="top" secondItem="pGf-EM-PXT" secondAttribute="top" id="4MU-64-VZu"/>
                                 <constraint firstItem="MDp-d5-z5g" firstAttribute="top" secondItem="WcJ-rN-zqd" secondAttribute="bottom" constant="30" id="5fC-C4-cyf"/>
                                 <constraint firstItem="lJL-T8-3BL" firstAttribute="top" secondItem="pGf-EM-PXT" secondAttribute="top" id="5jU-LW-ks5"/>
                                 <constraint firstAttribute="trailing" secondItem="jyH-1u-aDx" secondAttribute="trailing" constant="10" id="AsA-Np-QDv"/>
+                                <constraint firstItem="KCb-YH-ccC" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" id="Bhy-Ne-O25"/>
                                 <constraint firstItem="b0J-w9-sry" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" id="Ekl-Bo-JXn"/>
                                 <constraint firstAttribute="bottom" secondItem="VwG-jf-c5Q" secondAttribute="bottom" constant="2" id="FtC-Uo-7Po"/>
+                                <constraint firstAttribute="bottom" secondItem="KCb-YH-ccC" secondAttribute="bottom" id="GeQ-5X-OV4"/>
                                 <constraint firstAttribute="trailing" secondItem="VwG-jf-c5Q" secondAttribute="trailing" constant="25" id="ODA-Bf-X6M"/>
                                 <constraint firstItem="WcJ-rN-zqd" firstAttribute="top" secondItem="jyH-1u-aDx" secondAttribute="bottom" constant="25" id="SaT-1l-P4E"/>
                                 <constraint firstItem="jyH-1u-aDx" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" constant="10" id="TfV-Hx-2Kh"/>
@@ -3467,6 +3479,7 @@ schools.</string>
                                 <constraint firstAttribute="trailing" secondItem="WcJ-rN-zqd" secondAttribute="trailing" constant="10" id="vZ2-MY-hC6"/>
                                 <constraint firstAttribute="trailing" secondItem="b0J-w9-sry" secondAttribute="trailing" id="w2M-Vb-s3t"/>
                                 <constraint firstItem="VwG-jf-c5Q" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" constant="25" id="xj5-z1-3cS"/>
+                                <constraint firstAttribute="trailing" secondItem="KCb-YH-ccC" secondAttribute="trailing" id="xw9-ZG-1YA"/>
                                 <constraint firstAttribute="trailing" secondItem="lJL-T8-3BL" secondAttribute="trailing" id="ysr-31-eWB"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -5124,7 +5137,7 @@ schools.</string>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZdI-L7-KFK" firstAttribute="centerX" secondItem="vXi-My-H2v" secondAttribute="centerX" id="453-39-Q4q"/>
                                     <constraint firstAttribute="height" constant="160" id="FV9-ox-BDN"/>
@@ -5136,13 +5149,13 @@ schools.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Enrollment ID ." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-Zm-KMa">
-                                <rect key="frame" x="15" y="240" width="186.5" height="21"/>
+                                <rect key="frame" x="15" y="240" width="191.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload your student enrollment ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95x-HU-eEm">
-                                <rect key="frame" x="15" y="271" width="276.5" height="21"/>
+                                <rect key="frame" x="15" y="272.5" width="284.5" height="22"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -5165,7 +5178,7 @@ schools.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWf-oI-MvX">
-                                <rect key="frame" x="135.5" y="437" width="49" height="17.5"/>
+                                <rect key="frame" x="134.5" y="437" width="51" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                 <color key="textColor" name="RedColor"/>
                                 <nil key="highlightedColor"/>
@@ -5219,7 +5232,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paU-8R-I96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1238" y="2025"/>
+            <point key="canvasLocation" x="-1140" y="2025"/>
         </scene>
     </scenes>
     <resources>
@@ -5236,6 +5249,7 @@ schools.</string>
         <image name="ic_duration" width="16" height="16"/>
         <image name="ic_favorite" width="15" height="14"/>
         <image name="ic_favorite_red_filled" width="16" height="14"/>
+        <image name="ic_filter_bg" width="331" height="522"/>
         <image name="ic_hamburgermenu" width="18" height="13"/>
         <image name="ic_illustration_bookingstatus" width="256" height="196.5"/>
         <image name="ic_illustration_cancel" width="209" height="161"/>

@@ -14,7 +14,6 @@ class OnboardingVC: UIViewController {
 
     @IBOutlet weak var infoCollectionView: UICollectionView!
     @IBOutlet weak var pageControll: UIPageControl!
-    @IBOutlet weak var videoView: UIView!
     
     var infoArr = [INFO_TITLE.info1, INFO_TITLE.info2, INFO_TITLE.info3]
     var imgArr = ["ic_onboarding_illustartion_first","ic_onboarding_illustartion_secong","ic_onboarding_illustartion_third"]
@@ -31,15 +30,25 @@ class OnboardingVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-      
+        pageControll.currentPage = 0
+        infoCollectionView.reloadData()
+        
+        if isUserLogin() {
+            if getLoginUserData() != nil {
+                AppModel.shared.currentUser = UserDataModel.init()
+                AppModel.shared.currentUser = getLoginUserData()!
+                if AppModel.shared.currentUser.user?.userType == 3 {
+                    let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
     
     //MARK: - configUI
     private func configUI() {
         infoCollectionView.register(UINib(nibName: "InfoCVC", bundle: nil), forCellWithReuseIdentifier: "InfoCVC")
         infoCollectionView.register(UINib(nibName: "OnboardingCVC", bundle: nil), forCellWithReuseIdentifier: "OnboardingCVC")
-        pageControll.currentPage = 0
-        infoCollectionView.reloadData()
     }
     
     //MARK: - Button Click
@@ -58,7 +67,6 @@ class OnboardingVC: UIViewController {
     }
     
 }
-
 
 extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -83,6 +91,7 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 player?.play()
                 
                 NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player.currentItem, queue: .main) { [weak self] _ in
+ 
                     self?.player?.seek(to: CMTime.zero)
                     self?.player?.play()
                 }
@@ -107,7 +116,6 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
     }
      
 }
-
 
 extension OnboardingVC : UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

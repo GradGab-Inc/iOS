@@ -27,7 +27,7 @@ class LoginVC: SocialLogin {
 
     //MARK: - configUI
     private func configUI() {
-        loginVM.delegate = self
+        loginVM.delegate = self        
     }
     
     //MARK: - Button Click

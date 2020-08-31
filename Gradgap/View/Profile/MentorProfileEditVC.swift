@@ -91,9 +91,9 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
         graduateTxt.text = "\(profileData.anticipateYear)"
         majorTxt.text = profileData.major
         languageTxt.text = profileData.otherLanguage
-        satTxt.text = "\(profileData.scoreSAT)"
-        actTxt.text = "\(profileData.scoreACT)"
-        gpaTxt.text = "\(profileData.gpa)"
+        satTxt.text =  String(format: "%.01f", profileData.scoreSAT) //"\(profileData.scoreSAT)"
+        actTxt.text =  String(format: "%.01f", profileData.scoreACT) //"\(profileData.scoreACT)"
+        gpaTxt.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
         collegePathTxt.text = getCollegePathString(profileData.collegePath)
         collegePathIndex = profileData.collegePath
         
@@ -238,9 +238,9 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
                 
                 request.schools = schoolArr
                 request.anticipateYear = Int(school)
-                request.scoreSAT = Float(sat)
-                request.scoreACT = Float(act)
-                request.GPA = Float(gpa)
+                request.scoreSAT = Double(sat)
+                request.scoreACT = Double(act)
+                request.GPA = Double(gpa)
                 request.subjects = selectedIndex
                 request.firstName = firstName
                 request.lastName = lastName

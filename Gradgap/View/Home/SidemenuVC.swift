@@ -19,7 +19,7 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var ratingView: FloatRatingView!
     
     
-    var isMentor : Bool = AppModel.shared.currentUser.user?.userType == 1 ? false : true
+    var isMentor : Bool = Bool()
     
     var arr = [SIDEMENU_DATA.PROFILE, SIDEMENU_DATA.NOTI, SIDEMENU_DATA.BOOKING, SIDEMENU_DATA.FAVORITE, SIDEMENU_DATA.TRANSACTION,SIDEMENU_DATA.PAY_METHODE, SIDEMENU_DATA.REFER_FRIEND, SIDEMENU_DATA.SETTING]
     var img = ["ic_profile_hm", "ic_notifications", "ic_bookings_hm", "ic_favorites_hm", "ic_myearnings_hm", "ic_paymentmethod_hm", "ic_refer_hm", "ic_settings_hm"]
@@ -30,12 +30,19 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
         sidemenuTbl.register(UINib(nibName: "SideMenuTVC", bundle: nil), forCellReuseIdentifier: "SideMenuTVC")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setupProfileData()
+        refreshList()
+    }
+    
+    @objc func refreshList() {
+        isMentor = AppModel.shared.currentUser.user?.userType == 1 ? false : true
+        sidemenuTbl.reloadData()
     }
     
     func setupProfileData() {

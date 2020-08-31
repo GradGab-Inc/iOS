@@ -46,7 +46,6 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
         return Bundle.main.loadNibNamed("SchoolListView", owner: self, options: nil)![0] as! UIView
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -55,7 +54,6 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
         super.init(coder: aDecoder)
         
         setUp()
-        
     }
     
     func setUp() {

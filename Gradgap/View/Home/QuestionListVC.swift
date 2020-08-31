@@ -142,12 +142,12 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             }
             
             if isMentor {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 2, collegePath: collegePathIndex)
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 2, collegePath: collegePathIndex)
                 let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
                 profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
             }
             else {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Float(sat), ethnicity: identift, scoreACT: Float(act), GPA: Float(gpa), changeUserType: 1)
+                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 1)
                 profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
             }
         }
