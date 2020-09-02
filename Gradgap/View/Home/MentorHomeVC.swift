@@ -20,6 +20,8 @@ class MentorHomeVC: UIViewController {
     @IBOutlet weak var topHeaderDateLbl: UILabel!
     @IBOutlet weak var viewAllBtn: UIButton!
     @IBOutlet var completeProfileBackView: UIView!
+    @IBOutlet var timeBackView: UIView!
+    
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
@@ -53,6 +55,7 @@ class MentorHomeVC: UIViewController {
 
     //MARK: - configUI
     func configUI() {
+        timeBackView.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
