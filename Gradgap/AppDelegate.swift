@@ -61,9 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             AppModel.shared.currentUser = UserDataModel.init()
             navigateToLogin()
-        }
-        
-        
+        }        
         
         return true
     }

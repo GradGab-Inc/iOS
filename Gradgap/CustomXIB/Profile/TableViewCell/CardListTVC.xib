@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="CardListTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-Tc-Wye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_creditcard" translatesAutoresizingMaskIntoConstraints="NO" id="AnH-Mo-loU">
+                                <rect key="frame" x="15" y="8" width="30" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="3dG-cD-M41"/>
+                                    <constraint firstAttribute="width" constant="30" id="whB-Be-6x3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*******2521" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaR-Xv-9N8">
+                                <rect key="frame" x="53" y="15" width="80" height="20"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reQ-Si-JlY">
+                                <rect key="frame" x="275" y="6" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="K2M-6E-y0E"/>
+                                    <constraint firstAttribute="width" constant="35" id="SKH-uo-Jg9"/>
+                                </constraints>
+                                <state key="normal" image="ic_circle_red"/>
+                                <state key="selected" image="ic_correct_red"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1w-z1-wnr">
+                                <rect key="frame" x="15" y="42" width="92" height="31"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                <state key="normal" title="Remove Card">
+                                    <color key="titleColor" name="RedColor"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUu-RD-60l">
+                                <rect key="frame" x="0.0" y="82" width="320" height="3"/>
+                                <color key="backgroundColor" white="1" alpha="0.29874559859154931" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="1Ob-7H-eC1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qUu-RD-60l" firstAttribute="top" secondItem="r1w-z1-wnr" secondAttribute="bottom" constant="9" id="2Ez-Pc-0K7"/>
+                            <constraint firstAttribute="bottom" secondItem="qUu-RD-60l" secondAttribute="bottom" id="A1X-50-MnQ"/>
+                            <constraint firstItem="r1w-z1-wnr" firstAttribute="leading" secondItem="hvg-Tc-Wye" secondAttribute="leading" constant="15" id="AOX-nO-HLY"/>
+                            <constraint firstAttribute="trailing" secondItem="qUu-RD-60l" secondAttribute="trailing" id="E3a-UO-1Co"/>
+                            <constraint firstItem="qUu-RD-60l" firstAttribute="leading" secondItem="hvg-Tc-Wye" secondAttribute="leading" id="EHH-Ed-GFu"/>
+                            <constraint firstItem="AnH-Mo-loU" firstAttribute="top" secondItem="hvg-Tc-Wye" secondAttribute="top" constant="8" id="RNW-9S-SOj"/>
+                            <constraint firstItem="r1w-z1-wnr" firstAttribute="top" secondItem="AnH-Mo-loU" secondAttribute="bottom" constant="-1" id="RQT-CO-lJs"/>
+                            <constraint firstAttribute="trailing" secondItem="reQ-Si-JlY" secondAttribute="trailing" constant="10" id="TVq-fr-z0c"/>
+                            <constraint firstItem="reQ-Si-JlY" firstAttribute="top" secondItem="hvg-Tc-Wye" secondAttribute="top" constant="6" id="aIK-Xu-VU6"/>
+                            <constraint firstItem="xaR-Xv-9N8" firstAttribute="top" secondItem="hvg-Tc-Wye" secondAttribute="top" constant="15" id="aQZ-s0-6e6"/>
+                            <constraint firstItem="AnH-Mo-loU" firstAttribute="leading" secondItem="hvg-Tc-Wye" secondAttribute="leading" constant="15" id="m6p-Nr-1ie"/>
+                            <constraint firstItem="xaR-Xv-9N8" firstAttribute="leading" secondItem="AnH-Mo-loU" secondAttribute="trailing" constant="8" id="oij-T0-vCt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hvg-Tc-Wye" secondAttribute="trailing" id="IIo-HC-ab3"/>
+                    <constraint firstItem="hvg-Tc-Wye" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QIW-7G-5zv"/>
+                    <constraint firstItem="hvg-Tc-Wye" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gMu-2X-a6V"/>
+                    <constraint firstAttribute="bottom" secondItem="hvg-Tc-Wye" secondAttribute="bottom" id="na0-kf-d16"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="AppColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardNumberLbl" destination="xaR-Xv-9N8" id="8hR-4a-DV7"/>
+                <outlet property="radioBtn" destination="reQ-Si-JlY" id="VA1-aq-yHQ"/>
+                <outlet property="removeCardBtn" destination="r1w-z1-wnr" id="SQU-Gp-qoO"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="140.95982142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_circle_red" width="18" height="18"/>
+        <image name="ic_correct_red" width="18" height="18"/>
+        <image name="ic_creditcard" width="28" height="20"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedColor">
+            <color red="0.98799997568130493" green="0.059000000357627869" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

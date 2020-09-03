@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
+            <string>MADETommySoft</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="MyEarningTVC" customModule="Gradgap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1t7-yh-7RM">
+                        <rect key="frame" x="8" y="0.0" width="304" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_pro" translatesAutoresizingMaskIntoConstraints="NO" id="vl3-mO-NgQ" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                <rect key="frame" x="8" y="16.5" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="2f2-An-dGs"/>
+                                    <constraint firstAttribute="height" constant="42" id="GvH-Uh-x7a"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="21"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rajan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAJ-ZF-3Vd">
+                                <rect key="frame" x="58" y="28" width="41" height="19"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6K-5p-tFS">
+                                <rect key="frame" x="269" y="28" width="27" height="19"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQA-as-HCw">
+                                <rect key="frame" x="8" y="74" width="288" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="N6T-W7-DQ0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L6K-5p-tFS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAJ-ZF-3Vd" secondAttribute="trailing" constant="5" id="0PU-zX-3hl"/>
+                            <constraint firstAttribute="trailing" secondItem="pQA-as-HCw" secondAttribute="trailing" constant="8" id="20j-JA-70s"/>
+                            <constraint firstItem="L6K-5p-tFS" firstAttribute="centerY" secondItem="1t7-yh-7RM" secondAttribute="centerY" id="4Kh-4a-NaB"/>
+                            <constraint firstAttribute="bottom" secondItem="pQA-as-HCw" secondAttribute="bottom" id="FzB-SM-1et"/>
+                            <constraint firstItem="aAJ-ZF-3Vd" firstAttribute="centerY" secondItem="1t7-yh-7RM" secondAttribute="centerY" id="HqB-as-6tC"/>
+                            <constraint firstItem="pQA-as-HCw" firstAttribute="top" secondItem="vl3-mO-NgQ" secondAttribute="bottom" constant="15.5" id="RXt-Bb-Cqq"/>
+                            <constraint firstItem="pQA-as-HCw" firstAttribute="leading" secondItem="1t7-yh-7RM" secondAttribute="leading" constant="8" id="aus-dL-WSG"/>
+                            <constraint firstItem="vl3-mO-NgQ" firstAttribute="top" secondItem="1t7-yh-7RM" secondAttribute="top" constant="16.5" id="bzn-6f-6Zh"/>
+                            <constraint firstAttribute="trailing" secondItem="L6K-5p-tFS" secondAttribute="trailing" constant="8" id="elc-vv-uIp"/>
+                            <constraint firstItem="aAJ-ZF-3Vd" firstAttribute="leading" secondItem="vl3-mO-NgQ" secondAttribute="trailing" constant="8" id="nmd-2h-uhY"/>
+                            <constraint firstItem="vl3-mO-NgQ" firstAttribute="centerY" secondItem="1t7-yh-7RM" secondAttribute="centerY" id="p2d-o9-Mij"/>
+                            <constraint firstItem="vl3-mO-NgQ" firstAttribute="leading" secondItem="1t7-yh-7RM" secondAttribute="leading" constant="8" id="sYQ-Y0-9Wa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1t7-yh-7RM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Qqb-iH-wME"/>
+                    <constraint firstAttribute="trailing" secondItem="1t7-yh-7RM" secondAttribute="trailing" constant="8" id="RCh-xh-UkZ"/>
+                    <constraint firstItem="1t7-yh-7RM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cON-tD-unY"/>
+                    <constraint firstAttribute="bottom" secondItem="1t7-yh-7RM" secondAttribute="bottom" id="u3T-Wk-exl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="AppColor"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameLbl" destination="aAJ-ZF-3Vd" id="6Ac-Nm-7cz"/>
+                <outlet property="priceLbl" destination="L6K-5p-tFS" id="K9D-Fp-KZC"/>
+                <outlet property="profileImgView" destination="vl3-mO-NgQ" id="lRN-uY-Iqd"/>
+            </connections>
+            <point key="canvasLocation" x="-46.376811594202906" y="134.26339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="temp_pro" width="881" height="863"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
