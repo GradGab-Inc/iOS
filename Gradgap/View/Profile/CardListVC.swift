@@ -43,9 +43,9 @@ class CardListVC: UIViewController {
      }
     
      @IBAction func clickToAddCard(_ sender: Any) {
-         
+         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AddNewCardVC") as! AddNewCardVC
+         self.navigationController?.pushViewController(vc, animated: true)
      }
-
     
      deinit {
          log.success("CardListVC Memory deallocated!")/

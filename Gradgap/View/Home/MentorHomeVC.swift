@@ -66,7 +66,7 @@ class MentorHomeVC: UIViewController {
         
         let attributedString1 = NSMutableAttributedString(string: "You don’t have any bookings yet, ", attributes: attrs1)
         let attributedString2 = NSMutableAttributedString(string:"Refer ", attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: "Refer some friends.", attributes: attrs1)
+        let attributedString3 = NSMutableAttributedString(string: "some friends.", attributes: attrs1)
         
         attributedString1.append(attributedString2)
         attributedString1.append(attributedString3)
