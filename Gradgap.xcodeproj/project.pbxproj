@@ -92,6 +92,7 @@
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
+		886761362502200D009BA17C /* BankListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886761352502200D009BA17C /* BankListVC.swift */; };
 		88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88687A5B24E27BA0000A62F7 /* ProfileVC.swift */; };
 		88862EA624E6584C00533CBA /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88862EA524E6584C00533CBA /* SettingVC.swift */; };
 		88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88862EAC24E65DAA00533CBA /* AboutUsVC.swift */; };
@@ -292,6 +293,7 @@
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
+		886761352502200D009BA17C /* BankListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListVC.swift; sourceTree = "<group>"; };
 		88687A5B24E27BA0000A62F7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		88862EA524E6584C00533CBA /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		88862EAC24E65DAA00533CBA /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
@@ -797,6 +799,7 @@
 				8809DA4024FFCC22000CABA6 /* AddNewCardVC.swift */,
 				8829BED82500F3D6007F9B25 /* RateReviewVC.swift */,
 				8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */,
+				886761352502200D009BA17C /* BankListVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1116,6 +1119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				886761362502200D009BA17C /* BankListVC.swift in Sources */,
 				8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */,
 				88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */,
 				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
@@ -1406,9 +1410,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1416,7 +1420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1429,9 +1433,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1439,7 +1443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

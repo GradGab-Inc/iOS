@@ -13,7 +13,7 @@ struct API {
     //Development 
     //static let BASE_URL = "http://ec2-3-14-150-71.us-east-2.compute.amazonaws.com/development/api/"
     //Staging
-//    static let BASE_URL = "http://3.23.147.117/staging/api/"
+//    static let BASE_URL = "http://3.82.95.119/development/api/"
     // Local
     static let BASE_URL = "http://3.82.95.119/development/api/"
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"

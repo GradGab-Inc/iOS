@@ -33,7 +33,8 @@ class LoginVC: SocialLogin {
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.view.endEditing(true)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func clickToFacebook(_ sender: Any) {
