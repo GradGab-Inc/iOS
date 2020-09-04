@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -233,6 +233,9 @@ Book a chat or tour above!</string>
                                         <constraint firstAttribute="height" constant="205" id="jqd-4j-2cw"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-0N-q5j">
+                                    <rect key="frame" x="0.0" y="127" width="240" height="263"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_complete_profile" translatesAutoresizingMaskIntoConstraints="NO" id="evk-F7-pIa">
                                     <rect key="frame" x="20" y="31" width="200" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,7 +282,10 @@ schools.</string>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="FCc-y6-BNt" secondAttribute="trailing" constant="25" id="1fs-Y4-ljN"/>
                                 <constraint firstItem="evk-F7-pIa" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" constant="31" id="F7f-no-LmT"/>
+                                <constraint firstItem="fpe-0N-q5j" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" id="J6i-9j-U4B"/>
                                 <constraint firstItem="evk-F7-pIa" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="20" id="KvQ-6D-lDu"/>
+                                <constraint firstAttribute="bottom" secondItem="fpe-0N-q5j" secondAttribute="bottom" id="Md3-fv-GpQ"/>
+                                <constraint firstItem="fpe-0N-q5j" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" constant="127" id="TZV-aN-z7Q"/>
                                 <constraint firstItem="lBy-UB-Oc4" firstAttribute="top" secondItem="4Z7-v1-JuD" secondAttribute="top" id="WD1-0l-OcM"/>
                                 <constraint firstItem="cOe-E8-KP5" firstAttribute="top" secondItem="lBy-UB-Oc4" secondAttribute="bottom" constant="15" id="YdL-OT-39O"/>
                                 <constraint firstItem="Qgc-4x-6Lj" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="8" id="Z5n-PM-AdI"/>
@@ -288,6 +294,7 @@ schools.</string>
                                 <constraint firstItem="FCc-y6-BNt" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="25" id="fhO-Gg-1bV"/>
                                 <constraint firstAttribute="height" constant="390" id="mPF-8I-0wi"/>
                                 <constraint firstAttribute="trailing" secondItem="lBy-UB-Oc4" secondAttribute="trailing" id="n8g-Hj-yIW"/>
+                                <constraint firstAttribute="trailing" secondItem="fpe-0N-q5j" secondAttribute="trailing" id="oMw-HP-O4H"/>
                                 <constraint firstAttribute="trailing" secondItem="cOe-E8-KP5" secondAttribute="trailing" constant="8" id="qHn-eP-PhQ"/>
                                 <constraint firstItem="cOe-E8-KP5" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="8" id="u22-mw-HM6"/>
                                 <constraint firstItem="lBy-UB-Oc4" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" id="u5s-ck-Tzy"/>
@@ -323,6 +330,9 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="205" id="VMR-sr-0O6"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="th5-Te-sb6">
+                                    <rect key="frame" x="0.0" y="118" width="240" height="272"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_callstarting" translatesAutoresizingMaskIntoConstraints="NO" id="gtn-Wn-xIF">
                                     <rect key="frame" x="25" y="31" width="190" height="169"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -364,6 +374,7 @@ schools.</string>
                             </subviews>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
+                                <constraint firstAttribute="trailing" secondItem="th5-Te-sb6" secondAttribute="trailing" id="2zB-DK-l4X"/>
                                 <constraint firstAttribute="bottom" secondItem="IIO-Mw-wV1" secondAttribute="bottom" constant="30" id="6EF-ru-BF8"/>
                                 <constraint firstAttribute="trailing" secondItem="hJU-Nu-Yct" secondAttribute="trailing" constant="20" id="9jg-9j-Lxt"/>
                                 <constraint firstAttribute="height" constant="390" id="B53-Sm-nNp"/>
@@ -371,7 +382,10 @@ schools.</string>
                                 <constraint firstItem="aDo-DZ-fMW" firstAttribute="top" secondItem="Gxa-VH-AMb" secondAttribute="top" id="DMM-B4-cfc"/>
                                 <constraint firstItem="hJU-Nu-Yct" firstAttribute="top" secondItem="gtn-Wn-xIF" secondAttribute="bottom" constant="25" id="EhR-jH-fmS"/>
                                 <constraint firstItem="zKK-sj-YwG" firstAttribute="leading" secondItem="Gxa-VH-AMb" secondAttribute="leading" constant="20" id="H7u-CF-JKP"/>
+                                <constraint firstAttribute="bottom" secondItem="th5-Te-sb6" secondAttribute="bottom" id="OAg-HC-9ab"/>
                                 <constraint firstItem="gtn-Wn-xIF" firstAttribute="leading" secondItem="Gxa-VH-AMb" secondAttribute="leading" constant="25" id="SiY-jy-O1v"/>
+                                <constraint firstItem="th5-Te-sb6" firstAttribute="top" secondItem="Gxa-VH-AMb" secondAttribute="top" constant="118" id="Yp9-lm-rTr"/>
+                                <constraint firstItem="th5-Te-sb6" firstAttribute="leading" secondItem="Gxa-VH-AMb" secondAttribute="leading" id="Z5U-k3-Kpn"/>
                                 <constraint firstAttribute="trailing" secondItem="gtn-Wn-xIF" secondAttribute="trailing" constant="25" id="cfr-eR-MQv"/>
                                 <constraint firstAttribute="trailing" secondItem="aDo-DZ-fMW" secondAttribute="trailing" id="dar-w6-A0P"/>
                                 <constraint firstItem="gtn-Wn-xIF" firstAttribute="top" secondItem="Gxa-VH-AMb" secondAttribute="top" constant="31" id="k4e-gO-S12"/>
@@ -454,7 +468,7 @@ schools.</string>
             </objects>
             <point key="canvasLocation" x="-399" y="867"/>
         </scene>
-        <!--Data Source-->
+        <!--Mentor HomeVC-->
         <scene sceneID="w2s-9Y-Ykv">
             <objects>
                 <viewController storyboardIdentifier="MentorHomeVC" id="HI0-ql-gxB" customClass="MentorHomeVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
@@ -718,11 +732,14 @@ schools.</string>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eym-aW-IIG">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="205" id="qjf-18-J4p"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="kcg-HC-pdf">
+                                    <rect key="frame" x="0.0" y="138" width="240" height="252"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_complete_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-Ib-KBF">
                                     <rect key="frame" x="20" y="31" width="200" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -766,6 +783,8 @@ schools.</string>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="PjP-q0-Vid" secondAttribute="bottom" constant="20" id="1Zr-ZX-hG7"/>
                                 <constraint firstAttribute="trailing" secondItem="hhK-dK-HKM" secondAttribute="trailing" constant="8" id="1cM-3G-NHf"/>
+                                <constraint firstAttribute="bottom" secondItem="kcg-HC-pdf" secondAttribute="bottom" id="3pe-CH-TGd"/>
+                                <constraint firstItem="kcg-HC-pdf" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" id="5bD-Z6-C8m"/>
                                 <constraint firstAttribute="trailing" secondItem="L0g-ED-PL3" secondAttribute="trailing" constant="8" id="5wb-5g-8BT"/>
                                 <constraint firstAttribute="height" constant="390" id="6Gp-WA-QUN"/>
                                 <constraint firstItem="eym-aW-IIG" firstAttribute="top" secondItem="wWC-06-iGz" secondAttribute="top" id="92O-a3-MUo"/>
@@ -777,8 +796,10 @@ schools.</string>
                                 <constraint firstItem="eym-aW-IIG" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" id="LAk-13-ZIW"/>
                                 <constraint firstAttribute="trailing" secondItem="Nnd-Ib-KBF" secondAttribute="trailing" constant="20" id="SBu-pZ-5tW"/>
                                 <constraint firstItem="Nnd-Ib-KBF" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="20" id="V80-L8-KLi"/>
+                                <constraint firstAttribute="trailing" secondItem="kcg-HC-pdf" secondAttribute="trailing" id="Xev-L2-eU6"/>
                                 <constraint firstAttribute="trailing" secondItem="PjP-q0-Vid" secondAttribute="trailing" constant="25" id="YJf-2o-1Kk"/>
                                 <constraint firstItem="hhK-dK-HKM" firstAttribute="top" secondItem="L0g-ED-PL3" secondAttribute="bottom" constant="10" id="pz4-Cd-s0H"/>
+                                <constraint firstItem="kcg-HC-pdf" firstAttribute="top" secondItem="wWC-06-iGz" secondAttribute="top" constant="138" id="qAG-oG-0qn"/>
                                 <constraint firstItem="hhK-dK-HKM" firstAttribute="leading" secondItem="wWC-06-iGz" secondAttribute="leading" constant="8" id="xVp-zT-CHc"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -810,6 +831,9 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="205" id="MjO-Lx-ZN0"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-q9-Wr1">
+                                    <rect key="frame" x="0.0" y="134" width="250" height="276"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_illustration_clock" translatesAutoresizingMaskIntoConstraints="NO" id="TCU-AI-BHL">
                                     <rect key="frame" x="40" y="31" width="170" height="169"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -867,13 +891,17 @@ schools.</string>
                                 <constraint firstItem="JMt-lx-rat" firstAttribute="top" secondItem="rOz-yt-mbF" secondAttribute="top" id="KIj-0h-Ugb"/>
                                 <constraint firstItem="c0F-lr-4xw" firstAttribute="top" secondItem="qdf-zi-AKY" secondAttribute="bottom" constant="12" id="LCc-AF-DXd"/>
                                 <constraint firstItem="c0F-lr-4xw" firstAttribute="leading" secondItem="rOz-yt-mbF" secondAttribute="leading" constant="8" id="RSX-jl-Vqt"/>
+                                <constraint firstItem="XSe-q9-Wr1" firstAttribute="top" secondItem="rOz-yt-mbF" secondAttribute="top" constant="134" id="Rag-cI-E0s"/>
                                 <constraint firstItem="TCU-AI-BHL" firstAttribute="top" secondItem="rOz-yt-mbF" secondAttribute="top" constant="31" id="bHW-7O-DDx"/>
+                                <constraint firstItem="XSe-q9-Wr1" firstAttribute="leading" secondItem="rOz-yt-mbF" secondAttribute="leading" id="gCY-vs-Pwf"/>
                                 <constraint firstItem="K8K-TH-dIN" firstAttribute="leading" secondItem="rOz-yt-mbF" secondAttribute="leading" constant="25" id="gie-9C-uZB"/>
                                 <constraint firstAttribute="trailing" secondItem="K8K-TH-dIN" secondAttribute="trailing" constant="25" id="gkT-zV-1T9"/>
+                                <constraint firstAttribute="trailing" secondItem="XSe-q9-Wr1" secondAttribute="trailing" id="lpc-nE-LT5"/>
                                 <constraint firstAttribute="trailing" secondItem="JMt-lx-rat" secondAttribute="trailing" id="phz-rK-tPD"/>
                                 <constraint firstItem="JMt-lx-rat" firstAttribute="leading" secondItem="rOz-yt-mbF" secondAttribute="leading" id="szL-ji-zwY"/>
                                 <constraint firstAttribute="height" constant="410" id="uMc-nb-hej"/>
                                 <constraint firstAttribute="trailing" secondItem="c0F-lr-4xw" secondAttribute="trailing" constant="8" id="uWF-NG-bIQ"/>
+                                <constraint firstAttribute="bottom" secondItem="XSe-q9-Wr1" secondAttribute="bottom" id="vkD-NF-bzl"/>
                                 <constraint firstItem="qdf-zi-AKY" firstAttribute="top" secondItem="NLj-Rm-sF9" secondAttribute="bottom" constant="15" id="zeZ-N1-VmN"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -1820,20 +1848,11 @@ schools.</string>
                                     <constraint firstAttribute="height" constant="60" id="mMn-yA-ifn"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_refer" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-4c-2kH">
-                                <rect key="frame" x="0.0" y="60" width="320" height="320"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="WLz-4c-2kH" secondAttribute="height" multiplier="1:1" id="wlU-JZ-mpG"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_refer" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-4c-2kH">
+                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REFER A FRIEND" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlw-JM-Lfs">
-                                <rect key="frame" x="49" y="75" width="222" height="33"/>
-                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a 10% off coupon by referring 5 friends !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
-                                <rect key="frame" x="30" y="415" width="260" height="42"/>
+                                <rect key="frame" x="30" y="377.5" width="260" height="42"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1861,18 +1880,17 @@ schools.</string>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="rah-RW-Fec" firstAttribute="trailing" secondItem="cfb-oB-0Yz" secondAttribute="trailing" id="10b-Cp-7tt"/>
-                            <constraint firstItem="www-Qm-f6H" firstAttribute="top" secondItem="WLz-4c-2kH" secondAttribute="bottom" constant="35" id="4XA-Ta-pis"/>
+                            <constraint firstItem="TVi-9O-RDP" firstAttribute="top" secondItem="www-Qm-f6H" secondAttribute="bottom" constant="60.5" id="1tJ-IJ-ZSj"/>
                             <constraint firstItem="cfb-oB-0Yz" firstAttribute="bottom" secondItem="TVi-9O-RDP" secondAttribute="bottom" constant="40" id="74D-eV-x4c"/>
                             <constraint firstItem="WLz-4c-2kH" firstAttribute="top" secondItem="rah-RW-Fec" secondAttribute="bottom" id="All-af-Dej"/>
+                            <constraint firstItem="WLz-4c-2kH" firstAttribute="bottom" secondItem="cfb-oB-0Yz" secondAttribute="bottom" id="Fve-UV-glS"/>
                             <constraint firstItem="WLz-4c-2kH" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" id="FxG-jH-2Ev"/>
-                            <constraint firstItem="Zlw-JM-Lfs" firstAttribute="top" secondItem="rah-RW-Fec" secondAttribute="bottom" constant="15" id="HZN-pa-dSR"/>
                             <constraint firstItem="www-Qm-f6H" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" constant="30" id="JaP-4p-SAs"/>
                             <constraint firstItem="cfb-oB-0Yz" firstAttribute="trailing" secondItem="www-Qm-f6H" secondAttribute="trailing" constant="30" id="RHS-IX-Jui"/>
                             <constraint firstItem="cfb-oB-0Yz" firstAttribute="trailing" secondItem="TVi-9O-RDP" secondAttribute="trailing" constant="40" id="Vfx-qC-3gs"/>
                             <constraint firstItem="rah-RW-Fec" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" id="XgV-as-pJg"/>
                             <constraint firstItem="rah-RW-Fec" firstAttribute="top" secondItem="cfb-oB-0Yz" secondAttribute="top" id="bzZ-5x-09R"/>
                             <constraint firstItem="TVi-9O-RDP" firstAttribute="leading" secondItem="cfb-oB-0Yz" secondAttribute="leading" constant="40" id="kb2-YP-XwK"/>
-                            <constraint firstItem="Zlw-JM-Lfs" firstAttribute="centerX" secondItem="PW7-aw-0J3" secondAttribute="centerX" id="nB3-hj-eR8"/>
                             <constraint firstItem="WLz-4c-2kH" firstAttribute="trailing" secondItem="cfb-oB-0Yz" secondAttribute="trailing" id="yiA-Zj-Irg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cfb-oB-0Yz"/>
@@ -1883,7 +1901,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-6S-8Z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="2025"/>
+            <point key="canvasLocation" x="3712.5" y="2025"/>
         </scene>
         <!--My EarningVC-->
         <scene sceneID="afE-tf-Fa0">
@@ -2029,26 +2047,22 @@ schools.</string>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg3-NP-ZhR" customClass="View" customModule="Gradgap" customModuleProvider="target">
                             <rect key="frame" x="20" y="140.5" width="280" height="287"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="70o-Sa-2xS">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="287"/>
-                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRV-UD-wZF">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-lL-7lk">
-                                            <rect key="frame" x="120" y="15" width="40" height="21"/>
-                                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
-                                            <color key="textColor" name="AppColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="ygD-lL-7lk" firstAttribute="top" secondItem="pRV-UD-wZF" secondAttribute="top" constant="15" id="20z-Zl-blg"/>
                                         <constraint firstAttribute="height" constant="50" id="5Lk-rg-09K"/>
-                                        <constraint firstItem="ygD-lL-7lk" firstAttribute="centerX" secondItem="pRV-UD-wZF" secondAttribute="centerX" id="lFd-db-LyV"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="70o-Sa-2xS">
+                                    <rect key="frame" x="0.0" y="15" width="280" height="273"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-lL-7lk">
+                                    <rect key="frame" x="120" y="14.5" width="40" height="21"/>
+                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                                    <color key="textColor" name="AppColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5v-eD-uaN">
                                     <rect key="frame" x="10" y="58" width="260" height="21"/>
                                     <constraints>
@@ -2223,18 +2237,20 @@ schools.</string>
                                 <constraint firstAttribute="bottom" secondItem="UUZ-8h-atD" secondAttribute="bottom" constant="25" id="7Vi-IO-svX"/>
                                 <constraint firstItem="bRL-wi-KMm" firstAttribute="top" secondItem="k5v-eD-uaN" secondAttribute="bottom" constant="25" id="Age-RU-wC1"/>
                                 <constraint firstItem="pRV-UD-wZF" firstAttribute="leading" secondItem="Zg3-NP-ZhR" secondAttribute="leading" id="CEM-1b-5Of"/>
-                                <constraint firstAttribute="bottom" secondItem="70o-Sa-2xS" secondAttribute="bottom" id="Cpt-1q-lCG"/>
+                                <constraint firstAttribute="bottom" secondItem="70o-Sa-2xS" secondAttribute="bottom" constant="-1" id="Cpt-1q-lCG"/>
                                 <constraint firstItem="pRV-UD-wZF" firstAttribute="top" secondItem="Zg3-NP-ZhR" secondAttribute="top" id="DCO-0B-hFw"/>
+                                <constraint firstItem="ygD-lL-7lk" firstAttribute="centerX" secondItem="Zg3-NP-ZhR" secondAttribute="centerX" id="J4P-ym-p5s"/>
                                 <constraint firstAttribute="trailing" secondItem="70o-Sa-2xS" secondAttribute="trailing" id="KzD-nE-2aj"/>
                                 <constraint firstAttribute="trailing" secondItem="bRL-wi-KMm" secondAttribute="trailing" constant="10" id="OAb-Bu-pyN"/>
                                 <constraint firstItem="70o-Sa-2xS" firstAttribute="leading" secondItem="Zg3-NP-ZhR" secondAttribute="leading" id="Wfb-0n-HpD"/>
                                 <constraint firstItem="UUZ-8h-atD" firstAttribute="top" secondItem="bRL-wi-KMm" secondAttribute="bottom" constant="30" id="b4d-Kr-zqA"/>
                                 <constraint firstAttribute="trailing" secondItem="k5v-eD-uaN" secondAttribute="trailing" constant="10" id="cix-3i-TGQ"/>
                                 <constraint firstItem="k5v-eD-uaN" firstAttribute="top" secondItem="pRV-UD-wZF" secondAttribute="bottom" constant="8" id="ipI-79-Hyk"/>
+                                <constraint firstItem="ygD-lL-7lk" firstAttribute="top" secondItem="Zg3-NP-ZhR" secondAttribute="top" constant="14.5" id="jFa-iZ-9ST"/>
                                 <constraint firstItem="UUZ-8h-atD" firstAttribute="leading" secondItem="Zg3-NP-ZhR" secondAttribute="leading" constant="25" id="mam-7t-oKT"/>
                                 <constraint firstAttribute="trailing" secondItem="UUZ-8h-atD" secondAttribute="trailing" constant="25" id="qfF-yF-Tgk"/>
                                 <constraint firstItem="bRL-wi-KMm" firstAttribute="leading" secondItem="Zg3-NP-ZhR" secondAttribute="leading" constant="10" id="rOS-3A-E4R"/>
-                                <constraint firstItem="70o-Sa-2xS" firstAttribute="top" secondItem="Zg3-NP-ZhR" secondAttribute="top" id="svi-sc-C6s"/>
+                                <constraint firstItem="70o-Sa-2xS" firstAttribute="top" secondItem="Zg3-NP-ZhR" secondAttribute="top" constant="15" id="svi-sc-C6s"/>
                                 <constraint firstAttribute="trailing" secondItem="pRV-UD-wZF" secondAttribute="trailing" id="wlE-gO-HAg"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -2708,6 +2724,9 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="205" id="IMc-fC-Y1f"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="WCw-6j-cay">
+                                    <rect key="frame" x="0.0" y="89" width="240" height="301"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_illustration_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-Zi-EQo">
                                     <rect key="frame" x="25" y="31" width="190" height="169"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2743,12 +2762,16 @@ schools.</string>
                             </subviews>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
+                                <constraint firstItem="WCw-6j-cay" firstAttribute="top" secondItem="ODZ-lE-fz8" secondAttribute="top" constant="89" id="0Co-JK-SKt"/>
+                                <constraint firstItem="WCw-6j-cay" firstAttribute="leading" secondItem="ODZ-lE-fz8" secondAttribute="leading" id="4jZ-tH-Gmz"/>
                                 <constraint firstItem="lrE-Zi-EQo" firstAttribute="top" secondItem="ODZ-lE-fz8" secondAttribute="top" constant="31" id="7NB-Co-Hhn"/>
                                 <constraint firstAttribute="trailing" secondItem="lrE-Zi-EQo" secondAttribute="trailing" constant="25" id="84Q-nN-2zd"/>
                                 <constraint firstAttribute="trailing" secondItem="M92-ug-wOR" secondAttribute="trailing" constant="25" id="8Rd-7l-Ubv"/>
+                                <constraint firstAttribute="trailing" secondItem="WCw-6j-cay" secondAttribute="trailing" id="FBV-71-qp4"/>
                                 <constraint firstItem="lrE-Zi-EQo" firstAttribute="leading" secondItem="ODZ-lE-fz8" secondAttribute="leading" constant="25" id="RY0-Am-F9A"/>
                                 <constraint firstAttribute="bottom" secondItem="M92-ug-wOR" secondAttribute="bottom" constant="30" id="S6q-tS-64w"/>
                                 <constraint firstItem="CGl-WG-upi" firstAttribute="leading" secondItem="ODZ-lE-fz8" secondAttribute="leading" id="TuQ-Qh-Vr1"/>
+                                <constraint firstAttribute="bottom" secondItem="WCw-6j-cay" secondAttribute="bottom" id="Vz3-gK-Igc"/>
                                 <constraint firstItem="Wyq-fQ-Xj0" firstAttribute="leading" secondItem="ODZ-lE-fz8" secondAttribute="leading" constant="20" id="WIx-k5-HmH"/>
                                 <constraint firstAttribute="height" constant="390" id="Yk1-xs-Cp8"/>
                                 <constraint firstAttribute="trailing" secondItem="CGl-WG-upi" secondAttribute="trailing" id="a4j-Px-pwY"/>
@@ -2786,6 +2809,9 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="205" id="XvH-Ad-Tum"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="8Ca-ii-jDf">
+                                    <rect key="frame" x="0.0" y="88" width="240" height="302"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_illustration_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-D1-9Hq">
                                     <rect key="frame" x="25" y="31" width="190" height="169"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2841,6 +2867,7 @@ schools.</string>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
                                 <constraint firstItem="ydZ-D1-9Hq" firstAttribute="top" secondItem="sQX-dI-rus" secondAttribute="top" constant="31" id="09x-iN-eNd"/>
+                                <constraint firstItem="8Ca-ii-jDf" firstAttribute="leading" secondItem="sQX-dI-rus" secondAttribute="leading" id="6Ne-K4-YCq"/>
                                 <constraint firstAttribute="bottom" secondItem="W2z-fS-MUs" secondAttribute="bottom" constant="30" id="6va-ai-aG9"/>
                                 <constraint firstItem="FIj-c3-7Ko" firstAttribute="top" secondItem="sQX-dI-rus" secondAttribute="top" id="7IO-et-wlM"/>
                                 <constraint firstAttribute="height" constant="390" id="CAc-6X-QA6"/>
@@ -2850,9 +2877,12 @@ schools.</string>
                                 <constraint firstAttribute="bottom" secondItem="08l-zz-yVP" secondAttribute="bottom" constant="30" id="O3l-X6-Ll0"/>
                                 <constraint firstAttribute="trailing" secondItem="W2z-fS-MUs" secondAttribute="trailing" constant="25" id="bdq-Tl-NkX"/>
                                 <constraint firstItem="zXv-2N-Hxh" firstAttribute="leading" secondItem="sQX-dI-rus" secondAttribute="leading" constant="20" id="cIG-rk-sbF"/>
+                                <constraint firstAttribute="bottom" secondItem="8Ca-ii-jDf" secondAttribute="bottom" id="eyP-po-uDJ"/>
                                 <constraint firstItem="W2z-fS-MUs" firstAttribute="width" secondItem="08l-zz-yVP" secondAttribute="width" id="fNx-Ov-kM1"/>
                                 <constraint firstItem="08l-zz-yVP" firstAttribute="leading" secondItem="sQX-dI-rus" secondAttribute="leading" constant="25" id="hSI-TK-gP3"/>
                                 <constraint firstItem="zXv-2N-Hxh" firstAttribute="top" secondItem="ydZ-D1-9Hq" secondAttribute="bottom" constant="25" id="idi-be-ZrO"/>
+                                <constraint firstItem="8Ca-ii-jDf" firstAttribute="top" secondItem="sQX-dI-rus" secondAttribute="top" constant="88" id="mUB-n2-URF"/>
+                                <constraint firstAttribute="trailing" secondItem="8Ca-ii-jDf" secondAttribute="trailing" id="rmb-JJ-Mhg"/>
                                 <constraint firstAttribute="trailing" secondItem="zXv-2N-Hxh" secondAttribute="trailing" constant="20" id="scV-cp-AAv"/>
                                 <constraint firstAttribute="trailing" secondItem="FIj-c3-7Ko" secondAttribute="trailing" id="sqb-I5-pHH"/>
                                 <constraint firstAttribute="trailing" secondItem="ydZ-D1-9Hq" secondAttribute="trailing" constant="25" id="wem-qq-oSR"/>
@@ -3768,26 +3798,22 @@ schools.</string>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-EM-PXT" customClass="View" customModule="Gradgap" customModuleProvider="target">
                             <rect key="frame" x="20" y="66" width="280" height="436"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-T8-3BL">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="J7G-Md-OzA"/>
+                                    </constraints>
+                                </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="KCb-YH-ccC">
                                     <rect key="frame" x="0.0" y="0.0" width="280" height="436"/>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-T8-3BL">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aax-2J-t7C">
-                                            <rect key="frame" x="120" y="15" width="40" height="21"/>
-                                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
-                                            <color key="textColor" name="AppColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="aax-2J-t7C" firstAttribute="top" secondItem="lJL-T8-3BL" secondAttribute="top" constant="15" id="5nl-Jx-WQf"/>
-                                        <constraint firstAttribute="height" constant="50" id="J7G-Md-OzA"/>
-                                        <constraint firstItem="aax-2J-t7C" firstAttribute="centerX" secondItem="lJL-T8-3BL" secondAttribute="centerX" id="VMy-Ry-Cde"/>
-                                    </constraints>
-                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aax-2J-t7C">
+                                    <rect key="frame" x="120" y="17" width="40" height="21"/>
+                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                                    <color key="textColor" name="AppColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyH-1u-aDx">
                                     <rect key="frame" x="10" y="58" width="260" height="21"/>
                                     <constraints>
@@ -4005,6 +4031,7 @@ schools.</string>
                                 <constraint firstItem="b0J-w9-sry" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" id="Ekl-Bo-JXn"/>
                                 <constraint firstAttribute="bottom" secondItem="VwG-jf-c5Q" secondAttribute="bottom" constant="2" id="FtC-Uo-7Po"/>
                                 <constraint firstAttribute="bottom" secondItem="KCb-YH-ccC" secondAttribute="bottom" id="GeQ-5X-OV4"/>
+                                <constraint firstItem="aax-2J-t7C" firstAttribute="top" secondItem="pGf-EM-PXT" secondAttribute="top" constant="17" id="K4R-gZ-ub1"/>
                                 <constraint firstAttribute="trailing" secondItem="VwG-jf-c5Q" secondAttribute="trailing" constant="25" id="ODA-Bf-X6M"/>
                                 <constraint firstItem="WcJ-rN-zqd" firstAttribute="top" secondItem="jyH-1u-aDx" secondAttribute="bottom" constant="25" id="SaT-1l-P4E"/>
                                 <constraint firstItem="jyH-1u-aDx" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" constant="10" id="TfV-Hx-2Kh"/>
@@ -4015,6 +4042,7 @@ schools.</string>
                                 <constraint firstItem="vw7-U7-e51" firstAttribute="top" secondItem="b0J-w9-sry" secondAttribute="bottom" constant="25" id="cJp-1J-yxi"/>
                                 <constraint firstAttribute="trailing" secondItem="vw7-U7-e51" secondAttribute="trailing" constant="25" id="d26-Wu-tvU"/>
                                 <constraint firstItem="vw7-U7-e51" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" constant="25" id="hc7-ym-W4D"/>
+                                <constraint firstItem="aax-2J-t7C" firstAttribute="centerX" secondItem="pGf-EM-PXT" secondAttribute="centerX" id="sUI-a5-9im"/>
                                 <constraint firstItem="MDp-d5-z5g" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" constant="10" id="tIf-BN-Cfh"/>
                                 <constraint firstItem="lJL-T8-3BL" firstAttribute="leading" secondItem="pGf-EM-PXT" secondAttribute="leading" id="tQh-m0-wnj"/>
                                 <constraint firstAttribute="trailing" secondItem="WcJ-rN-zqd" secondAttribute="trailing" constant="10" id="vZ2-MY-hC6"/>
@@ -4934,7 +4962,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ep0-oL-xZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3691.875" y="310.56338028169017"/>
+            <point key="canvasLocation" x="3690" y="362"/>
         </scene>
         <!--Interest DiscussVC-->
         <scene sceneID="27y-jv-Nqz">
@@ -5395,7 +5423,7 @@ schools.</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Au1-Pj-SvL">
-                                <rect key="frame" x="0.0" y="124" width="320" height="444"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="457"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="TM2-zR-3Fl" id="uli-8g-nAg"/>
@@ -5409,7 +5437,7 @@ schools.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHZ-NT-Vbr">
-                                <rect key="frame" x="85" y="72" width="150" height="32"/>
+                                <rect key="frame" x="85" y="72" width="150" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="VuV-IO-rar"/>
                                 </constraints>
@@ -5678,7 +5706,7 @@ schools.</string>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZdI-L7-KFK" firstAttribute="centerX" secondItem="vXi-My-H2v" secondAttribute="centerX" id="453-39-Q4q"/>
                                     <constraint firstAttribute="height" constant="160" id="FV9-ox-BDN"/>
@@ -5805,7 +5833,7 @@ schools.</string>
         <image name="ic_questionmark_outline" width="16" height="16"/>
         <image name="ic_questionmark_red" width="16" height="16"/>
         <image name="ic_red_circle" width="100" height="100"/>
-        <image name="ic_refer" width="375" height="379.5"/>
+        <image name="ic_refer" width="375" height="669.5"/>
         <image name="ic_right" width="12" height="12"/>
         <image name="ic_search" width="15" height="15"/>
         <image name="ic_service" width="4" height="16"/>
@@ -5814,7 +5842,7 @@ schools.</string>
         <image name="ic_totalearnings" width="33" height="33.5"/>
         <image name="ic_upload" width="56" height="36"/>
         <image name="ic_white_circle" width="100" height="100"/>
-        <image name="plus" catalog="system" width="64" height="58"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star_white" width="20" height="20"/>
         <image name="star_white_on" width="20" height="20"/>
         <namedColor name="33C8A3">

@@ -42,9 +42,7 @@ class PaymentMethodVC: UIViewController {
 
      deinit {
          log.success("TransactionVC Memory deallocated!")/
-     }
-     
-    
+     }    
 }
 
 
@@ -70,8 +68,10 @@ extension PaymentMethodVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.row == 0 {
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "CardListVC") as! CardListVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
