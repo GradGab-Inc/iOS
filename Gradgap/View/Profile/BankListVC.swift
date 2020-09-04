@@ -13,6 +13,7 @@ class BankListVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var accountNumberLbl: UILabel!
+    @IBOutlet var addAccountBackView: UIView!
     
         override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class BankListVC: UIViewController {
       
     //MARK: - configUI
     func configUI() {
-        
+        addAccountBackView.isHidden = true
     }
       
     //MARK: - Button Click
@@ -39,7 +40,8 @@ class BankListVC: UIViewController {
     }
     
     @IBAction func clickToDelete(_ sender: Any) {
-        
+        addAccountBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: addAccountBackView)
     }
     
     @IBAction func clickToEdit(_ sender: Any) {
@@ -47,7 +49,7 @@ class BankListVC: UIViewController {
     }
 
     deinit {
-        log.success("BankDetailVC Memory deallocated!")/
+        log.success("BankListVC Memory deallocated!")/
     }
     
 }

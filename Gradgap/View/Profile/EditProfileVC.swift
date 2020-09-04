@@ -118,10 +118,10 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
         if firstName.trimmed.count == 0 {
             displayToast("Please enter your first name")
         }
-        if lastName.trimmed.count == 0 {
+        else if lastName.trimmed.count == 0 {
             displayToast("Please enter your last name")
         }
-        if school.trimmed.count == 0 {
+        else if school.trimmed.count == 0 {
             displayToast("Please select staring year")
         }
         else if major.trimmed.count == 0 {

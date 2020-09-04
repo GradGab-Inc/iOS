@@ -224,7 +224,7 @@ Book a chat or tour above!</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z7-v1-JuD" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                            <rect key="frame" x="40" y="89" width="240" height="390"/>
+                            <rect key="frame" x="40" y="79" width="240" height="410"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-UB-Oc4">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
@@ -234,7 +234,7 @@ Book a chat or tour above!</string>
                                     </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="fpe-0N-q5j">
-                                    <rect key="frame" x="0.0" y="127" width="240" height="263"/>
+                                    <rect key="frame" x="0.0" y="127" width="240" height="283"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_complete_profile" translatesAutoresizingMaskIntoConstraints="NO" id="evk-F7-pIa">
                                     <rect key="frame" x="20" y="31" width="200" height="180"/>
@@ -250,7 +250,7 @@ Book a chat or tour above!</string>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCc-y6-BNt" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="322" width="190" height="48"/>
+                                    <rect key="frame" x="25" y="342" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="ywP-gb-zhb"/>
@@ -292,7 +292,7 @@ schools.</string>
                                 <constraint firstAttribute="trailing" secondItem="evk-F7-pIa" secondAttribute="trailing" constant="20" id="cX1-oM-r4b"/>
                                 <constraint firstItem="Qgc-4x-6Lj" firstAttribute="top" secondItem="cOe-E8-KP5" secondAttribute="bottom" constant="10" id="dh3-QN-XWA"/>
                                 <constraint firstItem="FCc-y6-BNt" firstAttribute="leading" secondItem="4Z7-v1-JuD" secondAttribute="leading" constant="25" id="fhO-Gg-1bV"/>
-                                <constraint firstAttribute="height" constant="390" id="mPF-8I-0wi"/>
+                                <constraint firstAttribute="height" constant="410" id="mPF-8I-0wi"/>
                                 <constraint firstAttribute="trailing" secondItem="lBy-UB-Oc4" secondAttribute="trailing" id="n8g-Hj-yIW"/>
                                 <constraint firstAttribute="trailing" secondItem="fpe-0N-q5j" secondAttribute="trailing" id="oMw-HP-O4H"/>
                                 <constraint firstAttribute="trailing" secondItem="cOe-E8-KP5" secondAttribute="trailing" constant="8" id="qHn-eP-PhQ"/>
@@ -507,10 +507,10 @@ schools.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-Di-fSb" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="348" width="320" height="220"/>
+                                <rect key="frame" x="0.0" y="350" width="320" height="218"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Q-op-eCg">
-                                        <rect key="frame" x="0.0" y="180" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="178" width="320" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fld-lm-ePh"/>
                                         </constraints>
@@ -523,10 +523,10 @@ schools.</string>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UMg-7f-IE6">
-                                        <rect key="frame" x="0.0" y="19" width="320" height="161"/>
+                                        <rect key="frame" x="0.0" y="8" width="320" height="170"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="161" id="I8h-BZ-pN8"/>
+                                            <constraint firstAttribute="height" constant="170" id="I8h-BZ-pN8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="HI0-ql-gxB" id="mDH-tf-9eq"/>
@@ -534,7 +534,7 @@ schools.</string>
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don’t have any bookings yet, Refer some friends." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-hy-FeA">
-                                        <rect key="frame" x="30" y="90" width="260" height="40"/>
+                                        <rect key="frame" x="30" y="89" width="260" height="40"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -548,7 +548,7 @@ schools.</string>
                                     <constraint firstItem="F8G-hy-FeA" firstAttribute="leading" secondItem="Hvj-Di-fSb" secondAttribute="leading" constant="30" id="Chc-zP-ac4"/>
                                     <constraint firstItem="F8G-hy-FeA" firstAttribute="centerY" secondItem="Hvj-Di-fSb" secondAttribute="centerY" id="FaD-Ia-HPg"/>
                                     <constraint firstAttribute="bottom" secondItem="z0Q-op-eCg" secondAttribute="bottom" id="NgX-mk-rF6"/>
-                                    <constraint firstItem="UMg-7f-IE6" firstAttribute="top" secondItem="Hvj-Di-fSb" secondAttribute="top" constant="19" id="WCg-Mu-I1g"/>
+                                    <constraint firstItem="UMg-7f-IE6" firstAttribute="top" secondItem="Hvj-Di-fSb" secondAttribute="top" constant="8" id="WCg-Mu-I1g"/>
                                     <constraint firstAttribute="trailing" secondItem="z0Q-op-eCg" secondAttribute="trailing" id="ccG-8Z-UVe"/>
                                     <constraint firstItem="UMg-7f-IE6" firstAttribute="leading" secondItem="Hvj-Di-fSb" secondAttribute="leading" id="nfQ-za-wGk"/>
                                     <constraint firstItem="z0Q-op-eCg" firstAttribute="top" secondItem="UMg-7f-IE6" secondAttribute="bottom" id="zn5-cD-7ci"/>
@@ -569,10 +569,10 @@ schools.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-dG-Cpm" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="280" height="232"/>
+                                <rect key="frame" x="20" y="96" width="280" height="234"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-G4-EbD" customClass="FSCalendar">
-                                        <rect key="frame" x="8" y="8" width="264" height="216"/>
+                                        <rect key="frame" x="8" y="14" width="264" height="212"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="YES"/>
@@ -676,7 +676,7 @@ schools.</string>
                                     <constraint firstItem="1Of-q9-JZr" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="8" id="Sh0-G7-ldz"/>
                                     <constraint firstItem="7eD-G4-EbD" firstAttribute="leading" secondItem="FTE-dG-Cpm" secondAttribute="leading" constant="8" id="XMa-nm-Zhj"/>
                                     <constraint firstItem="1Of-q9-JZr" firstAttribute="leading" secondItem="FTE-dG-Cpm" secondAttribute="leading" constant="8" id="gHe-Sj-urP"/>
-                                    <constraint firstItem="7eD-G4-EbD" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="8" id="n8j-Ix-8dR"/>
+                                    <constraint firstItem="7eD-G4-EbD" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="14" id="n8j-Ix-8dR"/>
                                     <constraint firstAttribute="trailing" secondItem="1Of-q9-JZr" secondAttribute="trailing" constant="8" id="qNY-0O-BvB"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -4520,11 +4520,10 @@ schools.</string>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-6r-Xoh">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-6r-Xoh">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                        <state key="normal" image="ic_dropdownarrow"/>
+                                                        <state key="normal" image="back (2)"/>
                                                         <connections>
                                                             <action selector="clickToSelectStartingSchool:" destination="bqC-wT-CZf" eventType="touchUpInside" id="I1h-W7-QcL"/>
                                                         </connections>
@@ -4566,11 +4565,11 @@ schools.</string>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckt-qB-MHJ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckt-qB-MHJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                        <state key="normal" image="ic_dropdownarrow"/>
+                                                        <state key="normal" image="back (2)"/>
                                                         <connections>
                                                             <action selector="clickToPlanedMajor:" destination="bqC-wT-CZf" eventType="touchUpInside" id="tpU-fW-98Y"/>
                                                         </connections>
@@ -4618,11 +4617,11 @@ schools.</string>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91O-Hy-5Lx">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91O-Hy-5Lx">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                                        <state key="normal" image="ic_dropdownarrow"/>
+                                                                        <state key="normal" image="back (2)"/>
                                                                         <connections>
                                                                             <action selector="clickToCollegePath:" destination="bqC-wT-CZf" eventType="touchUpInside" id="u0d-OC-G6V"/>
                                                                         </connections>
@@ -4681,11 +4680,11 @@ schools.</string>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1O-aK-5DH">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1O-aK-5DH">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                        <state key="normal" image="ic_dropdownarrow"/>
+                                                        <state key="normal" image="back (2)"/>
                                                         <connections>
                                                             <action selector="clickToSeelctLanguage:" destination="bqC-wT-CZf" eventType="touchUpInside" id="Voo-NL-eZi"/>
                                                         </connections>
@@ -4755,7 +4754,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4788,7 +4787,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4821,7 +4820,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -5437,9 +5436,9 @@ schools.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHZ-NT-Vbr">
-                                <rect key="frame" x="85" y="72" width="150" height="19"/>
+                                <rect key="frame" x="75" y="72" width="170" height="19"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="VuV-IO-rar"/>
+                                    <constraint firstAttribute="width" constant="170" id="VuV-IO-rar"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -5806,6 +5805,7 @@ schools.</string>
     </scenes>
     <resources>
         <image name="Ico_calendar" width="16" height="16"/>
+        <image name="back (2)" width="16" height="8"/>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_background_home" width="375" height="710"/>
         <image name="ic_callstarting" width="220.5" height="155"/>
@@ -5814,7 +5814,6 @@ schools.</string>
         <image name="ic_coupon_red" width="20" height="13.5"/>
         <image name="ic_date_filter" width="16" height="16"/>
         <image name="ic_dateandtime" width="12" height="12"/>
-        <image name="ic_dropdownarrow" width="19" height="11.5"/>
         <image name="ic_duration" width="16" height="16"/>
         <image name="ic_favorite" width="15" height="14"/>
         <image name="ic_favorite_red_filled" width="16" height="14"/>
