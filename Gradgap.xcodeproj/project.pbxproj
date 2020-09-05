@@ -58,6 +58,10 @@
 		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
 		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B2250388FA006AEA0E /* CardListViewModel.swift */; };
+		882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B5250389FA006AEA0E /* CardListResponse.swift */; };
+		882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B725038B3C006AEA0E /* CardSelectViewModel.swift */; };
+		882378BA25038C1D006AEA0E /* CardAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B925038C1D006AEA0E /* CardAddViewModel.swift */; };
 		8823A2CB24F6666000EA5BA4 /* GradGab.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */; };
 		88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */; };
 		88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88248B8124EF99D60094C375 /* MenteeDetailModel.swift */; };
@@ -72,6 +76,10 @@
 		8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */; };
 		8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
+		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
+		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
+		88283335250368BD00C8739C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283334250368BD00C8739C /* RatingViewModel.swift */; };
+		8828333725036A3700C8739C /* RatingAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828333625036A3700C8739C /* RatingAddRequest.swift */; };
 		88287A8424EE576900745DFB /* MentorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8324EE576900745DFB /* MentorListViewModel.swift */; };
 		88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8524EE5A9500745DFB /* MentorListModel.swift */; };
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
@@ -258,6 +266,10 @@
 		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		882378B2250388FA006AEA0E /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
+		882378B5250389FA006AEA0E /* CardListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListResponse.swift; sourceTree = "<group>"; };
+		882378B725038B3C006AEA0E /* CardSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectViewModel.swift; sourceTree = "<group>"; };
+		882378B925038C1D006AEA0E /* CardAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAddViewModel.swift; sourceTree = "<group>"; };
 		8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GradGab.mp4; sourceTree = "<group>"; };
 		88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeDetailViewModel.swift; sourceTree = "<group>"; };
 		88248B8124EF99D60094C375 /* MenteeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenteeDetailModel.swift; sourceTree = "<group>"; };
@@ -272,6 +284,10 @@
 		8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailModel.swift; sourceTree = "<group>"; };
 		8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingActionViewModel.swift; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
+		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
+		88283334250368BD00C8739C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
+		8828333625036A3700C8739C /* RatingAddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAddRequest.swift; sourceTree = "<group>"; };
 		88287A8324EE576900745DFB /* MentorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListViewModel.swift; sourceTree = "<group>"; };
 		88287A8524EE5A9500745DFB /* MentorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListModel.swift; sourceTree = "<group>"; };
 		8829BED82500F3D6007F9B25 /* RateReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateReviewVC.swift; sourceTree = "<group>"; };
@@ -516,11 +532,31 @@
 			path = CustomFont;
 			sourceTree = "<group>";
 		};
+		882378B1250388D8006AEA0E /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				882378B925038C1D006AEA0E /* CardAddViewModel.swift */,
+				882378B2250388FA006AEA0E /* CardListViewModel.swift */,
+				882378B725038B3C006AEA0E /* CardSelectViewModel.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		882378B4250389DE006AEA0E /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				882378B5250389FA006AEA0E /* CardListResponse.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		8824D90C24EE88460041F7CE /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				8824D90824EE7CA00041F7CE /* MentorDetailViewModel.swift */,
 				88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */,
+				88283334250368BD00C8739C /* RatingViewModel.swift */,
+				882378B1250388D8006AEA0E /* Payment */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -530,6 +566,8 @@
 			children = (
 				8824D90E24EE889C0041F7CE /* MentorDetailModel.swift */,
 				88248B8124EF99D60094C375 /* MenteeDetailModel.swift */,
+				8828333625036A3700C8739C /* RatingAddRequest.swift */,
+				882378B4250389DE006AEA0E /* Payment */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -569,6 +607,7 @@
 				8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */,
 				8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */,
 				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
+				88283330250361C300C8739C /* NotificationViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -585,6 +624,7 @@
 				8824A39624EFC69100EF3118 /* FavouriteRequest.swift */,
 				88287A8524EE5A9500745DFB /* MentorListModel.swift */,
 				8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */,
+				882833322503624300C8739C /* NotificationResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1141,6 +1181,7 @@
 				8824A39724EFC69100EF3118 /* FavouriteRequest.swift in Sources */,
 				8822682824ED23D600E88254 /* AvailabilityRequest.swift in Sources */,
 				88FAB29624E29F9C0060D577 /* EditProfileVC.swift in Sources */,
+				882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */,
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
@@ -1160,6 +1201,7 @@
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */,
+				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */,
@@ -1170,6 +1212,7 @@
 				88AEE8A224D15A78002225E9 /* NSError+RUI.swift in Sources */,
 				88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */,
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
+				882833332503624300C8739C /* NotificationResponse.swift in Sources */,
 				88AEE8A624D15A78002225E9 /* Colors.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
 				8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */,
@@ -1178,6 +1221,7 @@
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
 				88AEE8BC24D15A78002225E9 /* Validation.swift in Sources */,
 				8806B5BD24D945500005FDCE /* FilterTVC.swift in Sources */,
+				88283331250361C300C8739C /* NotificationViewModel.swift in Sources */,
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88862EB324E6656200533CBA /* FaqVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
@@ -1202,6 +1246,7 @@
 				FA44302924EA781C00AC9CF2 /* LoginRequest.swift in Sources */,
 				882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
+				8828333725036A3700C8739C /* RatingAddRequest.swift in Sources */,
 				8809DA4124FFCC22000CABA6 /* AddNewCardVC.swift in Sources */,
 				88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */,
 				88F93EBF24DE8B5400CFFD45 /* QuestionListVC.swift in Sources */,
@@ -1222,6 +1267,7 @@
 				882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
+				882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */,
 				880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */,
@@ -1232,6 +1278,7 @@
 				FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */,
 				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
 				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,
+				882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
@@ -1240,6 +1287,7 @@
 				8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */,
 				88D6F58324EAA9FD00BAD28E /* ResendVerificcationViewModel.swift in Sources */,
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
+				882378BA25038C1D006AEA0E /* CardAddViewModel.swift in Sources */,
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */,
 				88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */,

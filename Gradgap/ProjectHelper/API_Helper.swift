@@ -58,6 +58,30 @@ struct API {
         static let bookingDetail          = BASE_URL + "booking/details"
         static let action                 = BASE_URL + "booking/action"
     }
+    
+    struct CARD {
+        static let add                    = BASE_URL + "card/add"
+        static let list                   = BASE_URL + "card/list"
+        static let select                 = BASE_URL + "card/select"
+        static let remove                 = BASE_URL + "card/remove"
+    }
+    
+    struct RATING {
+        static let add                   = BASE_URL + "rating/add"
+    }
+    
+    struct NOTIFICATION {
+        static let list                   = BASE_URL + "notification/list"
+    }
+    
+    struct TRANSACTION {
+        static let detail                 = BASE_URL + "transaction/details"
+    }
+    
+//    struct COUPON {
+//        static let add                    = BASE_URL + "coupon/add"
+//        static let list                   = BASE_URL + "coupon/list"
+//    }
 }
 
 //MARK:- GCD
@@ -103,4 +127,29 @@ struct GCD{
         static let bookingDetail = DispatchQueue(label: "com.app.BOOKING_bookingDetail", qos: .background, attributes: .concurrent)   //3
         static let action = DispatchQueue(label: "com.app.BOOKING_action", qos: .background, attributes: .concurrent)   //4
     }
+    
+    struct CARD {
+        static let add = DispatchQueue(label: "com.app.CARD_add", qos: .background, attributes: .concurrent) //1
+        static let list = DispatchQueue(label: "com.app.CARD_list", qos: .background, attributes: .concurrent) //2
+        static let select = DispatchQueue(label: "com.app.CARD_select", qos: .background, attributes: .concurrent) //3
+        static let remove = DispatchQueue(label: "com.app.CARD_remove", qos: .background, attributes: .concurrent) //4
+    }
+    
+    struct RATING {
+        static let add = DispatchQueue(label: "com.app.RATING_add", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct NOTIFICATION {
+        static let list = DispatchQueue(label: "com.app.NOTIFICATION_list", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct TRANSACTION {
+        static let detail = DispatchQueue(label: "com.app.TRANSACTION_detail", qos: .background, attributes: .concurrent) //1
+    }
+    
+//    struct COUPON {
+//        static let add = DispatchQueue(label: "com.app.COUPON_add", qos: .background, attributes: .concurrent) //1
+//        static let list = DispatchQueue(label: "com.app.COUPON_list", qos: .background, attributes: .concurrent) //2
+//    }
+    
 }

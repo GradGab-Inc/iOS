@@ -13,6 +13,13 @@ class NotificationVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var noDataLbl: UILabel!
+    
+    var dataModel : NotificationResponse = NotificationResponse()
+    var notificationListVM : NotificationViewModel = NotificationViewModel()
+    var notificationArr : [NotificationListModel] = [NotificationListModel]()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var currentPage : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +38,21 @@ class NotificationVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "NotificationTVC", bundle: nil), forCellReuseIdentifier: "NotificationTVC")
+        
+        notificationListVM.delegate = self
+        notificationListVM.notificationList(request: MorePageRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
     }
+    
+    //MARK: - Refresh data
+     @objc func refreshDataSetUp() {
+         refreshControl.endRefreshing()
+         currentPage = 1
+         notificationListVM.notificationList(request: MorePageRequest(page: currentPage))
+     }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -43,11 +64,24 @@ class NotificationVC: UIViewController {
     }
 }
 
+extension NotificationVC : NotificationDelegate {
+    func didRecieveNotificationListResponse(response: NotificationResponse) {
+        dataModel = response
+        if currentPage == 1 {
+            notificationArr = [NotificationListModel]()
+        }
+        for item in response.data {
+            notificationArr.append(item)
+        }
+        tblView.reloadData()
+        noDataLbl.isHidden = notificationArr.count == 0 ? false : true
+    }
+}
 
 //MARK: - TableView Delegate
 extension NotificationVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return notificationArr.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,8 +94,21 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        return cell
+        let dict : NotificationListModel = notificationArr[indexPath.row]
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
+        cell.messagelbl.text = "\(dict.name) \(dict.message)"
         
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if notificationArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                currentPage = currentPage + 1
+                notificationListVM.notificationList(request: MorePageRequest(page: currentPage))
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -10,6 +10,10 @@ import UIKit
 
 class NotificationTVC: UITableViewCell {
 
+    @IBOutlet weak var profileImgView: ImageView!
+    
+    @IBOutlet weak var messagelbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

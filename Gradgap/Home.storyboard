@@ -920,7 +920,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="oyH-lh-bbW"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="337.5" y="2025"/>
+            <point key="canvasLocation" x="362" y="2025"/>
         </scene>
         <!--Calender Date ListVC-->
         <scene sceneID="Ll9-NL-xFr">
@@ -1013,7 +1013,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-yc-rUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1021.875" y="2025"/>
+            <point key="canvasLocation" x="1022" y="2025"/>
         </scene>
         <!--Mentor Booking DetailVC-->
         <scene sceneID="gV4-qP-Qdy">
@@ -2973,14 +2973,23 @@ schools.</string>
                                     <outlet property="delegate" destination="tOy-Aq-7l5" id="cfk-1i-m3g"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any Notification yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAd-aM-u67">
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="Q3k-pV-ur6" firstAttribute="leading" secondItem="bOn-B1-jt2" secondAttribute="leading" id="9qn-Gw-m4h"/>
+                            <constraint firstItem="IAd-aM-u67" firstAttribute="centerY" secondItem="24Z-aL-Jks" secondAttribute="centerY" id="DST-Kx-Hke"/>
+                            <constraint firstItem="IAd-aM-u67" firstAttribute="leading" secondItem="bOn-B1-jt2" secondAttribute="leading" constant="15" id="G5w-ln-KeF"/>
                             <constraint firstItem="Q3k-pV-ur6" firstAttribute="top" secondItem="7Zc-gt-fE0" secondAttribute="bottom" constant="8" id="Lb9-QO-m85"/>
                             <constraint firstItem="7Zc-gt-fE0" firstAttribute="leading" secondItem="bOn-B1-jt2" secondAttribute="leading" id="bOy-3S-Nxe"/>
                             <constraint firstItem="Q3k-pV-ur6" firstAttribute="trailing" secondItem="bOn-B1-jt2" secondAttribute="trailing" id="etn-Ly-oiW"/>
                             <constraint firstItem="Q3k-pV-ur6" firstAttribute="bottom" secondItem="bOn-B1-jt2" secondAttribute="bottom" id="f4c-ZY-VDb"/>
+                            <constraint firstItem="bOn-B1-jt2" firstAttribute="trailing" secondItem="IAd-aM-u67" secondAttribute="trailing" constant="15" id="hxk-N6-GYB"/>
                             <constraint firstItem="7Zc-gt-fE0" firstAttribute="top" secondItem="bOn-B1-jt2" secondAttribute="top" id="pM6-YM-y9O"/>
                             <constraint firstItem="7Zc-gt-fE0" firstAttribute="trailing" secondItem="bOn-B1-jt2" secondAttribute="trailing" id="sMT-Xm-3WN"/>
                         </constraints>
@@ -2988,6 +2997,7 @@ schools.</string>
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="7Zc-gt-fE0" id="kxa-Xs-aH7"/>
+                        <outlet property="noDataLbl" destination="IAd-aM-u67" id="vXJ-fu-vME"/>
                         <outlet property="tblView" destination="Q3k-pV-ur6" id="qcw-CX-WfJ"/>
                     </connections>
                 </viewController>
