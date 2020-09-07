@@ -34,17 +34,17 @@ class EmailVerificationVC: UIViewController {
     //MARK: - Button Click
     @IBAction func clickToOk(_ sender: UIButton) {
         self.view.endEditing(true)
-        self.navigationController?.popToRootViewController(animated: true)
-//        if fromSignup {
-//            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else {
-////            self.navigationController?.popToRootViewController(animated: true)
-//        }
-        
+        if fromSignup {
+            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            for controller in self.navigationController!.viewControllers as Array {
+                if controller.isKind(of: LoginVC.self) {
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
+        }
     }
-    
-    
-    
 }

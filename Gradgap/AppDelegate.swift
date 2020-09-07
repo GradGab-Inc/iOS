@@ -206,23 +206,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
   //MARK:- Notification
-     func registerPushNotification(_ application: UIApplication)
-     {
-         if #available(iOS 10.0, *) {
-             // For iOS 10 display notification (sent via APNS)
-             UNUserNotificationCenter.current().delegate = self
+    func registerPushNotification(_ application: UIApplication)
+    {
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
              
-             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-             UNUserNotificationCenter.current().requestAuthorization(
-                 options: authOptions,
-                 completionHandler: {_,_ in })
-         } else {
-             let settings: UIUserNotificationSettings =
-                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-             application.registerUserNotificationSettings(settings)
-         }
-         application.registerForRemoteNotifications()
-     }
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_,_ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        application.registerForRemoteNotifications()
+        
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("Notification registered")
@@ -232,24 +233,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
      
-     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-         if let messageID = userInfo["gcmMessageIDKey"] {
-             print("Message ID: \(messageID)")
-         }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        if let messageID = userInfo["gcmMessageIDKey"] {
+            print("Message ID: \(messageID)")
+        }
          
-         // Print full message.
-         print(userInfo)
-     }
+        // Print full message.
+        print(userInfo)
+    }
      
-     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
-     {
-         print(userInfo)
-         UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
-         // This notification is not auth related, developer should handle it.
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+    {
+        print(userInfo)
+        UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
+        // This notification is not auth related, developer should handle it.
          
-         completionHandler(UIBackgroundFetchResult.newData)
+        completionHandler(UIBackgroundFetchResult.newData)
 //         NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: CHAT_NOTIFICATION.UPDATE_MESSAGE_BADGE), object: nil)
-     }
+    }
     
     func getFCMToken() -> String
     {
