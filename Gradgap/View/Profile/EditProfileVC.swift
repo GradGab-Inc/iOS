@@ -217,6 +217,11 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
         listVC.tblView.reloadData()
     }
 
+    @IBAction func clickToDontSee(_ sender: Any) {
+        
+    }
+    
+    
     func getSelectedMajorArray(_ selectedData: MajorListDataModel) {
         majorTxt.text = selectedData.name
         selectedMajor = selectedData

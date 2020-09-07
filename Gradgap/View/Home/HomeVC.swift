@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
         else {
             completeProfileBackView.isHidden = true
         }
+        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
     }
     
     //MARK: - configUI
@@ -57,7 +58,7 @@ class HomeVC: UIViewController {
         viewAllBtn.isHidden = true
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 234
+        bookingTblViewHeightConstraint.constant = 200
         
         bookingListVM.delegate = self
         refreshBookingList()
@@ -78,6 +79,10 @@ class HomeVC: UIViewController {
     @IBAction func clickToProfile(_ sender: Any) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+            
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
@@ -108,6 +113,10 @@ extension HomeVC : HomeBookingListDelegate {
         
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
+        
+        if bookingArr.count == 0 {
+            bookingTblViewHeightConstraint.constant = 200
+        }
     }
  }
 

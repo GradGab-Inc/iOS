@@ -20,7 +20,7 @@
         <!--OnboardingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="OnboardingVC" id="BYZ-38-t0r" customClass="OnboardingVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingVC" id="BYZ-38-t0r" customClass="OnboardingVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
         <!--Sign UpVC-->
         <scene sceneID="wGh-a2-DuQ">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="7gx-Nh-U2f" customClass="SignUpVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="7gx-Nh-U2f" customClass="SignUpVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h02-LA-sEr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,7 +158,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rk-JU-wnk">
                                                 <rect key="frame" x="20" y="30" width="280" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-NM-f7I" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BW-NM-f7I" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
                                                         <color key="backgroundColor" red="0.054901960784313725" green="0.45882352941176469" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="ic_facebook"/>
@@ -171,7 +171,7 @@
                                                             <action selector="clickToFacebook:" destination="7gx-Nh-U2f" eventType="touchUpInside" id="pa0-UA-dcb"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-Lj-gIk" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-Lj-gIk" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="96" y="0.0" width="88" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="ic_apple"/>
@@ -184,7 +184,7 @@
                                                             <action selector="clickToApple:" destination="7gx-Nh-U2f" eventType="touchUpInside" id="gdV-br-FuS"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-oE-vJC" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7k-oE-vJC" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="192" y="0.0" width="88" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="ic_google"/>
@@ -215,7 +215,7 @@
                                                     <constraint firstItem="bSb-Lj-gIk" firstAttribute="width" secondItem="8BW-NM-f7I" secondAttribute="width" id="xSm-K6-cvf"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taE-vI-a0o" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taE-vI-a0o" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="115" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_name" translatesAutoresizingMaskIntoConstraints="NO" id="nG8-ga-ULB">
@@ -225,7 +225,7 @@
                                                             <constraint firstAttribute="width" constant="16" id="Ifp-f1-KKw"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qch-oM-7yG" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qch-oM-7yG" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -251,7 +251,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-gQ-3jj" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-gQ-3jj" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="179" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_name" translatesAutoresizingMaskIntoConstraints="NO" id="kXQ-kR-7E4">
@@ -261,7 +261,7 @@
                                                             <constraint firstAttribute="width" constant="16" id="heI-qo-tDV"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-dU-8iH" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8e-dU-8iH" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -287,7 +287,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-Of-xbH" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-Of-xbH" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="243" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="ej2-Ft-Q8i">
@@ -297,7 +297,7 @@
                                                             <constraint firstAttribute="width" constant="16" id="osf-wD-CTk"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-ij-gCB" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-ij-gCB" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -323,7 +323,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wo-QH-DV5" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wo-QH-DV5" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="307" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_contactnumber" translatesAutoresizingMaskIntoConstraints="NO" id="H4S-oD-DFg">
@@ -333,7 +333,7 @@
                                                             <constraint firstAttribute="height" constant="16" id="yPg-hY-rjj"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7p-JT-2V2" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M7p-JT-2V2" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -359,7 +359,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niR-Kg-XD0" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niR-Kg-XD0" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="371" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="c3a-40-mvQ">
@@ -369,7 +369,7 @@
                                                             <constraint firstAttribute="height" constant="16" id="b1j-sE-ttI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui8-rU-9zp" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ui8-rU-9zp" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="191" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -409,7 +409,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcK-Bx-WRc" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcK-Bx-WRc" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="435" width="270" height="48"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-e9-auP">
@@ -419,7 +419,7 @@
                                                             <constraint firstAttribute="width" constant="16" id="jYJ-PI-gnS"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-W0-lXi" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-W0-lXi" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="39" y="7" width="191" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -459,7 +459,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNa-mM-uRA" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNa-mM-uRA" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="523" width="270" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
@@ -580,7 +580,7 @@
         <!--LoginVC-->
         <scene sceneID="xNC-mf-wEv">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="81b-lY-tLz" customClass="LoginVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="81b-lY-tLz" customClass="LoginVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vlm-7W-cgd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,7 +617,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4St-NI-9l9">
                                 <rect key="frame" x="0.0" y="136.5" width="320" height="225"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJF-3B-ii1" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJF-3B-ii1" customClass="View" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="25" y="0.0" width="270" height="48"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="kn0-fF-dAq">
@@ -627,7 +627,7 @@
                                                     <constraint firstAttribute="width" constant="16" id="oTi-bR-lFt"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eda-o8-wCI" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eda-o8-wCI" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="39" y="7" width="223" height="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -653,7 +653,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-vj-vou" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTu-vj-vou" customClass="View" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="25" y="64" width="270" height="48"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="Rgs-Fw-Am8">
@@ -663,7 +663,7 @@
                                                     <constraint firstAttribute="height" constant="16" id="yHh-ex-6iC"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-9g-zmI" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-9g-zmI" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="39" y="7" width="191" height="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -703,7 +703,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pj-gB-o54" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pj-gB-o54" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="25" y="177" width="270" height="48"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
@@ -753,7 +753,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zk-Md-ugn">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcT-kT-mBa" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcT-kT-mBa" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="88" height="50"/>
                                         <color key="backgroundColor" red="0.054901960780000002" green="0.45882352939999999" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="ic_facebook"/>
@@ -766,7 +766,7 @@
                                             <action selector="clickToFacebook:" destination="81b-lY-tLz" eventType="touchUpInside" id="s9L-Lw-XHa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJl-kP-9fa" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJl-kP-9fa" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="96" y="0.0" width="88" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="ic_apple"/>
@@ -779,7 +779,7 @@
                                             <action selector="clickToApple:" destination="81b-lY-tLz" eventType="touchUpInside" id="ebc-VC-XED"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-kB-QUN" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-kB-QUN" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="192" y="0.0" width="88" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="ic_google"/>
@@ -847,7 +847,7 @@
         <!--Forgot PasswordVC-->
         <scene sceneID="zXI-b9-3Dx">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordVC" id="xsj-0q-WQR" customClass="ForgotPasswordVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordVC" id="xsj-0q-WQR" customClass="ForgotPasswordVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bPj-cb-F2s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -889,7 +889,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GradGab will send you an email with instrucutions to reset your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr5-aU-h3a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GradGab will send you an email with instructions to reset your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr5-aU-h3a">
                                 <rect key="frame" x="15" y="148" width="290" height="37.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="0.70056668133802813" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -901,10 +901,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-rU-r80" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btr-rU-r80" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="15" y="261.5" width="290" height="48"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5W-8S-3Qx" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5W-8S-3Qx" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="15" y="7" width="267" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -928,7 +928,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-rA-Dh5" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncc-rA-Dh5" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="470" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -980,7 +980,7 @@
         <!--Become MentorVC-->
         <scene sceneID="yYB-yu-MWE">
             <objects>
-                <viewController storyboardIdentifier="BecomeMentorVC" id="rGN-Rh-apv" customClass="BecomeMentorVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BecomeMentorVC" id="rGN-Rh-apv" customClass="BecomeMentorVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lk-hN-QrU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="715"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1027,7 +1027,7 @@ student mentors and I am in …</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE3-Vz-4ei" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE3-Vz-4ei" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="126" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -1046,7 +1046,7 @@ student mentors and I am in …</string>
                                                     <action selector="clickToWhoAreYou:" destination="rGN-Rh-apv" eventType="touchUpInside" id="WXm-Ak-WMM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBn-Vu-c9R" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBn-Vu-c9R" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="194" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -1065,7 +1065,7 @@ student mentors and I am in …</string>
                                                     <action selector="clickToWhoAreYou:" destination="rGN-Rh-apv" eventType="touchUpInside" id="5BT-zP-nLe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emM-eu-5E5" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emM-eu-5E5" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="262" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -1084,7 +1084,7 @@ student mentors and I am in …</string>
                                                     <action selector="clickToWhoAreYou:" destination="rGN-Rh-apv" eventType="touchUpInside" id="gO3-rw-Bgn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qm-xO-SyD" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qm-xO-SyD" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="330" width="270" height="48"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -1149,7 +1149,7 @@ student mentors and I am in …</string>
                                     <constraint firstItem="4lU-d0-wiG" firstAttribute="top" secondItem="X68-7a-z3h" secondAttribute="top" id="uFS-0Z-LKf"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3K-nI-2ux" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3K-nI-2ux" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="545" width="320" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-dZ-0Jd">
@@ -1161,7 +1161,7 @@ prospective students.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zd3-Yc-DlQ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zd3-Yc-DlQ" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="25" y="103.5" width="270" height="48"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
@@ -1229,11 +1229,11 @@ prospective students.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbe-AT-sLw" customClass="View" customModule="Gradgap" customModuleProvider="target">
-                            <rect key="frame" x="40" y="84" width="240" height="400"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbe-AT-sLw" customClass="View" customModule="GradGab" customModuleProvider="target">
+                            <rect key="frame" x="40" y="94" width="240" height="380"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="6s5-gV-ZOC">
-                                    <rect key="frame" x="0.0" y="138" width="240" height="262"/>
+                                    <rect key="frame" x="0.0" y="138" width="240" height="242"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Signup_parent" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-gi-fgv">
                                     <rect key="frame" x="25" y="32" width="190" height="183"/>
@@ -1241,20 +1241,20 @@ prospective students.</string>
                                         <constraint firstAttribute="height" constant="183" id="om8-xo-LxI"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up as if you were your child!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oef-oF-NoF">
-                                    <rect key="frame" x="8" y="235" width="224" height="37.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue as if you were your child!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oef-oF-NoF">
+                                    <rect key="frame" x="25" y="235" width="190" height="39"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aj-ha-mfs" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="297.5" width="190" height="48"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aj-ha-mfs" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="299" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="Rq9-7z-zu1"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                    <state key="normal" title="Sign Up">
+                                    <state key="normal" title="Continue">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -1263,32 +1263,23 @@ prospective students.</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="clickToSignUp:" destination="rGN-Rh-apv" eventType="touchUpInside" id="RXr-25-ZYc"/>
+                                        <action selector="clickToContinue:" destination="rGN-Rh-apv" eventType="touchUpInside" id="pTs-zM-z7q"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgA-fs-Hll" customClass="Button" customModule="Gradgap" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="353.5" width="190" height="48"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0b-fP-hB1">
+                                    <rect key="frame" x="197" y="8" width="35" height="35"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="4c9-W6-ONi"/>
+                                        <constraint firstAttribute="width" constant="35" id="7g6-g4-cWz"/>
+                                        <constraint firstAttribute="height" constant="35" id="anv-tq-zOL"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                    <state key="normal" title="Cancel">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="24"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
+                                    <state key="normal" image="ic_cross_black"/>
                                     <connections>
-                                        <action selector="clickToCancel:" destination="rGN-Rh-apv" eventType="touchUpInside" id="XtX-RE-C2n"/>
+                                        <action selector="clickToCancel:" destination="rGN-Rh-apv" eventType="touchUpInside" id="mT3-ff-kee"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="jgA-fs-Hll" firstAttribute="top" secondItem="5aj-ha-mfs" secondAttribute="bottom" constant="8" id="4ff-34-LpF"/>
                                 <constraint firstItem="5aj-ha-mfs" firstAttribute="top" secondItem="oef-oF-NoF" secondAttribute="bottom" constant="25" id="5R0-Rt-B9o"/>
                                 <constraint firstItem="6s5-gV-ZOC" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" id="8xn-tG-gFU"/>
                                 <constraint firstItem="5aj-ha-mfs" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="25" id="BD7-tD-fl1"/>
@@ -1298,13 +1289,14 @@ prospective students.</string>
                                 <constraint firstAttribute="trailing" secondItem="6s5-gV-ZOC" secondAttribute="trailing" id="GFF-1c-m3c"/>
                                 <constraint firstAttribute="trailing" secondItem="6uo-gi-fgv" secondAttribute="trailing" constant="25" id="JCx-ei-VQM"/>
                                 <constraint firstAttribute="bottom" secondItem="6s5-gV-ZOC" secondAttribute="bottom" id="TSs-FZ-ku2"/>
-                                <constraint firstItem="oef-oF-NoF" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="8" id="VCJ-EC-tjk"/>
+                                <constraint firstItem="oef-oF-NoF" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="25" id="VCJ-EC-tjk"/>
                                 <constraint firstItem="6uo-gi-fgv" firstAttribute="top" secondItem="wbe-AT-sLw" secondAttribute="top" constant="32" id="Ypv-ZA-Mhr"/>
-                                <constraint firstItem="jgA-fs-Hll" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="25" id="f5j-K8-ku0"/>
-                                <constraint firstAttribute="height" constant="400" id="fqb-uc-1Ya"/>
+                                <constraint firstItem="e0b-fP-hB1" firstAttribute="top" secondItem="wbe-AT-sLw" secondAttribute="top" constant="8" id="Zi7-aT-Cgr"/>
+                                <constraint firstAttribute="height" constant="380" id="fqb-uc-1Ya"/>
+                                <constraint firstAttribute="trailing" secondItem="e0b-fP-hB1" secondAttribute="trailing" constant="8" id="hGM-yD-YNx"/>
                                 <constraint firstItem="6uo-gi-fgv" firstAttribute="leading" secondItem="wbe-AT-sLw" secondAttribute="leading" constant="25" id="n83-h8-LAz"/>
-                                <constraint firstAttribute="trailing" secondItem="oef-oF-NoF" secondAttribute="trailing" constant="8" id="rPs-Wz-oSL"/>
-                                <constraint firstAttribute="trailing" secondItem="jgA-fs-Hll" secondAttribute="trailing" constant="25" id="ucx-Kl-sbs"/>
+                                <constraint firstAttribute="trailing" secondItem="oef-oF-NoF" secondAttribute="trailing" constant="25" id="rPs-Wz-oSL"/>
+                                <constraint firstAttribute="bottom" secondItem="5aj-ha-mfs" secondAttribute="bottom" constant="33" id="t0a-V1-dWZ"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1327,7 +1319,7 @@ prospective students.</string>
         <!--Want To MeetVC-->
         <scene sceneID="QJO-9m-Vkx">
             <objects>
-                <viewController storyboardIdentifier="WantToMeetVC" id="471-ye-DW0" customClass="WantToMeetVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WantToMeetVC" id="471-ye-DW0" customClass="WantToMeetVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QPc-Ef-ff6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1356,7 +1348,7 @@ prospective students.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9F-1D-cxz" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9F-1D-cxz" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="178.5" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1375,7 +1367,7 @@ prospective students.</string>
                                     <action selector="clickToCollegeStudent:" destination="471-ye-DW0" eventType="touchUpInside" id="le4-NR-kko"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdL-Ot-PsF" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdL-Ot-PsF" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="246.5" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1438,7 +1430,7 @@ prospective students.</string>
         <!--Email VerificationVC-->
         <scene sceneID="vSe-vu-y25">
             <objects>
-                <viewController storyboardIdentifier="EmailVerificationVC" id="oCR-r0-FSP" customClass="EmailVerificationVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailVerificationVC" id="oCR-r0-FSP" customClass="EmailVerificationVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y9f-8n-hfk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1456,7 +1448,7 @@ prospective students.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLo-px-JhZ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLo-px-JhZ" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="407.5" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1522,6 +1514,7 @@ prospective students.</string>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_background_home" width="375" height="710"/>
         <image name="ic_contactnumber" width="16" height="16"/>
+        <image name="ic_cross_black" width="20" height="20"/>
         <image name="ic_email" width="15" height="10"/>
         <image name="ic_emailverify" width="131" height="150.5"/>
         <image name="ic_facebook" width="9" height="18"/>

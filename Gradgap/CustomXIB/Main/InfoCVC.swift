@@ -12,6 +12,8 @@ class InfoCVC: UICollectionViewCell {
 
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var txtView: UITextView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

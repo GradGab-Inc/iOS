@@ -34,6 +34,7 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     var selectImg : UIImage = UIImage()
     var isMentor : Bool = false
     var collegePathIndex : Int = -1
+    var isFromBack : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,15 +124,15 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
         else if identift.trimmed.count == 0 {
             displayToast("Please enter identify")
         }
-        else if sat.trimmed.count == 0 {
-            displayToast("Please enter test score SAT")
-        }
-        else if act.trimmed.count == 0 {
-            displayToast("Please enter test score ACT")
-        }
-        else if gpa.trimmed.count == 0 {
-            displayToast("Please enter GPA")
-        }
+//        else if sat.trimmed.count == 0 {
+//            displayToast("Please enter test score SAT")
+//        }
+//        else if act.trimmed.count == 0 {
+//            displayToast("Please enter test score ACT")
+//        }
+//        else if gpa.trimmed.count == 0 {
+//            displayToast("Please enter GPA")
+//        }
         else if isMentor && (path.trimmed.count == 0 || collegePathIndex == -1) {
             displayToast("Please enter college path")
         }
@@ -140,15 +141,37 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             for item in selectedSchoolListArr {
                 schoolArr.append(item.id)
             }
+//            var request : UpdateRequest = UpdateRequest()
+//            request.schools = schoolArr
+//            request.anticipateYear = Int(school)
+//            request.scoreSAT = Double(sat)
+//            request.scoreACT = Double(act)
+//            request.GPA = Double(gpa)
+//            request.major = selectedMajor.id
+//            request.otherLanguage = selectedLanguage.id
+    
             
             if isMentor {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 2, collegePath: collegePathIndex)
-                let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-                profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                if !isFromBack {
+                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 2, collegePath: collegePathIndex)
+                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
+                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                }
+                else{
+                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), collegePath: collegePathIndex)
+                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
+                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                }
             }
             else {
-                let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 1)
-                profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+                if !isFromBack {
+                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 1)
+                    profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+                }
+                else {
+                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa))
+                    profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
+                }
             }
         }
     }

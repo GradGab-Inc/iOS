@@ -16,7 +16,7 @@ class BookChatVC: UIViewController {
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageLbl: UILabel!
     
-    var messageArr = ["Ask a few quick questions!","Most popular option for a chat!","Perfect for a more in-depth chat!","Get the full story with a 1 hour chat!"]
+    var messageArr = ["Ask a few quick questions!","Most popular option for a chat!","Perfect for a more \nin-depth chat!","Get the full story with a 1 hour chat!"]
     var timeArr = ["15","30","45","60"]
     var selectedIndex : Int = 0
     

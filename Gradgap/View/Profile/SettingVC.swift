@@ -96,7 +96,7 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            showAlertWithOption(getTranslate("confirmation"), message: "Are you sure you want to logout", btns: [getTranslate("cancel"),getTranslate("ok")], completionConfirm: {
+            showAlertWithOption(getTranslate("Confirmation"), message: "Are you sure you want to logout...?", btns: [getTranslate("Cancel"),getTranslate("Ok")], completionConfirm: {
                 
                 AppDelegate().sharedDelegate().continueToLogout()
                 

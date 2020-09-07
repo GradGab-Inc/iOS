@@ -162,6 +162,12 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
     
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        if bookingDetail.isFavourite {
+            displayToast("Mentor removed from favorites successfully")
+        }
+        else {
+            displayToast("Mentor marked as favorite successfully")
+        }
     }
     
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {

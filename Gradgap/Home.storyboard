@@ -27,7 +27,7 @@
         <!--HomeVC-->
         <scene sceneID="fiP-bw-71R">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="xEd-an-y6h" customClass="HomeVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="xEd-an-y6h" customClass="HomeVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MIy-bk-6Es">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="60" width="320" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44c-uS-qvp" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="44c-uS-qvp" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="348" width="320" height="220"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVe-Wc-DVr">
@@ -223,7 +223,7 @@ Book a chat or tour above!</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z7-v1-JuD" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Z7-v1-JuD" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="79" width="240" height="410"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-UB-Oc4">
@@ -249,7 +249,7 @@ Book a chat or tour above!</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCc-y6-BNt" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCc-y6-BNt" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="342" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -320,7 +320,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxa-VH-AMb" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxa-VH-AMb" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDo-DZ-fMW">
@@ -346,7 +346,7 @@ schools.</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-Mw-wV1" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-Mw-wV1" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="312" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -416,12 +416,12 @@ schools.</string>
         <!--FavoriteVC-->
         <scene sceneID="0zv-Ey-O0w">
             <objects>
-                <viewController storyboardIdentifier="FavoriteVC" id="3UG-Br-Uit" customClass="FavoriteVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteVC" id="3UG-Br-Uit" customClass="FavoriteVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgZ-48-e5A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wm-F9-xTn" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wm-F9-xTn" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -471,7 +471,7 @@ schools.</string>
         <!--Mentor HomeVC-->
         <scene sceneID="w2s-9Y-Ykv">
             <objects>
-                <viewController storyboardIdentifier="MentorHomeVC" id="HI0-ql-gxB" customClass="MentorHomeVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MentorHomeVC" id="HI0-ql-gxB" customClass="MentorHomeVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="puY-AK-h7j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,7 +506,7 @@ schools.</string>
                                     <constraint firstAttribute="height" constant="100" id="NGE-n1-Sf6"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-Di-fSb" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-Di-fSb" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="350" width="320" height="218"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Q-op-eCg">
@@ -568,7 +568,7 @@ schools.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-dG-Cpm" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-dG-Cpm" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="20" y="96" width="280" height="234"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-G4-EbD" customClass="FSCalendar">
@@ -610,7 +610,7 @@ schools.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Of-q9-JZr">
                                         <rect key="frame" x="8" y="8" width="264" height="45"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yt-yu-wr9" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Yt-yu-wr9" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="34" y="10.5" width="24" height="24"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -629,7 +629,7 @@ schools.</string>
                                                     <action selector="clickToPreviousMonth:" destination="HI0-ql-gxB" eventType="touchUpInside" id="pKc-bp-Wpc"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jl0-fj-c9F" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jl0-fj-c9F" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="206" y="10.5" width="24" height="24"/>
                                                 <color key="backgroundColor" name="AppColor"/>
                                                 <constraints>
@@ -727,7 +727,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-06-iGz" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWC-06-iGz" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eym-aW-IIG">
@@ -753,7 +753,7 @@ schools.</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjP-q0-Vid" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjP-q0-Vid" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="322" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -821,7 +821,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOz-yt-mbF" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOz-yt-mbF" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="35" y="79" width="250" height="410"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMt-lx-rat">
@@ -847,7 +847,7 @@ schools.</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8K-TH-dIN" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8K-TH-dIN" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="337" width="200" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -925,12 +925,12 @@ schools.</string>
         <!--Calender Date ListVC-->
         <scene sceneID="Ll9-NL-xFr">
             <objects>
-                <viewController storyboardIdentifier="CalenderDateListVC" id="cDx-I7-eDX" customClass="CalenderDateListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalenderDateListVC" id="cDx-I7-eDX" customClass="CalenderDateListVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CcZ-8s-UfN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-Mp-Ztk" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cO-Mp-Ztk" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -940,7 +940,7 @@ schools.</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q91-co-hut">
                                 <rect key="frame" x="20" y="437" width="280" height="111"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-3Q-dWw" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-3Q-dWw" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="48"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
@@ -959,7 +959,7 @@ schools.</string>
                                             <action selector="clickToUpdateAvailabilityBack:" destination="cDx-I7-eDX" eventType="touchUpInside" id="XSw-rS-lW6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yd-zG-bJJ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yd-zG-bJJ" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="280" height="48"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
@@ -1018,12 +1018,12 @@ schools.</string>
         <!--Mentor Booking DetailVC-->
         <scene sceneID="gV4-qP-Qdy">
             <objects>
-                <viewController storyboardIdentifier="MentorBookingDetailVC" id="tCO-4M-tin" customClass="MentorBookingDetailVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MentorBookingDetailVC" id="tCO-4M-tin" customClass="MentorBookingDetailVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zt4-wp-VW5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1050"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qq3-Gr-Rbh" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qq3-Gr-Rbh" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -1039,7 +1039,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-xC-kaO">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qoo-5D-2B1" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qoo-5D-2B1" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Evv-dM-D2X"/>
@@ -1070,7 +1070,7 @@ schools.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eM3-Fz-C6X">
                                                                 <rect key="frame" x="0.0" y="35" width="225" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-JA-5Dh" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-JA-5Dh" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
                                                                         <color key="backgroundColor" name="RedColor"/>
                                                                         <constraints>
@@ -1106,7 +1106,7 @@ schools.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGp-PW-58s">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-vq-tOT" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijE-vq-tOT" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                                         <rect key="frame" x="15" y="5" width="137.5" height="40"/>
                                                                         <color key="backgroundColor" name="AppColor"/>
                                                                         <constraints>
@@ -1131,7 +1131,7 @@ schools.</string>
                                                                             <action selector="clickToReject:" destination="tCO-4M-tin" eventType="touchUpInside" id="Ed5-5Z-5Cz"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqu-cA-JMF" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqu-cA-JMF" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                                         <rect key="frame" x="167.5" y="5" width="137.5" height="40"/>
                                                                         <color key="backgroundColor" name="RedColor"/>
                                                                         <constraints>
@@ -1186,7 +1186,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-f0-saR">
                                                 <rect key="frame" x="0.0" y="709" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-9h-D58" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-9h-D58" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1230,7 +1230,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvE-Ay-I7n">
                                                 <rect key="frame" x="0.0" y="559" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQe-Q7-AFX" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQe-Q7-AFX" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1274,7 +1274,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wK8-9l-eDg">
                                                 <rect key="frame" x="0.0" y="784" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-Ez-G6I" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-Ez-G6I" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1335,7 +1335,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1Z-6i-YE2" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1Z-6i-YE2" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="53.5" width="290" height="65"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-o6-FYh">
@@ -1446,7 +1446,7 @@ schools.</string>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-pm-xgM" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-pm-xgM" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="55" width="44.5" height="39"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9Q-L9-hWS">
@@ -1493,7 +1493,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnU-Xh-4QU">
                                                 <rect key="frame" x="0.0" y="634" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV4-dP-G0r" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV4-dP-G0r" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1537,7 +1537,7 @@ schools.</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b0o-PQ-NTa">
                                                 <rect key="frame" x="60" y="888" width="190" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6W-jl-WwY" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6W-jl-WwY" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1653,12 +1653,12 @@ schools.</string>
         <!--Set AvailabilityVC-->
         <scene sceneID="WAP-eG-hgr">
             <objects>
-                <viewController storyboardIdentifier="SetAvailabilityVC" id="Lgg-3d-93U" customClass="SetAvailabilityVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetAvailabilityVC" id="Lgg-3d-93U" customClass="SetAvailabilityVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7b1-vH-6Md">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-Nh-BQ8" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-Nh-BQ8" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -1676,7 +1676,7 @@ schools.</string>
                                     <outlet property="delegate" destination="Lgg-3d-93U" id="aiH-ET-OqY"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uD-eP-1cI" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uD-eP-1cI" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="500" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1769,12 +1769,12 @@ schools.</string>
         <!--Update AvailabilityVC-->
         <scene sceneID="0Av-Xd-uFC">
             <objects>
-                <viewController storyboardIdentifier="UpdateAvailabilityVC" id="ZOu-LZ-J43" customClass="UpdateAvailabilityVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdateAvailabilityVC" id="ZOu-LZ-J43" customClass="UpdateAvailabilityVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wCB-z1-IUz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TP-dx-oAJ" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TP-dx-oAJ" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -1789,7 +1789,7 @@ schools.</string>
                                     <outlet property="delegate" destination="ZOu-LZ-J43" id="emc-Rx-Enq"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-bZ-kMM" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZS-bZ-kMM" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="20" y="500" width="285" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1836,12 +1836,12 @@ schools.</string>
         <!--Refer FriendVC-->
         <scene sceneID="AWd-M0-tt2">
             <objects>
-                <viewController storyboardIdentifier="ReferFriendVC" id="WrR-Xi-5qy" customClass="ReferFriendVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReferFriendVC" id="WrR-Xi-5qy" customClass="ReferFriendVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PW7-aw-0J3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rah-RW-Fec" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rah-RW-Fec" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -1857,7 +1857,7 @@ schools.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-9O-RDP" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-9O-RDP" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="40" y="480" width="240" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -1906,12 +1906,12 @@ schools.</string>
         <!--My EarningVC-->
         <scene sceneID="afE-tf-Fa0">
             <objects>
-                <viewController storyboardIdentifier="MyEarningVC" id="rgw-IX-x6M" customClass="MyEarningVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyEarningVC" id="rgw-IX-x6M" customClass="MyEarningVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cLx-PX-3Kq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awr-nJ-afX" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awr-nJ-afX" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -2044,7 +2044,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg3-NP-ZhR" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zg3-NP-ZhR" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="20" y="140.5" width="280" height="287"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRV-UD-wZF">
@@ -2084,7 +2084,7 @@ schools.</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TW9-ys-ZnY" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TW9-ys-ZnY" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="26.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="0i0-nE-cAy">
@@ -2145,7 +2145,7 @@ schools.</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lX-wj8" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yas-lX-wj8" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="26.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="N3t-Sr-sj2">
@@ -2211,7 +2211,7 @@ schools.</string>
                                         <constraint firstItem="VJE-yH-TWH" firstAttribute="width" secondItem="4jp-oD-nIz" secondAttribute="width" id="zqi-lz-jSr"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-8h-atD" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUZ-8h-atD" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="214" width="230" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -2274,12 +2274,12 @@ schools.</string>
         <!--Booking DetailVC-->
         <scene sceneID="mhT-6B-9sD">
             <objects>
-                <viewController storyboardIdentifier="BookingDetailVC" id="bqf-uX-LKI" customClass="BookingDetailVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingDetailVC" id="bqf-uX-LKI" customClass="BookingDetailVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vMl-1j-7R1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTA-T2-Mbj" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTA-T2-Mbj" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -2295,7 +2295,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-Gc-Atx">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sYZ-dX-OVK" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sYZ-dX-OVK" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="20" width="60" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Aft-hV-nlb"/>
@@ -2360,7 +2360,7 @@ schools.</string>
                                                             <action selector="clickToViewProfile:" destination="bqf-uX-LKI" eventType="touchUpInside" id="HGm-TH-Kib"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="six-La-h9z" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="six-La-h9z" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="274" y="83" width="30" height="30"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2406,7 +2406,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShG-20-u0o">
                                                 <rect key="frame" x="0.0" y="138" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZA-JG-dix" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZA-JG-dix" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.1974529109589041" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2450,7 +2450,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLj-An-Wtq">
                                                 <rect key="frame" x="0.0" y="213" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CN5-Vj-BQX" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CN5-Vj-BQX" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2494,7 +2494,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnJ-k0-66N">
                                                 <rect key="frame" x="0.0" y="288" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD6-9P-C4M" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD6-9P-C4M" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2538,7 +2538,7 @@ schools.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKZ-Tx-09J">
                                                 <rect key="frame" x="0.0" y="363" width="320" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-HN-7P4" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-HN-7P4" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2583,7 +2583,7 @@ schools.</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-WZ-iFQ">
                                                 <rect key="frame" x="25" y="528" width="270" height="164"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-68-xNP" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-68-xNP" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="48"/>
                                                         <color key="backgroundColor" name="RedColor"/>
                                                         <constraints>
@@ -2602,7 +2602,7 @@ schools.</string>
                                                             <action selector="clickToJoinCall:" destination="bqf-uX-LKI" eventType="touchUpInside" id="raG-9N-UTC"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iza-Sw-Xas" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iza-Sw-Xas" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="58" width="270" height="48"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -2621,7 +2621,7 @@ schools.</string>
                                                             <action selector="clickToCancelBooking:" destination="bqf-uX-LKI" eventType="touchUpInside" id="v2r-2N-XGA"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-86-blp" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-86-blp" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="116" width="270" height="48"/>
                                                         <color key="backgroundColor" name="RedColor"/>
                                                         <constraints>
@@ -2714,7 +2714,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-lE-fz8" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-lE-fz8" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGl-WG-upi">
@@ -2740,7 +2740,7 @@ schools.</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M92-ug-wOR" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M92-ug-wOR" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="312" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -2787,7 +2787,7 @@ schools.</string>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0080000003800000004" green="0.09799999744" blue="0.29399999980000002" alpha="0.60090228869999995" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.59399757922535212" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="ODZ-lE-fz8" firstAttribute="centerY" secondItem="Ke7-bZ-2oT" secondAttribute="centerY" id="n43-wJ-F9T"/>
                         <constraint firstItem="URm-Re-arS" firstAttribute="trailing" secondItem="ODZ-lE-fz8" secondAttribute="trailing" constant="40" id="v2X-Fd-cmf"/>
@@ -2799,7 +2799,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-dI-rus" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-dI-rus" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-c3-7Ko">
@@ -2825,7 +2825,7 @@ schools.</string>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-fS-MUs" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-fS-MUs" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="127.5" y="312" width="87.5" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -2844,7 +2844,7 @@ schools.</string>
                                         <action selector="clickToCancelNo:" destination="bqf-uX-LKI" eventType="touchUpInside" id="LTl-oB-vYq"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08l-zz-yVP" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08l-zz-yVP" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="312" width="87.5" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -2894,7 +2894,7 @@ schools.</string>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0080000003800000004" green="0.09799999744" blue="0.29399999980000002" alpha="0.60090228869999995" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.59894916373239437" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="LJZ-Rq-oYQ" firstAttribute="trailing" secondItem="sQX-dI-rus" secondAttribute="trailing" constant="40" id="BOs-oP-d10"/>
                         <constraint firstItem="sQX-dI-rus" firstAttribute="leading" secondItem="LJZ-Rq-oYQ" secondAttribute="leading" constant="40" id="KiK-qU-Cme"/>
@@ -2903,17 +2903,17 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="LJZ-Rq-oYQ"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2349" y="990"/>
+            <point key="canvasLocation" x="2349" y="1147"/>
         </scene>
         <!--Apply CouponVC-->
         <scene sceneID="92l-Oh-TtP">
             <objects>
-                <viewController storyboardIdentifier="ApplyCouponVC" id="mHj-Xb-eTq" customClass="ApplyCouponVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ApplyCouponVC" id="mHj-Xb-eTq" customClass="ApplyCouponVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LND-Q4-Kt9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-jX-ze6" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-jX-ze6" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -2953,12 +2953,12 @@ schools.</string>
         <!--NotificationVC-->
         <scene sceneID="TW5-hi-V4f">
             <objects>
-                <viewController storyboardIdentifier="NotificationVC" id="tOy-Aq-7l5" customClass="NotificationVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationVC" id="tOy-Aq-7l5" customClass="NotificationVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="24Z-aL-Jks">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zc-gt-fE0" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zc-gt-fE0" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -3008,12 +3008,12 @@ schools.</string>
         <!--Confirm BookingVC-->
         <scene sceneID="7p3-u3-vSu">
             <objects>
-                <viewController storyboardIdentifier="ConfirmBookingVC" id="Mlc-hK-Nzy" customClass="ConfirmBookingVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmBookingVC" id="Mlc-hK-Nzy" customClass="ConfirmBookingVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYc-3c-gMl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="830"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1we-U8-Bgg" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1we-U8-Bgg" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -3026,7 +3026,7 @@ schools.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-sT-5Tz">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="767"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv0-ED-oTS" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv0-ED-oTS" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="15" width="290" height="100"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHq-6M-fFI">
@@ -3194,10 +3194,10 @@ schools.</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHk-50-ilJ">
                                                         <rect key="frame" x="0.0" y="6" width="320" height="70"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-OQ-uPm" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-OQ-uPm" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="11" width="290" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apply Coupon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-G9-69d" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Apply Coupon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OaG-G9-69d" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                                         <rect key="frame" x="41" y="7" width="241" height="34"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -3484,10 +3484,10 @@ schools.</string>
                                                     <constraint firstAttribute="trailing" secondItem="HNd-2E-YLm" secondAttribute="trailing" id="hwh-Jd-2np"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-Lr-hTW" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-Lr-hTW" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="575.5" width="290" height="100"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kM-pE-6nN" customClass="TextView" customModule="Gradgap" customModuleProvider="target">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kM-pE-6nN" customClass="TextView" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="274" height="84"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3515,7 +3515,7 @@ schools.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS1-ek-n1g" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS1-ek-n1g" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="45" y="698" width="230" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
@@ -3630,7 +3630,7 @@ schools.</string>
                                 <constraint firstAttribute="width" secondItem="Br1-ey-hE8" secondAttribute="height" multiplier="25:16" constant="-59.125" id="qWQ-mo-Rbw"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-BJ-f4R" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0G-BJ-f4R" customClass="Button" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="45" y="480" width="230" height="48"/>
                             <color key="backgroundColor" name="RedColor"/>
                             <constraints>
@@ -3670,7 +3670,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWA-U3-HWq" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWA-U3-HWq" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Ok-wCp">
@@ -3687,7 +3687,7 @@ schools.</string>
                                         <constraint firstAttribute="height" constant="180" id="lZg-UH-g7C"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-4L-Jk9" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-4L-Jk9" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="322" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -3747,12 +3747,12 @@ schools.</string>
         <!--Booking ListVC-->
         <scene sceneID="CpL-4H-aES">
             <objects>
-                <viewController storyboardIdentifier="BookingListVC" id="M0c-hf-1J2" customClass="BookingListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingListVC" id="M0c-hf-1J2" customClass="BookingListVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2EO-Az-crf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVO-zv-jZD" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVO-zv-jZD" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -3805,7 +3805,7 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-EM-PXT" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGf-EM-PXT" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="20" y="66" width="280" height="436"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-T8-3BL">
@@ -3845,7 +3845,7 @@ schools.</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-cT-akz" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-cT-akz" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="26.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="ZcN-mG-jbc">
@@ -3906,7 +3906,7 @@ schools.</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-8a-e5g" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVN-8a-e5g" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="26.5" width="122.5" height="42"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_date_filter" translatesAutoresizingMaskIntoConstraints="NO" id="QnL-cj-Dwz">
@@ -3992,7 +3992,7 @@ schools.</string>
                                         <outlet property="delegate" destination="M0c-hf-1J2" id="JlK-K5-gCL"/>
                                     </connections>
                                 </tableView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-U7-e51" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw7-U7-e51" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="330" width="230" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
@@ -4011,7 +4011,7 @@ schools.</string>
                                         <action selector="clickToApply:" destination="M0c-hf-1J2" eventType="touchUpInside" id="5bl-cg-CLZ"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwG-jf-c5Q" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwG-jf-c5Q" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="25" y="386" width="230" height="48"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -4082,12 +4082,12 @@ schools.</string>
         <!--Book ChatVC-->
         <scene sceneID="hfw-BO-rAC">
             <objects>
-                <viewController storyboardIdentifier="BookChatVC" id="zp7-wO-ZOi" customClass="BookChatVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookChatVC" id="zp7-wO-ZOi" customClass="BookChatVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rdr-eI-qXF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c05-uw-7UC" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c05-uw-7UC" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -4127,7 +4127,7 @@ schools.</string>
                                     <outlet property="delegate" destination="zp7-wO-ZOi" id="sx9-Pe-QfZ"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrw-wx-jMH" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrw-wx-jMH" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="45" y="485" width="230" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -4218,12 +4218,12 @@ schools.</string>
         <!--Conversation StarterVC-->
         <scene sceneID="t4x-St-u2k">
             <objects>
-                <viewController storyboardIdentifier="ConversationStarterVC" id="c86-5d-RA1" customClass="ConversationStarterVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationStarterVC" id="c86-5d-RA1" customClass="ConversationStarterVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ktr-oP-Ngg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-fA-KbZ" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-fA-KbZ" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -4263,12 +4263,12 @@ schools.</string>
         <!--School ListVC-->
         <scene sceneID="mfy-3Q-j0b">
             <objects>
-                <viewController storyboardIdentifier="SchoolListVC" id="bMM-K6-gO0" customClass="SchoolListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolListVC" id="bMM-K6-gO0" customClass="SchoolListVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OCh-AF-iD5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdl-G0-D9W" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdl-G0-D9W" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -4281,7 +4281,7 @@ schools.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSk-Gx-IlO" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSk-Gx-IlO" customClass="View" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="15" y="116" width="290" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-1P-Sop">
@@ -4291,7 +4291,7 @@ schools.</string>
                                             <constraint firstAttribute="height" constant="16" id="Y8X-W6-EtX"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for colleges" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-II-nxS" customClass="TextField" customModule="Gradgap" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for colleges" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-II-nxS" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="39" y="7" width="243" height="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
@@ -4386,7 +4386,7 @@ schools.</string>
                                             <constraint firstAttribute="height" constant="3" id="cUq-jE-KmG"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-Hg-Hm5" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmq-Hg-Hm5" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="45" y="320" width="230" height="48"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
@@ -4477,6 +4477,7 @@ schools.</string>
                         <viewLayoutGuide key="safeArea" id="414-Nm-SaY"/>
                     </view>
                     <connections>
+                        <outlet property="dataLbl" destination="mA5-7Y-cJJ" id="jiv-eN-zxW"/>
                         <outlet property="interetedLbl" destination="a2V-a9-kIU" id="ujc-2v-wUa"/>
                         <outlet property="navigationBar" destination="Rdl-G0-D9W" id="fIr-jC-N53"/>
                         <outlet property="schoolCollectionView" destination="CEn-5q-eVA" id="gZw-4w-Zqj"/>
@@ -4494,12 +4495,12 @@ schools.</string>
         <!--Question ListVC-->
         <scene sceneID="N2s-g5-ivA">
             <objects>
-                <viewController storyboardIdentifier="QuestionListVC" id="bqC-wT-CZf" customClass="QuestionListVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionListVC" id="bqC-wT-CZf" customClass="QuestionListVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EUt-qB-MDW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1050"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Xv-wwr" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Xv-wwr" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -4518,7 +4519,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUh-aT-Dmc" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUh-aT-Dmc" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="67" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-o1-nK1">
@@ -4563,7 +4564,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdT-VU-vBp" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdT-VU-vBp" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="166" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1kB-Jv-mHQ">
@@ -4615,7 +4616,7 @@ schools.</string>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfQ-vc-krR" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfQ-vc-krR" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="51" width="290" height="48"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-BR-cYg">
@@ -4678,7 +4679,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDz-9h-fWS" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDz-9h-fWS" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="387" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGo-2h-QeF">
@@ -4724,7 +4725,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-EG-t53" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-EG-t53" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="486" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-5v-q4j">
@@ -4757,7 +4758,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heb-Py-Dm9" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heb-Py-Dm9" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="585" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75l-bf-RVE">
@@ -4790,7 +4791,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-HU-ZCQ" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-HU-ZCQ" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="684" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nP6-1D-5jD">
@@ -4823,7 +4824,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oj9-Si-Omd" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oj9-Si-Omd" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="783" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pyE-hf-GRz">
@@ -4850,7 +4851,7 @@ schools.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3D-o7-EWH" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3D-o7-EWH" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="35" y="900.5" width="250" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
@@ -4976,12 +4977,12 @@ schools.</string>
         <!--Interest DiscussVC-->
         <scene sceneID="27y-jv-Nqz">
             <objects>
-                <viewController storyboardIdentifier="InterestDiscussVC" id="5Gu-vz-us5" customClass="InterestDiscussVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestDiscussVC" id="5Gu-vz-us5" customClass="InterestDiscussVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8K9-pz-GRV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30C-sY-KV0" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30C-sY-KV0" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -5007,7 +5008,7 @@ schools.</string>
                                     <action selector="clickToSelectAll:" destination="5Gu-vz-us5" eventType="touchUpInside" id="RS0-kf-dre"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q6-OD-yoH" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q6-OD-yoH" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="35" y="500" width="250" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -5083,12 +5084,12 @@ schools.</string>
         <!--Personal ProfileVC-->
         <scene sceneID="xay-2x-Tkb">
             <objects>
-                <viewController storyboardIdentifier="PersonalProfileVC" id="bZT-sg-Ku0" customClass="PersonalProfileVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalProfileVC" id="bZT-sg-Ku0" customClass="PersonalProfileVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NlX-c2-8Ye">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdj-ss-C60" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdj-ss-C60" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -5113,7 +5114,7 @@ schools.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7N-ak-O1K">
                                         <rect key="frame" x="15" y="175" width="290" height="94"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpV-sZ-6kc" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpV-sZ-6kc" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="12.5" width="45" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5142,7 +5143,7 @@ schools.</string>
                                                 <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXl-dt-MTb" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXl-dt-MTb" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="245" y="12.5" width="45" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5165,7 +5166,7 @@ schools.</string>
                                                     <action selector="clickToSelectAnswer:" destination="bZT-sg-Ku0" eventType="touchUpInside" id="GBH-zf-2qh"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNX-3J-nbc" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNX-3J-nbc" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="53" y="16.5" width="36.5" height="37"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5188,7 +5189,7 @@ schools.</string>
                                                     <action selector="clickToSelectAnswer:" destination="bZT-sg-Ku0" eventType="touchUpInside" id="jfv-K3-wx5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlT-zt-CTz" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlT-zt-CTz" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="97.5" y="20.5" width="29" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5211,7 +5212,7 @@ schools.</string>
                                                     <action selector="clickToSelectAnswer:" destination="bZT-sg-Ku0" eventType="touchUpInside" id="wlx-jH-lHa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUT-JV-i8X" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUT-JV-i8X" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="163.5" y="20.5" width="29" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5234,7 +5235,7 @@ schools.</string>
                                                     <action selector="clickToSelectAnswer:" destination="bZT-sg-Ku0" eventType="touchUpInside" id="35A-yd-UHI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" alpha="0.75" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWd-OX-amO" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" alpha="0.75" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWd-OX-amO" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="134.5" y="24.5" width="21" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5257,7 +5258,7 @@ schools.</string>
                                                     <action selector="clickToSelectAnswer:" destination="bZT-sg-Ku0" eventType="touchUpInside" id="OyH-2b-4kF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrd-ki-871" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrd-ki-871" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="200.5" y="16.5" width="36.5" height="37"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -5330,7 +5331,7 @@ schools.</string>
                                     <constraint firstAttribute="trailing" secondItem="Ik7-2q-jfh" secondAttribute="trailing" constant="15" id="vxr-g3-4dd"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-zF-S52" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwu-zF-S52" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="30" y="495" width="260" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>
@@ -5419,12 +5420,12 @@ schools.</string>
         <!--BookVC-->
         <scene sceneID="lyQ-Ba-buz">
             <objects>
-                <viewController storyboardIdentifier="BookVC" id="TM2-zR-3Fl" customClass="BookVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookVC" id="TM2-zR-3Fl" customClass="BookVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f4s-wX-Rxm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-vL-WWU" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-vL-WWU" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" name="AppColor"/>
                                 <constraints>
@@ -5523,7 +5524,7 @@ schools.</string>
         <!--SidemenuVC-->
         <scene sceneID="GVT-nK-zic">
             <objects>
-                <viewController storyboardIdentifier="SideMenuContentVC" id="TgK-eB-t1R" customClass="SidemenuVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenuContentVC" id="TgK-eB-t1R" customClass="SidemenuVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OQS-xH-u7B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5534,7 +5535,7 @@ schools.</string>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_side-menu_topimage" translatesAutoresizingMaskIntoConstraints="NO" id="Dlx-3d-ai3">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
                                     </imageView>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-aJ-sAY" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-aJ-sAY" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="20" y="114" width="66" height="66"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -5553,7 +5554,7 @@ schools.</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xuu-2B-lbg" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xuu-2B-lbg" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="21" y="115" width="64" height="64"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -5684,12 +5685,12 @@ schools.</string>
         <!--Student EnrollVC-->
         <scene sceneID="nZA-Gw-rjC">
             <objects>
-                <viewController storyboardIdentifier="StudentEnrollVC" id="Ur1-qs-to0" customClass="StudentEnrollVC" customModule="Gradgap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentEnrollVC" id="Ur1-qs-to0" customClass="StudentEnrollVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYz-3D-9iR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-4n-nMY" customClass="ReuseNavigationBar" customModule="Gradgap" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qiQ-4n-nMY" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -5702,7 +5703,7 @@ schools.</string>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_side-menu_topimage" translatesAutoresizingMaskIntoConstraints="NO" id="J3G-1Z-W4s">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile" translatesAutoresizingMaskIntoConstraints="NO" id="ZdI-L7-KFK" customClass="ImageView" customModule="Gradgap" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile" translatesAutoresizingMaskIntoConstraints="NO" id="ZdI-L7-KFK" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                         <rect key="frame" x="110" y="30" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="aZv-Wp-hXo"/>
@@ -5738,7 +5739,7 @@ schools.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-Ds-g9Z" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-Ds-g9Z" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="110" y="327" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.98799997569999998" green="0.059000000359999999" blue="0.27500000600000002" alpha="0.69587435789999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -5761,7 +5762,7 @@ schools.</string>
                                 <color key="textColor" name="RedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-t3-r4U" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-t3-r4U" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                 <rect key="frame" x="25" y="490" width="270" height="48"/>
                                 <color key="backgroundColor" name="RedColor"/>
                                 <constraints>

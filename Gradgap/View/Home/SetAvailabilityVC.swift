@@ -175,10 +175,14 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectFromTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
+                
+                
+                
+ //               let finalDate = getDateStringFromDate(date: date!, format: "HH:mm")
                 self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
@@ -187,7 +191,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)

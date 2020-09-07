@@ -65,6 +65,17 @@ func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
     return dateFormatter1.string(from: date1).minuteFromString
 }
 
+func getMinuteFromDateString1(strDate : String) -> Int    // Today, 09:56 AM
+{
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.dateFormat = "HH:mm"
+    let date1 =  dateFormatter1.date(from: strDate)!
+    dateFormatter1.dateFormat = "HH:mm"
+    return dateFormatter1.string(from: date1).minuteFromString
+}
+
+
 func getDateStringFromDate1(date : Date, format : String) -> String
 {
     let dateFormatter = DateFormatter()
@@ -175,4 +186,23 @@ func getDateInUTC(_ date : Date) -> String {
     dateFormatter1.timeZone = NSTimeZone(name: "UTC")! as TimeZone
     let finalDate = dateFormatter1.string(from: date1)
     return finalDate
+}
+
+
+func getInitialTime(currentTime: Date, interval: Int) -> Date {
+    var components = Calendar.current.dateComponents([.minute, .hour], from: currentTime)
+    let minute = components.minute
+    let remainder = ceil(Float(minute!/interval))
+    let finalMinutes = Int(remainder * Float(interval)) + interval
+    components.setValue(finalMinutes, for: .minute)
+    guard let finalTime = Calendar.current.date(from: components) else { return Date() }
+//    getDate(date: finalTime)
+    return finalTime
+}
+
+func getDate(date: Date)  {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeStyle = DateFormatter.Style.short
+    dateFormatter.timeZone = TimeZone.current
+    let time = dateFormatter.string(from: date)
 }

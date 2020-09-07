@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Toaster
+//import Toaster
+import Toast_Swift
 import AVFoundation
 //import SKPhotoBrowser
 import SDWebImage
@@ -102,8 +103,10 @@ func setButtonImage(_ button : UIButton, _ strUrl : String, _ placeholder : Stri
 //MARK:- Toast
 func displayToast(_ message:String)
 {
-    let toast = Toast(text: getTranslate(message))
-    toast.show()
+    UIApplication.topViewController()?.view.makeToast(getTranslate(message))
+    
+//    let toast = Toast(text: getTranslate(message))
+//    toast.show()
 }
 
 func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")

@@ -49,6 +49,10 @@ class OnboardingVC: UIViewController {
     private func configUI() {
         infoCollectionView.register(UINib(nibName: "InfoCVC", bundle: nil), forCellWithReuseIdentifier: "InfoCVC")
         infoCollectionView.register(UINib(nibName: "OnboardingCVC", bundle: nil), forCellWithReuseIdentifier: "OnboardingCVC")
+        
+        delay(0.01) {
+            self.infoCollectionView.reloadData()
+        }
     }
     
     //MARK: - Button Click
@@ -85,7 +89,7 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 self.player = AVPlayer(url: videoUrl)
                 
                 layer = AVPlayerLayer(player: player)
-                layer.frame = self.view.bounds
+                layer.frame = cell.videoView.bounds
                 cell.videoView.layer.addSublayer(layer)
                 layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
                 player?.play()
@@ -103,7 +107,8 @@ extension OnboardingVC : UICollectionViewDelegate, UICollectionViewDataSource, U
                 return UICollectionViewCell()
             }
             
-            cell.titleLbl.text = infoArr[indexPath.row - 1]
+//            cell.titleLbl.text = infoArr[indexPath.row - 1]
+            cell.txtView.text = infoArr[indexPath.row - 1]
             cell.imgView.image = UIImage.init(named: imgArr[indexPath.row - 1])
             
             return cell
