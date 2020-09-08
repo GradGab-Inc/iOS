@@ -24,6 +24,7 @@ class MentorHomeVC: UIViewController {
     
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var selectedDate : Date = Date()
     
@@ -49,10 +50,9 @@ class MentorHomeVC: UIViewController {
         else {
             completeProfileBackView.isHidden = true
         }
-        
         homeCalender.reloadData()
     }
-
+        
     //MARK: - configUI
     func configUI() {
         timeBackView.isHidden = true
@@ -123,16 +123,26 @@ extension MentorHomeVC : HomeBookingListDelegate {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
         bookingTblView.reloadData()
-        
-        homeCalender.reloadData()
     
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
             bookingTblViewHeightConstraint.constant = 200
         }
+    
+        homeCalender.layoutIfNeeded()
+        homeCalender.setNeedsLayout()
+    
    }
 }
+
+extension MentorHomeVC : BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        displayToast(response.message)
+        refreshBookingList()
+    }
+}
+
 
 //MARK: - TableView Delegate
 extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -153,9 +163,16 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         let dict : BookingListDataModel = bookingArr[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
         cell.nameLbl.text = dict.name
-        cell.collegeNameLbl.text = "\(getCallType(dict.callType)) \(dict.callTime) Minutes"
+        cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
+        
+        cell.labelBackView.backgroundColor = AppColor
+        cell.collegeNameLbl.textColor = WhiteColor
+        cell.collegeNameLbl.font = UIFont(name: "MADETommySoft", size: 13.0)
+        
         cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
         cell.joinBtn.isHidden = true
+        cell.joinBtn.tag = indexPath.row
+        
         cell.bookedBtn.isHidden = true
         if dict.status == 3 {
             cell.joinBtn.isHidden = false
@@ -181,12 +198,12 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//        JoinCallVC.setUp(0)
+        let dict : BookingListDataModel = bookingArr[sender.tag]
+        let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
+        bookingActionVM.getBookingAction(request: request)
     }
     
 }
-
 
 extension MentorHomeVC : FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {

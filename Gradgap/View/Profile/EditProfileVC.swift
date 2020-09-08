@@ -8,6 +8,7 @@
 
 import UIKit
 import SainiUtils
+import MessageUI
 
 class EditProfileVC: UIViewController, selectedSchoolDelegate {
 
@@ -218,7 +219,7 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
     }
 
     @IBAction func clickToDontSee(_ sender: Any) {
-        
+        setupMail()
     }
     
     
@@ -249,6 +250,27 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
     }
     
 }
+
+extension EditProfileVC : MFMailComposeViewControllerDelegate {
+    func setupMail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["hello@gradgab.com"])
+            mail.setMessageBody("", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            displayToast("Please setup your mail first.")
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+}
+
 
 extension EditProfileVC : ProfileUpdateSuccessDelegate {
     func didReceivedData(response: LoginResponse) {

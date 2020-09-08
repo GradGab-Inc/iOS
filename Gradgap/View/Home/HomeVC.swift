@@ -54,11 +54,10 @@ class HomeVC: UIViewController {
         
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
-//        noDataLbl.isHidden = true
         viewAllBtn.isHidden = true
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 200
+        bookingTblViewHeightConstraint.constant = 160
         
         bookingListVM.delegate = self
         refreshBookingList()
@@ -115,7 +114,7 @@ extension HomeVC : HomeBookingListDelegate {
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 200
+            bookingTblViewHeightConstraint.constant = 160
         }
     }
  }

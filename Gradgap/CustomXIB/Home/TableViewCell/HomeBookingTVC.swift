@@ -16,6 +16,7 @@ class HomeBookingTVC: UITableViewCell {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var joinBtn: Button!
     @IBOutlet weak var bookedBtn: UIButton!
+    @IBOutlet weak var labelBackView: View!
     
     
     override func awakeFromNib() {

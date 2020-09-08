@@ -624,7 +624,14 @@ func getbookingColor(_ tag : Int) -> UIColor {
 }
 
 func displayBookingDate(_ date : String, callTime : Int) -> String {
-    let date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
+    var date1 : String = String()
+    if Calendar.current.isDateInToday(getDateFromDateString(strDate: date)) {
+        let date4 = getDateStringFromDateString(strDate: date, formate: "hh:mm a")
+        date1 = "Today, \(date4)"
+    }
+    else{
+        date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
+    }    
     let date2 = getDateFromDateString(strDate: date).sainiAddMinutes(Double(callTime))
     let date3 = getDateStringFromDate(date: date2, format: "hh:mm a")
     

@@ -129,7 +129,7 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
 extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
     }
         

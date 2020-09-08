@@ -31,7 +31,6 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var schoolCurrentPage : Int = 1
-    let mc: MFMailComposeViewController = MFMailComposeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +59,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
         interetedLbl.sainiAddTapGesture {
-            let url = "mailto:hello@gradgab.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            openUrlInSafari(strUrl: url!)
+            self.setupMail()
         }
         
         schoolListVM.delegate = self
@@ -142,13 +140,13 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
         let text = "We are adding mentors from new schools daily. let us know if you don't see a school you're interested in."
-        let letUsKnow = (text as NSString).range(of: "let us know ")
+        let letUsKnow = (text as NSString).range(of: " let us know ")
 
-        if gesture.didTapAttributedTextInLabel(label: dataLbl, inRange: letUsKnow) {
+ //       if gesture.didTapAttributedTextInLabel(label: dataLbl, inRange: letUsKnow) {
             setupMail()
-        } else {
-            print("Tapped none")
-        }
+//        } else {
+//            print("Tapped none")
+//        }
     }
     
     deinit {
@@ -172,47 +170,21 @@ extension SchoolListVC : SchoolSearchListSuccessDelegate {
 
 extension SchoolListVC : MFMailComposeViewControllerDelegate {
     func setupMail() {
-//        let url = "mailto:hello@gradgab.com?subject=GradGab&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-//        openUrlInSafari(strUrl: url!)
-        
         if MFMailComposeViewController.canSendMail() {
-            // present
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["hello@gradgab.com"])
+            mail.setMessageBody("", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            displayToast("Please setup your mail first.")
         }
-        else {
-            let emailTitle = "Feedback"
-            let messageBody = ""
-            let toRecipents = ["hello@gradgab.com"]
-            mc.mailComposeDelegate = self
-            mc.setSubject(emailTitle)
-            mc.setMessageBody(messageBody, isHTML: false)
-            mc.setToRecipients(toRecipents)
-            
-//            if MFMessageComposeViewController.canSendText() {
-                UIApplication.topViewController()?.present(mc, animated: true, completion: nil)
-//            }
-            
-        }
-         
     }
     
-    func canSendText() -> Bool {
-        return MFMessageComposeViewController.canSendText()
-    }
-    
-    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
-        switch result {
-        case MFMailComposeResult.cancelled:
-            print("Mail cancelled")
-        case MFMailComposeResult.saved:
-            print("Mail saved")
-        case MFMailComposeResult.sent:
-            print("Mail sent")
-        case MFMailComposeResult.failed:
-            print("Mail sent failure: \(error.localizedDescription)")
-        default:
-            break
-        }
-        self.dismiss(animated: true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }
 

@@ -34,6 +34,7 @@ class BookingListVC: UIViewController {
     
     var dataModel : BookingListModel = BookingListModel()
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var refreshControl : UIRefreshControl = UIRefreshControl.init()
     
@@ -153,6 +154,13 @@ extension BookingListVC : HomeBookingListDelegate {
    }
 }
 
+extension BookingListVC : BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        displayToast(response.message)
+        
+    }
+}
+
 
 //MARK: - TableView Delegate
 extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
@@ -196,7 +204,13 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             else {
                 cell.joinBtn.isHidden = true
                 cell.bookedBtn.isHidden = true
-                cell.collegeNameLbl.text = "\(getCallType(dict.callType)) \(dict.callTime) Minutes"
+                cell.joinBtn.tag = indexPath.row
+                cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
+                
+                cell.labelBackView.backgroundColor = AppColor
+                cell.collegeNameLbl.textColor = WhiteColor
+                cell.collegeNameLbl.font = UIFont(name: "MADETommySoft", size: 13.0)
+                
                 if dict.status == 3 {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
@@ -264,8 +278,15 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-        JoinCallVC.setUp(0)
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+            JoinCallVC.setUp(0)
+        }
+        else {
+            let dict : BookingListDataModel = bookingArr[sender.tag]
+            let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
+            bookingActionVM.getBookingAction(request: request)
+        }
     }
     
 }
