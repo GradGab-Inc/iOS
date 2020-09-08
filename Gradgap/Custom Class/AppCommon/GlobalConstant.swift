@@ -158,7 +158,7 @@ struct CONVERSATION_DATA {
 
 struct GENERAL_QUE {
     static var QUESTION1 = "What are your favorite things about the school?"
-    static var QUESTION2 = "What are your favorite things about the school?"
+    static var QUESTION2 = "What are your favorite experiences/memories at the school?"
     static var QUESTION3 = "What is the general culture/atmosphere?"
     static var QUESTION4 = "Things you wish you knew before you got here"
 }

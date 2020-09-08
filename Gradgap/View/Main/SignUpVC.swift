@@ -38,10 +38,10 @@ class SignUpVC: SocialLogin {
         let attrs1 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 14.0), NSAttributedString.Key.foregroundColor : UIColor.white]
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 14.0), NSAttributedString.Key.foregroundColor : UIColor.red]
         
-        let attributedString1 = NSMutableAttributedString(string: "By Signing Up , you agree to our ", attributes: attrs1)
-        let attributedString2 = NSMutableAttributedString(string:"Terms & Conditions ", attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: "and ", attributes: attrs1)
-        let attributedString4 = NSMutableAttributedString(string: "Privacy Policy.", attributes: attrs2)
+        let attributedString1 = NSMutableAttributedString(string: "By Signing Up , you agree to our ", attributes: attrs1 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:"Terms & Conditions ", attributes: attrs2 as [NSAttributedString.Key : Any])
+        let attributedString3 = NSMutableAttributedString(string: "and ", attributes: attrs1 as [NSAttributedString.Key : Any])
+        let attributedString4 = NSMutableAttributedString(string: "Privacy Policy.", attributes: attrs2 as [NSAttributedString.Key : Any])
         
         attributedString1.append(attributedString2)
         attributedString1.append(attributedString3)

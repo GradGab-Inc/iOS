@@ -172,7 +172,7 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
         }
         if index != nil {
             let dict = bookingArr[index!]
-            cell.eventLbl.text = "Meeting with \(dict.name) \(getbookingType(dict.status))"
+            cell.eventLbl.text = "Meeting with \(dict.name) \(getCallType(dict.callType))"
         }
         
         return cell

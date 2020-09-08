@@ -47,6 +47,7 @@
 		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
+		881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FE93E25065C5800DDB411 /* MessageUI.framework */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
 		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
 		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
@@ -211,7 +212,7 @@
 
 /* Begin PBXFileReference section */
 		166F8A68AE108FBE30DD2524 /* Pods-Gradgap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gradgap.debug.xcconfig"; path = "Target Support Files/Pods-Gradgap/Pods-Gradgap.debug.xcconfig"; sourceTree = "<group>"; };
-		22D64A0124D149C7006C37FD /* Gradgap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gradgap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22D64A0124D149C7006C37FD /* GradGab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradGab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D64A0424D149C7006C37FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D64A0B24D149C7006C37FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22D64A0D24D149CD006C37FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
+		881FE93E25065C5800DDB411 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
 		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
 		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */,
 				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +445,7 @@
 		22D64A0224D149C7006C37FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22D64A0124D149C7006C37FD /* Gradgap.app */,
+				22D64A0124D149C7006C37FD /* GradGab.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				881FE93E25065C5800DDB411 /* MessageUI.framework */,
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
 			);
 			name = Frameworks;
@@ -1004,7 +1008,7 @@
 			);
 			name = Gradgap;
 			productName = Gradgap;
-			productReference = 22D64A0124D149C7006C37FD /* Gradgap.app */;
+			productReference = 22D64A0124D149C7006C37FD /* GradGab.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1467,7 +1471,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GradGab;
 				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
@@ -1490,7 +1494,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GradGab;
 				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

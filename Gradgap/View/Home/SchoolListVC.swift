@@ -8,6 +8,7 @@
 
 import UIKit
 import SainiUtils
+import MessageUI
 
 class SchoolListVC: UIViewController, UITextFieldDelegate {
 
@@ -21,6 +22,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var schoolListBackView: UIView!
     @IBOutlet weak var selectedSchoolBackView: UIView!
     @IBOutlet weak var interetedLbl: UILabel!
+    @IBOutlet weak var dataLbl: UILabel!
     
     var selectImg : UIImage = UIImage()
     var isMentor : Bool = false
@@ -29,7 +31,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var schoolCurrentPage : Int = 1
-    
+    let mc: MFMailComposeViewController = MFMailComposeViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +55,12 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         
         searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
       
-        let attributedString = NSMutableAttributedString.init(string: "don't see a school you are interested in? Let us konw")
+        let attributedString = NSMutableAttributedString.init(string: "don't see a school you are interested in? Let us know")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
         interetedLbl.sainiAddTapGesture {
-            let url = "mailto:buhavishal1@gmail.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let url = "mailto:hello@gradgab.com?subject=Graagap&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             openUrlInSafari(strUrl: url!)
         }
         
@@ -68,6 +70,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         selectedSchoolBackView.isHidden = true
         
         searchTxt.delegate = self
+        deisgnSetup()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -121,6 +124,33 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         }
     }
 
+    func deisgnSetup() {
+        let attrs1 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 13.0), NSAttributedString.Key.foregroundColor : UIColor.white]
+        let attrs2 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 13.0), NSAttributedString.Key.foregroundColor : UIColor.red]
+        
+        let attributedString1 = NSMutableAttributedString(string: "We are adding mentors from new schools daily. ", attributes: attrs1 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:"let us know ", attributes: attrs2 as [NSAttributedString.Key : Any])
+        let attributedString3 = NSMutableAttributedString(string: "if you don't see a school you're interested in.", attributes: attrs1 as [NSAttributedString.Key : Any])
+        
+        attributedString1.append(attributedString2)
+        attributedString1.append(attributedString3)
+        dataLbl.attributedText = attributedString1
+        
+        dataLbl.isUserInteractionEnabled = true
+        dataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+    }
+    
+    @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
+        let text = "We are adding mentors from new schools daily. let us know if you don't see a school you're interested in."
+        let letUsKnow = (text as NSString).range(of: "let us know ")
+
+        if gesture.didTapAttributedTextInLabel(label: dataLbl, inRange: letUsKnow) {
+            setupMail()
+        } else {
+            print("Tapped none")
+        }
+    }
+    
     deinit {
         log.success("SchoolListVC Memory deallocated!")/
     }
@@ -140,6 +170,51 @@ extension SchoolListVC : SchoolSearchListSuccessDelegate {
     }
 }
 
+extension SchoolListVC : MFMailComposeViewControllerDelegate {
+    func setupMail() {
+//        let url = "mailto:hello@gradgab.com?subject=GradGab&body=Bookchat".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        openUrlInSafari(strUrl: url!)
+        
+        if MFMailComposeViewController.canSendMail() {
+            // present
+        }
+        else {
+            let emailTitle = "Feedback"
+            let messageBody = ""
+            let toRecipents = ["hello@gradgab.com"]
+            mc.mailComposeDelegate = self
+            mc.setSubject(emailTitle)
+            mc.setMessageBody(messageBody, isHTML: false)
+            mc.setToRecipients(toRecipents)
+            
+//            if MFMessageComposeViewController.canSendText() {
+                UIApplication.topViewController()?.present(mc, animated: true, completion: nil)
+//            }
+            
+        }
+         
+    }
+    
+    func canSendText() -> Bool {
+        return MFMessageComposeViewController.canSendText()
+    }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        switch result {
+        case MFMailComposeResult.cancelled:
+            print("Mail cancelled")
+        case MFMailComposeResult.saved:
+            print("Mail saved")
+        case MFMailComposeResult.sent:
+            print("Mail sent")
+        case MFMailComposeResult.failed:
+            print("Mail sent failure: \(error.localizedDescription)")
+        default:
+            break
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+}
 
 //MARK: - TableView Delegate
 extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {

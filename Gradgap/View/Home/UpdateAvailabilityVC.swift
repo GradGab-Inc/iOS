@@ -151,7 +151,7 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectFromTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
@@ -163,7 +163,7 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton)  {
-        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: Date(), min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
@@ -175,7 +175,7 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToDeleteTime(_ sender : UIButton) {
-        showAlertWithOption(getTranslate("confirmation"), message: "Are you sure you want to delete this time slot", btns: [getTranslate("cancel"),getTranslate("ok")], completionConfirm: {
+        showAlertWithOption(getTranslate("Confirmation"), message: "Are you sure you want to delete this time slot...?", btns: [getTranslate("Cancel"),getTranslate("Ok")], completionConfirm: {
             
             let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
             self.availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
