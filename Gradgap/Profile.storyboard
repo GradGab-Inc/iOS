@@ -40,7 +40,7 @@
                                 <rect key="frame" x="0.0" y="60" width="320" height="790"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6a-DR-nuz">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="746"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="743"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBj-ou-8SA">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
@@ -61,13 +61,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXa-Tz-R4K">
-                                                        <rect key="frame" x="123" y="25" width="182" height="27"/>
+                                                        <rect key="frame" x="123" y="25" width="182" height="26"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvi-48-QcO" customClass="FloatRatingView" customModule="SainiUtils">
-                                                        <rect key="frame" x="152.5" y="107" width="90" height="15"/>
+                                                        <rect key="frame" x="152.5" y="106" width="90" height="15"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="15" id="4MK-ie-ZKb"/>
@@ -85,19 +85,19 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-S8-jfm">
-                                                        <rect key="frame" x="123" y="57" width="182" height="19"/>
+                                                        <rect key="frame" x="123" y="56" width="182" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AU-Km-Nw2">
-                                                        <rect key="frame" x="123" y="81" width="189" height="17"/>
+                                                        <rect key="frame" x="123" y="80" width="189" height="17"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Thin" family="MADE Tommy Soft" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B31-QF-kHS">
-                                                        <rect key="frame" x="123" y="106" width="19.5" height="17"/>
+                                                        <rect key="frame" x="123" y="105" width="19.5" height="17"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -250,23 +250,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJq-7d-NY7">
-                                                <rect key="frame" x="0.0" y="422" width="320" height="67.5"/>
+                                                <rect key="frame" x="0.0" y="422" width="320" height="66"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGO-wZ-OGp">
-                                                        <rect key="frame" x="15" y="40.5" width="290" height="0.0"/>
+                                                        <rect key="frame" x="15" y="39" width="290" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz5-Dm-IlP">
-                                                        <rect key="frame" x="16" y="65.5" width="288" height="2"/>
+                                                        <rect key="frame" x="16" y="64" width="288" height="2"/>
                                                         <color key="backgroundColor" white="1" alpha="0.2012521404" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="2" id="Byn-FU-mxJ"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQs-Bf-AEB">
-                                                        <rect key="frame" x="15" y="8" width="27" height="22.5"/>
+                                                        <rect key="frame" x="15" y="8" width="27" height="21"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="0.60027825342465757" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -286,10 +286,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-3O-MD8">
-                                                <rect key="frame" x="0.0" y="497.5" width="320" height="145.5"/>
+                                                <rect key="frame" x="0.0" y="496" width="320" height="144"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="54q-AT-e4U">
-                                                        <rect key="frame" x="16" y="55.5" width="288" height="70"/>
+                                                        <rect key="frame" x="16" y="54" width="288" height="70"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="LeY-r3-r6Q"/>
@@ -316,7 +316,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topics Mentor can talk about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbp-Tw-Rnb">
-                                                        <rect key="frame" x="16" y="8" width="246.5" height="22.5"/>
+                                                        <rect key="frame" x="16" y="8" width="234" height="21"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="0.60003745719178081" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -333,7 +333,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-yi-Nmw" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="674" width="250" height="48"/>
+                                                <rect key="frame" x="40" y="671" width="250" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="oLf-za-oxj"/>
@@ -402,6 +402,7 @@
                     <size key="freeformSize" width="320" height="850"/>
                     <connections>
                         <outlet property="bioLbl" destination="mGO-wZ-OGp" id="hYh-oS-kME"/>
+                        <outlet property="bookMentorBtn" destination="fRL-yi-Nmw" id="MgU-SW-XiB"/>
                         <outlet property="collegeNameLbl" destination="4bf-S8-jfm" id="fxl-Py-Z4Z"/>
                         <outlet property="courceNameLbl" destination="6AU-Km-Nw2" id="abe-MT-hkh"/>
                         <outlet property="dateBtn" destination="UQy-T7-dIQ" id="qua-vE-wCt"/>
@@ -4050,13 +4051,13 @@
                                                 <rect key="frame" x="0.0" y="10" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWY-kd-lBU">
-                                                        <rect key="frame" x="15" y="15" width="290" height="21"/>
+                                                        <rect key="frame" x="15" y="15" width="290" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqq-4x-rGb" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="46" width="290" height="48"/>
+                                                        <rect key="frame" x="15" y="47.5" width="290" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qob-mZ-AkO">
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4098,13 +4099,13 @@
                                                 <rect key="frame" x="0.0" y="118" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1v-fT-Q3s">
-                                                        <rect key="frame" x="15" y="15" width="290" height="21"/>
+                                                        <rect key="frame" x="15" y="15" width="290" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eL0-G3-vbA" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="46" width="290" height="48"/>
+                                                        <rect key="frame" x="15" y="47.5" width="290" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="xxx-xxx-xxx-xxx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSB-Xb-eeO">
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4149,13 +4150,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expires" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCn-nh-not">
-                                                                <rect key="frame" x="15" y="15" width="130" height="21"/>
+                                                                <rect key="frame" x="15" y="15" width="130" height="22.5"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJH-s8-tZt" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                                <rect key="frame" x="15" y="46" width="130" height="48"/>
+                                                                <rect key="frame" x="15" y="47.5" width="130" height="48"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1b-Z2-t1d">
                                                                         <rect key="frame" x="15" y="7" width="76" height="34"/>
@@ -4288,13 +4289,13 @@
                                                 <rect key="frame" x="0.0" y="334" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqS-yS-M6K">
-                                                        <rect key="frame" x="15" y="15" width="290" height="21"/>
+                                                        <rect key="frame" x="15" y="15" width="290" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAj-tf-AOy" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="46" width="290" height="48"/>
+                                                        <rect key="frame" x="15" y="47.5" width="290" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6T6-Es-AMu">
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4684,6 +4685,7 @@
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="Az3-Wf-bqw" id="qQJ-5k-jjT"/>
+                        <outlet property="switchBtn" destination="bsU-uO-oSL" id="jMq-2e-5da"/>
                         <outlet property="tblView" destination="QcY-cL-GbP" id="v82-b7-qAy"/>
                     </connections>
                 </viewController>

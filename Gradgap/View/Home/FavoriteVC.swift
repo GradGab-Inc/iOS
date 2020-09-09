@@ -123,9 +123,13 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
-//        vc.selectedUserId = favoriteListArr[indexPath.row].mentorRef
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
+        vc.selectedUserId = favoriteListArr[indexPath.row].mentorRef
+        vc.selectedType = 1
+        vc.selectedCallTime = 30
+        vc.selectedDate = Date()
+        vc.isFromFavorite = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func clickToFavorite(_ sender : UIButton) {

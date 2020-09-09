@@ -24,6 +24,7 @@ class CalenderDateListVC: UIViewController {
     var selectedDate : Date = Date()
     var timeSlots = [Double]()
     var arrSkipIndex = [Int]()
+    var arrLastIndex = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +127,7 @@ extension CalenderDateListVC : HomeBookingListDelegate {
                     for j in i..<timeSloteArr.count {
                         if (j+1) != timeSloteArr.count {
                             if endTime == timeSloteArr[j+1] {
+                                arrLastIndex.append(j)
                                 break
                             }
                             arrSkipIndex.append(j+1)
@@ -163,6 +165,12 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
 
         if arrSkipIndex.contains(indexPath.row) {
             cell.backView.isHidden = false
+            if arrLastIndex.contains(indexPath.row) {
+                cell.backViewBottomConstraint.constant = 3
+            }
+            else {
+                cell.backViewBottomConstraint.constant = 0
+            }
         }else{
             cell.backView.isHidden = true
         }

@@ -39,7 +39,7 @@ class MentorHomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +76,7 @@ class MentorHomeVC: UIViewController {
         bookingTblViewHeightConstraint.constant = 252
         
         bookingListVM.delegate = self
+        bookingActionVM.delegate = self
         refreshBookingList()
         
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
@@ -178,7 +179,8 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isHidden = false
             cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
             cell.joinBtn.setTitle("Confirm", for: .normal)
-            cell.joinBtn.isUserInteractionEnabled = false
+            cell.joinBtn.isUserInteractionEnabled = true
+            cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
         }
         else {
             cell.bookedBtn.isHidden = false
@@ -202,7 +204,6 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
         bookingActionVM.getBookingAction(request: request)
     }
-    
 }
 
 extension MentorHomeVC : FSCalendarDelegate {

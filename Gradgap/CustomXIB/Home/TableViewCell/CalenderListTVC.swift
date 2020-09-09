@@ -13,6 +13,7 @@ class CalenderListTVC: UITableViewCell {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var eventLbl: UILabel!
     @IBOutlet weak var backView: View!
+    @IBOutlet weak var backViewBottomConstraint: NSLayoutConstraint!
     
     
     override func awakeFromNib() {

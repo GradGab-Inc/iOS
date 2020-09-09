@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +80,7 @@ class HomeVC: UIViewController {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
         
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
 //        self.navigationController?.pushViewController(vc, animated: true)
             
     }
@@ -92,6 +93,9 @@ class HomeVC: UIViewController {
     @IBAction func clickToCompleteProfile(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToJoinNowCall(_ sender: Any) {

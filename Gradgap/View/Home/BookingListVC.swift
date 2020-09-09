@@ -54,6 +54,8 @@ class BookingListVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
         if AppModel.shared.currentUser.user?.userType == 1 {
@@ -69,6 +71,7 @@ class BookingListVC: UIViewController {
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         bookingListVM.delegate = self
+        bookingActionVM.delegate = self
         bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
         
         refreshControl.tintColor = AppColor
@@ -157,7 +160,7 @@ extension BookingListVC : HomeBookingListDelegate {
 extension BookingListVC : BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
         displayToast(response.message)
-        
+        refreshDataSetUp()
     }
 }
 
@@ -215,6 +218,8 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
                     cell.joinBtn.setTitle("Confirm", for: .normal)
+                    cell.joinBtn.isUserInteractionEnabled = true
+                    cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
                 }
                 else {
                     cell.bookedBtn.isHidden = false

@@ -3595,6 +3595,7 @@ schools.</string>
                         <outlet property="additionalTopicTxt" destination="5kM-pE-6nN" id="Hha-2g-IzU"/>
                         <outlet property="bookingStatusBackView" destination="9St-A3-6iC" id="dlM-nJ-6GI"/>
                         <outlet property="collegeNameLbl" destination="xMW-O0-YB2" id="dMV-H3-uoM"/>
+                        <outlet property="confirmBookingBtn" destination="aS1-ek-n1g" id="OiM-6e-XNg"/>
                         <outlet property="dateLbl" destination="qhl-km-Gks" id="aco-fg-Fi9"/>
                         <outlet property="durationLbl" destination="IJ8-Fi-q75" id="7Qo-kf-oGk"/>
                         <outlet property="nameLbl" destination="LSW-s4-xud" id="lqT-wE-Hwh"/>

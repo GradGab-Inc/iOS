@@ -241,7 +241,7 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
                 request.scoreSAT = Double(sat)
                 request.scoreACT = Double(act)
                 request.GPA = Double(gpa)
-                request.subjects = selectedIndex
+                request.subjects = selectedIndex.sorted()
                 request.firstName = firstName
                 request.lastName = lastName
                 request.bio = bio

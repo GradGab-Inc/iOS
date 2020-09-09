@@ -58,8 +58,8 @@ struct AvailabilityDataModel: Codable {
         weekDay = try values.decodeIfPresent(Int.self, forKey: .weekDay) ?? 0
         datumV = try values.decodeIfPresent(Int.self, forKey: .datumV) ?? 0
         mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
-        startTime = try values.decodeIfPresent(Int.self, forKey: .startTime) ?? 0
-        endTime = try values.decodeIfPresent(Int.self, forKey: .endTime) ?? 0
+        startTime = try values.decodeIfPresent(Int.self, forKey: .startTime) ?? -1
+        endTime = try values.decodeIfPresent(Int.self, forKey: .endTime) ?? -1
         timezone = try values.decodeIfPresent(Int.self, forKey: .timezone) ?? 0
     }
     
@@ -71,8 +71,8 @@ struct AvailabilityDataModel: Codable {
         weekDay = -1
         datumV = 0
         mentorRef = ""
-        startTime = 0
-        endTime = 0
+        startTime = -1
+        endTime = -1
         timezone = 0
     }
     

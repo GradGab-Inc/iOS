@@ -22,6 +22,7 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var noDataLbl: UILabel!
     @IBOutlet weak var bioLbl: UILabel!
     @IBOutlet weak var favoriteBtn: Button!
+    @IBOutlet weak var bookMentorBtn: Button!
     
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
@@ -34,6 +35,7 @@ class MentorsProfileVC: UIViewController {
     var mentorDetail : MentorData = MentorData.init()
     
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
+    var bookingDetail : BookingDetail = BookingDetail.init()
     
     var selectedUserId : String = String()
     var selectedType : Int = 1
@@ -41,6 +43,8 @@ class MentorsProfileVC: UIViewController {
     
     var timeDataArr : [Int] = [Int]()
     var subjectArr : [String] = [String]()
+    var isFromBookingDetail : Bool = false
+    var isFromFavorite : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +72,14 @@ class MentorsProfileVC: UIViewController {
         
         addToFavoriteVM.delegate = self
         mentorDetailVM.delegate = self
-        getMentorDetailServiceCall(true)
+        
+        if isFromBookingDetail {
+            renderBookingDetail()
+        }
+        else {
+            getMentorDetailServiceCall(true)
+        }
+        
     }
     
     func getMentorDetailServiceCall(_ isLoader : Bool) {
@@ -99,7 +110,10 @@ class MentorsProfileVC: UIViewController {
         DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
-              
+                
+                if self.isFromBookingDetail {
+                    return
+                }
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MMMM dd, yyyy"), for: .normal)
                 self.getMentorDetailServiceCall(true)
             }
@@ -114,12 +128,42 @@ class MentorsProfileVC: UIViewController {
             vc.selectedCallTime = selectedCallTime
             vc.selectedDate = selectedDate
             vc.selectedTimeSlot = timeDataArr[selectedIndex]
+            vc.isFromFavorite = isFromFavorite
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
             displayToast("Please select time slot")
         }
+    }
+    
+    
+    func renderBookingDetail() {
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
+        nameLbl.text = bookingDetail.name
+        collegeNameLbl.text = bookingDetail.schoolName
+        rateLbl.text = "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating
+
+        if bookingDetail.subjects.count != 0 {
+            subjectArr = [String]()
+            for i in bookingDetail.subjects {
+                subjectArr.append(InterestArr[i - 1])
+            }
+            mentorCollectionView.reloadData()
+        }
+        else {
+            subjectArr = [String]()
+            mentorCollectionView.reloadData()
+        }
         
+        timeCollectionViewHeightConstraint.constant = 80
+        timeDataArr = [Int]()
+        timeCollectionView.reloadData()
+        noDataLbl.isHidden = false
+        
+        bioLbl.text = ""
+        favoriteBtn.isSelected = bookingDetail.isFavourite
+        bookMentorBtn.isHidden = true
     }
 
     deinit {
@@ -131,6 +175,12 @@ class MentorsProfileVC: UIViewController {
 
 extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        if mentorDetail.isFavourite {
+            displayToast("Mentor removed from favorites successfully")
+        }
+        else {
+            displayToast("Mentor marked as favorite successfully")
+        }
         getMentorDetailServiceCall(false)
     }
     
@@ -172,7 +222,6 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
             subjectArr = [String]()
             mentorCollectionView.reloadData()
         }
-        
         favoriteBtn.isSelected = mentorDetail.isFavourite
     }
 }

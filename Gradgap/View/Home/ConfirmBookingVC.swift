@@ -25,6 +25,7 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var additionalTopicTxt: TextView!
     
     @IBOutlet var bookingStatusBackView: UIView!
+    @IBOutlet weak var confirmBookingBtn: Button!
     
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
@@ -32,7 +33,7 @@ class ConfirmBookingVC: UIViewController {
     var selectedCallTime : Int = Int()
     var selectedDate : Date = Date()
     var selectedTimeSlot : Int = Int()
-    
+    var isFromFavorite : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +97,20 @@ class ConfirmBookingVC: UIViewController {
     }
     
     @IBAction func clickToBackToHome(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+        if isFromFavorite {
+            for controller in self.navigationController!.viewControllers as Array {
+                if controller.isKind(of: FavoriteVC.self) {
+                    self.navigationController!.popToViewController(controller, animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+                    break
+                }
+            }
+        }
+        else {
+            self.navigationController!.popToRootViewController(animated: true)
+            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+        }
+        
     }
     
     deinit {
