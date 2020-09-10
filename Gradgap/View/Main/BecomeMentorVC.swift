@@ -54,8 +54,9 @@ class BecomeMentorVC: UIViewController {
     }
     
     @IBAction func clickToContinue(_ sender: Any) {
-        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "WantToMeetVC") as! WantToMeetVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        parentBackView.isHidden = true
+//        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "WantToMeetVC") as! WantToMeetVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToCancel(_ sender: Any) {

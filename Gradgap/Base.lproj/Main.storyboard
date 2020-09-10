@@ -1266,13 +1266,19 @@ prospective students.</string>
                                         <action selector="clickToContinue:" destination="rGN-Rh-apv" eventType="touchUpInside" id="pTs-zM-z7q"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0b-fP-hB1">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0b-fP-hB1" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                     <rect key="frame" x="197" y="8" width="35" height="35"/>
+                                    <color key="backgroundColor" name="AppColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="7g6-g4-cWz"/>
                                         <constraint firstAttribute="height" constant="35" id="anv-tq-zOL"/>
                                     </constraints>
-                                    <state key="normal" image="ic_cross_black"/>
+                                    <state key="normal" image="ic_close-1"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="17"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="clickToCancel:" destination="rGN-Rh-apv" eventType="touchUpInside" id="mT3-ff-kee"/>
                                     </connections>
@@ -1513,8 +1519,8 @@ prospective students.</string>
         <image name="ic_apple" width="16.5" height="20.5"/>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_background_home" width="375" height="710"/>
+        <image name="ic_close-1" width="16" height="16"/>
         <image name="ic_contactnumber" width="16" height="16"/>
-        <image name="ic_cross_black" width="20" height="20"/>
         <image name="ic_email" width="15" height="10"/>
         <image name="ic_emailverify" width="131" height="150.5"/>
         <image name="ic_facebook" width="9" height="18"/>

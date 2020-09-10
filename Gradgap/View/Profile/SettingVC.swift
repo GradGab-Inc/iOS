@@ -17,7 +17,7 @@ class SettingVC: UIViewController {
     
     var settingArr = [SETTING_ARR.ABOUT, SETTING_ARR.TERMS, SETTING_ARR.PRIVACY, SETTING_ARR.HELP, SETTING_ARR.LOGOUT]
     var imgArr = ["ic_aboutus","ic_terms","ic_privacypolicy","ic_help","ic_logout"]
-    
+    var switchProfileVM : SwitchProfileViewModel = SwitchProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class SettingVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "SideMenuTVC", bundle: nil), forCellReuseIdentifier: "SideMenuTVC")
-        
+        switchProfileVM.delegate = self
         if AppModel.shared.currentUser.user?.userType == 1 {
             switchBtn.setTitle("Swith to Mentor App", for: .normal)
         }
@@ -51,11 +51,40 @@ class SettingVC: UIViewController {
     }
 
     @IBAction func clickToswithToMentorApp(_ sender: Any) {
-        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
+        }
     }
     
     deinit {
         log.success("SettingVC Memory deallocated!")/
+    }
+}
+
+extension SettingVC : SwitchProfileDelegate {
+    func didRecieveSwitchProfileResponse(response: LoginResponse) {
+        removeUserDefaultValues()
+        AppModel.shared.resetAllModel()
+        
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        setLoginUserData(response.data!.self)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 3 {
+            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

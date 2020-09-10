@@ -3024,10 +3024,10 @@ schools.</string>
                                 <rect key="frame" x="0.0" y="60" width="320" height="770"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-sT-5Tz">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="767"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="772"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv0-ED-oTS" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="15" width="290" height="100"/>
+                                                <rect key="frame" x="15" y="15" width="290" height="105"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHq-6M-fFI">
                                                         <rect key="frame" x="10" y="15" width="28" height="28"/>
@@ -3070,16 +3070,16 @@ schools.</string>
                                                         <color key="textColor" name="AppColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat, Duration 15 Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-Fi-q75">
-                                                        <rect key="frame" x="46" y="64" width="131" height="16.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat, Duration 15 Min" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-Fi-q75">
+                                                        <rect key="frame" x="46" y="64" width="109" height="33"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00 - 10:00 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KST-a1-BFp">
-                                                        <rect key="frame" x="182" y="65" width="100" height="14"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00 AM - 10:00 AM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KST-a1-BFp">
+                                                        <rect key="frame" x="160" y="64" width="122" height="14"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="mES-72-3Ww"/>
+                                                            <constraint firstAttribute="width" constant="122" id="mES-72-3Ww"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="12"/>
                                                         <color key="textColor" name="AppColor"/>
@@ -3091,7 +3091,8 @@ schools.</string>
                                                     <constraint firstItem="VHq-6M-fFI" firstAttribute="top" secondItem="mv0-ED-oTS" secondAttribute="top" constant="15" id="2oF-t7-syf"/>
                                                     <constraint firstItem="xMW-O0-YB2" firstAttribute="leading" secondItem="LSW-s4-xud" secondAttribute="leading" id="5t9-Na-UyC"/>
                                                     <constraint firstItem="IJ8-Fi-q75" firstAttribute="leading" secondItem="xMW-O0-YB2" secondAttribute="leading" id="6YD-JT-xAa"/>
-                                                    <constraint firstAttribute="height" constant="100" id="79s-dl-yfq"/>
+                                                    <constraint firstAttribute="height" constant="105" id="79s-dl-yfq"/>
+                                                    <constraint firstItem="KST-a1-BFp" firstAttribute="top" secondItem="IJ8-Fi-q75" secondAttribute="top" id="CIz-Mf-2I0"/>
                                                     <constraint firstItem="LSW-s4-xud" firstAttribute="leading" secondItem="VHq-6M-fFI" secondAttribute="trailing" constant="8" id="G8Y-8h-5VM"/>
                                                     <constraint firstItem="qhl-km-Gks" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xMW-O0-YB2" secondAttribute="trailing" constant="8" id="Gbm-wM-3hZ"/>
                                                     <constraint firstItem="2gp-ng-mvx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LSW-s4-xud" secondAttribute="trailing" constant="8" id="Nn0-C2-MUG"/>
@@ -3099,7 +3100,6 @@ schools.</string>
                                                     <constraint firstItem="2gp-ng-mvx" firstAttribute="top" secondItem="LSW-s4-xud" secondAttribute="top" id="Smw-qy-Acn"/>
                                                     <constraint firstItem="IJ8-Fi-q75" firstAttribute="top" secondItem="qhl-km-Gks" secondAttribute="bottom" constant="8" id="Us9-0m-YkC"/>
                                                     <constraint firstAttribute="trailing" secondItem="qhl-km-Gks" secondAttribute="trailing" constant="8" id="WWZ-od-kAm"/>
-                                                    <constraint firstItem="KST-a1-BFp" firstAttribute="centerY" secondItem="IJ8-Fi-q75" secondAttribute="centerY" id="dgK-5E-pgn"/>
                                                     <constraint firstItem="VHq-6M-fFI" firstAttribute="leading" secondItem="mv0-ED-oTS" secondAttribute="leading" constant="10" id="eMc-WT-Gh6"/>
                                                     <constraint firstItem="xMW-O0-YB2" firstAttribute="top" secondItem="LSW-s4-xud" secondAttribute="bottom" constant="5" id="kMH-fX-OfK"/>
                                                     <constraint firstAttribute="trailing" secondItem="2gp-ng-mvx" secondAttribute="trailing" constant="10" id="oJu-M7-BR7"/>
@@ -3114,7 +3114,7 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxI-SB-u0P">
-                                                <rect key="frame" x="0.0" y="135" width="320" height="56"/>
+                                                <rect key="frame" x="0.0" y="140" width="320" height="56"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AtZ-JB-hbh">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3182,7 +3182,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hz-Yp-9AS">
-                                                <rect key="frame" x="0.0" y="191" width="320" height="76"/>
+                                                <rect key="frame" x="0.0" y="196" width="320" height="76"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36a-7N-G7e">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3276,7 +3276,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3L-Fw-Mki">
-                                                <rect key="frame" x="0.0" y="267" width="320" height="56"/>
+                                                <rect key="frame" x="0.0" y="272" width="320" height="56"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hv-Xg-nrX">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3315,7 +3315,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-p8-ms2">
-                                                <rect key="frame" x="0.0" y="323" width="320" height="120"/>
+                                                <rect key="frame" x="0.0" y="328" width="320" height="120"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-i7-6W9">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -3405,7 +3405,7 @@ schools.</string>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HF-Mp-Eqi">
-                                                <rect key="frame" x="0.0" y="451" width="320" height="71"/>
+                                                <rect key="frame" x="0.0" y="456" width="320" height="71"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuH-8X-lbV">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3445,7 +3445,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baq-xT-S0p">
-                                                <rect key="frame" x="0.0" y="522" width="320" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="527" width="320" height="53.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mth-CP-BeE">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3485,7 +3485,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-Lr-hTW" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="575.5" width="290" height="100"/>
+                                                <rect key="frame" x="15" y="580.5" width="290" height="100"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kM-pE-6nN" customClass="TextView" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="274" height="84"/>
@@ -3516,7 +3516,7 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS1-ek-n1g" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="698" width="230" height="48"/>
+                                                <rect key="frame" x="45" y="703" width="230" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="hO0-Cp-kgQ"/>
@@ -3593,6 +3593,7 @@ schools.</string>
                     <size key="freeformSize" width="320" height="830"/>
                     <connections>
                         <outlet property="additionalTopicTxt" destination="5kM-pE-6nN" id="Hha-2g-IzU"/>
+                        <outlet property="backToHomeBtn" destination="r0G-BJ-f4R" id="KSu-Hq-una"/>
                         <outlet property="bookingStatusBackView" destination="9St-A3-6iC" id="dlM-nJ-6GI"/>
                         <outlet property="collegeNameLbl" destination="xMW-O0-YB2" id="dMV-H3-uoM"/>
                         <outlet property="confirmBookingBtn" destination="aS1-ek-n1g" id="OiM-6e-XNg"/>

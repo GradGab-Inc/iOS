@@ -147,6 +147,7 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
         let userId = appleIDCredential.user
         let socialToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
+        
         guard let email = appleIDCredential.email else { return }
         guard let firstname = appleIDCredential.fullName?.givenName else { return }
         guard let lastname = appleIDCredential.fullName?.familyName else { return }
