@@ -175,7 +175,7 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToDeleteTime(_ sender : UIButton) {
-        showAlertWithOption(getTranslate("Confirmation"), message: "Are you sure you want to delete this time slot...?", btns: [getTranslate("Cancel"),getTranslate("Ok")], completionConfirm: {
+        showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
             
             let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
             self.availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))

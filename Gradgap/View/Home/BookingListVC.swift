@@ -34,6 +34,7 @@ class BookingListVC: UIViewController {
     
     var dataModel : BookingListModel = BookingListModel()
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var refreshControl : UIRefreshControl = UIRefreshControl.init()
     
@@ -53,6 +54,8 @@ class BookingListVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
         if AppModel.shared.currentUser.user?.userType == 1 {
@@ -68,6 +71,7 @@ class BookingListVC: UIViewController {
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         bookingListVM.delegate = self
+        bookingActionVM.delegate = self
         bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
         
         refreshControl.tintColor = AppColor
@@ -153,6 +157,13 @@ extension BookingListVC : HomeBookingListDelegate {
    }
 }
 
+extension BookingListVC : BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        displayToast(response.message)
+        refreshDataSetUp()
+    }
+}
+
 
 //MARK: - TableView Delegate
 extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
@@ -196,11 +207,19 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             else {
                 cell.joinBtn.isHidden = true
                 cell.bookedBtn.isHidden = true
-                cell.collegeNameLbl.text = "\(getCallType(dict.callType)) \(dict.callTime) Minutes"
+                cell.joinBtn.tag = indexPath.row
+                cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
+                
+                cell.labelBackView.backgroundColor = AppColor
+                cell.collegeNameLbl.textColor = WhiteColor
+                cell.collegeNameLbl.font = UIFont(name: "MADETommySoft", size: 13.0)
+                
                 if dict.status == 3 {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
                     cell.joinBtn.setTitle("Confirm", for: .normal)
+                    cell.joinBtn.isUserInteractionEnabled = true
+                    cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
                 }
                 else {
                     cell.bookedBtn.isHidden = false
@@ -264,8 +283,15 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-        JoinCallVC.setUp(0)
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+            JoinCallVC.setUp(0)
+        }
+        else {
+            let dict : BookingListDataModel = bookingArr[sender.tag]
+            let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
+            bookingActionVM.getBookingAction(request: request)
+        }
     }
     
 }

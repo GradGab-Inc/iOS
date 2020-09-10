@@ -69,7 +69,6 @@ public class APIManager {
             displayToast(message)
         case 500:
             displayToast(message)
-            
         default:
             print(message)
         }
@@ -217,29 +216,26 @@ public class APIManager {
                             else{
                                 if let message = result["message"] as? String{
                                     log.error("\(Log.stats()) \(message)")/
-                                    UIViewController.top?.view.sainiShowToast(message:message)
+                                    displayToast(message)
                                 }
                                 return
                             }
                         }
                         if let message = result["message"] as? String{
                             log.error("\(Log.stats()) \(message)")/
-                            UIViewController.top?.view.sainiShowToast(message:message)
+                            displayToast(message)
                             return
                         }
                     }
                     if let error = response.result.error
                     {
                         log.error("\(Log.stats()) \(error)")/
-                        UIViewController.top?.view.sainiShowToast(message:error.localizedDescription)
                         return
                     }
                 }
                 
             case .failure(let error):
-                
                 log.error("\(Log.stats()) \(error)")/
-                UIViewController.top?.view.sainiShowToast(message:"Server Error please check server logs.")
                 break
             }
         }
@@ -310,29 +306,27 @@ public class APIManager {
                                     completion(response.data)
                                 }
                                 if let message = result["message"] as? String{
-                                    UIViewController.top?.view.sainiShowToast(message:message)
+                                    displayToast(message)
                                 }
                                 return
                             }
                         }
                         if let message = result["message"] as? String{
-                            UIViewController.top?.view.sainiShowToast(message:message)
+                            displayToast(message)
                             return
                         }
                     }
                     if let error = response.result.error
                     {
-                        UIViewController.top?.view.sainiShowToast(message:error.localizedDescription)
+                        displayToast(error.localizedDescription)
                         return
                     }
-                    UIViewController.top?.view.sainiShowToast(message:"error")
-                    
                 }
                 
             case .failure(let error):
                 
                 print(error)
-                UIViewController.top?.view.sainiShowToast(message:"Server Error please check server logs.")
+                displayToast("Server Error please check server logs.")
                 break
             }
         }
@@ -399,26 +393,25 @@ public class APIManager {
                         else{
                             if let message = result["message"] as? String{
                                 log.error("\(Log.stats()) \(message)")/
-                                UIViewController.top?.view.sainiShowToast(message:message)
+                                displayToast(message)
                             }
                             return
                         }
                     }
                     if let message = result["message"] as? String{
                         log.error("\(Log.stats()) \(message)")/
-                        UIViewController.top?.view.sainiShowToast(message:message)
+                        displayToast(message)
                         return
                     }
                 }
                 if let error = response.result.error
                 {
                     log.error("\(Log.stats()) \(error)")/
-                    UIViewController.top?.view.sainiShowToast(message:error.localizedDescription)
+                    displayToast(error.localizedDescription)
                     return
                 }
             case .failure(let error):
                 log.error("\(Log.stats()) \(error)")/
-                UIViewController.top?.view.sainiShowToast(message:"Server Error please check server logs.")
                 break
             }
         }

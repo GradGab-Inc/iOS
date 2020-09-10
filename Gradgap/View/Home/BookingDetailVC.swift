@@ -78,8 +78,10 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToViewProfile(_ sender: Any) {
-//        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
+        vc.bookingDetail = bookingDetail
+        vc.isFromBookingDetail = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToFavorite(_ sender: UIButton) {
@@ -157,17 +159,16 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
             bookingCantCancelBackView.isHidden = true
             bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         }
-        
     }
     
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
-        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         if bookingDetail.isFavourite {
             displayToast("Mentor removed from favorites successfully")
         }
         else {
             displayToast("Mentor marked as favorite successfully")
         }
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
     }
     
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {
@@ -203,6 +204,5 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
             cancelBookingBtn.isHidden = false
             rebookCallBtn.isHidden = true
         }
-        
     }
 }

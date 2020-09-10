@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,11 +55,10 @@ class HomeVC: UIViewController {
         
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
-//        noDataLbl.isHidden = true
         viewAllBtn.isHidden = true
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 200
+        bookingTblViewHeightConstraint.constant = 160
         
         bookingListVM.delegate = self
         refreshBookingList()
@@ -80,7 +80,7 @@ class HomeVC: UIViewController {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
         
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
 //        self.navigationController?.pushViewController(vc, animated: true)
             
     }
@@ -93,6 +93,9 @@ class HomeVC: UIViewController {
     @IBAction func clickToCompleteProfile(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToJoinNowCall(_ sender: Any) {
@@ -115,7 +118,7 @@ extension HomeVC : HomeBookingListDelegate {
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 200
+            bookingTblViewHeightConstraint.constant = 160
         }
     }
  }

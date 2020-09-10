@@ -55,7 +55,7 @@ class SetAvailabilityVC: UIViewController {
         if availabilityListArr.count != 0 {
             var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
-                if item.weekDay == -1 || item.startTime == 0 || item.endTime == 0 || item.type == 0  {
+                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == 0  {
                     displayToast("Please fill the above data")
                     return
                 }
@@ -134,8 +134,8 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
         cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
         
-        cell.fromLbl.text = dict.startTime == 0 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
-        cell.toLbl.text = dict.endTime == 0 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
+        cell.fromLbl.text = dict.startTime == -1 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
+        cell.toLbl.text = dict.endTime == -1 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
         
         cell.weekBtn.tag = indexPath.row
         cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
@@ -164,7 +164,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    @objc func clickToSelectWeek(_ sender : UIButton)  {
+    @objc func clickToSelectWeek(_ sender : UIButton) {
         DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
             if week != nil {
                 self?.availabilityListArr[sender.tag].weekDay = index
@@ -174,15 +174,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func clickToSelectFromTime(_ sender : UIButton)  {
+    @objc func clickToSelectFromTime(_ sender : UIButton) {
         DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
                 print(finalDate)
-                
-                
-                
- //               let finalDate = getDateStringFromDate(date: date!, format: "HH:mm")
                 self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
@@ -190,7 +186,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func clickToSelectToTime(_ sender : UIButton)  {
+    @objc func clickToSelectToTime(_ sender : UIButton) {
         DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")

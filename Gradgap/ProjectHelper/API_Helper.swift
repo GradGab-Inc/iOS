@@ -25,6 +25,7 @@ struct API {
         static let socialLogin            = BASE_URL + "user/socialLogin"
         static let update                 = BASE_URL + "user/update"
         static let details                = BASE_URL + "user/details"
+        static let switchProfile          = BASE_URL + "user/switchProfile"
     }
     
     struct AVAILABILITY {
@@ -94,6 +95,7 @@ struct GCD{
         static let socialLogin = DispatchQueue(label: "com.app.USER_socialLogin", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent) //4
         static let update = DispatchQueue(label: "com.app.USER_update", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent) //5
         static let details = DispatchQueue(label: "com.app.USER_details", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
+        static let switchProfile = DispatchQueue(label: "com.app.USER_switchProfile", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
     }
     
     struct AVAILABILITY {

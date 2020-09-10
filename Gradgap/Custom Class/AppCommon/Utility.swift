@@ -103,10 +103,15 @@ func setButtonImage(_ button : UIButton, _ strUrl : String, _ placeholder : Stri
 //MARK:- Toast
 func displayToast(_ message:String)
 {
+//    var style = ToastStyle()
+//    style.messageFont = UIFont(name: "MADETommySoft", size: 13.0) ?? .systemFont(ofSize: 13.0)
+//    style.titleNumberOfLines = 5
     UIApplication.topViewController()?.view.makeToast(getTranslate(message))
     
 //    let toast = Toast(text: getTranslate(message))
 //    toast.show()
+    
+
 }
 
 func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")
@@ -153,10 +158,10 @@ func showAlertWithOption(_ title:String, message:String, btns:[String] ,completi
     
     
     let myAlert = UIAlertController(title:NSLocalizedString(title, comment: ""), message:NSLocalizedString(message, comment: ""), preferredStyle: UIAlertController.Style.alert)
-    let rightBtn = UIAlertAction(title: NSLocalizedString(btns[0].lowercased(), comment: ""), style: UIAlertAction.Style.default, handler: { (action) in
+    let rightBtn = UIAlertAction(title: NSLocalizedString(btns[0], comment: ""), style: UIAlertAction.Style.default, handler: { (action) in
         completionCancel()
     })
-    let leftBtn = UIAlertAction(title: NSLocalizedString(btns[1].lowercased(), comment: ""), style: UIAlertAction.Style.cancel, handler: { (action) in
+    let leftBtn = UIAlertAction(title: NSLocalizedString(btns[1], comment: ""), style: UIAlertAction.Style.cancel, handler: { (action) in
         completionConfirm()
     })
     myAlert.addAction(rightBtn)
@@ -624,7 +629,14 @@ func getbookingColor(_ tag : Int) -> UIColor {
 }
 
 func displayBookingDate(_ date : String, callTime : Int) -> String {
-    let date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
+    var date1 : String = String()
+    if Calendar.current.isDateInToday(getDateFromDateString(strDate: date)) {
+        let date4 = getDateStringFromDateString(strDate: date, formate: "hh:mm a")
+        date1 = "Today, \(date4)"
+    }
+    else{
+        date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
+    }    
     let date2 = getDateFromDateString(strDate: date).sainiAddMinutes(Double(callTime))
     let date3 = getDateStringFromDate(date: date2, format: "hh:mm a")
     

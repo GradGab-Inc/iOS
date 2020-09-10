@@ -113,17 +113,17 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             return
         }
         if school.trimmed.count == 0 {
-            displayToast("Please enter year")
+            displayToast("Please enter anticipate year")
         }
         else if major.trimmed.count == 0 {
             displayToast("Please enter major")
         }
-        else if language.trimmed.count == 0 {
-            displayToast("Please enter other language")
-        }
-        else if identift.trimmed.count == 0 {
-            displayToast("Please enter identify")
-        }
+//        else if language.trimmed.count == 0 {
+//            displayToast("Please enter other language")
+//        }
+//        else if identift.trimmed.count == 0 {
+//            displayToast("Please enter identify")
+//        }
 //        else if sat.trimmed.count == 0 {
 //            displayToast("Please enter test score SAT")
 //        }
@@ -141,35 +141,44 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
             for item in selectedSchoolListArr {
                 schoolArr.append(item.id)
             }
-//            var request : UpdateRequest = UpdateRequest()
-//            request.schools = schoolArr
-//            request.anticipateYear = Int(school)
-//            request.scoreSAT = Double(sat)
-//            request.scoreACT = Double(act)
-//            request.GPA = Double(gpa)
-//            request.major = selectedMajor.id
-//            request.otherLanguage = selectedLanguage.id
-    
+            var request : UpdateRequest = UpdateRequest()
+            request.schools = schoolArr
+            request.anticipateYear = Int(school)
+            request.major = selectedMajor.id
+            if sat != "" {
+                request.scoreSAT = Double(sat)
+            }
+            if act != "" {
+                request.scoreACT = Double(act)
+            }
+            if gpa != "" {
+                request.GPA = Double(gpa)
+            }
+            if identift != "" {
+                request.ethnicity = identift
+            }
+            if language != "" {
+                request.otherLanguage = selectedLanguage.id
+            }
             
             if isMentor {
+                request.collegePath = collegePathIndex
                 if !isFromBack {
-                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 2, collegePath: collegePathIndex)
+                    request.changeUserType = 2
                     let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
                 }
                 else{
-                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), collegePath: collegePathIndex)
                     let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
                 }
             }
             else {
                 if !isFromBack {
-                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa), changeUserType: 1)
+                    request.changeUserType = 1
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
                 }
                 else {
-                    let request = UpdateRequest(schools: schoolArr, anticipateYear: Int(school), major: selectedMajor.id, otherLanguage: selectedLanguage.id, scoreSAT: Double(sat), ethnicity: identift, scoreACT: Double(act), GPA: Double(gpa))
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
                 }
             }
@@ -200,9 +209,18 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
 extension QuestionListVC : ProfileUpdateSuccessDelegate {
     func didReceivedData(response: LoginResponse) {
         log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
-        setLoginUserData(response.data!.self)
-        AppModel.shared.currentUser = getLoginUserData()
-        
+        if isFromBack {
+            var userData : UserDataModel = UserDataModel.init()
+            userData.accessToken = AppModel.shared.currentUser.accessToken
+            userData.user = response.data!.user
+            setLoginUserData(userData)
+            AppModel.shared.currentUser = getLoginUserData()
+        }
+        else {
+            setLoginUserData(response.data!.self)
+            AppModel.shared.currentUser = getLoginUserData()
+        }
+        isFromBack = true
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
         self.navigationController?.pushViewController(vc, animated: true)
     }

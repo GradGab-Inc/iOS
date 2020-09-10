@@ -13,6 +13,7 @@ class SettingVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var switchBtn: UIButton!
     
     var settingArr = [SETTING_ARR.ABOUT, SETTING_ARR.TERMS, SETTING_ARR.PRIVACY, SETTING_ARR.HELP, SETTING_ARR.LOGOUT]
     var imgArr = ["ic_aboutus","ic_terms","ic_privacypolicy","ic_help","ic_logout"]
@@ -35,6 +36,13 @@ class SettingVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         tblView.register(UINib(nibName: "SideMenuTVC", bundle: nil), forCellReuseIdentifier: "SideMenuTVC")
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            switchBtn.setTitle("Swith to Mentor App", for: .normal)
+        }
+        else {
+            switchBtn.setTitle("Swith to Mentee App", for: .normal)
+        }
     }
     
     //MARK: - Button Click
@@ -96,14 +104,13 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
-            showAlertWithOption(getTranslate("Confirmation"), message: "Are you sure you want to logout...?", btns: [getTranslate("Cancel"),getTranslate("Ok")], completionConfirm: {
+            showAlertWithOption("Confirmation", message: "Are you sure you want to logout?", btns: ["Cancel","Ok"], completionConfirm: {
                 
                 AppDelegate().sharedDelegate().continueToLogout()
                 
             }) {
                 
             }
-            
         }
     }
 }

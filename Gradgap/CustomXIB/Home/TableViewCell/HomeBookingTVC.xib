@@ -44,8 +44,20 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftp-DX-24o" customClass="View" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="72" y="33" width="63" height="22.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22.5" id="cPJ-DM-M5M"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bY-T9-lUs">
-                                <rect key="frame" x="72" y="34" width="228" height="17.5"/>
+                                <rect key="frame" x="72" y="35" width="63" height="18.5"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                 <color key="textColor" name="A3A3A3"/>
                                 <nil key="highlightedColor"/>
@@ -98,7 +110,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="7bY-T9-lUs" firstAttribute="top" secondItem="qYL-ml-2dx" secondAttribute="bottom" constant="5" id="2Ik-oe-wYp"/>
+                            <constraint firstItem="7bY-T9-lUs" firstAttribute="top" secondItem="qYL-ml-2dx" secondAttribute="bottom" constant="6" id="2Ik-oe-wYp"/>
                             <constraint firstAttribute="trailing" secondItem="IVZ-ed-t5R" secondAttribute="trailing" constant="20" id="3uk-AV-8qk"/>
                             <constraint firstItem="qYL-ml-2dx" firstAttribute="leading" secondItem="4An-az-xvT" secondAttribute="trailing" constant="8" id="40W-ji-gkK"/>
                             <constraint firstItem="IVZ-ed-t5R" firstAttribute="leading" secondItem="MZB-j9-ikU" secondAttribute="leading" constant="20" id="8Y7-PP-Sfg"/>
@@ -110,18 +122,22 @@
                             <constraint firstItem="qA6-gd-Oz4" firstAttribute="top" secondItem="IVZ-ed-t5R" secondAttribute="bottom" constant="7" id="Yge-lv-o1T"/>
                             <constraint firstItem="IVZ-ed-t5R" firstAttribute="top" secondItem="4An-az-xvT" secondAttribute="bottom" constant="12" id="Z3h-cU-lg9"/>
                             <constraint firstItem="t6s-E6-NjW" firstAttribute="leading" secondItem="0Qm-39-xwW" secondAttribute="trailing" constant="8" id="Z5a-26-opF"/>
+                            <constraint firstItem="7bY-T9-lUs" firstAttribute="top" secondItem="ftp-DX-24o" secondAttribute="top" constant="2" id="aEf-L6-m5Y"/>
                             <constraint firstAttribute="trailing" secondItem="WMu-xb-94g" secondAttribute="trailing" constant="8" id="cd0-Qy-csw"/>
                             <constraint firstItem="qA6-gd-Oz4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Qm-39-xwW" secondAttribute="trailing" constant="8" id="eaw-mB-iHY"/>
+                            <constraint firstItem="7bY-T9-lUs" firstAttribute="bottom" secondItem="ftp-DX-24o" secondAttribute="bottom" constant="-2" id="gDf-UH-SJq"/>
                             <constraint firstItem="0Qm-39-xwW" firstAttribute="top" secondItem="IVZ-ed-t5R" secondAttribute="bottom" constant="5" id="gHz-U9-OWG"/>
                             <constraint firstAttribute="bottom" secondItem="WMu-xb-94g" secondAttribute="bottom" id="gNG-ja-zPi"/>
+                            <constraint firstItem="7bY-T9-lUs" firstAttribute="leading" secondItem="ftp-DX-24o" secondAttribute="leading" id="gf1-EK-NKf"/>
                             <constraint firstItem="WMu-xb-94g" firstAttribute="top" secondItem="0Qm-39-xwW" secondAttribute="bottom" constant="5" id="gjx-v0-rTr"/>
-                            <constraint firstAttribute="trailing" secondItem="7bY-T9-lUs" secondAttribute="trailing" constant="20" id="hhb-k6-Pte"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7bY-T9-lUs" secondAttribute="trailing" constant="20" id="hhb-k6-Pte"/>
                             <constraint firstItem="4An-az-xvT" firstAttribute="leading" secondItem="MZB-j9-ikU" secondAttribute="leading" constant="20" id="jgu-cM-IMU"/>
                             <constraint firstItem="WMu-xb-94g" firstAttribute="top" secondItem="qA6-gd-Oz4" secondAttribute="bottom" constant="7" id="kIR-uk-CHB"/>
                             <constraint firstItem="qYL-ml-2dx" firstAttribute="top" secondItem="4An-az-xvT" secondAttribute="top" id="pkG-au-082"/>
                             <constraint firstItem="WMu-xb-94g" firstAttribute="top" secondItem="t6s-E6-NjW" secondAttribute="bottom" constant="7" id="qQV-QT-rsn"/>
                             <constraint firstAttribute="trailing" secondItem="t6s-E6-NjW" secondAttribute="trailing" constant="20" id="t9a-Jb-fIq"/>
                             <constraint firstItem="WMu-xb-94g" firstAttribute="leading" secondItem="MZB-j9-ikU" secondAttribute="leading" constant="8" id="vfB-ND-yRs"/>
+                            <constraint firstItem="7bY-T9-lUs" firstAttribute="trailing" secondItem="ftp-DX-24o" secondAttribute="trailing" id="xZb-QT-meh"/>
                             <constraint firstItem="7bY-T9-lUs" firstAttribute="leading" secondItem="4An-az-xvT" secondAttribute="trailing" constant="8" id="yj1-P5-hu1"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -145,6 +161,7 @@
                 <outlet property="bookedBtn" destination="qA6-gd-Oz4" id="HHj-Az-Mhy"/>
                 <outlet property="collegeNameLbl" destination="7bY-T9-lUs" id="LMD-mP-tVb"/>
                 <outlet property="joinBtn" destination="t6s-E6-NjW" id="UBq-1A-jbf"/>
+                <outlet property="labelBackView" destination="ftp-DX-24o" id="deG-Ov-LCO"/>
                 <outlet property="nameLbl" destination="qYL-ml-2dx" id="v3x-DV-0zc"/>
                 <outlet property="profileImgView" destination="4An-az-xvT" id="PeJ-q8-5Ve"/>
                 <outlet property="timeLbl" destination="0Qm-39-xwW" id="XvN-rl-uO1"/>

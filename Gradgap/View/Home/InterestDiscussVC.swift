@@ -54,7 +54,7 @@ class InterestDiscussVC: UIViewController {
     
     @IBAction func clickToSubmit(_ sender: Any) {
         if selectedIndex.count != 0 {
-            let request = UpdateRequest(subjects: selectedIndex)
+            let request = UpdateRequest(subjects: selectedIndex.sorted())
             profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
         }
         else {
