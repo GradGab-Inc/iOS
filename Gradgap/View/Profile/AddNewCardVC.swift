@@ -68,8 +68,6 @@ class AddNewCardVC: UIViewController {
     @IBAction func clickToSave(_ sender: Any) {
         
         
-        
-        
         successBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: successBackView)
     }
@@ -133,7 +131,7 @@ class AddNewCardVC: UIViewController {
     
 //    func getYearArr() {
 //        let date = getDateStringFromDateString(strDate: Date(), formate: "yyyy")
-//        
+//
 //    }
     
     deinit {
