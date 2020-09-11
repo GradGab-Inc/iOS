@@ -10,7 +10,7 @@ import UIKit
 import SainiUtils
 import Stripe
 
-class AddNewCardVC: UIViewController {
+class AddNewCardVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var nameTxt: UITextField!
@@ -71,6 +71,7 @@ class AddNewCardVC: UIViewController {
     }
     
     @IBAction func clickToSave(_ sender: Any) {
+        self.view.endEditing(true)
         guard let name = nameTxt.text else { return }
         guard let cardNumber = cardNumberTxt.text else { return }
         guard let month = monthTxt.text else { return }
@@ -126,7 +127,7 @@ class AddNewCardVC: UIViewController {
     }
         
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if(string == ""){
+        if(string == "") {
             return true
         }
         guard let text = textField.text else { return true }
@@ -145,7 +146,7 @@ class AddNewCardVC: UIViewController {
         return true
     }
     
-    func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String{
+    func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String {
         let tempStr:String = sendDetailByRemovingChar(sendDetailByRemovingChar(str, char:"-"), char: " ")
         var retStr:String = ""
         for i in 0..<tempStr.count{
@@ -166,7 +167,7 @@ class AddNewCardVC: UIViewController {
         return retStr
     }
     
-    func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String{
+    func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String {
         let regExp :String = char + "\n\t\r"
         return String(str.filter { !(regExp.contains($0))})
     }
