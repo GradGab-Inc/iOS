@@ -34,7 +34,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-        getYearArr()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +122,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         if tableView == homeTblView {
             return 3
         }
-        else{
+        else {
             return bookingArr.count
         }
     }

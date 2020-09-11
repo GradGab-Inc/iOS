@@ -853,8 +853,8 @@
 				8809DA3A24FFB921000CABA6 /* CardListVC.swift */,
 				8809DA4024FFCC22000CABA6 /* AddNewCardVC.swift */,
 				8829BED82500F3D6007F9B25 /* RateReviewVC.swift */,
-				8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */,
 				886761352502200D009BA17C /* BankListVC.swift */,
+				8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1480,7 +1480,7 @@
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1504,7 +1504,7 @@
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

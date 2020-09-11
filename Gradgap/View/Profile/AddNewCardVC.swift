@@ -117,7 +117,7 @@ class AddNewCardVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickToBackSetting(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {

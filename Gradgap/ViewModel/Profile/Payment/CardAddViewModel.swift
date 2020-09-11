@@ -18,7 +18,7 @@ struct CardAddViewModel {
     
     func cardAdd(request : AddCardRequest) {
         GCD.CARD.add.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CARD.add, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CARD.add, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(CardAddResponse.self, from: response!) // decode the response into model
