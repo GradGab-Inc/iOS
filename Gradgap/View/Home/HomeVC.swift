@@ -34,7 +34,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-        
+        getYearArr()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +48,7 @@ class HomeVC: UIViewController {
         }
         nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
     }
-    
+        
     //MARK: - configUI
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)

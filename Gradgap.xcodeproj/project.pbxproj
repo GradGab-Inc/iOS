@@ -83,6 +83,8 @@
 		8828333725036A3700C8739C /* RatingAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828333625036A3700C8739C /* RatingAddRequest.swift */; };
 		88287A8424EE576900745DFB /* MentorListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8324EE576900745DFB /* MentorListViewModel.swift */; };
 		88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8524EE5A9500745DFB /* MentorListModel.swift */; };
+		8828E383250B471600234B8F /* AddCardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828E382250B471600234B8F /* AddCardRequest.swift */; };
+		8828E385250B495000234B8F /* CardAddResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828E384250B495000234B8F /* CardAddResponse.swift */; };
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
 		8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */; };
 		882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86F924FF725700190C0F /* TransactionTVC.swift */; };
@@ -294,6 +296,8 @@
 		8828333625036A3700C8739C /* RatingAddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAddRequest.swift; sourceTree = "<group>"; };
 		88287A8324EE576900745DFB /* MentorListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListViewModel.swift; sourceTree = "<group>"; };
 		88287A8524EE5A9500745DFB /* MentorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListModel.swift; sourceTree = "<group>"; };
+		8828E382250B471600234B8F /* AddCardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardRequest.swift; sourceTree = "<group>"; };
+		8828E384250B495000234B8F /* CardAddResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAddResponse.swift; sourceTree = "<group>"; };
 		8829BED82500F3D6007F9B25 /* RateReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateReviewVC.swift; sourceTree = "<group>"; };
 		8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailVC.swift; sourceTree = "<group>"; };
 		882A86F924FF725700190C0F /* TransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTVC.swift; sourceTree = "<group>"; };
@@ -553,7 +557,9 @@
 			isa = PBXGroup;
 			children = (
 				882378B5250389FA006AEA0E /* CardListResponse.swift */,
+				8828E384250B495000234B8F /* CardAddResponse.swift */,
 				884745A8250A043C00EF6624 /* CardSelectRequest.swift */,
+				8828E382250B471600234B8F /* AddCardRequest.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1195,6 +1201,7 @@
 				882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */,
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
+				8828E385250B495000234B8F /* CardAddResponse.swift in Sources */,
 				88D1804524D28C6C003603A2 /* ForgotPasswordVC.swift in Sources */,
 				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
@@ -1236,6 +1243,7 @@
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88862EB324E6656200533CBA /* FaqVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
+				8828E383250B471600234B8F /* AddCardRequest.swift in Sources */,
 				88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */,
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,
 				88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */,
@@ -1470,8 +1478,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1480,7 +1489,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
+				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1493,8 +1502,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1503,7 +1513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
+				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
