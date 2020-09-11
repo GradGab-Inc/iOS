@@ -26,6 +26,7 @@ class ConfirmBookingVC: UIViewController {
     
     @IBOutlet var bookingStatusBackView: UIView!
     @IBOutlet weak var confirmBookingBtn: Button!
+    @IBOutlet weak var backToHomeBtn: Button!
     
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
@@ -55,6 +56,13 @@ class ConfirmBookingVC: UIViewController {
         bookingStatusBackView.isHidden = true
         createBookingVM.delegate = self
         renderProfile()
+        
+        if isFromFavorite {
+            backToHomeBtn.setTitle("Back to Favourites", for: .normal)
+        }
+        else {
+            backToHomeBtn.setTitle("Back to Home", for: .normal)
+        }
     }
     
     func renderProfile()  {

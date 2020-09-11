@@ -57,6 +57,8 @@ class BookingDetailVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingDetail), name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+        
         joinCallBtn.isHidden = true
         cancelBookingBtn.isHidden = true
         rebookCallBtn.isHidden = true
@@ -72,6 +74,10 @@ class BookingDetailVC: UIViewController {
         
     }
     
+    @objc func refreshBookingDetail() {
+        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+    }
+    
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -79,6 +85,7 @@ class BookingDetailVC: UIViewController {
     
     @IBAction func clickToViewProfile(_ sender: Any) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "MentorsProfileVC") as! MentorsProfileVC
+        vc.selectedUserId = bookingDetail.mentorRef
         vc.bookingDetail = bookingDetail
         vc.isFromBookingDetail = true
         self.navigationController?.pushViewController(vc, animated: true)

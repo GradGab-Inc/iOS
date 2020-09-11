@@ -224,33 +224,57 @@ extension PersonalProfileVC : ProfileUpdateSuccessDelegate {
         setLoginUserData(userData)
         AppModel.shared.currentUser = getLoginUserData()
         
+        if isFromProfile {
+            var isRedirect = false
+            for controller in self.navigationController!.viewControllers as Array {
+                if AppModel.shared.currentUser.user?.userType == 1 {
+                    if controller.isKind(of: ProfileVC.self) {
+                        isRedirect = true
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        break
+                    }
+                }
+                else if AppModel.shared.currentUser.user?.userType == 2 {
+                    if controller.isKind(of: MentorProfileDisplayVC.self) {
+                        isRedirect = true
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        break
+                    }
+                }
+            }
+            if !isRedirect {
+                self.navigationController!.popToRootViewController(animated: true)
+            }
+        }
+        else {
+            var isRedirect = false
+            for controller in self.navigationController!.viewControllers as Array {
+                if AppModel.shared.currentUser.user?.userType == 1 {
+                    if controller.isKind(of: HomeVC.self) {
+                        isRedirect = true
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
+                        break
+                    }
+                }
+                else if AppModel.shared.currentUser.user?.userType == 2 {
+                    if controller.isKind(of: MentorHomeVC.self) {
+                        isRedirect = true
+                        self.navigationController!.popToViewController(controller, animated: true)
+                        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
+                        break
+                    }
+                }
+            }
+            if !isRedirect {
+                if AppModel.shared.currentUser.user?.userType == 1 {
+                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+                }
+                else if AppModel.shared.currentUser.user?.userType == 2 {
+                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+                }
+            }
+        }
         
-        var isRedirect = false
-        for controller in self.navigationController!.viewControllers as Array {
-            if AppModel.shared.currentUser.user?.userType == 1 {
-                if controller.isKind(of: HomeVC.self) {
-                    isRedirect = true
-                    self.navigationController!.popToViewController(controller, animated: true)
-                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
-                    break
-                }
-            }
-            else if AppModel.shared.currentUser.user?.userType == 2 {
-                if controller.isKind(of: MentorHomeVC.self) {
-                    isRedirect = true
-                    self.navigationController!.popToViewController(controller, animated: true)
-                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
-                    break
-                }
-            }
-        }
-        if !isRedirect {
-            if AppModel.shared.currentUser.user?.userType == 1 {
-                AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
-            }
-            else if AppModel.shared.currentUser.user?.userType == 2 {
-                AppDelegate().sharedDelegate().navigateToMentorDashBoard()
-            }
-        }
     }
 }

@@ -158,7 +158,7 @@ class CameraAttachment: NSObject{
         if attachmentTypeEnum == AttachmentType.camera{
             alertTitle = Constants.alertForCameraAccessMessage
         }
-        if attachmentTypeEnum == AttachmentType.photoLibrary{
+        if attachmentTypeEnum == AttachmentType.photoLibrary {
             alertTitle = Constants.alertForPhotoLibraryMessage
         }
 //        if attachmentTypeEnum == AttachmentType.video{

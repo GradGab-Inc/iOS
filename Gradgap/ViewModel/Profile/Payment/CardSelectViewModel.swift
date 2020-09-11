@@ -17,9 +17,9 @@ protocol CardSelectDelegate {
 struct CardSelectViewModel {
     var delegate: CardSelectDelegate?
     
-    func cardSelect() {
+    func cardSelect(request : CardSelectRequest) {
         GCD.CARD.select.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.CARD.select, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CARD.select, Loader: false, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
@@ -39,9 +39,9 @@ struct CardSelectViewModel {
         }
     }
     
-    func cardRemove() {
+    func cardRemove(request : CardSelectRequest) {
         GCD.CARD.remove.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.CARD.remove, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CARD.remove, Loader: false, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model

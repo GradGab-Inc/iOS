@@ -17,8 +17,8 @@ struct SwitchProfileViewModel {
     var delegate: SwitchProfileDelegate?
     
     func switchProfile(request : SwitchProfileRequest) {
-        GCD.BOOKING.bookingDetail.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.BOOKING.bookingDetail, Loader: true, isMultipart: false) { (response) in
+        GCD.USER.switchProfile.async {
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.switchProfile, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(LoginResponse.self, from: response!) // decode the response into model

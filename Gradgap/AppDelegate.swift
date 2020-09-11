@@ -15,6 +15,7 @@ import GoogleSignIn
 import UserNotifications
 import Firebase
 import FirebaseMessaging
+//import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -64,6 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppModel.shared.currentUser = UserDataModel.init()
             navigateToLogin()
         }        
+        
+        //Stripe
+  //      STPPaymentConfiguration.shared().publishableKey = STRIPE.STRIPE_PUB_KEY
         
         return true
     }

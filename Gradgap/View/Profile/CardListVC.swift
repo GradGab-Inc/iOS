@@ -14,6 +14,11 @@ class CardListVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var noDataLbl: UILabel!
+    
+    var cardListVM : CardListViewModel = CardListViewModel()
+    var cardSelectVM : CardSelectViewModel = CardSelectViewModel()
+    var cardListArr : [CardListDataModel] = [CardListDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,11 @@ class CardListVC: UIViewController {
          tblView.register(UINib(nibName: "CardListTVC", bundle: nil), forCellReuseIdentifier: "CardListTVC")
         
         tblView.reloadData()
-        tblViewHeightConstraint.constant = 85
+        tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
+        
+        cardListVM.delegate = self
+        cardSelectVM.delegate = self
+        cardListVM.getCardList()
      }
      
      //MARK: - Button Click
@@ -54,11 +63,28 @@ class CardListVC: UIViewController {
     
 }
 
+extension CardListVC : CardListDelegate, CardSelectDelegate {
+    func didRecieveCardListResponse(response: CardListResponse) {
+        cardListArr = [CardListDataModel]()
+        cardListArr = response.data
+        tblView.reloadData()
+    }
+    
+    func didRecieveCardSelectResponse(response: SuccessModel) {
+        displayToast(response.message)
+        
+    }
+    
+    func didRecieveCardRemoveResponse(response: SuccessModel) {
+        
+    }
+
+}
 
 //MARK: - TableView Delegate
 extension CardListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return cardListArr.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,13 +97,16 @@ extension CardListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let dict : CardListDataModel = cardListArr[indexPath.row]
+        cell.cardNumberLbl.text = "********\(dict.lastDigitsOfCard)"
+        
         cell.radioBtn.tag = indexPath.row
         cell.radioBtn.addTarget(self, action: #selector(self.clickToSelectCard), for: .touchUpInside)
         
         cell.removeCardBtn.tag = indexPath.row
         cell.removeCardBtn.addTarget(self, action: #selector(self.clickToRemoveCard), for: .touchUpInside)
         
-        tblViewHeightConstraint.constant = 85
+        tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
         return cell
     }
     
@@ -87,11 +116,13 @@ extension CardListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectCard(_ sender : UIButton) {
-        
+        let dict : CardListDataModel = cardListArr[sender.tag]
+        cardSelectVM.cardSelect(request: CardSelectRequest(cardRef: dict.id))
     }
     
     @objc func clickToRemoveCard(_ sender : UIButton) {
-        
+        let dict : CardListDataModel = cardListArr[sender.tag]
+        cardSelectVM.cardRemove(request: CardSelectRequest(cardRef: dict.id))
     }
     
 }

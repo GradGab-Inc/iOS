@@ -27,6 +27,9 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mentorCollectionView: UICollectionView!
+    @IBOutlet weak var dateBackView: UIView!
+    @IBOutlet weak var timeSlotBackView: UIView!
+    
     
     var selectedDate : Date = Date()
     var selectedIndex : Int = -1
@@ -93,16 +96,29 @@ class MentorsProfileVC: UIViewController {
     }
     
     @IBAction func clickToFavorite(_ sender: UIButton) {
-        if mentorDetail.isFavourite {
-            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
+        if isFromBookingDetail {
+            if favoriteBtn.isSelected {
+                addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
+            }
+            else{
+                addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
+            }
         }
-        else{
-            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
+        else {
+            if mentorDetail.isFavourite {
+                addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
+            }
+            else{
+                addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
+            }
         }
     }
     
     @IBAction func clickToSelectDate(_ sender: Any) {
         self.view.endEditing(true)
+        if isFromBookingDetail {
+            return
+        }
         if selectedDate == nil
         {
             selectedDate = Date()
@@ -164,6 +180,10 @@ class MentorsProfileVC: UIViewController {
         bioLbl.text = ""
         favoriteBtn.isSelected = bookingDetail.isFavourite
         bookMentorBtn.isHidden = true
+        
+        timeCollectionViewHeightConstraint.constant = 0
+        dateBackView.isHidden = true
+        timeSlotBackView.isHidden = true
     }
 
     deinit {
@@ -175,13 +195,26 @@ class MentorsProfileVC: UIViewController {
 
 extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
-        if mentorDetail.isFavourite {
-            displayToast("Mentor removed from favorites successfully")
+        if isFromBookingDetail {
+            if favoriteBtn.isSelected {
+                favoriteBtn.isSelected = false
+                displayToast("Mentor removed from favorites successfully")
+            }
+            else {
+                favoriteBtn.isSelected = true
+                displayToast("Mentor marked as favorite successfully")
+            }
+            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
         }
         else {
-            displayToast("Mentor marked as favorite successfully")
+            if mentorDetail.isFavourite {
+                displayToast("Mentor removed from favorites successfully")
+            }
+            else {
+                displayToast("Mentor marked as favorite successfully")
+            }
+            getMentorDetailServiceCall(false)
         }
-        getMentorDetailServiceCall(false)
     }
     
     func didRecieveMentorDetailResponse(response: MentorDetailModel) {

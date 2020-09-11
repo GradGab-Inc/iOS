@@ -23,11 +23,16 @@ let CLIENT_ID = "611977964118-b7pvhpm6mdti5ntfqqs6pfnv0h7ufmcg.apps.googleuserco
 let weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 let graduationYear = ["2020", "2021",  "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2035"]
 
+let monthArr = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+
 //let timeSloteArr = ["1: AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "10 AM", "12 AM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "10 PM", "12 PM",]
 
 let timeSloteArr = ["12:00 AM", "12:15 AM", "12:30 AM", "12:45 AM", "01:00 AM", "01:15 AM", "01:30 AM", "01:45 AM", "02:00 AM", "02:15 AM", "02:30 AM", "02:45 AM", "03:00 AM", "03:15 AM", "03:30 AM", "03:45 AM", "04:00 AM", "04:15 AM", "04:30 AM", "04:45 AM", "05:00 AM", "05:15 AM", "05:30 AM", "05:45 AM", "06:00 AM", "06:15 AM", "06:30 AM", "06:45 AM", "07:00 AM", "07:15 AM", "07:30 AM", "07:45 AM", "08:00 AM", "08:15 AM", "08:30 AM", "08:45 AM", "09:00 AM", "09:15 AM", "09:30 AM", "09:45 AM", "10:00 AM", "10:15 AM", "10:30 AM", "10:45 AM", "11:00 AM", "11:15 AM", "11:30 AM", "11:45 AM", "12:00 PM", "12:15 PM", "12:30 PM", "12:45 PM", "01:00 PM", "01:15 PM", "01:30 PM", "01:45 PM", "02:00 PM", "02:15 PM", "02:30 PM", "02:45 PM", "03:00 PM", "03:15 PM", "03:30 PM", "03:45 PM", "04:00 PM", "04:15 PM", "04:30 PM", "04:45 PM", "05:00 PM", "05:15 PM", "05:30 PM", "05:45 PM", "06:00 PM", "06:15 PM", "06:30 PM", "06:45 PM", "07:00 PM", "07:15 PM", "07:30 PM", "07:45 PM", "08:00 PM", "08:15 PM", "08:30 PM", "08:45 PM", "09:00 PM", "09:15 PM", "09:30 PM", "09:45 PM", "10:00 PM", "10:15 PM", "10:30 PM", "10:45 PM", "11:00 PM", "11:15 PM", "11:30 PM", "11:45 PM"]
 
 let collegePathArr = ["From High School", "Transfer", "Community College", "Work"]
+
+let CARD_NUMBER_CHAR = 16
+let CARD_NUMBER_DASH_CHAR = 3
 
 var InterestArr = [INTERESTARR.INTEREST1, INTERESTARR.INTEREST2, INTERESTARR.INTEREST3, INTERESTARR.INTEREST4, INTERESTARR.INTEREST5, INTERESTARR.INTEREST6, INTERESTARR.INTEREST7, INTERESTARR.INTEREST8, INTERESTARR.INTEREST9, INTERESTARR.INTEREST10, INTERESTARR.INTEREST11, INTERESTARR.INTEREST12, INTERESTARR.INTEREST13, INTERESTARR.INTEREST14, INTERESTARR.INTEREST15]
 
@@ -92,6 +97,10 @@ struct DEVICE {
     static var IS_IPHONE_X = (fabs(Double(SCREEN.HEIGHT - 812)) < Double.ulpOfOne)
 }
 
+struct STRIPE {
+    static var STRIPE_PUB_KEY = "pk_test_51H6iplKwq5OBZkJA8bvN8WTCD2Mrnn0YOXXOmVI6ZyzMe2atrNANwQgXVvR1RjhZuSohim5106klCeqhdjjJwrYI00F9Uaur5I"
+}
+
 struct MEDIA {
     static var IMAGE = "IMAGE"
     static var VIDEO = "VIDEO"
@@ -113,6 +122,7 @@ struct NOTIFICATION {
     static var UPDATE_MENTOR_HOME_DATA     =   "UPDATE_MENTOR_HOME_DATA"
     static var UPDATE_MENTOR_BOOKED_DATA   =   "UPDATE_MENTOR_BOOKED_DATA"
     static var UPDATE_SIDEMENU_DATA        =   "UPDATE_SIDEMENU_DATA"
+    static var UPDATE_BOOKING_DETAIL_DATA  =   "UPDATE_BOOKING_DETAIL_DATA"
 }
 
 

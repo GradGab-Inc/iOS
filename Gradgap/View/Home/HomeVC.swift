@@ -64,6 +64,7 @@ class HomeVC: UIViewController {
         refreshBookingList()
         
         joinCallBackView.isHidden = true
+        
     }
     
     @objc func refreshBookingList() {
@@ -79,10 +80,6 @@ class HomeVC: UIViewController {
     @IBAction func clickToProfile(_ sender: Any) {
         let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
-        
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-            
     }
     
     @IBAction func clickToViewAll(_ sender: Any) {
@@ -93,9 +90,6 @@ class HomeVC: UIViewController {
     @IBAction func clickToCompleteProfile(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
         self.navigationController?.pushViewController(vc, animated: true)
-        
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "PersonalProfileVC") as! PersonalProfileVC
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToJoinNowCall(_ sender: Any) {
