@@ -36,16 +36,22 @@ class CardListVC: UIViewController {
      
      //MARK: - configUI
      func configUI() {
+         NotificationCenter.default.addObserver(self, selector: #selector(refreshCardList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_CARDLIST_DATA), object: nil)
+        
          tblView.register(UINib(nibName: "CardListTVC", bundle: nil), forCellReuseIdentifier: "CardListTVC")
         
          tblView.reloadData()
          tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
         
          cardListVM.delegate = self
-        cardSelectVM.delegate = self
-        cardListVM.getCardList()
+         cardSelectVM.delegate = self
+         refreshCardList()
      }
      
+    @objc func refreshCardList() {
+        cardListVM.getCardList()
+    }
+    
      //MARK: - Button Click
      @IBAction func clickToBack(_ sender: Any) {
          self.navigationController?.popViewController(animated: true)
@@ -73,11 +79,12 @@ extension CardListVC : CardListDelegate, CardSelectDelegate {
     
     func didRecieveCardSelectResponse(response: SuccessModel) {
         displayToast(response.message)
-        
+        refreshCardList()
     }
     
     func didRecieveCardRemoveResponse(response: SuccessModel) {
-        
+        displayToast(response.message)
+        refreshCardList()
     }
 
 }
@@ -101,8 +108,10 @@ extension CardListVC : UITableViewDelegate, UITableViewDataSource {
         let dict : CardListDataModel = cardListArr[indexPath.row]
         cell.cardNumberLbl.text = "********\(dict.lastDigitsOfCard)"
         
+        cell.radioBtn.isSelected = dict.defaultCard
         cell.radioBtn.tag = indexPath.row
         cell.radioBtn.addTarget(self, action: #selector(self.clickToSelectCard), for: .touchUpInside)
+        
         
         cell.removeCardBtn.tag = indexPath.row
         cell.removeCardBtn.addTarget(self, action: #selector(self.clickToRemoveCard), for: .touchUpInside)
@@ -122,8 +131,11 @@ extension CardListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToRemoveCard(_ sender : UIButton) {
-        let dict : CardListDataModel = cardListArr[sender.tag]
-        cardSelectVM.cardRemove(request: CardSelectRequest(cardRef: dict.id))
+        showAlertWithOption("Confirmation", message: "Are you sure you want to remove your card?", btns: ["Cancel","Ok"], completionConfirm: {
+            let dict : CardListDataModel = self.self.cardListArr[sender.tag]
+            self.cardSelectVM.cardRemove(request: CardSelectRequest(cardRef: dict.id))
+        }) {
+            
+        }
     }
-    
 }
