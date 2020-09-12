@@ -28,6 +28,10 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var confirmBookingBtn: Button!
     @IBOutlet weak var backToHomeBtn: Button!
     
+    @IBOutlet weak var applyCouponBackView: UIView!
+    @IBOutlet weak var applyDiscountLbl: UILabel!
+    
+    
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
     var selectedType : Int = 1
@@ -63,6 +67,9 @@ class ConfirmBookingVC: UIViewController {
         else {
             backToHomeBtn.setTitle("Back to Home", for: .normal)
         }
+        
+        applyCouponBackView.isHidden = true
+        applyDiscountLbl.text = "0% Discount"
     }
     
     func renderProfile()  {
@@ -120,6 +127,12 @@ class ConfirmBookingVC: UIViewController {
         }
         
     }
+    
+    @IBAction func clickToRemoveCoupon(_ sender: Any) {
+        applyCouponBackView.isHidden = true
+        applyDiscountLbl.text = "0% Discount"
+    }
+    
     
     deinit {
         log.success("ConfirmBookingVC Memory deallocated!")/

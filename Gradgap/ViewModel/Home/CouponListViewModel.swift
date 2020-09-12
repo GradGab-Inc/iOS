@@ -1,5 +1,5 @@
 //
-//  TransactionListViewModel.swift
+//  CouponListViewModel.swift
 //  Gradgap
 //
 //  Created by iMac on 12/09/20.
@@ -9,22 +9,22 @@
 import Foundation
 import SainiUtils
 
-protocol TransactionListDelegate {
-    func didRecieveTransactionListResponse(response: TransactionResponse)
+protocol CouponListDelegate {
+    func didRecieveCouponListResponse(response: CouponListResponse)
 }
 
-struct TransactionListViewModel {
-    var delegate: TransactionListDelegate?
-        
-    func getTransactionList(request : MorePageRequest) {
-        GCD.TRANSACTION.list.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.TRANSACTION.list, Loader: true, isMultipart: false) { (response) in
+struct CouponListViewModel {
+    var delegate: CouponListDelegate?
+    
+    func couponList(request : MorePageRequest) {
+        GCD.COUPON.list.async {
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.COUPON.list, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(TransactionResponse.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(CouponListResponse.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
-                            self.delegate?.didRecieveTransactionListResponse(response: success.self)
+                            self.delegate?.didRecieveCouponListResponse(response: success.self)
                             break
                         default:
                             log.error("\(Log.stats()) \(success.message)")/
