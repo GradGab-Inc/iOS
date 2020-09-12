@@ -63,7 +63,6 @@ class HomeVC: UIViewController {
         refreshBookingList()
         
         joinCallBackView.isHidden = true
-        
     }
     
     @objc func refreshBookingList() {

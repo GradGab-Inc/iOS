@@ -13,7 +13,10 @@ class TransactionVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var noDataLbl: UILabel!
     
+    var transactionVM : TransactionListViewModel = TransactionListViewModel()
+    var transactionListArr : [TransactionListModel] = [TransactionListModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,9 @@ class TransactionVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "TransactionTVC", bundle: nil), forCellReuseIdentifier: "TransactionTVC")
         tblView.register(UINib(nibName: "TransactionHeaderTVC", bundle: nil), forCellReuseIdentifier: "TransactionHeaderTVC")
+        
+        transactionVM.delegate = self
+        transactionVM.getTransactionList()
     }
     
     //MARK: - Button Click
@@ -46,15 +52,26 @@ class TransactionVC: UIViewController {
     
 }
 
+extension TransactionVC : TransactionListDelegate {
+    func didRecieveTransactionListResponse(response: TransactionResponse) {
+        transactionListArr = [TransactionListModel]()
+        transactionListArr = response.data
+        tblView.reloadData()
+        
+        noDataLbl.isHidden = transactionListArr.count == 0 ? false : true
+    }
+}
+
+
 
 //MARK: - TableView Delegate
 extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return transactionListArr.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return transactionListArr[section].data.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -64,13 +81,16 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tblView.dequeueReusableCell(withIdentifier: "TransactionHeaderTVC") as! TransactionHeaderTVC
         
+        let dict : TransactionListModel = transactionListArr[section]
+        
+        header.headerLbl.text = dict.id
+        
         if section == 0 {
             header.topLineView.isHidden = true
         }
         else {
             header.topLineView.isHidden = false
         }
-        
         return header.contentView
     }
     
@@ -83,6 +103,12 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
+        
+        let dict : TransactionListDataModel = transactionListArr[indexPath.section].data[indexPath.row]
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
+        cell.nameLbl.text = dict.name
+        cell.collegeNameLbl.text = dict.school.first?.name ?? ""
+        cell.priceLbl.text = "$\(String(describing: dict.amount))"
         
         return cell
     }

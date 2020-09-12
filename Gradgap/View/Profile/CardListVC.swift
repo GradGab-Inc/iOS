@@ -119,12 +119,7 @@ extension CardListVC : UITableViewDelegate, UITableViewDataSource {
         tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+        
     @objc func clickToSelectCard(_ sender : UIButton) {
         let dict : CardListDataModel = cardListArr[sender.tag]
         cardSelectVM.cardSelect(request: CardSelectRequest(cardRef: dict.id))

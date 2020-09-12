@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL = "http://3.82.95.119/development/api/"//"http://64f9e79f0021.ngrok.io/api/"
+    static let BASE_URL = "http://f6e2129391be.ngrok.io/api/"//"http://3.82.95.119/development/api/"
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
@@ -78,12 +78,12 @@ struct API {
     
     struct TRANSACTION {
         static let detail                 = BASE_URL + "transaction/details"
+        static let list                   = BASE_URL + "transaction/list"
     }
     
-//    struct COUPON {
-//        static let add                    = BASE_URL + "coupon/add"
-//        static let list                   = BASE_URL + "coupon/list"
-//    }
+    struct COUPON {
+        static let list                   = BASE_URL + "coupon/list"
+    }
 }
 
 //MARK:- GCD
@@ -148,11 +148,11 @@ struct GCD{
     
     struct TRANSACTION {
         static let detail = DispatchQueue(label: "com.app.TRANSACTION_detail", qos: .background, attributes: .concurrent) //1
+        static let list = DispatchQueue(label: "com.app.TRANSACTION_list", qos: .background, attributes: .concurrent) //2
     }
     
-//    struct COUPON {
-//        static let add = DispatchQueue(label: "com.app.COUPON_add", qos: .background, attributes: .concurrent) //1
-//        static let list = DispatchQueue(label: "com.app.COUPON_list", qos: .background, attributes: .concurrent) //2
-//    }
+    struct COUPON {
+        static let list = DispatchQueue(label: "com.app.COUPON_list", qos: .background, attributes: .concurrent) //1
+    }
     
 }
