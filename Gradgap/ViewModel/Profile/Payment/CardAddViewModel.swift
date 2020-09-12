@@ -10,18 +10,18 @@ import Foundation
 import SainiUtils
 
 protocol CardAddDelegate {
-    func didRecieveCardAddResponse(response: CardListResponse)
+    func didRecieveCardAddResponse(response: CardAddResponse)
 }
 
 struct CardAddViewModel {
     var delegate: CardAddDelegate?
     
-    func cardAdd() {
+    func cardAdd(request : AddCardRequest) {
         GCD.CARD.add.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.CARD.add, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CARD.add, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(CardListResponse.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(CardAddResponse.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveCardAddResponse(response: success.self)

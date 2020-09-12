@@ -110,7 +110,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         else if indexPath.row == 3
         {
             if isMentor {
-                
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
                 let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "FavoriteVC") as! FavoriteVC
@@ -136,8 +137,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
-//                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "PaymentMethodVC") as! PaymentMethodVC
-//                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "PaymentMethodVC") as! PaymentMethodVC
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         else if indexPath.row == 6

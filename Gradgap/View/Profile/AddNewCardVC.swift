@@ -8,8 +8,9 @@
 
 import UIKit
 import SainiUtils
+import Stripe
 
-class AddNewCardVC: UIViewController {
+class AddNewCardVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var nameTxt: UITextField!
@@ -17,8 +18,9 @@ class AddNewCardVC: UIViewController {
     @IBOutlet weak var monthTxt: UITextField!
     @IBOutlet weak var yearTxt: UITextField!
     @IBOutlet weak var cvvTxt: UITextField!
-    
     @IBOutlet var successBackView: UIView!
+    
+    var cardAddVM : CardAddViewModel = CardAddViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +39,9 @@ class AddNewCardVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         successBackView.isHidden = true
-        
         cardNumberTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-    
+        
+        cardAddVM.delegate = self
     }
       
     //MARK: - Button Click
@@ -57,33 +59,75 @@ class AddNewCardVC: UIViewController {
     }
     
     @IBAction func clickToyearSelect(_ sender: Any) {
-//        DatePickerManager.shared.showPicker(title: "Select Year", selected: "", strings: graduationYear) { [weak self](school, index, success) in
-//            if school != nil {
-//                self?.startingSchoolTxt.text = school
-//            }
-//            self?.view.endEditing(true)
-//        }
+        if getYearArr().count == 0 {
+            return
+        }
+        DatePickerManager.shared.showPicker(title: "Select Year", selected: "", strings: getYearArr()) { [weak self](year, index, success) in
+            if year != nil {
+                self?.yearTxt.text = year
+            }
+            self?.view.endEditing(true)
+        }
     }
     
     @IBAction func clickToSave(_ sender: Any) {
+        self.view.endEditing(true)
+        guard let name = nameTxt.text else { return }
+        guard let cardNumber = cardNumberTxt.text else { return }
+        guard let month = monthTxt.text else { return }
+        guard let year = yearTxt.text else { return }
+        guard let cvv = cvvTxt.text else { return }
         
-        
-        successBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: successBackView)
+        if name == DocumentDefaultValues.Empty.string {
+            displayToast("Kindly enter your name")
+        }
+        else if cardNumber == DocumentDefaultValues.Empty.string {
+            displayToast("Kindly enter your card number")
+        }
+        else if month == DocumentDefaultValues.Empty.string {
+            displayToast("Kindly select expiry month")
+        }
+        else if year == DocumentDefaultValues.Empty.string {
+            displayToast("Kindly select expiry year")
+        }
+        else if cvv == DocumentDefaultValues.Empty.string {
+            displayToast("Kindly enter your cvv")
+        }
+        else {
+            showLoader()
+            let cardParams = STPCardParams()
+            cardParams.name = nameTxt.text
+            cardParams.number = sendDetailByRemovingChar((cardNumberTxt.text?.trimmed)!, char:"-")
+            cardParams.expMonth = UInt(month)!
+            cardParams.expYear = UInt(year)!
+            cardParams.cvc = cvv
+            
+            STPAPIClient.shared().createToken(withCard: cardParams) { (token, error) in
+                removeLoader()
+                if error == nil
+                {
+                    self.cardAddVM.cardAdd(request: AddCardRequest(cardNumber: name, year: Int(year)!, month: Int(month)!, cvv: Int(cvv)!, stripeToken: token!.tokenId))
+                }
+                else
+                {
+                    displayToast(error?.localizedDescription ?? "")
+                }
+            }
+        }
     }
     
     @IBAction func clickToBackSetting(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if(textField == cardNumberTxt){
+        if(textField == cardNumberTxt) {
             cardNumberTxt.text = showCardNumberFormattedStr(cardNumberTxt.text!, isRedacted: false)
         }
     }
         
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if(string == ""){
+        if(string == "") {
             return true
         }
         guard let text = textField.text else { return true }
@@ -102,8 +146,7 @@ class AddNewCardVC: UIViewController {
         return true
     }
     
-    func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String{
-        
+    func showCardNumberFormattedStr(_ str:String, isRedacted:Bool = true) -> String {
         let tempStr:String = sendDetailByRemovingChar(sendDetailByRemovingChar(str, char:"-"), char: " ")
         var retStr:String = ""
         for i in 0..<tempStr.count{
@@ -124,20 +167,21 @@ class AddNewCardVC: UIViewController {
         return retStr
     }
     
-    func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String{
+    func sendDetailByRemovingChar(_ str:String, char:String = " ") -> String {
         let regExp :String = char + "\n\t\r"
         return String(str.filter { !(regExp.contains($0))})
     }
     
-//    func getYearArr() {
-//        let date = getDateStringFromDateString(strDate: Date(), formate: "yyyy")
-//
-//    }
-    
     deinit {
         log.success("AddNewCardVC Memory deallocated!")/
     }
-      
     
-    
+}
+
+
+extension AddNewCardVC : CardAddDelegate {
+    func didRecieveCardAddResponse(response: CardAddResponse) {
+        successBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: successBackView)
+    }
 }

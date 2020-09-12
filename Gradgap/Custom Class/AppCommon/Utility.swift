@@ -695,3 +695,13 @@ extension UIImageView {
         }
     }
 }
+
+//Get year array
+func getYearArr() -> [String] {
+    var yearArr : [String] = [String]()
+    for i in 0...30 {
+        let fromDate = Calendar.current.date(byAdding: .year, value: i, to: Date())
+        yearArr.append(getDateStringFromDate1(date: fromDate!, format: "yyyy"))
+    }
+    return yearArr
+}

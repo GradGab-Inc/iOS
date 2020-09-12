@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
 	<string>797306944348284</string>
 	<key>FacebookDisplayName</key>
@@ -47,9 +47,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>By Agreeing, you are allowing GradGab access to your camera to capture photos.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>By Agreeing, you are allowing GradGab access to your contact for calling.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>By Agreeing, you are allowing GradGab access to your location for better search user.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>By Agreeing, you are allowing GradGab access to your photos to upload your pictures to the App.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MADE Tommy Soft Black Outline PERSONAL USE.otf</string>
