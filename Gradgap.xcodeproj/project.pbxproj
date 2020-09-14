@@ -109,6 +109,7 @@
 		88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A97250F33FE0002923A /* FaqListResponse.swift */; };
 		88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9B250F36C70002923A /* AboutViewModel.swift */; };
 		88375A9F250F36E00002923A /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9E250F36E00002923A /* AboutResponse.swift */; };
+		883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A4198250F93F1000C35E7 /* EarningViewModel.swift */; };
 		88462C0924FF9831000D0BE5 /* MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0824FF9831000D0BE5 /* MyEarningVC.swift */; };
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
@@ -335,6 +336,7 @@
 		88375A97250F33FE0002923A /* FaqListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqListResponse.swift; sourceTree = "<group>"; };
 		88375A9B250F36C70002923A /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		88375A9E250F36E00002923A /* AboutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
+		883A4198250F93F1000C35E7 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		88462C0824FF9831000D0BE5 /* MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningVC.swift; sourceTree = "<group>"; };
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
 				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
+				883A4198250F93F1000C35E7 /* EarningViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1245,6 +1248,7 @@
 				882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
+				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
 				88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,

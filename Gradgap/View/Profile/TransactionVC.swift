@@ -99,7 +99,7 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
         let header = tblView.dequeueReusableCell(withIdentifier: "TransactionHeaderTVC") as! TransactionHeaderTVC
         
         let dict : TransactionListModel = transactionListArr[section]
-        header.headerLbl.text = dict.id
+        header.headerLbl.text = getDifferenceFromCurrentTimeInDays(dict.id)
         if section == 0 {
             header.topLineView.isHidden = true
         }
@@ -123,7 +123,7 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
         cell.nameLbl.text = dict.name
         cell.collegeNameLbl.text = dict.school.first?.name ?? ""
-        cell.priceLbl.text = "$\(String(describing: dict.amount))"
+        cell.priceLbl.text = "$\(dict.amount ?? 0)"
         
         return cell
     }

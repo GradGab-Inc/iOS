@@ -79,6 +79,7 @@ struct API {
     struct TRANSACTION {
         static let detail                 = BASE_URL + "transaction/details"
         static let list                   = BASE_URL + "transaction/list"
+        static let earning                = BASE_URL + "transaction/earnings"
     }
     
     struct COUPON {
@@ -154,6 +155,7 @@ struct GCD{
     struct TRANSACTION {
         static let detail = DispatchQueue(label: "com.app.TRANSACTION_detail", qos: .background, attributes: .concurrent) //1
         static let list = DispatchQueue(label: "com.app.TRANSACTION_list", qos: .background, attributes: .concurrent) //2
+        static let earning = DispatchQueue(label: "com.app.TRANSACTION_earning", qos: .background, attributes: .concurrent) //3
     }
     
     struct COUPON {
