@@ -1851,7 +1851,7 @@ schools.</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_refer" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-4c-2kH">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a 10% off coupon by referring 5 friends !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get $5 for every referred friend that books a chat!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
                                 <rect key="frame" x="30" y="377.5" width="260" height="42"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3034,7 +3034,7 @@ schools.</string>
                                 <rect key="frame" x="0.0" y="60" width="320" height="810"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-sT-5Tz">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="862"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv0-ED-oTS" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="15" width="290" height="105"/>
@@ -3160,12 +3160,16 @@ schools.</string>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                                                 <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                                                <state key="normal" title="Use Wallet Balance" image="ic_correct_red"/>
+                                                                <state key="normal" title="Use Wallet Balance" image="ic_circle_red"/>
+                                                                <state key="selected" title="Use Wallet Balance" image="ic_correct_red"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="14"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="clickToUseWallet:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="0Rx-8R-ZpS"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3192,7 +3196,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Hz-Yp-9AS">
-                                                <rect key="frame" x="0.0" y="196" width="320" height="76"/>
+                                                <rect key="frame" x="0.0" y="196" width="320" height="126"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36a-7N-G7e">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3202,7 +3206,7 @@ schools.</string>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHk-50-ilJ">
-                                                        <rect key="frame" x="0.0" y="6" width="320" height="70"/>
+                                                        <rect key="frame" x="0.0" y="6" width="320" height="120"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-OQ-uPm" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="11" width="290" height="48"/>
@@ -3269,7 +3273,6 @@ schools.</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="clickToReject:" destination="tCO-4M-tin" eventType="touchUpInside" id="0z1-nr-RDG"/>
                                                                                     <action selector="clickToRemoveCoupon:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="f7R-qY-Buo"/>
                                                                                 </connections>
                                                                             </button>
@@ -3316,11 +3319,47 @@ schools.</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2p-I2-qi4" customClass="View" customModule="GradGab" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="69" width="290" height="40"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="APPLY CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ed-igO" customClass="TextField" customModule="GradGab" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="0.0" width="274" height="40"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="APPLY CODE"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                </subviews>
+                                                                <color key="backgroundColor" name="AppColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="6Im-qq-1ap"/>
+                                                                    <constraint firstItem="gYa-Ed-igO" firstAttribute="top" secondItem="k2p-I2-qi4" secondAttribute="top" id="UsA-2a-dnC"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="gYa-Ed-igO" secondAttribute="bottom" id="bZM-Qg-nwR"/>
+                                                                    <constraint firstItem="gYa-Ed-igO" firstAttribute="leading" secondItem="k2p-I2-qi4" secondAttribute="leading" constant="8" id="j2i-kW-8Kv"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="8" id="sSO-iy-GG7"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderColorTypeAdapter">
+                                                                        <integer key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="70" id="C2c-JW-Mil"/>
+                                                            <constraint firstAttribute="height" constant="120" id="C2c-JW-Mil"/>
+                                                            <constraint firstItem="k2p-I2-qi4" firstAttribute="leading" secondItem="tHk-50-ilJ" secondAttribute="leading" constant="15" id="JD4-xh-eT2"/>
                                                             <constraint firstItem="v6C-OQ-uPm" firstAttribute="top" secondItem="tHk-50-ilJ" secondAttribute="top" constant="11" id="Mme-qA-xew"/>
+                                                            <constraint firstAttribute="trailing" secondItem="k2p-I2-qi4" secondAttribute="trailing" constant="15" id="N1R-0i-Cry"/>
+                                                            <constraint firstItem="k2p-I2-qi4" firstAttribute="top" secondItem="v6C-OQ-uPm" secondAttribute="bottom" constant="10" id="k4H-3i-dK7"/>
                                                             <constraint firstAttribute="trailing" secondItem="v6C-OQ-uPm" secondAttribute="trailing" constant="15" id="kwf-Ui-i6N"/>
                                                             <constraint firstItem="v6C-OQ-uPm" firstAttribute="leading" secondItem="tHk-50-ilJ" secondAttribute="leading" constant="15" id="qG0-Qx-nIz"/>
                                                         </constraints>
@@ -3338,7 +3377,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3L-Fw-Mki">
-                                                <rect key="frame" x="0.0" y="272" width="320" height="56"/>
+                                                <rect key="frame" x="0.0" y="322" width="320" height="56"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hv-Xg-nrX">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3377,7 +3416,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-p8-ms2">
-                                                <rect key="frame" x="0.0" y="328" width="320" height="160"/>
+                                                <rect key="frame" x="0.0" y="378" width="320" height="160"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-i7-6W9">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -3388,8 +3427,8 @@ schools.</string>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60G-ip-BIG">
-                                                                <rect key="frame" x="281.5" y="12" width="23.5" height="16.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60G-ip-BIG">
+                                                                <rect key="frame" x="289" y="12" width="16" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -3492,7 +3531,7 @@ schools.</string>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HF-Mp-Eqi">
-                                                <rect key="frame" x="0.0" y="496" width="320" height="71"/>
+                                                <rect key="frame" x="0.0" y="546" width="320" height="71"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuH-8X-lbV">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3532,7 +3571,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baq-xT-S0p">
-                                                <rect key="frame" x="0.0" y="567" width="320" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="617" width="320" height="53.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mth-CP-BeE">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
@@ -3572,7 +3611,7 @@ schools.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-Lr-hTW" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="620.5" width="290" height="100"/>
+                                                <rect key="frame" x="15" y="670.5" width="290" height="100"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5kM-pE-6nN" customClass="TextView" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="274" height="84"/>
@@ -3603,7 +3642,7 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aS1-ek-n1g" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="743" width="230" height="48"/>
+                                                <rect key="frame" x="45" y="793" width="230" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="hO0-Cp-kgQ"/>
@@ -3681,12 +3720,16 @@ schools.</string>
                     <connections>
                         <outlet property="additionalTopicTxt" destination="5kM-pE-6nN" id="Hha-2g-IzU"/>
                         <outlet property="applyCouponBackView" destination="IUD-z3-dkE" id="Tgk-0C-6gp"/>
+                        <outlet property="applyCouponTxt" destination="gYa-Ed-igO" id="9Gn-Xp-eLa"/>
                         <outlet property="applyDiscountLbl" destination="toY-Ph-KT4" id="gYc-NG-l0y"/>
                         <outlet property="backToHomeBtn" destination="r0G-BJ-f4R" id="KSu-Hq-una"/>
                         <outlet property="bookingStatusBackView" destination="9St-A3-6iC" id="dlM-nJ-6GI"/>
                         <outlet property="collegeNameLbl" destination="xMW-O0-YB2" id="dMV-H3-uoM"/>
                         <outlet property="confirmBookingBtn" destination="aS1-ek-n1g" id="OiM-6e-XNg"/>
                         <outlet property="dateLbl" destination="qhl-km-Gks" id="aco-fg-Fi9"/>
+                        <outlet property="discountBackView" destination="gOS-4S-vk8" id="wQH-Sp-KaQ"/>
+                        <outlet property="discountPriceLbl" destination="4Ao-s0-BlZ" id="iTH-JO-Oy5"/>
+                        <outlet property="discountTitleLbl" destination="Dq0-Ce-sis" id="Kwo-s4-xNQ"/>
                         <outlet property="durationLbl" destination="IJ8-Fi-q75" id="7Qo-kf-oGk"/>
                         <outlet property="nameLbl" destination="LSW-s4-xud" id="lqT-wE-Hwh"/>
                         <outlet property="navigationBar" destination="1we-U8-Bgg" id="4AS-zP-3Mo"/>
@@ -3694,8 +3737,10 @@ schools.</string>
                         <outlet property="subTotalLbl" destination="60G-ip-BIG" id="v9r-2K-OQs"/>
                         <outlet property="timeLbl" destination="KST-a1-BFp" id="bae-5p-pgj"/>
                         <outlet property="toBePaidLbl" destination="8fL-GI-4IF" id="cNK-f6-8Mc"/>
-                        <outlet property="walletBalanceLbl" destination="K9c-7b-aey" id="uGp-ZD-3Ft"/>
-                        <outlet property="walletBallenceLbl" destination="zhL-6i-iAo" id="5lW-7g-IQb"/>
+                        <outlet property="useWalletBalanceLbl" destination="K9c-7b-aey" id="C5F-xl-lxY"/>
+                        <outlet property="useWalletBtn" destination="JN6-xE-2mG" id="7WF-ZI-FNg"/>
+                        <outlet property="walletBackView" destination="eM6-zG-B3y" id="weZ-Jh-LQU"/>
+                        <outlet property="walletBalanceLbl" destination="zhL-6i-iAo" id="0cI-D9-X7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3F-Xd-KYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -5911,6 +5956,7 @@ schools.</string>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_background_home" width="375" height="710"/>
         <image name="ic_callstarting" width="220.5" height="155"/>
+        <image name="ic_circle_red" width="18" height="18"/>
         <image name="ic_complete_profile" width="254" height="180"/>
         <image name="ic_correct_red" width="18" height="18"/>
         <image name="ic_coupon_red" width="20" height="13.5"/>

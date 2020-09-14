@@ -81,7 +81,6 @@ extension TransactionVC : TransactionListDelegate {
 }
 
 
-
 //MARK: - TableView Delegate
 extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
