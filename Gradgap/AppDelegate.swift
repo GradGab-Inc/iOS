@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var activityLoader : NVActivityIndicatorView!
     var container : MFSideMenuContainerViewController = MFSideMenuContainerViewController()
+    var aboutVM : AboutViewModel = AboutViewModel.init()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -59,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 else if AppModel.shared.currentUser.user?.userType == 3 {
                     navigateToLogin()
                 }
+                
+                getAboutUsData()
             }
         }
         else {
@@ -111,6 +114,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         activityLoader = nil
     }
 
+    func getAboutUsData() {
+        aboutVM.delegate = self
+        aboutVM.aboutData()
+    }
+    
     //MARK:- Navigation
     func navigateToLogin() {
         let navigationVC = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SelectLoginVCNav") as! UINavigationController
@@ -357,3 +365,9 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
 }
 
+extension AppDelegate : AboutDelegate {
+    func didRecievedAboutData(response: AboutResponse) {
+        AppModel.shared.aboutUsData = response.data ?? AboutAppDetails.init()
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.GET_ABOUT_DATA), object: nil)
+    }
+}

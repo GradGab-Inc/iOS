@@ -12,6 +12,7 @@ import SainiUtils
 class AboutUsVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
+    @IBOutlet weak var aboutTxtView: UITextView!
     
     var type : Int = 0
     
@@ -40,7 +41,26 @@ class AboutUsVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataSetUp), name: NSNotification.Name.init(NOTIFICATION.GET_ABOUT_DATA), object: nil)
         
+        if AppModel.shared.aboutUsData.aboutUs == "" {
+            AppDelegate().sharedDelegate().getAboutUsData()
+        }
+        else {
+            dataSetUp()
+        }
+    }
+    
+    @objc func dataSetUp()  {
+        if type == 0 {
+            aboutTxtView.text = AppModel.shared.aboutUsData.aboutUs
+        }
+        else if type == 1 {
+            aboutTxtView.text = AppModel.shared.aboutUsData.termsAndConditions
+        }
+        else if type == 2 {
+            aboutTxtView.text = AppModel.shared.aboutUsData.privacyPolicy
+        }
     }
     
     //MARK: - Button Click

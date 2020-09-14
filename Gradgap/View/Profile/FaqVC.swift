@@ -15,6 +15,8 @@ class FaqVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     
     private var expandDict = [String : Bool]()
+    private var faqVM: FaqViewModel = FaqViewModel()
+    private var FaqListData : [FAQList] = [FAQList].init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,9 @@ class FaqVC: UIViewController {
     func configUI() {
         tblView.register(UINib.init(nibName: "CustomHeaderTVC", bundle: nil), forCellReuseIdentifier: "CustomHeaderTVC")
         tblView.register(UINib.init(nibName: "CustomQuestionTVC", bundle: nil), forCellReuseIdentifier: "CustomQuestionTVC")
+        
+        faqVM.delegate = self
+        faqVM.getFaqList()
     }
     
     //MARK: - Button Click
@@ -46,11 +51,19 @@ class FaqVC: UIViewController {
 
 }
 
+extension FaqVC : FaqDelegate {
+    func didRecievedFaqListData(response: FaqListResponse) {
+        FaqListData = response.data?.faqs ?? [FAQList].init()
+        DispatchQueue.main.async {
+            self.tblView.reloadData()
+        }
+    }
+}
 
 //MARK: - TableView Delegate
 extension FaqVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return FaqListData.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +80,7 @@ extension FaqVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tblView.dequeueReusableCell(withIdentifier: "CustomHeaderTVC") as! CustomHeaderTVC
         
-        header.questionLbl.text = "Question \(section + 1)"
+        header.questionLbl.text = FaqListData[section].question
         header.downBtn.tag = section
         header.downBtn.addTarget(self, action: #selector(self.clickToExpandCell), for: .touchUpInside)
         if let value = expandDict[String(section)], value == true {
@@ -89,7 +102,7 @@ extension FaqVC : UITableViewDelegate, UITableViewDataSource {
             else {
             return UITableViewCell()
         }
- 
+        cell.answerLbl.text = FaqListData[indexPath.section].answer
         cell.bottomBorderView.backgroundColor = ClearColor
         return cell
     }

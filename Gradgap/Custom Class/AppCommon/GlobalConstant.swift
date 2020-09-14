@@ -124,6 +124,7 @@ struct NOTIFICATION {
     static var UPDATE_SIDEMENU_DATA        =   "UPDATE_SIDEMENU_DATA"
     static var UPDATE_BOOKING_DETAIL_DATA  =   "UPDATE_BOOKING_DETAIL_DATA"
     static var UPDATE_CARDLIST_DATA        =   "UPDATE_CARDLIST_DATA"
+    static var GET_ABOUT_DATA               =   "GET_ABOUT_DATA"
 }
 
 
