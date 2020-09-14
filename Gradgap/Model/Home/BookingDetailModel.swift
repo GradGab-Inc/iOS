@@ -17,14 +17,14 @@ struct BookingDetailModel: Codable {
     let format, timestamp: String
     
     init(from decoder: Decoder) throws {
-           let values = try decoder.container(keyedBy: CodingKeys.self)
-           
-           code = try values.decodeIfPresent(Int.self, forKey: .code) ?? 0
-           message = try values.decodeIfPresent(String.self, forKey: .message) ?? ""
-           data = try values.decodeIfPresent(BookingDetail.self, forKey: .data) ?? nil
-           format = try values.decodeIfPresent(String.self, forKey: .format) ?? ""
-           timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? ""
-       }
+       let values = try decoder.container(keyedBy: CodingKeys.self)
+       
+       code = try values.decodeIfPresent(Int.self, forKey: .code) ?? 0
+       message = try values.decodeIfPresent(String.self, forKey: .message) ?? ""
+       data = try values.decodeIfPresent(BookingDetail.self, forKey: .data) ?? nil
+       format = try values.decodeIfPresent(String.self, forKey: .format) ?? ""
+       timestamp = try values.decodeIfPresent(String.self, forKey: .timestamp) ?? ""
+   }
     
 }
 

@@ -13,7 +13,13 @@ class TransactionVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var noDataLbl: UILabel!
     
+    var dataModel : TransactionResponse = TransactionResponse()
+    var transactionVM : TransactionListViewModel = TransactionListViewModel()
+    var transactionListArr : [TransactionListModel] = [TransactionListModel]()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var currentPage : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +39,21 @@ class TransactionVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "TransactionTVC", bundle: nil), forCellReuseIdentifier: "TransactionTVC")
         tblView.register(UINib(nibName: "TransactionHeaderTVC", bundle: nil), forCellReuseIdentifier: "TransactionHeaderTVC")
+        
+        transactionVM.delegate = self
+        transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
     }
+    
+    //MARK: - Refresh data
+     @objc func refreshDataSetUp() {
+         refreshControl.endRefreshing()
+         currentPage = 1
+         transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+     }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -46,15 +66,30 @@ class TransactionVC: UIViewController {
     
 }
 
+extension TransactionVC : TransactionListDelegate {
+    func didRecieveTransactionListResponse(response: TransactionResponse) {
+        dataModel = response
+        if currentPage == 1 {
+            transactionListArr = [TransactionListModel]()
+        }
+        for item in response.data {
+            transactionListArr.append(item)
+        }
+        tblView.reloadData()
+        noDataLbl.isHidden = transactionListArr.count == 0 ? false : true
+    }
+}
+
+
 
 //MARK: - TableView Delegate
 extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return transactionListArr.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return transactionListArr[section].data.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -64,13 +99,14 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tblView.dequeueReusableCell(withIdentifier: "TransactionHeaderTVC") as! TransactionHeaderTVC
         
+        let dict : TransactionListModel = transactionListArr[section]
+        header.headerLbl.text = dict.id
         if section == 0 {
             header.topLineView.isHidden = true
         }
         else {
             header.topLineView.isHidden = false
         }
-        
         return header.contentView
     }
     
@@ -84,7 +120,23 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let dict : TransactionListDataModel = transactionListArr[indexPath.section].data[indexPath.row]
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
+        cell.nameLbl.text = dict.name
+        cell.collegeNameLbl.text = dict.school.first?.name ?? ""
+        cell.priceLbl.text = "$\(String(describing: dict.amount))"
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if transactionListArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                currentPage = currentPage + 1
+                transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

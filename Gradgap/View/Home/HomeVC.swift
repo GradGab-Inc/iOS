@@ -21,7 +21,6 @@ class HomeVC: UIViewController {
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var joinCallBackView: UIView!
     
-    
     var titleArr = ["Chat","Virtual Tour","Interview Prep"]
     var subTitleArr = ["Video chat with a current student.","Get a live 1 hour campus tour.","45 Min Mock Interview Prep or Mock interview."]
     let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
@@ -63,7 +62,6 @@ class HomeVC: UIViewController {
         refreshBookingList()
         
         joinCallBackView.isHidden = true
-        
     }
     
     @objc func refreshBookingList() {

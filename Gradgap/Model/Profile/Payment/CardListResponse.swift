@@ -46,13 +46,13 @@ struct CardListDataModel: Codable {
     let id, userRef: String
     let lastDigitsOfCard: Int
     let cardType, country: String
-    let datumDefault, deleted: Bool
+    let defaultCard, deleted: Bool
     let v: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case userRef, lastDigitsOfCard, cardType, country, deleted
-        case datumDefault = "default"
+        case defaultCard = "default"
         case v = "__v"
     }
     
@@ -64,7 +64,7 @@ struct CardListDataModel: Codable {
         userRef = try values.decodeIfPresent(String.self, forKey: .userRef) ?? ""
         cardType = try values.decodeIfPresent(String.self, forKey: .cardType) ?? ""
         country = try values.decodeIfPresent(String.self, forKey: .country) ?? ""
-        datumDefault = try values.decodeIfPresent(Bool.self, forKey: .datumDefault) ?? false
+        defaultCard = try values.decodeIfPresent(Bool.self, forKey: .defaultCard) ?? false
         deleted = try values.decodeIfPresent(Bool.self, forKey: .deleted) ?? false
         v = try values.decodeIfPresent(Int.self, forKey: .v) ?? 0
     }
@@ -75,7 +75,7 @@ struct CardListDataModel: Codable {
         userRef = ""
         cardType = ""
         country = ""
-        datumDefault = false
+        defaultCard = false
         v = 0
         deleted = false
     }

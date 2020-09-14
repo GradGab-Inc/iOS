@@ -48,6 +48,9 @@
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
 		881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FE93E25065C5800DDB411 /* MessageUI.framework */; };
+		88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207232250CA0E400813299 /* TransactionListViewModel.swift */; };
+		88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207234250CA0F400813299 /* TransactionDetailViewModel.swift */; };
+		88207237250CA2C700813299 /* TransactionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207236250CA2C700813299 /* TransactionListModel.swift */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
 		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
 		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
@@ -85,6 +88,8 @@
 		88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88287A8524EE5A9500745DFB /* MentorListModel.swift */; };
 		8828E383250B471600234B8F /* AddCardRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828E382250B471600234B8F /* AddCardRequest.swift */; };
 		8828E385250B495000234B8F /* CardAddResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828E384250B495000234B8F /* CardAddResponse.swift */; };
+		88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */; };
+		88294ACA250CDD8E009E3CCF /* CouponListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */; };
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
 		8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */; };
 		882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86F924FF725700190C0F /* TransactionTVC.swift */; };
@@ -261,6 +266,9 @@
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
 		881FE93E25065C5800DDB411 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		88207232250CA0E400813299 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
+		88207234250CA0F400813299 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
+		88207236250CA2C700813299 /* TransactionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModel.swift; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
 		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
 		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
@@ -298,6 +306,8 @@
 		88287A8524EE5A9500745DFB /* MentorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorListModel.swift; sourceTree = "<group>"; };
 		8828E382250B471600234B8F /* AddCardRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardRequest.swift; sourceTree = "<group>"; };
 		8828E384250B495000234B8F /* CardAddResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAddResponse.swift; sourceTree = "<group>"; };
+		88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListViewModel.swift; sourceTree = "<group>"; };
+		88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListResponse.swift; sourceTree = "<group>"; };
 		8829BED82500F3D6007F9B25 /* RateReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateReviewVC.swift; sourceTree = "<group>"; };
 		8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailVC.swift; sourceTree = "<group>"; };
 		882A86F924FF725700190C0F /* TransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTVC.swift; sourceTree = "<group>"; };
@@ -571,6 +581,8 @@
 				88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */,
 				88283334250368BD00C8739C /* RatingViewModel.swift */,
 				882378B1250388D8006AEA0E /* Payment */,
+				88207232250CA0E400813299 /* TransactionListViewModel.swift */,
+				88207234250CA0F400813299 /* TransactionDetailViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -582,6 +594,7 @@
 				88248B8124EF99D60094C375 /* MenteeDetailModel.swift */,
 				8828333625036A3700C8739C /* RatingAddRequest.swift */,
 				882378B4250389DE006AEA0E /* Payment */,
+				88207236250CA2C700813299 /* TransactionListModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -622,6 +635,7 @@
 				8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */,
 				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
+				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -639,6 +653,7 @@
 				88287A8524EE5A9500745DFB /* MentorListModel.swift */,
 				8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */,
 				882833322503624300C8739C /* NotificationResponse.swift */,
+				88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1185,6 +1200,7 @@
 				882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
+				88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,
 				88AEE8A824D15A78002225E9 /* View.swift in Sources */,
@@ -1206,6 +1222,7 @@
 				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
 				8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */,
+				88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */,
 				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */,
 				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
@@ -1236,6 +1253,7 @@
 				8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */,
 				88AEE8A424D15A78002225E9 /* UIImage+RUI.swift in Sources */,
 				881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */,
+				88294ACA250CDD8E009E3CCF /* CouponListResponse.swift in Sources */,
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
 				88AEE8BC24D15A78002225E9 /* Validation.swift in Sources */,
 				8806B5BD24D945500005FDCE /* FilterTVC.swift in Sources */,
@@ -1274,6 +1292,7 @@
 				88AEE8B524D15A78002225E9 /* GlobalConstant.swift in Sources */,
 				8822682C24ED305E00E88254 /* FavoriteListViewModel.swift in Sources */,
 				882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */,
+				88207237250CA2C700813299 /* TransactionListModel.swift in Sources */,
 				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88862EAF24E6612600533CBA /* HelpVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
@@ -1300,6 +1319,7 @@
 				882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
+				88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
 				88F56D6024E50DB400C25DCA /* SetAvailabilityVC.swift in Sources */,
 				8806B5BA24D93A840005FDCE /* BookingListVC.swift in Sources */,
@@ -1478,7 +1498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1489,7 +1509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1502,7 +1522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1513,7 +1533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

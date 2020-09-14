@@ -126,8 +126,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
-//                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "TransactionVC") as! TransactionVC
-//                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "TransactionVC") as! TransactionVC
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
         else if indexPath.row == 5

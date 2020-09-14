@@ -117,7 +117,14 @@ class AddNewCardVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickToBackSetting(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController!.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_CARDLIST_DATA), object: nil)
+//        for controller in self.navigationController!.viewControllers as Array {
+//            if controller.isKind(of: HomeVC.self) {
+//                self.navigationController!.popToViewController(controller, animated: true)
+//                break
+//            }
+//        }
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
