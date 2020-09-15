@@ -16,6 +16,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var searchTxt: UITextField!
     
+    @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var schoolCollectionViewHeightConstraint: NSLayoutConstraint!
     
@@ -31,6 +32,10 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     var schoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var selectedSchoolListArr : [MajorListDataModel] = [MajorListDataModel]()
     var schoolCurrentPage : Int = 1
+    var isMenteeUser : Bool = false
+    var selectedType : Int = 1
+    var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
+    var isChange : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +68,18 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         }
         
         schoolListVM.delegate = self
+        profileUpadateVM.delegate = self
         
-        schoolListBackView.isHidden = false
-        selectedSchoolBackView.isHidden = true
+        if isMenteeUser && !isMentor {
+            schoolListBackView.isHidden = true
+            selectedSchoolBackView.isHidden = false
+            selectedSchoolListArr = AppModel.shared.currentUser.user?.school as! [MajorListDataModel]
+            schoolCollectionView.reloadData()
+        }
+        else {
+            schoolListBackView.isHidden = false
+            selectedSchoolBackView.isHidden = true
+        }
         
         searchTxt.delegate = self
         deisgnSetup()
@@ -99,6 +113,8 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         print("ok")
+        schoolListBackView.isHidden = true
+        selectedSchoolBackView.isHidden = false
         return true
     }
     
@@ -108,17 +124,33 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickToNext(_ sender: Any) {
-        if selectedSchoolListArr.count != 0 {
-            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
-            vc.selectedSchoolListArr = selectedSchoolListArr
-            if isMentor {
-                vc.isMentor = true
-                vc.selectImg = selectImg
+        if isMenteeUser && !isMentor {
+            if isChange {
+                var request : UpdateRequest = UpdateRequest()
+                var schoolArr : [String] = [String]()
+                for item in selectedSchoolListArr {
+                    schoolArr.append(item.id)
+                }
+                request.schools = schoolArr
+                profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
             }
-            self.navigationController?.pushViewController(vc, animated: true)
+            else {
+                navigateToMentorList()
+            }
         }
         else {
-            displayToast("Please select school")
+            if selectedSchoolListArr.count != 0 {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "QuestionListVC") as! QuestionListVC
+                vc.selectedSchoolListArr = selectedSchoolListArr
+                if isMentor {
+                    vc.isMentor = true
+                    vc.selectImg = selectImg
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                displayToast("Please select school")
+            }
         }
     }
 
@@ -136,17 +168,17 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         
         dataLbl.isUserInteractionEnabled = true
         dataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
+        if isMentor {
+            questionLbl.text = "what school do you attend?"
+        }
+        else {
+            questionLbl.text = "What schools are you interested in?"
+        }
     }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
-        let text = "We are adding mentors from new schools daily. let us know if you don't see a school you're interested in."
-        let letUsKnow = (text as NSString).range(of: " let us know ")
-
- //       if gesture.didTapAttributedTextInLabel(label: dataLbl, inRange: letUsKnow) {
-            setupMail()
-//        } else {
-//            print("Tapped none")
-//        }
+        setupMail()
     }
     
     deinit {
@@ -165,6 +197,32 @@ extension SchoolListVC : SchoolSearchListSuccessDelegate {
             schoolListArr.append(item)
         }
         tblView.reloadData()
+    }
+}
+
+extension SchoolListVC : ProfileUpdateSuccessDelegate {
+    func didReceivedData(response: LoginResponse) {
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        var userData : UserDataModel = UserDataModel.init()
+        userData.accessToken = AppModel.shared.currentUser.accessToken
+        userData.user = response.data!.user
+        setLoginUserData(userData)
+        AppModel.shared.currentUser = getLoginUserData()
+        navigateToMentorList()
+    }
+    
+    func navigateToMentorList() {
+        if isMenteeUser && !isMentor {
+            if selectedType == 1 {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
+                vc.selectedType = selectedType
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 }
 
@@ -210,6 +268,7 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.view.endEditing(true)
+        isChange = true
         if isMentor {
             selectedSchoolListArr = [MajorListDataModel]()
             selectedSchoolListArr.append(schoolListArr[indexPath.row])

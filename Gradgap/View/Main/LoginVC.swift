@@ -39,16 +39,19 @@ class LoginVC: SocialLogin {
     
     @IBAction func clickToFacebook(_ sender: Any) {
         self.view.endEditing(true)
+        isFromLogin = true
         loginWithFacebook()
     }
     
     @IBAction func clickToApple(_ sender: Any) {
         self.view.endEditing(true)
+        isFromLogin = true
         actionHandleAppleSignin()
     }
     
     @IBAction func clickToGoogle(_ sender: Any) {
         self.view.endEditing(true)
+        isFromLogin = true
         GIDSignIn.sharedInstance()?.presentingViewController = self
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.signOut()
@@ -63,6 +66,7 @@ class LoginVC: SocialLogin {
     }
     
     @IBAction func clickToSignIn(_ sender: Any) {
+        self.view.endEditing(true)
         guard let email = emailTxt.text else { return }
         guard let password = passwordTxt.text else { return }
         let device = AppModel.shared.device
@@ -102,6 +106,7 @@ class LoginVC: SocialLogin {
 //MARK: - LoginDelegate
 extension LoginVC: LoginDelegate {
     func didRecieveLoginResponse(response: LoginResponse) {
+        self.view.endEditing(true)
         log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
         setLoginUserData(response.data!.self)
         setIsUserLogin(isUserLogin: true)

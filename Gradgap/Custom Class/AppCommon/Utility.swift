@@ -592,7 +592,7 @@ func getbookingType(_ tag : Int) -> String {
     case 3:
         return "Pending"
     case 4:
-        return "Reject"
+        return "Rejected"
     default:
         return ""
     }

@@ -183,7 +183,7 @@ func getDifferenceFromCurrentTimeInDays(_ str : String) -> String
         return "Yesterday"
     }
     else {
-        return str
+        return getDateStringFromDate(date: date, format: "MMMM dd, yyyy")
     }
 }
 

@@ -10,7 +10,7 @@ import Foundation
 import SainiUtils
 
 protocol EarningListDelegate {
-    func didRecieveEarningListResponse(response: CouponListResponse)
+    func didRecieveEarningListResponse(response: EarningResponse)
 }
 
 struct EarningViewModel {
@@ -21,7 +21,7 @@ struct EarningViewModel {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.TRANSACTION.earning, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(CouponListResponse.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(EarningResponse.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveEarningListResponse(response: success.self)

@@ -19,7 +19,14 @@ class MyEarningVC: UIViewController {
     @IBOutlet var filterBackView: UIView!
     @IBOutlet weak var fromDateLbl: UILabel!
     @IBOutlet weak var toDateLbl: UILabel!
+    @IBOutlet weak var noDataLbl: UILabel!
     
+    var dataModel : EarningResponse = EarningResponse()
+    var earningListVM : EarningViewModel = EarningViewModel()
+    var earningArr : [TransactionListModel] = [TransactionListModel]()
+    var totalData : Total = Total.init()
+    var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var currentPage : Int = 1
     var selectedStartDate = Date()
     var selectedEndDate = Date()
     
@@ -46,6 +53,21 @@ class MyEarningVC: UIViewController {
         self.fromDateLbl.text = getDateStringFromDate(date: selectedStartDate, format: "MM/dd/YYYY")
         selectedEndDate = Calendar.current.date(byAdding: .day, value: 1, to: self.selectedStartDate) ?? Date()
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
+        
+        earningListVM.delegate = self
+        earningListVM.couponList(request: MorePageRequest(page: currentPage))
+        
+        refreshControl.tintColor = AppColor
+        refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
+        tblView.refreshControl = refreshControl
+        setupData()
+    }
+    
+    //MARK: - Refresh data
+    @objc func refreshDataSetUp() {
+        refreshControl.endRefreshing()
+        currentPage = 1
+        earningListVM.couponList(request: MorePageRequest(page: currentPage))
     }
     
     //MARK: - Button Click
@@ -94,14 +116,36 @@ class MyEarningVC: UIViewController {
     
 }
 
+extension MyEarningVC : EarningListDelegate {
+    func didRecieveEarningListResponse(response: EarningResponse) {
+        dataModel = response
+        if currentPage == 1 {
+            earningArr = [TransactionListModel]()
+            totalData = dataModel.data?.total ?? Total.init()
+        }
+        for item in response.data?.earningList ?? [TransactionListModel].init() {
+            earningArr.append(item)
+        }
+        tblView.reloadData()
+        setupData()
+        noDataLbl.isHidden = earningArr.count == 0 ? false : true
+    }
+    
+    func setupData() {
+        earningLbl.text = "$\(dataModel.data?.total?.earnings ?? 0)"
+        totalBookingLbl.text = "\(dataModel.data?.total?.count ?? 0)"
+    }
+    
+}
+
 //MARK: - TableView Delegate
 extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return earningArr.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return earningArr[section].data.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,7 +155,8 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tblView.dequeueReusableCell(withIdentifier: "TransactionHeaderTVC") as! TransactionHeaderTVC
         
-        header.headerLbl.text = "May 4, 2020"
+        let dict : TransactionListModel = earningArr[section]
+        header.headerLbl.text = getDifferenceFromCurrentTimeInDays(dict.id)
         if section == 0 {
             header.topLineView.isHidden = true
         }
@@ -132,7 +177,22 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let dict : TransactionListDataModel = earningArr[indexPath.section].data[indexPath.row]
+        cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
+        cell.nameLbl.text = dict.name
+        cell.priceLbl.text = "$\(dict.amount ?? 0)"
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if earningArr.count - 2 == indexPath.row {
+            if dataModel.hasMore {
+                currentPage = currentPage + 1
+                earningListVM.couponList(request: MorePageRequest(page: currentPage))
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

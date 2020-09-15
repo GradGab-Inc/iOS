@@ -27,8 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Thread.sleep(forTimeInterval: 4.0)
-        
         //IQKeyboardManager
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
@@ -45,29 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Google Login
         GIDSignIn.sharedInstance().clientID = CLIENT_ID
         
-        if isUserLogin() {
-            if getLoginUserData() != nil {
-                AppModel.shared.currentUser = UserDataModel.init()
-                AppModel.shared.currentUser = getLoginUserData()!
-                print(AppModel.shared.currentUser)
-                
-                if AppModel.shared.currentUser.user?.userType == 1 {
-                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
-                }
-                else if AppModel.shared.currentUser.user?.userType == 2 {
-                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
-                }
-                else if AppModel.shared.currentUser.user?.userType == 3 {
-                    navigateToLogin()
-                }
-                
-                getAboutUsData()
-            }
-        }
-        else {
-            AppModel.shared.currentUser = UserDataModel.init()
-            navigateToLogin()
-        }        
+//        if isUserLogin() {
+//            if getLoginUserData() != nil {
+//                AppModel.shared.currentUser = UserDataModel.init()
+//                AppModel.shared.currentUser = getLoginUserData()!
+//                print(AppModel.shared.currentUser)
+//                
+//                if AppModel.shared.currentUser.user?.userType == 1 {
+//                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+//                }
+//                else if AppModel.shared.currentUser.user?.userType == 2 {
+//                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+//                }
+//                else if AppModel.shared.currentUser.user?.userType == 3 {
+//                    navigateToLogin()
+//                }
+//                
+//                getAboutUsData()
+//            }
+//        }
+//        else {
+//            AppModel.shared.currentUser = UserDataModel.init()
+//            navigateToLogin()
+//        }
         
         //Stripe
         STPPaymentConfiguration.shared().publishableKey = STRIPE.STRIPE_PUB_KEY

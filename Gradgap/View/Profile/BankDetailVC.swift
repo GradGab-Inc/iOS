@@ -10,7 +10,7 @@ import UIKit
 import SainiUtils
 import Stripe
 
-class BankDetailVC: UIViewController {
+class BankDetailVC: UploadImageVC {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var bankNameTxt: UITextField!

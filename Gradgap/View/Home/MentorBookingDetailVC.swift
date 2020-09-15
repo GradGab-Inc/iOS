@@ -116,7 +116,6 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
         
         cell.cancelBtn.isHidden = true
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

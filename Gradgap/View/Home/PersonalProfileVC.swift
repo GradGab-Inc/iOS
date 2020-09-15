@@ -136,7 +136,7 @@ class PersonalProfileVC: UIViewController {
                 data.key == currentQuestion
             }
             if index != nil {
-                delay(0.2) {
+                delay(0.4) {
                     self.setupSelection(self.selectedIndex[index!].value)
                 }
             }

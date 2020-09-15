@@ -62,6 +62,9 @@
 		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
 		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
+		88233E8B2510CB3900718C81 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88233E8A2510CB3900718C81 /* SplashScreen.storyboard */; };
+		88233E8E2510CBF900718C81 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88233E8D2510CBF900718C81 /* SplashScreenVC.swift */; };
+		88233E902510EA9E00718C81 /* UploadImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88233E8F2510EA9D00718C81 /* UploadImageVC.swift */; };
 		882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B2250388FA006AEA0E /* CardListViewModel.swift */; };
 		882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B5250389FA006AEA0E /* CardListResponse.swift */; };
 		882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882378B725038B3C006AEA0E /* CardSelectViewModel.swift */; };
@@ -97,6 +100,7 @@
 		882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */; };
 		882A870024FF752F00190C0F /* TransactionHeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FE24FF752F00190C0F /* TransactionHeaderTVC.xib */; };
 		882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */; };
+		882D618125107812009EE3B7 /* EarningResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D618025107812009EE3B7 /* EarningResponse.swift */; };
 		882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44F724F4E5520012FFBF /* SocialLogin.swift */; };
 		882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */; };
 		882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */; };
@@ -288,6 +292,9 @@
 		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
+		88233E8A2510CB3900718C81 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		88233E8D2510CBF900718C81 /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
+		88233E8F2510EA9D00718C81 /* UploadImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadImageVC.swift; sourceTree = "<group>"; };
 		882378B2250388FA006AEA0E /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
 		882378B5250389FA006AEA0E /* CardListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListResponse.swift; sourceTree = "<group>"; };
 		882378B725038B3C006AEA0E /* CardSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +331,7 @@
 		882A86FE24FF752F00190C0F /* TransactionHeaderTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHeaderTVC.xib; sourceTree = "<group>"; };
 		882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingListViewModel.swift; sourceTree = "<group>"; };
 		882B1AD524F523280033379B /* Gradgap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gradgap.entitlements; sourceTree = "<group>"; };
+		882D618025107812009EE3B7 /* EarningResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningResponse.swift; sourceTree = "<group>"; };
 		882E44F724F4E5520012FFBF /* SocialLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
 		882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginRequest.swift; sourceTree = "<group>"; };
 		882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginModel.swift; sourceTree = "<group>"; };
@@ -497,6 +505,7 @@
 				88AEE8CC24D15D27002225E9 /* Model */,
 				88AEE85A24D15A78002225E9 /* Custom Class */,
 				22D64A0424D149C7006C37FD /* AppDelegate.swift */,
+				88233E8A2510CB3900718C81 /* SplashScreen.storyboard */,
 				22D64A0A24D149C7006C37FD /* Main.storyboard */,
 				88D1804A24D2ABB1003603A2 /* Home.storyboard */,
 				88F261BF24E155EC009EECE3 /* Profile.storyboard */,
@@ -567,6 +576,14 @@
 				881690D624D2820D00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf */,
 			);
 			path = CustomFont;
+			sourceTree = "<group>";
+		};
+		88233E8C2510CBDE00718C81 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				88233E8D2510CBF900718C81 /* SplashScreenVC.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		882378B1250388D8006AEA0E /* Payment */ = {
@@ -677,6 +694,7 @@
 				8824D90A24EE7D7E0041F7CE /* MentorListRequest.swift */,
 				882833322503624300C8739C /* NotificationResponse.swift */,
 				88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */,
+				882D618025107812009EE3B7 /* EarningResponse.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -779,6 +797,7 @@
 		88AEE87824D15A78002225E9 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				88233E8F2510EA9D00718C81 /* UploadImageVC.swift */,
 				88AEE87924D15A78002225E9 /* CameraAttachment.swift */,
 			);
 			path = ImagePicker;
@@ -811,6 +830,7 @@
 		88AEE8CA24D15D1A002225E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88233E8C2510CBDE00718C81 /* Splash */,
 				88AEE8CE24D169B8002225E9 /* Main */,
 				880248D824D2C5CF005539B5 /* Home */,
 				88F261C124E1570F009EECE3 /* Profile */,
@@ -1139,6 +1159,7 @@
 				882A86FC24FF725700190C0F /* TransactionTVC.xib in Resources */,
 				88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
+				88233E8B2510CB3900718C81 /* SplashScreen.storyboard in Resources */,
 				88F4A21424D986DB00C780CB /* BookChatCVC.xib in Resources */,
 				88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
@@ -1301,6 +1322,7 @@
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
 				8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */,
 				88AEE8A424D15A78002225E9 /* UIImage+RUI.swift in Sources */,
+				88233E902510EA9E00718C81 /* UploadImageVC.swift in Sources */,
 				881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */,
 				88294ACA250CDD8E009E3CCF /* CouponListResponse.swift in Sources */,
 				88AEE8D424D16EFA002225E9 /* InfoCVC.swift in Sources */,
@@ -1389,6 +1411,7 @@
 				8825CD7624EBCE1D0079E7CB /* ProfileUpdateViewModel.swift in Sources */,
 				88AEE8A124D15A78002225E9 /* Lable.swift in Sources */,
 				8824D90F24EE889C0041F7CE /* MentorDetailModel.swift in Sources */,
+				882D618125107812009EE3B7 /* EarningResponse.swift in Sources */,
 				882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */,
@@ -1405,6 +1428,7 @@
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
 				88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */,
 				88375A98250F33FE0002923A /* ContactAdminResponse.swift in Sources */,
+				88233E8E2510CBF900718C81 /* SplashScreenVC.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88ED40822509E26D00611100 /* SwitchProfileRequest.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,

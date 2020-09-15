@@ -10,7 +10,7 @@ import UIKit
 import SainiUtils
 import MessageUI
 
-class EditProfileVC: UIViewController, selectedSchoolDelegate {
+class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var profileImgView: ImageView!
@@ -29,6 +29,7 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
     @IBOutlet weak var interestCollectionView: UICollectionView!
     @IBOutlet weak var interestCollectHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
+    @IBOutlet weak var schoolCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
@@ -69,12 +70,18 @@ class EditProfileVC: UIViewController, selectedSchoolDelegate {
     
     private func profilPicGesture(){
         profileImgView.sainiAddTapGesture {
-            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-            CameraAttachment.shared.imagePickedBlock = { pic in
-                self.profileImgView.image = pic
-                self.isNewImgUpload = true
-            }
+            self.uploadImage()
+//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//            CameraAttachment.shared.imagePickedBlock = { pic in
+//                self.profileImgView.image = pic
+//                self.isNewImgUpload = true
+//            }
         }
+    }
+    
+    override func selectedImage(choosenImage: UIImage) {
+        self.profileImgView.image = choosenImage
+        self.isNewImgUpload = true
     }
     
     private func renderProfile() {
