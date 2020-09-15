@@ -10,12 +10,31 @@ import Foundation
 
 
 struct CreateBookingRequest: Encodable {
-    var callType: Int
-    var dateTime: String
-    var mentorRef: String
-    var timeSlot: Int
-    var callTime: Int
-    var additionalTopics: String
+    var callType: Int?
+    var dateTime: String?
+    var mentorRef: String?
+    var timeSlot: Int?
+    var callTime: Int?
+    var additionalTopics: String?
+    var referralId : String?
+    var couponRef : String?
+    var coupon : String?
+    var useWalletBalance : Bool?
+    
+    init(callType: Int? = nil, dateTime:String? = nil, mentorRef:String? = nil, timeSlot:Int? = nil, callTime:Int? = nil, additionalTopics:String? = nil, referralId:String? = nil, couponRef:String? = nil, coupon:String? = nil, useWalletBalance:Bool? = nil){
+        
+        self.callType = callType
+        self.dateTime = dateTime
+        self.mentorRef = mentorRef
+        self.timeSlot = timeSlot
+        self.callTime = callTime
+        self.additionalTopics = additionalTopics
+        self.referralId = referralId
+        self.couponRef = couponRef
+        self.coupon = coupon
+        self.useWalletBalance = useWalletBalance
+    }
+    
 }
 
 

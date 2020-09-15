@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL = "http://47123d71cd54.ngrok.io/api/"//"http://3.82.95.119/development/api/" //"http://f6e2129391be.ngrok.io/api/"
+    static let BASE_URL = "http://3e4e3f0c7698.ngrok.io/api/"//"http://3.82.95.119/development/api/"   //"http://f6e2129391be.ngrok.io/api/"
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
@@ -79,10 +79,16 @@ struct API {
     struct TRANSACTION {
         static let detail                 = BASE_URL + "transaction/details"
         static let list                   = BASE_URL + "transaction/list"
+        static let earning                = BASE_URL + "transaction/earnings"
     }
     
     struct COUPON {
         static let list                   = BASE_URL + "coupon/list"
+    }
+    
+    struct APPDETAIL {
+        static let list                   = BASE_URL + "appDetails/list"
+        static let listFaq                = BASE_URL + "appDetails/listFaqs"
     }
 }
 
@@ -149,10 +155,16 @@ struct GCD{
     struct TRANSACTION {
         static let detail = DispatchQueue(label: "com.app.TRANSACTION_detail", qos: .background, attributes: .concurrent) //1
         static let list = DispatchQueue(label: "com.app.TRANSACTION_list", qos: .background, attributes: .concurrent) //2
+        static let earning = DispatchQueue(label: "com.app.TRANSACTION_earning", qos: .background, attributes: .concurrent) //3
     }
     
     struct COUPON {
         static let list = DispatchQueue(label: "com.app.COUPON_list", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct APPDETAIL {
+        static let list = DispatchQueue(label: "com.app.APPDETAIL_list", qos: .background, attributes: .concurrent) //1
+        static let listFaq = DispatchQueue(label: "com.app.APPDETAIL_listFaq", qos: .background, attributes: .concurrent) //1
     }
     
 }

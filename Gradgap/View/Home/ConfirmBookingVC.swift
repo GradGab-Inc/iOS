@@ -18,9 +18,11 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
-    @IBOutlet weak var walletBalanceLbl: UILabel!
+    @IBOutlet weak var useWalletBalanceLbl: UILabel!
     @IBOutlet weak var subTotalLbl: UILabel!
-    @IBOutlet weak var walletBallenceLbl: UILabel!
+    @IBOutlet weak var walletBalanceLbl: UILabel!
+    @IBOutlet weak var discountTitleLbl: UILabel!
+    @IBOutlet weak var discountPriceLbl: UILabel!
     @IBOutlet weak var toBePaidLbl: UILabel!
     @IBOutlet weak var additionalTopicTxt: TextView!
     
@@ -30,15 +32,25 @@ class ConfirmBookingVC: UIViewController {
     
     @IBOutlet weak var applyCouponBackView: UIView!
     @IBOutlet weak var applyDiscountLbl: UILabel!
+    @IBOutlet weak var discountBackView: UIView!
+    @IBOutlet weak var walletBackView: UIView!
+    
+    @IBOutlet weak var useWalletBtn: UIButton!
+    @IBOutlet weak var applyCouponTxt: TextField!
     
     
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
+    var applyCoupon : CouponListDataResponse = CouponListDataResponse.init()
     var selectedType : Int = 1
     var selectedCallTime : Int = Int()
     var selectedDate : Date = Date()
     var selectedTimeSlot : Int = Int()
     var isFromFavorite : Bool = false
+    var isApplyCoupon : Bool = false
+    
+    var disc : Double = Double()
+    var wallet : Int = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +69,8 @@ class ConfirmBookingVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(addCouponData), name: NSNotification.Name.init(NOTIFICATION.GET_COUPON_DATA), object: nil)
+        
         bookingStatusBackView.isHidden = true
         createBookingVM.delegate = self
         renderProfile()
@@ -67,9 +81,12 @@ class ConfirmBookingVC: UIViewController {
         else {
             backToHomeBtn.setTitle("Back to Home", for: .normal)
         }
-        
+        discountBackView.isHidden = true
         applyCouponBackView.isHidden = true
+        walletBackView.isHidden = true
         applyDiscountLbl.text = "0% Discount"
+        
+        useWalletBtn.isSelected = false
     }
     
     func renderProfile()  {
@@ -78,6 +95,7 @@ class ConfirmBookingVC: UIViewController {
         priceLbl.text = "$\(mentorDetail.amount)"
         dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
         durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
+        useWalletBalanceLbl.text = "\(AppModel.shared.currentUser.user?.walletAmount ?? 0)"
         
         let timeZone = timeZoneOffsetInMinutes()
         let time = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone)
@@ -87,8 +105,38 @@ class ConfirmBookingVC: UIViewController {
         
         subTotalLbl.text = "$\(mentorDetail.amount)"
         walletBalanceLbl.text = "$0"
+        discountTitleLbl.text = "Discount(0%)"
+        discountPriceLbl.text = "$0"
         toBePaidLbl.text = "$\(mentorDetail.amount)"
     }
+    
+    @objc func addCouponData(notification : Notification) {
+        if let dict : CouponListDataResponse = notification.object as? CouponListDataResponse
+        {
+            applyCoupon = dict
+            isApplyCoupon = true
+            applyCouponBackView.isHidden = false
+            discountBackView.isHidden = false
+            applyDiscountLbl.text = "\(dict.amountOff)% Discount"
+            discountTitleLbl.text = "Discount(\(dict.amountOff)%)"
+            
+            disc = Double(Double((mentorDetail.amount) * (dict.amountOff))/100)
+            discountPriceLbl.text = "-$\(disc)"
+            
+            if useWalletBtn.isSelected {
+                if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+                    wallet = mentorDetail.amount
+                }
+                else {
+                    wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+                }
+            }
+            
+            let total = Double(mentorDetail.amount) - disc - Double(wallet)
+            toBePaidLbl.text = "$\(total)"
+        }
+    }
+    
     
     //MARK: - Button Click
     @objc func clickToBack(_ sender: Any) {
@@ -102,12 +150,26 @@ class ConfirmBookingVC: UIViewController {
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
+        var request : CreateBookingRequest = CreateBookingRequest()
         let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         let str = minutesToHoursMinutes(minutes: selectedTimeSlot)
         let finalDate = "\(date) \(str.hours):\(str.leftMinutes)"
         
-        let request = CreateBookingRequest(callType: selectedType, dateTime: finalDate, mentorRef: mentorDetail.id, timeSlot: selectedTimeSlot, callTime: selectedCallTime, additionalTopics: additionalTopicTxt.text)
-
+        request.callType = selectedType
+        request.dateTime = finalDate
+        request.mentorRef = mentorDetail.id
+        request.timeSlot = selectedTimeSlot
+        request.callTime = selectedCallTime
+        request.additionalTopics = additionalTopicTxt.text
+        if useWalletBtn.isSelected {
+            request.useWalletBalance = true
+        }
+        if isApplyCoupon {
+            request.couponRef = applyCoupon.id
+        }
+        if applyCouponTxt.text != "" {
+            request.coupon = applyCouponTxt.text
+        }
         createBookingVM.createBooking(request: request)
     }
     
@@ -125,14 +187,64 @@ class ConfirmBookingVC: UIViewController {
             self.navigationController!.popToRootViewController(animated: true)
             NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
         }
-        
     }
     
     @IBAction func clickToRemoveCoupon(_ sender: Any) {
+        discountBackView.isHidden = true
         applyCouponBackView.isHidden = true
+        isApplyCoupon = false
         applyDiscountLbl.text = "0% Discount"
+        
+        discountTitleLbl.text = "Discount(0%)"
+        discountPriceLbl.text = "$0"
+        
+        if useWalletBtn.isSelected {
+            if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+                wallet = mentorDetail.amount
+            }
+            else {
+                wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+            }
+        }
+        
+        let total = Double(mentorDetail.amount) - Double(wallet)
+        toBePaidLbl.text = "$\(total)"
     }
     
+    @IBAction func clickToUseWallet(_ sender: UIButton) {
+        if AppModel.shared.currentUser.user?.walletAmount == 0 {
+            displayToast("You have not wallet balance")
+            return
+        }
+        
+        if isApplyCoupon {
+            disc = Double(Double((mentorDetail.amount) * (applyCoupon.amountOff))/100)
+            applyDiscountLbl.text = "\(applyCoupon.amountOff)% Discount"
+            discountTitleLbl.text = "Discount(\(applyCoupon.amountOff)%)"
+            discountPriceLbl.text = "-$\(disc)"
+        }
+        if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+            wallet = mentorDetail.amount
+        }
+        else {
+            wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+        }
+        
+        if sender.isSelected {
+            sender.isSelected = false
+            walletBackView.isHidden = true
+            
+            let total = Double(mentorDetail.amount) - disc
+            toBePaidLbl.text = "$\(total)"
+        }
+        else {
+            sender.isSelected = true
+            walletBackView.isHidden = false
+            walletBalanceLbl.text = "$\(wallet)"
+            let total = Double(mentorDetail.amount) - disc - Double(wallet)
+            toBePaidLbl.text = "$\(total)"
+        }
+    }
     
     deinit {
         log.success("ConfirmBookingVC Memory deallocated!")/

@@ -102,6 +102,14 @@
 		882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */; };
 		882E44FE24F4EB980012FFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */; };
 		88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */; };
+		88375A91250F33A00002923A /* ContactAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A8F250F339C0002923A /* ContactAdminViewModel.swift */; };
+		88375A92250F33A00002923A /* FaqViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A90250F33A00002923A /* FaqViewModel.swift */; };
+		88375A98250F33FE0002923A /* ContactAdminResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A94250F33FD0002923A /* ContactAdminResponse.swift */; };
+		88375A99250F33FE0002923A /* ContactAdminRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A95250F33FD0002923A /* ContactAdminRequest.swift */; };
+		88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A97250F33FE0002923A /* FaqListResponse.swift */; };
+		88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9B250F36C70002923A /* AboutViewModel.swift */; };
+		88375A9F250F36E00002923A /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9E250F36E00002923A /* AboutResponse.swift */; };
+		883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A4198250F93F1000C35E7 /* EarningViewModel.swift */; };
 		88462C0924FF9831000D0BE5 /* MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0824FF9831000D0BE5 /* MyEarningVC.swift */; };
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
@@ -321,6 +329,14 @@
 		882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginModel.swift; sourceTree = "<group>"; };
 		882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailabilityVC.swift; sourceTree = "<group>"; };
+		88375A8F250F339C0002923A /* ContactAdminViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAdminViewModel.swift; sourceTree = "<group>"; };
+		88375A90250F33A00002923A /* FaqViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewModel.swift; sourceTree = "<group>"; };
+		88375A94250F33FD0002923A /* ContactAdminResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAdminResponse.swift; sourceTree = "<group>"; };
+		88375A95250F33FD0002923A /* ContactAdminRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAdminRequest.swift; sourceTree = "<group>"; };
+		88375A97250F33FE0002923A /* FaqListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqListResponse.swift; sourceTree = "<group>"; };
+		88375A9B250F36C70002923A /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		88375A9E250F36E00002923A /* AboutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
+		883A4198250F93F1000C35E7 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		88462C0824FF9831000D0BE5 /* MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningVC.swift; sourceTree = "<group>"; };
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
@@ -583,6 +599,9 @@
 				882378B1250388D8006AEA0E /* Payment */,
 				88207232250CA0E400813299 /* TransactionListViewModel.swift */,
 				88207234250CA0F400813299 /* TransactionDetailViewModel.swift */,
+				88375A8F250F339C0002923A /* ContactAdminViewModel.swift */,
+				88375A90250F33A00002923A /* FaqViewModel.swift */,
+				88375A9B250F36C70002923A /* AboutViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -593,8 +612,11 @@
 				8824D90E24EE889C0041F7CE /* MentorDetailModel.swift */,
 				88248B8124EF99D60094C375 /* MenteeDetailModel.swift */,
 				8828333625036A3700C8739C /* RatingAddRequest.swift */,
-				882378B4250389DE006AEA0E /* Payment */,
 				88207236250CA2C700813299 /* TransactionListModel.swift */,
+				882378B4250389DE006AEA0E /* Payment */,
+				88375A93250F33FD0002923A /* ContactAdmin */,
+				88375A9D250F36E00002923A /* About */,
+				88375A96250F33FE0002923A /* Faq */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -636,6 +658,7 @@
 				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
 				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
+				883A4198250F93F1000C35E7 /* EarningViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -665,6 +688,31 @@
 				882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */,
 			);
 			path = SocialLogin;
+			sourceTree = "<group>";
+		};
+		88375A93250F33FD0002923A /* ContactAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				88375A94250F33FD0002923A /* ContactAdminResponse.swift */,
+				88375A95250F33FD0002923A /* ContactAdminRequest.swift */,
+			);
+			path = ContactAdmin;
+			sourceTree = "<group>";
+		};
+		88375A96250F33FE0002923A /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				88375A97250F33FE0002923A /* FaqListResponse.swift */,
+			);
+			path = Faq;
+			sourceTree = "<group>";
+		};
+		88375A9D250F36E00002923A /* About */ = {
+			isa = PBXGroup;
+			children = (
+				88375A9E250F36E00002923A /* AboutResponse.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		88AEE85A24D15A78002225E9 /* Custom Class */ = {
@@ -1200,6 +1248,7 @@
 				882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
+				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
 				88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,
@@ -1282,6 +1331,7 @@
 				FA44302124EA6C7D00AC9CF2 /* API_Manager.swift in Sources */,
 				FA44302924EA781C00AC9CF2 /* LoginRequest.swift in Sources */,
 				882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */,
+				88375A9F250F36E00002923A /* AboutResponse.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
 				8828333725036A3700C8739C /* RatingAddRequest.swift in Sources */,
 				8809DA4124FFCC22000CABA6 /* AddNewCardVC.swift in Sources */,
@@ -1310,6 +1360,7 @@
 				88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */,
 				880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */,
 				880BB9FF24EBB41700134D1F /* SchoolListRequest.swift in Sources */,
+				88375A99250F33FE0002923A /* ContactAdminRequest.swift in Sources */,
 				8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */,
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
 				8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */,
@@ -1320,6 +1371,7 @@
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
 				88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */,
+				88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
 				88F56D6024E50DB400C25DCA /* SetAvailabilityVC.swift in Sources */,
 				8806B5BA24D93A840005FDCE /* BookingListVC.swift in Sources */,
@@ -1341,14 +1393,18 @@
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
+				88375A92250F33A00002923A /* FaqViewModel.swift in Sources */,
 				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,
+				88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */,
 				FA44303524EA7A1800AC9CF2 /* UpdateFavouriteRequest.swift in Sources */,
 				880BB9FD24EB957D00134D1F /* SchoolSearchListViewModel.swift in Sources */,
 				88AEE8B624D15A78002225E9 /* DateTimeUtility.swift in Sources */,
+				88375A91250F33A00002923A /* ContactAdminViewModel.swift in Sources */,
 				8809DA3E24FFB998000CABA6 /* CardListTVC.swift in Sources */,
 				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
 				88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */,
+				88375A98250F33FE0002923A /* ContactAdminResponse.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88ED40822509E26D00611100 /* SwitchProfileRequest.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,

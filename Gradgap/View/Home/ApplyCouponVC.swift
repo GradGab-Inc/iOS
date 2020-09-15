@@ -117,6 +117,7 @@ extension ApplyCouponVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.GET_COUPON_DATA), object: couponArr[indexPath.row])
     }
     
     @objc func clickToApply(_ sender : UIButton) {

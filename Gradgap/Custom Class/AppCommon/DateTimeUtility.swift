@@ -172,6 +172,21 @@ func getDifferenceFromCurrentTimeInHourInDays(_ str : String) -> Bool
     return false
 }
 
+func getDifferenceFromCurrentTimeInDays(_ str : String) -> String
+{
+    let date = getDateFromDateString(strDate: str, format: "yyyy-MM-dd") ?? Date()
+    let calendar = Calendar.current
+    if calendar.isDateInToday(date) {
+        return "Today"
+    }
+    else if calendar.isDateInYesterday(date) {
+        return "Yesterday"
+    }
+    else {
+        return str
+    }
+}
+
 
 func getDateInUTC(_ date : Date) -> String {
     let dateFormatter = DateFormatter()

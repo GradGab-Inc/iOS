@@ -18,6 +18,7 @@ class AppModel: NSObject {
     
     var majorListArr : [MajorListDataModel] = [MajorListDataModel]()
     var languageListArr : [MajorListDataModel] = [MajorListDataModel]()
+    var aboutUsData : AboutAppDetails = AboutAppDetails.init()
     
     func resetAllModel()
     {
