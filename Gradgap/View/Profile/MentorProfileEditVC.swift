@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
+class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var profileImgView: ImageView!
@@ -73,12 +73,18 @@ class MentorProfileEditVC: UIViewController, selectedSchoolDelegate {
     
     private func profilPicGesture(){
         profileImgView.sainiAddTapGesture {
-            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-            CameraAttachment.shared.imagePickedBlock = { pic in
-                self.profileImgView.image = pic
-                self.isNewImgUpload = true
-            }
+            self.uploadImage()
+//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//            CameraAttachment.shared.imagePickedBlock = { pic in
+//                self.profileImgView.image = pic
+//                self.isNewImgUpload = true
+//            }
         }
+    }
+    
+    override func selectedImage(choosenImage: UIImage) {
+        self.profileImgView.image = choosenImage
+        self.isNewImgUpload = true
     }
     
     private func renderProfile() {

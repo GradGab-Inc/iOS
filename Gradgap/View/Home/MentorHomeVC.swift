@@ -21,6 +21,7 @@ class MentorHomeVC: UIViewController {
     @IBOutlet weak var viewAllBtn: UIButton!
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var timeBackView: UIView!
+    @IBOutlet weak var messageLbl: UILabel!
     
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
@@ -128,12 +129,12 @@ extension MentorHomeVC : HomeBookingListDelegate {
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 200
+            bookingTblViewHeightConstraint.constant = 140
         }
+        messageLbl.isHidden = bookingArr.count == 0 ? false : true
     
         homeCalender.layoutIfNeeded()
         homeCalender.setNeedsLayout()
-    
    }
 }
 

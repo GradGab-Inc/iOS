@@ -179,6 +179,9 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
     }
     
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {
+        if response.data == nil {
+            return
+        }
         bookingDetail = response.data ?? BookingDetail.init()
         renderBookingDetail()
     }

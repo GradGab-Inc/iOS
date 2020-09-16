@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vyi-dK-p8G">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash ScreenVC-->
+        <scene sceneID="BtO-JA-3NP">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreenVC" id="7rF-mM-ZCk" customClass="SplashScreenVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SVT-8j-adF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_background_splash" translatesAutoresizingMaskIntoConstraints="NO" id="axA-j8-XYj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo_splash" translatesAutoresizingMaskIntoConstraints="NO" id="a9h-GV-3em">
+                                <rect key="frame" x="80" y="175.5" width="160" height="147"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="a9h-GV-3em" firstAttribute="leading" secondItem="KKf-CJ-IFn" secondAttribute="leading" constant="80" id="6FG-AY-mtR"/>
+                            <constraint firstItem="axA-j8-XYj" firstAttribute="trailing" secondItem="KKf-CJ-IFn" secondAttribute="trailing" id="87n-Fg-iE6"/>
+                            <constraint firstItem="axA-j8-XYj" firstAttribute="leading" secondItem="KKf-CJ-IFn" secondAttribute="leading" id="ABk-tO-w2Y"/>
+                            <constraint firstItem="a9h-GV-3em" firstAttribute="width" secondItem="a9h-GV-3em" secondAttribute="height" multiplier="110:101" id="D96-sl-wia"/>
+                            <constraint firstItem="a9h-GV-3em" firstAttribute="centerY" secondItem="SVT-8j-adF" secondAttribute="centerY" constant="-35" id="Wtq-B7-wBZ"/>
+                            <constraint firstAttribute="bottom" secondItem="axA-j8-XYj" secondAttribute="bottom" id="XsS-6w-pDW"/>
+                            <constraint firstItem="KKf-CJ-IFn" firstAttribute="trailing" secondItem="a9h-GV-3em" secondAttribute="trailing" constant="80" id="Z4L-Jf-x18"/>
+                            <constraint firstItem="axA-j8-XYj" firstAttribute="top" secondItem="SVT-8j-adF" secondAttribute="top" id="pJW-tw-0q5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KKf-CJ-IFn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8NM-l9-2fV"/>
+                    <connections>
+                        <outlet property="logoVerticleConstraint" destination="Wtq-B7-wBZ" id="RbV-Ty-Zdj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dK5-wb-P5d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286.875" y="189.08450704225353"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="paM-o2-jED">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vyi-dK-p8G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zbA-75-cP6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7rF-mM-ZCk" kind="relationship" relationship="rootViewController" id="YjN-X4-St7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PcP-vr-Rlk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-493" y="189"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_background_splash" width="375" height="812"/>
+        <image name="ic_logo_splash" width="226" height="173"/>
+        <namedColor name="AppColor">
+            <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -20,6 +20,7 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
 
     let fbLoginManager = LoginManager()
     private var socialLoginVM: SocialLoginViewModel = SocialLoginViewModel()
+    var isFromLogin : Bool = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +53,22 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
                 {
                     let dict = result as! [String : AnyObject]
                     guard let userId = dict["id"] as? String else { return }
-                    guard let email = dict["email"] as? String else { return }
-                    guard let firstname = dict["first_name"] as? String else { return }
-                    guard let lastname = dict["last_name"] as? String else { return }
+                    guard let email = dict["email"] as? String else {
+                        displayToast("Kindly provide the access of your email to \(self.isFromLogin ? "Login" : "Signup")")
+                        return
+                    }
                     
-                    let socialRequest = SocialLoginRequest(socialToken: accessToken, socialIdentifier: SocialType.facebook.rawValue, firstName: firstname, lastName: lastname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
+                    var fname = ""
+                    if let temp = dict["first_name"] as? String {
+                        fname = temp
+                    }
+                    
+                    var lname = ""
+                    if let temp = dict["last_name"] as? String {
+                        lname = temp
+                    }
+                    
+                    let socialRequest = SocialLoginRequest(socialToken: accessToken, socialIdentifier: SocialType.facebook.rawValue, firstName: fname, lastName: lname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
                     
                     log.info("PARAMS: \(Log.stats()) \(socialRequest)")/
                     self.socialLoginVM.socialLogin(request: socialRequest)
@@ -79,10 +91,22 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
          
         guard let token = user.authentication.idToken  else { return }
         guard let userId = user.userID else { return }
-        guard let email = user.profile.email else { return }
-        guard let name = user.profile.name else { return }
-                
-        let socialRequest = SocialLoginRequest(socialToken: token, socialIdentifier: SocialType.google.rawValue, firstName: name, lastName: "", socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
+        guard let email = user.profile.email else {
+            displayToast("Kindly provide the access of your email to \(self.isFromLogin ? "Login" : "Signup")")
+            return
+        }
+
+        var fname = ""
+        if let temp = user.profile.givenName {
+            fname = temp
+        }
+        
+        var lname = ""
+        if let temp = user.profile.familyName {
+            lname = temp
+        }
+        
+        let socialRequest = SocialLoginRequest(socialToken: token, socialIdentifier: SocialType.google.rawValue, firstName: fname, lastName: lname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
         
         log.info("PARAMS: \(Log.stats()) \(socialRequest)")/
         socialLoginVM.socialLogin(request: socialRequest)
@@ -148,11 +172,21 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
         let userId = appleIDCredential.user
         let socialToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
         
-        guard let email = appleIDCredential.email else { return }
-        guard let firstname = appleIDCredential.fullName?.givenName else { return }
-        guard let lastname = appleIDCredential.fullName?.familyName else { return }
+        guard let email = appleIDCredential.email else {
+            displayToast("Kindly provide the access of your email to \(self.isFromLogin ? "Login" : "Signup")")
+            return
+        }
+        var fname = ""
+        if let temp = appleIDCredential.fullName?.givenName {
+            fname = temp
+        }
         
-        let socialRequest = SocialLoginRequest(socialToken: socialToken, socialIdentifier: SocialType.apple.rawValue, firstName: firstname, lastName: lastname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
+        var lname = ""
+        if let temp = appleIDCredential.fullName?.familyName {
+            lname = temp
+        }
+        
+        let socialRequest = SocialLoginRequest(socialToken: socialToken, socialIdentifier: SocialType.apple.rawValue, firstName: fname, lastName: lname, socialId: userId, email: email, fcmToken: getPushToken(), device: "iOS")
         
         log.info("PARAMS: \(Log.stats()) \(socialRequest)")/
         socialLoginVM.socialLogin(request: socialRequest)

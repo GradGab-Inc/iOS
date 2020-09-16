@@ -1119,7 +1119,7 @@
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -1167,7 +1167,7 @@
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -1271,7 +1271,7 @@
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="placeholderColorTypeAdapter">
                                                                         <integer key="value" value="1"/>
@@ -1988,6 +1988,7 @@
                         <outlet property="navigationBar" destination="m1G-db-vng" id="hrP-9v-YFp"/>
                         <outlet property="profileImgView" destination="PoH-io-FDi" id="4xl-nG-fNl"/>
                         <outlet property="schoolCollectionView" destination="gfE-iL-ZYh" id="BTw-J9-Dpq"/>
+                        <outlet property="schoolCollectionViewHeightConstraint" destination="Qck-HW-pU4" id="7PV-Fn-T6E"/>
                         <outlet property="searchTxt" destination="F6e-zq-Qi1" id="tKA-dW-t4A"/>
                         <outlet property="startingSchoolTxt" destination="A4h-kY-dWz" id="NoW-gr-9Xh"/>
                     </connections>
@@ -2865,7 +2866,7 @@
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -3743,7 +3744,7 @@
                                                                 <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                 </userDefinedRuntimeAttributes>

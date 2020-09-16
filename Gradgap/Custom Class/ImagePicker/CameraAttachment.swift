@@ -146,7 +146,7 @@ class CameraAttachment: NSObject{
         }
     }
     //MARK: - FILE PICKER
-    func documentPicker(){
+    func documentPicker() {
         let importMenu = UIDocumentMenuViewController(documentTypes: [String(kUTTypePDF)], in: .import)
         importMenu.delegate = self
         importMenu.modalPresentationStyle = .formSheet

@@ -516,10 +516,10 @@ schools.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-dG-Cpm" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="280" height="234"/>
+                                <rect key="frame" x="20" y="96" width="280" height="229"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-G4-EbD" customClass="FSCalendar">
-                                        <rect key="frame" x="8" y="14" width="264" height="212"/>
+                                        <rect key="frame" x="8" y="14" width="264" height="207"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="YES"/>
@@ -632,14 +632,31 @@ schools.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R6W-YB-VaI">
+                                <rect key="frame" x="20" y="335" width="280" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please set your availability by clicking dates on the calendar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-C8-UFu">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fLW-C8-UFu" secondAttribute="trailing" id="FTU-xj-S90"/>
+                                    <constraint firstAttribute="bottom" secondItem="fLW-C8-UFu" secondAttribute="bottom" id="N7v-JR-xu0"/>
+                                    <constraint firstItem="fLW-C8-UFu" firstAttribute="leading" secondItem="R6W-YB-VaI" secondAttribute="leading" id="Tj6-Vn-ddm"/>
+                                    <constraint firstItem="fLW-C8-UFu" firstAttribute="top" secondItem="R6W-YB-VaI" secondAttribute="top" id="hez-aD-kTs"/>
+                                </constraints>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-Di-fSb" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="350" width="320" height="218"/>
+                                <rect key="frame" x="0.0" y="380" width="320" height="188"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UMg-7f-IE6">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="170"/>
+                                        <rect key="frame" x="0.0" y="8" width="320" height="140"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="170" id="I8h-BZ-pN8"/>
+                                            <constraint firstAttribute="height" constant="140" id="I8h-BZ-pN8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="HI0-ql-gxB" id="mDH-tf-9eq"/>
@@ -647,13 +664,13 @@ schools.</string>
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don’t have any bookings yet, Refer some friends." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-hy-FeA">
-                                        <rect key="frame" x="30" y="89" width="260" height="40"/>
+                                        <rect key="frame" x="30" y="74" width="260" height="40"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Q-op-eCg">
-                                        <rect key="frame" x="0.0" y="178" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="148" width="320" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fld-lm-ePh"/>
                                         </constraints>
@@ -694,14 +711,17 @@ schools.</string>
                             <constraint firstItem="rJU-8f-Tbi" firstAttribute="leading" secondItem="Tad-il-6I1" secondAttribute="leading" id="AWZ-iq-l0i"/>
                             <constraint firstItem="Tad-il-6I1" firstAttribute="trailing" secondItem="FTE-dG-Cpm" secondAttribute="trailing" constant="20" id="C4J-fJ-AdO"/>
                             <constraint firstItem="Tad-il-6I1" firstAttribute="bottom" secondItem="Hvj-Di-fSb" secondAttribute="bottom" id="Cko-hJ-IRG"/>
+                            <constraint firstItem="Hvj-Di-fSb" firstAttribute="top" secondItem="R6W-YB-VaI" secondAttribute="bottom" constant="10" id="D0E-JK-gBY"/>
                             <constraint firstItem="FTE-dG-Cpm" firstAttribute="top" secondItem="hbL-Pu-Yyh" secondAttribute="bottom" constant="15" id="Kl5-cp-DHk"/>
                             <constraint firstItem="AHl-do-JQ1" firstAttribute="trailing" secondItem="Tad-il-6I1" secondAttribute="trailing" id="LbL-OV-iqI"/>
                             <constraint firstItem="rJU-8f-Tbi" firstAttribute="trailing" secondItem="Tad-il-6I1" secondAttribute="trailing" id="O3o-CT-jMi"/>
                             <constraint firstItem="Hvj-Di-fSb" firstAttribute="leading" secondItem="Tad-il-6I1" secondAttribute="leading" id="QVT-dI-q0d"/>
+                            <constraint firstItem="R6W-YB-VaI" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="bottom" constant="10" id="RJS-Og-keu"/>
                             <constraint firstItem="AHl-do-JQ1" firstAttribute="leading" secondItem="Tad-il-6I1" secondAttribute="leading" id="Vx3-cn-SBR"/>
-                            <constraint firstItem="Hvj-Di-fSb" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="bottom" constant="20" id="WJ6-VH-bqw"/>
                             <constraint firstItem="AHl-do-JQ1" firstAttribute="top" secondItem="Tad-il-6I1" secondAttribute="top" id="a9o-YP-ZdH"/>
                             <constraint firstAttribute="trailing" secondItem="Hvj-Di-fSb" secondAttribute="trailing" id="d4E-oB-Q5k"/>
+                            <constraint firstItem="Tad-il-6I1" firstAttribute="trailing" secondItem="R6W-YB-VaI" secondAttribute="trailing" constant="20" id="fiP-F3-jcm"/>
+                            <constraint firstItem="R6W-YB-VaI" firstAttribute="leading" secondItem="Tad-il-6I1" secondAttribute="leading" constant="20" id="kab-Kh-pCF"/>
                             <constraint firstItem="AHl-do-JQ1" firstAttribute="top" secondItem="Tad-il-6I1" secondAttribute="top" id="vuw-8b-d4r"/>
                             <constraint firstItem="hbL-Pu-Yyh" firstAttribute="centerX" secondItem="puY-AK-h7j" secondAttribute="centerX" id="w1a-Jh-2a2"/>
                             <constraint firstItem="AHl-do-JQ1" firstAttribute="leading" secondItem="Tad-il-6I1" secondAttribute="leading" id="y2j-4t-nRh"/>
@@ -716,6 +736,7 @@ schools.</string>
                         <outlet property="completeProfileBackView" destination="XTp-EI-Xj3" id="uzl-RJ-Uoc"/>
                         <outlet property="headerLbl" destination="Y0y-ha-pxu" id="90y-02-MtR"/>
                         <outlet property="homeCalender" destination="7eD-G4-EbD" id="pt6-6V-uQg"/>
+                        <outlet property="messageLbl" destination="fLW-C8-UFu" id="9qA-Ne-A12"/>
                         <outlet property="noDataLbl" destination="F8G-hy-FeA" id="8rs-LB-bSU"/>
                         <outlet property="timeBackView" destination="zER-BI-Bf5" id="cpH-Zc-TTe"/>
                         <outlet property="topHeaderDateLbl" destination="hbL-Pu-Yyh" id="rGq-1M-nwB"/>
@@ -920,7 +941,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="oyH-lh-bbW"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="362" y="2025"/>
+            <point key="canvasLocation" x="361.875" y="2025"/>
         </scene>
         <!--Calender Date ListVC-->
         <scene sceneID="Ll9-NL-xFr">
@@ -2013,14 +2034,23 @@ schools.</string>
                                     <outlet property="delegate" destination="rgw-IX-x6M" id="df7-P1-wVD"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any Booking yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-2x-5OM">
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="VGL-kq-PK5" firstAttribute="leading" secondItem="77V-Fx-nmQ" secondAttribute="leading" id="7dr-8J-8Qo"/>
+                            <constraint firstItem="kRc-2x-5OM" firstAttribute="centerY" secondItem="cLx-PX-3Kq" secondAttribute="centerY" id="BO6-Gu-KKQ"/>
                             <constraint firstItem="VGL-kq-PK5" firstAttribute="trailing" secondItem="77V-Fx-nmQ" secondAttribute="trailing" id="KaR-1C-x1g"/>
                             <constraint firstItem="rIY-Cl-9Zy" firstAttribute="bottom" secondItem="77V-Fx-nmQ" secondAttribute="bottom" id="O7Z-tI-uab"/>
                             <constraint firstItem="VGL-kq-PK5" firstAttribute="top" secondItem="awr-nJ-afX" secondAttribute="bottom" constant="10" id="OTD-9S-mEO"/>
                             <constraint firstItem="rIY-Cl-9Zy" firstAttribute="top" secondItem="VGL-kq-PK5" secondAttribute="bottom" constant="8" id="ZRG-o8-VYa"/>
+                            <constraint firstItem="kRc-2x-5OM" firstAttribute="leading" secondItem="77V-Fx-nmQ" secondAttribute="leading" constant="15" id="fQ1-2M-eGo"/>
+                            <constraint firstItem="77V-Fx-nmQ" firstAttribute="trailing" secondItem="kRc-2x-5OM" secondAttribute="trailing" constant="15" id="iez-uQ-d9S"/>
                             <constraint firstItem="awr-nJ-afX" firstAttribute="leading" secondItem="cLx-PX-3Kq" secondAttribute="leading" id="n9K-dF-QzL"/>
                             <constraint firstItem="rIY-Cl-9Zy" firstAttribute="leading" secondItem="77V-Fx-nmQ" secondAttribute="leading" id="otC-Jq-VxL"/>
                             <constraint firstItem="awr-nJ-afX" firstAttribute="top" secondItem="77V-Fx-nmQ" secondAttribute="top" id="qZc-ic-vSv"/>
@@ -2034,6 +2064,7 @@ schools.</string>
                         <outlet property="filterBackView" destination="Mt7-Bx-O3v" id="XZU-DO-Vce"/>
                         <outlet property="fromDateLbl" destination="e9B-nM-9gZ" id="yoT-QV-mbb"/>
                         <outlet property="navigationBar" destination="awr-nJ-afX" id="Nxf-cp-krJ"/>
+                        <outlet property="noDataLbl" destination="kRc-2x-5OM" id="lee-IQ-qP7"/>
                         <outlet property="tblView" destination="rIY-Cl-9Zy" id="oCt-8i-Ep0"/>
                         <outlet property="toDateLbl" destination="h2Q-Xk-c4z" id="IiW-8j-qrH"/>
                         <outlet property="totalBookingLbl" destination="xcM-lj-WXI" id="ULp-gO-Bx2"/>
@@ -3323,10 +3354,10 @@ schools.</string>
                                                                 <rect key="frame" x="15" y="69" width="290" height="40"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="APPLY CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ed-igO" customClass="TextField" customModule="GradGab" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="0.0" width="274" height="40"/>
+                                                                        <rect key="frame" x="12" y="0.0" width="266" height="40"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="APPLY CODE"/>
                                                                         </userDefinedRuntimeAttributes>
@@ -3337,8 +3368,8 @@ schools.</string>
                                                                     <constraint firstAttribute="height" constant="40" id="6Im-qq-1ap"/>
                                                                     <constraint firstItem="gYa-Ed-igO" firstAttribute="top" secondItem="k2p-I2-qi4" secondAttribute="top" id="UsA-2a-dnC"/>
                                                                     <constraint firstAttribute="bottom" secondItem="gYa-Ed-igO" secondAttribute="bottom" id="bZM-Qg-nwR"/>
-                                                                    <constraint firstItem="gYa-Ed-igO" firstAttribute="leading" secondItem="k2p-I2-qi4" secondAttribute="leading" constant="8" id="j2i-kW-8Kv"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="8" id="sSO-iy-GG7"/>
+                                                                    <constraint firstItem="gYa-Ed-igO" firstAttribute="leading" secondItem="k2p-I2-qi4" secondAttribute="leading" constant="12" id="j2i-kW-8Kv"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="12" id="sSO-iy-GG7"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -4411,8 +4442,8 @@ schools.</string>
                                     <constraint firstAttribute="height" constant="60" id="JbR-LP-Pqu"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What school are you interested in ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R19-u5-RBB">
-                                <rect key="frame" x="15" y="80" width="283.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What schools are you interested in ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R19-u5-RBB">
+                                <rect key="frame" x="15" y="80" width="292.5" height="21"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -4616,6 +4647,7 @@ schools.</string>
                         <outlet property="dataLbl" destination="mA5-7Y-cJJ" id="jiv-eN-zxW"/>
                         <outlet property="interetedLbl" destination="a2V-a9-kIU" id="ujc-2v-wUa"/>
                         <outlet property="navigationBar" destination="Rdl-G0-D9W" id="fIr-jC-N53"/>
+                        <outlet property="questionLbl" destination="R19-u5-RBB" id="kV5-c0-GYY"/>
                         <outlet property="schoolCollectionView" destination="CEn-5q-eVA" id="gZw-4w-Zqj"/>
                         <outlet property="schoolCollectionViewHeightConstraint" destination="da6-YM-zUV" id="fek-V9-jel"/>
                         <outlet property="schoolListBackView" destination="net-Ih-wHd" id="J2c-ne-1UP"/>
@@ -4868,7 +4900,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>

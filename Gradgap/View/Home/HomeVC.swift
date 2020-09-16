@@ -170,20 +170,33 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == homeTblView {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
+            vc.isMenteeUser = true
             if indexPath.row == 0 {
-                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
-                self.navigationController?.pushViewController(vc, animated: true)
+                vc.selectedType = 1
             }
-            else {
-                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
-                if indexPath.row == 1 {
-                    vc.selectedType = 3
-                }
-                else if indexPath.row == 2 {
-                    vc.selectedType = 2
-                }
-                self.navigationController?.pushViewController(vc, animated: true)
+            else if indexPath.row == 1 {
+                vc.selectedType = 3
             }
+            else if indexPath.row == 2 {
+                vc.selectedType = 2
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+//            if indexPath.row == 0 {
+//                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//            else {
+//                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
+//                if indexPath.row == 1 {
+//                    vc.selectedType = 3
+//                }
+//                else if indexPath.row == 2 {
+//                    vc.selectedType = 2
+//                }
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
         }
         else {
             let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC

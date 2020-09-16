@@ -99,8 +99,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         else if indexPath.row == 2
         {
             if isMentor {
-//                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MyEarningVC") as! MyEarningVC
-//                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MyEarningVC") as! MyEarningVC
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
                 let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC

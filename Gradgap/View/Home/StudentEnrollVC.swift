@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class StudentEnrollVC: UIViewController {
+class StudentEnrollVC: UploadImageVC {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var profileImgView: ImageView!
@@ -54,11 +54,17 @@ class StudentEnrollVC: UIViewController {
     }
     
     @IBAction func clickToUpload(_ sender: Any) {
-        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-        CameraAttachment.shared.imagePickedBlock = { pic in
-            self.profileImgView.image = pic
-            self.selectImg = pic
-        }
+        self.uploadImage()
+//        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//        CameraAttachment.shared.imagePickedBlock = { pic in
+//            self.profileImgView.image = pic
+//            self.selectImg = pic
+//        }
+    }
+    
+    override func selectedImage(choosenImage: UIImage) {
+        self.profileImgView.image = choosenImage
+        self.selectImg = choosenImage
     }
     
     deinit {

@@ -87,7 +87,7 @@ class BookVC: UIViewController {
         {
             selectedDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: Date(), max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: Date(), max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                
