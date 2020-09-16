@@ -206,21 +206,21 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
             else if major.trimmed.count == 0 {
                 displayToast("Please select current major")
             }
-            else if language.trimmed.count == 0 {
-                displayToast("Please select language")
-            }
-            else if sat.trimmed.count == 0 {
-                displayToast("Please enter test score SAT")
-            }
+//            else if language.trimmed.count == 0 {
+//                displayToast("Please select language")
+//            }
+//            else if sat.trimmed.count == 0 {
+//                displayToast("Please enter test score SAT")
+//            }
             else if path.trimmed.count == 0 {
                 displayToast("Please select college path")
             }
-            else if act.trimmed.count == 0 {
-                displayToast("Please enter test score ACT")
-            }
-            else if gpa.trimmed.count == 0 {
-                displayToast("Please enter GPA")
-            }
+//            else if act.trimmed.count == 0 {
+//                displayToast("Please enter test score ACT")
+//            }
+//            else if gpa.trimmed.count == 0 {
+//                displayToast("Please enter GPA")
+//            }
             else if schoolNameArr.count == 0 {
                 displayToast("Please select school or college")
             }

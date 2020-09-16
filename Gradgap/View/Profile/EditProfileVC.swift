@@ -135,18 +135,18 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         else if major.trimmed.count == 0 {
             displayToast("Please select planned major")
         }
-        else if language.trimmed.count == 0 {
-            displayToast("Please select language")
-        }
-        else if sat.trimmed.count == 0 {
-            displayToast("Please enter test score SAT")
-        }
-        else if act.trimmed.count == 0 {
-            displayToast("Please enter test score ACT")
-        }
-        else if gpa.trimmed.count == 0 {
-            displayToast("Please enter GPA")
-        }
+//        else if language.trimmed.count == 0 {
+//            displayToast("Please select language")
+//        }
+//        else if sat.trimmed.count == 0 {
+//            displayToast("Please enter test score SAT")
+//        }
+//        else if act.trimmed.count == 0 {
+//            displayToast("Please enter test score ACT")
+//        }
+//        else if gpa.trimmed.count == 0 {
+//            displayToast("Please enter GPA")
+//        }
         else if schoolNameArr.count == 0 {
             displayToast("Please select school or college")
         }
@@ -343,6 +343,7 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             cell.cancelBtn.isHidden = false
             cell.cancelBtn.addTarget(self, action: #selector(self.clickToDelete), for: .touchUpInside)
             
+            schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
             return cell
         }
     }
@@ -369,6 +370,7 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             return CGSize(width: interestCollectionView.frame.size.width/3, height: 65)
         }
         else{
+            schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
             return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
         }
     }

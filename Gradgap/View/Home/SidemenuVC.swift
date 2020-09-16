@@ -47,7 +47,8 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func setupProfileData() {
         profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: AppModel.shared.currentUser.user?.image ?? "")
-        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "") \(AppModel.shared.currentUser.user?.lastName ?? "")"
+//        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "") \(AppModel.shared.currentUser.user?.lastName ?? "")"
+        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "") \(AppModel.shared.currentUser.user?.lastName != "" ? "\(AppModel.shared.currentUser.user!.lastName.first!.uppercased())." : "")"
         rateLbl.text = "\(AppModel.shared.currentUser.user?.averageRating ?? 0.0)"
         ratingView.rating = Double(AppModel.shared.currentUser.user?.averageRating ?? 0.0)
     }

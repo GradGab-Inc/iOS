@@ -154,7 +154,10 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
             cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-            cell.nameLbl.text = dict.name
+            
+            let name = dict.name.components(separatedBy: " ")
+            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+            
             cell.collegeNameLbl.text = dict.schoolName
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             

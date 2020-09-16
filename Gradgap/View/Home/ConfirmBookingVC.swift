@@ -38,6 +38,7 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var useWalletBtn: UIButton!
     @IBOutlet weak var applyCouponTxt: TextField!
     
+    @IBOutlet weak var addAccountBackView: UIView!
     
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
@@ -51,6 +52,8 @@ class ConfirmBookingVC: UIViewController {
     
     var disc : Double = Double()
     var wallet : Int = Int()
+    var cardListVM : CardListViewModel = CardListViewModel()
+    var cardListArr : [CardListDataModel] = [CardListDataModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,10 +73,15 @@ class ConfirmBookingVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(addCouponData), name: NSNotification.Name.init(NOTIFICATION.GET_COUPON_DATA), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshAddBankView), name: NSNotification.Name.init(NOTIFICATION.UPDATE_CARDLIST_DATA), object: nil)
         
         bookingStatusBackView.isHidden = true
+        addAccountBackView.isHidden = true
         createBookingVM.delegate = self
         renderProfile()
+        
+        cardListVM.delegate = self
+        cardListVM.getCardList()
         
         if isFromFavorite {
             backToHomeBtn.setTitle("Back to Favourites", for: .normal)
@@ -90,7 +98,7 @@ class ConfirmBookingVC: UIViewController {
     }
     
     func renderProfile()  {
-        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName)"
+        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName != "" ? "\(mentorDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = mentorDetail.school.first?.name
         priceLbl.text = "$\(mentorDetail.amount)"
         dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
@@ -137,6 +145,9 @@ class ConfirmBookingVC: UIViewController {
         }
     }
     
+    @objc func refreshAddBankView() {
+        addAccountBackView.isHidden = true
+    }
     
     //MARK: - Button Click
     @objc func clickToBack(_ sender: Any) {
@@ -150,6 +161,11 @@ class ConfirmBookingVC: UIViewController {
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
+        if cardListArr.count == 0 {
+            addAccountBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: addAccountBackView)
+            return
+        }
         var request : CreateBookingRequest = CreateBookingRequest()
         let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         let str = minutesToHoursMinutes(minutes: selectedTimeSlot)
@@ -246,6 +262,15 @@ class ConfirmBookingVC: UIViewController {
         }
     }
     
+    @IBAction func clickToRemoveAddBankView(_ sender: Any) {
+        addAccountBackView.isHidden = true
+    }
+    
+    @IBAction func clickToAddBankAccount(_ sender: Any) {
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AddNewCardVC") as! AddNewCardVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     deinit {
         log.success("ConfirmBookingVC Memory deallocated!")/
     }
@@ -258,5 +283,13 @@ extension ConfirmBookingVC : CreateBookingDelegate {
         displayToast(response.message)
         bookingStatusBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: bookingStatusBackView)
+    }
+}
+
+
+extension ConfirmBookingVC : CardListDelegate {
+    func didRecieveCardListResponse(response: CardListResponse) {
+        cardListArr = [CardListDataModel]()
+        cardListArr = response.data
     }
 }

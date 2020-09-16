@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class QuestionListVC: UIViewController, selectedSchoolDelegate {
+class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var startingSchoolLbl: UILabel!
@@ -24,6 +24,12 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     @IBOutlet weak var currentPathBackView: UIView!
     @IBOutlet weak var collegePathTxt: UITextField!
     
+    @IBOutlet weak var profileImgView: ImageView!
+    @IBOutlet weak var profileImgBackView: UIView!
+    @IBOutlet weak var bioBackView: UIView!
+    @IBOutlet weak var bioTxtView: TextView!
+    
+    
     let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     
@@ -32,6 +38,7 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     var selectedLanguage : MajorListDataModel = MajorListDataModel.init()
     
     var selectImg : UIImage = UIImage()
+    var selectedProfileImg : UIImage = UIImage()
     var isMentor : Bool = false
     var collegePathIndex : Int = -1
     var isFromBack : Bool = false
@@ -56,11 +63,27 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
         profileUpadateVM.delegate = self
         
         currentPathBackView.isHidden = true
+        bioBackView.isHidden = true
+        profileImgBackView.isHidden = true
+        profilPicGesture()
         if isMentor {
-            startingSchoolLbl.text = "What year do you anticipate graduating ? *"
+            startingSchoolLbl.text = "What year do you anticipate graduating? *"
             majorLbl.text = "Current Major *"
             currentPathBackView.isHidden = false
+            bioBackView.isHidden = false
+            profileImgBackView.isHidden = false
         }
+    }
+    
+    private func profilPicGesture() {
+        profileImgView.sainiAddTapGesture {
+            self.uploadImage()
+        }
+    }
+    
+    override func selectedImage(choosenImage: UIImage) {
+        self.profileImgView.image = choosenImage
+        selectedProfileImg = choosenImage
     }
     
     //MARK: - Button Click
@@ -108,11 +131,13 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
     
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
-        
-        guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let path = collegePathTxt.text else {
+        guard let school = startingSchoolTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let identift = identifyTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let path = collegePathTxt.text, let bio = bioTxtView.text else {
             return
         }
-        if school.trimmed.count == 0 {
+        if isMentor && selectedProfileImg.size.height == 0 {
+            displayToast("Please select profile picture")
+        }
+        else if school.trimmed.count == 0 {
             displayToast("Please enter anticipate year")
         }
         else if major.trimmed.count == 0 {
@@ -133,9 +158,13 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
 //        else if gpa.trimmed.count == 0 {
 //            displayToast("Please enter GPA")
 //        }
+        else if isMentor && (bio.trimmed.count == 0) {
+            displayToast("Please enter bio")
+        }
         else if isMentor && (path.trimmed.count == 0 || collegePathIndex == -1) {
             displayToast("Please enter college path")
         }
+            
         else {
             var schoolArr : [String] = [String]()
             for item in selectedSchoolListArr {
@@ -165,12 +194,20 @@ class QuestionListVC: UIViewController, selectedSchoolDelegate {
                 request.collegePath = collegePathIndex
                 if !isFromBack {
                     request.changeUserType = 2
-                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                    request.bio = bio
+//                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
+//                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                    let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
+                    let imageData1 = sainiCompressImage(image: selectImg)
+                    profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
                 else{
-                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+//                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
+//                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
+                    
+                    let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                    let imageData1 = sainiCompressImage(image: selectImg)
+                    profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
             }
             else {

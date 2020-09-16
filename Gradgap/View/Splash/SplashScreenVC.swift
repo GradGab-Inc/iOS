@@ -27,7 +27,6 @@ class SplashScreenVC: UIViewController {
 
     @objc func animatedView() {
         logoVerticleConstraint.constant = logoVerticleConstraint.constant - 1
-        print(logoVerticleConstraint.constant)
         if logoVerticleConstraint.constant < -90 {
             timer.invalidate()
             
@@ -54,8 +53,6 @@ class SplashScreenVC: UIViewController {
                 AppModel.shared.currentUser = UserDataModel.init()
                 AppDelegate().sharedDelegate().navigateToLogin()
             }
-            
-            
         }
     }
 }

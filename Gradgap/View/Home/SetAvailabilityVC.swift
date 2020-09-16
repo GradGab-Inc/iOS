@@ -160,6 +160,20 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func utcToLocal(dateStr: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        if let date = dateFormatter.date(from: dateStr) {
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.dateFormat = "hh:mm a"
+        
+            return dateFormatter.string(from: date)
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }

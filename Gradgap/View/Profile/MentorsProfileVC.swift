@@ -123,7 +123,8 @@ class MentorsProfileVC: UIViewController {
         {
             selectedDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
+        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                 
@@ -132,6 +133,7 @@ class MentorsProfileVC: UIViewController {
                 }
                 self.dateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MMMM dd, yyyy"), for: .normal)
                 self.getMentorDetailServiceCall(true)
+                self.selectedIndex = -1
             }
         }
     }
@@ -155,11 +157,14 @@ class MentorsProfileVC: UIViewController {
     
     func renderBookingDetail() {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
-        nameLbl.text = bookingDetail.name
+        
+        let name = bookingDetail.name.components(separatedBy: " ")
+        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
-
+        bioLbl.text = bookingDetail.bio
+        
         if bookingDetail.subjects.count != 0 {
             subjectArr = [String]()
             for i in bookingDetail.subjects {
@@ -177,7 +182,6 @@ class MentorsProfileVC: UIViewController {
         timeCollectionView.reloadData()
         noDataLbl.isHidden = false
         
-        bioLbl.text = ""
         favoriteBtn.isSelected = bookingDetail.isFavourite
         bookMentorBtn.isHidden = true
         
@@ -223,8 +227,8 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
     }
     
     func dataSetup() {
-        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: mentorDetail.image)
-        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName)"
+        profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: mentorDetail.image)        
+        nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName != "" ? "\(mentorDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = mentorDetail.school.first?.name ?? ""
         courceNameLbl.text = mentorDetail.major
         bioLbl.text = mentorDetail.bio
@@ -236,12 +240,16 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
             timeDataArr = mentorDetail.availableTimings
             timeCollectionView.reloadData()
             timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
+            
+            bookMentorBtn.isHidden = false
         }
         else {
             timeCollectionViewHeightConstraint.constant = 80
             timeDataArr = [Int]()
             timeCollectionView.reloadData()
             noDataLbl.isHidden = false
+            
+            bookMentorBtn.isHidden = true
         }
         
         if mentorDetail.subjects.count != 0 {

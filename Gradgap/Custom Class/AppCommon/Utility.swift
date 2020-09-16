@@ -645,9 +645,9 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
 
 func getHourMinuteTime(_ minute: Int, _ timeZone: Int) -> String {
     var calendar = Calendar(identifier: .gregorian)
-    calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+    calendar.timeZone = TimeZone.current//TimeZone(secondsFromGMT: 0)!
     let startOfDate = calendar.startOfDay(for: Date())
-    return (startOfDate.sainiAddMinutes(Double(minute - timeZone)).toString(dateFormat: "hh:mm a"))
+    return (startOfDate.sainiAddMinutes(Double(minute)).toString(dateFormat: "hh:mm a"))
 }
 
 //MARK: - Attribute Label

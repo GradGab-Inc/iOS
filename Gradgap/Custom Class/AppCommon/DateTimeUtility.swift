@@ -55,7 +55,7 @@ func getDateStringFromDateString(strDate : String, formate : String) -> String  
     return dateFormatter1.string(from: date1)
 }
 
-func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
+func getMinuteFromDateString(strDate : String) -> Int
 {
     let dateFormatter1 = DateFormatter()
     dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
@@ -65,7 +65,7 @@ func getMinuteFromDateString(strDate : String) -> Int    // Today, 09:56 AM
     return dateFormatter1.string(from: date1).minuteFromString
 }
 
-func getMinuteFromDateString1(strDate : String) -> Int    // Today, 09:56 AM
+func getMinuteFromDateString1(strDate : String) -> Int  
 {
     let dateFormatter1 = DateFormatter()
     dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
@@ -130,8 +130,8 @@ func getCurrentDate() -> Date
 
 func timeZoneOffsetInMinutes() -> Int {
     let seconds = TimeZone.current.secondsFromGMT()
-    let minutes = abs(seconds / 60)
-    return minutes
+    let minutes = (seconds / 60)
+    return minutes    
 }
 
 func minutesToHoursMinutes (minutes : Int) -> (hours : Int , leftMinutes : Int) {

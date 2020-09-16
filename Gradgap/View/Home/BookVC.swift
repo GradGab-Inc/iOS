@@ -45,7 +45,10 @@ class BookVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "CustomBookTVC", bundle: nil), forCellReuseIdentifier: "CustomBookTVC")
         tblView.register(UINib(nibName: "BookingHeaderTVC", bundle: nil), forCellReuseIdentifier: "BookingHeaderTVC")
-        dateBtn.setTitle(getDateStringFromDate(date: Date(), format: "EEE MM/dd/YYYY"), for: .normal)
+        
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: selectedDate)!
+        selectedDate = maxDate
+        dateBtn.setTitle(getDateStringFromDate(date: maxDate, format: "EEE MM/dd/YYYY"), for: .normal)
         
         noDataLbl.isHidden = false
         mentorListVM.delegate = self
@@ -87,7 +90,8 @@ class BookVC: UIViewController {
         {
             selectedDate = Date()
         }
-        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: Date(), max: nil) { (date, cancel) in
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                
@@ -149,7 +153,10 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         let dict : MentorListDataModel = mentorListArr[indexPath.section].data[indexPath.row]
-        cell.nameLbl.text = dict.name
+        
+        let name = dict.name.components(separatedBy: " ")
+        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        
         cell.collegeNameLbl.text = dict.schoolName
         cell.ratingView.rating = Double(dict.averageRating)
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
