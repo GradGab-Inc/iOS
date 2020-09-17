@@ -139,7 +139,6 @@ class BookingDetailVC: UIViewController {
     
 }
 
-
 extension BookingDetailVC : CreateBookingDelegate {
     func didRecieveCreateBookingResponse(response: SuccessModel) {
         displayToast(response.message)
@@ -147,9 +146,9 @@ extension BookingDetailVC : CreateBookingDelegate {
         cancelBookingBackView.isHidden = true
         bookingCantCancelBackView.isHidden = true
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
     }
 }
-
 
 extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
@@ -165,6 +164,7 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
             bookingCantCancelBackView.isHidden = true
             bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         }
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
     }
     
     func didRecieveSetFavoriteResponse(response: SuccessModel) {

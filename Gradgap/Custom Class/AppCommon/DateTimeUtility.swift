@@ -221,3 +221,17 @@ func getDate(date: Date)  {
     dateFormatter.timeZone = TimeZone.current
     let time = dateFormatter.string(from: date)
 }
+
+func utcToLocal(dateStr: String) -> String? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "HH:mm"
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+    
+    if let date = dateFormatter.date(from: dateStr) {
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "hh:mm a"
+    
+        return dateFormatter.string(from: date)
+    }
+    return nil
+}

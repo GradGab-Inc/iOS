@@ -203,11 +203,21 @@ extension UpdateAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataS
         cell.lbl.text = arr[indexPath.row]
         cell.backView.cornerRadius = 5
         
-        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
-            cell.backView.backgroundColor = RedColor
+//        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
+//            cell.backView.backgroundColor = RedColor
+//        }
+//        else {
+//            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+//        }
+        
+        let index = availabilityListArr[collectionView.tag].type.firstIndex { (data) -> Bool in
+            data == indexPath.row + 1
+        }
+        if index == nil {
+            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         }
         else {
-            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+            cell.backView.backgroundColor = RedColor
         }
         
         cell.cancelBtn.isHidden = true
@@ -215,7 +225,16 @@ extension UpdateAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
+        let index = availabilityListArr[collectionView.tag].type.firstIndex { (data) -> Bool in
+            data == indexPath.row + 1
+        }
+        if index == nil {
+            self.availabilityListArr[collectionView.tag].type.append(indexPath.row + 1)
+        }
+        else {
+            self.availabilityListArr[collectionView.tag].type.remove(at: index!)
+        }
+//        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
         tblView.reloadRows(at: [IndexPath(item: collectionView.tag, section: 0)], with: .automatic)
     }
     

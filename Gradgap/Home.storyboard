@@ -3649,7 +3649,7 @@ schools.</string>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderColorTypeAdapter">
                                                                 <integer key="value" value="1"/>
@@ -4859,7 +4859,7 @@ schools.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planned Major *" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Mt-1Pn">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Major *" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Mt-1Pn">
                                                 <rect key="frame" x="15" y="439.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4872,7 +4872,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4924,7 +4924,7 @@ schools.</string>
                                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                         </userDefinedRuntimeAttributes>
@@ -4987,7 +4987,7 @@ schools.</string>
                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -5038,14 +5038,27 @@ schools.</string>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-0b-LtK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                        <state key="normal" image="back (2)"/>
+                                                        <connections>
+                                                            <action selector="clickToEthinity:" destination="bqC-wT-CZf" eventType="touchUpInside" id="94s-dz-NN0"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.396484375" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bBg-0b-LtK" secondAttribute="trailing" id="Dbk-LP-CgB"/>
                                                     <constraint firstItem="Oe0-5v-q4j" firstAttribute="top" secondItem="vMO-EG-t53" secondAttribute="top" constant="7" id="Sxm-Nr-94p"/>
                                                     <constraint firstAttribute="trailing" secondItem="Oe0-5v-q4j" secondAttribute="trailing" constant="17" id="Wb4-kW-ROv"/>
                                                     <constraint firstAttribute="height" constant="48" id="fkk-nN-WgR"/>
                                                     <constraint firstAttribute="bottom" secondItem="Oe0-5v-q4j" secondAttribute="bottom" constant="7" id="ktJ-cu-5LU"/>
                                                     <constraint firstItem="Oe0-5v-q4j" firstAttribute="leading" secondItem="vMO-EG-t53" secondAttribute="leading" constant="15" id="lZP-wz-TSZ"/>
+                                                    <constraint firstItem="bBg-0b-LtK" firstAttribute="leading" secondItem="vMO-EG-t53" secondAttribute="leading" id="nkA-Wf-iYT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bBg-0b-LtK" secondAttribute="bottom" id="qJ5-Fg-ExE"/>
+                                                    <constraint firstItem="bBg-0b-LtK" firstAttribute="top" secondItem="vMO-EG-t53" secondAttribute="top" id="w6R-K0-oNh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

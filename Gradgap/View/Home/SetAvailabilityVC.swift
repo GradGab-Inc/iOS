@@ -16,6 +16,7 @@ class SetAvailabilityVC: UIViewController {
     @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var submitBtn: Button!
     
+    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
     var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
     var arr = ["Chat","Interview Prep","Virtual Tour"]
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
@@ -38,8 +39,11 @@ class SetAvailabilityVC: UIViewController {
     func configUI() {
         tblView.register(UINib(nibName: "SetAvailabilityTVC", bundle: nil), forCellReuseIdentifier: "SetAvailabilityTVC")
         availabilityVM.delegate = self
-        tblViewHeightConstraint.constant = 0
-        submitBtn.isHidden = true
+        
+        dateListVM.delegate = self
+        dateListVM.availabilityList()
+        
+        tblViewHeightConstraint.constant = 20
     }
     
     //MARK: - Button Click
@@ -53,30 +57,47 @@ class SetAvailabilityVC: UIViewController {
     
     @IBAction func clickToSubmit(_ sender: Any) {
         if availabilityListArr.count != 0 {
-            var dictArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
+            var setArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
+            var updateArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
-                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == 0  {
+                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == []  {
                     displayToast("Please fill the above data")
                     return
                 }
                 else {
                     var dict : AvailabiltyRequest = AvailabiltyRequest()
-                    dict.startTime = item.startTime
-                    dict.endTime = item.endTime
-                    dict.weekDay = item.weekDay
-                    dict.type = item.type
-                    dictArr.append(dict)
+                    if item.id == "" {
+                        dict.startTime = item.startTime
+                        dict.endTime = item.endTime
+                        dict.weekDay = item.weekDay
+                        dict.type = item.type
+                        setArr.append(dict)
+                    }
+                    else {
+                        dict.availabilityRef = item.id
+                        dict.startTime = item.startTime
+                        dict.endTime = item.endTime
+                        dict.weekDay = item.weekDay
+                        dict.type = item.type
+                        updateArr.append(dict)
+                    }
                 }
             }
-            let request = SetAvailabiltyRequest(availability: dictArr, timezone: timeZoneOffsetInMinutes())
-            availabilityVM.setAvailability(request: request)
+            if setArr.count != 0 {
+                let request = SetAvailabiltyRequest(availability: setArr, timezone: timeZoneOffsetInMinutes())
+                availabilityVM.setAvailability(request: request)
+            }
+            if updateArr.count != 0 {
+                let request = SetAvailabiltyRequest(availability: updateArr, timezone: timeZoneOffsetInMinutes())
+                availabilityVM.updateAvailability(request: request)
+            }
         }
     }
     
     func addAvailabilityData() {
         submitBtn.isHidden = false
         if let lastData = availabilityListArr.last {
-            if lastData.weekDay == -1 || lastData.startTime == 0 || lastData.endTime == 0 || lastData.type == 0  {
+            if lastData.weekDay == -1 || lastData.startTime == -1 || lastData.endTime == -1 || lastData.type == []  {
                 displayToast("Please fill the above data")
             }
             else {
@@ -97,10 +118,14 @@ class SetAvailabilityVC: UIViewController {
     deinit {
         log.success("SetAvailabilityVC Memory deallocated!")/
     }
-    
 }
 
-extension SetAvailabilityVC : SetAvailabilityDelegate {
+extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate {
+    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+        availabilityListArr = response.data
+        tblView.reloadData()
+    }
+    
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
         self.navigationController?.popViewController(animated: true)
@@ -108,11 +133,11 @@ extension SetAvailabilityVC : SetAvailabilityDelegate {
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
-        
+        dateListVM.availabilityList()
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -146,7 +171,6 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.toBtn.tag = indexPath.row
         cell.toBtn.addTarget(self, action: #selector(self.clickToSelectToTime), for: .touchUpInside)
         
-        cell.deleteBtn.isHidden = true
         cell.deleteBtn.tag = indexPath.row
         cell.deleteBtn.addTarget(self, action: #selector(self.clickToDeleteTime), for: .touchUpInside)
         
@@ -159,27 +183,9 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
         return cell
     }
-    
-    func utcToLocal(dateStr: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
-        if let date = dateFormatter.date(from: dateStr) {
-            dateFormatter.timeZone = TimeZone.current
-            dateFormatter.dateFormat = "hh:mm a"
-        
-            return dateFormatter.string(from: date)
-        }
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
     @objc func clickToSelectWeek(_ sender : UIButton) {
-        DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Days", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
             if week != nil {
                 self?.availabilityListArr[sender.tag].weekDay = index
                 self?.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
@@ -212,12 +218,44 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func clickToDeleteTime(_ sender : UIButton) {
-        availabilityListArr.remove(at: sender.tag)
-        tblView.reloadData()
-        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+    func isTrueTime(_ min : Int, _ tag : Int) -> Bool {
+        let index = availabilityListArr.firstIndex { (data) -> Bool in
+            data.weekDay == availabilityListArr[tag].weekDay
+        }
+        if index != nil {
+            for item in availabilityListArr {
+                if item.weekDay == availabilityListArr[tag].weekDay {
+                    if (item.startTime <= min) && (min >= item.endTime)  {
+                        displayToast("Time over-ride")
+                        return false
+                    }
+                    else {
+                        return true
+                    }
+                }
+            }
+            return true
+        }
+        else {
+            return true
+        }
     }
     
+    @objc func clickToDeleteTime(_ sender : UIButton) {
+        let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
+        if dict.id != "" {
+            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
+                self.availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
+            }) {
+                
+            }
+        }
+        else {
+            availabilityListArr.remove(at: sender.tag)
+            tblView.reloadData()
+            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+        }
+    }
 }
 
 //MARK: - CollectionView Delegate
@@ -235,11 +273,21 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
         cell.lbl.text = arr[indexPath.row]
         cell.backView.cornerRadius = 5
         
-        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
-            cell.backView.backgroundColor = RedColor
+//        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
+//            cell.backView.backgroundColor = RedColor
+//        }
+//        else {
+//            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+//        }
+        
+        let index = availabilityListArr[collectionView.tag].type.firstIndex { (data) -> Bool in
+            data == indexPath.row + 1
+        }
+        if index == nil {
+            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
         }
         else {
-            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
+            cell.backView.backgroundColor = RedColor
         }
         
         cell.cancelBtn.isHidden = true
@@ -247,7 +295,16 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
+        let index = availabilityListArr[collectionView.tag].type.firstIndex { (data) -> Bool in
+            data == indexPath.row + 1
+        }
+        if index == nil {
+            self.availabilityListArr[collectionView.tag].type.append(indexPath.row + 1)
+        }
+        else {
+            self.availabilityListArr[collectionView.tag].type.remove(at: index!)
+        }
+//        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
         tblView.reloadRows(at: [IndexPath(item: collectionView.tag, section: 0)], with: .automatic)
     }
     

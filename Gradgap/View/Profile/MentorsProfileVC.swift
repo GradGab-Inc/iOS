@@ -27,6 +27,7 @@ class MentorsProfileVC: UIViewController {
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mentorCollectionView: UICollectionView!
+    @IBOutlet weak var mentorCollectionViewHigntConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateBackView: UIView!
     @IBOutlet weak var timeSlotBackView: UIView!
     
@@ -124,7 +125,7 @@ class MentorsProfileVC: UIViewController {
             selectedDate = Date()
         }
         let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                 
@@ -321,6 +322,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             cell.backView.borderColorTypeAdapter = 10
             
             cell.cancelBtn.isHidden = true
+            mentorCollectionViewHigntConstraint.constant = mentorCollectionView.contentSize.height
             return cell
         }
         
@@ -347,6 +349,7 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             return CGSize(width: timeCollectionView.frame.size.width/3, height: 45)
         }
         else{
+            mentorCollectionViewHigntConstraint.constant = mentorCollectionView.contentSize.height
             return CGSize(width: mentorCollectionView.frame.size.width/3, height: 63)
         }
     }

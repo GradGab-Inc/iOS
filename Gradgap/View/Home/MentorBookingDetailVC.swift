@@ -133,6 +133,9 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     }
         
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {
+        if response.data == nil {
+            return
+        }
         bookingDetail = response.data ?? BookingDetail.init()
         renderBookingDetail()
     }

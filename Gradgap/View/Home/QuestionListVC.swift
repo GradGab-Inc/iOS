@@ -41,6 +41,7 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
     var selectedProfileImg : UIImage = UIImage()
     var isMentor : Bool = false
     var collegePathIndex : Int = -1
+    var ethinityIndex : Int = -1
     var isFromBack : Bool = false
     
     override func viewDidLoad() {
@@ -128,6 +129,16 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
         }
     }
     
+    @IBAction func clickToEthinity(_ sender: Any) {
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Ethinity", selected: "Default", strings: ethinityArr) { [weak self](school, index, success) in
+            if school != nil {
+                self?.identifyTxt.text = school
+                self?.ethinityIndex = index
+            }
+            self?.view.endEditing(true)
+        }
+    }
     
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
@@ -183,8 +194,8 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
             if gpa != "" {
                 request.GPA = Double(gpa)
             }
-            if identift != "" {
-                request.ethnicity = identift
+            if ethinityIndex != -1 {
+                request.ethnicity = ethinityIndex
             }
             if language != "" {
                 request.otherLanguage = selectedLanguage.id
@@ -195,17 +206,12 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                 if !isFromBack {
                     request.changeUserType = 2
                     request.bio = bio
-//                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-//                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
                     let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
                 else{
-//                    let imageData = sainiCompressImage(image: selectImg ?? UIImage(named: "ic_profile")!)
-//                    profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
-                    
-                    let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                    let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }

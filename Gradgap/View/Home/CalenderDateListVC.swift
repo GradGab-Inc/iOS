@@ -46,12 +46,12 @@ class CalenderDateListVC: UIViewController {
         
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
+        updateBtn.isHidden = true
         dateListVM.delegate = self
         refreshDateList()
         
         bookingListVM.delegate = self
         refreshBookingList()
-            
     }
     
     @objc func refreshBookingList() {        
@@ -96,7 +96,14 @@ extension CalenderDateListVC : AvailabilityListDelegate {
         availabilityListArr = [AvailabilityDataModel]()
         availabilityListArr = response.data
         tblView.reloadData()
-        updateBtn.isHidden = availabilityListArr.count == 0 ? true : false
+//        updateBtn.isHidden = availabilityListArr.count == 0 ? true : false
+        
+        if availabilityListArr.count == 0 {
+            setBtn.setTitle("Set Availability", for: .normal)
+        }
+        else {
+            setBtn.setTitle("Update Availability", for: .normal)
+        }
     }
 }
 

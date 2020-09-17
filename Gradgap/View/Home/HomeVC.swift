@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
             completeProfileBackView.isHidden = true
         }
         nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
+        
     }
         
     //MARK: - configUI
@@ -62,6 +63,12 @@ class HomeVC: UIViewController {
         refreshBookingList()
         
         joinCallBackView.isHidden = true
+        
+        self.view.sainiAddSwipe { (data) in
+            if data == Swipe.down {
+                self.refreshBookingList()
+            }
+        }
     }
     
     @objc func refreshBookingList() {

@@ -125,18 +125,19 @@ class PersonalProfileVC: UIViewController {
             }
             print(selectedIndex)
             currentQuestion = currentQuestion + 1
-            selectQuestion(currentQuestion)
+            
             progressView.progress = progressView.progress + 0.25
             percentLbl.text = String(Int(progressView.progress * 100)) + "%"
-            delay(0.3) {
+            delay(0.4) {
                 self.resetAllBtn()
+                self.selectQuestion(self.currentQuestion)
             }
             
             let index = selectedIndex.firstIndex { (data) -> Bool in
                 data.key == currentQuestion
             }
             if index != nil {
-                delay(0.5) {
+                delay(0.6) {
                     self.setupSelection(self.selectedIndex[index!].value)
                 }
             }

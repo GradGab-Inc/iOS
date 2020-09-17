@@ -55,6 +55,7 @@ class BookingListVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
@@ -113,7 +114,7 @@ class BookingListVC: UIViewController {
     
     @IBAction func clickToFromDate(_ sender: Any) {
         self.view.endEditing(true)
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedStartDate, min: nil, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedStartDate, min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedStartDate = date!
                
@@ -128,7 +129,7 @@ class BookingListVC: UIViewController {
     @IBAction func clickToToDate(_ sender: Any) {
         self.view.endEditing(true)
         let maxDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedStartDate)!
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: selectedEndDate, min: maxDate, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedEndDate, min: maxDate, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedEndDate = date!
             
