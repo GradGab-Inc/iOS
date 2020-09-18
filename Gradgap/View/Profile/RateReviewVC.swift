@@ -86,7 +86,7 @@ class RateReviewVC: UIViewController {
 
 
 extension RateReviewVC : RatingDelegate {
-    func didRecieveRatingAddResponse(response: NotificationResponse) {
+    func didRecieveRatingAddResponse(response: SuccessModel) {
         
     }
 }

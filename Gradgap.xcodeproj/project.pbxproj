@@ -82,6 +82,10 @@
 		8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */; };
 		8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */; };
 		8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */; };
+		88269EA42514C8FB00AE36DF /* AddBankRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA32514C8FB00AE36DF /* AddBankRequest.swift */; };
+		88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */; };
+		88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */; };
+		88269EAA2514CC0100AE36DF /* BankViewDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
 		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
 		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
@@ -312,6 +316,10 @@
 		8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListView.swift; sourceTree = "<group>"; };
 		8825F18424F123BE004A2EC5 /* BookingDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailModel.swift; sourceTree = "<group>"; };
 		8825F18624F145C5004A2EC5 /* BookingActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingActionViewModel.swift; sourceTree = "<group>"; };
+		88269EA32514C8FB00AE36DF /* AddBankRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBankRequest.swift; sourceTree = "<group>"; };
+		88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailAddViewModel.swift; sourceTree = "<group>"; };
+		88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackAccountDeleteViewModel.swift; sourceTree = "<group>"; };
+		88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewDetailViewModel.swift; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
 		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
@@ -631,6 +639,7 @@
 				88248B8124EF99D60094C375 /* MenteeDetailModel.swift */,
 				8828333625036A3700C8739C /* RatingAddRequest.swift */,
 				88207236250CA2C700813299 /* TransactionListModel.swift */,
+				88269EA22514C8DE00AE36DF /* Bank */,
 				882378B4250389DE006AEA0E /* Payment */,
 				88375A93250F33FD0002923A /* ContactAdmin */,
 				88375A9D250F36E00002923A /* About */,
@@ -642,6 +651,17 @@
 		88269E9D2514C15D00AE36DF /* Bank */ = {
 			isa = PBXGroup;
 			children = (
+				88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */,
+				88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */,
+				88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */,
+			);
+			path = Bank;
+			sourceTree = "<group>";
+		};
+		88269EA22514C8DE00AE36DF /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+				88269EA32514C8FB00AE36DF /* AddBankRequest.swift */,
 			);
 			path = Bank;
 			sourceTree = "<group>";
@@ -1310,6 +1330,7 @@
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
 				8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */,
+				88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */,
 				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
@@ -1318,6 +1339,7 @@
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */,
+				88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */,
 				88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */,
 				88AEE8C124D15A78002225E9 /* Preference.swift in Sources */,
 				FA44302C24EA786900AC9CF2 /* ResendVerificationRequest.swift in Sources */,
@@ -1386,6 +1408,7 @@
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
 				882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */,
+				88269EA42514C8FB00AE36DF /* AddBankRequest.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
 				88287A8624EE5A9500745DFB /* MentorListModel.swift in Sources */,
 				880BB9F724EB8F5F00134D1F /* MajorListViewModel.swift in Sources */,
@@ -1408,6 +1431,7 @@
 				8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */,
 				88D6F58324EAA9FD00BAD28E /* ResendVerificcationViewModel.swift in Sources */,
 				88AEE8A324D15A78002225E9 /* Date+RUI.swift in Sources */,
+				88269EAA2514CC0100AE36DF /* BankViewDetailViewModel.swift in Sources */,
 				882378BA25038C1D006AEA0E /* CardAddViewModel.swift in Sources */,
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */,
