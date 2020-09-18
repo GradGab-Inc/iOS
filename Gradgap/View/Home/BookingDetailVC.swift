@@ -117,7 +117,6 @@ class BookingDetailVC: UIViewController {
     
     @IBAction func clickToRebookCall(_ sender: Any) {
         let request = CreateBookingRequest(callType: bookingDetail.callType, dateTime: bookingDetail.dateTime, mentorRef: bookingDetail.mentorRef, timeSlot: bookingDetail.timeSlot, callTime: bookingDetail.callTime, additionalTopics: bookingDetail.additionalTopics)
-
         createBookingVM.createBooking(request: request)
     }
     
@@ -140,7 +139,6 @@ class BookingDetailVC: UIViewController {
     
 }
 
-
 extension BookingDetailVC : CreateBookingDelegate {
     func didRecieveCreateBookingResponse(response: SuccessModel) {
         displayToast(response.message)
@@ -148,9 +146,9 @@ extension BookingDetailVC : CreateBookingDelegate {
         cancelBookingBackView.isHidden = true
         bookingCantCancelBackView.isHidden = true
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
     }
 }
-
 
 extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
@@ -166,6 +164,7 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
             bookingCantCancelBackView.isHidden = true
             bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         }
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
     }
     
     func didRecieveSetFavoriteResponse(response: SuccessModel) {
@@ -188,7 +187,9 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
     
     func renderBookingDetail() {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
-        nameLbl.text = bookingDetail.name
+        
+        let name = bookingDetail.name.components(separatedBy: " ")
+        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating

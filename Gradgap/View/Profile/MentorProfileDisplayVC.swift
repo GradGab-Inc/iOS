@@ -63,7 +63,7 @@ class MentorProfileDisplayVC: UIViewController {
     private func renderProfile() {
         if let profileData = AppModel.shared.currentUser.user {
             self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
-            nameLbl.text = "\(profileData.firstName) \(profileData.lastName)"
+            nameLbl.text = "\(profileData.firstName) \(profileData.lastName != "" ? "\(profileData.lastName.first!.uppercased())." : "")"
             emailLbl.text = profileData.email
             bioLbl.text = profileData.bio
             graduateYearLbl.text = "\(profileData.anticipateYear)"

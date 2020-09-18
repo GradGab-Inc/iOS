@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
             completeProfileBackView.isHidden = true
         }
         nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
+        
     }
         
     //MARK: - configUI
@@ -62,6 +63,12 @@ class HomeVC: UIViewController {
         refreshBookingList()
         
         joinCallBackView.isHidden = true
+        
+        self.view.sainiAddSwipe { (data) in
+            if data == Swipe.down {
+                self.refreshBookingList()
+            }
+        }
     }
     
     @objc func refreshBookingList() {
@@ -154,7 +161,10 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
             cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-            cell.nameLbl.text = dict.name
+            
+            let name = dict.name.components(separatedBy: " ")
+            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+            
             cell.collegeNameLbl.text = dict.schoolName
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             

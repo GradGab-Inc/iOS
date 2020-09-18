@@ -133,13 +133,17 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     }
         
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {
+        if response.data == nil {
+            return
+        }
         bookingDetail = response.data ?? BookingDetail.init()
         renderBookingDetail()
     }
     
     func renderBookingDetail() {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
-        nameLbl.text = bookingDetail.name
+        let name = bookingDetail.name.components(separatedBy: " ")
+        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         scheduledLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)

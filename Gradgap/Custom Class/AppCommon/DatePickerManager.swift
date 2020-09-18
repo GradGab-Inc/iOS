@@ -162,6 +162,20 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
         return pickerValues?[row]
     }
     
+    public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+
+      var title = UILabel()
+         if let view = view {
+                title = view as! UILabel
+          }
+        title.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.regular)
+        title.text =  pickerValues?[row]
+        title.textAlignment = .center
+
+    return title
+
+    }
+    
     @objc internal func pickerClose(_ sender: UIButton) {
         alertView?.dismiss(animated: true, completion: {
             self.pickerCompletion?(true)

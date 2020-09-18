@@ -22,12 +22,11 @@ class SplashScreenVC: UIViewController {
     }
     
     func configUI()  {
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.animatedView), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(self.animatedView), userInfo: nil, repeats: true)
     }
 
     @objc func animatedView() {
-        logoVerticleConstraint.constant = logoVerticleConstraint.constant - 1
-        print(logoVerticleConstraint.constant)
+        logoVerticleConstraint.constant = logoVerticleConstraint.constant - 0.5
         if logoVerticleConstraint.constant < -90 {
             timer.invalidate()
             
@@ -54,8 +53,6 @@ class SplashScreenVC: UIViewController {
                 AppModel.shared.currentUser = UserDataModel.init()
                 AppDelegate().sharedDelegate().navigateToLogin()
             }
-            
-            
         }
     }
 }

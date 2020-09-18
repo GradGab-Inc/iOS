@@ -3051,7 +3051,7 @@ schools.</string>
             <objects>
                 <viewController storyboardIdentifier="ConfirmBookingVC" id="Mlc-hK-Nzy" customClass="ConfirmBookingVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYc-3c-gMl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="870"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="930"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1we-U8-Bgg" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
@@ -3062,7 +3062,7 @@ schools.</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfT-mE-QE1">
-                                <rect key="frame" x="0.0" y="60" width="320" height="810"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="870"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-sT-5Tz">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="862"/>
@@ -3649,7 +3649,7 @@ schools.</string>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="placeholderColorTypeAdapter">
                                                                 <integer key="value" value="1"/>
@@ -3747,8 +3747,9 @@ schools.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="20S-dh-WPN"/>
                     </view>
-                    <size key="freeformSize" width="320" height="870"/>
+                    <size key="freeformSize" width="320" height="930"/>
                     <connections>
+                        <outlet property="addAccountBackView" destination="c7e-cM-lai" id="e1L-XS-Z67"/>
                         <outlet property="additionalTopicTxt" destination="5kM-pE-6nN" id="Hha-2g-IzU"/>
                         <outlet property="applyCouponBackView" destination="IUD-z3-dkE" id="Tgk-0C-6gp"/>
                         <outlet property="applyCouponTxt" destination="gYa-Ed-igO" id="9Gn-Xp-eLa"/>
@@ -3837,6 +3838,9 @@ schools.</string>
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJ8-l9-pjv">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWA-U3-HWq" customClass="View" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="40" y="89" width="240" height="390"/>
                             <subviews>
@@ -3869,6 +3873,9 @@ schools.</string>
                                             <real key="value" value="24"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickToAddBankAccount:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="FkV-TN-r3G"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bank account has been removed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWj-U2-rIJ">
                                     <rect key="frame" x="8" y="251" width="224" height="37.5"/>
@@ -3903,7 +3910,11 @@ schools.</string>
                     <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.6019751320422535" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="JWA-U3-HWq" secondAttribute="trailing" constant="40" id="3tj-5p-DfU"/>
+                        <constraint firstItem="hoG-Po-1l1" firstAttribute="trailing" secondItem="UJ8-l9-pjv" secondAttribute="trailing" id="6BF-WP-r3V"/>
+                        <constraint firstItem="UJ8-l9-pjv" firstAttribute="top" secondItem="hoG-Po-1l1" secondAttribute="top" id="6x0-VQ-i90"/>
+                        <constraint firstItem="UJ8-l9-pjv" firstAttribute="bottom" secondItem="hoG-Po-1l1" secondAttribute="bottom" id="Ft2-XV-cJv"/>
                         <constraint firstItem="JWA-U3-HWq" firstAttribute="leading" secondItem="c7e-cM-lai" secondAttribute="leading" constant="40" id="R9b-4v-7Nt"/>
+                        <constraint firstItem="UJ8-l9-pjv" firstAttribute="leading" secondItem="hoG-Po-1l1" secondAttribute="leading" id="qW0-hi-wve"/>
                         <constraint firstItem="JWA-U3-HWq" firstAttribute="centerY" secondItem="c7e-cM-lai" secondAttribute="centerY" id="sjp-KK-ddO"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="hoG-Po-1l1"/>
@@ -4665,7 +4676,7 @@ schools.</string>
             <objects>
                 <viewController storyboardIdentifier="QuestionListVC" id="bqC-wT-CZf" customClass="QuestionListVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EUt-qB-MDW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1050"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw6-Xv-wwr" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
@@ -4676,25 +4687,147 @@ schools.</string>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-4o-59L">
-                                <rect key="frame" x="0.0" y="60" width="320" height="990"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="1340"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-zl-xux">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="978.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1283"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TmI-te-slQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="303.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yn-af-n1Z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_side-menu_topimage" translatesAutoresizingMaskIntoConstraints="NO" id="0Ha-O2-J7i">
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile" translatesAutoresizingMaskIntoConstraints="NO" id="9Dr-hG-fUd" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
+                                                                <rect key="frame" x="110" y="30" width="100" height="100"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="kRR-Dl-g6W"/>
+                                                                    <constraint firstAttribute="height" constant="100" id="oz0-ky-lHU"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="50"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awg-BI-RbX" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                                                <rect key="frame" x="180" y="100" width="30" height="30"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="gJi-Na-0uF"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="nj9-WT-dCi"/>
+                                                                </constraints>
+                                                                <state key="normal" image="ic_camera"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="15"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="9Dr-hG-fUd" firstAttribute="centerY" secondItem="2Yn-af-n1Z" secondAttribute="centerY" id="0uI-tO-7T0"/>
+                                                            <constraint firstAttribute="trailing" secondItem="0Ha-O2-J7i" secondAttribute="trailing" id="2Zv-P4-tW3"/>
+                                                            <constraint firstItem="9Dr-hG-fUd" firstAttribute="centerX" secondItem="2Yn-af-n1Z" secondAttribute="centerX" id="4KG-Ed-xqt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="0Ha-O2-J7i" secondAttribute="bottom" id="6xG-R3-Iir"/>
+                                                            <constraint firstItem="0Ha-O2-J7i" firstAttribute="leading" secondItem="2Yn-af-n1Z" secondAttribute="leading" id="NXS-VX-8J5"/>
+                                                            <constraint firstItem="0Ha-O2-J7i" firstAttribute="top" secondItem="2Yn-af-n1Z" secondAttribute="top" id="UYE-7N-t18"/>
+                                                            <constraint firstItem="Awg-BI-RbX" firstAttribute="bottom" secondItem="9Dr-hG-fUd" secondAttribute="bottom" id="VKN-V4-8sZ"/>
+                                                            <constraint firstAttribute="height" constant="160" id="csU-RV-lub"/>
+                                                            <constraint firstItem="Awg-BI-RbX" firstAttribute="trailing" secondItem="9Dr-hG-fUd" secondAttribute="trailing" id="rFU-Ng-J7M"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl1-Zu-2CN">
+                                                        <rect key="frame" x="0.0" y="160" width="320" height="143.5"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-8l-TDs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                                                <color key="backgroundColor" white="1" alpha="0.2012521404" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="2" id="iFG-K5-NWF"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb6-yG-YKs">
+                                                                <rect key="frame" x="15" y="20" width="38" height="22.5"/>
+                                                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBs-BG-5PK" customClass="View" customModule="GradGab" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="58.5" width="290" height="80"/>
+                                                                <subviews>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yts-ow-2TV" customClass="TextView" customModule="GradGab" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="5" width="274" height="70"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderColorTypeAdapter">
+                                                                                <integer key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Maximum 280 characters."/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="0.2048373288" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="Yts-ow-2TV" firstAttribute="leading" secondItem="MBs-BG-5PK" secondAttribute="leading" constant="8" id="2FK-VK-mqZ"/>
+                                                                    <constraint firstAttribute="height" constant="80" id="DBi-0U-tnQ"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Yts-ow-2TV" secondAttribute="bottom" constant="5" id="PrD-Yh-zVy"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Yts-ow-2TV" secondAttribute="trailing" constant="8" id="Zg8-5P-g4T"/>
+                                                                    <constraint firstItem="Yts-ow-2TV" firstAttribute="top" secondItem="MBs-BG-5PK" secondAttribute="top" constant="5" id="oX0-W4-h6n"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3w-UL-d81">
+                                                                <rect key="frame" x="0.0" y="141.5" width="320" height="2"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="2" id="hLz-pi-1sX"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="e3w-UL-d81" firstAttribute="leading" secondItem="gl1-Zu-2CN" secondAttribute="leading" id="DDi-up-keU"/>
+                                                            <constraint firstItem="6qH-8l-TDs" firstAttribute="top" secondItem="gl1-Zu-2CN" secondAttribute="top" id="EsL-2y-fbR"/>
+                                                            <constraint firstItem="6qH-8l-TDs" firstAttribute="leading" secondItem="gl1-Zu-2CN" secondAttribute="leading" id="LXW-No-3JT"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6qH-8l-TDs" secondAttribute="trailing" id="M21-Ih-WAx"/>
+                                                            <constraint firstItem="Sb6-yG-YKs" firstAttribute="leading" secondItem="gl1-Zu-2CN" secondAttribute="leading" constant="15" id="Mtp-Mm-ayS"/>
+                                                            <constraint firstAttribute="trailing" secondItem="e3w-UL-d81" secondAttribute="trailing" id="WWs-uM-mso"/>
+                                                            <constraint firstAttribute="trailing" secondItem="MBs-BG-5PK" secondAttribute="trailing" constant="15" id="aSc-Lv-cdb"/>
+                                                            <constraint firstItem="MBs-BG-5PK" firstAttribute="leading" secondItem="gl1-Zu-2CN" secondAttribute="leading" constant="15" id="bB9-FG-nkk"/>
+                                                            <constraint firstItem="Sb6-yG-YKs" firstAttribute="top" secondItem="gl1-Zu-2CN" secondAttribute="top" constant="20" id="coC-Ge-El8"/>
+                                                            <constraint firstAttribute="bottom" secondItem="e3w-UL-d81" secondAttribute="bottom" id="j5f-mY-Qbx"/>
+                                                            <constraint firstItem="MBs-BG-5PK" firstAttribute="top" secondItem="Sb6-yG-YKs" secondAttribute="bottom" constant="16" id="l7n-Qp-Wla"/>
+                                                            <constraint firstAttribute="bottom" secondItem="MBs-BG-5PK" secondAttribute="bottom" constant="5" id="sNU-Xi-1xZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What year do you anticipate starting school? *" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQJ-hY-FZD">
-                                                <rect key="frame" x="15" y="15" width="290" height="42"/>
+                                                <rect key="frame" x="15" y="319.5" width="290" height="42"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUh-aT-Dmc" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="67" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="371.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-o1-nK1">
                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4726,20 +4859,20 @@ schools.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planned Major *" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Mt-1Pn">
-                                                <rect key="frame" x="15" y="135" width="290" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Major *" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Mt-1Pn">
+                                                <rect key="frame" x="15" y="439.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdT-VU-vBp" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="166" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="470.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1kB-Jv-mHQ">
                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4773,7 +4906,7 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-0c-Qxc">
-                                                <rect key="frame" x="0.0" y="214" width="320" height="101"/>
+                                                <rect key="frame" x="0.0" y="518.5" width="320" height="101"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opf-tW-ii7">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
@@ -4791,7 +4924,7 @@ schools.</string>
                                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                                         </userDefinedRuntimeAttributes>
@@ -4842,19 +4975,19 @@ schools.</string>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Languages do you speak other than English?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUS-Bp-6SK">
-                                                <rect key="frame" x="15" y="335" width="290" height="42"/>
+                                                <rect key="frame" x="15" y="639.5" width="290" height="42"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDz-9h-fWS" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="387" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="691.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oGo-2h-QeF">
                                                         <rect key="frame" x="15" y="7" width="234" height="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
@@ -4888,13 +5021,13 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you identify (Ethnicity) ?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21d-0c-bv4">
-                                                <rect key="frame" x="15" y="455" width="290" height="21"/>
+                                                <rect key="frame" x="15" y="759.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMO-EG-t53" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="486" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="790.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-5v-q4j">
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4905,14 +5038,27 @@ schools.</string>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholderColorString" value="example@mail.com"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-0b-LtK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="48"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                        <state key="normal" image="back (2)"/>
+                                                        <connections>
+                                                            <action selector="clickToEthinity:" destination="bqC-wT-CZf" eventType="touchUpInside" id="94s-dz-NN0"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.396484375" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bBg-0b-LtK" secondAttribute="trailing" id="Dbk-LP-CgB"/>
                                                     <constraint firstItem="Oe0-5v-q4j" firstAttribute="top" secondItem="vMO-EG-t53" secondAttribute="top" constant="7" id="Sxm-Nr-94p"/>
                                                     <constraint firstAttribute="trailing" secondItem="Oe0-5v-q4j" secondAttribute="trailing" constant="17" id="Wb4-kW-ROv"/>
                                                     <constraint firstAttribute="height" constant="48" id="fkk-nN-WgR"/>
                                                     <constraint firstAttribute="bottom" secondItem="Oe0-5v-q4j" secondAttribute="bottom" constant="7" id="ktJ-cu-5LU"/>
                                                     <constraint firstItem="Oe0-5v-q4j" firstAttribute="leading" secondItem="vMO-EG-t53" secondAttribute="leading" constant="15" id="lZP-wz-TSZ"/>
+                                                    <constraint firstItem="bBg-0b-LtK" firstAttribute="leading" secondItem="vMO-EG-t53" secondAttribute="leading" id="nkA-Wf-iYT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bBg-0b-LtK" secondAttribute="bottom" id="qJ5-Fg-ExE"/>
+                                                    <constraint firstItem="bBg-0b-LtK" firstAttribute="top" secondItem="vMO-EG-t53" secondAttribute="top" id="w6R-K0-oNh"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -4921,13 +5067,13 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores SAT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWz-Z7-GOd">
-                                                <rect key="frame" x="15" y="554" width="290" height="21"/>
+                                                <rect key="frame" x="15" y="858.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heb-Py-Dm9" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="585" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="889.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="75l-bf-RVE">
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4954,13 +5100,13 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores ACT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-cD-e01">
-                                                <rect key="frame" x="15" y="653" width="290" height="21"/>
+                                                <rect key="frame" x="15" y="957.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-HU-ZCQ" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="684" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="988.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nP6-1D-5jD">
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -4987,13 +5133,13 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPA" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mg-Tg-9Zp">
-                                                <rect key="frame" x="15" y="752" width="290" height="21"/>
+                                                <rect key="frame" x="15" y="1056.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oj9-Si-Omd" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="783" width="290" height="48"/>
+                                                <rect key="frame" x="15" y="1087.5" width="290" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pyE-hf-GRz">
                                                         <rect key="frame" x="15" y="7" width="258" height="34"/>
@@ -5020,7 +5166,7 @@ schools.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3D-o7-EWH" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="900.5" width="250" height="48"/>
+                                                <rect key="frame" x="35" y="1205" width="250" height="48"/>
                                                 <color key="backgroundColor" name="RedColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="lWi-m2-I7Y"/>
@@ -5039,7 +5185,7 @@ schools.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH0-97-Y9z">
-                                                <rect key="frame" x="171" y="846" width="134" height="31"/>
+                                                <rect key="frame" x="171" y="1150.5" width="134" height="31"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                 <state key="normal" title="* Mandatory Fields"/>
                                             </button>
@@ -5052,6 +5198,7 @@ schools.</string>
                                             <constraint firstItem="5mg-Tg-9Zp" firstAttribute="top" secondItem="lKm-HU-ZCQ" secondAttribute="bottom" constant="20" id="4kl-J1-DWR"/>
                                             <constraint firstItem="vMO-EG-t53" firstAttribute="leading" secondItem="lMZ-zl-xux" secondAttribute="leading" constant="15" id="4uo-Cv-EDF"/>
                                             <constraint firstItem="a3D-o7-EWH" firstAttribute="top" secondItem="yH0-97-Y9z" secondAttribute="bottom" constant="23.5" id="8cC-7S-VZi"/>
+                                            <constraint firstItem="bQJ-hY-FZD" firstAttribute="top" secondItem="TmI-te-slQ" secondAttribute="bottom" constant="16" id="AFU-xk-1bg"/>
                                             <constraint firstAttribute="trailing" secondItem="lKm-HU-ZCQ" secondAttribute="trailing" constant="15" id="Bqz-C8-5L7"/>
                                             <constraint firstItem="FUS-Bp-6SK" firstAttribute="top" secondItem="oIt-0c-Qxc" secondAttribute="bottom" constant="20" id="D5D-Vq-gpI"/>
                                             <constraint firstAttribute="bottom" secondItem="a3D-o7-EWH" secondAttribute="bottom" constant="30" id="DO9-wo-LEk"/>
@@ -5060,21 +5207,23 @@ schools.</string>
                                             <constraint firstItem="lKm-HU-ZCQ" firstAttribute="top" secondItem="sqx-cD-e01" secondAttribute="bottom" constant="10" id="Jne-w9-LPz"/>
                                             <constraint firstAttribute="trailing" secondItem="sqx-cD-e01" secondAttribute="trailing" constant="15" id="Lpe-zY-q8D"/>
                                             <constraint firstAttribute="trailing" secondItem="OUh-aT-Dmc" secondAttribute="trailing" constant="15" id="MNl-sf-iuU"/>
+                                            <constraint firstAttribute="trailing" secondItem="TmI-te-slQ" secondAttribute="trailing" id="N73-82-pCp"/>
                                             <constraint firstItem="Oj9-Si-Omd" firstAttribute="top" secondItem="5mg-Tg-9Zp" secondAttribute="bottom" constant="10" id="NuP-FT-ry6"/>
                                             <constraint firstAttribute="trailing" secondItem="oIt-0c-Qxc" secondAttribute="trailing" id="PUD-Lc-XN0"/>
                                             <constraint firstItem="sqx-cD-e01" firstAttribute="top" secondItem="heb-Py-Dm9" secondAttribute="bottom" constant="20" id="Qft-E1-bEh"/>
                                             <constraint firstItem="EWz-Z7-GOd" firstAttribute="top" secondItem="vMO-EG-t53" secondAttribute="bottom" constant="20" id="R01-Pt-w82"/>
                                             <constraint firstItem="lKm-HU-ZCQ" firstAttribute="leading" secondItem="lMZ-zl-xux" secondAttribute="leading" constant="15" id="SaR-G6-UTl"/>
                                             <constraint firstAttribute="trailing" secondItem="bQJ-hY-FZD" secondAttribute="trailing" constant="15" id="Td0-0p-fpw"/>
+                                            <constraint firstItem="TmI-te-slQ" firstAttribute="top" secondItem="lMZ-zl-xux" secondAttribute="top" id="U8O-aG-cN7"/>
                                             <constraint firstAttribute="trailing" secondItem="FUS-Bp-6SK" secondAttribute="trailing" constant="15" id="U9b-Pf-hmx"/>
                                             <constraint firstAttribute="trailing" secondItem="a3D-o7-EWH" secondAttribute="trailing" constant="35" id="UKt-IW-pvs"/>
+                                            <constraint firstItem="TmI-te-slQ" firstAttribute="leading" secondItem="lMZ-zl-xux" secondAttribute="leading" id="V2r-MB-kQH"/>
                                             <constraint firstItem="QdT-VU-vBp" firstAttribute="top" secondItem="Bal-Mt-1Pn" secondAttribute="bottom" constant="10" id="Vb8-sB-RAz"/>
                                             <constraint firstItem="21d-0c-bv4" firstAttribute="top" secondItem="HDz-9h-fWS" secondAttribute="bottom" constant="20" id="XFP-zu-w1o"/>
                                             <constraint firstItem="heb-Py-Dm9" firstAttribute="top" secondItem="EWz-Z7-GOd" secondAttribute="bottom" constant="10" id="Xcp-cs-wFj"/>
                                             <constraint firstAttribute="trailing" secondItem="21d-0c-bv4" secondAttribute="trailing" constant="15" id="Xo9-a6-mSj"/>
                                             <constraint firstAttribute="trailing" secondItem="Bal-Mt-1Pn" secondAttribute="trailing" constant="15" id="ZI7-3M-71d"/>
                                             <constraint firstItem="oIt-0c-Qxc" firstAttribute="top" secondItem="QdT-VU-vBp" secondAttribute="bottom" id="bMj-dn-j3p"/>
-                                            <constraint firstItem="bQJ-hY-FZD" firstAttribute="top" secondItem="lMZ-zl-xux" secondAttribute="top" constant="15" id="biM-vN-iaO"/>
                                             <constraint firstItem="bQJ-hY-FZD" firstAttribute="leading" secondItem="lMZ-zl-xux" secondAttribute="leading" constant="15" id="cxI-z5-0Zq"/>
                                             <constraint firstAttribute="trailing" secondItem="QdT-VU-vBp" secondAttribute="trailing" constant="15" id="dAx-bh-d5N"/>
                                             <constraint firstItem="QdT-VU-vBp" firstAttribute="leading" secondItem="lMZ-zl-xux" secondAttribute="leading" constant="15" id="e13-pi-a5e"/>
@@ -5122,9 +5271,11 @@ schools.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Kj-eh-gjz"/>
                     </view>
-                    <size key="freeformSize" width="320" height="1050"/>
+                    <size key="freeformSize" width="320" height="1400"/>
                     <connections>
                         <outlet property="actTxt" destination="nP6-1D-5jD" id="2Yz-sS-f5W"/>
+                        <outlet property="bioBackView" destination="gl1-Zu-2CN" id="WCa-ne-vzy"/>
+                        <outlet property="bioTxtView" destination="Yts-ow-2TV" id="s2L-ZM-mdG"/>
                         <outlet property="collegePathTxt" destination="xbx-BR-cYg" id="i0V-wg-gDa"/>
                         <outlet property="currentPathBackView" destination="Opf-tW-ii7" id="ya8-dF-RrQ"/>
                         <outlet property="gpaTxt" destination="pyE-hf-GRz" id="Gm3-yE-H4s"/>
@@ -5133,6 +5284,8 @@ schools.</string>
                         <outlet property="majorLbl" destination="Bal-Mt-1Pn" id="ijO-F5-DxR"/>
                         <outlet property="majorTxt" destination="1kB-Jv-mHQ" id="f7M-sl-coh"/>
                         <outlet property="navigationBar" destination="Vw6-Xv-wwr" id="qLQ-Ad-xRv"/>
+                        <outlet property="profileImgBackView" destination="2Yn-af-n1Z" id="t20-ws-ncI"/>
+                        <outlet property="profileImgView" destination="9Dr-hG-fUd" id="1T0-Yb-XGG"/>
                         <outlet property="satTxt" destination="75l-bf-RVE" id="hgP-3n-V7h"/>
                         <outlet property="startingSchoolLbl" destination="bQJ-hY-FZD" id="HuW-pI-un9"/>
                         <outlet property="startingSchoolTxt" destination="U5y-o1-nK1" id="drF-pw-x4R"/>
@@ -5140,7 +5293,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ep0-oL-xZr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3690" y="362"/>
+            <point key="canvasLocation" x="3690" y="361.26760563380282"/>
         </scene>
         <!--Interest DiscussVC-->
         <scene sceneID="27y-jv-Nqz">
@@ -5988,6 +6141,7 @@ schools.</string>
         <image name="ic_backarrow" width="11" height="17"/>
         <image name="ic_background_home" width="375" height="710"/>
         <image name="ic_callstarting" width="220.5" height="155"/>
+        <image name="ic_camera" width="16.5" height="14"/>
         <image name="ic_circle_red" width="18" height="18"/>
         <image name="ic_complete_profile" width="254" height="180"/>
         <image name="ic_correct_red" width="18" height="18"/>

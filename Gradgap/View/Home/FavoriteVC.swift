@@ -32,7 +32,7 @@ class FavoriteVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Favorites"
+        navigationBar.headerLbl.text = "Favourites"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -100,7 +100,8 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         let dict : FavoriteDataModel = favoriteListArr[indexPath.row]
-        cell.nameLbl.text = dict.name
+        let name = dict.name.components(separatedBy: " ")
+        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         cell.collegeNameLbl.text = dict.schoolName
         cell.ratinglbl.text = "\(dict.averageRating)"
         cell.ratingView.rating = dict.averageRating

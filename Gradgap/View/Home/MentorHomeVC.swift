@@ -47,6 +47,7 @@ class MentorHomeVC: UIViewController {
         if AppModel.shared.currentUser.user?.userType == 3 {
             completeProfileBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: completeProfileBackView)
+            messageLbl.isHidden = false
         }
         else {
             completeProfileBackView.isHidden = true
@@ -74,7 +75,7 @@ class MentorHomeVC: UIViewController {
         noDataLbl.attributedText = attributedString1
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 252
+        bookingTblViewHeightConstraint.constant = 200
         
         bookingListVM.delegate = self
         bookingActionVM.delegate = self
@@ -129,7 +130,7 @@ extension MentorHomeVC : HomeBookingListDelegate {
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 140
+            bookingTblViewHeightConstraint.constant = 200
         }
         messageLbl.isHidden = bookingArr.count == 0 ? false : true
     
@@ -164,7 +165,10 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         
         let dict : BookingListDataModel = bookingArr[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-        cell.nameLbl.text = dict.name
+        
+        let name = dict.name.components(separatedBy: " ")
+        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        
         cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
         
         cell.labelBackView.backgroundColor = AppColor
