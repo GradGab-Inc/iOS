@@ -16,7 +16,7 @@ protocol RatingDelegate {
 struct RatingViewModel {
     var delegate: RatingDelegate?
     
-    func notificationList(request : RatingAddRequest) {
+    func addRatingReview(request : RatingAddRequest) {
         GCD.RATING.add.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.RATING.add, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty

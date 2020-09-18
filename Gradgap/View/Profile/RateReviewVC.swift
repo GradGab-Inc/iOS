@@ -16,6 +16,8 @@ class RateReviewVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var callRateView: FloatRatingView!
     @IBOutlet weak var favoriteBtn: Button!
+    @IBOutlet weak var bottomEmailLbl: UILabel!
+    @IBOutlet weak var submitBtn: Button!
     
     @IBOutlet weak var likeCollectionView: UICollectionView!
     @IBOutlet weak var interestCollectionView: UICollectionView!
@@ -25,6 +27,9 @@ class RateReviewVC: UIViewController {
     var selectLike : Int = 0
     var selectInterest : Int = 0
     var selectCall : Int = 0
+    var isShowRating : Bool = false
+    var ratingVM : RatingViewModel = RatingViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +50,14 @@ class RateReviewVC: UIViewController {
         likeCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         interestCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         callCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
+        
+        ratingVM.delegate = self
+        
+        if isShowRating {
+            favoriteBtn.isHidden = true
+            submitBtn.setTitle("Ok", for: .normal)
+            callRateView.isUserInteractionEnabled = false
+        }
     }
       
     //MARK: - Button Click
@@ -52,16 +65,29 @@ class RateReviewVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func clickToAddFavoites(_ sender: Any) {
+    @IBAction func clickToAddFavoites(_ sender: UIButton) {
         
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        
+        if isShowRating {
+            self.navigationController?.popViewController(animated: true)
+        }
+        else {
+            let request = RatingAddRequest(mentorRef: "", bookingRef: "", stars: Int(callRateView.rating), pursueThisSchool: (selectLike + 1), moreInterestedInSchool: (selectInterest + 1), insightful: (selectCall + 1))
+            ratingVM.addRatingReview(request: request)
+        }
     }
     
     deinit {
         log.success("RateReviewVC Memory deallocated!")/
+    }
+}
+
+
+extension RateReviewVC : RatingDelegate {
+    func didRecieveRatingAddResponse(response: NotificationResponse) {
+        
     }
 }
 
@@ -96,7 +122,7 @@ extension RateReviewVC : UICollectionViewDelegate, UICollectionViewDataSource, U
             }
             
             cell.lbl.text = arr[indexPath.row]
-            if selectLike == indexPath.row {
+            if selectInterest == indexPath.row {
                 cell.backView.backgroundColor = RedColor
                 cell.backView.alpha = 1
             }
@@ -113,7 +139,7 @@ extension RateReviewVC : UICollectionViewDelegate, UICollectionViewDataSource, U
             }
             
             cell.lbl.text = arr[indexPath.row]
-            if selectLike == indexPath.row {
+            if selectCall == indexPath.row {
                 cell.backView.backgroundColor = RedColor
                 cell.backView.alpha = 1
             }
@@ -127,6 +153,9 @@ extension RateReviewVC : UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isShowRating {
+            return
+        }
         if collectionView == likeCollectionView {
             selectLike = indexPath.row
             likeCollectionView.reloadData()

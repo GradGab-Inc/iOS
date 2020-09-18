@@ -90,6 +90,12 @@ struct API {
         static let list                   = BASE_URL + "appDetails/list"
         static let listFaq                = BASE_URL + "appDetails/listFaqs"
     }
+    
+    struct BANK {
+        static let add                    = BASE_URL + "bank/add"
+        static let view                   = BASE_URL + "bank/view"
+        static let delete                 = BASE_URL + "bank/delete"
+    }
 }
 
 //MARK:- GCD
@@ -165,6 +171,12 @@ struct GCD{
     struct APPDETAIL {
         static let list = DispatchQueue(label: "com.app.APPDETAIL_list", qos: .background, attributes: .concurrent) //1
         static let listFaq = DispatchQueue(label: "com.app.APPDETAIL_listFaq", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct BANK {
+        static let add = DispatchQueue(label: "com.app.BANK_add", qos: .background, attributes: .concurrent) //1
+        static let view = DispatchQueue(label: "com.app.BANK_view", qos: .background, attributes: .concurrent) //1
+        static let delete = DispatchQueue(label: "com.app.BANK_delete", qos: .background, attributes: .concurrent) //1
     }
     
 }

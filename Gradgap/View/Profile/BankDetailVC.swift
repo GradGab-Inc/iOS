@@ -125,7 +125,6 @@ class BankDetailVC: UploadImageVC {
         }
         else {
             //Add Bank Details
-
             var param = [String : Any]()
             param["lastDigitsOfAccountNo"] = accountNumber.suffix(4)
             param["accountHolderName"] = holderName
@@ -138,13 +137,13 @@ class BankDetailVC: UploadImageVC {
             param["postalCode"] = postalCode
             param["gender"] = gender
             param["ssnLastFour"] = ssn
-            param["newEmail"] = email
+ //           param["newEmail"] = email
             if PLATFORM.isSimulator {
                  param["ip"] = "192.168.0.102"
-            }else{
+            } else {
                 param["ip"] = getMyIpAddress()
             }
-            param["url"] = "www.abc.com"
+//            param["url"] = "www.abc.com"
             param["routing_number"] = routingNumber
             
             let bankAccount = STPBankAccountParams()

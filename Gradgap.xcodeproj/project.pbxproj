@@ -613,12 +613,13 @@
 				8824D90824EE7CA00041F7CE /* MentorDetailViewModel.swift */,
 				88248B7F24EF99800094C375 /* MenteeDetailViewModel.swift */,
 				88283334250368BD00C8739C /* RatingViewModel.swift */,
-				882378B1250388D8006AEA0E /* Payment */,
 				88207232250CA0E400813299 /* TransactionListViewModel.swift */,
 				88207234250CA0F400813299 /* TransactionDetailViewModel.swift */,
 				88375A8F250F339C0002923A /* ContactAdminViewModel.swift */,
 				88375A90250F33A00002923A /* FaqViewModel.swift */,
 				88375A9B250F36C70002923A /* AboutViewModel.swift */,
+				88269E9D2514C15D00AE36DF /* Bank */,
+				882378B1250388D8006AEA0E /* Payment */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -636,6 +637,13 @@
 				88375A96250F33FE0002923A /* Faq */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		88269E9D2514C15D00AE36DF /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bank;
 			sourceTree = "<group>";
 		};
 		882A86F724FF722700190C0F /* Profile */ = {

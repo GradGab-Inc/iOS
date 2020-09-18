@@ -4515,7 +4515,7 @@
             <objects>
                 <viewController storyboardIdentifier="RateReviewVC" id="Xrx-y1-6YG" customClass="RateReviewVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Akd-xI-uXv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="950"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTx-jm-eUb" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
@@ -4526,7 +4526,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-1N-rwW">
-                                <rect key="frame" x="0.0" y="60" width="320" height="890"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="940"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-u6-Ld6">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="899.5"/>
@@ -4839,8 +4839,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UMZ-Om-Pau"/>
                     </view>
-                    <size key="freeformSize" width="320" height="950"/>
+                    <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="bottomEmailLbl" destination="JMy-4e-gJa" id="6i4-lM-kIT"/>
                         <outlet property="callCollectionView" destination="qcK-H7-AnB" id="Qkq-RS-Yh9"/>
                         <outlet property="callRateView" destination="Dqr-uB-lbA" id="k3I-YG-ERq"/>
                         <outlet property="favoriteBtn" destination="uaj-Sn-giZ" id="4kR-je-o0M"/>
@@ -4849,6 +4850,7 @@
                         <outlet property="nameLbl" destination="oTl-qe-JZJ" id="npa-e6-Ryb"/>
                         <outlet property="navigationBar" destination="cTx-jm-eUb" id="5ki-om-Tv0"/>
                         <outlet property="profileImgView" destination="DnM-RB-B3B" id="QYX-Ge-r0g"/>
+                        <outlet property="submitBtn" destination="ro5-qp-85g" id="ap0-yC-TfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSA-oT-5p4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
