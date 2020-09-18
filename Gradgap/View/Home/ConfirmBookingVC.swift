@@ -84,7 +84,7 @@ class ConfirmBookingVC: UIViewController {
         cardListVM.getCardList()
         
         if isFromFavorite {
-            backToHomeBtn.setTitle("Back to Favourites", for: .normal)
+            backToHomeBtn.setTitle("Back to Favorites", for: .normal)
         }
         else {
             backToHomeBtn.setTitle("Back to Home", for: .normal)

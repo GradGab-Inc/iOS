@@ -38,10 +38,10 @@ class SettingVC: UIViewController {
         tblView.register(UINib(nibName: "SideMenuTVC", bundle: nil), forCellReuseIdentifier: "SideMenuTVC")
         switchProfileVM.delegate = self
         if AppModel.shared.currentUser.user?.userType == 1 {
-            switchBtn.setTitle("Swith to Mentor App", for: .normal)
+            switchBtn.setTitle("Switch to Mentor App", for: .normal)
         }
         else {
-            switchBtn.setTitle("Swith to Mentee App", for: .normal)
+            switchBtn.setTitle("Switch to Mentee App", for: .normal)
         }
     }
     
