@@ -82,7 +82,7 @@ class BankDetailVC: UploadImageVC {
         DatePickerManager.shared.showPicker(title: "Select Gender", selected: "", strings: ["Male", "Female"]) { [weak self](gender, index, success) in
             if gender != nil {
                 self?.genderTxt.text = gender
-                selectedGender = index
+                self?.selectedGender = index
             }
             self?.view.endEditing(true)
         }

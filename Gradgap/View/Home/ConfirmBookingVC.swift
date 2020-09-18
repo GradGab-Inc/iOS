@@ -155,8 +155,8 @@ class ConfirmBookingVC: UIViewController {
     }
 
     @IBAction func clickToApplyCoupon(_ sender: Any) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
