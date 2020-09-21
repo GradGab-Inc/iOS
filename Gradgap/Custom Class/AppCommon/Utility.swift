@@ -515,16 +515,16 @@ func getCountryList(_ type : Int) -> [String]
         
         let countries = json["countries"] as! [[String:Any]]
         
-        if type == 1 {
-            for item in countries {
-                COUNTRY_ARRAY.append(String(item["phoneCode"] as! Int))
-            }
-        }
-        else {
+//        if type == 1 {
+//            for item in countries {
+//                COUNTRY_ARRAY.append(String(item["phoneCode"] as! Int))
+//            }
+//        }
+//        else {
             for item in countries {
                 COUNTRY_ARRAY.append(item["name"] as! String)
             }
-        }
+//        }
         
         return COUNTRY_ARRAY
     }
@@ -533,6 +533,51 @@ func getCountryList(_ type : Int) -> [String]
     }
     return [String]()
 }
+
+func getCountryCode(_ index : Int) -> String
+{
+    let url = Bundle.main.url(forResource: "countries", withExtension: "json")!
+    do {
+        let jsonData = try Data(contentsOf: url)
+        let json = try JSONSerialization.jsonObject(with: jsonData) as! [String:Any]
+        
+        let countries = json["countries"] as! [[String:Any]]
+        
+        return countries[index]["sortname"] as! String
+    }
+    catch {
+        print(error)
+    }
+    return String()
+}
+
+func getCurrencyList() -> [String]
+{
+    let url = Bundle.main.url(forResource: "currency", withExtension: "json")!
+    do {
+        var COUNTRY_ARRAY : [String] = [String]()
+        let jsonData = try Data(contentsOf: url)
+        let json = try JSONSerialization.jsonObject(with: jsonData) as! [String:Any]
+        
+        let currency = json as! [String:Any]
+        
+        for (key, value) in currency {
+            print(key, value)
+            
+            if let person = value as? [String:Any] {
+               print(person["code"] as! String)
+               COUNTRY_ARRAY.append(person["code"] as! String)
+            }
+        
+        }
+        return COUNTRY_ARRAY
+    }
+    catch {
+        print(error)
+    }
+    return [String]()
+}
+
 
 func getWeekDay(_ tag : Int) -> String {
     switch tag {

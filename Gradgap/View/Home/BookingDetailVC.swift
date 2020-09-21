@@ -39,7 +39,7 @@ class BookingDetailVC: UIViewController {
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
     var selectedDate = Date()
     var selectedStartDate = Date()
-    
+    var isFromTransaction : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

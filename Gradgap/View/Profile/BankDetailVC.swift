@@ -15,7 +15,10 @@ class BankDetailVC: UploadImageVC {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var bankNameTxt: UITextField!
     @IBOutlet weak var holderNameTxt: UITextField!
+    @IBOutlet weak var firstNameTxt: UITextField!
+    @IBOutlet weak var lastNameTxt: UITextField!
     @IBOutlet weak var accountNumberTxt: UITextField!
+    @IBOutlet weak var dobTxt: UITextField!
     @IBOutlet weak var routingNumberTxt: UITextField!
     @IBOutlet weak var address1Txt: UITextField!
     @IBOutlet weak var address2Txt: UITextField!
@@ -23,6 +26,8 @@ class BankDetailVC: UploadImageVC {
     @IBOutlet weak var stateTxt: UITextField!
     @IBOutlet weak var postalCodeTxt: UITextField!
     @IBOutlet weak var countryTxt: UITextField!
+    @IBOutlet weak var currencyTxt: UITextField!
+    @IBOutlet weak var contactNumberTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var ssnTxt: UITextField!
     @IBOutlet weak var genderTxt: UITextField!
@@ -34,6 +39,8 @@ class BankDetailVC: UploadImageVC {
     var backImage : UIImage = UIImage()
     var addBankDetailVM : BankDetailAddViewModel = BankDetailAddViewModel()
     var selectedGender : Int = -1
+    var selectedCountry : String = String()
+    var birthDate : Date!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +95,44 @@ class BankDetailVC: UploadImageVC {
         }
     }
     
+    @IBAction func clickToSelectCountry(_ sender: Any) {
+        DatePickerManager.shared.showPicker(title: "Select Country", selected: "", strings: getCountryList(0)) { [weak self](country, index, success) in
+            if country != nil {
+                self?.countryTxt.text = country
+                self?.selectedCountry = getCountryCode(index)
+            }
+            self?.view.endEditing(true)
+        }
+    }
+    
+    @IBAction func clickToSelectCurrency(_ sender: Any) {
+        DatePickerManager.shared.showPicker(title: "Select Currency", selected: "", strings: getCurrencyList()) { [weak self](currency, index, success) in
+            if currency != nil {
+                self?.currencyTxt.text = currency
+            }
+            self?.view.endEditing(true)
+        }
+    }
+    
+    
+    @IBAction func clickToDOB(_ sender: Any) {
+        self.view.endEditing(true)
+        if birthDate == nil
+        {
+            birthDate = Date()
+        }
+        let maxDate : Date = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
+        DatePickerManager.shared.showPicker(title: "select_dob", selected: birthDate, min: nil, max: maxDate) { (date, cancel) in
+            if !cancel && date != nil {
+                self.birthDate = date!
+                self.dobTxt.text = getDateStringFromDate(date: self.birthDate, format: "dd/MM/yyyy")
+            }
+        }
+    }
+    
+    
     @IBAction func clickToSave(_ sender: Any) {
-        guard let bankName = bankNameTxt.text, let holderName = holderNameTxt.text, let accountNumber = accountNumberTxt.text , let routingNumber = routingNumberTxt.text ,let address1 = address1Txt.text, let address2 = address2Txt.text, let city = cityTxt.text, let state = stateTxt.text, let postalCode = postalCodeTxt.text, let country = countryTxt.text, let email = emailTxt.text, let ssn = ssnTxt.text, let gender = genderTxt.text else {
+        guard let bankName = bankNameTxt.text, let fname = firstNameTxt.text, let lname = lastNameTxt.text, let holderName = holderNameTxt.text, let accountNumber = accountNumberTxt.text, let dob = dobTxt.text, let routingNumber = routingNumberTxt.text ,let address1 = address1Txt.text, let address2 = address2Txt.text, let city = cityTxt.text, let state = stateTxt.text, let postalCode = postalCodeTxt.text, let country = countryTxt.text, let contact = contactNumberTxt.text, let email = emailTxt.text, let ssn = ssnTxt.text, let gender = genderTxt.text, let currency = currencyTxt.text else {
             return
         }
         if bankName.trimmed.count == 0 {
@@ -98,8 +141,17 @@ class BankDetailVC: UploadImageVC {
         else if holderName.trimmed.count == 0 {
             displayToast("Please enter your account holder name")
         }
+        else if fname.trimmed.count == 0 {
+            displayToast("Please enter your first name")
+        }
+        else if lname.trimmed.count == 0 {
+            displayToast("Please enter your last name")
+        }
         else if accountNumber.trimmed.count == 0 {
             displayToast("Please enter your account number")
+        }
+        else if dob.trimmed.count == 0 {
+            displayToast("Please select your date of birth")
         }
         else if routingNumber.trimmed.count == 0 {
             displayToast("Please enter your account routing number")
@@ -119,8 +171,14 @@ class BankDetailVC: UploadImageVC {
         else if postalCode.trimmed.count == 0 {
             displayToast("Please enter your postal code")
         }
-        else if country.trimmed.count == 0 {
-            displayToast("Please enter your country")
+        else if country.trimmed.count == 0 || selectedCountry == "" {
+            displayToast("Please select your country")
+        }
+        else if contact.trimmed.count == 0 {
+            displayToast("Please enter your contact number")
+        }
+        else if currency.trimmed.count == 0 {
+            displayToast("Please select your currency")
         }
         else if email.trimmed.count == 0 {
             displayToast("Please enter your email")
@@ -139,46 +197,23 @@ class BankDetailVC: UploadImageVC {
         }
         else {
             //Add Bank Details
-            var param = [String : Any]()
-//            param["lastDigitsOfAccountNo"] = accountNumber.suffix(4)
-//            param["accountHolderName"] = holderName
-//            param["bankName"] = bankName
-//            param["country"] = country
-//            param["state"] = state
-//            param["city"] = city
-//            param["line1"] = address1
-//            param["line2"] = address2
-//            param["postalCode"] = postalCode
-//            param["gender"] = gender
-//            param["ssnLastFour"] = ssn
-// //           param["newEmail"] = email
-//            if PLATFORM.isSimulator {
-//                 param["ip"] = "192.168.0.102"
-//            } else {
-//                param["ip"] = getMyIpAddress()
-//            }
-////            param["url"] = "www.abc.com"
-            param["routing_number"] = routingNumber
-            
+
             let bankAccount = STPBankAccountParams()
             bankAccount.routingNumber = routingNumber
             bankAccount.accountNumber = accountNumber
-            bankAccount.country = country
-            bankAccount.currency = "usd"
+            bankAccount.country = selectedCountry
+            bankAccount.currency = currencyTxt.text?.trimmed
             bankAccount.accountHolderName = holderName
             bankAccount.accountHolderType = .individual
             STPAPIClient.shared().createToken(withBankAccount: bankAccount) { (token: STPToken?, error) in
                 guard let token = token, error == nil else {
-                    // Present error to user...
-                    //printData("Error in Token Generation")
                     showAlert("Error", message: error!.localizedDescription) {
                         
                     }
                     return
                 }
- //               param["stripeToken"] = token.tokenId
                 
-                let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: country, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: (self.selectedGender + 1), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId)
+                let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: self.selectedCountry, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: (self.selectedGender + 1), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId,firstName: fname, lastName: lname, phone: contact, day: getDateStringFromDate(date: self.birthDate, format: "dd"), month: getDateStringFromDate(date: self.birthDate, format: "MM"), year: getDateStringFromDate(date: self.birthDate, format: "yyyy"))
                 
                 let imageData = sainiCompressImage(image: self.frontImage)
                 let imageData1 = sainiCompressImage(image: self.backImage)

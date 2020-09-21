@@ -51,6 +51,7 @@
 		88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207232250CA0E400813299 /* TransactionListViewModel.swift */; };
 		88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207234250CA0F400813299 /* TransactionDetailViewModel.swift */; };
 		88207237250CA2C700813299 /* TransactionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207236250CA2C700813299 /* TransactionListModel.swift */; };
+		88220CDD2518708B0078A4F9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 88220CDC2518708A0078A4F9 /* countries.json */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
 		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
 		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
@@ -118,6 +119,7 @@
 		88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9B250F36C70002923A /* AboutViewModel.swift */; };
 		88375A9F250F36E00002923A /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9E250F36E00002923A /* AboutResponse.swift */; };
 		883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A4198250F93F1000C35E7 /* EarningViewModel.swift */; };
+		883CFEF82518ADD000177D34 /* currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 883CFEF72518ADCF00177D34 /* currency.json */; };
 		88462C0924FF9831000D0BE5 /* MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0824FF9831000D0BE5 /* MyEarningVC.swift */; };
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
@@ -285,6 +287,7 @@
 		88207232250CA0E400813299 /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
 		88207234250CA0F400813299 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
 		88207236250CA2C700813299 /* TransactionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModel.swift; sourceTree = "<group>"; };
+		88220CDC2518708A0078A4F9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
 		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
 		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
@@ -353,6 +356,7 @@
 		88375A9B250F36C70002923A /* AboutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		88375A9E250F36E00002923A /* AboutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
 		883A4198250F93F1000C35E7 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
+		883CFEF72518ADCF00177D34 /* currency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currency.json; sourceTree = "<group>"; };
 		88462C0824FF9831000D0BE5 /* MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningVC.swift; sourceTree = "<group>"; };
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
@@ -841,6 +845,8 @@
 				88AEE88224D15A78002225E9 /* Validation.swift */,
 				88AEE88524D15A78002225E9 /* Utility.swift */,
 				88AEE88724D15A78002225E9 /* Preference.swift */,
+				88220CDC2518708A0078A4F9 /* countries.json */,
+				883CFEF72518ADCF00177D34 /* currency.json */,
 			);
 			path = AppCommon;
 			sourceTree = "<group>";
@@ -1188,6 +1194,7 @@
 				88F95A8824E104C900DFD0E7 /* BookingHeaderTVC.xib in Resources */,
 				22D64A0E24D149CD006C37FD /* Assets.xcassets in Resources */,
 				88233E8B2510CB3900718C81 /* SplashScreen.storyboard in Resources */,
+				883CFEF82518ADD000177D34 /* currency.json in Resources */,
 				88F4A21424D986DB00C780CB /* BookChatCVC.xib in Resources */,
 				88FE979B24E3BDB2007A9352 /* CalenderListTVC.xib in Resources */,
 				8806B5BE24D945500005FDCE /* FilterTVC.xib in Resources */,
@@ -1196,6 +1203,7 @@
 				880248E324D2C8E6005539B5 /* HomeTVC.xib in Resources */,
 				882E44FE24F4EB980012FFBF /* GoogleService-Info.plist in Resources */,
 				88F4A20E24D973E200C780CB /* JoinCallView.xib in Resources */,
+				88220CDD2518708B0078A4F9 /* countries.json in Resources */,
 				88F8670824DA6B99002F603C /* ReuseNavigationBar.xib in Resources */,
 				881690DF24D2820E00EE427E /* MADE Tommy Soft Regular PERSONAL USE.otf in Resources */,
 				88F56D5E24E5030A00C25DCA /* SetAvailabilityTVC.xib in Resources */,
