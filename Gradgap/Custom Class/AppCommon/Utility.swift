@@ -570,7 +570,7 @@ func getCurrencyList() -> [String]
             }
         
         }
-        return COUNTRY_ARRAY
+        return COUNTRY_ARRAY.sorted()
     }
     catch {
         print(error)

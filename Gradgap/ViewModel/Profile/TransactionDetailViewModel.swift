@@ -10,7 +10,7 @@ import Foundation
 import SainiUtils
 
 protocol TransactionDetailDelegate {
-    func didRecieveTransactionDetailResponse(response: MentorDetailModel)
+    func didRecieveTransactionDetailResponse(response: BookingDetailModel)
 }
 
 struct TransactionDetailViewModel {
@@ -21,7 +21,7 @@ struct TransactionDetailViewModel {
             APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.TRANSACTION.detail, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(MentorDetailModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(BookingDetailModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveTransactionDetailResponse(response: success.self)

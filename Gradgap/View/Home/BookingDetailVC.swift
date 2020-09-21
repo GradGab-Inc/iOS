@@ -39,7 +39,9 @@ class BookingDetailVC: UIViewController {
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
     var selectedDate = Date()
     var selectedStartDate = Date()
+    
     var isFromTransaction : Bool = false
+    var transactionDetailVM : TransactionDetailViewModel = TransactionDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +68,17 @@ class BookingDetailVC: UIViewController {
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
         
-        createBookingVM.delegate = self
-        addToFavoriteVM.delegate = self
-        bookingDetailVM.delegate = self
-        bookingActionVM.delegate = self
-        bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        if isFromTransaction {
+            transactionDetailVM.delegate = self
+            transactionDetailVM.getTransactionDetail()
+        }
+        else {
+            createBookingVM.delegate = self
+            addToFavoriteVM.delegate = self
+            bookingDetailVM.delegate = self
+            bookingActionVM.delegate = self
+            bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+        }
         
     }
     
@@ -147,6 +155,27 @@ extension BookingDetailVC : CreateBookingDelegate {
         bookingCantCancelBackView.isHidden = true
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+    }
+}
+
+extension BookingDetailVC : TransactionDetailDelegate {
+    func didRecieveTransactionDetailResponse(response: BookingDetailModel) {
+        
+        renderDataFromTransaction()
+    }
+    
+    func renderDataFromTransaction() {
+        let name = bookingDetail.name.components(separatedBy: " ")
+        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        collegeNameLbl.text = bookingDetail.schoolName
+        rateLbl.text = "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating
+        dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
+        durationLbl.text = "\(bookingDetail.callTime) min"
+        serviceLbl.text = getCallType(bookingDetail.callType)
+        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+
+        favoriteBtn.isSelected = bookingDetail.isFavourite
     }
 }
 

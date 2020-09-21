@@ -135,7 +135,6 @@ extension MyEarningVC : EarningListDelegate {
         earningLbl.text = "$\(dataModel.data?.total?.earnings ?? 0)"
         totalBookingLbl.text = "\(dataModel.data?.total?.count ?? 0)"
     }
-    
 }
 
 //MARK: - TableView Delegate

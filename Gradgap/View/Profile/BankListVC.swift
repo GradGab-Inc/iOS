@@ -64,6 +64,9 @@ class BankListVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func clickToRemoveBankView(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     deinit {
         log.success("BankListVC Memory deallocated!")/
