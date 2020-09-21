@@ -3842,7 +3842,7 @@ schools.</string>
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWA-U3-HWq" customClass="View" customModule="GradGab" customModuleProvider="target">
-                            <rect key="frame" x="40" y="89" width="240" height="390"/>
+                            <rect key="frame" x="40" y="74" width="240" height="420"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Ok-wCp">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
@@ -3859,7 +3859,7 @@ schools.</string>
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-4L-Jk9" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="322" width="190" height="48"/>
+                                    <rect key="frame" x="25" y="312" width="190" height="48"/>
                                     <color key="backgroundColor" name="RedColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="2dN-v9-JNj"/>
@@ -3877,12 +3877,28 @@ schools.</string>
                                         <action selector="clickToAddBankAccount:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="FkV-TN-r3G"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bank account has been removed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWj-U2-rIJ">
-                                    <rect key="frame" x="8" y="251" width="224" height="37.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add a Dredit/Debit card to proceed further." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWj-U2-rIJ">
+                                    <rect key="frame" x="8" y="241" width="224" height="37.5"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K20-nG-KwB">
+                                    <rect key="frame" x="25" y="368" width="190" height="48"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="BB4-4e-Dcc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                    <state key="normal" title="Not Now">
+                                        <color key="titleColor" name="RedColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" name="AppColor"/>
                             <constraints>
@@ -3890,12 +3906,15 @@ schools.</string>
                                 <constraint firstItem="HLe-Ok-wCp" firstAttribute="top" secondItem="JWA-U3-HWq" secondAttribute="top" id="30Y-vb-YPf"/>
                                 <constraint firstItem="pTE-9T-uOO" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="20" id="3JS-j5-KDH"/>
                                 <constraint firstItem="pTE-9T-uOO" firstAttribute="top" secondItem="JWA-U3-HWq" secondAttribute="top" constant="31" id="7aH-qn-gx7"/>
-                                <constraint firstAttribute="bottom" secondItem="rbs-4L-Jk9" secondAttribute="bottom" constant="20" id="FRi-Nj-pmF"/>
+                                <constraint firstAttribute="bottom" secondItem="rbs-4L-Jk9" secondAttribute="bottom" constant="60" id="FRi-Nj-pmF"/>
                                 <constraint firstItem="rbs-4L-Jk9" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="25" id="MgR-DW-rZ3"/>
                                 <constraint firstAttribute="trailing" secondItem="pTE-9T-uOO" secondAttribute="trailing" constant="20" id="XN4-4N-wQj"/>
-                                <constraint firstItem="eWj-U2-rIJ" firstAttribute="top" secondItem="pTE-9T-uOO" secondAttribute="bottom" constant="40" id="ZKx-uF-tbA"/>
-                                <constraint firstAttribute="height" constant="390" id="b3u-q0-3JZ"/>
+                                <constraint firstItem="eWj-U2-rIJ" firstAttribute="top" secondItem="pTE-9T-uOO" secondAttribute="bottom" constant="30" id="ZKx-uF-tbA"/>
+                                <constraint firstAttribute="height" constant="420" id="b3u-q0-3JZ"/>
+                                <constraint firstAttribute="trailing" secondItem="K20-nG-KwB" secondAttribute="trailing" constant="25" id="gqn-PG-KVz"/>
                                 <constraint firstItem="HLe-Ok-wCp" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" id="jFg-WN-lw5"/>
+                                <constraint firstItem="K20-nG-KwB" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="25" id="nON-a7-w2C"/>
+                                <constraint firstItem="K20-nG-KwB" firstAttribute="top" secondItem="rbs-4L-Jk9" secondAttribute="bottom" constant="8" id="pDY-EX-ZXe"/>
                                 <constraint firstItem="eWj-U2-rIJ" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="8" id="qd9-H1-hET"/>
                                 <constraint firstAttribute="trailing" secondItem="rbs-4L-Jk9" secondAttribute="trailing" constant="25" id="u2u-xr-TaE"/>
                                 <constraint firstAttribute="trailing" secondItem="HLe-Ok-wCp" secondAttribute="trailing" id="uAX-NQ-gac"/>

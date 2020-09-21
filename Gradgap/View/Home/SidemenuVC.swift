@@ -110,7 +110,7 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         else if indexPath.row == 3
         {
             if isMentor {
-                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
+                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankListVC") as! BankListVC
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {

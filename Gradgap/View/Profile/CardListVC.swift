@@ -86,7 +86,6 @@ extension CardListVC : CardListDelegate, CardSelectDelegate {
         displayToast(response.message)
         refreshCardList()
     }
-
 }
 
 //MARK: - TableView Delegate
