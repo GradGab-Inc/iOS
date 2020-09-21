@@ -332,6 +332,97 @@ public class APIManager {
         }
     }
     
+    func MULTIPART_IS_COOL_With_ID_Pictures(_ imageData : Data,_ imageData2: Data,param: [String: Any],api: String,login: Bool, _ completion: @escaping (_ dictArr: Data?) -> Void) {
+        if !APIManager.isConnectedToNetwork()
+        {
+            APIManager().networkErrorMsg()
+            return
+        }
+        
+        DispatchQueue.main.async {
+            UIViewController.top?.view.sainiShowLoader(loaderColor: AppColors.LoaderColor)
+        }
+        var headerParams :[String : String] = [String : String]()
+        if login == true{
+            headerParams = getMultipartHeaderWithToken()
+        }
+        else{
+            headerParams = getMultipartHeader()
+        }
+        var params :[String : Any] = [String : Any] ()
+        
+        params["data"] = toJson(param)//Converting Array into JSON Object
+        log.info("PARAMS: \(Log.stats()) \(params)")/
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in params {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+            }
+            if imageData.count != 0
+            {
+                multipartFormData.append(imageData, withName: "frontImage", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
+                multipartFormData.append(imageData2, withName: "backImage", fileName: getCurrentTimeStampValue() + ".png", mimeType: "image/png")
+            }
+            
+        }, usingThreshold: UInt64.init(), to: api, method: .post
+        , headers: headerParams) { (result) in
+            switch result{
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (Progress) in
+                    log.inprocess("Upload Progress: \(Progress.fractionCompleted)")/
+                })
+                upload.responseJSON { response in
+                    
+                    DispatchQueue.main.async {
+                        UIViewController.top?.view.sainiRemoveLoader()
+                    }
+                    
+                    log.result("\(String(describing: response.result.value))")/
+                    log.ln("prettyJSON Start \n")/
+                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
+                    log.ln("prettyJSON End \n")/
+                    if let result = response.result.value as? [String:Any] {
+                        if let code = result["code"] as? Int{
+                            if(code == 100){
+                                
+                                DispatchQueue.main.async {
+                                    completion(response.data)
+                                }
+                                return
+                            }
+                            else{
+                                DispatchQueue.main.async {
+                                    completion(response.data)
+                                }
+                                if let message = result["message"] as? String{
+                                    displayToast(message)
+                                }
+                                return
+                            }
+                        }
+                        if let message = result["message"] as? String{
+                            displayToast(message)
+                            return
+                        }
+                    }
+                    if let error = response.result.error
+                    {
+                        displayToast(error.localizedDescription)
+                        return
+                    }
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+                displayToast("Server Error please check server logs.")
+                break
+            }
+        }
+    }
+    
+    
     //MARK:- I AM COOL
     func I_AM_COOL(params: [String: Any],api: String,Loader: Bool,isMultipart:Bool,_ completion: @escaping (_ dictArr: Data?) -> Void){
         if !APIManager.isConnectedToNetwork()

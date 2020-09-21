@@ -185,7 +185,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
         
     @objc func clickToSelectWeek(_ sender : UIButton) {
-        DatePickerManager.shared.showPicker(title: "Select Days", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
             if week != nil {
                 self?.availabilityListArr[sender.tag].weekDay = index
                 self?.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)

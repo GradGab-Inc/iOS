@@ -10,18 +10,18 @@ import Foundation
 import SainiUtils
 
 protocol RatingDelegate {
-    func didRecieveRatingAddResponse(response: NotificationResponse)
+    func didRecieveRatingAddResponse(response: SuccessModel)
 }
 
 struct RatingViewModel {
     var delegate: RatingDelegate?
     
-    func notificationList(request : RatingAddRequest) {
+    func addRatingReview(request : RatingAddRequest) {
         GCD.RATING.add.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.RATING.add, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(NotificationResponse.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveRatingAddResponse(response: success.self)

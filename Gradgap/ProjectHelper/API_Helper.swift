@@ -13,11 +13,11 @@ struct API {
     //Development 
     //static let BASE_URL = "http://ec2-3-14-150-71.us-east-2.compute.amazonaws.com/development/api/"
     //Staging
-//    static let BASE_URL = "http://54.197.250.33/staging/api/"
-//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
+    static let BASE_URL = "http://54.197.250.33/staging/api/"
+    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL =  "http://93404b30fa77.ngrok.io/api/"//"http://3.82.95.119/development/api/"//
-    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
+//    static let BASE_URL =  "http://e30af848b8b1.ngrok.io/api/"//"http://3.82.95.119/development/api/"//
+//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
         static let signup                 = BASE_URL + "user/signup"
@@ -89,6 +89,12 @@ struct API {
     struct APPDETAIL {
         static let list                   = BASE_URL + "appDetails/list"
         static let listFaq                = BASE_URL + "appDetails/listFaqs"
+    }
+    
+    struct BANK {
+        static let add                    = BASE_URL + "bank/add"
+        static let view                   = BASE_URL + "bank/view"
+        static let delete                 = BASE_URL + "bank/delete"
     }
 }
 
@@ -165,6 +171,12 @@ struct GCD{
     struct APPDETAIL {
         static let list = DispatchQueue(label: "com.app.APPDETAIL_list", qos: .background, attributes: .concurrent) //1
         static let listFaq = DispatchQueue(label: "com.app.APPDETAIL_listFaq", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct BANK {
+        static let add = DispatchQueue(label: "com.app.BANK_add", qos: .background, attributes: .concurrent) //1
+        static let view = DispatchQueue(label: "com.app.BANK_view", qos: .background, attributes: .concurrent) //1
+        static let delete = DispatchQueue(label: "com.app.BANK_delete", qos: .background, attributes: .concurrent) //1
     }
     
 }

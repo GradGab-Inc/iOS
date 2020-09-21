@@ -30,6 +30,10 @@ class BankDetailVC: UploadImageVC {
     @IBOutlet weak var doc1ImgView: UIImageView!
     @IBOutlet weak var doc2ImgView: UIImageView!
     
+    var frontImage : UIImage = UIImage()
+    var backImage : UIImage = UIImage()
+    var addBankDetailVM : BankDetailAddViewModel = BankDetailAddViewModel()
+    var selectedGender : Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +52,7 @@ class BankDetailVC: UploadImageVC {
     //MARK: - configUI
     func configUI() {
         documentPicGesture()
+        addBankDetailVM.delegate = self
     }
     
     private func documentPicGesture() {
@@ -55,6 +60,7 @@ class BankDetailVC: UploadImageVC {
             CameraAttachment.shared.showAttachmentActionSheet(vc: self)
             CameraAttachment.shared.imagePickedBlock = { pic in
                 self.doc1ImgView.image = pic
+                self.frontImage = pic
             }
         }
         
@@ -62,6 +68,7 @@ class BankDetailVC: UploadImageVC {
             CameraAttachment.shared.showAttachmentActionSheet(vc: self)
             CameraAttachment.shared.imagePickedBlock = { pic in
                 self.doc2ImgView.image = pic
+                self.backImage = pic
             }
         }
     }
@@ -75,6 +82,7 @@ class BankDetailVC: UploadImageVC {
         DatePickerManager.shared.showPicker(title: "Select Gender", selected: "", strings: ["Male", "Female"]) { [weak self](gender, index, success) in
             if gender != nil {
                 self?.genderTxt.text = gender
+                self?.selectedGender = index
             }
             self?.view.endEditing(true)
         }
@@ -120,31 +128,36 @@ class BankDetailVC: UploadImageVC {
         else if ssn.trimmed.count == 0 {
             displayToast("Please enter your ssn")
         }
-        else if gender.trimmed.count == 0 {
+        else if gender.trimmed.count == 0 || selectedGender == -1 {
             displayToast("Please enter your gender")
+        }
+        else if frontImage.size.height == 0 {
+            displayToast("Please select document front image")
+        }
+        else if backImage.size.height == 0 {
+            displayToast("Please select document back image")
         }
         else {
             //Add Bank Details
-
             var param = [String : Any]()
-            param["lastDigitsOfAccountNo"] = accountNumber.suffix(4)
-            param["accountHolderName"] = holderName
-            param["bankName"] = bankName
-            param["country"] = country
-            param["state"] = state
-            param["city"] = city
-            param["line1"] = address1
-            param["line2"] = address2
-            param["postalCode"] = postalCode
-            param["gender"] = gender
-            param["ssnLastFour"] = ssn
-            param["newEmail"] = email
-            if PLATFORM.isSimulator {
-                 param["ip"] = "192.168.0.102"
-            }else{
-                param["ip"] = getMyIpAddress()
-            }
-            param["url"] = "www.abc.com"
+//            param["lastDigitsOfAccountNo"] = accountNumber.suffix(4)
+//            param["accountHolderName"] = holderName
+//            param["bankName"] = bankName
+//            param["country"] = country
+//            param["state"] = state
+//            param["city"] = city
+//            param["line1"] = address1
+//            param["line2"] = address2
+//            param["postalCode"] = postalCode
+//            param["gender"] = gender
+//            param["ssnLastFour"] = ssn
+// //           param["newEmail"] = email
+//            if PLATFORM.isSimulator {
+//                 param["ip"] = "192.168.0.102"
+//            } else {
+//                param["ip"] = getMyIpAddress()
+//            }
+////            param["url"] = "www.abc.com"
             param["routing_number"] = routingNumber
             
             let bankAccount = STPBankAccountParams()
@@ -163,8 +176,13 @@ class BankDetailVC: UploadImageVC {
                     }
                     return
                 }
-                param["stripeToken"] = token.tokenId
-//                self.addBankAccount(params: param)
+ //               param["stripeToken"] = token.tokenId
+                
+                let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: country, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: (self.selectedGender + 1), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId)
+                
+                let imageData = sainiCompressImage(image: self.frontImage)
+                let imageData1 = sainiCompressImage(image: self.backImage)
+                self.addBankDetailVM.addBankDetail(request: request, imageData: imageData, imageData1: imageData1)
             }
         }
     }
@@ -218,4 +236,14 @@ class BankDetailVC: UploadImageVC {
     deinit {
         log.success("BankDetailVC Memory deallocated!")/
     }
+}
+
+
+extension BankDetailVC : BankDetailAddDelegate {
+    func didRecievedBankDetailAddData(response: SuccessModel) {
+        displayToast(response.message)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
