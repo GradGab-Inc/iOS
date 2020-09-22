@@ -250,7 +250,7 @@ public class APIManager {
         }
         
         DispatchQueue.main.async {
-            UIViewController.top?.view.sainiShowLoader(loaderColor: AppColors.LoaderColor)
+            showLoader()
         }
         var headerParams :[String : String] = [String : String]()
         if login == true{
@@ -285,7 +285,7 @@ public class APIManager {
                 upload.responseJSON { response in
                     
                     DispatchQueue.main.async {
-                        UIViewController.top?.view.sainiRemoveLoader()
+                        removeLoader()
                     }
                     
                     log.result("\(String(describing: response.result.value))")/
@@ -340,7 +340,7 @@ public class APIManager {
         }
         
         DispatchQueue.main.async {
-            UIViewController.top?.view.sainiShowLoader(loaderColor: AppColors.LoaderColor)
+            showLoader()
         }
         var headerParams :[String : String] = [String : String]()
         if login == true{
@@ -375,7 +375,7 @@ public class APIManager {
                 upload.responseJSON { response in
                     
                     DispatchQueue.main.async {
-                        UIViewController.top?.view.sainiRemoveLoader()
+                        removeLoader()
                     }
                     
                     log.result("\(String(describing: response.result.value))")/
@@ -433,7 +433,6 @@ public class APIManager {
         
         if Loader == true{
             DispatchQueue.main.async {
-                
                 showLoader()
             }
         }

@@ -15,8 +15,11 @@ class BankListVC: UIViewController {
     @IBOutlet weak var accountNumberLbl: UILabel!
     @IBOutlet var addAccountBackView: UIView!
     
-        override func viewDidLoad() {
-        super.viewDidLoad()
+    var bankListVM : BankViewDetailViewModel = BankViewDetailViewModel()
+    var deleteBankVM : BackAccountDeleteViewModel = BackAccountDeleteViewModel()
+    
+    override func viewDidLoad() {
+    super.viewDidLoad()
 
         configUI()
         
@@ -31,7 +34,15 @@ class BankListVC: UIViewController {
       
     //MARK: - configUI
     func configUI() {
-        addAccountBackView.isHidden = true
+        addAccountBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: addAccountBackView)
+        
+        bankListVM.delegate = self
+        bankListVM.getBankDetail()
+        
+        deleteBankVM.delegate = self
+        
+        accountNumberLbl.text = ""
     }
       
     //MARK: - Button Click
@@ -40,16 +51,39 @@ class BankListVC: UIViewController {
     }
     
     @IBAction func clickToDelete(_ sender: Any) {
-        addAccountBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: addAccountBackView)
+        deleteBankVM.deleteBankAccount()
     }
     
     @IBAction func clickToEdit(_ sender: Any) {
-        
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    @IBAction func clickToAddBankAccount(_ sender: Any) {
+        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func clickToRemoveBankView(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     deinit {
         log.success("BankListVC Memory deallocated!")/
     }
     
 }
+
+extension BankListVC : BankViewDetailDelegate, BackAccountDeleteDelegate {
+    func didRecievedBankViewDetailData(response: AboutResponse) {
+        addAccountBackView.isHidden = true
+        
+    }
+    
+    func didRecievedBackAccountDeleteData(response: SuccessModel) {
+        addAccountBackView.isHidden = false
+        displaySubViewtoParentView(self.view, subview: addAccountBackView)
+    }
+
+}
+

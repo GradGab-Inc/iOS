@@ -45,5 +45,11 @@ struct AddBankRequest: Encodable {
     var gender : Int
     var ip : String
     var stripeToken : String
+    var firstName : String
+    var lastName : String
+    var phone : String
     
+    var day : String
+    var month : String
+    var year : String
 }

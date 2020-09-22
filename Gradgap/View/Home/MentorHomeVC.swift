@@ -40,7 +40,7 @@ class MentorHomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
