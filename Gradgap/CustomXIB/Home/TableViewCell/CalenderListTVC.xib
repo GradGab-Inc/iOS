@@ -37,10 +37,33 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3og-vC-hJo">
                                 <rect key="frame" x="90" y="0.0" width="215" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="0.49636130136986301" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="0.39898013939803206" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="U7O-lv-qHh"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-f2-bsL" customClass="View" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="114" y="9" width="161" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-l2-lbU">
+                                        <rect key="frame" x="15" y="0.0" width="138" height="38"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="33C8A3"/>
+                                <constraints>
+                                    <constraint firstItem="ifS-l2-lbU" firstAttribute="leading" secondItem="hKe-f2-bsL" secondAttribute="leading" constant="15" id="M3s-aw-jeQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="ifS-l2-lbU" secondAttribute="bottom" id="Mne-yT-yvh"/>
+                                    <constraint firstAttribute="trailing" secondItem="ifS-l2-lbU" secondAttribute="trailing" constant="8" id="OJF-h3-6q9"/>
+                                    <constraint firstItem="ifS-l2-lbU" firstAttribute="top" secondItem="hKe-f2-bsL" secondAttribute="top" id="ROD-nc-b1h"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-R1-LtD">
                                 <rect key="frame" x="105" y="0.0" width="200" height="55"/>
@@ -65,11 +88,15 @@
                         <constraints>
                             <constraint firstItem="0jw-Rd-E3L" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="Ima-WH-GWO"/>
                             <constraint firstItem="3og-vC-hJo" firstAttribute="leading" secondItem="0jw-Rd-E3L" secondAttribute="trailing" constant="10" id="Ipx-at-hZQ"/>
+                            <constraint firstItem="hKe-f2-bsL" firstAttribute="leading" secondItem="0jw-Rd-E3L" secondAttribute="trailing" constant="34" id="QWY-8D-jRF"/>
                             <constraint firstItem="3og-vC-hJo" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="TdA-ES-4ll"/>
+                            <constraint firstAttribute="bottom" secondItem="hKe-f2-bsL" secondAttribute="bottom" constant="8" id="X83-X9-tPz"/>
+                            <constraint firstAttribute="trailing" secondItem="hKe-f2-bsL" secondAttribute="trailing" constant="45" id="Z1v-n0-tqq"/>
                             <constraint firstItem="0jw-Rd-E3L" firstAttribute="leading" secondItem="MmI-rT-NAV" secondAttribute="leading" constant="10" id="e2d-gs-BYI"/>
                             <constraint firstItem="1eb-R1-LtD" firstAttribute="top" secondItem="MmI-rT-NAV" secondAttribute="top" id="fE1-TP-i1V"/>
                             <constraint firstAttribute="bottom" secondItem="1eb-R1-LtD" secondAttribute="bottom" id="iQp-dx-a5C"/>
                             <constraint firstItem="1eb-R1-LtD" firstAttribute="leading" secondItem="0jw-Rd-E3L" secondAttribute="trailing" constant="25" id="qzW-dQ-VbI"/>
+                            <constraint firstItem="hKe-f2-bsL" firstAttribute="top" secondItem="3og-vC-hJo" secondAttribute="bottom" constant="8" id="re6-0j-NUt"/>
                             <constraint firstAttribute="trailing" secondItem="3og-vC-hJo" secondAttribute="trailing" constant="15" id="x9S-8R-Vdb"/>
                             <constraint firstAttribute="trailing" secondItem="1eb-R1-LtD" secondAttribute="trailing" constant="15" id="ygK-IC-KIC"/>
                         </constraints>

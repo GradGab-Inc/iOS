@@ -16,9 +16,9 @@ protocol TransactionDetailDelegate {
 struct TransactionDetailViewModel {
     var delegate: TransactionDetailDelegate?
         
-    func getTransactionDetail() {
+    func getTransactionDetail(request : transactionDetailRequest) {
         GCD.TRANSACTION.detail.async {
-            APIManager.sharedInstance.I_AM_COOL(params: [String : Any](), api: API.TRANSACTION.detail, Loader: true, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.TRANSACTION.detail, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(BookingDetailModel.self, from: response!) // decode the response into model

@@ -140,8 +140,8 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
-    //    vc.selectedBooking = bookingArr[indexPath.row]
         vc.isFromTransaction = true
+        vc.selectedTransaction = transactionListArr[indexPath.section].data[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

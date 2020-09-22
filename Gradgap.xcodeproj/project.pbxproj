@@ -124,6 +124,7 @@
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
 		884745A9250A043C00EF6624 /* CardSelectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884745A8250A043C00EF6624 /* CardSelectRequest.swift */; };
+		884EC6072519CDCC00123D74 /* transactionDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884EC6062519CDCC00123D74 /* transactionDetailRequest.swift */; };
 		8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */; };
 		8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */; };
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
@@ -361,6 +362,7 @@
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
 		884745A8250A043C00EF6624 /* CardSelectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectRequest.swift; sourceTree = "<group>"; };
+		884EC6062519CDCC00123D74 /* transactionDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactionDetailRequest.swift; sourceTree = "<group>"; };
 		8860ACFC24DC0E4600932B8E /* SchoolListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListVC.swift; sourceTree = "<group>"; };
 		8860ACFE24DC1D3A00932B8E /* CollegeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeCVC.swift; sourceTree = "<group>"; };
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				88248B8124EF99D60094C375 /* MenteeDetailModel.swift */,
 				8828333625036A3700C8739C /* RatingAddRequest.swift */,
 				88207236250CA2C700813299 /* TransactionListModel.swift */,
+				884EC6062519CDCC00123D74 /* transactionDetailRequest.swift */,
 				88269EA22514C8DE00AE36DF /* Bank */,
 				882378B4250389DE006AEA0E /* Payment */,
 				88375A93250F33FD0002923A /* ContactAdmin */,
@@ -1295,6 +1298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884EC6072519CDCC00123D74 /* transactionDetailRequest.swift in Sources */,
 				886761362502200D009BA17C /* BankListVC.swift in Sources */,
 				8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */,
 				88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */,

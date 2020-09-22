@@ -16,6 +16,10 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var updateBtn: Button!
     @IBOutlet weak var setBtn: Button!
     
+    @IBOutlet weak var availabilityBottomView: UIView!
+    @IBOutlet weak var bookingBottomView: UIView!
+    
+    
     var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     
@@ -25,6 +29,7 @@ class CalenderDateListVC: UIViewController {
     var timeSlots = [Double]()
     var arrSkipIndex = [Int]()
     var arrLastIndex = [Int]()
+    var selectedTab : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +57,10 @@ class CalenderDateListVC: UIViewController {
         
         bookingListVM.delegate = self
         refreshBookingList()
+        
+        availabilityBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
+        bookingBottomView.backgroundColor = ClearColor
+        setBtn.isHidden = false
     }
     
     @objc func refreshBookingList() {        
@@ -84,6 +93,22 @@ class CalenderDateListVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func clickToSelectTab(_ sender: UIButton) {
+        if sender.tag == 1 {
+            selectedTab = 1
+            availabilityBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
+            bookingBottomView.backgroundColor = ClearColor
+            
+            setBtn.isHidden = false
+        }
+        else if sender.tag == 2 {
+            selectedTab = 2
+            availabilityBottomView.backgroundColor = ClearColor
+            bookingBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
+            
+            setBtn.isHidden = true
+        }
+    }
     
     deinit {
         log.success("CalenderDateListVC Memory deallocated!")/
