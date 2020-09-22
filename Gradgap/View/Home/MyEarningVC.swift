@@ -81,12 +81,12 @@ class MyEarningVC: UIViewController {
     }
 
     @IBAction func clickToApply(_ sender: Any) {
-        var request : BookingListRequest = BookingListRequest()
+        var request : EarningListRequest = EarningListRequest()
                 
         request.dateStart = getDateInUTC(selectedStartDate)
         let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedEndDate)!
         request.dateEnd = getDateInUTC(endDate)
-        earningListVM.earningList(request: EarningListRequest(page: currentPage))
+        earningListVM.earningList(request: request)
         filterBackView.isHidden = true
     }
     
