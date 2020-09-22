@@ -55,7 +55,7 @@ class MyEarningVC: UIViewController {
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         earningListVM.delegate = self
-        earningListVM.couponList(request: MorePageRequest(page: currentPage))
+        earningListVM.earningList(request: EarningListRequest(page: currentPage))
         
         refreshControl.tintColor = AppColor
         refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
@@ -67,7 +67,7 @@ class MyEarningVC: UIViewController {
     @objc func refreshDataSetUp() {
         refreshControl.endRefreshing()
         currentPage = 1
-        earningListVM.couponList(request: MorePageRequest(page: currentPage))
+        earningListVM.earningList(request: EarningListRequest(page: currentPage))
     }
     
     //MARK: - Button Click
@@ -81,6 +81,12 @@ class MyEarningVC: UIViewController {
     }
 
     @IBAction func clickToApply(_ sender: Any) {
+        var request : BookingListRequest = BookingListRequest()
+                
+        request.dateStart = getDateInUTC(selectedStartDate)
+        let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedEndDate)!
+        request.dateEnd = getDateInUTC(endDate)
+        earningListVM.earningList(request: EarningListRequest(page: currentPage))
         filterBackView.isHidden = true
     }
     
@@ -189,7 +195,7 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
         if earningArr.count - 2 == indexPath.row {
             if dataModel.hasMore {
                 currentPage = currentPage + 1
-                earningListVM.couponList(request: MorePageRequest(page: currentPage))
+                earningListVM.earningList(request: EarningListRequest(page: currentPage))
             }
         }
     }
