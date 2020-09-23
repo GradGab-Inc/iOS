@@ -65,6 +65,15 @@ func getMinuteFromDateString(strDate : String) -> Int
     return dateFormatter1.string(from: date1).minuteFromString
 }
 
+func getMinuteFromDate(date : Date) -> Int
+{
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.dateFormat = "HH:mm"
+    return dateFormatter1.string(from: date).minuteFromString
+}
+
+
 func getMinuteFromDateString1(strDate : String) -> Int  
 {
     let dateFormatter1 = DateFormatter()

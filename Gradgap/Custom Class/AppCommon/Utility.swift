@@ -679,7 +679,7 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
         let date4 = getDateStringFromDateString(strDate: date, formate: "hh:mm a")
         date1 = "Today, \(date4)"
     }
-    else{
+    else {
         date1 = getDateStringFromDateString(strDate: date, formate: "MMMM dd, yyyy, hh:mm a")
     }    
     let date2 = getDateFromDateString(strDate: date).sainiAddMinutes(Double(callTime))

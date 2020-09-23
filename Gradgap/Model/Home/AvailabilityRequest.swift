@@ -35,3 +35,8 @@ struct AvailabiltyDeleteRequest: Encodable {
     var availabilityRef: String
 }
 
+
+struct SelectDateAvailabiltyRequest: Encodable {
+    var dateTime: String
+}
+

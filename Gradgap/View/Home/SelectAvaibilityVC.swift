@@ -59,6 +59,7 @@ class SelectAvaibilityVC: UIViewController {
         }
         else {
             let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SelectDateAvailabilityVC") as! SelectDateAvailabilityVC
+            vc.selectedDate = selectedDate
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
