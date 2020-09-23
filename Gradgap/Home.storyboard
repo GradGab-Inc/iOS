@@ -958,6 +958,22 @@ schools.</string>
                                     <constraint firstAttribute="height" constant="60" id="fVN-P1-6C0"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-fU-Gzq">
+                                <rect key="frame" x="0.0" y="120" width="320" height="297"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cDx-I7-eDX" id="QHN-yh-PLB"/>
+                                    <outlet property="delegate" destination="cDx-I7-eDX" id="A8Y-yp-rMb"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yli-YN-ZHg">
+                                <rect key="frame" x="0.0" y="120" width="320" height="297"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cDx-I7-eDX" id="ctT-Js-iao"/>
+                                    <outlet property="delegate" destination="cDx-I7-eDX" id="CRS-aR-KGK"/>
+                                </connections>
+                            </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q91-co-hut">
                                 <rect key="frame" x="20" y="437" width="280" height="111"/>
                                 <subviews>
@@ -1001,14 +1017,6 @@ schools.</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QrJ-fU-Gzq">
-                                <rect key="frame" x="0.0" y="120" width="320" height="297"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="cDx-I7-eDX" id="QHN-yh-PLB"/>
-                                    <outlet property="delegate" destination="cDx-I7-eDX" id="A8Y-yp-rMb"/>
-                                </connections>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sqa-ML-nhF">
                                 <rect key="frame" x="16" y="60" width="288" height="50"/>
                                 <subviews>
@@ -1091,15 +1099,19 @@ schools.</string>
                         <constraints>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="trailing" secondItem="W4I-QE-UQH" secondAttribute="trailing" id="AAk-Ar-xlr"/>
                             <constraint firstItem="Q91-co-hut" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" constant="20" id="ADO-3E-mwq"/>
+                            <constraint firstItem="yli-YN-ZHg" firstAttribute="top" secondItem="Sqa-ML-nhF" secondAttribute="bottom" constant="10" id="Eqr-Z9-jQI"/>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="top" secondItem="W4I-QE-UQH" secondAttribute="top" id="IE5-Fp-bcg"/>
                             <constraint firstItem="Q91-co-hut" firstAttribute="top" secondItem="QrJ-fU-Gzq" secondAttribute="bottom" constant="20" id="IMN-Rj-8Gn"/>
                             <constraint firstItem="6cO-Mp-Ztk" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" id="KrH-w6-4Qk"/>
                             <constraint firstItem="QrJ-fU-Gzq" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" id="MNC-cQ-vHM"/>
                             <constraint firstItem="Sqa-ML-nhF" firstAttribute="top" secondItem="6cO-Mp-Ztk" secondAttribute="bottom" id="WYD-6R-83o"/>
+                            <constraint firstItem="yli-YN-ZHg" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" id="YBY-HR-17R"/>
                             <constraint firstItem="W4I-QE-UQH" firstAttribute="bottom" secondItem="Q91-co-hut" secondAttribute="bottom" constant="20" id="ZPW-WY-fJp"/>
+                            <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="yli-YN-ZHg" secondAttribute="trailing" id="aSG-aX-fDy"/>
                             <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="Q91-co-hut" secondAttribute="trailing" constant="20" id="bgd-BB-DtI"/>
                             <constraint firstItem="Sqa-ML-nhF" firstAttribute="leading" secondItem="W4I-QE-UQH" secondAttribute="leading" constant="16" id="ccf-rU-ypf"/>
                             <constraint firstItem="QrJ-fU-Gzq" firstAttribute="top" secondItem="Sqa-ML-nhF" secondAttribute="bottom" constant="10" id="gTx-71-H6M"/>
+                            <constraint firstItem="Q91-co-hut" firstAttribute="top" secondItem="yli-YN-ZHg" secondAttribute="bottom" constant="20" id="jiE-Jv-uHS"/>
                             <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="QrJ-fU-Gzq" secondAttribute="trailing" id="k5T-sU-kl8"/>
                             <constraint firstItem="W4I-QE-UQH" firstAttribute="trailing" secondItem="Sqa-ML-nhF" secondAttribute="trailing" constant="16" id="pdY-M4-QSF"/>
                         </constraints>
@@ -1107,6 +1119,7 @@ schools.</string>
                     </view>
                     <connections>
                         <outlet property="availabilityBottomView" destination="pEQ-Xs-Ohl" id="b9K-PI-ijS"/>
+                        <outlet property="availabilityTblView" destination="yli-YN-ZHg" id="7ce-C9-hEc"/>
                         <outlet property="bookingBottomView" destination="xvT-8O-0ur" id="djS-Mf-22N"/>
                         <outlet property="navigationBar" destination="6cO-Mp-Ztk" id="xwU-gB-Kow"/>
                         <outlet property="setBtn" destination="0Yd-zG-bJJ" id="hwm-C6-vVH"/>
@@ -1117,6 +1130,259 @@ schools.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-yc-rUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021.875" y="2025"/>
+        </scene>
+        <!--Select AvaibilityVC-->
+        <scene sceneID="6Dh-cu-Zpc">
+            <objects>
+                <viewController storyboardIdentifier="SelectAvaibilityVC" id="K84-UO-4xS" customClass="SelectAvaibilityVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Tb-5n-sEj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53e-Y5-aJi" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7km-JE-DS0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VU-Ll-aGP">
+                                <rect key="frame" x="0.0" y="80" width="320" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set A Standard Weekly Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kzr-2H-l2S">
+                                        <rect key="frame" x="50" y="15" width="255" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qxj-dF-vSO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeE-OX-bgp">
+                                        <rect key="frame" x="15" y="10" width="290" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Q7J-gO-5Zn"/>
+                                        </constraints>
+                                        <state key="normal" image="radio_off"/>
+                                        <state key="selected" image="radio_on">
+                                            <color key="titleColor" red="0.9882352941176471" green="0.058823529411764705" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickToSelectTab:" destination="K84-UO-4xS" eventType="touchUpInside" id="0EB-7a-aSk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kzr-2H-l2S" firstAttribute="centerY" secondItem="3VU-Ll-aGP" secondAttribute="centerY" id="57d-2l-nrx"/>
+                                    <constraint firstAttribute="height" constant="50" id="Gww-Hq-Kxf"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kzr-2H-l2S" secondAttribute="trailing" constant="15" id="Q9R-Nw-kWC"/>
+                                    <constraint firstItem="LeE-OX-bgp" firstAttribute="top" secondItem="3VU-Ll-aGP" secondAttribute="top" constant="10" id="c4g-A6-dIB"/>
+                                    <constraint firstItem="Kzr-2H-l2S" firstAttribute="leading" secondItem="3VU-Ll-aGP" secondAttribute="leading" constant="50" id="lGO-nP-dX9"/>
+                                    <constraint firstItem="LeE-OX-bgp" firstAttribute="leading" secondItem="3VU-Ll-aGP" secondAttribute="leading" constant="15" id="p1C-vv-h6D"/>
+                                    <constraint firstAttribute="trailing" secondItem="LeE-OX-bgp" secondAttribute="trailing" constant="15" id="rxF-14-fxg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEQ-K6-RaO">
+                                <rect key="frame" x="0.0" y="135" width="320" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Just This Date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwk-r4-xQN">
+                                        <rect key="frame" x="50" y="15" width="255" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="pWX-1W-ZWu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFy-e0-fNQ">
+                                        <rect key="frame" x="15" y="10" width="290" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Uxf-dr-JxF"/>
+                                        </constraints>
+                                        <state key="normal" image="radio_off"/>
+                                        <state key="selected" image="radio_on">
+                                            <color key="titleColor" red="0.98823529409999999" green="0.058823529409999999" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clickToSelectTab:" destination="K84-UO-4xS" eventType="touchUpInside" id="vGe-bo-AkP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="22s-bO-5Xz"/>
+                                    <constraint firstAttribute="trailing" secondItem="SFy-e0-fNQ" secondAttribute="trailing" constant="15" id="BHC-db-Wed"/>
+                                    <constraint firstItem="SFy-e0-fNQ" firstAttribute="top" secondItem="SEQ-K6-RaO" secondAttribute="top" constant="10" id="Hst-53-btc"/>
+                                    <constraint firstItem="Qwk-r4-xQN" firstAttribute="leading" secondItem="SEQ-K6-RaO" secondAttribute="leading" constant="50" id="NtR-v9-YHL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qwk-r4-xQN" secondAttribute="trailing" constant="15" id="RCd-6F-MgM"/>
+                                    <constraint firstItem="SFy-e0-fNQ" firstAttribute="leading" secondItem="SEQ-K6-RaO" secondAttribute="leading" constant="15" id="qOG-QB-ujL"/>
+                                    <constraint firstItem="Qwk-r4-xQN" firstAttribute="centerY" secondItem="SEQ-K6-RaO" secondAttribute="centerY" id="s6M-Kz-GtF"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-3r-HUK" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="25" y="500" width="270" height="48"/>
+                                <color key="backgroundColor" name="RedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="k64-iX-cYC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToSubmit:" destination="K84-UO-4xS" eventType="touchUpInside" id="zco-80-KSW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="3VU-Ll-aGP" firstAttribute="leading" secondItem="mGS-86-ZXo" secondAttribute="leading" id="CDi-eO-fuv"/>
+                            <constraint firstItem="G1t-3r-HUK" firstAttribute="leading" secondItem="mGS-86-ZXo" secondAttribute="leading" constant="25" id="JMh-hi-k1J"/>
+                            <constraint firstItem="3VU-Ll-aGP" firstAttribute="top" secondItem="53e-Y5-aJi" secondAttribute="bottom" constant="20" id="NVh-xa-irD"/>
+                            <constraint firstItem="3VU-Ll-aGP" firstAttribute="trailing" secondItem="mGS-86-ZXo" secondAttribute="trailing" id="ed9-kx-RQa"/>
+                            <constraint firstItem="mGS-86-ZXo" firstAttribute="bottom" secondItem="G1t-3r-HUK" secondAttribute="bottom" constant="20" id="inp-t1-6F4"/>
+                            <constraint firstItem="SEQ-K6-RaO" firstAttribute="top" secondItem="3VU-Ll-aGP" secondAttribute="bottom" constant="5" id="jXg-Cv-TPl"/>
+                            <constraint firstItem="mGS-86-ZXo" firstAttribute="trailing" secondItem="G1t-3r-HUK" secondAttribute="trailing" constant="25" id="jz3-OT-Yt9"/>
+                            <constraint firstItem="SEQ-K6-RaO" firstAttribute="leading" secondItem="mGS-86-ZXo" secondAttribute="leading" id="s7O-5Z-qkd"/>
+                            <constraint firstItem="53e-Y5-aJi" firstAttribute="leading" secondItem="mGS-86-ZXo" secondAttribute="leading" id="tEP-z2-Rly"/>
+                            <constraint firstItem="53e-Y5-aJi" firstAttribute="top" secondItem="mGS-86-ZXo" secondAttribute="top" id="uE3-7x-V2x"/>
+                            <constraint firstItem="53e-Y5-aJi" firstAttribute="trailing" secondItem="mGS-86-ZXo" secondAttribute="trailing" id="uHY-Ou-C7z"/>
+                            <constraint firstItem="SEQ-K6-RaO" firstAttribute="trailing" secondItem="mGS-86-ZXo" secondAttribute="trailing" id="ybJ-hH-ogq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mGS-86-ZXo"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateBtn" destination="SFy-e0-fNQ" id="waz-li-lbn"/>
+                        <outlet property="navigationBar" destination="53e-Y5-aJi" id="lRO-5X-eWi"/>
+                        <outlet property="weekBtn" destination="LeE-OX-bgp" id="Ns0-2e-qIW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUd-Cy-7ue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685.625" y="2025"/>
+        </scene>
+        <!--Select Date AvailabilityVC-->
+        <scene sceneID="75N-7H-hCc">
+            <objects>
+                <viewController storyboardIdentifier="SelectDateAvailabilityVC" id="Cpf-ff-KTx" customClass="SelectDateAvailabilityVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pzb-ww-Kar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7St-Vb-gxO" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PMg-Fh-c8l"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1k-RK-GXW">
+                                <rect key="frame" x="56" y="68" width="208" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="208" id="MT2-RZ-3tB"/>
+                                    <constraint firstAttribute="height" constant="40" id="eZh-uJ-19b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="06 / 18 / 2020" image="Ico_calendar"/>
+                                <connections>
+                                    <action selector="clickToSelectDate:" destination="Cpf-ff-KTx" eventType="touchUpInside" id="S7M-Pg-bcx"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-ow-t2f">
+                                <rect key="frame" x="0.0" y="116" width="320" height="98"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="7gQ-ya-11N"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Cpf-ff-KTx" id="gST-5A-Peh"/>
+                                    <outlet property="delegate" destination="Cpf-ff-KTx" id="5Vg-F3-hpx"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AW-mV-aea" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="25" y="500" width="270" height="48"/>
+                                <color key="backgroundColor" name="RedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Wnn-Iw-Fll"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXq-Cb-EGM">
+                                <rect key="frame" x="15" y="224" width="200" height="40"/>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VY4-RC-SAx"/>
+                                    <constraint firstAttribute="width" constant="200" id="zpa-lm-i9U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                <color key="tintColor" name="RedColor"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Add New Time Interval" image="plus" catalog="system">
+                                    <color key="titleColor" name="RedColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderColorTypeAdapter">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickToAddNewInterval:" destination="Cpf-ff-KTx" eventType="touchUpInside" id="RZo-jl-pJ2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppColor"/>
+                        <constraints>
+                            <constraint firstItem="7St-Vb-gxO" firstAttribute="leading" secondItem="0qU-V6-4E9" secondAttribute="leading" id="407-FY-7DW"/>
+                            <constraint firstItem="W0y-ow-t2f" firstAttribute="top" secondItem="r1k-RK-GXW" secondAttribute="bottom" constant="8" id="98Y-g6-om9"/>
+                            <constraint firstItem="AXq-Cb-EGM" firstAttribute="leading" secondItem="0qU-V6-4E9" secondAttribute="leading" constant="15" id="Bbg-sX-U7D"/>
+                            <constraint firstItem="W0y-ow-t2f" firstAttribute="trailing" secondItem="0qU-V6-4E9" secondAttribute="trailing" id="FQj-0R-Ul5"/>
+                            <constraint firstItem="r1k-RK-GXW" firstAttribute="centerX" secondItem="Pzb-ww-Kar" secondAttribute="centerX" id="HWy-uR-poU"/>
+                            <constraint firstItem="7St-Vb-gxO" firstAttribute="trailing" secondItem="0qU-V6-4E9" secondAttribute="trailing" id="K7Y-IG-OPc"/>
+                            <constraint firstItem="6AW-mV-aea" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AXq-Cb-EGM" secondAttribute="bottom" constant="8" id="Koc-qx-DBd"/>
+                            <constraint firstItem="AXq-Cb-EGM" firstAttribute="top" secondItem="W0y-ow-t2f" secondAttribute="bottom" constant="10" id="M1X-rJ-mCN"/>
+                            <constraint firstItem="0qU-V6-4E9" firstAttribute="bottom" secondItem="6AW-mV-aea" secondAttribute="bottom" constant="20" id="O5Z-9J-qbA"/>
+                            <constraint firstItem="W0y-ow-t2f" firstAttribute="leading" secondItem="0qU-V6-4E9" secondAttribute="leading" id="P0A-SA-C39"/>
+                            <constraint firstItem="r1k-RK-GXW" firstAttribute="top" secondItem="7St-Vb-gxO" secondAttribute="bottom" constant="8" id="T4j-n5-e6Q"/>
+                            <constraint firstItem="0qU-V6-4E9" firstAttribute="trailing" secondItem="6AW-mV-aea" secondAttribute="trailing" constant="25" id="ZJh-HG-1UG"/>
+                            <constraint firstItem="7St-Vb-gxO" firstAttribute="top" secondItem="0qU-V6-4E9" secondAttribute="top" id="aA2-oB-aoq"/>
+                            <constraint firstItem="6AW-mV-aea" firstAttribute="leading" secondItem="0qU-V6-4E9" secondAttribute="leading" constant="25" id="kiY-PQ-6tG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0qU-V6-4E9"/>
+                    </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="7St-Vb-gxO" id="gj1-Wy-05j"/>
+                        <outlet property="selectDateBtn" destination="r1k-RK-GXW" id="COw-EH-ZYl"/>
+                        <outlet property="submitBtn" destination="6AW-mV-aea" id="Ebr-WN-zjP"/>
+                        <outlet property="tblView" destination="W0y-ow-t2f" id="A2e-1f-c7u"/>
+                        <outlet property="tblViewHeightConstraint" destination="7gQ-ya-11N" id="uM4-CQ-Hf4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2c-uS-WqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2349" y="2025"/>
         </scene>
         <!--Mentor Booking DetailVC-->
         <scene sceneID="gV4-qP-Qdy">
@@ -1751,7 +2017,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUH-9d-Xiy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="2108"/>
+            <point key="canvasLocation" x="3677" y="2013"/>
         </scene>
         <!--Set AvailabilityVC-->
         <scene sceneID="WAP-eG-hgr">
@@ -1825,7 +2091,6 @@ schools.</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="clickToAddNewInterval:" destination="Lgg-3d-93U" eventType="touchUpInside" id="Mog-RG-sCU"/>
-                                    <action selector="clickToReject:" destination="tCO-4M-tin" eventType="touchUpInside" id="KSe-OT-hTv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxB-Og-ibp">
@@ -1867,7 +2132,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T4l-OR-aIQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2347.5" y="2025"/>
+            <point key="canvasLocation" x="3011" y="2025"/>
         </scene>
         <!--Update AvailabilityVC-->
         <scene sceneID="0Av-Xd-uFC">
@@ -1934,7 +2199,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceR-vR-vuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3022.5" y="2025"/>
+            <point key="canvasLocation" x="4348" y="2013"/>
         </scene>
         <!--Refer FriendVC-->
         <scene sceneID="AWd-M0-tt2">
@@ -2004,7 +2269,7 @@ schools.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-6S-8Z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3712.5" y="2025"/>
+            <point key="canvasLocation" x="5038" y="2013"/>
         </scene>
         <!--My EarningVC-->
         <scene sceneID="afE-tf-Fa0">
@@ -2382,7 +2647,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="8I5-Ya-8TG"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="4406" y="2025"/>
+            <point key="canvasLocation" x="5728" y="2012"/>
         </scene>
         <!--Booking DetailVC-->
         <scene sceneID="mhT-6B-9sD">
@@ -4021,7 +4286,7 @@ schools.</string>
                     <viewLayoutGuide key="safeArea" id="hoG-Po-1l1"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="361.875" y="1025.7042253521126"/>
+            <point key="canvasLocation" x="362" y="1010"/>
         </scene>
         <!--Booking ListVC-->
         <scene sceneID="CpL-4H-aES">
@@ -6279,6 +6544,8 @@ schools.</string>
         <image name="ic_wallet" width="20" height="16.5"/>
         <image name="ic_white_circle" width="100" height="100"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="radio_off" width="25" height="25"/>
+        <image name="radio_on" width="25" height="25"/>
         <image name="star_white" width="20" height="20"/>
         <image name="star_white_on" width="20" height="20"/>
         <namedColor name="33C8A3">

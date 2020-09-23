@@ -18,6 +18,7 @@ class CalenderDateListVC: UIViewController {
     
     @IBOutlet weak var availabilityBottomView: UIView!
     @IBOutlet weak var bookingBottomView: UIView!
+    @IBOutlet weak var availabilityTblView: UITableView!
     
     
     var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
@@ -50,6 +51,7 @@ class CalenderDateListVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDateList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
         
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
+        availabilityTblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
         updateBtn.isHidden = true
         dateListVM.delegate = self
@@ -61,6 +63,8 @@ class CalenderDateListVC: UIViewController {
         availabilityBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
         bookingBottomView.backgroundColor = ClearColor
         setBtn.isHidden = false
+        availabilityTblView.isHidden = false
+        tblView.isHidden = true
     }
     
     @objc func refreshBookingList() {        
@@ -100,6 +104,9 @@ class CalenderDateListVC: UIViewController {
             bookingBottomView.backgroundColor = ClearColor
             
             setBtn.isHidden = false
+            availabilityTblView.isHidden = false
+            tblView.isHidden = true
+            availabilityTblView.reloadData()
         }
         else if sender.tag == 2 {
             selectedTab = 2
@@ -107,6 +114,9 @@ class CalenderDateListVC: UIViewController {
             bookingBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
             
             setBtn.isHidden = true
+            availabilityTblView.isHidden = true
+            tblView.isHidden = false
+            tblView.reloadData()
         }
     }
     
@@ -174,7 +184,12 @@ extension CalenderDateListVC : HomeBookingListDelegate {
 //MARK: - TableView Delegate
 extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timeSloteArr.count
+        if tableView == availabilityTblView {
+            return timeSloteArr.count
+        }
+        else {
+            return timeSloteArr.count
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -182,40 +197,56 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tblView.dequeueReusableCell(withIdentifier: "CalenderListTVC", for: indexPath) as? CalenderListTVC
-            else {
-            return UITableViewCell()
-        }
-        
- //       let dict : BookingListDataModel = bookingArr[indexPath.row]
-//        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh:mm a")
-//        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
-//        let time2 = getDateStringFromDate(date: date2, format: "hh:mm a")
-        
-        cell.eventLbl.text = ""
-        cell.timeLbl.text = timeSloteArr[indexPath.row]//"\(time1) - \(time2)"
-
-        if arrSkipIndex.contains(indexPath.row) {
-            cell.backView.isHidden = false
-            if arrLastIndex.contains(indexPath.row) {
-                cell.backViewBottomConstraint.constant = 3
+        if tableView == availabilityTblView {
+            guard let cell = availabilityTblView.dequeueReusableCell(withIdentifier: "CalenderListTVC", for: indexPath) as? CalenderListTVC
+                else {
+                return UITableViewCell()
             }
-            else {
-                cell.backViewBottomConstraint.constant = 0
-            }
-        }else{
+            
+            cell.eventLbl.text = ""
+            cell.timeLbl.text = timeSloteArr[indexPath.row]
             cell.backView.isHidden = true
+            cell.availabilityBackView.isHidden = false
+            
+            return cell
         }
-        
-        let index = bookingArr.firstIndex { (temp) -> Bool in
-            getDateStringFromDateString(strDate: temp.dateTime, formate: "hh:mm a") == timeSloteArr[indexPath.row]
+        else {
+            guard let cell = tblView.dequeueReusableCell(withIdentifier: "CalenderListTVC", for: indexPath) as? CalenderListTVC
+                else {
+                return UITableViewCell()
+            }
+            
+     //       let dict : BookingListDataModel = bookingArr[indexPath.row]
+    //        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh:mm a")
+    //        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+    //        let time2 = getDateStringFromDate(date: date2, format: "hh:mm a")
+            
+            cell.eventLbl.text = ""
+            cell.timeLbl.text = timeSloteArr[indexPath.row]//"\(time1) - \(time2)"
+
+            if arrSkipIndex.contains(indexPath.row) {
+                cell.backView.isHidden = false
+                if arrLastIndex.contains(indexPath.row) {
+                    cell.backViewBottomConstraint.constant = 3
+                }
+                else {
+                    cell.backViewBottomConstraint.constant = 0
+                }
+            }else{
+                cell.backView.isHidden = true
+            }
+            
+            let index = bookingArr.firstIndex { (temp) -> Bool in
+                getDateStringFromDateString(strDate: temp.dateTime, formate: "hh:mm a") == timeSloteArr[indexPath.row]
+            }
+            if index != nil {
+                let dict = bookingArr[index!]
+                cell.eventLbl.text = "Meeting with \(dict.name) \(getCallType(dict.callType))"
+            }
+            cell.availabilityBackView.isHidden = true
+            return cell
         }
-        if index != nil {
-            let dict = bookingArr[index!]
-            cell.eventLbl.text = "Meeting with \(dict.name) \(getCallType(dict.callType))"
-        }
-        
-        return cell
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -111,6 +111,10 @@
 		882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */; };
 		882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */; };
 		882E44FE24F4EB980012FFBF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */; };
+		883076E9251B1AE700C4D2D5 /* SelectAvaibilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883076E8251B1AE700C4D2D5 /* SelectAvaibilityVC.swift */; };
+		883076EB251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883076EA251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift */; };
+		883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883076EC251B207000C4D2D5 /* SelectDateTVC.swift */; };
+		883076EF251B207000C4D2D5 /* SelectDateTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883076ED251B207000C4D2D5 /* SelectDateTVC.xib */; };
 		88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */; };
 		88375A91250F33A00002923A /* ContactAdminViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A8F250F339C0002923A /* ContactAdminViewModel.swift */; };
 		88375A92250F33A00002923A /* FaqViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A90250F33A00002923A /* FaqViewModel.swift */; };
@@ -350,6 +354,10 @@
 		882E44F824F4E5520012FFBF /* SocialLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginRequest.swift; sourceTree = "<group>"; };
 		882E44FB24F4E9A20012FFBF /* SocialLoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginModel.swift; sourceTree = "<group>"; };
 		882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		883076E8251B1AE700C4D2D5 /* SelectAvaibilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAvaibilityVC.swift; sourceTree = "<group>"; };
+		883076EA251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateAvailabilityVC.swift; sourceTree = "<group>"; };
+		883076EC251B207000C4D2D5 /* SelectDateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTVC.swift; sourceTree = "<group>"; };
+		883076ED251B207000C4D2D5 /* SelectDateTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectDateTVC.xib; sourceTree = "<group>"; };
 		88352E0424F7CF9100DF0770 /* UpdateAvailabilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailabilityVC.swift; sourceTree = "<group>"; };
 		88375A8F250F339C0002923A /* ContactAdminViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactAdminViewModel.swift; sourceTree = "<group>"; };
 		88375A90250F33A00002923A /* FaqViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqViewModel.swift; sourceTree = "<group>"; };
@@ -560,6 +568,8 @@
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
 				88462C0824FF9831000D0BE5 /* MyEarningVC.swift */,
+				883076E8251B1AE700C4D2D5 /* SelectAvaibilityVC.swift */,
+				883076EA251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1024,6 +1034,8 @@
 				88F56D5C24E5030A00C25DCA /* SetAvailabilityTVC.xib */,
 				88FA2E4B24E64E40000C67CE /* CouponTVC.swift */,
 				88FA2E4C24E64E40000C67CE /* CouponTVC.xib */,
+				883076EC251B207000C4D2D5 /* SelectDateTVC.swift */,
+				883076ED251B207000C4D2D5 /* SelectDateTVC.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1222,6 +1234,7 @@
 				88F95A8C24E1063B00DFD0E7 /* CustomBookTVC.xib in Resources */,
 				8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */,
 				88AEE8D524D16EFA002225E9 /* InfoCVC.xib in Resources */,
+				883076EF251B207000C4D2D5 /* SelectDateTVC.xib in Resources */,
 				22D64A0C24D149C7006C37FD /* Main.storyboard in Resources */,
 				8809DA3F24FFB998000CABA6 /* CardListTVC.xib in Resources */,
 				888C6CCA24E12E12008E27E0 /* NotificationTVC.xib in Resources */,
@@ -1350,10 +1363,12 @@
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */,
+				883076E9251B1AE700C4D2D5 /* SelectAvaibilityVC.swift in Sources */,
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */,
+				883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */,
 				88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */,
 				88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */,
 				88F28BB624DEA56A00DDBC41 /* InterestDiscussVC.swift in Sources */,
@@ -1423,6 +1438,7 @@
 				882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
+				883076EB251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift in Sources */,
 				882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */,
 				88269EA42514C8FB00AE36DF /* AddBankRequest.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,

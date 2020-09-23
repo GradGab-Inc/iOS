@@ -112,6 +112,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="availabilityBackView" destination="hKe-f2-bsL" id="csc-1H-VTU"/>
                 <outlet property="backView" destination="1eb-R1-LtD" id="AAx-aB-c4z"/>
                 <outlet property="backViewBottomConstraint" destination="iQp-dx-a5C" id="txr-8V-VLm"/>
                 <outlet property="eventLbl" destination="ELe-7Y-ym5" id="yfJ-7Q-C3M"/>
