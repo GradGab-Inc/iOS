@@ -140,6 +140,7 @@ class SelectDateAvailabilityVC: UIViewController {
 extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
     func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
         self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
@@ -159,6 +160,7 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
         self.dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd")))
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {

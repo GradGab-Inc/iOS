@@ -134,9 +134,36 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = [AvailabilityDataModel]()
         availabilityListArr = response.data
-        tblView.reloadData()
-//        updateBtn.isHidden = availabilityListArr.count == 0 ? true : false
         
+        availableTimeArr = [String]()
+        if availabilityListArr.count != 0 {
+            for item in availabilityListArr {
+                let startDate = getDateFromMinute(item.startTime)
+                let endDate = getDateFromMinute(item.endTime)
+                print("startDate : \(getDateStringFromDate1(date: startDate, format: "hh:mm a"))")
+                print("endDate : \(getDateStringFromDate1(date: endDate, format: "hh:mm a"))")
+                
+                let formatter2 = DateFormatter()
+                formatter2.dateFormat = "hh:mm a"
+                
+                var i = 0
+                while true {
+                    let date = startDate.addingTimeInterval(TimeInterval(i*15*60))
+                    formatter2.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+                    formatter2.locale = NSLocale.current
+                    let string = formatter2.string(from: date)
+
+                    if date > (endDate - 15) {
+                        break;
+                    }
+
+                    i += 1
+                    availableTimeArr.append(string)
+                }
+            }
+        }
+        availabilityTblView.reloadData()
+        tblView.reloadData()
         if availabilityListArr.count == 0 {
             setBtn.setTitle("Set Availability", for: .normal)
         }
@@ -209,7 +236,16 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             cell.eventLbl.text = ""
             cell.timeLbl.text = timeSloteArr[indexPath.row]
             cell.backView.isHidden = true
-            cell.availabilityBackView.isHidden = false
+            
+            let index = availableTimeArr.firstIndex { (data) -> Bool in
+                data == timeSloteArr[indexPath.row]
+            }
+            if index != nil {
+                cell.availabilityBackView.isHidden = false
+            }
+            else {
+                cell.availabilityBackView.isHidden = true
+            }
             
             return cell
         }
@@ -219,13 +255,8 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-     //       let dict : BookingListDataModel = bookingArr[indexPath.row]
-    //        let time1 = getDateStringFromDateString(strDate: dict.dateTime, formate: "hh:mm a")
-    //        let date2 = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
-    //        let time2 = getDateStringFromDate(date: date2, format: "hh:mm a")
-            
             cell.eventLbl.text = ""
-            cell.timeLbl.text = timeSloteArr[indexPath.row]//"\(time1) - \(time2)"
+            cell.timeLbl.text = timeSloteArr[indexPath.row]
 
             if arrSkipIndex.contains(indexPath.row) {
                 cell.backView.isHidden = false
