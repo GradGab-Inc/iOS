@@ -99,17 +99,18 @@ class SelectDateAvailabilityVC: UIViewController {
                         dict.startTime = item.startTime
                         dict.endTime = item.endTime
                         dict.type = item.type
+               //         dict.customDate = getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd")
                         updateArr.append(dict)
                     }
                 }
             }
             if setArr.count != 0 {
-                let request = SetAvailabiltyRequest(availability: setArr, timezone: timeZoneOffsetInMinutes())
+                let request = SetDateAvailabiltyRequest(availability: setArr, timezone: timeZoneOffsetInMinutes(), dateTime: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd"))
                 availabilityVM.setAvailability(request: request)
             }
             if updateArr.count != 0 {
-                let request = SetAvailabiltyRequest(availability: updateArr, timezone: timeZoneOffsetInMinutes())
-                availabilityDeleteVM.updateAvailability(request: request)
+                let request = UpdateDateAvailabiltyRequest(availability: updateArr, timezone: timeZoneOffsetInMinutes(), customDate: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd"))
+                availabilityVM.updateAvailability(request: request)
             }
         }
     }
@@ -137,8 +138,16 @@ class SelectDateAvailabilityVC: UIViewController {
 }
 
 extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
+    func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = response.data
+        
+        if availabilityListArr.count == 0 {
+            tblViewHeightConstraint.constant = 20
+        }
         tblView.reloadData()
     }
     
@@ -153,7 +162,7 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
@@ -203,9 +212,7 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
     @objc func clickToSelectFromTime(_ sender : UIButton) {
         DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                let totalMin = getMinuteFromDateString(strDate: finalDate)
+                self.availabilityListArr[sender.tag].endTime = -1
                 let totalMin = getMinuteFromDate(date: date!)
                 self.availabilityListArr[sender.tag].startTime = self.isTrueTime(totalMin, sender.tag, true) ? totalMin : -1
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
@@ -219,14 +226,17 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
             displayToast("Please select start time first.")
             return
         }
+        
         DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                let totalMin = getMinuteFromDateString(strDate: finalDate)
                 let totalMin = getMinuteFromDate(date: date!)
-                self.availabilityListArr[sender.tag].endTime = self.isTrueTime(totalMin, sender.tag, false) ? totalMin : -1
-                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+                if getDateFromMinute(self.availabilityListArr[sender.tag].startTime) < getDateFromMinute(totalMin) {
+                    self.availabilityListArr[sender.tag].endTime = self.isTrueTime(totalMin, sender.tag, false) ? totalMin : -1
+                    self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+                }else{
+                    displayToast("End time must be greater then start time.")
+                }
+                
             }
             self.view.endEditing(true)
         }
@@ -242,9 +252,13 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
             }
         }
         else {
-            availabilityListArr.remove(at: sender.tag)
-            tblView.reloadData()
-            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 210)
+            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
+                self.availabilityListArr.remove(at: sender.tag)
+                self.tblView.reloadData()
+                self.tblViewHeightConstraint.constant = CGFloat(self.availabilityListArr.count * 210)
+            }) {
+
+            }
         }
     }
     
@@ -268,7 +282,7 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
                         }
                         if self.availabilityListArr[tag].endTime != -1 {
                             let selectEndTime = getDateFromMinute(min)
-                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate)) {
+                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) {
                                 displayToast("Time over-ride")
                                 return false
                             }
@@ -278,18 +292,11 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
                         let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
                         let selectEndTime = getDateFromMinute(min)
                         
-                        if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate)) {
+                        if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
                             displayToast("Time over-ride")
                             return false
                         }
                     }
-                    
-                    
-                    
-//                    if (item.startTime < min) && (min < item.endTime) {
-//                        displayToast("Time over-ride")
-//                        return false
-//                    }
                 }
             }
             return true
@@ -297,16 +304,6 @@ extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource 
         else {
             return true
         }
-    }
-    
-    func getDateFromMinute(_ min: Int) -> Date {
-        let time = minutesToHoursMinutes(minutes: min)
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm"
-        let timeDate = dateFormatter.date(from: "\(time.hours):\(time.leftMinutes)")!
-        return timeDate
     }
     
 }

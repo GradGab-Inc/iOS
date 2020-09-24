@@ -21,8 +21,9 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var availabilityTblView: UITableView!
     
     
-    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
+    var dateListVM : DateAvailabilityListViewModel = DateAvailabilityListViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    var availableTimeArr : [String] = [String]()
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
@@ -75,11 +76,10 @@ class CalenderDateListVC: UIViewController {
         request.status = 1
         
         bookingListVM.getBookingList(request: request)
-        
     }
     
     @objc func refreshDateList()  {
-        dateListVM.availabilityList()
+        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
     }
     
     //MARK: - Button Click
@@ -93,7 +93,11 @@ class CalenderDateListVC: UIViewController {
     }
     
     @IBAction func clickToSetAvailabilityBack(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SetAvailabilityVC") as! SetAvailabilityVC
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SetAvailabilityVC") as! SetAvailabilityVC
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SelectAvaibilityVC") as! SelectAvaibilityVC
+        vc.selectedDate = selectedDate
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -126,8 +130,8 @@ class CalenderDateListVC: UIViewController {
     
 }
 
-extension CalenderDateListVC : AvailabilityListDelegate {
-    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+extension CalenderDateListVC : DateAvailabilityListDelegate {
+    func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = [AvailabilityDataModel]()
         availabilityListArr = response.data
         tblView.reloadData()
@@ -149,7 +153,6 @@ extension CalenderDateListVC : HomeBookingListDelegate {
         setupTimeData()
         tblView.reloadData()
    }
-    
     
     //hide time cell if slot already booked
     func setupTimeData()

@@ -188,6 +188,9 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
             if week != nil {
                 self?.availabilityListArr[sender.tag].weekDay = index
+                
+                self?.availabilityListArr[sender.tag].startTime = -1
+                self?.availabilityListArr[sender.tag].endTime = -1
                 self?.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
             self?.view.endEditing(true)
@@ -195,42 +198,148 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToSelectFromTime(_ sender : UIButton) {
+        if self.availabilityListArr[sender.tag].weekDay == -1 {
+            displayToast("Please select week day first.")
+            return
+        }
         DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
-                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                print(finalDate)
-                self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
+                self.availabilityListArr[sender.tag].endTime = -1
+                let totalMin = getMinuteFromDate(date: date!)
+                self.availabilityListArr[sender.tag].startTime = self.isTrueTime(totalMin, sender.tag, true) ? totalMin : -1
                 self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
             }
             self.view.endEditing(true)
         }
+        
+//        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
+//            if !cancel && date != nil {
+//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+//                print(finalDate)
+//                self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
+//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+//            }
+//            self.view.endEditing(true)
+//        }
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton) {
+       if self.availabilityListArr[sender.tag].startTime == -1 {
+            displayToast("Please select start time first.")
+            return
+        }
+        
         DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
-                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-                print(finalDate)
-                self.availabilityListArr[sender.tag].endTime = getMinuteFromDateString(strDate: finalDate)
-                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+                let totalMin = getMinuteFromDate(date: date!)
+                if getDateFromMinute(self.availabilityListArr[sender.tag].startTime) < getDateFromMinute(totalMin) {
+                    self.availabilityListArr[sender.tag].endTime = self.isTrueTime(totalMin, sender.tag, false) ? totalMin : -1
+                    self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+                }else{
+                    displayToast("End time must be greater then start time.")
+                }
+                
             }
             self.view.endEditing(true)
         }
+        
+        
+//        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
+//            if !cancel && date != nil {
+//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+//                print(finalDate)
+//                self.availabilityListArr[sender.tag].endTime = getMinuteFromDateString(strDate: finalDate)
+//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
+//            }
+//            self.view.endEditing(true)
+//        }
     }
     
-    func isTrueTime(_ min : Int, _ tag : Int) -> Bool {
+    func isTrueTime(_ min : Int, _ tag : Int, _ isStart: Bool) -> Bool {
+        if availabilityListArr.count > 1 {
+            
+        }
         let index = availabilityListArr.firstIndex { (data) -> Bool in
             data.weekDay == availabilityListArr[tag].weekDay
         }
         if index != nil {
             for item in availabilityListArr {
                 if item.weekDay == availabilityListArr[tag].weekDay {
-                    if (item.startTime <= min) && (min >= item.endTime)  {
-                        displayToast("Time over-ride")
-                        return false
+                    if item.startTime != -1 && item.endTime != -1 {
+                        print(item.startTime)
+                        print(item.endTime)
+                        print(min)
+                        
+                        let startDate = getDateFromMinute(item.startTime)
+                        let endDate = getDateFromMinute(item.endTime)
+                        
+                        
+                        if isStart {
+                            let selectStartTime = getDateFromMinute(min)
+                            if ((selectStartTime >= startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectStartTime > endDate)) {
+                                displayToast("Time over-ride")
+                                return false
+                            }
+                            if self.availabilityListArr[tag].endTime != -1 {
+                                let selectEndTime = getDateFromMinute(min)
+                                if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate)) {
+                                    displayToast("Time over-ride")
+                                    return false
+                                }
+                            }
+                        }
+                        else {
+                            let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
+                            let selectEndTime = getDateFromMinute(min)
+                            
+                            if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) {
+                                displayToast("Time over-ride")
+                                return false
+                            }
+                        }
+                    }
+                }
+            }
+            return true
+        }
+        else {
+            return true
+        }
+    }
+    
+    func isTrueTime1(_ min: Int, _ tag: Int, _ isStart: Bool) -> Bool {
+        if availabilityListArr.count > 1 {
+            for item in availabilityListArr {
+                if item.startTime != -1 && item.endTime != -1 {
+                    print(item.startTime)
+                    print(item.endTime)
+                    print(min)
+                    
+                    let startDate = getDateFromMinute(item.startTime)
+                    let endDate = getDateFromMinute(item.endTime)
+                    
+                    if isStart {
+                        let selectStartTime = getDateFromMinute(min)
+                        if ((selectStartTime >= startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectStartTime > endDate)) {
+                            displayToast("Time over-ride")
+                            return false
+                        }
+                        if self.availabilityListArr[tag].endTime != -1 {
+                            let selectEndTime = getDateFromMinute(min)
+                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
+                                displayToast("Time over-ride")
+                                return false
+                            }
+                        }
                     }
                     else {
-                        return true
+                        let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
+                        let selectEndTime = getDateFromMinute(min)
+                        
+                        if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
+                            displayToast("Time over-ride")
+                            return false
+                        }
                     }
                 }
             }
@@ -251,9 +360,13 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
         else {
-            availabilityListArr.remove(at: sender.tag)
-            tblView.reloadData()
-            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
+                self.availabilityListArr.remove(at: sender.tag)
+                self.tblView.reloadData()
+                self.tblViewHeightConstraint.constant = CGFloat(self.availabilityListArr.count * 265)
+            }) {
+                
+            }
         }
     }
 }
@@ -272,13 +385,6 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
         cell.lbl.text = arr[indexPath.row]
         cell.backView.cornerRadius = 5
-        
-//        if availabilityListArr[collectionView.tag].type == indexPath.row + 1 {
-//            cell.backView.backgroundColor = RedColor
-//        }
-//        else {
-//            cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
-//        }
         
         let index = availabilityListArr[collectionView.tag].type.firstIndex { (data) -> Bool in
             data == indexPath.row + 1
@@ -304,7 +410,6 @@ extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSour
         else {
             self.availabilityListArr[collectionView.tag].type.remove(at: index!)
         }
-//        self.availabilityListArr[collectionView.tag].type = indexPath.row + 1
         tblView.reloadRows(at: [IndexPath(item: collectionView.tag, section: 0)], with: .automatic)
     }
     

@@ -244,3 +244,14 @@ func utcToLocal(dateStr: String) -> String? {
     }
     return nil
 }
+
+
+func getDateFromMinute(_ min: Int) -> Date {
+    let time = minutesToHoursMinutes(minutes: min)
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.locale = NSLocale.current
+    dateFormatter.dateFormat = "HH:mm"
+    let timeDate = dateFormatter.date(from: "\(time.hours):\(time.leftMinutes)")!
+    return timeDate
+}
