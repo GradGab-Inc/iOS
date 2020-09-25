@@ -39,7 +39,14 @@ struct AvailabiltyDeleteRequest: Encodable {
 
 
 struct SelectDateAvailabiltyRequest: Encodable {
-    var dateTime: String
+    var dateTime: String?
+    var isCustom : Bool?
+    
+    init(dateTime: String? = nil, isCustom:Bool? = nil){
+        
+        self.dateTime = dateTime
+        self.isCustom = isCustom
+    }
 }
 
 

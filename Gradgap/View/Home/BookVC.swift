@@ -62,7 +62,7 @@ class BookVC: UIViewController {
     
     func serviceCall() {
         if selectedType == 1 {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage, timezone:timeZoneOffsetInMinutes()))
         }
         else if selectedType == 2  {
             mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))

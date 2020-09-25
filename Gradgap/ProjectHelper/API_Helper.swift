@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL =  "http://8a6972fce0c8.ngrok.io/api/"//"http://3.82.95.119/development/api/"//
+    static let BASE_URL =  "http://3.82.95.119/development/api/"//"http://4f09d8ca6883.ngrok.io/api/"//
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
@@ -35,7 +35,7 @@ struct API {
         static let mentorList             = BASE_URL + "availability/mentorList"
         static let delete                 = BASE_URL + "availability/delete"
         static let update                 = BASE_URL + "availability/update"
-        static let setCustom              = BASE_URL + "availability/setCustom"
+        static let setCustom              = BASE_URL + "customAvailability/set"//"availability/setCustom"
     }
     
     struct FAVOURITES {

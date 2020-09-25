@@ -137,7 +137,7 @@ class BankDetailVC: UploadImageVC {
             birthDate = Date()
         }
         let maxDate : Date = Calendar.current.date(byAdding: .year, value: -18, to: Date())!
-        DatePickerManager.shared.showPicker(title: "select_dob", selected: birthDate, min: nil, max: maxDate) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: birthDate, min: nil, max: maxDate) { (date, cancel) in
             if !cancel && date != nil {
                 self.birthDate = date!
                 self.dobTxt.text = getDateStringFromDate(date: self.birthDate, format: "dd/MM/yyyy")

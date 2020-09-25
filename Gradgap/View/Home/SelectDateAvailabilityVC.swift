@@ -48,7 +48,7 @@ class SelectDateAvailabilityVC: UIViewController {
         availabilityVM.delegate = self
         availabilityDeleteVM.delegate = self
         
-        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
+        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), isCustom : true))
     }
     
     //MARK: - Button Click
@@ -67,7 +67,7 @@ class SelectDateAvailabilityVC: UIViewController {
             selectedDate = Date()
         }
         let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
-        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                 

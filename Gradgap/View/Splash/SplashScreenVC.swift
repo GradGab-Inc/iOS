@@ -48,6 +48,10 @@ class SplashScreenVC: UIViewController {
     
                     AppDelegate().sharedDelegate().getAboutUsData()
                 }
+                else {
+                    AppModel.shared.currentUser = UserDataModel.init()
+                    AppDelegate().sharedDelegate().navigateToLogin()
+                }
             }
             else {
                 AppModel.shared.currentUser = UserDataModel.init()
