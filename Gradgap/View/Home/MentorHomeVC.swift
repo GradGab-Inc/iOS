@@ -224,6 +224,11 @@ extension MentorHomeVC : FSCalendarDelegate {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "CalenderDateListVC") as! CalenderDateListVC
         vc.selectedDate = date
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SelectAvaibilityVC") as! SelectAvaibilityVC
+//        vc.selectedDate = date
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {

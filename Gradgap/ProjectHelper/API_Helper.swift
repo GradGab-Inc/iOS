@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL =  "http://d2b1369859a1.ngrok.io/api/"//"http://3.82.95.119/development/api/"//
+    static let BASE_URL =  "http://8a6972fce0c8.ngrok.io/api/"//"http://3.82.95.119/development/api/"//
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
@@ -35,6 +35,7 @@ struct API {
         static let mentorList             = BASE_URL + "availability/mentorList"
         static let delete                 = BASE_URL + "availability/delete"
         static let update                 = BASE_URL + "availability/update"
+        static let setCustom              = BASE_URL + "availability/setCustom"
     }
     
     struct FAVOURITES {
@@ -117,6 +118,8 @@ struct GCD{
         static let mentorList = DispatchQueue(label: "com.app.AVAILABILITY_mentorList", qos: .utility, attributes: .concurrent) //3
         static let delete = DispatchQueue(label: "com.app.AVAILABILITY_delete", qos: .background, attributes: .concurrent)  //4
         static let update = DispatchQueue(label: "com.app.AVAILABILITY_update", qos: .background, attributes: .concurrent)  //5
+        
+        static let setCustom = DispatchQueue(label: "com.app.AVAILABILITY_setCustom", qos: .background, attributes: .concurrent)  //5
     }
     
     struct FAVOURITES {

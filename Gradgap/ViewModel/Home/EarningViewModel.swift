@@ -16,7 +16,7 @@ protocol EarningListDelegate {
 struct EarningViewModel {
     var delegate: EarningListDelegate?
     
-    func couponList(request : MorePageRequest) {
+    func earningList(request : EarningListRequest) {
         GCD.TRANSACTION.earning.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.TRANSACTION.earning, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty

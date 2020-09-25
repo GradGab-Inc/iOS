@@ -65,6 +65,15 @@ func getMinuteFromDateString(strDate : String) -> Int
     return dateFormatter1.string(from: date1).minuteFromString
 }
 
+func getMinuteFromDate(date : Date) -> Int
+{
+    let dateFormatter1 = DateFormatter()
+    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.dateFormat = "HH:mm"
+    return dateFormatter1.string(from: date).minuteFromString
+}
+
+
 func getMinuteFromDateString1(strDate : String) -> Int  
 {
     let dateFormatter1 = DateFormatter()
@@ -234,4 +243,15 @@ func utcToLocal(dateStr: String) -> String? {
         return dateFormatter.string(from: date)
     }
     return nil
+}
+
+
+func getDateFromMinute(_ min: Int) -> Date {
+    let time = minutesToHoursMinutes(minutes: min)
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.locale = NSLocale.current
+    dateFormatter.dateFormat = "HH:mm"
+    let timeDate = dateFormatter.date(from: "\(time.hours):\(time.leftMinutes)")!
+    return timeDate
 }

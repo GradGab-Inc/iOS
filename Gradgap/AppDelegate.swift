@@ -16,6 +16,7 @@ import UserNotifications
 import Firebase
 import FirebaseMessaging
 import Stripe
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Google Login
         GIDSignIn.sharedInstance().clientID = CLIENT_ID
+        
+        
+        // if you are using the TEST key
+        Branch.setUseTestBranchKey(false)
+        
+        // listener for Branch Deep Link data
+        Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
+            // do stuff with deep link data (nav to page, display content, etc)
+            printData("\n\n********************")
+            printData(params as? [String: AnyObject] ?? {})
+            printData("********************\n\n")
+        }
         
 //        if isUserLogin() {
 //            if getLoginUserData() != nil {
@@ -75,6 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return ApplicationDelegate.shared.application(app, open: url, options: options)
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // handler for Universal Links
+        Branch.getInstance().continue(userActivity)
+        return true
     }
     
     //MARK:- Share Appdelegate
@@ -270,7 +289,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setPushToken(newToken)
         return newToken
     }
-
+    
 }
 
 extension AppDelegate : MessagingDelegate {

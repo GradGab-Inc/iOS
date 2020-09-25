@@ -16,3 +16,5 @@ struct SchoolSearchRequest: Encodable {
 struct MorePageRequest : Encodable {
     var page: Int
 }
+
+

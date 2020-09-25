@@ -25,6 +25,7 @@ target 'Gradgap' do
   pod 'Firebase/Analytics'
   
   pod 'Stripe', '~> 19.0.1'
+  pod 'Branch'
   
   # Pods for Gradgap
 

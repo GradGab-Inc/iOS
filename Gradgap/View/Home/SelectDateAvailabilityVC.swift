@@ -1,25 +1,27 @@
 //
-//  SetAvailabilityVC.swift
+//  SelectDateAvailabilityVC.swift
 //  Gradgap
 //
-//  Created by iMac on 13/08/20.
+//  Created by iMac on 9/23/20.
 //  Copyright © 2020 AppKnit. All rights reserved.
 //
 
 import UIKit
-import SainiUtils
 
-class SetAvailabilityVC: UIViewController {
+class SelectDateAvailabilityVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var tblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var submitBtn: Button!
+    @IBOutlet weak var selectDateBtn: UIButton!
     
-    var dateListVM : AvailabilityListViewModel = AvailabilityListViewModel()
-    var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
+    var selectedDate : Date!
     var arr = ["Chat","Interview Prep","Virtual Tour"]
+    var dateListVM : DateAvailabilityListViewModel = DateAvailabilityListViewModel()
+    var availabilityVM : CustomDateAvaibilityViewModel = CustomDateAvaibilityViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    var availabilityDeleteVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,20 +32,23 @@ class SetAvailabilityVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Set Availability"
+        navigationBar.headerLbl.text = "Selected Date"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
     
     //MARK: - configUI
     func configUI() {
-        tblView.register(UINib(nibName: "SetAvailabilityTVC", bundle: nil), forCellReuseIdentifier: "SetAvailabilityTVC")
-        availabilityVM.delegate = self
-        
-        dateListVM.delegate = self
-        dateListVM.availabilityList()
+        tblView.register(UINib(nibName: "SelectDateTVC", bundle: nil), forCellReuseIdentifier: "SelectDateTVC")
+        self.selectDateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MM / dd / yyyy"), for: .normal)
         
         tblViewHeightConstraint.constant = 20
+        
+        dateListVM.delegate = self
+        availabilityVM.delegate = self
+        availabilityDeleteVM.delegate = self
+        
+        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
     }
     
     //MARK: - Button Click
@@ -54,13 +59,30 @@ class SetAvailabilityVC: UIViewController {
     @IBAction func clickToAddNewInterval(_ sender: Any) {
         addAvailabilityData()
     }
+
+    @IBAction func clickToSelectDate(_ sender: Any) {
+        self.view.endEditing(true)
+        if selectedDate == nil
+        {
+            selectedDate = Date()
+        }
+        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
+            if !cancel && date != nil {
+                self.selectedDate = date!
+                
+                self.selectDateBtn.setTitle(getDateStringFromDate(date: self.selectedDate, format: "MM / dd / yyyy"), for: .normal)
+                self.dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd")))
+            }
+        }
+    }
     
     @IBAction func clickToSubmit(_ sender: Any) {
         if availabilityListArr.count != 0 {
             var setArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             var updateArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
-                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == []  {
+                if item.startTime == -1 || item.endTime == -1 || item.type == []  {
                     displayToast("Please fill the above data")
                     return
                 }
@@ -69,7 +91,6 @@ class SetAvailabilityVC: UIViewController {
                     if item.id == "" {
                         dict.startTime = item.startTime
                         dict.endTime = item.endTime
-                        dict.weekDay = item.weekDay
                         dict.type = item.type
                         setArr.append(dict)
                     }
@@ -77,18 +98,18 @@ class SetAvailabilityVC: UIViewController {
                         dict.availabilityRef = item.id
                         dict.startTime = item.startTime
                         dict.endTime = item.endTime
-                        dict.weekDay = item.weekDay
                         dict.type = item.type
+               //         dict.customDate = getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd")
                         updateArr.append(dict)
                     }
                 }
             }
             if setArr.count != 0 {
-                let request = SetAvailabiltyRequest(availability: setArr, timezone: timeZoneOffsetInMinutes())
+                let request = SetDateAvailabiltyRequest(availability: setArr, timezone: timeZoneOffsetInMinutes(), dateTime: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd"))
                 availabilityVM.setAvailability(request: request)
             }
             if updateArr.count != 0 {
-                let request = SetAvailabiltyRequest(availability: updateArr, timezone: timeZoneOffsetInMinutes())
+                let request = UpdateDateAvailabiltyRequest(availability: updateArr, timezone: timeZoneOffsetInMinutes(), customDate: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd"))
                 availabilityVM.updateAvailability(request: request)
             }
         }
@@ -97,73 +118,79 @@ class SetAvailabilityVC: UIViewController {
     func addAvailabilityData() {
         submitBtn.isHidden = false
         if let lastData = availabilityListArr.last {
-            if lastData.weekDay == -1 || lastData.startTime == -1 || lastData.endTime == -1 || lastData.type == []  {
+            if lastData.startTime == -1 || lastData.endTime == -1 || lastData.type == []  {
                 displayToast("Please fill the above data")
             }
             else {
                 let availability : AvailabilityDataModel = AvailabilityDataModel.init()
                 availabilityListArr.append(availability)
                 tblView.reloadData()
-                tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+                tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 210)
             }
         }
         else {
             let availability : AvailabilityDataModel = AvailabilityDataModel.init()
             availabilityListArr.append(availability)
             tblView.reloadData()
-            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+            tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 210)
         }
-    }
-    
-    deinit {
-        log.success("SetAvailabilityVC Memory deallocated!")/
     }
 }
 
-extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate {
-    func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
+extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
+    func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
+        self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+    }
+    
+    func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = response.data
+        
+        if availabilityListArr.count == 0 {
+            tblViewHeightConstraint.constant = 20
+        }
         tblView.reloadData()
     }
     
-    func didRecieveSetAvailabilityResponse(response: SuccessModel) {
+    func didRecieveCustomDateAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
         self.navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
-        dateListVM.availabilityList()
+        self.dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: self.selectedDate, format: "YYYY-MM-dd")))
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func didRecieveSetAvailabilityResponse(response: SuccessModel) {
+        
     }
 }
 
+
 //MARK: - TableView Delegate
-extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
+extension SelectDateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return availabilityListArr.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 265
+        return 210
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tblView.dequeueReusableCell(withIdentifier: "SetAvailabilityTVC", for: indexPath) as? SetAvailabilityTVC
+        guard let cell = tblView.dequeueReusableCell(withIdentifier: "SelectDateTVC", for: indexPath) as? SelectDateTVC
             else {
             return UITableViewCell()
         }
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
-        cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
-        
         cell.fromLbl.text = dict.startTime == -1 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
         cell.toLbl.text = dict.endTime == -1 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
-        
-        cell.weekBtn.tag = indexPath.row
-        cell.weekBtn.addTarget(self, action: #selector(self.clickToSelectWeek), for: .touchUpInside)
         
         cell.fromBtn.tag = indexPath.row
         cell.fromBtn.addTarget(self, action: #selector(self.clickToSelectFromTime), for: .touchUpInside)
@@ -180,28 +207,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.availableCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         cell.availableCollectionView.reloadData()
 
-        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
+        tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 210)
         return cell
-    }
-        
-    @objc func clickToSelectWeek(_ sender : UIButton) {
-        DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
-            if week != nil {
-                self?.availabilityListArr[sender.tag].weekDay = index
-                
-                self?.availabilityListArr[sender.tag].startTime = -1
-                self?.availabilityListArr[sender.tag].endTime = -1
-                self?.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
-            }
-            self?.view.endEditing(true)
-        }
     }
     
     @objc func clickToSelectFromTime(_ sender : UIButton) {
-        if self.availabilityListArr[sender.tag].weekDay == -1 {
-            displayToast("Please select week day first.")
-            return
-        }
         DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.availabilityListArr[sender.tag].endTime = -1
@@ -211,20 +221,10 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             }
             self.view.endEditing(true)
         }
-        
-//        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
-//            if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
-//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
-//            }
-//            self.view.endEditing(true)
-//        }
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton) {
-       if self.availabilityListArr[sender.tag].startTime == -1 {
+        if self.availabilityListArr[sender.tag].startTime == -1 {
             displayToast("Please select start time first.")
             return
         }
@@ -242,72 +242,29 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             }
             self.view.endEditing(true)
         }
-        
-        
-//        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
-//            if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                self.availabilityListArr[sender.tag].endTime = getMinuteFromDateString(strDate: finalDate)
-//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
-//            }
-//            self.view.endEditing(true)
-//        }
     }
     
-    func isTrueTime(_ min : Int, _ tag : Int, _ isStart: Bool) -> Bool {
-        if availabilityListArr.count > 1 {
-            
-        }
-        let index = availabilityListArr.firstIndex { (data) -> Bool in
-            data.weekDay == availabilityListArr[tag].weekDay
-        }
-        if index != nil {
-            for item in availabilityListArr {
-                if item.weekDay == availabilityListArr[tag].weekDay {
-                    if item.startTime != -1 && item.endTime != -1 {
-                        print(item.startTime)
-                        print(item.endTime)
-                        print(min)
-                        
-                        let startDate = getDateFromMinute(item.startTime)
-                        let endDate = getDateFromMinute(item.endTime)
-                        
-                        
-                        if isStart {
-                            let selectStartTime = getDateFromMinute(min)
-                            if ((selectStartTime >= startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectStartTime > endDate)) {
-                                displayToast("Time over-ride")
-                                return false
-                            }
-                            if self.availabilityListArr[tag].endTime != -1 {
-                                let selectEndTime = getDateFromMinute(min)
-                                if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate)) {
-                                    displayToast("Time over-ride")
-                                    return false
-                                }
-                            }
-                        }
-                        else {
-                            let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
-                            let selectEndTime = getDateFromMinute(min)
-                            
-                            if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) {
-                                displayToast("Time over-ride")
-                                return false
-                            }
-                        }
-                    }
-                }
+    @objc func clickToDeleteTime(_ sender : UIButton) {
+        let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
+        if dict.id != "" {
+            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
+                self.availabilityDeleteVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
+            }) {
+
             }
-            return true
         }
         else {
-            return true
+            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
+                self.availabilityListArr.remove(at: sender.tag)
+                self.tblView.reloadData()
+                self.tblViewHeightConstraint.constant = CGFloat(self.availabilityListArr.count * 210)
+            }) {
+
+            }
         }
     }
     
-    func isTrueTime1(_ min: Int, _ tag: Int, _ isStart: Bool) -> Bool {
+    func isTrueTime(_ min: Int, _ tag: Int, _ isStart: Bool) -> Bool {
         if availabilityListArr.count > 1 {
             for item in availabilityListArr {
                 if item.startTime != -1 && item.endTime != -1 {
@@ -318,6 +275,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
                     let startDate = getDateFromMinute(item.startTime)
                     let endDate = getDateFromMinute(item.endTime)
                     
+                    
                     if isStart {
                         let selectStartTime = getDateFromMinute(min)
                         if ((selectStartTime >= startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectStartTime > endDate)) {
@@ -326,7 +284,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
                         }
                         if self.availabilityListArr[tag].endTime != -1 {
                             let selectEndTime = getDateFromMinute(min)
-                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
+                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) {
                                 displayToast("Time over-ride")
                                 return false
                             }
@@ -350,29 +308,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @objc func clickToDeleteTime(_ sender : UIButton) {
-        let dict : AvailabilityDataModel = self.availabilityListArr[sender.tag]
-        if dict.id != "" {
-            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
-                self.availabilityVM.deleteAvailability(request: AvailabiltyDeleteRequest(availabilityRef: dict.id))
-            }) {
-                
-            }
-        }
-        else {
-            showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
-                self.availabilityListArr.remove(at: sender.tag)
-                self.tblView.reloadData()
-                self.tblViewHeightConstraint.constant = CGFloat(self.availabilityListArr.count * 265)
-            }) {
-                
-            }
-        }
-    }
 }
 
+
 //MARK: - CollectionView Delegate
-extension SetAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+extension SelectDateAvailabilityVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arr.count
     }

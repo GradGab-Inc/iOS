@@ -42,6 +42,7 @@ class BookingDetailVC: UIViewController {
     
     var isFromTransaction : Bool = false
     var transactionDetailVM : TransactionDetailViewModel = TransactionDetailViewModel()
+    var selectedTransaction : TransactionListDataModel = TransactionListDataModel.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +71,7 @@ class BookingDetailVC: UIViewController {
         
         if isFromTransaction {
             transactionDetailVM.delegate = self
-            transactionDetailVM.getTransactionDetail()
+            transactionDetailVM.getTransactionDetail(request: transactionDetailRequest(transactionRef: selectedTransaction.id))
         }
         else {
             createBookingVM.delegate = self
@@ -160,7 +161,10 @@ extension BookingDetailVC : CreateBookingDelegate {
 
 extension BookingDetailVC : TransactionDetailDelegate {
     func didRecieveTransactionDetailResponse(response: BookingDetailModel) {
-        
+        if response.data == nil {
+            return
+        }
+        bookingDetail = response.data ?? BookingDetail.init()
         renderDataFromTransaction()
     }
     
@@ -175,7 +179,7 @@ extension BookingDetailVC : TransactionDetailDelegate {
         serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(bookingDetail.amount) Paid"
 
-        favoriteBtn.isSelected = bookingDetail.isFavourite
+        favoriteBtn.isHidden = true
     }
 }
 

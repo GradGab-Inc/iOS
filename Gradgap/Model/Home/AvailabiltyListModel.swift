@@ -55,7 +55,7 @@ struct AvailabilityDataModel: Codable {
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         v = try values.decodeIfPresent(Int.self, forKey: .v) ?? 0
         type = try values.decodeIfPresent([Int].self, forKey: .type) ?? []
-        weekDay = try values.decodeIfPresent(Int.self, forKey: .weekDay) ?? 0
+        weekDay = try values.decodeIfPresent(Int.self, forKey: .weekDay) ?? -1
         datumV = try values.decodeIfPresent(Int.self, forKey: .datumV) ?? 0
         mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
         startTime = try values.decodeIfPresent(Int.self, forKey: .startTime) ?? -1

@@ -1,21 +1,21 @@
 //
-//  CalenderListTVC.swift
+//  SelectDateTVC.swift
 //  Gradgap
 //
-//  Created by iMac on 12/08/20.
+//  Created by iMac on 9/23/20.
 //  Copyright © 2020 AppKnit. All rights reserved.
 //
 
 import UIKit
 
-class CalenderListTVC: UITableViewCell {
+class SelectDateTVC: UITableViewCell {
 
-    @IBOutlet weak var timeLbl: UILabel!
-    @IBOutlet weak var eventLbl: UILabel!
-    @IBOutlet weak var backView: View!
-    @IBOutlet weak var backViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var availabilityBackView: View!
-    
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var fromLbl: UILabel!
+    @IBOutlet weak var fromBtn: UIButton!
+    @IBOutlet weak var toLbl: UILabel!
+    @IBOutlet weak var toBtn: UIButton!
+    @IBOutlet weak var availableCollectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
