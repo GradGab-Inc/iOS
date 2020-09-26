@@ -37,7 +37,7 @@ class FaqVC: UIViewController {
         tblView.register(UINib.init(nibName: "CustomQuestionTVC", bundle: nil), forCellReuseIdentifier: "CustomQuestionTVC")
         
         faqVM.delegate = self
-        faqVM.getFaqList()
+//        faqVM.getFaqList()
     }
     
     //MARK: - Button Click

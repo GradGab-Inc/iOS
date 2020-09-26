@@ -631,7 +631,7 @@ func getCallType(_ tag : Int) -> String {
 func getbookingType(_ tag : Int) -> String {
     switch tag {
     case 1:
-        return "Booked"
+        return "Confirmed"
     case 2:
         return "Cancelled"
     case 3:

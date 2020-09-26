@@ -77,7 +77,7 @@ struct MentorSectionModel: Codable {
 struct MentorListDataModel: Codable {
     let id: String
     let averageRating: Int
-    let image, name, schoolID, schoolName: String
+    let image, name, schoolID, schoolName, firstName, lastName: String
     let schoolShortName: String
     let availableTimings: [Int]
 
@@ -85,7 +85,7 @@ struct MentorListDataModel: Codable {
         case id = "_id"
         case averageRating, image, name
         case schoolID = "schoolId"
-        case schoolName, schoolShortName, availableTimings
+        case schoolName, schoolShortName, availableTimings, firstName, lastName
     }
     
     init(from decoder: Decoder) throws {
@@ -99,6 +99,8 @@ struct MentorListDataModel: Codable {
         schoolID = try values.decodeIfPresent(String.self, forKey: .schoolID) ?? ""
         schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName) ?? ""
         schoolShortName = try values.decodeIfPresent(String.self, forKey: .schoolShortName) ?? ""
+        firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
+        lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
     }
     
     init() {
@@ -110,5 +112,7 @@ struct MentorListDataModel: Codable {
         schoolID = ""
         schoolName = ""
         schoolShortName = ""
+        firstName = ""
+        lastName = ""
     }
 }

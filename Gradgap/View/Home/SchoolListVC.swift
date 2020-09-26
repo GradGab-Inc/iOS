@@ -170,7 +170,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         dataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
         if isMentor {
-            questionLbl.text = "what school do you attend?"
+            questionLbl.text = "What school do you attend?"
         }
         else {
             questionLbl.text = "What schools are you interested in?"

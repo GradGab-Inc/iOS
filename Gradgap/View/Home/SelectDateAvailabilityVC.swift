@@ -139,8 +139,7 @@ class SelectDateAvailabilityVC: UIViewController {
 
 extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
     func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        redirectToCalenderScreen()
     }
     
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
@@ -154,8 +153,7 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     
     func didRecieveCustomDateAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        redirectToCalenderScreen()
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -169,6 +167,21 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         
+    }
+    
+    func redirectToCalenderScreen() {
+        var isRedirect = false
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: CalenderDateListVC.self) {
+                isRedirect = true
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+        if !isRedirect {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

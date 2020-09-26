@@ -37,6 +37,7 @@ class BookingListVC: UIViewController {
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var refreshControl : UIRefreshControl = UIRefreshControl.init()
+    var isMentor : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +104,14 @@ class BookingListVC: UIViewController {
         request.dateStart = getDateInUTC(selectedStartDate)
         let endDate : Date = Calendar.current.date(byAdding: .day, value: 1, to: selectedEndDate)!
         request.dateEnd = getDateInUTC(endDate)
-        request.status = filterSelectIndex + 1
+        
+        let index = filterSelectIndex + 1
+        if isMentor {
+            request.status = index == 2 ? 3 : index
+        }
+        else {
+            request.status = index
+        }
         bookingListVM.getBookingList(request: request)
         filterBackView.isHidden = true
     }
@@ -197,7 +205,8 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
             
             let name = dict.name.components(separatedBy: " ")
-            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+            cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
+//            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
             
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             

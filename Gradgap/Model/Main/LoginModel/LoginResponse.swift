@@ -102,7 +102,7 @@ struct User: Codable {
         scoreACT = DocumentDefaultValues.Empty.double
         averageRating = DocumentDefaultValues.Empty.double
         gpa = DocumentDefaultValues.Empty.double
-        ethnicity = DocumentDefaultValues.Empty.int
+        ethnicity = -1
         subjects = []
         bio = DocumentDefaultValues.Empty.string
         major = DocumentDefaultValues.Empty.string

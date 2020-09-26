@@ -83,6 +83,13 @@ class MentorHomeVC: UIViewController {
         
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
         topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
+        
+        self.view.sainiAddSwipe { (data) in
+            if data == Swipe.down {
+                self.refreshBookingList()
+            }
+        }
+        
     }
     
     @objc func refreshBookingList() {
@@ -97,6 +104,7 @@ class MentorHomeVC: UIViewController {
     
     @IBAction func clickToViewAll(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingListVC") as! BookingListVC
+        vc.isMentor = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -167,7 +175,8 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
         
         let name = dict.name.components(separatedBy: " ")
-        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
+//        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         
         cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
         

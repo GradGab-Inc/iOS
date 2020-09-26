@@ -48,7 +48,7 @@ func getDateFromDateString(strDate : String) -> Date    // Today, 09:56 AM
 func getDateStringFromDateString(strDate : String, formate : String) -> String    // Today, 09:56 AM
 {
     let dateFormatter1 = DateFormatter()
-    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.locale = NSLocale.current//Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
     dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     let date1 =  dateFormatter1.date(from: strDate)!
     dateFormatter1.dateFormat = formate //"MMMM dd"

@@ -128,8 +128,7 @@ extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate 
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        redirectToCalenderScreen()
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -137,7 +136,22 @@ extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate 
     }
     
     func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        self.navigationController?.popViewController(animated: true)
+        redirectToCalenderScreen()
+    }
+    
+    func redirectToCalenderScreen() {
+        var isRedirect = false
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: CalenderDateListVC.self) {
+                isRedirect = true
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+        if !isRedirect {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -157,7 +171,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let dict : AvailabilityDataModel = availabilityListArr[indexPath.row]
-        cell.weekLbl.text = dict.weekDay == -1 ? "" : getWeekDay(dict.weekDay)
+        cell.weekLbl.text = dict.weekDay == -1 ? "" : "Every \(getWeekDay(dict.weekDay))"
         
         cell.fromLbl.text = dict.startTime == -1 ? "" : getHourMinuteTime(dict.startTime, timeZoneOffsetInMinutes())
         cell.toLbl.text = dict.endTime == -1 ? "" : getHourMinuteTime(dict.endTime, timeZoneOffsetInMinutes())
@@ -185,7 +199,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
     }
         
     @objc func clickToSelectWeek(_ sender : UIButton) {
-        DatePickerManager.shared.showPicker(title: "Select Week", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Week Day", selected: "Monday", strings: weekArr) { [weak self](week, index, success) in
             if week != nil {
                 self?.availabilityListArr[sender.tag].weekDay = index
                 
@@ -211,16 +225,6 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             }
             self.view.endEditing(true)
         }
-        
-//        DatePickerManager.shared.showPickerForTime(title: "Choose Start Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
-//            if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                self.availabilityListArr[sender.tag].startTime = getMinuteFromDateString(strDate: finalDate)
-//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
-//            }
-//            self.view.endEditing(true)
-//        }
     }
     
     @objc func clickToSelectToTime(_ sender : UIButton) {
@@ -242,22 +246,11 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
             }
             self.view.endEditing(true)
         }
-        
-        
-//        DatePickerManager.shared.showPickerForTime(title: "Choose End Time", selected: getInitialTime(currentTime: Date(), interval: 15), min: nil, max: nil) { (date, cancel) in
-//            if !cancel && date != nil {
-//                let finalDate = getDateStringFromDate(date: date!, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
-//                print(finalDate)
-//                self.availabilityListArr[sender.tag].endTime = getMinuteFromDateString(strDate: finalDate)
-//                self.tblView.reloadRows(at: [IndexPath(item: sender.tag, section: 0)], with: .automatic)
-//            }
-//            self.view.endEditing(true)
-//        }
     }
     
     func isTrueTime(_ min : Int, _ tag : Int, _ isStart: Bool) -> Bool {
-        if availabilityListArr.count > 1 {
-            
+        if availabilityListArr.count < 1 {
+        
         }
         let index = availabilityListArr.firstIndex { (data) -> Bool in
             data.weekDay == availabilityListArr[tag].weekDay
@@ -282,7 +275,7 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
                             }
                             if self.availabilityListArr[tag].endTime != -1 {
                                 let selectEndTime = getDateFromMinute(min)
-                                if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate)) {
+                                if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
                                     displayToast("Time over-ride")
                                     return false
                                 }
@@ -292,53 +285,10 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
                             let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
                             let selectEndTime = getDateFromMinute(min)
                             
-                            if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) {
+                            if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
                                 displayToast("Time over-ride")
                                 return false
                             }
-                        }
-                    }
-                }
-            }
-            return true
-        }
-        else {
-            return true
-        }
-    }
-    
-    func isTrueTime1(_ min: Int, _ tag: Int, _ isStart: Bool) -> Bool {
-        if availabilityListArr.count > 1 {
-            for item in availabilityListArr {
-                if item.startTime != -1 && item.endTime != -1 {
-                    print(item.startTime)
-                    print(item.endTime)
-                    print(min)
-                    
-                    let startDate = getDateFromMinute(item.startTime)
-                    let endDate = getDateFromMinute(item.endTime)
-                    
-                    if isStart {
-                        let selectStartTime = getDateFromMinute(min)
-                        if ((selectStartTime >= startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectStartTime > endDate)) {
-                            displayToast("Time over-ride")
-                            return false
-                        }
-                        if self.availabilityListArr[tag].endTime != -1 {
-                            let selectEndTime = getDateFromMinute(min)
-                            if ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
-                                displayToast("Time over-ride")
-                                return false
-                            }
-                        }
-                    }
-                    else {
-                        let selectStartTime = getDateFromMinute(self.availabilityListArr[tag].startTime)
-                        let selectEndTime = getDateFromMinute(min)
-                        
-                        if ((selectStartTime > startDate) && (selectStartTime < endDate)) || ((selectStartTime < startDate) && (selectEndTime > endDate)) || ((selectStartTime < startDate) && (selectEndTime < endDate) && (selectEndTime > startDate)) || ((selectStartTime > startDate) && (selectEndTime > endDate) && (selectStartTime < endDate)) || (selectEndTime == endDate) {
-                            displayToast("Time over-ride")
-                            return false
                         }
                     }
                 }
