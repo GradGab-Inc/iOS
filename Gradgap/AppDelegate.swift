@@ -55,31 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             printData(params as? [String: AnyObject] ?? {})
             printData("********************\n\n")
         }
-        
-//        if isUserLogin() {
-//            if getLoginUserData() != nil {
-//                AppModel.shared.currentUser = UserDataModel.init()
-//                AppModel.shared.currentUser = getLoginUserData()!
-//                print(AppModel.shared.currentUser)
-//                
-//                if AppModel.shared.currentUser.user?.userType == 1 {
-//                    AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
-//                }
-//                else if AppModel.shared.currentUser.user?.userType == 2 {
-//                    AppDelegate().sharedDelegate().navigateToMentorDashBoard()
-//                }
-//                else if AppModel.shared.currentUser.user?.userType == 3 {
-//                    navigateToLogin()
-//                }
-//                
-//                getAboutUsData()
-//            }
-//        }
-//        else {
-//            AppModel.shared.currentUser = UserDataModel.init()
-//            navigateToLogin()
-//        }
-        
+
         //Stripe
         STPPaymentConfiguration.shared().publishableKey = STRIPE.STRIPE_PUB_KEY
         

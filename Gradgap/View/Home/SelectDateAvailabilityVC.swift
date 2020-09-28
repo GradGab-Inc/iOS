@@ -22,6 +22,7 @@ class SelectDateAvailabilityVC: UIViewController {
     var availabilityVM : CustomDateAvaibilityViewModel = CustomDateAvaibilityViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     var availabilityDeleteVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
+    var isFlag : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,6 +141,7 @@ class SelectDateAvailabilityVC: UIViewController {
 extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
     func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
         redirectToCalenderScreen()
+        isFlag = true
     }
     
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
@@ -154,6 +156,7 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     func didRecieveCustomDateAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
         redirectToCalenderScreen()
+        isFlag = true
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -161,7 +164,7 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
-    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
+    func didRecieveUpdateAvailabilityResponse(response: SuccessModel) {
         
     }
     
@@ -170,6 +173,9 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     }
     
     func redirectToCalenderScreen() {
+        if isFlag {
+            return
+        }
         var isRedirect = false
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
         for controller in self.navigationController!.viewControllers as Array {

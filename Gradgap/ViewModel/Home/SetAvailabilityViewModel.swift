@@ -12,7 +12,7 @@ import SainiUtils
 protocol SetAvailabilityDelegate {
     func didRecieveSetAvailabilityResponse(response: SuccessModel)
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel)
-    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel)
+    func didRecieveUpdateAvailabilityResponse(response: SuccessModel)
 }
 
 struct SetAvailabilityViewModel {
@@ -67,7 +67,7 @@ struct SetAvailabilityViewModel {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.AVAILABILITY.update, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(AvailabiltyListModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
                         switch success.code{
                         case 100:
                             self.delegate?.didRecieveUpdateAvailabilityResponse(response: success.self)

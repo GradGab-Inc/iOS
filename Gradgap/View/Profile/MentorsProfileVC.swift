@@ -62,7 +62,6 @@ class MentorsProfileVC: UIViewController {
         navigationBar.headerLbl.text = "Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
     }
     
     //MARK: - configUI

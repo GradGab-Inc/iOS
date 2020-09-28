@@ -16,13 +16,16 @@ class MentorHomeVC: UIViewController {
     @IBOutlet weak var bookingTblViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var noDataLbl: UILabel!
     @IBOutlet weak var homeCalender: FSCalendar!
+    
+    @IBOutlet var calenderBackView: UIView!
+    
+    
     @IBOutlet weak var headerLbl: UILabel!
     @IBOutlet weak var topHeaderDateLbl: UILabel!
     @IBOutlet weak var viewAllBtn: UIButton!
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var timeBackView: UIView!
     @IBOutlet weak var messageLbl: UILabel!
-    
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
@@ -35,6 +38,8 @@ class MentorHomeVC: UIViewController {
         return formatter
     }()
     private var currentPage: Date?
+    
+    var calendar: FSCalendar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +57,18 @@ class MentorHomeVC: UIViewController {
         else {
             completeProfileBackView.isHidden = true
         }
-        homeCalender.reloadData()
+        
+        homeCalender.isHidden = true
+        
+//        self.homeCalender.rowHeight = self.homeCalender.frame.size.height/6
+//        homeCalender.reloadData()
     }
         
     //MARK: - configUI
     func configUI() {
         timeBackView.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
-        
+        calenderBackView.isHidden = true
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
         
@@ -75,11 +84,15 @@ class MentorHomeVC: UIViewController {
         noDataLbl.attributedText = attributedString1
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 200
+        bookingTblViewHeightConstraint.constant = 200 + 50
         
         bookingListVM.delegate = self
         bookingActionVM.delegate = self
         refreshBookingList()
+        
+        homeCalender.delegate = self
+        
+//        setUpCalender()
         
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
         topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
@@ -89,7 +102,6 @@ class MentorHomeVC: UIViewController {
                 self.refreshBookingList()
             }
         }
-        
     }
     
     @objc func refreshBookingList() {
@@ -109,18 +121,38 @@ class MentorHomeVC: UIViewController {
     }
     
     @IBAction func clickToNextMonth(_ sender: Any) {
-        let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: homeCalender.currentPage)
-        homeCalender.setCurrentPage(nextMonth!, animated: true)
+        let nextMonth = Calendar.current.date(byAdding: .month, value: 1, to: calendar.currentPage)
+        calendar.setCurrentPage(nextMonth!, animated: true)
     }
     
     @IBAction func clickToPreviousMonth(_ sender: Any) {
-      let nextMonth = Calendar.current.date(byAdding: .month, value: -1, to: homeCalender.currentPage)
-      homeCalender.setCurrentPage(nextMonth!, animated: true)
+        let nextMonth = Calendar.current.date(byAdding: .month, value: -1, to: calendar.currentPage)
+        calendar.setCurrentPage(nextMonth!, animated: true)
     }
     
     @IBAction func clickToCompleteProfile(_ sender: Any) {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "StudentEnrollVC") as! StudentEnrollVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func setUpCalender() {
+        calendar = FSCalendar(frame: CGRect(x:0, y:0, width: calenderBackView.frame.size.width, height: calenderBackView.frame.size.height))
+        calendar.dataSource = self
+        calendar.delegate = self
+        calendar.allowsSelection = true
+        calendar.swipeToChooseGesture.isEnabled = true
+        calendar.backgroundColor = ClearColor
+        calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesSingleUpperCase]
+        calendar.appearance.weekdayTextColor = WhiteColor
+        calendar.appearance.titleDefaultColor = WhiteColor
+        calendar.appearance.selectionColor = colorFromHex(hex: "#33C8A3")
+        calendar.appearance.todayColor = colorFromHex(hex: "#33C8A3")
+        calendar.appearance.todaySelectionColor = colorFromHex(hex: "#33C8A3")
+        calendar.appearance.headerTitleColor = ClearColor
+        calendar.isUserInteractionEnabled = true
+        calendar.select(Date())
+        
+        self.calenderBackView.addSubview(calendar)
     }
     
     deinit {
@@ -138,13 +170,18 @@ extension MentorHomeVC : HomeBookingListDelegate {
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 200
+            bookingTblViewHeightConstraint.constant = 200 + 50
         }
         messageLbl.isHidden = bookingArr.count == 0 ? false : true
     
-        homeCalender.layoutIfNeeded()
-        homeCalender.setNeedsLayout()
-   }
+        DispatchQueue.main.async {
+            if self.calendar != nil {
+                self.calendar.removeFromSuperview()
+            }
+            self.calenderBackView.isHidden = false
+            self.setUpCalender()
+        }
+    }
 }
 
 extension MentorHomeVC : BookingActionDelegate {
@@ -220,7 +257,7 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MentorHomeVC : FSCalendarDelegate {
+extension MentorHomeVC : FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         print("did select date \(self.dateFormatter.string(from: date))")
         let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
@@ -239,5 +276,9 @@ extension MentorHomeVC : FSCalendarDelegate {
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         print("\(self.dateFormatter.string(from: calendar.currentPage))")
         headerLbl.text = getDateStringFromDate(date: calendar.currentPage, format: "MMMM yyyy")
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date) {
+        calendar.reloadData()
     }
 }

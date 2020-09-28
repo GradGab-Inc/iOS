@@ -86,7 +86,7 @@ extension UpdateAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelega
         dateListVM.availabilityList()
     }
     
-    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
+    func didRecieveUpdateAvailabilityResponse(response: SuccessModel) {
         self.navigationController?.popViewController(animated: true)
     }
 }

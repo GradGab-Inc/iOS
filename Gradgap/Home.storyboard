@@ -516,10 +516,10 @@ schools.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTE-dG-Cpm" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="280" height="229"/>
+                                <rect key="frame" x="20" y="96" width="280" height="249"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-G4-EbD" customClass="FSCalendar">
-                                        <rect key="frame" x="8" y="14" width="264" height="207"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eD-G4-EbD" customClass="FSCalendar">
+                                        <rect key="frame" x="8" y="14" width="264" height="227"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="YES"/>
@@ -553,6 +553,10 @@ schools.</string>
                                             <outlet property="dataSource" destination="HI0-ql-gxB" id="oOq-iU-T9Y"/>
                                             <outlet property="delegate" destination="HI0-ql-gxB" id="DHj-Gm-nyB"/>
                                         </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOe-1L-qvc">
+                                        <rect key="frame" x="8" y="14" width="264" height="227"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Of-q9-JZr">
                                         <rect key="frame" x="8" y="8" width="264" height="45"/>
@@ -618,11 +622,15 @@ schools.</string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313725490194" green="0.27843137254901962" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="VOe-1L-qvc" secondAttribute="bottom" constant="8" id="A6Z-bH-GO0"/>
                                     <constraint firstAttribute="bottom" secondItem="7eD-G4-EbD" secondAttribute="bottom" constant="8" id="JGB-QR-ECg"/>
                                     <constraint firstAttribute="trailing" secondItem="7eD-G4-EbD" secondAttribute="trailing" constant="8" id="PVg-j7-mrh"/>
                                     <constraint firstItem="1Of-q9-JZr" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="8" id="Sh0-G7-ldz"/>
                                     <constraint firstItem="7eD-G4-EbD" firstAttribute="leading" secondItem="FTE-dG-Cpm" secondAttribute="leading" constant="8" id="XMa-nm-Zhj"/>
+                                    <constraint firstItem="VOe-1L-qvc" firstAttribute="leading" secondItem="FTE-dG-Cpm" secondAttribute="leading" constant="8" id="eem-Y1-U6b"/>
                                     <constraint firstItem="1Of-q9-JZr" firstAttribute="leading" secondItem="FTE-dG-Cpm" secondAttribute="leading" constant="8" id="gHe-Sj-urP"/>
+                                    <constraint firstAttribute="trailing" secondItem="VOe-1L-qvc" secondAttribute="trailing" constant="8" id="krN-2G-eic"/>
+                                    <constraint firstItem="VOe-1L-qvc" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="14" id="lfn-SX-JnS"/>
                                     <constraint firstItem="7eD-G4-EbD" firstAttribute="top" secondItem="FTE-dG-Cpm" secondAttribute="top" constant="14" id="n8j-Ix-8dR"/>
                                     <constraint firstAttribute="trailing" secondItem="1Of-q9-JZr" secondAttribute="trailing" constant="8" id="qNY-0O-BvB"/>
                                 </constraints>
@@ -633,7 +641,7 @@ schools.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R6W-YB-VaI">
-                                <rect key="frame" x="20" y="335" width="280" height="35"/>
+                                <rect key="frame" x="20" y="355" width="280" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please set your availability by clicking dates on the calendar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-C8-UFu">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
@@ -650,13 +658,13 @@ schools.</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-Di-fSb" customClass="View" customModule="GradGab" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="380" width="320" height="188"/>
+                                <rect key="frame" x="0.0" y="400" width="320" height="168"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UMg-7f-IE6">
-                                        <rect key="frame" x="0.0" y="8" width="320" height="140"/>
+                                        <rect key="frame" x="0.0" y="8" width="320" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="I8h-BZ-pN8"/>
+                                            <constraint firstAttribute="height" constant="120" id="I8h-BZ-pN8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="HI0-ql-gxB" id="mDH-tf-9eq"/>
@@ -664,13 +672,13 @@ schools.</string>
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don’t have any bookings yet, Refer some friends." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-hy-FeA">
-                                        <rect key="frame" x="30" y="74" width="260" height="40"/>
+                                        <rect key="frame" x="30" y="64" width="260" height="40"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Q-op-eCg">
-                                        <rect key="frame" x="0.0" y="148" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="128" width="320" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fld-lm-ePh"/>
                                         </constraints>
@@ -733,6 +741,7 @@ schools.</string>
                     <connections>
                         <outlet property="bookingTblView" destination="UMg-7f-IE6" id="WyG-Dh-9GK"/>
                         <outlet property="bookingTblViewHeightConstraint" destination="I8h-BZ-pN8" id="gzy-lT-YSK"/>
+                        <outlet property="calenderBackView" destination="VOe-1L-qvc" id="xOz-zM-VuI"/>
                         <outlet property="completeProfileBackView" destination="XTp-EI-Xj3" id="uzl-RJ-Uoc"/>
                         <outlet property="headerLbl" destination="Y0y-ha-pxu" id="90y-02-MtR"/>
                         <outlet property="homeCalender" destination="7eD-G4-EbD" id="pt6-6V-uQg"/>
@@ -2369,9 +2378,6 @@ schools.</string>
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="clickToSubmit:" destination="ZOu-LZ-J43" eventType="touchUpInside" id="elI-tZ-kDv"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>

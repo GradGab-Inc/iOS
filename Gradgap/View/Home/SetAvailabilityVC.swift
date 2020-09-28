@@ -20,6 +20,7 @@ class SetAvailabilityVC: UIViewController {
     var availabilityVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
     var arr = ["Chat","Interview Prep","Virtual Tour"]
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
+    var isFlag : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,17 +130,22 @@ extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate 
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
         redirectToCalenderScreen()
+        isFlag = true
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
         dateListVM.availabilityList()
     }
     
-    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
-        redirectToCalenderScreen()
+    func didRecieveUpdateAvailabilityResponse(response: SuccessModel) {
+        self.redirectToCalenderScreen()
+        isFlag = true
     }
     
     func redirectToCalenderScreen() {
+        if isFlag {
+            return
+        }
         var isRedirect = false
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
         for controller in self.navigationController!.viewControllers as Array {

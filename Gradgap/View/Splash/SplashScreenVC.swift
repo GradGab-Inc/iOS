@@ -34,16 +34,6 @@ class SplashScreenVC: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.animatedView), userInfo: nil, repeats: true)
         
         logoBackView.alpha = 0
-//        logoVerticleConstraint.constant = (SCREEN.HEIGHT/2)
-//
-//        UIView.animate(withDuration: 5.0, animations: {
-//            self.logoVerticleConstraint.constant = 0
-//            self.logoBackView.alpha = 1
-//        }) { (status) in
-//            print(status)
-//        }
-        
-        
     }
 
     @objc func animatedView() {
@@ -53,6 +43,7 @@ class SplashScreenVC: UIViewController {
         }
         print(logoVerticleConstraint.constant)
         if logoVerticleConstraint.constant < 0 {
+            self.logoBackView.alpha = 1
             timer.invalidate()
             logoBackView.sainiShake()
             delay(0.3) {
