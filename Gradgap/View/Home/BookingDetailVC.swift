@@ -125,7 +125,7 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToRebookCall(_ sender: Any) {
-        let request = CreateBookingRequest(callType: bookingDetail.callType, dateTime: bookingDetail.dateTime, mentorRef: bookingDetail.mentorRef, timeSlot: bookingDetail.timeSlot, callTime: bookingDetail.callTime, additionalTopics: bookingDetail.additionalTopics)
+        let request = CreateBookingRequest(callType: bookingDetail.callType, dateTime: bookingDetail.dateTime, mentorRef: bookingDetail.mentorRef, timeSlot: bookingDetail.timeSlot, callTime: bookingDetail.callTime, additionalTopics: bookingDetail.additionalTopics, dateTimeText: getDateStringFromDateString(strDate: bookingDetail.dateTime, formate: "YYYY-MM-dd"))
         createBookingVM.createBooking(request: request)
     }
     
@@ -170,7 +170,8 @@ extension BookingDetailVC : TransactionDetailDelegate {
     
     func renderDataFromTransaction() {
         let name = bookingDetail.name.components(separatedBy: " ")
-        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
+//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
@@ -222,7 +223,8 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         
         let name = bookingDetail.name.components(separatedBy: " ")
-        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
+//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating

@@ -62,7 +62,7 @@ class BookVC: UIViewController {
     
     func serviceCall() {
         if selectedType == 1 {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage, timezone:timeZoneOffsetInMinutes()))
         }
         else if selectedType == 2  {
             mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
@@ -155,7 +155,8 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         let dict : MentorListDataModel = mentorListArr[indexPath.section].data[indexPath.row]
         
         let name = dict.name.components(separatedBy: " ")
-        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
+//        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         
         cell.collegeNameLbl.text = dict.schoolName
         cell.ratingView.rating = Double(dict.averageRating)

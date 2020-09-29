@@ -54,11 +54,11 @@ struct FavoriteListModel: Codable {
 struct FavoriteDataModel: Codable {
     let id, mentorRef: String
     let averageRating: Double
-    let schoolName, image, name: String
+    let schoolName, image, name, firstName, lastName: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case mentorRef, averageRating, schoolName, image, name
+        case mentorRef, averageRating, schoolName, image, name, firstName, lastName
     }
     
     init(from decoder: Decoder) throws {
@@ -70,5 +70,7 @@ struct FavoriteDataModel: Codable {
         schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName) ?? ""
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
+        firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
+        lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
     }
 }

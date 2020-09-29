@@ -59,11 +59,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ifS-l2-lbU" secondAttribute="trailing" constant="8" id="OJF-h3-6q9"/>
                                     <constraint firstItem="ifS-l2-lbU" firstAttribute="top" secondItem="hKe-f2-bsL" secondAttribute="top" id="ROD-nc-b1h"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eb-R1-LtD">
                                 <rect key="frame" x="105" y="0.0" width="200" height="55"/>

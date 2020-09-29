@@ -33,7 +33,7 @@ struct MentorData: Codable {
     let userType, studyingIn, anticipateYear: Int
     let major: String
     let scoreSAT, scoreACT, gpa: Double
-    let ethnicity: String
+    let ethnicity: Int
     let subjects: [Int]
     let bio, enrollmentID: String
     let personality: Personality?
@@ -69,7 +69,7 @@ struct MentorData: Codable {
         gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? 0.0
         amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
-        ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? ""
+        ethnicity = try values.decodeIfPresent(Int.self, forKey: .ethnicity) ?? 0
         bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
         enrollmentID = try values.decodeIfPresent(String.self, forKey: .enrollmentID) ?? ""
         averageRating = try values.decodeIfPresent(Int.self, forKey: .averageRating) ?? 0
@@ -94,7 +94,7 @@ struct MentorData: Codable {
         scoreACT = 0.0
         gpa = 0.0
         subjects = []
-        ethnicity = ""
+        ethnicity = 0
         bio = ""
         enrollmentID = ""
         averageRating = 0

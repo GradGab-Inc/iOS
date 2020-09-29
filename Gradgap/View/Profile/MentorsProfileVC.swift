@@ -62,7 +62,6 @@ class MentorsProfileVC: UIViewController {
         navigationBar.headerLbl.text = "Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
     }
     
     //MARK: - configUI
@@ -87,7 +86,7 @@ class MentorsProfileVC: UIViewController {
     }
     
     func getMentorDetailServiceCall(_ isLoader : Bool) {
-        let request : MentorDetailRequest = MentorDetailRequest(callType: selectedType, userId: selectedUserId, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), callTime: selectedCallTime)
+        let request : MentorDetailRequest = MentorDetailRequest(callType: selectedType, userId: selectedUserId, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), callTime: selectedCallTime, timezone: timeZoneOffsetInMinutes())
         mentorDetailVM.getMentorDetail(request: request, isLoader: isLoader)
     }
     
@@ -109,7 +108,7 @@ class MentorsProfileVC: UIViewController {
             if mentorDetail.isFavourite {
                 addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
             }
-            else{
+            else {
                 addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
             }
         }
@@ -160,7 +159,8 @@ class MentorsProfileVC: UIViewController {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         
         let name = bookingDetail.name.components(separatedBy: " ")
-        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
+//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
@@ -213,9 +213,11 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
         }
         else {
             if mentorDetail.isFavourite {
+                favoriteBtn.isSelected = false
                 displayToast("Mentor removed from favorites successfully")
             }
             else {
+                favoriteBtn.isSelected = true
                 displayToast("Mentor marked as favorite successfully")
             }
             getMentorDetailServiceCall(false)

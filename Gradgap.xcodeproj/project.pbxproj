@@ -722,13 +722,13 @@
 				88287A8324EE576900745DFB /* MentorListViewModel.swift */,
 				8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */,
 				8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */,
+				88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */,
 				8822682924ED2F1500E88254 /* SetFavoriteViewModel.swift */,
 				88203114251B4159001D580C /* CustomDateAvaibilityViewModel.swift */,
 				8822682B24ED305E00E88254 /* FavoriteListViewModel.swift */,
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
 				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
 				883A4198250F93F1000C35E7 /* EarningViewModel.swift */,
-				88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

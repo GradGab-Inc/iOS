@@ -81,7 +81,7 @@ class ConfirmBookingVC: UIViewController {
         renderProfile()
         
         cardListVM.delegate = self
-        cardListVM.getCardList()
+//        cardListVM.getCardList()
         
         if isFromFavorite {
             backToHomeBtn.setTitle("Back to Favorites", for: .normal)
@@ -155,17 +155,17 @@ class ConfirmBookingVC: UIViewController {
     }
 
     @IBAction func clickToApplyCoupon(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
-        if cardListArr.count == 0 {
-            addAccountBackView.isHidden = false
-            displaySubViewtoParentView(self.view, subview: addAccountBackView)
-            return
-        }
+//        if cardListArr.count == 0 {
+//            addAccountBackView.isHidden = false
+//            displaySubViewtoParentView(self.view, subview: addAccountBackView)
+//            return
+//        }
         var request : CreateBookingRequest = CreateBookingRequest()
         let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         let str = minutesToHoursMinutes(minutes: selectedTimeSlot)
@@ -177,6 +177,8 @@ class ConfirmBookingVC: UIViewController {
         request.timeSlot = selectedTimeSlot
         request.callTime = selectedCallTime
         request.additionalTopics = additionalTopicTxt.text
+        request.dateTimeText = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
+        
         if useWalletBtn.isSelected {
             request.useWalletBalance = true
         }

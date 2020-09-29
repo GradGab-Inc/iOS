@@ -29,6 +29,10 @@ class MentorBookingDetailVC: UIViewController {
     
     @IBOutlet weak var cancelBtn: Button!
     
+    @IBOutlet var cancelBookingBackView: UIView!
+    @IBOutlet var bookingCantCancelBackView: UIView!
+    
+    
     var type : Int = 0
     var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
@@ -65,6 +69,8 @@ class MentorBookingDetailVC: UIViewController {
         joinCallBtn.isHidden = true
         cancelBtn.isHidden = true
         confirmRejectBackView.isHidden = true
+        bookingCantCancelBackView.isHidden = true
+        cancelBookingBackView.isHidden = true
     }
     
     //MARK: - Button Click
@@ -87,7 +93,27 @@ class MentorBookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToCancel(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if getDifferenceFromCurrentTimeInHourInDays(bookingDetail.dateTime) {
+            bookingCantCancelBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: bookingCantCancelBackView)
+        }
+        else {
+            cancelBookingBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: cancelBookingBackView)
+        }
+    }
+    
+    @IBAction func clickToOk(_ sender: Any) {
+        bookingCantCancelBackView.isHidden = true
+    }
+    
+    @IBAction func clickToCancelNo(_ sender: Any) {
+        cancelBookingBackView.isHidden = true
+    }
+    
+    @IBAction func clickToCancelYes(_ sender: Any) {
+        let request = GetBookingActionRequest(bookingRef: selectedBooking.id, status: BookingStatus.CANCELLED)
+        bookingActionVM.getBookingAction(request: request)
     }
     
     deinit {
@@ -128,8 +154,16 @@ extension MentorBookingDetailVC : UICollectionViewDelegate, UICollectionViewData
 extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        
+        if response.code == 424  {
+            cancelBookingBackView.isHidden = true
+            bookingCantCancelBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: bookingCantCancelBackView)
+        }
+        else {
+            self.navigationController?.popViewController(animated: true)
+            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        }
     }
         
     func didRecieveBookingDetailResponse(response: BookingDetailModel) {
@@ -143,7 +177,9 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     func renderBookingDetail() {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         let name = bookingDetail.name.components(separatedBy: " ")
-        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
+        
+        nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
+//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         scheduledLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)

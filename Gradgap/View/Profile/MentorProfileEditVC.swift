@@ -25,6 +25,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     @IBOutlet weak var gpaTxt: UITextField!
     @IBOutlet weak var collegePathTxt: UITextField!
     @IBOutlet weak var searchTxt: TextField!
+    @IBOutlet weak var identifyTxt: UITextField!
     
     @IBOutlet weak var interestCollectionView: UICollectionView!
     @IBOutlet weak var interestCollectHeightConstraint: NSLayoutConstraint!
@@ -45,6 +46,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     var isLanguageChange : Bool = false
     var collegePathIndex : Int = -1
     var selectedEnrollId : UIImage = UIImage()
+    var ethinityIndex : Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +104,8 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         gpaTxt.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
         collegePathTxt.text = getCollegePathString(profileData.collegePath)
         collegePathIndex = profileData.collegePath
+        identifyTxt.text = ethinityArr[profileData.ethnicity]
+        ethinityIndex = profileData.ethnicity
         
         if profileData.subjects.count != 0 {
             selectedIndex = [Int]()
@@ -191,7 +195,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     @IBAction func clickToSubmit(_ sender: Any) {
         self.view.endEditing(true)
             
-            guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let school = graduateTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let bio = bioTextView.text, let path = collegePathTxt.text else {
+            guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let school = graduateTxt.text , let major = majorTxt.text ,let language = languageTxt.text, let sat = satTxt.text, let act = actTxt.text, let gpa = gpaTxt.text, let bio = bioTextView.text, let path = collegePathTxt.text, let identift = identifyTxt.text else {
                 return
             }
             if firstName.trimmed.count == 0 {
@@ -206,21 +210,9 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
             else if major.trimmed.count == 0 {
                 displayToast("Please select current major")
             }
-//            else if language.trimmed.count == 0 {
-//                displayToast("Please select language")
-//            }
-//            else if sat.trimmed.count == 0 {
-//                displayToast("Please enter test score SAT")
-//            }
             else if path.trimmed.count == 0 {
                 displayToast("Please select college path")
             }
-//            else if act.trimmed.count == 0 {
-//                displayToast("Please enter test score ACT")
-//            }
-//            else if gpa.trimmed.count == 0 {
-//                displayToast("Please enter GPA")
-//            }
             else if schoolNameArr.count == 0 {
                 displayToast("Please select school or college")
             }
@@ -252,7 +244,11 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
                 request.lastName = lastName
                 request.bio = bio
                 request.collegePath = collegePathIndex
-                                
+                       
+                if ethinityIndex != -1 {
+                    request.ethnicity = ethinityIndex
+                }
+                
                 if isNewImgUpload && !isNewEnrollIdUpload {
                     let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
@@ -288,6 +284,17 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         schoolNameArr = [MajorListDataModel]()
         schoolNameArr.append(selectedData)
         schoolCollectionView.reloadData()
+    }
+    
+    @IBAction func clickToEthinity(_ sender: Any) {
+        self.view.endEditing(true)
+        DatePickerManager.shared.showPicker(title: "Select Ethinity", selected: "Default", strings: ethinityArr) { [weak self](school, index, success) in
+            if school != nil {
+                self?.identifyTxt.text = school
+                self?.ethinityIndex = index
+            }
+            self?.view.endEditing(true)
+        }
     }
     
     deinit {

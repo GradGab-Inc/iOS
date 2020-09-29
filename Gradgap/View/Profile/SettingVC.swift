@@ -114,23 +114,23 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0  {
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-            vc.type = 0
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+//            vc.type = 0
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 1 {
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-            vc.type = 1
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+//            vc.type = 1
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2 {
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-            vc.type = 2
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+//            vc.type = 2
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 3 {
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
             showAlertWithOption("Confirmation", message: "Are you sure you want to logout?", btns: ["Cancel","Ok"], completionConfirm: {

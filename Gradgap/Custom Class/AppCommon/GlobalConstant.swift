@@ -229,7 +229,7 @@ struct INTERESTARR {
 
 struct  SETTING_ARR {
     static var ABOUT = "About Us"
-    static var TERMS = "Terms & Connditions"
+    static var TERMS = "Terms & Conditions"
     static var PRIVACY = "Privacy Policy"
     static var HELP = "Help"
     static var LOGOUT = "Logout"

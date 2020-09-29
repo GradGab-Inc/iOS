@@ -22,6 +22,7 @@ class SelectDateAvailabilityVC: UIViewController {
     var availabilityVM : CustomDateAvaibilityViewModel = CustomDateAvaibilityViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
     var availabilityDeleteVM : SetAvailabilityViewModel = SetAvailabilityViewModel()
+    var isFlag : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class SelectDateAvailabilityVC: UIViewController {
         availabilityVM.delegate = self
         availabilityDeleteVM.delegate = self
         
-        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")))
+        dateListVM.availabilityList(request: SelectDateAvailabiltyRequest(dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), isCustom : true))
     }
     
     //MARK: - Button Click
@@ -67,7 +68,7 @@ class SelectDateAvailabilityVC: UIViewController {
             selectedDate = Date()
         }
         let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
-        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: maxDate, max: nil) { (date, cancel) in
+        DatePickerManager.shared.showPicker(title: "Select Date", selected: selectedDate, min: nil, max: nil) { (date, cancel) in
             if !cancel && date != nil {
                 self.selectedDate = date!
                 
@@ -139,8 +140,8 @@ class SelectDateAvailabilityVC: UIViewController {
 
 extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailabilityListDelegate, SetAvailabilityDelegate {
     func didRecieveUpdateDateAvailabilityResponse(response: AvailabiltyListModel) {
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        redirectToCalenderScreen()
+        isFlag = true
     }
     
     func didRecieveDateAvailabilityListResponse(response: AvailabiltyListModel) {
@@ -154,8 +155,8 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
     
     func didRecieveCustomDateAvailabilityResponse(response: SuccessModel) {
         displayToast(response.message)
-        self.navigationController?.popViewController(animated: true)
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        redirectToCalenderScreen()
+        isFlag = true
     }
     
     func didRecieveDeleteAvailabilityResponse(response: SuccessModel) {
@@ -163,12 +164,30 @@ extension SelectDateAvailabilityVC : CustomDateAvailabilityDelegate, DateAvailab
         NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
     }
     
-    func didRecieveUpdateAvailabilityResponse(response: AvailabiltyListModel) {
+    func didRecieveUpdateAvailabilityResponse(response: SuccessModel) {
         
     }
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
         
+    }
+    
+    func redirectToCalenderScreen() {
+        if isFlag {
+            return
+        }
+        var isRedirect = false
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_BOOKED_DATA), object: nil)
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: CalenderDateListVC.self) {
+                isRedirect = true
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+        if !isRedirect {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 

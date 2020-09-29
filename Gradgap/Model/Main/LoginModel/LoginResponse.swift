@@ -49,7 +49,7 @@ struct User: Codable {
     let userType, studyingIn, anticipateYear, collegePath, walletAmount: Int
     let scoreSAT: Double
     let scoreACT, gpa, averageRating: Double
-    let ethnicity: String
+    let ethnicity: Int
     let subjects: [Int]
     let bio, major, otherLanguage, id, enrollmentId: String
     let firstName, email: String
@@ -77,7 +77,7 @@ struct User: Codable {
         scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? DocumentDefaultValues.Empty.double
         averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? DocumentDefaultValues.Empty.double
         gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? DocumentDefaultValues.Empty.double
-        ethnicity = try values.decodeIfPresent(String.self, forKey: .ethnicity) ?? DocumentDefaultValues.Empty.string
+        ethnicity = try values.decodeIfPresent(Int.self, forKey: .ethnicity) ?? DocumentDefaultValues.Empty.int
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? DocumentDefaultValues.Empty.string
         major = try values.decodeIfPresent(String.self, forKey: .major) ?? DocumentDefaultValues.Empty.string
@@ -102,7 +102,7 @@ struct User: Codable {
         scoreACT = DocumentDefaultValues.Empty.double
         averageRating = DocumentDefaultValues.Empty.double
         gpa = DocumentDefaultValues.Empty.double
-        ethnicity = DocumentDefaultValues.Empty.string
+        ethnicity = -1
         subjects = []
         bio = DocumentDefaultValues.Empty.string
         major = DocumentDefaultValues.Empty.string

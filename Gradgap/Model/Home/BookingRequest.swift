@@ -20,8 +20,9 @@ struct CreateBookingRequest: Encodable {
     var couponRef : String?
     var coupon : String?
     var useWalletBalance : Bool?
+    var dateTimeText: String?
     
-    init(callType: Int? = nil, dateTime:String? = nil, mentorRef:String? = nil, timeSlot:Int? = nil, callTime:Int? = nil, additionalTopics:String? = nil, referralId:String? = nil, couponRef:String? = nil, coupon:String? = nil, useWalletBalance:Bool? = nil){
+    init(callType: Int? = nil, dateTime:String? = nil, mentorRef:String? = nil, timeSlot:Int? = nil, callTime:Int? = nil, additionalTopics:String? = nil, referralId:String? = nil, couponRef:String? = nil, coupon:String? = nil, useWalletBalance:Bool? = nil, dateTimeText:String? = nil){
         
         self.callType = callType
         self.dateTime = dateTime
@@ -33,6 +34,7 @@ struct CreateBookingRequest: Encodable {
         self.couponRef = couponRef
         self.coupon = coupon
         self.useWalletBalance = useWalletBalance
+        self.dateTimeText = dateTimeText
     }
     
 }
