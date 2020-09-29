@@ -129,7 +129,7 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         vc.selectedUserId = favoriteListArr[indexPath.row].mentorRef
         vc.selectedType = 1
         vc.selectedCallTime = 30
-        vc.selectedDate = Date()
+        vc.selectedDate = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
         vc.isFromFavorite = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

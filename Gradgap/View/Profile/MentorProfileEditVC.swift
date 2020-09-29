@@ -11,8 +11,8 @@ import SainiUtils
 
 class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
 
+    @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
-    @IBOutlet weak var profileImgView: ImageView!
     @IBOutlet weak var firstNameTxt: UITextField!
     @IBOutlet weak var lastNameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
@@ -47,6 +47,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     var collegePathIndex : Int = -1
     var selectedEnrollId : UIImage = UIImage()
     var ethinityIndex : Int = -1
+    var isProImg : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,8 +74,9 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         profilPicGesture()
     }
     
-    private func profilPicGesture(){
+    private func profilPicGesture() {
         profileImgView.sainiAddTapGesture {
+            self.isProImg = true
             self.uploadImage()
 //            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
 //            CameraAttachment.shared.imagePickedBlock = { pic in
@@ -85,8 +87,18 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     }
     
     override func selectedImage(choosenImage: UIImage) {
-        self.profileImgView.image = choosenImage
-        self.isNewImgUpload = true
+        if isProImg {
+            self.profileImgView.image = choosenImage
+            self.isNewImgUpload = true
+        }
+        else {
+            self.selectedEnrollId = choosenImage
+            self.isNewEnrollIdUpload = true
+            
+            self.enrollmentArr = [String]()
+            self.enrollmentArr.append(" ")
+            self.enrollCollectionView.reloadData()
+        }
     }
     
     private func renderProfile() {
@@ -104,7 +116,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         gpaTxt.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
         collegePathTxt.text = getCollegePathString(profileData.collegePath)
         collegePathIndex = profileData.collegePath
-        identifyTxt.text = ethinityArr[profileData.ethnicity]
+        identifyTxt.text = profileData.ethnicity != -1 ? ethinityArr[profileData.ethnicity] : ""
         ethinityIndex = profileData.ethnicity
         
         if profileData.subjects.count != 0 {
@@ -181,15 +193,17 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     }
     
     @IBAction func clickToAddMore(_ sender: Any) {
-        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-        CameraAttachment.shared.imagePickedBlock = { pic in
-            self.selectedEnrollId = pic
-            self.isNewEnrollIdUpload = true
-            
-            self.enrollmentArr = [String]()
-            self.enrollmentArr.append(" ")
-            self.enrollCollectionView.reloadData()
-        }
+        isProImg = false
+        self.uploadImage()
+//        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//        CameraAttachment.shared.imagePickedBlock = { pic in
+//            self.selectedEnrollId = pic
+//            self.isNewEnrollIdUpload = true
+//
+//            self.enrollmentArr = [String]()
+//            self.enrollmentArr.append(" ")
+//            self.enrollCollectionView.reloadData()
+//        }
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {

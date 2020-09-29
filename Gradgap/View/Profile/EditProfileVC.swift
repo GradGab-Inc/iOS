@@ -99,7 +99,7 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         astTxt.text =  String(format: "%.01f", profileData.scoreSAT) //"\(profileData.scoreSAT)"
         actTxt.text =  String(format: "%.01f", profileData.scoreACT) //"\(profileData.scoreACT)"
         gpaTxt.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
-        identifyTxt.text = ethinityArr[profileData.ethnicity]
+        identifyTxt.text = profileData.ethnicity != -1 ? ethinityArr[profileData.ethnicity] : ""
         ethinityIndex = profileData.ethnicity
         
         if profileData.subjects.count != 0 {

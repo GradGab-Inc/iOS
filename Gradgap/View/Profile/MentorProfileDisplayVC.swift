@@ -24,8 +24,13 @@ class MentorProfileDisplayVC: UIViewController {
     @IBOutlet weak var languageLbl: UILabel!
     @IBOutlet weak var satLbl: UILabel!
     @IBOutlet weak var collegePathLbl: UILabel!
+    @IBOutlet weak var ethinicityLbl: UILabel!
+    @IBOutlet weak var actLbl: UILabel!
+    @IBOutlet weak var gpaLbl: UILabel!
     
     @IBOutlet weak var subjectCollectionView: UICollectionView!
+    @IBOutlet weak var subjectCollectionViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var enrollCollectionView: UICollectionView!
     
@@ -70,6 +75,9 @@ class MentorProfileDisplayVC: UIViewController {
             majorLbl.text = profileData.major
             languageLbl.text = profileData.otherLanguage
             satLbl.text =  String(format: "%.01f", profileData.scoreSAT) //"\(profileData.scoreSAT)"
+            actLbl.text =  String(format: "%.01f", profileData.scoreACT) //"\(profileData.scoreACT)"
+            gpaLbl.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
+            ethinicityLbl.text = profileData.ethnicity != -1 ? ethinityArr[profileData.ethnicity] : ""
             rateLbl.text = "\(profileData.averageRating)"
             ratingView.rating = profileData.averageRating
             collegePathLbl.text = getCollegePathString(profileData.collegePath)
@@ -163,6 +171,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             cell.backView.cornerRadius = 5
             
             cell.cancelBtn.isHidden = true
+            subjectCollectionViewHeightConstraint.constant = subjectCollectionView.contentSize.height
             return cell
         }
         else if collectionView == schoolCollectionView {

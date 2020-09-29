@@ -137,6 +137,7 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
 
 extension SocialLogin : SocialLoginSuccessDelegate {
     func didReceivedSocialLoginData(userData: LoginResponse) {
+        self.view.endEditing(true)
         log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
         setLoginUserData(userData.data!.self)
         setIsUserLogin(isUserLogin: true)
@@ -162,13 +163,15 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
 
      // ASAuthorizationControllerDelegate function for authorization failed
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        self.view.endEditing(true)
         log.error("\(Log.stats()) \(error)")/
     }
 
     // ASAuthorizationControllerDelegate function for successful authorization
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-
+        
         guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+        self.view.endEditing(true)
         let userId = appleIDCredential.user
         let socialToken = String(decoding: appleIDCredential.identityToken ?? Data(), as: UTF8.self)
         

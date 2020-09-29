@@ -20,7 +20,7 @@ let APPLE_LANGUAGE_KEY = "AppleLanguages"
 
 let CLIENT_ID = "611977964118-b7pvhpm6mdti5ntfqqs6pfnv0h7ufmcg.apps.googleusercontent.com"
 
-let weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+let weekArr = ["Every Sunday","Every Monday","Every Tuesday","Every Wednesday","Every Thursday","Every Friday","Every Saturday"]
 let graduationYear = ["2020", "2021",  "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2035"]
 
 let monthArr = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]

@@ -54,6 +54,7 @@ class SignUpVC: SocialLogin {
     }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
         let text = "By Signing Up , you agree to our Terms & Conditions and Privacy Policy."
         let termsRange = (text as NSString).range(of: "Terms & Conditions ")
         let privacyRange = (text as NSString).range(of: "Privacy Policy.")
@@ -170,6 +171,7 @@ class SignUpVC: SocialLogin {
 //MARK: - SignUpDelegate
 extension SignUpVC: SignUpDelegate {
     func didRecieveSignUpResponse(response: SuccessModel) {
+        self.view.endEditing(true)
         log.success(response.message)/
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "EmailVerificationVC") as! EmailVerificationVC
         vc.fromSignup = true

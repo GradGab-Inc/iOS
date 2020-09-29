@@ -19,7 +19,6 @@ class MentorHomeVC: UIViewController {
     
     @IBOutlet var calenderBackView: UIView!
     
-    
     @IBOutlet weak var headerLbl: UILabel!
     @IBOutlet weak var topHeaderDateLbl: UILabel!
     @IBOutlet weak var viewAllBtn: UIButton!
@@ -57,17 +56,16 @@ class MentorHomeVC: UIViewController {
         else {
             completeProfileBackView.isHidden = true
         }
-        
         homeCalender.isHidden = true
-        
-//        self.homeCalender.rowHeight = self.homeCalender.frame.size.height/6
-//        homeCalender.reloadData()
     }
         
     //MARK: - configUI
     func configUI() {
         timeBackView.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshCalender), name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
+        
         calenderBackView.isHidden = true
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
@@ -76,7 +74,7 @@ class MentorHomeVC: UIViewController {
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 16.0), NSAttributedString.Key.foregroundColor : UIColor.red]
         
         let attributedString1 = NSMutableAttributedString(string: "You don’t have any bookings yet, ", attributes: attrs1)
-        let attributedString2 = NSMutableAttributedString(string:"Refer ", attributes: attrs2)
+        let attributedString2 = NSMutableAttributedString(string:"\nRefer ", attributes: attrs2)
         let attributedString3 = NSMutableAttributedString(string: "some friends.", attributes: attrs1)
         
         attributedString1.append(attributedString2)
@@ -84,15 +82,13 @@ class MentorHomeVC: UIViewController {
         noDataLbl.attributedText = attributedString1
         
         bookingTblView.reloadData()
-        bookingTblViewHeightConstraint.constant = 200 + 50
+        bookingTblViewHeightConstraint.constant = 200
         
         bookingListVM.delegate = self
         bookingActionVM.delegate = self
         refreshBookingList()
         
         homeCalender.delegate = self
-        
-//        setUpCalender()
         
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
         topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM dd/MM/yyyy")
@@ -106,6 +102,16 @@ class MentorHomeVC: UIViewController {
     
     @objc func refreshBookingList() {
         bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+    }
+    
+    @objc func refreshCalender() {
+        DispatchQueue.main.async {
+            if self.calendar != nil {
+                self.calendar.removeFromSuperview()
+            }
+            self.calenderBackView.isHidden = false
+            self.setUpCalender()
+        }
     }
     
     //MARK: - Button Click
@@ -170,9 +176,9 @@ extension MentorHomeVC : HomeBookingListDelegate {
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {
-            bookingTblViewHeightConstraint.constant = 200 + 50
+            bookingTblViewHeightConstraint.constant = 200
         }
-        messageLbl.isHidden = bookingArr.count == 0 ? false : true
+//        messageLbl.isHidden = bookingArr.count == 0 ? false : true
     
         DispatchQueue.main.async {
             if self.calendar != nil {
@@ -190,7 +196,6 @@ extension MentorHomeVC : BookingActionDelegate {
         refreshBookingList()
     }
 }
-
 
 //MARK: - TableView Delegate
 extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -213,8 +218,6 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         
         let name = dict.name.components(separatedBy: " ")
         cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
-//        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
-        
         cell.collegeNameLbl.text = " \(getCallType(dict.callType)) \(dict.callTime) Minutes "
         
         cell.labelBackView.backgroundColor = AppColor
