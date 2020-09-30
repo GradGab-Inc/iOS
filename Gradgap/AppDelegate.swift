@@ -16,7 +16,7 @@ import UserNotifications
 import Firebase
 import FirebaseMessaging
 import Stripe
-//import Branch
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,15 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // if you are using the TEST key
-//        Branch.setUseTestBranchKey(false)
-//
-//        // listener for Branch Deep Link data
-//        Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
-//            // do stuff with deep link data (nav to page, display content, etc)
-//            printData("\n\n********************")
-//            printData(params as? [String: AnyObject] ?? {})
-//            printData("********************\n\n")
-//        }
+        Branch.setUseTestBranchKey(false)
+
+        // listener for Branch Deep Link data
+        Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
+            // do stuff with deep link data (nav to page, display content, etc)
+            printData("\n\n********************")
+            printData(params as? [String: AnyObject] ?? {})
+            printData("********************\n\n")
+        }
 
         //Stripe
         STPPaymentConfiguration.shared().publishableKey = STRIPE.STRIPE_PUB_KEY
@@ -66,11 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
     
-//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//        // handler for Universal Links
-//        Branch.getInstance().continue(userActivity)
-//        return true
-//    }
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // handler for Universal Links
+        Branch.getInstance().continue(userActivity)
+        return true
+    }
     
     //MARK:- Share Appdelegate
     func storyboard() -> UIStoryboard
