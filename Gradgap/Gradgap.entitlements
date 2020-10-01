@@ -9,6 +9,11 @@
 		<string>Default</string>
 	</array>
 	<key>com.apple.developer.associated-domains</key>
-	<array/>
+	<array>
+		<string>applinks:1lmsg.app.link</string>
+		<string>applinks:1lmsg-alternate.app.link</string>
+		<string>applinks:1lmsg.test-app.link</string>
+		<string>applinks:1lmsg-alternate.test-app.link</string>
+	</array>
 </dict>
 </plist>
