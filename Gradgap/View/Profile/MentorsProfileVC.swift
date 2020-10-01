@@ -160,11 +160,11 @@ class MentorsProfileVC: UIViewController {
         
         let name = bookingDetail.name.components(separatedBy: " ")
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
-//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
         bioLbl.text = bookingDetail.bio
+        courceNameLbl.text = bookingDetail.major
         
         if bookingDetail.subjects.count != 0 {
             subjectArr = [String]()

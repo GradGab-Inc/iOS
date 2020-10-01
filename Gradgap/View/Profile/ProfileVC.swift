@@ -20,9 +20,15 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var majorLbl: UILabel!
     @IBOutlet weak var languageLbl: UILabel!
     @IBOutlet weak var satLbl: UILabel!
+    @IBOutlet weak var ethinicityLbl: UILabel!
+    @IBOutlet weak var actLbl: UILabel!
+    @IBOutlet weak var gpaLbl: UILabel!
+    
     
     @IBOutlet weak var interestCollectionView: UICollectionView!
+    @IBOutlet weak var interestCollectionViewHeightConstraint: NSLayoutConstraint!    
     @IBOutlet weak var schoolCollectionView: UICollectionView!
+    @IBOutlet weak var schoolCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var subjectArr : [String] = [String]()
     var schoolNameArr : [MajorListDataModel] = [MajorListDataModel]()
@@ -63,6 +69,9 @@ class ProfileVC: UIViewController {
             majorLbl.text = profileData.major
             languageLbl.text = profileData.otherLanguage
             satLbl.text = String(format: "%.01f", profileData.scoreSAT)//"\(profileData.scoreSAT)"
+            actLbl.text =  String(format: "%.01f", profileData.scoreACT) //"\(profileData.scoreACT)"
+            gpaLbl.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
+            ethinicityLbl.text = profileData.ethnicity != -1 ? ethinityArr[profileData.ethnicity] : ""
             
             if profileData.subjects.count != 0 {
                 subjectArr = [String]()
@@ -140,6 +149,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             cell.backView.cornerRadius = 5
             
             cell.cancelBtn.isHidden = true
+            interestCollectionViewHeightConstraint.constant = interestCollectionView.contentSize.height
             return cell
         }
         else{
@@ -154,6 +164,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5
             
+            schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
             cell.cancelBtn.isHidden = true
             return cell
         }

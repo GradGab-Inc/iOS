@@ -46,7 +46,7 @@ class ReferFriendVC: UIViewController {
         let title = "GradGab"
 //        let desc = "The #1 Booking App for Hair Care Professionals, Try " + selectedProvider.name + " on the app."
         let imgURL = "https://shiftbookd.com/img/shiftbookd-app.png"
-        
+
         let buo = BranchUniversalObject()
         buo.canonicalIdentifier = "content/12345"
         buo.title = title
@@ -56,7 +56,7 @@ class ReferFriendVC: UIViewController {
         buo.locallyIndex = true
         buo.contentMetadata.contentSchema = BranchContentSchema.commerceProduct
 //        buo.contentMetadata.customMetadata["deepLinkPayload"] = selectedProvider.dictionary()
-        
+
         let lp = BranchLinkProperties.init()
         lp.addControlParam("timeStamp", withValue: getCurrentTimeStampValue())
         buo.getShortUrl(with: lp) { (url, error) in

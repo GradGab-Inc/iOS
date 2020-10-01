@@ -19,7 +19,8 @@ class CalenderDateListVC: UIViewController {
     @IBOutlet weak var availabilityBottomView: UIView!
     @IBOutlet weak var bookingBottomView: UIView!
     @IBOutlet weak var availabilityTblView: UITableView!
-    
+    @IBOutlet weak var noDataLbl: UILabel!
+    @IBOutlet weak var availableBtn: UIButton!
     
     var dateListVM : DateAvailabilityListViewModel = DateAvailabilityListViewModel()
     var availabilityListArr : [AvailabilityDataModel] = [AvailabilityDataModel]()
@@ -54,6 +55,7 @@ class CalenderDateListVC: UIViewController {
         tblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         availabilityTblView.register(UINib(nibName: "CalenderListTVC", bundle: nil), forCellReuseIdentifier: "CalenderListTVC")
         
+        noDataLbl.isHidden = true
         updateBtn.isHidden = true
         dateListVM.delegate = self
         refreshDateList()
@@ -64,8 +66,8 @@ class CalenderDateListVC: UIViewController {
         availabilityBottomView.backgroundColor = colorFromHex(hex: "33C8A3")
         bookingBottomView.backgroundColor = ClearColor
         setBtn.isHidden = false
-        availabilityTblView.isHidden = false
-        tblView.isHidden = true
+        
+        clickToSelectTab(availableBtn)
     }
     
     @objc func refreshBookingList() {        
@@ -111,6 +113,10 @@ class CalenderDateListVC: UIViewController {
             availabilityTblView.isHidden = false
             tblView.isHidden = true
             availabilityTblView.reloadData()
+            
+            noDataLbl.isHidden = availabilityListArr.count == 0 ? false : true
+            availabilityTblView.isHidden = availabilityListArr.count == 0 ? true : false
+            noDataLbl.text = "No availability set for the day yet."
         }
         else if sender.tag == 2 {
             selectedTab = 2
@@ -121,6 +127,10 @@ class CalenderDateListVC: UIViewController {
             availabilityTblView.isHidden = true
             tblView.isHidden = false
             tblView.reloadData()
+            
+            noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+            tblView.isHidden = bookingArr.count == 0 ? true : false
+            noDataLbl.text = "You don't have any booking yet."
         }
     }
     
@@ -164,6 +174,12 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
         }
         availabilityTblView.reloadData()
         tblView.reloadData()
+        
+        noDataLbl.isHidden = availableTimeArr.count == 0 ? false : true
+        availabilityTblView.isHidden = availableTimeArr.count == 0 ? true : false
+        noDataLbl.text = "No availability set for the day yet."
+        tblView.isHidden = true
+        
         if availabilityListArr.count == 0 {
             setBtn.setTitle("Set Availability", for: .normal)
         }
@@ -179,6 +195,13 @@ extension CalenderDateListVC : HomeBookingListDelegate {
         bookingArr = response.data
         setupTimeData()
         tblView.reloadData()
+        
+        if selectedTab == 2 {
+            noDataLbl.isHidden = bookingArr.count == 0 ? false : true
+            tblView.isHidden = bookingArr.count == 0 ? true : false
+            noDataLbl.text = "You don't have any booking yet."
+        }
+        
    }
     
     //hide time cell if slot already booked
@@ -275,7 +298,8 @@ extension CalenderDateListVC : UITableViewDelegate, UITableViewDataSource {
             }
             if index != nil {
                 let dict = bookingArr[index!]
-                cell.eventLbl.text = "Meeting with \(dict.name) \(getCallType(dict.callType))"
+                let name = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
+                cell.eventLbl.text = "Meeting with \(name) \(getCallType(dict.callType))"
             }
             cell.availabilityBackView.isHidden = true
             return cell

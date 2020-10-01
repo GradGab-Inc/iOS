@@ -51,6 +51,7 @@ class PersonalProfileVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        
         selectQuestion(currentQuestion)
         submitBtn.isHidden = true
         bottomProgressBackView.isHidden = false
