@@ -55,6 +55,7 @@
 		88207237250CA2C700813299 /* TransactionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207236250CA2C700813299 /* TransactionListModel.swift */; };
 		88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88209765251A1A9F0038E3F3 /* EarningListRequest.swift */; };
 		88220CDD2518708B0078A4F9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 88220CDC2518708A0078A4F9 /* countries.json */; };
+		882231542525A8D000312945 /* VideoCallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882231532525A8D000312945 /* VideoCallVC.swift */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
 		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
 		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
@@ -299,6 +300,7 @@
 		88207236250CA2C700813299 /* TransactionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModel.swift; sourceTree = "<group>"; };
 		88209765251A1A9F0038E3F3 /* EarningListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListRequest.swift; sourceTree = "<group>"; };
 		88220CDC2518708A0078A4F9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		882231532525A8D000312945 /* VideoCallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallVC.swift; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
 		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
 		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
 				88462C0824FF9831000D0BE5 /* MyEarningVC.swift */,
+				882231532525A8D000312945 /* VideoCallVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1372,6 +1375,7 @@
 				883076E9251B1AE700C4D2D5 /* SelectAvaibilityVC.swift in Sources */,
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
+				882231542525A8D000312945 /* VideoCallVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */,
 				883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */,

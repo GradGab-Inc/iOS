@@ -110,7 +110,8 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
-        
+//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "VideoCallVC") as! VideoCallVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToCancelBooking(_ sender: Any) {
