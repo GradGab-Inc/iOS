@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // if you are using the TEST key
-        Branch.setUseTestBranchKey(false)
+        Branch.setUseTestBranchKey(true)
 
         // listener for Branch Deep Link data
         Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
@@ -54,6 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             printData("\n\n********************")
             printData(params as? [String: AnyObject] ?? {})
             printData("********************\n\n")
+            
+            
+            
+            
         }
 
         //Stripe

@@ -92,6 +92,9 @@
 		88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */; };
 		88269EAA2514CC0100AE36DF /* BankViewDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
+		882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828AC25287D420019F322 /* JoinCallViewModel.swift */; };
+		882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B12528870D0019F322 /* VideoCallDataRequest.swift */; };
+		882828B4252887560019F322 /* VideoCallResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B3252887560019F322 /* VideoCallResponse.swift */; };
 		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
 		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
 		88283335250368BD00C8739C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283334250368BD00C8739C /* RatingViewModel.swift */; };
@@ -246,6 +249,19 @@
 		FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303D24EA9C9D00AC9CF2 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		882828BF252893830019F322 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		166F8A68AE108FBE30DD2524 /* Pods-Gradgap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gradgap.debug.xcconfig"; path = "Target Support Files/Pods-Gradgap/Pods-Gradgap.debug.xcconfig"; sourceTree = "<group>"; };
 		22D64A0124D149C7006C37FD /* GradGab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradGab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +353,10 @@
 		88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackAccountDeleteViewModel.swift; sourceTree = "<group>"; };
 		88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewDetailViewModel.swift; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
+		882828AC25287D420019F322 /* JoinCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCallViewModel.swift; sourceTree = "<group>"; };
+		882828B12528870D0019F322 /* VideoCallDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallDataRequest.swift; sourceTree = "<group>"; };
+		882828B3252887560019F322 /* VideoCallResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallResponse.swift; sourceTree = "<group>"; };
+		882828C02528947D0019F322 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		88283334250368BD00C8739C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
@@ -576,7 +596,7 @@
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
 				88462C0824FF9831000D0BE5 /* MyEarningVC.swift */,
-				882231532525A8D000312945 /* VideoCallVC.swift */,
+				882828B525288B480019F322 /* VideoCall */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -692,6 +712,23 @@
 			path = Bank;
 			sourceTree = "<group>";
 		};
+		882828AE252884640019F322 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882828B12528870D0019F322 /* VideoCallDataRequest.swift */,
+				882828B3252887560019F322 /* VideoCallResponse.swift */,
+			);
+			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		882828B525288B480019F322 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882231532525A8D000312945 /* VideoCallVC.swift */,
+			);
+			path = VideoCall;
+			sourceTree = "<group>";
+		};
 		882A86F724FF722700190C0F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +769,7 @@
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
 				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
 				883A4198250F93F1000C35E7 /* EarningViewModel.swift */,
+				882828AC25287D420019F322 /* JoinCallViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -752,6 +790,7 @@
 				88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */,
 				882D618025107812009EE3B7 /* EarningResponse.swift */,
 				88209765251A1A9F0038E3F3 /* EarningListRequest.swift */,
+				882828AE252884640019F322 /* VideoCall */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1072,6 +1111,7 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				882828C02528947D0019F322 /* AVFoundation.framework */,
 				881FE93E25065C5800DDB411 /* MessageUI.framework */,
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
 			);
@@ -1157,6 +1197,7 @@
 				22D649FF24D149C7006C37FD /* Resources */,
 				134736E2EC19D1192B179E09 /* [CP] Embed Pods Frameworks */,
 				E1FA343170630B30D38C3CBE /* [CP] Copy Pods Resources */,
+				882828BF252893830019F322 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1335,6 +1376,7 @@
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
 				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
+				882828B4252887560019F322 /* VideoCallResponse.swift in Sources */,
 				88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,
@@ -1418,6 +1460,7 @@
 				88FA2E4D24E64E40000C67CE /* CouponTVC.swift in Sources */,
 				8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
+				882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */,
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
@@ -1465,6 +1508,7 @@
 				882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
+				882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */,
 				88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */,
 				88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
@@ -1658,6 +1702,11 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1682,6 +1731,11 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

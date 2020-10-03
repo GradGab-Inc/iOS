@@ -25,7 +25,7 @@ class VideoCallVC: UIViewController {
     
     @IBOutlet weak var mentorTimeExtensionBackView: UIView!
     @IBOutlet weak var mentorMessageLbl: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,6 @@ class VideoCallVC: UIViewController {
         else if AppModel.shared.currentUser.user?.userType == 2 {
             mentorTimeExtensionBackView.isHidden = false
         }
-        
     }
     
     //MARK: - Button Click

@@ -37,7 +37,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gradgab</string>
+				<string>gradgabapp</string>
 			</array>
 		</dict>
 	</array>

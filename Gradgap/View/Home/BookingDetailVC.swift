@@ -34,6 +34,7 @@ class BookingDetailVC: UIViewController {
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
+    var joinCallVM : JoinCallViewModel = JoinCallViewModel()
     var bookingDetail : BookingDetail = BookingDetail.init()
     var type : Int = 0
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
@@ -68,6 +69,7 @@ class BookingDetailVC: UIViewController {
         
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
+        joinCallVM.delegate = self
         
         if isFromTransaction {
             transactionDetailVM.delegate = self
@@ -110,6 +112,7 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
+//        joinCallVM.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id))
 //        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "VideoCallVC") as! VideoCallVC
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -160,6 +163,12 @@ extension BookingDetailVC : CreateBookingDelegate {
     }
 }
 
+extension BookingDetailVC : JoinCallDelegate {
+    func didRecieveJoinCallResponse(response: VideoCallResponse) {
+        
+    }
+}
+
 extension BookingDetailVC : TransactionDetailDelegate {
     func didRecieveTransactionDetailResponse(response: BookingDetailModel) {
         if response.data == nil {
@@ -170,7 +179,6 @@ extension BookingDetailVC : TransactionDetailDelegate {
     }
     
     func renderDataFromTransaction() {
-        let name = bookingDetail.name.components(separatedBy: " ")
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
 //        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
