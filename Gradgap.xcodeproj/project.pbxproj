@@ -95,6 +95,29 @@
 		882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828AC25287D420019F322 /* JoinCallViewModel.swift */; };
 		882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B12528870D0019F322 /* VideoCallDataRequest.swift */; };
 		882828B4252887560019F322 /* VideoCallResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B3252887560019F322 /* VideoCallResponse.swift */; };
+		882828D62528A7070019F322 /* AmazonChimeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D52528A7070019F322 /* AmazonChimeSDK.framework */; };
+		882828D82528A7180019F322 /* AmazonChimeSDKMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */; };
+		882828E22528A74F0019F322 /* RosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828D92528A7470019F322 /* RosterModel.swift */; };
+		882828E32528A74F0019F322 /* JoinRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DB2528A74A0019F322 /* JoinRequestService.swift */; };
+		882828E42528A74F0019F322 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DC2528A74A0019F322 /* ViewControllerExtension.swift */; };
+		882828E52528A74F0019F322 /* TimestampConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DD2528A74A0019F322 /* TimestampConversion.swift */; };
+		882828E62528A74F0019F322 /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DE2528A74A0019F322 /* HttpUtils.swift */; };
+		882828E72528A74F0019F322 /* CallKitOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DF2528A74A0019F322 /* CallKitOption.swift */; };
+		882828E82528A74F0019F322 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E02528A74D0019F322 /* MeetingModel.swift */; };
+		882828E92528A74F0019F322 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E12528A74F0019F322 /* VideoModel.swift */; };
+		882828EB2528A7920019F322 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EA2528A7920019F322 /* AppConfiguration.swift */; };
+		882828F02528A7D00019F322 /* SegmentedControlIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */; };
+		882828F12528A7D00019F322 /* RosterAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EE2528A7D00019F322 /* RosterAttendee.swift */; };
+		882828F22528A7D00019F322 /* JoinMeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */; };
+		882828F42528A80C0019F322 /* MeetingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F32528A80C0019F322 /* MeetingModule.swift */; };
+		882828FA2528AA470019F322 /* CallKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F92528AA470019F322 /* CallKitManager.swift */; };
+		882828FE2528AA940019F322 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828FD2528AA930019F322 /* Call.swift */; };
+		882829012528AABD0019F322 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828FF2528AABC0019F322 /* ChatMessageCell.swift */; };
+		882829022528AABD0019F322 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829002528AABD0019F322 /* ChatModel.swift */; };
+		882829042528AAE30019F322 /* ScreenShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829032528AAE30019F322 /* ScreenShareModel.swift */; };
+		882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829052528ACF40019F322 /* MeetingPresenter.swift */; };
+		882829092528AD320019F322 /* VideoTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829072528AD310019F322 /* VideoTileCell.swift */; };
+		8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828290B2528AECB0019F322 /* RosterTableCell.swift */; };
 		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
 		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
 		88283335250368BD00C8739C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283334250368BD00C8739C /* RatingViewModel.swift */; };
@@ -357,6 +380,29 @@
 		882828B12528870D0019F322 /* VideoCallDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallDataRequest.swift; sourceTree = "<group>"; };
 		882828B3252887560019F322 /* VideoCallResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallResponse.swift; sourceTree = "<group>"; };
 		882828C02528947D0019F322 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		882828D52528A7070019F322 /* AmazonChimeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDK.framework; sourceTree = "<group>"; };
+		882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDKMedia.framework; sourceTree = "<group>"; };
+		882828D92528A7470019F322 /* RosterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterModel.swift; sourceTree = "<group>"; };
+		882828DB2528A74A0019F322 /* JoinRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRequestService.swift; sourceTree = "<group>"; };
+		882828DC2528A74A0019F322 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		882828DD2528A74A0019F322 /* TimestampConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampConversion.swift; sourceTree = "<group>"; };
+		882828DE2528A74A0019F322 /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
+		882828DF2528A74A0019F322 /* CallKitOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitOption.swift; sourceTree = "<group>"; };
+		882828E02528A74D0019F322 /* MeetingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
+		882828E12528A74F0019F322 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		882828EA2528A7920019F322 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlIndex.swift; sourceTree = "<group>"; };
+		882828EE2528A7D00019F322 /* RosterAttendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterAttendee.swift; sourceTree = "<group>"; };
+		882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMeetingResponse.swift; sourceTree = "<group>"; };
+		882828F32528A80C0019F322 /* MeetingModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModule.swift; sourceTree = "<group>"; };
+		882828F92528AA470019F322 /* CallKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitManager.swift; sourceTree = "<group>"; };
+		882828FD2528AA930019F322 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		882828FF2528AABC0019F322 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		882829002528AABD0019F322 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		882829032528AAE30019F322 /* ScreenShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenShareModel.swift; sourceTree = "<group>"; };
+		882829052528ACF40019F322 /* MeetingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingPresenter.swift; sourceTree = "<group>"; };
+		882829072528AD310019F322 /* VideoTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTileCell.swift; sourceTree = "<group>"; };
+		8828290B2528AECB0019F322 /* RosterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableCell.swift; sourceTree = "<group>"; };
 		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		88283334250368BD00C8739C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
@@ -517,7 +563,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */,
+				882828D62528A7070019F322 /* AmazonChimeSDK.framework in Frameworks */,
 				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
+				882828D82528A7180019F322 /* AmazonChimeSDKMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,9 +772,46 @@
 		882828B525288B480019F322 /* VideoCall */ = {
 			isa = PBXGroup;
 			children = (
+				882828EC2528A7D00019F322 /* data */,
+				882828DA2528A74A0019F322 /* utils */,
 				882231532525A8D000312945 /* VideoCallVC.swift */,
+				882828E02528A74D0019F322 /* MeetingModel.swift */,
+				882828D92528A7470019F322 /* RosterModel.swift */,
+				8828290B2528AECB0019F322 /* RosterTableCell.swift */,
+				882828E12528A74F0019F322 /* VideoModel.swift */,
+				882828F32528A80C0019F322 /* MeetingModule.swift */,
+				882828F92528AA470019F322 /* CallKitManager.swift */,
+				882828FD2528AA930019F322 /* Call.swift */,
+				882828FF2528AABC0019F322 /* ChatMessageCell.swift */,
+				882829002528AABD0019F322 /* ChatModel.swift */,
+				882829032528AAE30019F322 /* ScreenShareModel.swift */,
+				882829052528ACF40019F322 /* MeetingPresenter.swift */,
+				882829072528AD310019F322 /* VideoTileCell.swift */,
 			);
 			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		882828DA2528A74A0019F322 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				882828EA2528A7920019F322 /* AppConfiguration.swift */,
+				882828DB2528A74A0019F322 /* JoinRequestService.swift */,
+				882828DC2528A74A0019F322 /* ViewControllerExtension.swift */,
+				882828DD2528A74A0019F322 /* TimestampConversion.swift */,
+				882828DE2528A74A0019F322 /* HttpUtils.swift */,
+				882828DF2528A74A0019F322 /* CallKitOption.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		882828EC2528A7D00019F322 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */,
+				882828EE2528A7D00019F322 /* RosterAttendee.swift */,
+				882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		882A86F724FF722700190C0F /* Profile */ = {
@@ -1111,6 +1196,8 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */,
+				882828D52528A7070019F322 /* AmazonChimeSDK.framework */,
 				882828C02528947D0019F322 /* AVFoundation.framework */,
 				881FE93E25065C5800DDB411 /* MessageUI.framework */,
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
@@ -1366,6 +1453,7 @@
 			files = (
 				884EC6072519CDCC00123D74 /* transactionDetailRequest.swift in Sources */,
 				886761362502200D009BA17C /* BankListVC.swift in Sources */,
+				882828FA2528AA470019F322 /* CallKitManager.swift in Sources */,
 				8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */,
 				88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */,
 				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
@@ -1374,6 +1462,7 @@
 				880BB9FB24EB941800134D1F /* LanguageListViewModel.swift in Sources */,
 				882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
+				882829022528AABD0019F322 /* ChatModel.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
 				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
 				882828B4252887560019F322 /* VideoCallResponse.swift in Sources */,
@@ -1387,10 +1476,13 @@
 				8822682E24ED316A00E88254 /* FavoriteListModel.swift in Sources */,
 				8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
+				882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */,
 				8824A39724EFC69100EF3118 /* FavouriteRequest.swift in Sources */,
 				8822682824ED23D600E88254 /* AvailabilityRequest.swift in Sources */,
 				884745A9250A043C00EF6624 /* CardSelectRequest.swift in Sources */,
 				88FAB29624E29F9C0060D577 /* EditProfileVC.swift in Sources */,
+				8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */,
+				882828E32528A74F0019F322 /* JoinRequestService.swift in Sources */,
 				882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */,
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
@@ -1399,6 +1491,7 @@
 				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
 				8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */,
+				882828E52528A74F0019F322 /* TimestampConversion.swift in Sources */,
 				88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */,
 				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */,
@@ -1410,6 +1503,7 @@
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
 				8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */,
 				88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */,
+				882828F12528A7D00019F322 /* RosterAttendee.swift in Sources */,
 				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
@@ -1418,6 +1512,7 @@
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				882231542525A8D000312945 /* VideoCallVC.swift in Sources */,
+				882829092528AD320019F322 /* VideoTileCell.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */,
 				883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */,
@@ -1430,6 +1525,7 @@
 				88AEE8A224D15A78002225E9 /* NSError+RUI.swift in Sources */,
 				88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */,
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
+				882828F02528A7D00019F322 /* SegmentedControlIndex.swift in Sources */,
 				882833332503624300C8739C /* NotificationResponse.swift in Sources */,
 				88AEE8A624D15A78002225E9 /* Colors.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
@@ -1445,6 +1541,7 @@
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88862EB324E6656200533CBA /* FaqVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
+				882829012528AABD0019F322 /* ChatMessageCell.swift in Sources */,
 				8828E383250B471600234B8F /* AddCardRequest.swift in Sources */,
 				88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */,
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,
@@ -1461,6 +1558,7 @@
 				8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
 				882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */,
+				882828E82528A74F0019F322 /* MeetingModel.swift in Sources */,
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
@@ -1479,6 +1577,7 @@
 				8822682C24ED305E00E88254 /* FavoriteListViewModel.swift in Sources */,
 				882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */,
 				88207237250CA2C700813299 /* TransactionListModel.swift in Sources */,
+				882828E42528A74F0019F322 /* ViewControllerExtension.swift in Sources */,
 				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88862EAF24E6612600533CBA /* HelpVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
@@ -1486,12 +1585,16 @@
 				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
 				8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */,
+				882828EB2528A7920019F322 /* AppConfiguration.swift in Sources */,
 				880BB9F924EB922400134D1F /* MajorListModel.swift in Sources */,
 				88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */,
 				882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
+				882828E72528A74F0019F322 /* CallKitOption.swift in Sources */,
+				882828E92528A74F0019F322 /* VideoModel.swift in Sources */,
 				883076EB251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift in Sources */,
+				882828E62528A74F0019F322 /* HttpUtils.swift in Sources */,
 				882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */,
 				88269EA42514C8FB00AE36DF /* AddBankRequest.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
@@ -1503,6 +1606,7 @@
 				888C6CC224E127B2008E27E0 /* FavoriteVC.swift in Sources */,
 				8825F18724F145C5004A2EC5 /* BookingActionViewModel.swift in Sources */,
 				FA44303A24EA8CDB00AC9CF2 /* SignUpViewModel.swift in Sources */,
+				882829042528AAE30019F322 /* ScreenShareModel.swift in Sources */,
 				FA44303824EA89CE00AC9CF2 /* SetAvailabilityRequest.swift in Sources */,
 				FA44302624EA779A00AC9CF2 /* SignUpRequest.swift in Sources */,
 				882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */,
@@ -1523,7 +1627,9 @@
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */,
 				88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */,
+				882828FE2528AA940019F322 /* Call.swift in Sources */,
 				8824D90924EE7CA00041F7CE /* MentorDetailViewModel.swift in Sources */,
+				882828E22528A74F0019F322 /* RosterModel.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
@@ -1536,6 +1642,7 @@
 				882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
 				88375A92250F33A00002923A /* FaqViewModel.swift in Sources */,
+				882828F22528A7D00019F322 /* JoinMeetingResponse.swift in Sources */,
 				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,
 				88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */,
 				88203115251B4159001D580C /* CustomDateAvaibilityViewModel.swift in Sources */,
@@ -1549,6 +1656,7 @@
 				88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */,
 				88375A98250F33FE0002923A /* ContactAdminResponse.swift in Sources */,
 				88233E8E2510CBF900718C81 /* SplashScreenVC.swift in Sources */,
+				882828F42528A80C0019F322 /* MeetingModule.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88ED40822509E26D00611100 /* SwitchProfileRequest.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,

@@ -27,6 +27,9 @@ class VideoCallVC: UIViewController {
     @IBOutlet weak var mentorMessageLbl: UILabel!
 
     
+    var meetingModel: MeetingModel?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +62,7 @@ class VideoCallVC: UIViewController {
     }
     
     @IBAction func clickToCallBtn(_ sender: Any) {
+        
     }
     
     @IBAction func clickToMicrophone(_ sender: Any) {

@@ -122,7 +122,7 @@ struct AttendeeModel: Codable {
 
 // MARK: - Payload
 struct VideoPayloadModel: Codable {
-    let meeting: Meeting?
+    let meeting: MeetingData?
 
     enum CodingKeys: String, CodingKey {
         case meeting = "Meeting"
@@ -131,19 +131,19 @@ struct VideoPayloadModel: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        meeting = try values.decodeIfPresent(Meeting.self, forKey: .meeting) ?? nil
+        meeting = try values.decodeIfPresent(MeetingData.self, forKey: .meeting) ?? nil
     }
     
     init() {
-        meeting = Meeting.init()
+        meeting = MeetingData.init()
     }
     
 }
 
 // MARK: - Meeting
-struct Meeting: Codable {
+struct MeetingData: Codable {
     let meetingID, externalMeetingID: String
-    let mediaPlacement: MediaPlacement?
+    let mediaPlacement: MediaPlacementData?
     let mediaRegion: String
 
     enum CodingKeys: String, CodingKey {
@@ -156,14 +156,14 @@ struct Meeting: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        mediaPlacement = try values.decodeIfPresent(MediaPlacement.self, forKey: .mediaPlacement) ?? nil
+        mediaPlacement = try values.decodeIfPresent(MediaPlacementData.self, forKey: .mediaPlacement) ?? nil
         meetingID = try values.decodeIfPresent(String.self, forKey: .meetingID) ?? ""
         externalMeetingID = try values.decodeIfPresent(String.self, forKey: .externalMeetingID) ?? ""
         mediaRegion = try values.decodeIfPresent(String.self, forKey: .mediaRegion) ?? ""
     }
     
     init() {
-        mediaPlacement = MediaPlacement.init()
+        mediaPlacement = MediaPlacementData.init()
         meetingID = ""
         externalMeetingID = ""
         mediaRegion = ""
@@ -172,7 +172,7 @@ struct Meeting: Codable {
 }
 
 // MARK: - MediaPlacement
-struct MediaPlacement: Codable {
+struct MediaPlacementData: Codable {
     let audioHostURL, audioFallbackURL, screenDataURL, screenSharingURL: String
     let screenViewingURL, signalingURL: String
     let turnControlURL: String
