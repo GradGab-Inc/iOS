@@ -26,6 +26,7 @@ target 'Gradgap' do
   
   pod 'Stripe', '~> 19.0.1'
   pod 'Branch'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   
   # Pods for Gradgap
 

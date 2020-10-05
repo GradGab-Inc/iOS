@@ -6,6 +6,10 @@
 //  Copyright © 2020 AppKnit. All rights reserved.
 //
 
+import AmazonChimeSDK
+import AVFoundation
+import CallKit
+import Foundation
 import UIKit
 import SainiUtils
 
@@ -25,10 +29,10 @@ class VideoCallVC: UIViewController {
     
     @IBOutlet weak var mentorTimeExtensionBackView: UIView!
     @IBOutlet weak var mentorMessageLbl: UILabel!
-
+    
     
     var meetingModel: MeetingModel?
-    
+    private let logger = ConsoleLogger(name: "VideoCallVC")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,22 @@ class VideoCallVC: UIViewController {
         else if AppModel.shared.currentUser.user?.userType == 2 {
             mentorTimeExtensionBackView.isHidden = false
         }
+        
+        guard let meetingModel = meetingModel else {
+            logger.error(msg: "MeetingModel not set")
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        configure(meetingModel: meetingModel)
+        super.viewDidLoad()
+//        setupUI()
+
+        meetingModel.startMeeting()
+        meetingModel.activeMode = .video
+        meetingModel.isLocalVideoActive = true
+        
+        
+        
     }
     
     //MARK: - Button Click
@@ -89,6 +109,27 @@ class VideoCallVC: UIViewController {
         
     }
     
+    private func configure(meetingModel: MeetingModel) {
+        meetingModel.notifyHandler = { [weak self] message in
+            self?.view?.makeToast(message, duration: 2.0, position: .top)
+        }
+        meetingModel.isEndedHandler = {
+            DispatchQueue.main.async {
+                MeetingModule.shared().dismissMeeting(meetingModel)
+            }
+        }
+
+        meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
+            meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
+//            self?.prevVideoPageButton.isEnabled = meetingModel.videoModel.canGoToPrevRemoteVideoPage
+//            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
+//            self?.videoCollection.reloadData()
+        }
+        meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
+     //       self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
+        }
+
+    }
     
     deinit {
         log.success("VideoCallVC Memory deallocated!")/
