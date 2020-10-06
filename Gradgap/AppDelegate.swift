@@ -54,10 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             printData("\n\n********************")
             printData(params as? [String: AnyObject] ?? {})
             printData("********************\n\n")
-            
-            
-            
-            
         }
 
         //Stripe
@@ -113,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getAboutUsData() {
         aboutVM.delegate = self
-        aboutVM.aboutData()
+//        aboutVM.aboutData()
     }
     
     //MARK:- Navigation

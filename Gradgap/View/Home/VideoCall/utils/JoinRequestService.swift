@@ -7,7 +7,6 @@
 //
 
 import AmazonChimeSDK
-import AmazonChimeSDKMedia
 import Foundation
 
 class JoinRequestService: NSObject {

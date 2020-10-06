@@ -187,13 +187,7 @@ class MeetingModel: NSObject {
          let timestamp = TimeStampConversion.formatTimestamp(timestamp: CLong(currentTimestamp) * 1000)
 
          chatModel
-             .addChatMessage(chatMessage:
-                 ChatMessage(
-                     senderName: self.selfName,
-                     message: message,
-                     timestamp: timestamp,
-                     isSelf: true
-             ))
+             .addChatMessage(chatMessage: ChatMessage(senderName: self.selfName, message: message, timestamp: timestamp, isSelf: true))
     }
 
     private func notify(msg: String) {

@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL =  "http://3.82.95.119/development/api/" //"http://437d902dcf7c.ngrok.io/api/"//
+    static let BASE_URL =  "http://0d6db6da85d0.ngrok.io/api/"//"http://3.82.95.119/development/api/" //
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {

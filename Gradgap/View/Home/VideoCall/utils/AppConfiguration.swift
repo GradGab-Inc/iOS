@@ -9,6 +9,6 @@
 import Foundation
 
 struct AppConfiguration {
-    static let url = "http://3.82.95.119/development/api/call/join"
+    static let url = "http://0d6db6da85d0.ngrok.io/"
     static let region = "us-east-1"
 }

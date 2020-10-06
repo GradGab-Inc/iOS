@@ -66,6 +66,8 @@
 	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>By Agreeing, you are allowing GradGab access to your photos to upload your pictures to the App.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>By Agreeing, you are allowing GradGab access to use microphone to start call</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MADE Tommy Soft Black Outline PERSONAL USE.otf</string>

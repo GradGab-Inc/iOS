@@ -91,6 +91,8 @@
 		88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */; };
 		88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */; };
 		88269EAA2514CC0100AE36DF /* BankViewDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */; };
+		8826B98B252C24BB00B79ED4 /* VideoTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */; };
+		8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8826B98D252C24E000B79ED4 /* VideoTileCell.xib */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
 		882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828AC25287D420019F322 /* JoinCallViewModel.swift */; };
 		882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B12528870D0019F322 /* VideoCallDataRequest.swift */; };
@@ -114,7 +116,6 @@
 		882829022528AABD0019F322 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829002528AABD0019F322 /* ChatModel.swift */; };
 		882829042528AAE30019F322 /* ScreenShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829032528AAE30019F322 /* ScreenShareModel.swift */; };
 		882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829052528ACF40019F322 /* MeetingPresenter.swift */; };
-		882829092528AD320019F322 /* VideoTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829072528AD310019F322 /* VideoTileCell.swift */; };
 		8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828290B2528AECB0019F322 /* RosterTableCell.swift */; };
 		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
 		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
@@ -379,6 +380,8 @@
 		88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailAddViewModel.swift; sourceTree = "<group>"; };
 		88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackAccountDeleteViewModel.swift; sourceTree = "<group>"; };
 		88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewDetailViewModel.swift; sourceTree = "<group>"; };
+		8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTileCell.swift; sourceTree = "<group>"; };
+		8826B98D252C24E000B79ED4 /* VideoTileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VideoTileCell.xib; path = data/VideoTileCell.xib; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
 		882828AC25287D420019F322 /* JoinCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCallViewModel.swift; sourceTree = "<group>"; };
 		882828B12528870D0019F322 /* VideoCallDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallDataRequest.swift; sourceTree = "<group>"; };
@@ -405,7 +408,6 @@
 		882829002528AABD0019F322 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		882829032528AAE30019F322 /* ScreenShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenShareModel.swift; sourceTree = "<group>"; };
 		882829052528ACF40019F322 /* MeetingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingPresenter.swift; sourceTree = "<group>"; };
-		882829072528AD310019F322 /* VideoTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTileCell.swift; sourceTree = "<group>"; };
 		8828290B2528AECB0019F322 /* RosterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableCell.swift; sourceTree = "<group>"; };
 		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
@@ -790,7 +792,8 @@
 				882829002528AABD0019F322 /* ChatModel.swift */,
 				882829032528AAE30019F322 /* ScreenShareModel.swift */,
 				882829052528ACF40019F322 /* MeetingPresenter.swift */,
-				882829072528AD310019F322 /* VideoTileCell.swift */,
+				8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */,
+				8826B98D252C24E000B79ED4 /* VideoTileCell.xib */,
 			);
 			path = VideoCall;
 			sourceTree = "<group>";
@@ -1382,6 +1385,7 @@
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
+				8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */,
 				881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */,
 				88F4A21924D991CA00C780CB /* CustomHeaderTVC.xib in Resources */,
 				880248DF24D2C8D7005539B5 /* HomeBookingTVC.xib in Resources */,
@@ -1516,7 +1520,6 @@
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
 				882231542525A8D000312945 /* VideoCallVC.swift in Sources */,
-				882829092528AD320019F322 /* VideoTileCell.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */,
 				883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */,
@@ -1617,6 +1620,7 @@
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
 				882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */,
+				8826B98B252C24BB00B79ED4 /* VideoTileCell.swift in Sources */,
 				88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */,
 				88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,

@@ -46,7 +46,7 @@ struct MentorData: Codable {
         case id = "_id"
         case firstName, lastName, email, image, userType, studyingIn, anticipateYear, major, scoreSAT, scoreACT, amount
         case gpa = "GPA"
-        case ethnicity, subjects, bio
+        case subjects, bio, ethnicity
         case enrollmentID = "enrollmentId"
         case personality, school, averageRating, availableTimings, isFavourite
     }
@@ -77,7 +77,6 @@ struct MentorData: Codable {
         school = try values.decodeIfPresent([MajorListDataModel].self, forKey: .school) ?? []
         personality = try values.decodeIfPresent(Personality.self, forKey: .personality) ?? nil
         isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
-        
     }
     
     init() {
@@ -105,7 +104,6 @@ struct MentorData: Codable {
         amount = 0
         
     }
-    
 }
 
 

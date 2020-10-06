@@ -113,6 +113,9 @@ class BookingDetailVC: UIViewController {
     
     @IBAction func clickToJoinCall(_ sender: Any) {
         joinCallVM.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id))
+        
+ //       joinMeeting(callKitOption: .outgoing, meetingId: "vishAB", name: "Vishal")
+        
 //        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "VideoCallVC") as! VideoCallVC
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -149,7 +152,6 @@ class BookingDetailVC: UIViewController {
     deinit {
         log.success("BookingDetailVC Memory deallocated!")/
     }
-    
 }
 
 extension BookingDetailVC : CreateBookingDelegate {
@@ -202,7 +204,6 @@ extension BookingDetailVC : TransactionDetailDelegate {
     
     func renderDataFromTransaction() {
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
-//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating

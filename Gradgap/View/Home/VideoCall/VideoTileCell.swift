@@ -32,7 +32,6 @@ class VideoTileCell: UICollectionViewCell {
         backgroundColor = .systemGray
         isHidden = false
 
-        // Self video cell not active
         if isSelf, !isVideoActive {
             onTileButton.isHidden = true
             onTileImage.isHidden = false
@@ -50,13 +49,10 @@ class VideoTileCell: UICollectionViewCell {
         onTileButton.isSelected = isVideoPausedByUser
 
         if isSelf {
-            onTileButton.setImage(UIImage(named: "switch-camera")?.withRenderingMode(.alwaysTemplate),
-                                  for: .normal)
+            onTileButton.setImage(UIImage(named: "switch-camera")?.withRenderingMode(.alwaysTemplate), for: .normal)
         } else {
-            onTileButton.setImage(UIImage(named: "pause-video")?.withRenderingMode(.alwaysTemplate),
-                                  for: .normal)
-            onTileButton.setImage(UIImage(named: "resume-video")?.withRenderingMode(.alwaysTemplate),
-                                  for: .selected)
+            onTileButton.setImage(UIImage(named: "pause-video")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            onTileButton.setImage(UIImage(named: "resume-video")?.withRenderingMode(.alwaysTemplate), for: .selected)
         }
     }
 
