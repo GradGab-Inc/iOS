@@ -47,20 +47,20 @@ class BankDetailVC: UploadImageVC {
 
         configUI()
         
-        bankNameTxt.text = "ABC"
-        holderNameTxt.text = "Vishal j Buha"
-        firstNameTxt.text = "Vishal"
-        lastNameTxt.text = "Buha"
-        accountNumberTxt.text = "123456788"
-        address1Txt.text = "158, Sarita darshan"
-        address2Txt.text = "Chikuwadi"
-        routingNumberTxt.text = "HDFC0000261"
-        cityTxt.text = "Surat"
-        stateTxt.text = "Gujarat"
-        postalCodeTxt.text = "395006"
-        contactNumberTxt.text = "9874563215"
-        emailTxt.text = "buhavishal1@gmail.com"
-        ssnTxt.text = "1234"
+//        bankNameTxt.text = "ABC"
+//        holderNameTxt.text = "Vishal j Buha"
+//        firstNameTxt.text = "Vishal"
+//        lastNameTxt.text = "Buha"
+//        accountNumberTxt.text = "000123456789"
+//        address1Txt.text = "158, Sarita darshan"
+//        address2Txt.text = "Chikuwadi"
+//        routingNumberTxt.text = "110000000"
+//        cityTxt.text = "New York"
+//        stateTxt.text = "New York"
+//        postalCodeTxt.text = "395006"
+//        contactNumberTxt.text = "9874563215"
+//        emailTxt.text = "buhavishal1@gmail.com"
+//        ssnTxt.text = "1234"
         
     }
     
@@ -212,7 +212,6 @@ class BankDetailVC: UploadImageVC {
         }
         else {
             //Add Bank Details
-
             let bankAccount = STPBankAccountParams()
             bankAccount.routingNumber = routingNumber
             bankAccount.accountNumber = accountNumber
@@ -228,7 +227,7 @@ class BankDetailVC: UploadImageVC {
                     return
                 }
                 
-                let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: self.selectedCountry, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: (self.selectedGender + 1), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId,firstName: fname, lastName: lname, phone: contact, day: getDateStringFromDate(date: self.birthDate, format: "dd"), month: getDateStringFromDate(date: self.birthDate, format: "MM"), year: getDateStringFromDate(date: self.birthDate, format: "yyyy"))
+                let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: self.selectedCountry, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: gender.lowercased(), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId,firstName: fname, lastName: lname, phone: contact, day: getDateStringFromDate(date: self.birthDate, format: "dd"), month: getDateStringFromDate(date: self.birthDate, format: "MM"), year: getDateStringFromDate(date: self.birthDate, format: "yyyy"))
                 
                 let imageData = sainiCompressImage(image: self.frontImage)
                 let imageData1 = sainiCompressImage(image: self.backImage)
@@ -293,6 +292,7 @@ extension BankDetailVC : BankDetailAddDelegate {
     func didRecievedBankDetailAddData(response: SuccessModel) {
         displayToast(response.message)
         self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BANKLIST_DATA), object: nil)
     }
     
     

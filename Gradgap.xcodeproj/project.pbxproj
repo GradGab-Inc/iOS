@@ -157,6 +157,8 @@
 		88375A9F250F36E00002923A /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9E250F36E00002923A /* AboutResponse.swift */; };
 		883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A4198250F93F1000C35E7 /* EarningViewModel.swift */; };
 		883CFEF82518ADD000177D34 /* currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 883CFEF72518ADCF00177D34 /* currency.json */; };
+		88409DA9252DBFB4003F6938 /* BankViewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88409DA8252DBFB3003F6938 /* BankViewResponse.swift */; };
+		88409DAB252DF276003F6938 /* MetricsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88409DAA252DF275003F6938 /* MetricsModel.swift */; };
 		88462C0924FF9831000D0BE5 /* MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0824FF9831000D0BE5 /* MyEarningVC.swift */; };
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
@@ -446,6 +448,8 @@
 		88375A9E250F36E00002923A /* AboutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
 		883A4198250F93F1000C35E7 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		883CFEF72518ADCF00177D34 /* currency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currency.json; sourceTree = "<group>"; };
+		88409DA8252DBFB3003F6938 /* BankViewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewResponse.swift; sourceTree = "<group>"; };
+		88409DAA252DF275003F6938 /* MetricsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricsModel.swift; sourceTree = "<group>"; };
 		88462C0824FF9831000D0BE5 /* MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningVC.swift; sourceTree = "<group>"; };
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
@@ -650,7 +654,6 @@
 				88FA2E4924E64DC0000C67CE /* ApplyCouponVC.swift */,
 				88FA2E4F24E65230000C67CE /* ReferFriendVC.swift */,
 				88462C0824FF9831000D0BE5 /* MyEarningVC.swift */,
-				882828B525288B480019F322 /* VideoCall */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				88269EA32514C8FB00AE36DF /* AddBankRequest.swift */,
+				88409DA8252DBFB3003F6938 /* BankViewResponse.swift */,
 			);
 			path = Bank;
 			sourceTree = "<group>";
@@ -781,11 +785,12 @@
 				882828EC2528A7D00019F322 /* data */,
 				882828DA2528A74A0019F322 /* utils */,
 				882231532525A8D000312945 /* VideoCallVC.swift */,
+				882828F32528A80C0019F322 /* MeetingModule.swift */,
 				882828E02528A74D0019F322 /* MeetingModel.swift */,
 				882828D92528A7470019F322 /* RosterModel.swift */,
+				88409DAA252DF275003F6938 /* MetricsModel.swift */,
 				8828290B2528AECB0019F322 /* RosterTableCell.swift */,
 				882828E12528A74F0019F322 /* VideoModel.swift */,
-				882828F32528A80C0019F322 /* MeetingModule.swift */,
 				882828F92528AA470019F322 /* CallKitManager.swift */,
 				882828FD2528AA930019F322 /* Call.swift */,
 				882828FF2528AABC0019F322 /* ChatMessageCell.swift */,
@@ -861,7 +866,6 @@
 				88283330250361C300C8739C /* NotificationViewModel.swift */,
 				88294AC7250CDA93009E3CCF /* CouponListViewModel.swift */,
 				883A4198250F93F1000C35E7 /* EarningViewModel.swift */,
-				882828AC25287D420019F322 /* JoinCallViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -919,6 +923,14 @@
 				88375A9E250F36E00002923A /* AboutResponse.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		88409DAC252DF7AE003F6938 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882828AC25287D420019F322 /* JoinCallViewModel.swift */,
+			);
+			path = VideoCall;
 			sourceTree = "<group>";
 		};
 		88AEE85A24D15A78002225E9 /* Custom Class */ = {
@@ -1023,6 +1035,7 @@
 				88233E8C2510CBDE00718C81 /* Splash */,
 				88AEE8CE24D169B8002225E9 /* Main */,
 				880248D824D2C5CF005539B5 /* Home */,
+				882828B525288B480019F322 /* VideoCall */,
 				88F261C124E1570F009EECE3 /* Profile */,
 			);
 			path = View;
@@ -1033,6 +1046,7 @@
 			children = (
 				88D6F58024EAA95C00BAD28E /* Main */,
 				882AF39224ECF93400DCB5AB /* Home */,
+				88409DAC252DF7AE003F6938 /* VideoCall */,
 				8824D90C24EE88460041F7CE /* Profile */,
 			);
 			path = ViewModel;
@@ -1516,6 +1530,7 @@
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */,
+				88409DAB252DF276003F6938 /* MetricsModel.swift in Sources */,
 				883076E9251B1AE700C4D2D5 /* SelectAvaibilityVC.swift in Sources */,
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
@@ -1598,6 +1613,7 @@
 				882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
+				88409DA9252DBFB4003F6938 /* BankViewResponse.swift in Sources */,
 				882828E72528A74F0019F322 /* CallKitOption.swift in Sources */,
 				882828E92528A74F0019F322 /* VideoModel.swift in Sources */,
 				883076EB251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift in Sources */,

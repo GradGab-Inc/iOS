@@ -6010,7 +6010,7 @@
             <objects>
                 <viewController storyboardIdentifier="BankDetailVC" id="2rN-nq-or8" customClass="BankDetailVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xT7-Nd-a7O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="2100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-Qn-wLy" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
@@ -6021,7 +6021,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvW-h6-qQ6">
-                                <rect key="frame" x="0.0" y="60" width="320" height="2040"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="2290"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1a-K4-L2b">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2280"/>
@@ -6817,11 +6817,16 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-4t-e6d">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-4t-e6d" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="WVK-YO-mXL"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caq-m1-ozC">
                                                                 <rect key="frame" x="25.5" y="108" width="49" height="17.5"/>
@@ -6861,11 +6866,16 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0E-Mf-k9o">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0E-Mf-k9o" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="GPs-Ts-oKQ"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKW-qh-HXz">
                                                                 <rect key="frame" x="25.5" y="108" width="49" height="17.5"/>
@@ -7163,7 +7173,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="19L-6V-RQL"/>
                     </view>
-                    <size key="freeformSize" width="320" height="2100"/>
+                    <size key="freeformSize" width="320" height="2350"/>
                     <connections>
                         <outlet property="accountNumberTxt" destination="C90-Ap-0xO" id="fOO-7j-TtT"/>
                         <outlet property="address1Txt" destination="o6H-yI-3y3" id="cgO-wD-Gt4"/>

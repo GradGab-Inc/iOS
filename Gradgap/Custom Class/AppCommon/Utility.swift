@@ -110,8 +110,6 @@ func displayToast(_ message:String)
     
 //    let toast = Toast(text: getTranslate(message))
 //    toast.show()
-    
-
 }
 
 func printData(_ items: Any..., separator: String = " ", terminator: String = "\n")
@@ -669,7 +667,7 @@ func getbookingColor(_ tag : Int) -> UIColor {
     case 4:
         return RedColor
     default:
-        return UIColor()
+        return ClearColor
     }
 }
 

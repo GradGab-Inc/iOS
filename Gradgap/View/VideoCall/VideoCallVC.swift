@@ -208,7 +208,6 @@ extension VideoCallVC: UICollectionViewDataSource {
             // If the tileState is nil and it's for local video, bind the current cell to the local tile (tileId=0)
             meetingModel.bind(videoRenderView: cell.videoRenderView, tileId: 0)
         }
-
         return cell
     }
 }

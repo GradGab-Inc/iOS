@@ -81,7 +81,7 @@ class ConfirmBookingVC: UIViewController {
         renderProfile()
         
         cardListVM.delegate = self
-//        cardListVM.getCardList()
+        cardListVM.getCardList()
         
         if isFromFavorite {
             backToHomeBtn.setTitle("Back to Favorites", for: .normal)
@@ -146,6 +146,7 @@ class ConfirmBookingVC: UIViewController {
     }
     
     @objc func refreshAddBankView() {
+        cardListVM.getCardList()
         addAccountBackView.isHidden = true
     }
     
@@ -161,11 +162,11 @@ class ConfirmBookingVC: UIViewController {
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
-//        if cardListArr.count == 0 {
-//            addAccountBackView.isHidden = false
-//            displaySubViewtoParentView(self.view, subview: addAccountBackView)
-//            return
-//        }
+        if cardListArr.count == 0 {
+            addAccountBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: addAccountBackView)
+            return
+        }
         var request : CreateBookingRequest = CreateBookingRequest()
         let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         let str = minutesToHoursMinutes(minutes: selectedTimeSlot)

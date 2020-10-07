@@ -4461,6 +4461,9 @@ Refer some friends.</string>
                                             <real key="value" value="24"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="clickToRemoveAddBankView:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="ftt-pC-jc8"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" name="AppColor"/>

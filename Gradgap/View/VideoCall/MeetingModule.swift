@@ -43,10 +43,7 @@ class MeetingModule {
                     }
                     return
                 }
-                let meetingModel = MeetingModel(meetingSessionConfig: meetingSessionConfig,
-                                                meetingId: meetingId,
-                                                selfName: selfName,
-                                                callKitOption: option)
+                let meetingModel = MeetingModel(meetingSessionConfig: meetingSessionConfig, meetingId: meetingId, selfName: selfName, callKitOption: option)
                 self.meetings[meetingModel.uuid] = meetingModel
 
                 switch option {
