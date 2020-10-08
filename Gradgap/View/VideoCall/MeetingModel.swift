@@ -170,26 +170,7 @@ class MeetingModel: NSObject {
     func chooseAudioDevice(_ audioDevice: MediaDevice) {
         currentMeetingSession.audioVideo.chooseAudioDevice(mediaDevice: audioDevice)
     }
-
-//    func sendDataMessage(_ message: String) {
-//        do {
-//             try currentMeetingSession
-//                 .audioVideo
-//                 .realtimeSendDataMessage(topic: "chat",
-//                                          data: message,
-//                                          lifetimeMs: 1000)
-//         } catch {
-//             logger.error(msg: "Failed to send message!")
-//             return
-//         }
-//
-//         let currentTimestamp = NSDate().timeIntervalSince1970
-//         let timestamp = TimeStampConversion.formatTimestamp(timestamp: CLong(currentTimestamp) * 1000)
-//
-//         chatModel
-//             .addChatMessage(chatMessage: ChatMessage(senderName: self.selfName, message: message, timestamp: timestamp, isSelf: true))
-//    }
-
+    
     private func notify(msg: String) {
         logger.info(msg: msg)
         notifyHandler?(msg)

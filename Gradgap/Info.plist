@@ -64,10 +64,10 @@
 	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your photos to upload your pictures to the App.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>By Agreeing, you are allowing GradGab access to use microphone to start call</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>By Agreeing, you are allowing GradGab access to your photos to upload your pictures to the App.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MADE Tommy Soft Black Outline PERSONAL USE.otf</string>
@@ -84,6 +84,11 @@
 		<string>MADE Tommy Soft Regular PERSONAL USE.otf</string>
 		<string>MADE Tommy Soft Thin Outline PERSONAL USE.otf</string>
 		<string>MADE Tommy Soft Thin PERSONAL USE.otf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>voip</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

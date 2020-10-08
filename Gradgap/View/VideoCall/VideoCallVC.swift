@@ -50,6 +50,7 @@ class VideoCallVC: UIViewController {
     
     //MARK: - configUI
     func configUI() {
+        videoCollection.register(UINib(nibName: "VideoTileCell", bundle: nil), forCellWithReuseIdentifier: "VideoTileCell")
         twoMinuteLeftBackView.isHidden = true
         mentorTimeExtensionBackView.isHidden = true
     //    twoMinuteLeftBackView.sainiRoundCorners(.bottomLeft, radius: 15)

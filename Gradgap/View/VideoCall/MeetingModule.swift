@@ -107,7 +107,6 @@ class MeetingModule {
         }
     }
 
-
     func joinMeeting(_ meeting: MeetingModel, completion: @escaping (Bool) -> Void) {
         endActiveMeeting {
             self.meetingPresenter.showMeetingView(meetingModel: meeting) { success in

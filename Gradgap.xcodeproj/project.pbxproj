@@ -1822,7 +1822,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1838,7 +1838,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1851,7 +1851,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1867,7 +1867,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
