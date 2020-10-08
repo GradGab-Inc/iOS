@@ -8,6 +8,7 @@
 
 import UIKit
 import SainiUtils
+import AmazonChimeSDK
 
 class BookingDetailVC: UIViewController {
 
@@ -166,28 +167,10 @@ extension BookingDetailVC : CreateBookingDelegate {
 }
 
 extension BookingDetailVC : JoinCallDelegate {
-    func didRecieveJoinCallResponse(response: VideoCallResponse) {
-        joinMeeting(callKitOption: .incoming, meetingId: response.data?.payload?.meeting?.meetingID ?? "", name: AppModel.shared.currentUser.user?.firstName ?? "")
-    }
-    
-    func joinMeeting(callKitOption: CallKitOption, meetingId: String, name: String) {
-        view.endEditing(true)
-        let meetingId = meetingId
-        let name = name
-
-        if meetingId.isEmpty || name.isEmpty {
-            DispatchQueue.main.async {
-                displayToast("Meeting ID or name is invalid")
-            }
-            return
-        }
-        
-        MeetingModule.shared().prepareMeeting(meetingId: meetingId, selfName: name, option: callKitOption) { success in
-            DispatchQueue.main.async {
-                if !success {
-                    self.view.hideToast()
-                    displayToast("Unable to join meeting please try different meeting ID")
-                }
+    func didRecieveJoinCallResponse(response: MeetingModel) {
+        MeetingModule.shared().prepareMeeting(meetingModel: response, option: .outgoing) { (status) in
+            if status{
+                print("Started")
             }
         }
     }

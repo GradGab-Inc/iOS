@@ -29,8 +29,7 @@ class MeetingModule {
         return sharedInstance!
     }
 
-    func prepareMeeting(meetingId: String, selfName: String, option: CallKitOption, completion: @escaping (Bool) -> Void) {
-
+    func prepareMeeting1(meetingId: String, selfName: String, option: CallKitOption, completion: @escaping (Bool) -> Void) {
         requestRecordPermission { success in
             guard success else {
                 completion(false)
@@ -72,6 +71,42 @@ class MeetingModule {
             }
         }
     }
+
+    func prepareMeeting(meetingModel: MeetingModel,option: CallKitOption, completion: @escaping (Bool) -> Void) {
+        requestRecordPermission { success in
+            guard success else {
+                completion(false)
+                return
+            }
+            
+            self.meetings[meetingModel.uuid] = meetingModel
+            switch option {
+            case .incoming:
+                guard let call = meetingModel.call else {
+                    completion(false)
+                    return
+                }
+                let backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + incomingCallKitDelayInSeconds) {
+                    CallKitManager.shared().reportNewIncomingCall(with: call)
+                    UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+                }
+            case .outgoing:
+                guard let call = meetingModel.call else {
+                    completion(false)
+                    return
+                }
+                CallKitManager.shared().startOutgoingCall(with: call)
+            case .disabled:
+                DispatchQueue.main.async {
+                    self.joinMeeting(meetingModel, completion: completion)
+                }
+            }
+            completion(true)
+            
+        }
+    }
+
 
     func joinMeeting(_ meeting: MeetingModel, completion: @escaping (Bool) -> Void) {
         endActiveMeeting {

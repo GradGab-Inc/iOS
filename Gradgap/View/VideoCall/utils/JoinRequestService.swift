@@ -8,6 +8,7 @@
 
 import AmazonChimeSDK
 import Foundation
+import Alamofire
 
 class JoinRequestService: NSObject {
     static let logger = ConsoleLogger(name: "JoiningRequestService")
@@ -18,6 +19,21 @@ class JoinRequestService: NSObject {
         return url
     }
 
+//    static func postJoinRequest(request: VideoCallDataRequest, completion: @escaping (MeetingSessionConfiguration?) -> Void) {
+//
+//        HttpUtils.postRequest(url: API.CALL.join, jsonData: jsonData, logger: logger) { data, _ in
+//            guard let data = data else {
+//                completion(nil)
+//                return
+//            }
+//            guard let meetingSessionConfiguration = self.processJson(data: data) else {
+//                completion(nil)
+//                return
+//            }
+//            completion(meetingSessionConfiguration)
+//        }
+//    }
+    
     static func postJoinRequest(meetingId: String, name: String, completion: @escaping (MeetingSessionConfiguration?) -> Void) {
         let encodedURL = HttpUtils.encodeStrForURL(
             str: "\(AppConfiguration.url)join?title=\(meetingId)&name=\(name)&region=\(AppConfiguration.region)"

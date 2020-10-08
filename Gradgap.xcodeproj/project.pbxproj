@@ -112,8 +112,6 @@
 		882828F42528A80C0019F322 /* MeetingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F32528A80C0019F322 /* MeetingModule.swift */; };
 		882828FA2528AA470019F322 /* CallKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F92528AA470019F322 /* CallKitManager.swift */; };
 		882828FE2528AA940019F322 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828FD2528AA930019F322 /* Call.swift */; };
-		882829012528AABD0019F322 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828FF2528AABC0019F322 /* ChatMessageCell.swift */; };
-		882829022528AABD0019F322 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829002528AABD0019F322 /* ChatModel.swift */; };
 		882829042528AAE30019F322 /* ScreenShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829032528AAE30019F322 /* ScreenShareModel.swift */; };
 		882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829052528ACF40019F322 /* MeetingPresenter.swift */; };
 		8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828290B2528AECB0019F322 /* RosterTableCell.swift */; };
@@ -406,8 +404,6 @@
 		882828F32528A80C0019F322 /* MeetingModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModule.swift; sourceTree = "<group>"; };
 		882828F92528AA470019F322 /* CallKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitManager.swift; sourceTree = "<group>"; };
 		882828FD2528AA930019F322 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
-		882828FF2528AABC0019F322 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
-		882829002528AABD0019F322 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		882829032528AAE30019F322 /* ScreenShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenShareModel.swift; sourceTree = "<group>"; };
 		882829052528ACF40019F322 /* MeetingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingPresenter.swift; sourceTree = "<group>"; };
 		8828290B2528AECB0019F322 /* RosterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableCell.swift; sourceTree = "<group>"; };
@@ -793,8 +789,6 @@
 				882828E12528A74F0019F322 /* VideoModel.swift */,
 				882828F92528AA470019F322 /* CallKitManager.swift */,
 				882828FD2528AA930019F322 /* Call.swift */,
-				882828FF2528AABC0019F322 /* ChatMessageCell.swift */,
-				882829002528AABD0019F322 /* ChatModel.swift */,
 				882829032528AAE30019F322 /* ScreenShareModel.swift */,
 				882829052528ACF40019F322 /* MeetingPresenter.swift */,
 				8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */,
@@ -886,7 +880,6 @@
 				88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */,
 				882D618025107812009EE3B7 /* EarningResponse.swift */,
 				88209765251A1A9F0038E3F3 /* EarningListRequest.swift */,
-				882828AE252884640019F322 /* VideoCall */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1057,6 +1050,7 @@
 			children = (
 				88D6F58124EAA98F00BAD28E /* Main */,
 				882AF39524ED028000DCB5AB /* Home */,
+				882828AE252884640019F322 /* VideoCall */,
 				8824D90D24EE88590041F7CE /* Profile */,
 				FA44302224EA6CE500AC9CF2 /* AppModel.swift */,
 			);
@@ -1484,7 +1478,6 @@
 				880BB9FB24EB941800134D1F /* LanguageListViewModel.swift in Sources */,
 				882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */,
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
-				882829022528AABD0019F322 /* ChatModel.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
 				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
 				882828B4252887560019F322 /* VideoCallResponse.swift in Sources */,
@@ -1563,7 +1556,6 @@
 				880248E224D2C8E6005539B5 /* HomeTVC.swift in Sources */,
 				88862EB324E6656200533CBA /* FaqVC.swift in Sources */,
 				88AEE8D024D16D80002225E9 /* OnboardingVC.swift in Sources */,
-				882829012528AABD0019F322 /* ChatMessageCell.swift in Sources */,
 				8828E383250B471600234B8F /* AddCardRequest.swift in Sources */,
 				88F261BE24E150FC009EECE3 /* ConfirmBookingVC.swift in Sources */,
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,

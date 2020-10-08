@@ -31,6 +31,7 @@ class HttpUtils {
 
         if let data = jsonData, method.lowercased() == "post" {
             request.httpBody = data
+            request.allHTTPHeaderFields = APIManager.sharedInstance.getJsonHeaderWithToken()
         }
 
         URLSession.shared.dataTask(with: request) { data, resp, error in
