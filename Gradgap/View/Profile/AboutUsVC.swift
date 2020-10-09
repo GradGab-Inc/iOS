@@ -47,7 +47,7 @@ class AboutUsVC: UIViewController {
             AppDelegate().sharedDelegate().getAboutUsData()
         }
         else {
- //           dataSetUp()
+            dataSetUp()
         }
     }
     

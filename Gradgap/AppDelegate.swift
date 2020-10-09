@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getAboutUsData() {
         aboutVM.delegate = self
-//        aboutVM.aboutData()
+        aboutVM.aboutData()
     }
     
     //MARK:- Navigation

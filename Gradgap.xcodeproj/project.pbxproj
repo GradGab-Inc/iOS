@@ -106,7 +106,6 @@
 		882828E82528A74F0019F322 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E02528A74D0019F322 /* MeetingModel.swift */; };
 		882828E92528A74F0019F322 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E12528A74F0019F322 /* VideoModel.swift */; };
 		882828EB2528A7920019F322 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EA2528A7920019F322 /* AppConfiguration.swift */; };
-		882828F02528A7D00019F322 /* SegmentedControlIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */; };
 		882828F12528A7D00019F322 /* RosterAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EE2528A7D00019F322 /* RosterAttendee.swift */; };
 		882828F22528A7D00019F322 /* JoinMeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */; };
 		882828F42528A80C0019F322 /* MeetingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F32528A80C0019F322 /* MeetingModule.swift */; };
@@ -127,6 +126,7 @@
 		88294ACA250CDD8E009E3CCF /* CouponListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */; };
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
 		8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */; };
+		8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828C02528947D0019F322 /* AVFoundation.framework */; };
 		882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86F924FF725700190C0F /* TransactionTVC.swift */; };
 		882A86FC24FF725700190C0F /* TransactionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FA24FF725700190C0F /* TransactionTVC.xib */; };
 		882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */; };
@@ -398,7 +398,6 @@
 		882828E02528A74D0019F322 /* MeetingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
 		882828E12528A74F0019F322 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		882828EA2528A7920019F322 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
-		882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlIndex.swift; sourceTree = "<group>"; };
 		882828EE2528A7D00019F322 /* RosterAttendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterAttendee.swift; sourceTree = "<group>"; };
 		882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMeetingResponse.swift; sourceTree = "<group>"; };
 		882828F32528A80C0019F322 /* MeetingModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModule.swift; sourceTree = "<group>"; };
@@ -570,6 +569,7 @@
 			files = (
 				881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */,
 				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
+				8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */,
 				882AEAE7252AD48900B667D1 /* AmazonChimeSDK.framework in Frameworks */,
 				882AEAEA252AD48B00B667D1 /* AmazonChimeSDKMedia.framework in Frameworks */,
 			);
@@ -813,7 +813,6 @@
 		882828EC2528A7D00019F322 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				882828ED2528A7D00019F322 /* SegmentedControlIndex.swift */,
 				882828EE2528A7D00019F322 /* RosterAttendee.swift */,
 				882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */,
 			);
@@ -1540,7 +1539,6 @@
 				88AEE8A224D15A78002225E9 /* NSError+RUI.swift in Sources */,
 				88F95A8724E104C900DFD0E7 /* BookingHeaderTVC.swift in Sources */,
 				88AEE8DB24D19B52002225E9 /* SignUpVC.swift in Sources */,
-				882828F02528A7D00019F322 /* SegmentedControlIndex.swift in Sources */,
 				882833332503624300C8739C /* NotificationResponse.swift in Sources */,
 				88AEE8A624D15A78002225E9 /* Colors.swift in Sources */,
 				88AEE89E24D15A78002225E9 /* Data+RUI.swift in Sources */,
@@ -1830,6 +1828,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../AmazonChimeSDK/",
 				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

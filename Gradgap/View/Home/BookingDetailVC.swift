@@ -113,7 +113,7 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
-        joinCallVM.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id))
+ //       joinCallVM.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id))
         
  //       joinMeeting(callKitOption: .outgoing, meetingId: "vishAB", name: "Vishal")
         

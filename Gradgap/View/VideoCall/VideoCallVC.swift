@@ -34,7 +34,7 @@ class VideoCallVC: UIViewController {
     
     var meetingModel: MeetingModel?
     private let logger = ConsoleLogger(name: "VideoCallVC")
-//    private let audioVideoFacade: AudioVideoFacade
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,10 +72,8 @@ class VideoCallVC: UIViewController {
         setupUI()
 
         meetingModel.startMeeting()
-        meetingModel.activeMode = .video
-        videoCollection.reloadData()
-        meetingModel.isLocalVideoActive = true
-        
+//        meetingModel.activeMode = .video
+//        videoCollection.reloadData()
         
         
     }
@@ -118,18 +116,32 @@ class VideoCallVC: UIViewController {
         // Video collection view
         videoCollection.delegate = self
         videoCollection.dataSource = self
+        
+        meetingModel?.activeMode = .video
+        meetingModel?.isLocalVideoActive = true
     }
     
     private func configure(meetingModel: MeetingModel) {
+       
+        meetingModel.activeModeDidSetHandler = { [weak self] activeMode in
+            self?.videoCollection.reloadData()
+            self?.videoCollection.isHidden = false
+        }
         meetingModel.notifyHandler = { [weak self] message in
             self?.view?.makeToast(message, duration: 2.0, position: .top)
+        }
+        meetingModel.isMutedHandler = { [weak self] isMuted in
+            self?.microPhoneBtn.isSelected = isMuted
         }
         meetingModel.isEndedHandler = {
             DispatchQueue.main.async {
                 MeetingModule.shared().dismissMeeting(meetingModel)
             }
         }
-
+        meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
+//            self?.rosterTable.reloadData()
+        }
+    
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
             meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
             self?.videoCollection.reloadData()

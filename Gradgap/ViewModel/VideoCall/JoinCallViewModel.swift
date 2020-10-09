@@ -67,9 +67,7 @@ struct JoinCallViewModel {
         
         let meetingResp = getCreateMeetingResponse2(from: meeting)
         let attendeeResp = getCreateAttendeeResponse2(from: attendee)
-        return MeetingSessionConfiguration(createMeetingResponse: meetingResp,
-                                           createAttendeeResponse: attendeeResp,
-                                           urlRewriter: urlRewriter2)
+        return MeetingSessionConfiguration(createMeetingResponse: meetingResp, createAttendeeResponse: attendeeResp, urlRewriter: urlRewriter2)
     }
 
     func getCreateMeetingResponse2(from joinMeetingResponse: MeetingData) -> CreateMeetingResponse {

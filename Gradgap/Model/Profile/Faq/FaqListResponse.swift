@@ -43,14 +43,18 @@ struct FaqListDataModel: Codable {
 
 // MARK: - FAQ
 struct FAQList: Codable {
-    let id, question, answer, createdOn: String
-    let updatedOn: String
+    let id, answer: String
+    let deleted: Bool
     let v: Int
+    let question: String
+    let createdOn, updatedOn: Int
+    let deletedOn: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case question, answer, createdOn, updatedOn
+        case answer, deleted
         case v = "__v"
+        case question, createdOn, updatedOn, deletedOn
     }
     
     init(from decoder: Decoder) throws {
@@ -60,7 +64,10 @@ struct FAQList: Codable {
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         question = try values.decodeIfPresent(String.self, forKey: .question) ?? ""
         answer = try values.decodeIfPresent(String.self, forKey: .answer) ?? ""
-        createdOn = try values.decodeIfPresent(String.self, forKey: .createdOn) ?? ""
-        updatedOn = try values.decodeIfPresent(String.self, forKey: .updatedOn) ?? ""
+        createdOn = try values.decodeIfPresent(Int.self, forKey: .createdOn) ?? 0
+        updatedOn = try values.decodeIfPresent(Int.self, forKey: .updatedOn) ?? 0
+        deletedOn = try values.decodeIfPresent(String.self, forKey: .deletedOn) ?? ""
+        deleted = try values.decodeIfPresent(Bool.self, forKey: .deleted) ?? false
     }
+    
 }
