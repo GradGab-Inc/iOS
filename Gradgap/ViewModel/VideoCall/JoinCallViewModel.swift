@@ -51,7 +51,7 @@ struct JoinCallViewModel {
     }
       
     
-    func urlRewriter2(url: String) -> String {
+    public static func urlRewriter(url: String) -> String {
         // changing url
         // return url.replacingOccurrences(of: "example.com", with: "my.example.com")
         return url
@@ -67,7 +67,7 @@ struct JoinCallViewModel {
         
         let meetingResp = getCreateMeetingResponse2(from: meeting)
         let attendeeResp = getCreateAttendeeResponse2(from: attendee)
-        return MeetingSessionConfiguration(createMeetingResponse: meetingResp, createAttendeeResponse: attendeeResp, urlRewriter: urlRewriter2)
+        return MeetingSessionConfiguration(createMeetingResponse: meetingResp, createAttendeeResponse: attendeeResp, urlRewriter: JoinCallViewModel.urlRewriter)
     }
 
     func getCreateMeetingResponse2(from joinMeetingResponse: MeetingData) -> CreateMeetingResponse {

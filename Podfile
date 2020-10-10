@@ -16,7 +16,7 @@ target 'Gradgap' do
   pod 'MFSideMenu'
   pod 'FSCalendar'
   pod 'Alamofire','4.9.1'
-  
+
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   #pod 'GooglePlaces'

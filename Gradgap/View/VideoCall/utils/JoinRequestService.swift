@@ -13,7 +13,7 @@ import Alamofire
 class JoinRequestService: NSObject {
     static let logger = ConsoleLogger(name: "JoiningRequestService")
 
-    private static func urlRewriter(url: String) -> String {
+    private static func urlRewriter2(url: String) -> String {
         // changing url
         // return url.replacingOccurrences(of: "example.com", with: "my.example.com")
         return url
@@ -57,7 +57,7 @@ class JoinRequestService: NSObject {
             let joinMeetingResponse = try jsonDecoder.decode(JoinMeetingResponse.self, from: data)
             let meetingResp = getCreateMeetingResponse(from: joinMeetingResponse)
             let attendeeResp = getCreateAttendeeResponse(from: joinMeetingResponse)
-            return MeetingSessionConfiguration(createMeetingResponse: meetingResp, createAttendeeResponse: attendeeResp, urlRewriter: urlRewriter)
+            return MeetingSessionConfiguration(createMeetingResponse: meetingResp, createAttendeeResponse: attendeeResp, urlRewriter: urlRewriter2)
         } catch {
             logger.error(msg: error.localizedDescription)
             return nil
