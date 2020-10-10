@@ -75,7 +75,6 @@ struct VideoDataModel: Codable {
         setOnInsert = SetOnInsert.init()
         mentorPayload = MenteePayload.init()
     }
-    
 }
 
 // MARK: - MenteePayload

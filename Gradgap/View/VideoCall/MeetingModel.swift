@@ -36,7 +36,7 @@ class MeetingModel: NSObject {
     lazy var videoModel = VideoModel(audioVideoFacade: currentMeetingSession.audioVideo)
     let metricsModel = MetricsModel()
     let screenShareModel = ScreenShareModel()
-//    let chatModel = ChatModel()
+    let chatModel = ChatModel()
     let uuid = UUID()
     var call: Call?
 
@@ -171,6 +171,31 @@ class MeetingModel: NSObject {
         currentMeetingSession.audioVideo.chooseAudioDevice(mediaDevice: audioDevice)
     }
     
+    func sendDataMessage(_ message: String) {
+        do {
+             try currentMeetingSession
+                 .audioVideo
+                 .realtimeSendDataMessage(topic: "chat",
+                                          data: message,
+                                          lifetimeMs: 1000)
+         } catch {
+             logger.error(msg: "Failed to send message!")
+             return
+         }
+
+         let currentTimestamp = NSDate().timeIntervalSince1970
+         let timestamp = TimeStampConversion.formatTimestamp(timestamp: CLong(currentTimestamp) * 1000)
+
+         chatModel
+             .addChatMessage(chatMessage:
+                 ChatMessage(
+                     senderName: self.selfName,
+                     message: message,
+                     timestamp: timestamp,
+                     isSelf: true
+             ))
+    }
+
     private func notify(msg: String) {
         logger.info(msg: msg)
         notifyHandler?(msg)
@@ -188,7 +213,7 @@ class MeetingModel: NSObject {
         audioVideo.addMetricsObserver(observer: self)
         audioVideo.addDeviceChangeObserver(observer: self)
 //        audioVideo.addActiveSpeakerObserver(policy: DefaultActiveSpeakerPolicy(), observer: self)
-//        audioVideo.addRealtimeDataMessageObserver(topic: "chat", observer: self)
+        audioVideo.addRealtimeDataMessageObserver(topic: "chat", observer: self)
     }
 
     private func removeAudioVideoFacadeObservers() {
@@ -452,7 +477,11 @@ extension MeetingModel: MetricsObserver {
             logger.error(msg: "The received metrics \(metrics) is not of type [ObservableMetric: Any].")
             return
         }
-//     MetricsModel
+        metricsModel.update(dict: metrics)
+        logger.info(msg: "Media metrics have been received: \(observableMetrics)")
+        if activeMode == .metrics {
+            metricsModel.metricsUpdatedHandler?()
+        }
     }
 }
 
@@ -590,8 +619,8 @@ extension MeetingModel: ActiveSpeakerObserver {
 
 // MARK: DataMessageObserver
 
-//extension MeetingModel: DataMessageObserver {
-//    func dataMessageDidReceived(dataMessage: DataMessage) {
-//        chatModel.addDataMessage(dataMessage: dataMessage)
-//    }
-//}
+extension MeetingModel: DataMessageObserver {
+    func dataMessageDidReceived(dataMessage: DataMessage) {
+        chatModel.addDataMessage(dataMessage: dataMessage)
+    }
+}

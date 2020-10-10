@@ -12,15 +12,15 @@ import AmazonChimeSDKMedia
 
 class MeetingPresenter {
 //    private let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    private var activeMeetingViewController: VideoCallVC?
+    private var activeMeetingViewController: MeetingViewController?//VideoCallVC?
 
     var rootViewController: UIViewController? {
         return UIApplication.shared.keyWindow?.rootViewController
     }
 
     func showMeetingView(meetingModel: MeetingModel, completion: @escaping (Bool) -> Void) {
-        guard let meetingViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "VideoCallVC")
-            as? VideoCallVC, let rootViewController = self.rootViewController else {
+        guard let meetingViewController = STORYBOARD.HOME.instantiateViewController(withIdentifier: "meeting")
+            as? MeetingViewController, let rootViewController = self.rootViewController else {
             completion(false)
             return
         }

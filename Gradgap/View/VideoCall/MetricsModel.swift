@@ -34,23 +34,23 @@ class MetricsModel: NSObject {
 
 // MARK: UITableViewDelegate, UITableViewDataSource
 
-//extension MetricsModel: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-//        return dict.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.item >= dict.count {
-//            return UITableViewCell()
-//        }
-//        let metricsName = getMetricsName(index: indexPath.item)
-//        let metricsValue = getMetricsValue(index: indexPath.item)
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: metricsTableCellReuseIdentifier) as? MetricsTableCell else {
-//            return MetricsTableCell(name: metricsName, value: metricsValue)
-//        }
-//
-//        cell.updateCell(name: metricsName, value: metricsValue)
-//
-//        return cell
-//    }
-//}
+extension MetricsModel: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return dict.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.item >= dict.count {
+            return UITableViewCell()
+        }
+        let metricsName = getMetricsName(index: indexPath.item)
+        let metricsValue = getMetricsValue(index: indexPath.item)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: metricsTableCellReuseIdentifier) as? MetricsTableCell else {
+            return MetricsTableCell(name: metricsName, value: metricsValue)
+        }
+
+        cell.updateCell(name: metricsName, value: metricsValue)
+
+        return cell
+    }
+}
