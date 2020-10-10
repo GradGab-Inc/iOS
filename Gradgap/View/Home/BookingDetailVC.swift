@@ -113,10 +113,9 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
-        
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
-                if status{
+                if status {
                     print("Started")
                 }
             }

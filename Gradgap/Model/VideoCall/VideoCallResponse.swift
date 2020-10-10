@@ -49,9 +49,10 @@ struct VideoDataModel: Codable {
     let createdOn: String
     let menteePayload: MenteePayload?
     let setOnInsert: SetOnInsert?
+    let mentorPayload: MenteePayload?
 
     enum CodingKeys: String, CodingKey {
-        case updatedOn, payload, createdOn, menteePayload
+        case updatedOn, payload, createdOn, menteePayload, mentorPayload
         case setOnInsert = "$setOnInsert"
     }
     
@@ -63,6 +64,7 @@ struct VideoDataModel: Codable {
         payload = try values.decodeIfPresent(VideoPayloadModel.self, forKey: .payload) ?? nil
         createdOn = try values.decodeIfPresent(String.self, forKey: .createdOn) ?? ""
         setOnInsert = try values.decodeIfPresent(SetOnInsert.self, forKey: .setOnInsert) ?? nil
+        mentorPayload = try values.decodeIfPresent(MenteePayload.self, forKey: .mentorPayload) ?? nil
     }
     
     init() {
@@ -71,6 +73,7 @@ struct VideoDataModel: Codable {
         payload = VideoPayloadModel.init()
         createdOn = ""
         setOnInsert = SetOnInsert.init()
+        mentorPayload = MenteePayload.init()
     }
     
 }

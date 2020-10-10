@@ -20,36 +20,36 @@ class JoinRequestService: NSObject {
         return url
     }
 
-static func getVideoCallData(request : VideoCallDataRequest,completion: @escaping (MeetingModel?) -> Void) {
-     GCD.CALL.join.async {
-         APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CALL.join, Loader: true, isMultipart: false) { (response) in
-             if response != nil{                             //if response is not empty
+    static func getVideoCallData(request : VideoCallDataRequest,completion: @escaping (MeetingModel?) -> Void) {
+        GCD.CALL.join.async {
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.CALL.join, Loader: true, isMultipart: false) { (response) in
+                if response != nil{                             //if response is not empty
                  
-                 do {
-                     let success = try JSONDecoder().decode(VideoCallResponse.self, from: response!) // decode the response into model
-                     switch success.code{
-                     case 100:
-                         guard let meetingSessionConfiguration = processJson2(response: success) else {
-                             displayToast("Error parsing meetingSessionConfiguration")
-                             log.error("Error parsing meetingSessionConfiguration")/
-                             return
-                         }
+                    do {
+                        let success = try JSONDecoder().decode(VideoCallResponse.self, from: response!) // decode the response into model
+                        switch success.code{
+                        case 100:
+                            guard let meetingSessionConfiguration = processJson2(response: success) else {
+                                displayToast("Error parsing meetingSessionConfiguration")
+                                log.error("Error parsing meetingSessionConfiguration")/
+                                return
+                            }
+                            
+                            let meetingModel = MeetingModel(meetingSessionConfig: meetingSessionConfiguration, meetingId: success.data?.payload?.meeting?.meetingID ?? "", selfName: AppModel.shared.currentUser.user?.firstName ?? "", callKitOption: .outgoing)
                          
-                         let meetingModel = MeetingModel(meetingSessionConfig: meetingSessionConfiguration, meetingId: success.data?.payload?.meeting?.meetingID ?? "", selfName: AppModel.shared.currentUser.user?.firstName ?? "", callKitOption: .outgoing)
-                         
-                         completion(meetingModel)
-                         break
-                     default:
-                         log.error("\(Log.stats()) \(success.message)")/
-                     }
-                 }
-                 catch let err {
-                     log.error("ERROR OCCURED WHILE DECODING: \(Log.stats()) \(err)")/
-                 }
-             }
-         }
-     }
- }
+                            completion(meetingModel)
+                            break
+                            default:
+                                log.error("\(Log.stats()) \(success.message)")/
+                            }
+                    }
+                    catch let err {
+                        log.error("ERROR OCCURED WHILE DECODING: \(Log.stats()) \(err)")/
+                    }
+                }
+            }
+        }
+    }
     
     static func postJoinRequest(meetingId: String, name: String, completion: @escaping (MeetingSessionConfiguration?) -> Void) {
         let encodedURL = HttpUtils.encodeStrForURL(
@@ -116,12 +116,24 @@ static func getVideoCallData(request : VideoCallDataRequest,completion: @escapin
         guard let meeting = response.data?.payload?.meeting else{
             return nil
         }
-        guard let attendee = response.data?.menteePayload?.attendee else{
-            return nil
+        
+        var attendee1 : AttendeeModel = AttendeeModel.init()
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            guard let attendee = response.data?.menteePayload?.attendee else{
+                return nil
+            }
+            attendee1 = attendee
+        }
+        else {
+            guard let attendee = response.data?.mentorPayload?.attendee else{
+                return nil
+            }
+            attendee1 = attendee
         }
         
+        
         let meetingResp = getCreateMeetingResponse2(from: meeting)
-        let attendeeResp = getCreateAttendeeResponse2(from: attendee)
+        let attendeeResp = getCreateAttendeeResponse2(from: attendee1)
         return MeetingSessionConfiguration(createMeetingResponse: meetingResp,
                                            createAttendeeResponse: attendeeResp,
                                            urlRewriter: urlRewriter)

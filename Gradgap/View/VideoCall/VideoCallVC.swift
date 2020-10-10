@@ -37,7 +37,16 @@ class VideoCallVC: UIViewController {
 
     
     override func viewDidLoad() {
+        guard let meetingModel = meetingModel else {
+            logger.error(msg: "MeetingModel not set")
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        configure(meetingModel: meetingModel)
         super.viewDidLoad()
+        setupUI()
+
+        meetingModel.startMeeting()
 
         configUI()
         
@@ -61,20 +70,6 @@ class VideoCallVC: UIViewController {
         else if AppModel.shared.currentUser.user?.userType == 2 {
             mentorTimeExtensionBackView.isHidden = false
         }
-        
-        guard let meetingModel = meetingModel else {
-            logger.error(msg: "MeetingModel not set")
-            dismiss(animated: true, completion: nil)
-            return
-        }
-        configure(meetingModel: meetingModel)
-        super.viewDidLoad()
-        setupUI()
-
-        meetingModel.startMeeting()
-//        meetingModel.activeMode = .video
-//        videoCollection.reloadData()
-        
         
     }
     
