@@ -38,7 +38,7 @@
 @end
 
 @interface DataMessageInternal : NSObject
-@property (nonatomic, assign) long timestampMs;
+@property (nonatomic, assign) int64_t timestampMs;
 @property (atomic, strong, readonly) NSString* topic;
 @property (atomic, strong, readonly) NSData* data;
 @property (atomic, strong, readonly) NSString* senderAttendeeId;

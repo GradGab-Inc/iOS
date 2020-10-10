@@ -187,8 +187,7 @@ class MeetingModel: NSObject {
         audioVideo.addAudioVideoObserver(observer: self)
         audioVideo.addMetricsObserver(observer: self)
         audioVideo.addDeviceChangeObserver(observer: self)
-        audioVideo.addActiveSpeakerObserver(policy: DefaultActiveSpeakerPolicy(),
-                                            observer: self)
+//        audioVideo.addActiveSpeakerObserver(policy: DefaultActiveSpeakerPolicy(), observer: self)
 //        audioVideo.addRealtimeDataMessageObserver(topic: "chat", observer: self)
     }
 

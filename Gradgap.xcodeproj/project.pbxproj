@@ -94,6 +94,10 @@
 		8826B98B252C24BB00B79ED4 /* VideoTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */; };
 		8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8826B98D252C24E000B79ED4 /* VideoTileCell.xib */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
+		882817A72531975300BFC26C /* AmazonChimeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A52531975000BFC26C /* AmazonChimeSDK.framework */; };
+		882817A82531975300BFC26C /* AmazonChimeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A52531975000BFC26C /* AmazonChimeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		882817AA2531975500BFC26C /* AmazonChimeSDKMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */; };
+		882817AB2531975500BFC26C /* AmazonChimeSDKMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828AC25287D420019F322 /* JoinCallViewModel.swift */; };
 		882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B12528870D0019F322 /* VideoCallDataRequest.swift */; };
 		882828B4252887560019F322 /* VideoCallResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B3252887560019F322 /* VideoCallResponse.swift */; };
@@ -131,10 +135,6 @@
 		882A86FC24FF725700190C0F /* TransactionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FA24FF725700190C0F /* TransactionTVC.xib */; };
 		882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */; };
 		882A870024FF752F00190C0F /* TransactionHeaderTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FE24FF752F00190C0F /* TransactionHeaderTVC.xib */; };
-		882AEAE7252AD48900B667D1 /* AmazonChimeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D52528A7070019F322 /* AmazonChimeSDK.framework */; };
-		882AEAE8252AD48900B667D1 /* AmazonChimeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D52528A7070019F322 /* AmazonChimeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		882AEAEA252AD48B00B667D1 /* AmazonChimeSDKMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */; };
-		882AEAEB252AD48B00B667D1 /* AmazonChimeSDKMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		882AF39424ECF99C00DCB5AB /* HomeBookingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882AF39324ECF98800DCB5AB /* HomeBookingListViewModel.swift */; };
 		882D618125107812009EE3B7 /* EarningResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D618025107812009EE3B7 /* EarningResponse.swift */; };
 		882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882E44F724F4E5520012FFBF /* SocialLogin.swift */; };
@@ -276,14 +276,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		882AEAE9252AD48900B667D1 /* Embed Frameworks */ = {
+		882817A92531975300BFC26C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				882AEAE8252AD48900B667D1 /* AmazonChimeSDK.framework in Embed Frameworks */,
-				882AEAEB252AD48B00B667D1 /* AmazonChimeSDKMedia.framework in Embed Frameworks */,
+				882817A82531975300BFC26C /* AmazonChimeSDK.framework in Embed Frameworks */,
+				882817AB2531975500BFC26C /* AmazonChimeSDKMedia.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,12 +383,12 @@
 		8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTileCell.swift; sourceTree = "<group>"; };
 		8826B98D252C24E000B79ED4 /* VideoTileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VideoTileCell.xib; path = data/VideoTileCell.xib; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
+		882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDKMedia.framework; sourceTree = "<group>"; };
+		882817A52531975000BFC26C /* AmazonChimeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDK.framework; sourceTree = "<group>"; };
 		882828AC25287D420019F322 /* JoinCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCallViewModel.swift; sourceTree = "<group>"; };
 		882828B12528870D0019F322 /* VideoCallDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallDataRequest.swift; sourceTree = "<group>"; };
 		882828B3252887560019F322 /* VideoCallResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallResponse.swift; sourceTree = "<group>"; };
 		882828C02528947D0019F322 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		882828D52528A7070019F322 /* AmazonChimeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDK.framework; sourceTree = "<group>"; };
-		882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDKMedia.framework; sourceTree = "<group>"; };
 		882828D92528A7470019F322 /* RosterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterModel.swift; sourceTree = "<group>"; };
 		882828DB2528A74A0019F322 /* JoinRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRequestService.swift; sourceTree = "<group>"; };
 		882828DC2528A74A0019F322 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -567,11 +567,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882817A72531975300BFC26C /* AmazonChimeSDK.framework in Frameworks */,
 				881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */,
 				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
+				882817AA2531975500BFC26C /* AmazonChimeSDKMedia.framework in Frameworks */,
 				8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */,
-				882AEAE7252AD48900B667D1 /* AmazonChimeSDK.framework in Frameworks */,
-				882AEAEA252AD48B00B667D1 /* AmazonChimeSDKMedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,8 +1210,8 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				882828D72528A7180019F322 /* AmazonChimeSDKMedia.framework */,
-				882828D52528A7070019F322 /* AmazonChimeSDK.framework */,
+				882817A52531975000BFC26C /* AmazonChimeSDK.framework */,
+				882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */,
 				882828C02528947D0019F322 /* AVFoundation.framework */,
 				881FE93E25065C5800DDB411 /* MessageUI.framework */,
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
@@ -1298,7 +1298,7 @@
 				22D649FF24D149C7006C37FD /* Resources */,
 				134736E2EC19D1192B179E09 /* [CP] Embed Pods Frameworks */,
 				E1FA343170630B30D38C3CBE /* [CP] Copy Pods Resources */,
-				882AEAE9252AD48900B667D1 /* Embed Frameworks */,
+				882817A92531975300BFC26C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1829,6 +1829,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/../AmazonChimeSDK/",
+					"$(PROJECT_DIR)/AmazonChimeSDKMedia-0.7.0",
 				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1858,6 +1859,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AmazonChimeSDKMedia-0.7.0",
 				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
