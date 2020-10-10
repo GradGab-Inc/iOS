@@ -22,7 +22,7 @@ class RosterModel: NSObject {
 
     static func convertAttendeeName(from info: AttendeeInfo) -> String {
         let externalUserIdArray = info.externalUserId.components(separatedBy: "#")
-        let attendeeName: String = externalUserIdArray[1]
+        let attendeeName: String = "Vishal"//externalUserIdArray[1]
         return info.attendeeId.hasSuffix(contentDelimiter) ? "\(attendeeName) \(contentSuffix)" : attendeeName
     }
 
