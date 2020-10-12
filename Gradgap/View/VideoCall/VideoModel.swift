@@ -150,7 +150,17 @@ class VideoModel: NSObject {
             audioVideoFacade.pauseRemoteVideoTile(tileId: remoteVideoTileState.0)
         }
     }
-
+    
+    func getCustomVideoTileState(for indexPath: IndexPath) -> VideoTileState? {
+        if indexPath.item == 0 {
+            return selfVideoTileState
+        }
+        if indexPath.item > remoteVideoTileCountPerPage {
+            return nil
+        }
+        return remoteVideoStatesInCurrentPage[indexPath.item - 1].1
+    }
+    
     func getVideoTileState(for indexPath: IndexPath) -> VideoTileState? {
         if indexPath.item == 0 {
             return selfVideoTileState

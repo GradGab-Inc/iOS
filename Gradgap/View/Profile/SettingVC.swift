@@ -51,12 +51,12 @@ class SettingVC: UIViewController {
     }
 
     @IBAction func clickToswithToMentorApp(_ sender: Any) {
-//        if AppModel.shared.currentUser.user?.userType == 1 {
-//            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
-//        }
-//        else if AppModel.shared.currentUser.user?.userType == 2 {
-//            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
-//        }
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
+        }
     }
     
     deinit {

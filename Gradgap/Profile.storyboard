@@ -5625,6 +5625,7 @@
                     </view>
                     <connections>
                         <outlet property="completedBackView" destination="3Ty-gv-edA" id="i2a-oI-AJ7"/>
+                        <outlet property="contactAdminTxtView" destination="yGR-rD-LEI" id="hf3-j0-Tpr"/>
                         <outlet property="navigationBar" destination="pNe-tG-zdr" id="hZx-aO-ul6"/>
                     </connections>
                 </viewController>
@@ -5643,6 +5644,9 @@
                                         <constraint firstAttribute="height" constant="205" id="QIi-cA-6ns"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-XL-92W">
+                                    <rect key="frame" x="0.0" y="125" width="240" height="245"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_questionsubmitted" translatesAutoresizingMaskIntoConstraints="NO" id="UZ6-CQ-X0R">
                                     <rect key="frame" x="16" y="31" width="216" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5686,8 +5690,11 @@
                             <constraints>
                                 <constraint firstItem="8gB-ak-EFf" firstAttribute="top" secondItem="pkn-ue-mUU" secondAttribute="bottom" constant="15" id="5kv-I6-4S1"/>
                                 <constraint firstItem="Yp2-6m-IaP" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" constant="25" id="5pi-dn-soA"/>
+                                <constraint firstAttribute="trailing" secondItem="Gbu-XL-92W" secondAttribute="trailing" id="7VM-XQ-EoZ"/>
+                                <constraint firstItem="Gbu-XL-92W" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" id="7nN-s3-qTS"/>
                                 <constraint firstAttribute="trailing" secondItem="EEx-RO-b6A" secondAttribute="trailing" constant="8" id="BAc-DG-zzv"/>
                                 <constraint firstItem="EEx-RO-b6A" firstAttribute="top" secondItem="8gB-ak-EFf" secondAttribute="bottom" constant="10" id="BJc-II-VJl"/>
+                                <constraint firstItem="Gbu-XL-92W" firstAttribute="top" secondItem="xZx-Tf-gaF" secondAttribute="top" constant="125" id="BMr-cE-Dou"/>
                                 <constraint firstAttribute="trailing" secondItem="8gB-ak-EFf" secondAttribute="trailing" constant="8" id="JsU-hL-H3S"/>
                                 <constraint firstItem="8gB-ak-EFf" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" constant="8" id="OFv-WI-8fc"/>
                                 <constraint firstAttribute="trailing" secondItem="pkn-ue-mUU" secondAttribute="trailing" id="Vej-k9-Mk7"/>
@@ -5700,6 +5707,7 @@
                                 <constraint firstAttribute="trailing" secondItem="UZ6-CQ-X0R" secondAttribute="trailing" constant="8" id="mT2-HF-9rh"/>
                                 <constraint firstAttribute="trailing" secondItem="Yp2-6m-IaP" secondAttribute="trailing" constant="25" id="rhQ-Ns-Juw"/>
                                 <constraint firstItem="UZ6-CQ-X0R" firstAttribute="top" secondItem="xZx-Tf-gaF" secondAttribute="top" constant="31" id="sw0-Cc-6GP"/>
+                                <constraint firstAttribute="bottom" secondItem="Gbu-XL-92W" secondAttribute="bottom" constant="20" id="zAL-QX-a2V"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

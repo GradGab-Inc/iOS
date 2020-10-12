@@ -10,5 +10,5 @@ import Foundation
 
 
 struct ContactAdminRequest : Encodable {
-    var query:String
+    var message:String
 }

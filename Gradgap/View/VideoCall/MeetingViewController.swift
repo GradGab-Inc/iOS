@@ -55,6 +55,10 @@ class MeetingViewController: UIViewController {
     @IBOutlet var sendMessageButton: UIButton!
     @IBOutlet var inputBoxBottomConstrain: NSLayoutConstraint!
 
+    @IBOutlet var MentorVideoView: DefaultVideoRenderView!
+    @IBOutlet var menteeVideoView: DefaultVideoRenderView!
+    
+    
     // Model
     var meetingModel: MeetingModel?
 
@@ -72,7 +76,6 @@ class MeetingViewController: UIViewController {
         configure(meetingModel: meetingModel)
         super.viewDidLoad()
         setupUI()
-
         meetingModel.startMeeting()
     }
 
@@ -105,6 +108,7 @@ class MeetingViewController: UIViewController {
         }
         meetingModel.notifyHandler = { [weak self] message in
             self?.view?.makeToast(message, duration: 2.0, position: .top)
+            meetingModel.isLocalVideoActive = true
         }
         meetingModel.isMutedHandler = { [weak self] isMuted in
             self?.muteButton.isSelected = isMuted
@@ -121,13 +125,15 @@ class MeetingViewController: UIViewController {
             self?.metricsTable.reloadData()
         }
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
-            meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
-            self?.prevVideoPageButton.isEnabled = meetingModel.videoModel.canGoToPrevRemoteVideoPage
-            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
-            self?.videoCollection.reloadData()
+//            meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
+//            self?.prevVideoPageButton.isEnabled = meetingModel.videoModel.canGoToPrevRemoteVideoPage
+//            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
+//            self?.videoCollection.reloadData()
+            self?.ShowVideoFrame()
         }
         meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
-            self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
+//            self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
+            self?.ShowVideoFrame()
         }
         meetingModel.screenShareModel.tileIdDidSetHandler = { [weak self] tileId in
             if let tileId = tileId, let screenRenderView = self?.screenRenderView {
@@ -142,6 +148,7 @@ class MeetingViewController: UIViewController {
         meetingModel.chatModel.refreshChatTableHandler = { [weak self] in
             self?.chatMessageTable.reloadData()
         }
+        
     }
 
     // MARK: UI functions
@@ -159,23 +166,24 @@ class MeetingViewController: UIViewController {
             button?.setImage(normalButtonImage, for: .normal)
             button?.setImage(selectedButtonImage, for: .selected)
             button?.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-            button?.tintColor = .systemBlue
+            button?.tintColor = WhiteColor
         }
-        endButton.tintColor = .red
+//        endButton.tintColor = .red
         resumeCallKitMeetingButton.isHidden = true
         prevVideoPageButton.isEnabled = false
         nextVideoPageButton.isEnabled = false
-
-        // Segmented Controler
-        segmentedControl.selectedSegmentIndex = SegmentedControlIndex.attendees.rawValue
-
+        
         // Roster table view
         rosterTable.delegate = meetingModel?.rosterModel
         rosterTable.dataSource = meetingModel?.rosterModel
-
+        
         // Video collection view
-        videoCollection.delegate = self
-        videoCollection.dataSource = self
+//        videoCollection.delegate = self
+//        videoCollection.dataSource = self
+        
+        // Segmented Controler
+        segmentedControl.selectedSegmentIndex = SegmentedControlIndex.video.rawValue
+        meetingModel?.activeMode = .video
 
         // Metrics table view
         metricsTable.delegate = meetingModel?.metricsModel
@@ -215,6 +223,7 @@ class MeetingViewController: UIViewController {
             chatMessageTable.reloadData()
             chatView.isHidden = false
         case .video:
+            rosterTable.reloadData()
             videoCollection.reloadData()
             videoCollection.isHidden = false
             videoPaginationControlView.isHidden = false
@@ -285,6 +294,10 @@ class MeetingViewController: UIViewController {
         cameraButton.isSelected = !cameraButton.isSelected
         meetingModel?.isLocalVideoActive = cameraButton.isSelected
     }
+    
+    @IBAction func clickToSwitchCamera(_ sender: Any) {
+        meetingModel?.currentMeetingSession.audioVideo.switchCamera()
+    }
 
     @IBAction func leaveButtonClicked(_: UIButton) {
         meetingModel?.endMeeting()
@@ -340,6 +353,24 @@ class MeetingViewController: UIViewController {
     @objc private func keyboardHideHandler(notification: NSNotification) {
         self.inputBoxBottomConstrain.constant = 0
     }
+    
+    private func ShowVideoFrame(){
+      guard let meetingModel = meetingModel else {
+        return
+      }
+      if meetingModel.videoModel.videoTileCount >= 2{
+        if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)){
+          MentorVideoView.mirror = true
+          meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
+          meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
+        }
+      }
+      else{
+        menteeVideoView.mirror = true
+        meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
+      }
+    }
+    
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
@@ -392,7 +423,6 @@ extension MeetingViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: videoTileCellReuseIdentifier, for: indexPath) as? VideoTileCell else {
             return VideoTileCell()
         }
-
         cell.updateCell(name: displayName, isSelf: isSelf, videoTileState: videoTileState, tag: indexPath.row)
         cell.delegate = meetingModel.videoModel
 
@@ -408,4 +438,7 @@ extension MeetingViewController: UICollectionViewDataSource {
 
         return cell
     }
+    
+    
+    
 }

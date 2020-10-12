@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let BASE_URL = "http://3.82.95.119/development/api/" // "http://c17819afdf3e.ngrok.io/api/"//
+    static let BASE_URL = "http://3.82.95.119/development/api/" //"http://c17819afdf3e.ngrok.io/api/"//
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
@@ -27,6 +27,7 @@ struct API {
         static let update                 = BASE_URL + "user/update"
         static let details                = BASE_URL + "user/details"
         static let switchProfile          = BASE_URL + "user/switchProfile"
+        static let contactAdmin           = BASE_URL + "user/contactAdmin"
     }
     
     struct AVAILABILITY {
@@ -114,6 +115,7 @@ struct GCD{
         static let update = DispatchQueue(label: "com.app.USER_update", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent) //5
         static let details = DispatchQueue(label: "com.app.USER_details", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
         static let switchProfile = DispatchQueue(label: "com.app.USER_switchProfile", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
+        static let contactAdmin = DispatchQueue(label: "com.app.USER_contactAdmin", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
     }
     
     struct AVAILABILITY {

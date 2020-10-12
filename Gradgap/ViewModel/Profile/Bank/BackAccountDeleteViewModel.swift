@@ -13,7 +13,7 @@ protocol BackAccountDeleteDelegate {
     func didRecievedBackAccountDeleteData(response:SuccessModel)
 }
 
-struct BackAccountDeleteViewModel{
+struct BackAccountDeleteViewModel {
     var delegate:BackAccountDeleteDelegate?
     
     func deleteBankAccount() {

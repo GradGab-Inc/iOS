@@ -103,7 +103,6 @@ class MeetingModule {
                 }
             }
             completion(true)
-            
         }
     }
 
