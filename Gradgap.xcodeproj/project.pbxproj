@@ -47,6 +47,7 @@
 		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
+		881F045D2535C63400210426 /* Gradgap.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 882B1AD524F523280033379B /* Gradgap.entitlements */; };
 		881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FE93E25065C5800DDB411 /* MessageUI.framework */; };
 		88203115251B4159001D580C /* CustomDateAvaibilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88203114251B4159001D580C /* CustomDateAvaibilityViewModel.swift */; };
 		88203117251B49F1001D580C /* DateAvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */; };
@@ -341,6 +342,7 @@
 		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
+		881F045E2535CB6100210426 /* Branch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Branch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		881FE93E25065C5800DDB411 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		88203114251B4159001D580C /* CustomDateAvaibilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateAvaibilityViewModel.swift; sourceTree = "<group>"; };
 		88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityListViewModel.swift; sourceTree = "<group>"; };
@@ -1225,6 +1227,7 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				881F045E2535CB6100210426 /* Branch.framework */,
 				882817A52531975000BFC26C /* AmazonChimeSDK.framework */,
 				882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */,
 				882828C02528947D0019F322 /* AVFoundation.framework */,
@@ -1362,6 +1365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881F045D2535C63400210426 /* Gradgap.entitlements in Resources */,
 				88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */,
 				882A870024FF752F00190C0F /* TransactionHeaderTVC.xib in Resources */,
 				88D1804B24D2ABB1003603A2 /* Home.storyboard in Resources */,

@@ -36,7 +36,7 @@ struct API {
         static let mentorList             = BASE_URL + "availability/mentorList"
         static let delete                 = BASE_URL + "availability/delete"
         static let update                 = BASE_URL + "availability/update"
-        static let setCustom              = BASE_URL + "customAvailability/set"//"availability/setCustom"
+        static let setCustom              = BASE_URL + "customAvailability/set" //"availability/setCustom"
     }
     
     struct FAVOURITES {

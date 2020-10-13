@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // if you are using the TEST key
-        Branch.setUseTestBranchKey(true)
+        Branch.setUseTestBranchKey(false)
 
         // listener for Branch Deep Link data
         Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
@@ -54,6 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             printData("\n\n********************")
             printData(params as? [String: AnyObject] ?? {})
             printData("********************\n\n")
+            
+            if let payload : [String: Any] = params?["deepLinkPayload"] as? [String: Any] {
+                    print(payload)
+                var receivedId = ""
+                if let id = payload["_id"] as? String {
+                    receivedId = id
+                }
+            }
         }
 
         //Stripe

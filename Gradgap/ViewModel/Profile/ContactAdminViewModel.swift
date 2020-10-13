@@ -18,7 +18,7 @@ struct ContactAdminViewModel{
     
     func contactAdmin(request:ContactAdminRequest) {
         GCD.USER.contactAdmin.async {
-            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.contactAdmin, Loader: false, isMultipart: false) { (response) in
+            APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.USER.contactAdmin, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(ContactAdminResponse.self, from: response!) // decode the response into success model

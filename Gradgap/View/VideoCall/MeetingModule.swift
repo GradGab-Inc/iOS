@@ -136,7 +136,10 @@ class MeetingModule {
 
     func dismissMeeting(_ meeting: MeetingModel) {
         if let activeMeeting = activeMeeting, meeting.uuid == activeMeeting.uuid {
-            meetingPresenter.dismissActiveMeetingView(completion: {})
+            meetingPresenter.dismissActiveMeetingView(completion: {
+//                let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "CardListVC") as! CardListVC
+//                self.navigationController?.pushViewController(vc, animated: true)
+            })
         } else {
             meetings[meeting.uuid] = nil
         }

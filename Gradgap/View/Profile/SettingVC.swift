@@ -75,16 +75,17 @@ extension SettingVC : SwitchProfileDelegate {
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = response.data
         
+        isFromSwitchProfile = true
         if AppModel.shared.currentUser.user?.userType == 1 {
             AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
         }
         else if AppModel.shared.currentUser.user?.userType == 2 {
             AppDelegate().sharedDelegate().navigateToMentorDashBoard()
         }
-        else if AppModel.shared.currentUser.user?.userType == 3 {
-            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        else if AppModel.shared.currentUser.user?.userType == 3 {
+//            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }
 

@@ -180,6 +180,9 @@ class ConfirmBookingVC: UIViewController {
         request.additionalTopics = additionalTopicTxt.text
         request.dateTimeText = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         
+        
+        request.referralId = ""
+        
         if useWalletBtn.isSelected {
             request.useWalletBalance = true
         }

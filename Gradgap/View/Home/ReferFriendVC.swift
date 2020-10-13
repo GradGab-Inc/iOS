@@ -44,18 +44,18 @@ class ReferFriendVC: UIViewController {
     
     func generateLink() {
         let title = "GradGab"
-//        let desc = "The #1 Booking App for Hair Care Professionals, Try " + AppModel.shared.currentUser.user!.firstName 
+        let desc = "Click here to install the app :"
 //        let imgURL = "https://shiftbookd.com/img/shiftbookd-app.png"
 
         let buo = BranchUniversalObject()
         buo.canonicalIdentifier = "content/12345"
         buo.title = title
-//        buo.contentDescription = desc
+        buo.contentDescription = desc
 //        buo.imageUrl = imgURL
         buo.publiclyIndex = true
         buo.locallyIndex = true
         buo.contentMetadata.contentSchema = BranchContentSchema.commerceProduct
-        buo.contentMetadata.customMetadata["deepLinkPayload"] = AppModel.shared.currentUser.user
+        buo.contentMetadata.customMetadata["deepLinkPayload"] = AppModel.shared.currentUser.user.toJSON()
 
         let lp = BranchLinkProperties.init()
         lp.addControlParam("timeStamp", withValue: getCurrentTimeStampValue())

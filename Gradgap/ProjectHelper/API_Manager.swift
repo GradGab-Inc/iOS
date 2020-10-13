@@ -276,7 +276,7 @@ public class APIManager {
             
         }, usingThreshold: UInt64.init(), to: api, method: .post
         , headers: headerParams) { (result) in
-            switch result{
+            switch result {
             case .success(let upload, _, _):
                 
                 upload.uploadProgress(closure: { (Progress) in
