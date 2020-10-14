@@ -7156,7 +7156,7 @@ Refer some friends.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRI-hx-lpX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranjit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAP-Yf-el0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranjit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAP-Yf-el0">
                                         <rect key="frame" x="137" y="20" width="46" height="21"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -7170,7 +7170,7 @@ Refer some friends.</string>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" image="ic_backarrow"/>
                                     </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn3-Vj-MMF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn3-Vj-MMF">
                                         <rect key="frame" x="141" y="46" width="38" height="17.5"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -7624,12 +7624,12 @@ Refer some friends.</string>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="seU-fa-PdQ" userLabel="Video Render View" customClass="DefaultVideoRenderView" customModule="AmazonChimeSDK">
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
-                                <color key="backgroundColor" name="33C8A3"/>
+                                <color key="backgroundColor" name="AppColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-Jf-pmo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-Jf-pmo">
                                 <rect key="frame" x="15" y="391.5" width="172" height="81.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranjit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHK-Ww-X6D">
@@ -7823,6 +7823,166 @@ Refer some friends.</string>
                                     <constraint firstItem="pUI-9y-cn6" firstAttribute="top" secondItem="sk0-Jg-4ff" secondAttribute="top" id="z7b-uz-YqY"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-aK-ego">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="209.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-1g-zfW">
+                                        <rect key="frame" x="142.5" y="20" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Aw0-Ci-Fga"/>
+                                            <constraint firstAttribute="width" constant="35" id="SZX-Ib-9nn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Extension Request !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER0-iJ-zkq">
+                                        <rect key="frame" x="15" y="71" width="290" height="19"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranjit has requested to extend 15 mins for $34 ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-Dw-huM">
+                                        <rect key="frame" x="20" y="98" width="280" height="35"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRt-gI-wne" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="167.5" y="153.5" width="117.5" height="36"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="cI5-DO-xB5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Accept">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToAccept:" destination="0jB-QW-nbA" eventType="touchUpInside" id="ogG-Wy-lzc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-Ga-Meg" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="151.5" width="117.5" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Z4Y-8e-eT3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Reject">
+                                            <color key="titleColor" name="RedColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToReject:" destination="0jB-QW-nbA" eventType="touchUpInside" id="aXN-34-Gdr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="top" secondItem="2xa-1g-zfW" secondAttribute="bottom" constant="16" id="AEN-jO-2FV"/>
+                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="top" secondItem="ER0-iJ-zkq" secondAttribute="bottom" constant="8" id="NeM-hB-r2x"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ulu-Ga-Meg" secondAttribute="bottom" constant="20" id="NlA-kF-9jL"/>
+                                    <constraint firstItem="YRt-gI-wne" firstAttribute="width" secondItem="Ulu-Ga-Meg" secondAttribute="width" id="PgK-eW-fa9"/>
+                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="top" secondItem="n9o-Dw-huM" secondAttribute="bottom" constant="18.5" id="S6y-09-hv7"/>
+                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="top" secondItem="ahb-aK-ego" secondAttribute="top" constant="20" id="TRm-TL-iW0"/>
+                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="15" id="WJk-Pn-bVh"/>
+                                    <constraint firstAttribute="bottom" secondItem="YRt-gI-wne" secondAttribute="bottom" constant="20" id="ab0-fZ-ntq"/>
+                                    <constraint firstAttribute="trailing" secondItem="n9o-Dw-huM" secondAttribute="trailing" constant="20" id="bor-ou-Y9O"/>
+                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="20" id="jAS-Mk-r7l"/>
+                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="centerX" secondItem="ahb-aK-ego" secondAttribute="centerX" id="w2L-mb-Jus"/>
+                                    <constraint firstAttribute="trailing" secondItem="ER0-iJ-zkq" secondAttribute="trailing" constant="15" id="wgi-A2-sKH"/>
+                                    <constraint firstAttribute="trailing" secondItem="YRt-gI-wne" secondAttribute="trailing" constant="35" id="wwU-eh-jhe"/>
+                                    <constraint firstItem="YRt-gI-wne" firstAttribute="leading" secondItem="Ulu-Ga-Meg" secondAttribute="trailing" constant="15" id="yij-et-oWp"/>
+                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="35" id="zeC-0a-a1B"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNv-A0-oxC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="209.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="Smt-zj-7G9">
+                                        <rect key="frame" x="142.5" y="20" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="6RF-Yb-5Ur"/>
+                                            <constraint firstAttribute="height" constant="35" id="LBc-zk-RMf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only 2 minutes left !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sub-e5-z4T">
+                                        <rect key="frame" x="15" y="71" width="290" height="19"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request to extend the call 15 minutes for $8" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0N-Ox-1kj">
+                                        <rect key="frame" x="20" y="98" width="280" height="35"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN4-5R-aUv" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="167.5" y="153.5" width="117.5" height="36"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="FPS-zH-5X5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Yes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToYes:" destination="0jB-QW-nbA" eventType="touchUpInside" id="R8k-6I-oVX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loi-nD-i2g" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="151.5" width="117.5" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="INW-Sc-nX5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="No">
+                                            <color key="titleColor" name="RedColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToNo:" destination="0jB-QW-nbA" eventType="touchUpInside" id="j6K-WD-zUv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="w0N-Ox-1kj" firstAttribute="leading" secondItem="TNv-A0-oxC" secondAttribute="leading" constant="20" id="09Q-QU-K1c"/>
+                                    <constraint firstItem="DN4-5R-aUv" firstAttribute="width" secondItem="loi-nD-i2g" secondAttribute="width" id="2yL-QI-2Gn"/>
+                                    <constraint firstItem="Smt-zj-7G9" firstAttribute="top" secondItem="TNv-A0-oxC" secondAttribute="top" constant="20" id="79O-22-5Fb"/>
+                                    <constraint firstItem="loi-nD-i2g" firstAttribute="leading" secondItem="TNv-A0-oxC" secondAttribute="leading" constant="35" id="GDY-4x-TFe"/>
+                                    <constraint firstItem="sub-e5-z4T" firstAttribute="top" secondItem="Smt-zj-7G9" secondAttribute="bottom" constant="16" id="Gcj-RD-pXr"/>
+                                    <constraint firstItem="DN4-5R-aUv" firstAttribute="leading" secondItem="loi-nD-i2g" secondAttribute="trailing" constant="15" id="JN0-gB-k2n"/>
+                                    <constraint firstItem="w0N-Ox-1kj" firstAttribute="top" secondItem="sub-e5-z4T" secondAttribute="bottom" constant="8" id="S1A-Jc-SsA"/>
+                                    <constraint firstAttribute="bottom" secondItem="loi-nD-i2g" secondAttribute="bottom" constant="20" id="T3H-fx-3sz"/>
+                                    <constraint firstItem="loi-nD-i2g" firstAttribute="top" secondItem="w0N-Ox-1kj" secondAttribute="bottom" constant="18.5" id="Vja-nj-0jh"/>
+                                    <constraint firstAttribute="trailing" secondItem="w0N-Ox-1kj" secondAttribute="trailing" constant="20" id="W5y-8f-puP"/>
+                                    <constraint firstItem="sub-e5-z4T" firstAttribute="leading" secondItem="TNv-A0-oxC" secondAttribute="leading" constant="15" id="aNA-za-YHn"/>
+                                    <constraint firstAttribute="bottom" secondItem="DN4-5R-aUv" secondAttribute="bottom" constant="20" id="biR-qi-DXL"/>
+                                    <constraint firstAttribute="trailing" secondItem="DN4-5R-aUv" secondAttribute="trailing" constant="35" id="gSc-Ve-GrP"/>
+                                    <constraint firstItem="Smt-zj-7G9" firstAttribute="centerX" secondItem="TNv-A0-oxC" secondAttribute="centerX" id="sV5-Yu-MQL"/>
+                                    <constraint firstAttribute="trailing" secondItem="sub-e5-z4T" secondAttribute="trailing" constant="15" id="uBZ-uC-CM0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
@@ -7831,10 +7991,13 @@ Refer some friends.</string>
                             <constraint firstItem="seU-fa-PdQ" firstAttribute="bottom" secondItem="tqc-S0-B6J" secondAttribute="bottom" id="1tO-co-aU2"/>
                             <constraint firstItem="EPn-Ox-0sq" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" constant="8" id="5Gz-uE-mii"/>
                             <constraint firstItem="cbv-Ln-pA4" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" constant="5" id="7qc-gs-MOp"/>
+                            <constraint firstItem="ahb-aK-ego" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="9oZ-IY-XVK"/>
                             <constraint firstItem="cbv-Ln-pA4" firstAttribute="centerX" secondItem="qV5-rs-mSb" secondAttribute="centerX" id="BNy-rU-7UZ"/>
                             <constraint firstItem="Axd-vy-fb1" firstAttribute="top" secondItem="BRI-hx-lpX" secondAttribute="bottom" constant="2" id="BnK-Vm-La4"/>
+                            <constraint firstItem="TNv-A0-oxC" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" id="Coe-Nf-4tL"/>
                             <constraint firstItem="sk0-Jg-4ff" firstAttribute="trailing" secondItem="tqc-S0-B6J" secondAttribute="trailing" id="ESy-6l-qIC"/>
                             <constraint firstItem="seU-fa-PdQ" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="GVn-kR-Wf8"/>
+                            <constraint firstAttribute="trailing" secondItem="ahb-aK-ego" secondAttribute="trailing" id="HBw-Sf-s2g"/>
                             <constraint firstItem="seU-fa-PdQ" firstAttribute="top" secondItem="BRI-hx-lpX" secondAttribute="bottom" constant="2" id="HPW-CT-AdY"/>
                             <constraint firstItem="Axd-vy-fb1" firstAttribute="bottom" secondItem="tqc-S0-B6J" secondAttribute="bottom" id="IGP-Sl-eeF"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="Axd-vy-fb1" secondAttribute="trailing" id="KkW-QD-Ezp"/>
@@ -7862,7 +8025,10 @@ Refer some friends.</string>
                             <constraint firstItem="4Lv-1U-qIb" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" constant="4" id="kin-0V-yc7"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="EPn-Ox-0sq" secondAttribute="trailing" id="pO9-ck-cUu"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="cbv-Ln-pA4" secondAttribute="trailing" constant="5" id="sff-ZS-q0L"/>
+                            <constraint firstAttribute="trailing" secondItem="TNv-A0-oxC" secondAttribute="trailing" id="tll-Pn-gPd"/>
+                            <constraint firstItem="ahb-aK-ego" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" id="xCD-bc-wN3"/>
                             <constraint firstItem="BRI-hx-lpX" firstAttribute="trailing" secondItem="tqc-S0-B6J" secondAttribute="trailing" id="xLX-IQ-Zu5"/>
+                            <constraint firstItem="TNv-A0-oxC" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="ykU-VR-irr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tqc-S0-B6J"/>
                     </view>
@@ -7872,16 +8038,22 @@ Refer some friends.</string>
                         <outlet property="cameraButton" destination="dAX-GF-cDe" id="1oF-IR-gzg"/>
                         <outlet property="chatMessageTable" destination="NxY-UG-NFW" id="I6X-kD-XbZ"/>
                         <outlet property="chatView" destination="ff7-m2-yL9" id="Q4l-rj-Kxg"/>
+                        <outlet property="collageNameLbl" destination="CTh-5n-FQd" id="gJn-0D-ZZF"/>
                         <outlet property="containerView" destination="vIS-uM-DgB" id="QuN-a6-OKF"/>
                         <outlet property="controlView" destination="4Lv-1U-qIb" id="Rsg-ar-enW"/>
                         <outlet property="deviceButton" destination="DC6-vO-BxR" id="tPZ-OY-ZP0"/>
                         <outlet property="endButton" destination="mCB-tf-ZYh" id="d8r-h4-NJQ"/>
+                        <outlet property="headerNameLbl" destination="OAP-Yf-el0" id="3Hd-88-XNc"/>
+                        <outlet property="headerTimeLbl" destination="wn3-Vj-MMF" id="1bG-dW-icB"/>
                         <outlet property="inputBox" destination="eVs-Um-fvZ" id="FbX-GC-jco"/>
                         <outlet property="inputBoxBottomConstrain" destination="crD-o1-oPz" id="dgn-uI-Zg9"/>
                         <outlet property="inputText" destination="ZKW-pr-40D" id="N2g-74-uD7"/>
                         <outlet property="menteeVideoView" destination="XeV-Zs-PdF" id="pgd-Iw-0Qa"/>
+                        <outlet property="mentorMessageLbl" destination="n9o-Dw-huM" id="wyX-y6-D4Q"/>
+                        <outlet property="mentorTimeExtensionBackView" destination="ahb-aK-ego" id="8Bm-Rb-3fj"/>
                         <outlet property="metricsTable" destination="Mkr-bb-7H1" id="8vb-LY-41E"/>
                         <outlet property="muteButton" destination="gFy-1s-r4n" id="MpH-uL-Ghm"/>
+                        <outlet property="nameLbl" destination="OHK-Ww-X6D" id="Mm6-hh-8Ii"/>
                         <outlet property="nextVideoPageButton" destination="YZc-3w-f1T" id="aej-Fk-oIa"/>
                         <outlet property="noScreenViewLabel" destination="n6m-oH-bKF" id="A6I-yY-XIo"/>
                         <outlet property="prevVideoPageButton" destination="4Oe-Ne-V9h" id="CQc-8x-WgD"/>
@@ -7893,6 +8065,7 @@ Refer some friends.</string>
                         <outlet property="sendMessageButton" destination="n9n-5Q-jul" id="kfq-Ni-uIM"/>
                         <outlet property="titleLabel" destination="c5G-jY-FIL" id="Wbu-wR-qo2"/>
                         <outlet property="titleView" destination="EPn-Ox-0sq" id="0jW-yE-gvv"/>
+                        <outlet property="twoMinuteLeftBackView" destination="TNv-A0-oxC" id="lDl-x0-xvg"/>
                         <outlet property="videoCollection" destination="TnI-Ff-e6h" id="CnE-3H-JxW"/>
                         <outlet property="videoPaginationControlView" destination="9cA-DR-swL" id="EnF-Nw-SoU"/>
                     </connections>

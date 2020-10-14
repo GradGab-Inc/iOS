@@ -13,6 +13,10 @@ import Foundation
 //import Toast
 import UIKit
 
+
+var bookingDetailForVideo : BookingDetail = BookingDetail.init()
+
+
 class MeetingViewController: UIViewController {
     // Controls
     @IBOutlet var controlView: UIView!
@@ -58,13 +62,28 @@ class MeetingViewController: UIViewController {
     @IBOutlet var MentorVideoView: DefaultVideoRenderView!
     @IBOutlet var menteeVideoView: DefaultVideoRenderView!
     
+    @IBOutlet weak var headerNameLbl: UILabel!
+    @IBOutlet weak var headerTimeLbl: UILabel!
+    
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var collageNameLbl: UILabel!
+    
+    @IBOutlet weak var twoMinuteLeftBackView: UIView!
+    
+    @IBOutlet weak var mentorTimeExtensionBackView: UIView!
+    @IBOutlet weak var mentorMessageLbl: UILabel!
     
     // Model
     var meetingModel: MeetingModel?
-
+    var timer : Timer?
+    var callEndTime: Date = Date()
+    var callStartTime: Date = Date().sainiStartOfDay
+    var counter : Int = 0
     // Local var
     private let logger = ConsoleLogger(name: "MeetingViewController")
-
+    var ExtendCallVM : ExtendCallViewModel = ExtendCallViewModel()
+    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
+    
     // MARK: Override functions
 
     override func viewDidLoad() {
@@ -73,10 +92,19 @@ class MeetingViewController: UIViewController {
             dismiss(animated: true, completion: nil)
             return
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setAcceptRejectView), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+        
         configure(meetingModel: meetingModel)
         super.viewDidLoad()
         setupUI()
         meetingModel.startMeeting()
+        
+        twoMinuteLeftBackView.isHidden = true
+        mentorTimeExtensionBackView.isHidden = true
+        
+        ExtendCallVM.delegate = self
+        bookingActionVM.delegate = self
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -102,6 +130,10 @@ class MeetingViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
+    @objc func setAcceptRejectView() {
+        mentorTimeExtensionBackView.isHidden = false
+    }
+    
     private func configure(meetingModel: MeetingModel) {
         meetingModel.activeModeDidSetHandler = { [weak self] activeMode in
             self?.switchSubview(mode: activeMode)
@@ -109,6 +141,9 @@ class MeetingViewController: UIViewController {
         meetingModel.notifyHandler = { [weak self] message in
             self?.view?.makeToast(message, duration: 2.0, position: .top)
             meetingModel.isLocalVideoActive = true
+            self?.callEndTime = Date().sainiAddMinutes(Double(3))
+            self?.scheduledTimerWithTimeInterval()
+            SocketIOManager.sharedInstance.subscribeChannel(bookingDetailForVideo.id)
         }
         meetingModel.isMutedHandler = { [weak self] isMuted in
             self?.muteButton.isSelected = isMuted
@@ -116,6 +151,7 @@ class MeetingViewController: UIViewController {
         meetingModel.isEndedHandler = {
             DispatchQueue.main.async {
                 MeetingModule.shared().dismissMeeting(meetingModel)
+                bookingDetailForVideo = BookingDetail.init()
             }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
@@ -197,6 +233,40 @@ class MeetingViewController: UIViewController {
         chatMessageTable.separatorStyle = .none
         sendMessageButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         setupHideKeyboardOnTap()
+        
+        
+        headerNameLbl.text = "\(bookingDetailForVideo.firstName) \(bookingDetailForVideo.lastName != "" ? "\(bookingDetailForVideo.lastName.first!.uppercased())." : "")"
+        
+        nameLbl.text = "\(bookingDetailForVideo.firstName) \(bookingDetailForVideo.lastName != "" ? "\(bookingDetailForVideo.lastName.first!.uppercased())." : "")"
+        collageNameLbl.text = bookingDetailForVideo.schoolName
+    }
+    
+   
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callTimer), userInfo: nil, repeats: true)
+        print("---------**********-----------")
+    }
+    
+    @objc func callTimer(){
+        let currentDate = Date()
+        counter = counter + 1
+        print(counter)
+        print(counter / 2)
+        if currentDate < callEndTime {
+            callStartTime = callStartTime.sainiAddSecond(Double(0.5))
+            DispatchQueue.main.async {
+                self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
+            }
+            if counter  == 60 && AppModel.shared.currentUser.user?.userType == 1 {
+                twoMinuteLeftBackView.isHidden = false
+            }
+        }
+        else{
+            timer?.invalidate()
+            meetingModel?.endMeeting()
+            deregisterFromKeyboardNotifications()
+        }
     }
 
     private func switchSubview(mode: MeetingModel.ActiveMode) {
@@ -334,6 +404,25 @@ class MeetingViewController: UIViewController {
         meetingModel?.videoModel.getNextRemoteVideoPage()
         meetingModel?.videoModel.videoUpdatedHandler?()
     }
+    
+    @IBAction func clickToYes(_ sender: Any) {
+        ExtendCallVM.setExtendCall(request: ExtendVideoCallDataRequest(bookingRef: bookingDetailForVideo.id, dateTime: bookingDetailForVideo.dateTime))
+    }
+    
+    @IBAction func clickToNo(_ sender: Any) {
+        twoMinuteLeftBackView.isHidden = true
+    }
+    
+    @IBAction func clickToReject(_ sender: Any) {
+        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: BookingStatus.CANCELLED)
+        bookingActionVM.getBookingAction(request: request)
+    }
+     
+    @IBAction func clickToAccept(_ sender: Any) {
+        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: BookingStatus.BOOKED)
+        bookingActionVM.getBookingAction(request: request)
+    }
+    
 
     @objc private func keyboardShowHandler(notification: NSNotification) {
         //Need to calculate keyboard exact size due to Apple suggestions
@@ -373,8 +462,20 @@ class MeetingViewController: UIViewController {
     
 }
 
-// MARK: UICollectionViewDelegateFlowLayout
+extension MeetingViewController: ExtendCallDelegate, BookingActionDelegate {
+    func didRecieveBookingActionResponse(response: SuccessModel) {
+        mentorTimeExtensionBackView.isHidden = true
+    }
+    
+    func didRecieveExtendCallResponse(response: SuccessModel) {
+        twoMinuteLeftBackView.isHidden = true
+    }
+    
+    
+}
 
+
+// MARK: UICollectionViewDelegateFlowLayout
 extension MeetingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         var width = view.frame.width

@@ -117,5 +117,7 @@
 	<string>key_live_oiVWUVRb7XcyeDUfmxD7gafhDylpsuy0</string>
 	<key>branch_app_domain</key>
 	<string>1lmsg.app.link</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

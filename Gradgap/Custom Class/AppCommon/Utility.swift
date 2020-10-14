@@ -686,6 +686,14 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
     return "\(date1) - \(date3)"
 }
 
+
+extension Date{
+//MARK:- sainiAddSecond
+  public func sainiAddSecond(_ sec: Double) -> Date {
+       return self.addingTimeInterval(sec)
+   }
+}
+
 func getHourMinuteTime(_ minute: Int, _ timeZone: Int) -> String {
     var calendar = Calendar(identifier: .gregorian)
     calendar.timeZone = TimeZone.current//TimeZone(secondsFromGMT: 0)!

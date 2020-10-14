@@ -125,18 +125,15 @@ class BookingDetailVC: UIViewController {
     
     @IBAction func clickToJoinCall(_ sender: Any) {
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
+  //          bookingDetailForVideo = self.bookingDetail
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {
                     print("Started")
+                    
+                    bookingDetailForVideo = self.bookingDetail
                 }
             }
         }
-//        joinCallVM.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id))
-        
- //       joinMeeting(callKitOption: .outgoing, meetingId: "vishAB", name: "Vishal")
-        
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "VideoCallVC") as! VideoCallVC
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToCancelBooking(_ sender: Any) {

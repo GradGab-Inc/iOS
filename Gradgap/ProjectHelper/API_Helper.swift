@@ -101,6 +101,7 @@ struct API {
     
     struct CALL {
         static let join                   = BASE_URL + "call/join"
+        static let extend                 = BASE_URL + "call/extend"
     }
 }
 
@@ -190,6 +191,7 @@ struct GCD{
     
     struct CALL {
         static let join = DispatchQueue(label: "com.app.CALL_join", qos: .background, attributes: .concurrent) //1
+        static let extend = DispatchQueue(label: "com.app.CALL_extend", qos: .background, attributes: .concurrent) //1
     }
     
 }

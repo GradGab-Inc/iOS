@@ -12,3 +12,9 @@ import Foundation
 struct VideoCallDataRequest: Encodable {
     var bookingRef: String
 }
+
+
+struct ExtendVideoCallDataRequest: Encodable {
+    var bookingRef: String
+    var dateTime: String
+}

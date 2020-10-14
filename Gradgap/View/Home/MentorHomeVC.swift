@@ -81,6 +81,9 @@ class MentorHomeVC: UIViewController {
         attributedString1.append(attributedString3)
         noDataLbl.attributedText = attributedString1
         
+        noDataLbl.isUserInteractionEnabled = true
+        noDataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
         bookingTblView.reloadData()
         bookingTblViewHeightConstraint.constant = 200
         
@@ -112,6 +115,14 @@ class MentorHomeVC: UIViewController {
             self.calenderBackView.isHidden = false
             self.setUpCalender()
         }
+    }
+    
+    @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+        
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ReferFriendVC") as! ReferFriendVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     //MARK: - Button Click

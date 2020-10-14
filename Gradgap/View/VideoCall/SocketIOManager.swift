@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://437d902dcf7c.ngrok.io/"
+let SOCKET_URL = "http://3.82.95.119/development/"
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
@@ -17,7 +17,6 @@ class SocketIOManager: NSObject {
     
     // defaultNamespaceSocket and swiftSocket both share a single connection to the server
     var manager = SocketManager(socketURL: URL(string: SOCKET_URL)!, config: [.log(true), .compress])
-    
     
     override init() {
         super.init()
@@ -35,12 +34,16 @@ class SocketIOManager: NSObject {
         if socket != nil {
             socket.disconnect()
         }
-        let userId = AppModel.shared.token
+        if AppModel.shared.currentUser == nil {
+            return
+        }
+        let userId = AppModel.shared.currentUser.accessToken
         self.manager.config = SocketIOClientConfiguration(
             arrayLiteral:.connectParams(["access_token": userId]),.extraHeaders(["Authorization" : userId]),
             .secure(true),.forceWebsockets(true)
         )
-        
+        self.socket.connect()
+                
         //To connect socket
         socket.on(clientEvent: .connect) { (data, ack) in
             print("socket connected",data,ack)
@@ -51,12 +54,10 @@ class SocketIOManager: NSObject {
             print("socket disconnected",data,ack)
         }
         
-//        socket.onAny({ (event) in
-//            print(event.event)
-//        })
-                        
-        self.socket.connect()
-       
+        socket.on("extend_call") { (dataArray, ack) in
+            print(dataArray)
+            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+        }
     }
     
     func establishConnection() {
@@ -67,48 +68,15 @@ class SocketIOManager: NSObject {
     }
     
     func closeConnection() {
-        socketRoom()
-        
-//        socket.disconnect()
-//        socket.removeAllHandlers()
-
-//        To connect socket
-//        socket.on(clientEvent: .disconnect) { (data, ack) in
-//            print("socket disconnected",data,ack)
-//        }
-        
-//        socket.on("subscribe_channel") { (data, ack) in
-//            print("subscribe", data, ack)
-//        }
-        
-        
+        socket.disconnect()
+        socket.removeAllHandlers()
     }
     
-    func socketRoom() {
- //       socket.emit("subscribe_channel", 123)
-           
-//        socket.on("subscribe_channel") { ( dataArray, ack) -> Void in
-//            print(dataArray)
-//        }
-//
-//        socket.on(clientEvent: SocketClientEvent(rawValue: "subscribe_channel")!) { (dataArray, ack) in
-//
-//        }
-        
-        socket.on("subscribe_channel") { (dataArray, ack) in
-            print(dataArray)
-        }
-        
-//        let ack = socket.emitWithAck("subscribe_channel", with: [123])
-//        print(ack)
-        
+    func subscribeChannel(_ id : String) {
         socket.emit("subscribe_channel", 123) {
-
+            
         }
-        
-        
     }
-    
     
     func acknowledgementMessage(completionHandler: @escaping (_ messageInfo: [String : Any]) -> Void) {
         socket.on("subscribe_channel") { ( dataArray, ack) -> Void in

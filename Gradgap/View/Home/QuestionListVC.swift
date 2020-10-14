@@ -276,6 +276,8 @@ extension QuestionListVC : ProfileUpdateSuccessDelegate {
         else {
             setLoginUserData(response.data!.self)
             AppModel.shared.currentUser = getLoginUserData()
+            
+            SocketIOManager.sharedInstance.establishConnection()
         }
         isFromBack = true
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC
