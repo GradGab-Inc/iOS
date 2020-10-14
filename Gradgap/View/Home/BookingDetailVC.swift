@@ -76,6 +76,7 @@ class BookingDetailVC: UIViewController {
         joinCallVM.delegate = self
         
         if isFromTransaction {
+            navigationBar.headerLbl.text = "Transactions Details"
             transactionDetailVM.delegate = self
             transactionDetailVM.getTransactionDetail(request: transactionDetailRequest(transactionRef: selectedTransaction.id))
         }
@@ -206,7 +207,7 @@ extension BookingDetailVC : TransactionDetailDelegate {
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
-        dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
+        dateTimeLbl.text = displayBookingDate(bookingDetail.transactionTime, callTime: bookingDetail.callTime) + "((\(bookingDetail.callTime)min))"
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(bookingDetail.amount) Paid"
