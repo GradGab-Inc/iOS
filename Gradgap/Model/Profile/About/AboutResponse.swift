@@ -42,13 +42,13 @@ struct AboutAppData: Codable {
 
 // MARK: - AppDetails
 struct AboutAppDetails: Codable {
-    let id, aboutUs, termsAndConditions, privacyPolicy: String
+    let id, aboutUs, termsAndCondition, privacyPolicy: String
     let createdOn, updatedOn: String
     let v: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case aboutUs, termsAndConditions, privacyPolicy, createdOn, updatedOn
+        case aboutUs, termsAndCondition, privacyPolicy, createdOn, updatedOn
         case v = "__v"
     }
     
@@ -58,7 +58,7 @@ struct AboutAppDetails: Codable {
         v = try values.decodeIfPresent(Int.self, forKey: .v) ?? 0
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         aboutUs = try values.decodeIfPresent(String.self, forKey: .aboutUs) ?? ""
-        termsAndConditions = try values.decodeIfPresent(String.self, forKey: .termsAndConditions) ?? ""
+        termsAndCondition = try values.decodeIfPresent(String.self, forKey: .termsAndCondition) ?? ""
         privacyPolicy = try values.decodeIfPresent(String.self, forKey: .privacyPolicy) ?? ""
         createdOn = try values.decodeIfPresent(String.self, forKey: .createdOn) ?? ""
         updatedOn = try values.decodeIfPresent(String.self, forKey: .updatedOn) ?? ""
@@ -68,7 +68,7 @@ struct AboutAppDetails: Codable {
         v = 0
         id = ""
         aboutUs = ""
-        termsAndConditions = ""
+        termsAndCondition = ""
         privacyPolicy = ""
         createdOn = ""
         updatedOn = ""

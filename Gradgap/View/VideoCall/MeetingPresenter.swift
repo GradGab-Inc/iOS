@@ -39,6 +39,9 @@ class MeetingPresenter {
         }
         activeMeetingViewController.dismiss(animated: true) {
             self.activeMeetingViewController = nil
+            if AppModel.shared.currentUser.user?.userType == 1 {
+                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
+            }
             completion()
         }
     }

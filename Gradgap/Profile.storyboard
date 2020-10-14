@@ -5028,7 +5028,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-u6-Ld6">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="899.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnM-RB-B3B" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnM-RB-B3B" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="30" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="hKZ-fy-r3g"/>
@@ -5059,6 +5059,7 @@
                                                         <state key="normal" title="Add to Favorites">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <state key="selected" title="Remove to Favorites"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="24"/>

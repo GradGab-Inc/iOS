@@ -45,6 +45,7 @@ class BookingDetailVC: UIViewController {
     var isFromTransaction : Bool = false
     var transactionDetailVM : TransactionDetailViewModel = TransactionDetailViewModel()
     var selectedTransaction : TransactionListDataModel = TransactionListDataModel.init()
+    var isRateViewNavigate : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class BookingDetailVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingDetail), name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
         
         joinCallBtn.isHidden = true
         cancelBookingBtn.isHidden = true
@@ -83,11 +86,19 @@ class BookingDetailVC: UIViewController {
             bookingActionVM.delegate = self
             bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         }
-        
     }
     
     @objc func refreshBookingDetail() {
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+    }
+    
+    @objc func openRateReviewVC() {
+        if !isRateViewNavigate {
+            isRateViewNavigate = true
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+            vc.bookingDetail = bookingDetail
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: - Button Click

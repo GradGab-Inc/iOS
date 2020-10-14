@@ -3916,7 +3916,7 @@ Refer some friends.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2p-I2-qi4" customClass="View" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="15" y="69" width="290" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="APPLY CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ed-igO" customClass="TextField" customModule="GradGab" customModuleProvider="target">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="APPLY CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ed-igO" customClass="TextField" customModule="GradGab" customModuleProvider="target">
                                                                         <rect key="frame" x="12" y="0.0" width="266" height="40"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
@@ -7844,6 +7844,7 @@ Refer some friends.</string>
                             <constraint firstItem="seU-fa-PdQ" firstAttribute="trailing" secondItem="tqc-S0-B6J" secondAttribute="trailing" id="Tla-Sd-vAB"/>
                             <constraint firstItem="BRI-hx-lpX" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" id="UeQ-Cd-UgC"/>
                             <constraint firstItem="sk0-Jg-4ff" firstAttribute="leading" secondItem="qV5-rs-mSb" secondAttribute="leading" id="Xit-08-RWh"/>
+                            <constraint firstItem="tqc-S0-B6J" firstAttribute="bottom" secondItem="sk0-Jg-4ff" secondAttribute="bottom" constant="15" id="Y99-Cd-vr9"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="XeV-Zs-PdF" secondAttribute="trailing" constant="15" id="YBH-9l-eqa"/>
                             <constraint firstItem="Axd-vy-fb1" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="YuV-L5-PZq"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="vIS-uM-DgB" secondAttribute="trailing" id="Zrh-qb-lyT"/>
@@ -7862,7 +7863,6 @@ Refer some friends.</string>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="EPn-Ox-0sq" secondAttribute="trailing" id="pO9-ck-cUu"/>
                             <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="cbv-Ln-pA4" secondAttribute="trailing" constant="5" id="sff-ZS-q0L"/>
                             <constraint firstItem="BRI-hx-lpX" firstAttribute="trailing" secondItem="tqc-S0-B6J" secondAttribute="trailing" id="xLX-IQ-Zu5"/>
-                            <constraint firstAttribute="bottom" secondItem="sk0-Jg-4ff" secondAttribute="bottom" constant="15" id="ybh-JY-GU0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tqc-S0-B6J"/>
                     </view>

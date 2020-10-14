@@ -57,9 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let payload : [String: Any] = params?["deepLinkPayload"] as? [String: Any] {
                     print(payload)
-                var receivedId = ""
                 if let id = payload["_id"] as? String {
-                    receivedId = id
+                    userReferId = id
                 }
             }
         }

@@ -111,3 +111,18 @@ func isUserShownInfo() -> Bool
     let isUserLogin = getDataFromPreference(key: Preference.sharedInstance.IS_USER_INFO_SHOW)
     return isUserLogin == nil ? false:(isUserLogin as! Bool)
 }
+
+
+func setIsDeleteDate(_ date: String)
+{
+    setDataToPreference(data: date as AnyObject, forKey: "DELETE_DATE")
+}
+
+func getIsDeleteDate() -> String
+{
+    if let date : String = getDataFromPreference(key: "DELETE_DATE") as? String
+    {
+        return date
+    }
+    return ""
+}

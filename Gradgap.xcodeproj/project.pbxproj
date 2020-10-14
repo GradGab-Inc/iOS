@@ -55,6 +55,7 @@
 		88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207234250CA0F400813299 /* TransactionDetailViewModel.swift */; };
 		88207237250CA2C700813299 /* TransactionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207236250CA2C700813299 /* TransactionListModel.swift */; };
 		88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88209765251A1A9F0038E3F3 /* EarningListRequest.swift */; };
+		8820C1792536EEC6007550FD /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C1782536EEC6007550FD /* SocketIOManager.swift */; };
 		88220CDD2518708B0078A4F9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 88220CDC2518708A0078A4F9 /* countries.json */; };
 		882231542525A8D000312945 /* VideoCallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882231532525A8D000312945 /* VideoCallVC.swift */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
@@ -350,6 +351,7 @@
 		88207234250CA0F400813299 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
 		88207236250CA2C700813299 /* TransactionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModel.swift; sourceTree = "<group>"; };
 		88209765251A1A9F0038E3F3 /* EarningListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListRequest.swift; sourceTree = "<group>"; };
+		8820C1782536EEC6007550FD /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		88220CDC2518708A0078A4F9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		882231532525A8D000312945 /* VideoCallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallVC.swift; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
@@ -809,6 +811,7 @@
 				8826B98D252C24E000B79ED4 /* VideoTileCell.xib */,
 				8868E6962531DBFE00999DB4 /* ChatMessageCell.swift */,
 				8868E6972531DC0200999DB4 /* ChatModel.swift */,
+				8820C1782536EEC6007550FD /* SocketIOManager.swift */,
 			);
 			path = VideoCall;
 			sourceTree = "<group>";
@@ -1581,6 +1584,7 @@
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,
 				88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */,
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
+				8820C1792536EEC6007550FD /* SocketIOManager.swift in Sources */,
 				8824D90B24EE7D7E0041F7CE /* MentorListRequest.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,

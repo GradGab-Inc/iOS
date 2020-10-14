@@ -129,9 +129,9 @@ class VideoCallVC: UIViewController {
             self?.microPhoneBtn.isSelected = isMuted
         }
         meetingModel.isEndedHandler = {
-            DispatchQueue.main.async {
-                MeetingModule.shared().dismissMeeting(meetingModel)
-            }
+//            DispatchQueue.main.async {
+//                MeetingModule.shared().dismissMeeting(meetingModel, completion: (Bool) -> Void)
+//            }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
 //            self?.rosterTable.reloadData()
