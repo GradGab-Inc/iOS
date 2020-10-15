@@ -184,7 +184,7 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
         
         let dict : TransactionListDataModel = earningArr[indexPath.section].data[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-        cell.nameLbl.text = dict.name
+        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
         cell.priceLbl.text = "$\(dict.amount ?? 0)"
         
         return cell

@@ -59,7 +59,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         
         searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
       
-        let attributedString = NSMutableAttributedString.init(string: "Don't see a school you are interested in? Let us know")
+        let attributedString = NSMutableAttributedString.init(string: "Don't see a school you are interested in? let us know")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
@@ -228,17 +228,7 @@ extension SchoolListVC : ProfileUpdateSuccessDelegate {
 
 extension SchoolListVC : MFMailComposeViewControllerDelegate {
     func setupMail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["hello@gradgab.com"])
-            mail.setMessageBody("", isHTML: true)
-
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-            displayToast("Please setup your mail first.")
-        }
+        redirectToEmail()
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

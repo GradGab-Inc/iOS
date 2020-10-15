@@ -41,26 +41,27 @@ class BankDetailVC: UploadImageVC {
     var selectedGender : Int = -1
     var selectedCountry : String = String()
     var birthDate : Date!
+    var isFrontImg : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configUI()
         
-//        bankNameTxt.text = "ABC"
-//        holderNameTxt.text = "Vishal j Buha"
-//        firstNameTxt.text = "Vishal"
-//        lastNameTxt.text = "Buha"
-//        accountNumberTxt.text = "000123456789"
-//        address1Txt.text = "158, Sarita darshan"
-//        address2Txt.text = "Chikuwadi"
-//        routingNumberTxt.text = "110000000"
-//        cityTxt.text = "New York"
-//        stateTxt.text = "New York"
-//        postalCodeTxt.text = "395006"
-//        contactNumberTxt.text = "9874563215"
-//        emailTxt.text = "buhavishal1@gmail.com"
-//        ssnTxt.text = "1234"
+        bankNameTxt.text = "ABC"
+        holderNameTxt.text = "Vishal j Buha"
+        firstNameTxt.text = "Vishal"
+        lastNameTxt.text = "Buha"
+        accountNumberTxt.text = "000123456789"
+        address1Txt.text = "158, Sarita darshan"
+        address2Txt.text = "Chikuwadi"
+        routingNumberTxt.text = "110000000"
+        cityTxt.text = "New York"
+        stateTxt.text = "New York"
+        postalCodeTxt.text = "395006"
+        contactNumberTxt.text = "9874563215"
+        emailTxt.text = "buhavishal1@gmail.com"
+        ssnTxt.text = "1234"
         
     }
     
@@ -79,19 +80,34 @@ class BankDetailVC: UploadImageVC {
     
     private func documentPicGesture() {
         doc1ImgView.sainiAddTapGesture {
-            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-            CameraAttachment.shared.imagePickedBlock = { pic in
-                self.doc1ImgView.image = pic
-                self.frontImage = pic
-            }
+            self.isFrontImg = true
+            self.uploadImage()
+//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//            CameraAttachment.shared.imagePickedBlock = { pic in
+//                self.doc1ImgView.image = pic
+//                self.frontImage = pic
+//            }
         }
         
         doc2ImgView.sainiAddTapGesture {
-            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-            CameraAttachment.shared.imagePickedBlock = { pic in
-                self.doc2ImgView.image = pic
-                self.backImage = pic
-            }
+            self.isFrontImg = false
+            self.uploadImage()
+//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
+//            CameraAttachment.shared.imagePickedBlock = { pic in
+//                self.doc2ImgView.image = pic
+//                self.backImage = pic
+//            }
+        }
+    }
+    
+    override func selectedImage(choosenImage: UIImage) {
+        if isFrontImg {
+            self.doc1ImgView.image = choosenImage
+            self.frontImage = choosenImage
+        }
+        else {
+            self.doc2ImgView.image = choosenImage
+            self.backImage = choosenImage
         }
     }
     
@@ -201,9 +217,9 @@ class BankDetailVC: UploadImageVC {
         else if ssn.trimmed.count == 0 {
             displayToast("Please enter your ssn")
         }
-        else if gender.trimmed.count == 0 || selectedGender == -1 {
-            displayToast("Please enter your gender")
-        }
+//        else if gender.trimmed.count == 0 || selectedGender == -1 {
+//            displayToast("Please enter your gender")
+//        }
         else if frontImage.size.height == 0 {
             displayToast("Please select document front image")
         }

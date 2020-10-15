@@ -264,17 +264,7 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
 
 extension EditProfileVC : MFMailComposeViewControllerDelegate {
     func setupMail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["hello@gradgab.com"])
-            mail.setMessageBody("", isHTML: true)
-
-            present(mail, animated: true)
-        } else {
-            // show failure alert
-            displayToast("Please setup your mail first.")
-        }
+        redirectToEmail()
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

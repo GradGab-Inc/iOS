@@ -121,7 +121,7 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
         
         let dict : TransactionListDataModel = transactionListArr[indexPath.section].data[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-        cell.nameLbl.text = dict.name
+        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
         cell.collegeNameLbl.text = dict.school.first?.name ?? ""
         cell.priceLbl.text = "$\(dict.amount ?? 0)"
         

@@ -11,6 +11,7 @@ import SainiUtils
 
 class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
 
+    @IBOutlet weak var profileImgBtn: UIButton!
     @IBOutlet weak var profileImgView: UIImageView!
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var firstNameTxt: UITextField!
@@ -31,6 +32,8 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     @IBOutlet weak var interestCollectHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
     @IBOutlet weak var enrollCollectionView: UICollectionView!
+    @IBOutlet weak var enrollImgBtn: UIButton!
+    
     
     var profileUpadateVM : ProfileUpdateViewModel = ProfileUpdateViewModel()
     let listVC : SchoolListView = SchoolListView.instanceFromNib() as! SchoolListView
@@ -48,6 +51,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     var selectedEnrollId : UIImage = UIImage()
     var ethinityIndex : Int = -1
     var isProImg : Bool = false
+    var selectedProfileImg : UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +75,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         enrollCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         listVC.delegate = self
         profileUpadateVM.delegate = self
-        profilPicGesture()
+//        profilPicGesture()
     }
     
     private func profilPicGesture() {
@@ -88,22 +92,40 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     
     override func selectedImage(choosenImage: UIImage) {
         if isProImg {
-            self.profileImgView.image = choosenImage
-            self.isNewImgUpload = true
+            self.profileImgView.image = nil
+            delay(0.1) {
+                
+ //               self.profileImgView.image = self.selectedProfileImg
+                self.profileImgBtn.setBackgroundImage(choosenImage, for: .normal)
+ //               self.profileImgBtn.setImage(choosenImage, for: .normal)
+                self.profileImgBtn.imageView?.contentMode = .scaleAspectFill
+                self.selectedProfileImg = choosenImage
+                self.isNewImgUpload = true
+                self.isProImg = false
+            }
         }
         else {
-            self.selectedEnrollId = choosenImage
-            self.isNewEnrollIdUpload = true
-            
-            self.enrollmentArr = [String]()
-            self.enrollmentArr.append(" ")
-            self.enrollCollectionView.reloadData()
+            delay(0.1) {
+                self.enrollImgBtn.setBackgroundImage(choosenImage, for: .normal)
+//                self.enrollImgBtn.setImage(choosenImage, for: .normal)
+                self.enrollImgBtn.imageView?.contentMode = .scaleAspectFit
+                self.selectedEnrollId = choosenImage
+                self.isNewEnrollIdUpload = true
+                
+//                self.enrollmentArr = [String]()
+//                self.enrollmentArr.append(" ")
+//                self.enrollCollectionView.reloadData()
+            }
         }
     }
     
     private func renderProfile() {
         profileData = AppModel.shared.currentUser.user ?? User.init()
-        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
+//        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
+    
+        setUserBackgroundImage(profileImgBtn, API.IMAGE_URL + profileData.image)
+
+        
         firstNameTxt.text = profileData.firstName
         lastNameTxt.text = profileData.lastName
         emailTxt.text = profileData.email
@@ -132,19 +154,26 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
             schoolCollectionView.reloadData()
         }
         
-        if profileData.enrollmentId != "" {
-            enrollmentArr = [String]()
-            enrollmentArr.append(profileData.enrollmentId)
-            enrollCollectionView.reloadData()
-        }
-        else {
-            enrollCollectionView.reloadData()
-        }
+        setUserBackgroundImage(enrollImgBtn, API.IMAGE_URL + profileData.enrollmentId)
+  
+//        if profileData.enrollmentId != "" {
+//            enrollmentArr = [String]()
+//            enrollmentArr.append(profileData.enrollmentId)
+//            enrollCollectionView.reloadData()
+//        }
+//        else {
+//            enrollCollectionView.reloadData()
+//        }
     }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func clickToSelectProfileImg(_ sender: Any) {
+        self.isProImg = true
+        self.uploadImage()
     }
     
     @IBAction func clickToSelectYear(_ sender: Any) {
@@ -162,7 +191,6 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 1
         listVC.setUp()
-//        listVC.tblView.reloadData()
     }
     
     @IBAction func clickToSelectLanguage(_ sender: Any) {
@@ -195,15 +223,6 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     @IBAction func clickToAddMore(_ sender: Any) {
         isProImg = false
         self.uploadImage()
-//        CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-//        CameraAttachment.shared.imagePickedBlock = { pic in
-//            self.selectedEnrollId = pic
-//            self.isNewEnrollIdUpload = true
-//
-//            self.enrollmentArr = [String]()
-//            self.enrollmentArr.append(" ")
-//            self.enrollCollectionView.reloadData()
-//        }
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {

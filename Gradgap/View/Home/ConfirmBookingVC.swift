@@ -144,7 +144,7 @@ class ConfirmBookingVC: UIViewController {
             }
             
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
-            toBePaidLbl.text = "$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.02f", total))"
         }
     }
     
@@ -235,7 +235,7 @@ class ConfirmBookingVC: UIViewController {
         }
         
         let total = Double(mentorDetail.amount) - Double(wallet)
-        toBePaidLbl.text = "$\(total)"
+        toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
     }
     
     @IBAction func clickToUseWallet(_ sender: UIButton) {
@@ -262,14 +262,14 @@ class ConfirmBookingVC: UIViewController {
             walletBackView.isHidden = true
             
             let total = Double(mentorDetail.amount) - disc
-            toBePaidLbl.text = "$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
         }
         else {
             sender.isSelected = true
             walletBackView.isHidden = false
             walletBalanceLbl.text = "$\(wallet)"
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
-            toBePaidLbl.text = "$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
         }
     }
     

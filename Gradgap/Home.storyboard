@@ -2884,7 +2884,7 @@ Refer some friends.</string>
                                 <rect key="frame" x="0.0" y="60" width="320" height="740"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKs-JY-9hy">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="757"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="762"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehI-Gc-Atx">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
@@ -3042,10 +3042,10 @@ Refer some friends.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLj-An-Wtq">
-                                                <rect key="frame" x="0.0" y="218" width="320" height="75"/>
+                                                <rect key="frame" x="0.0" y="218" width="320" height="80"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CN5-Vj-BQX" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="25.5" width="24" height="24"/>
+                                                        <rect key="frame" x="15" y="28" width="24" height="24"/>
                                                         <color key="backgroundColor" white="1" alpha="0.19745291100000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="Nab-i6-JXN"/>
@@ -3060,13 +3060,13 @@ Refer some friends.</string>
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAO-YX-KZ9">
-                                                        <rect key="frame" x="54" y="13" width="258" height="23.5"/>
+                                                        <rect key="frame" x="54" y="15.5" width="258" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="0.59556934930000005" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFz-y8-USb">
-                                                        <rect key="frame" x="54" y="41.5" width="258" height="19"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading.." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFz-y8-USb">
+                                                        <rect key="frame" x="54" y="44" width="258" height="19"/>
                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -3074,7 +3074,7 @@ Refer some friends.</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="JAW-UN-uHo"/>
+                                                    <constraint firstAttribute="height" constant="80" id="JAW-UN-uHo"/>
                                                     <constraint firstItem="GFz-y8-USb" firstAttribute="trailing" secondItem="OAO-YX-KZ9" secondAttribute="trailing" id="PZr-MY-kP2"/>
                                                     <constraint firstItem="GFz-y8-USb" firstAttribute="leading" secondItem="OAO-YX-KZ9" secondAttribute="leading" id="SOL-k3-lva"/>
                                                     <constraint firstItem="GFz-y8-USb" firstAttribute="top" secondItem="OAO-YX-KZ9" secondAttribute="bottom" constant="5" id="by5-Zy-nAS"/>
@@ -3086,7 +3086,7 @@ Refer some friends.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnJ-k0-66N">
-                                                <rect key="frame" x="0.0" y="293" width="320" height="75"/>
+                                                <rect key="frame" x="0.0" y="298" width="320" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD6-9P-C4M" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
@@ -3130,7 +3130,7 @@ Refer some friends.</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKZ-Tx-09J">
-                                                <rect key="frame" x="0.0" y="368" width="320" height="75"/>
+                                                <rect key="frame" x="0.0" y="373" width="320" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPX-HN-7P4" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="25.5" width="24" height="24"/>
@@ -3175,7 +3175,7 @@ Refer some friends.</string>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-WZ-iFQ">
-                                                <rect key="frame" x="25" y="533" width="270" height="164"/>
+                                                <rect key="frame" x="25" y="538" width="270" height="164"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-68-xNP" customClass="Button" customModule="GradGab" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="48"/>
@@ -3289,8 +3289,10 @@ Refer some friends.</string>
                         <outlet property="cancelBookingBackView" destination="PBe-5g-zZb" id="Bfh-55-r1Q"/>
                         <outlet property="cancelBookingBtn" destination="iza-Sw-Xas" id="PPF-a1-GCn"/>
                         <outlet property="collegeNameLbl" destination="JH9-gt-GuI" id="Hp7-Ia-NAx"/>
+                        <outlet property="dateTimeHeaderLbl" destination="lZo-ju-vbc" id="7qf-5j-7zg"/>
                         <outlet property="dateTimeLbl" destination="4Ze-1p-YZo" id="a6b-v5-hKh"/>
                         <outlet property="durationLbl" destination="GFz-y8-USb" id="7dj-sd-8P9"/>
+                        <outlet property="durationTitleLbl" destination="OAO-YX-KZ9" id="cwh-gb-6bG"/>
                         <outlet property="favoriteBtn" destination="six-La-h9z" id="Yek-8L-Z53"/>
                         <outlet property="joinCallBtn" destination="hCH-68-xNP" id="ute-nU-GM7"/>
                         <outlet property="nameLbl" destination="fEb-rN-Hz0" id="S5p-Fb-I4T"/>
@@ -5171,7 +5173,7 @@ Refer some friends.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOX-bU-hwu">
                                         <rect key="frame" x="0.0" y="184" width="320" height="49"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't see a school you are interested in? Let us konw" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-a9-kIU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't see a school you are interested in? let us konw" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-a9-kIU">
                                                 <rect key="frame" x="39" y="8" width="261" height="33"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
                                                 <color key="textColor" name="RedColor"/>

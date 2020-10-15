@@ -9,9 +9,9 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://3.82.95.119/development/"
+let SOCKET_URL = "http://3.82.95.119:3000" //"http://3.82.95.119/development/"
 
-class SocketIOManager: NSObject {
+class SocketIOManager: NSObject, URLSessionDelegate {
     static let sharedInstance = SocketIOManager()
     var socket: SocketIOClient!
     
@@ -40,9 +40,18 @@ class SocketIOManager: NSObject {
         let userId = AppModel.shared.currentUser.accessToken
         self.manager.config = SocketIOClientConfiguration(
             arrayLiteral:.connectParams(["access_token": userId]),.extraHeaders(["Authorization" : userId]),
-            .secure(true),.forceWebsockets(true)
+            .secure(true),.forceWebsockets(true) //,
+//            .reconnectAttempts(3),
+//            .reconnectWait(3),
+//            .sessionDelegate(self)
         )
         self.socket.connect()
+        
+//        self.manager.config = SocketIOClientConfiguration(
+//            arrayLiteral: .connectParams(["access_token": "123456789"]), .secure(false),.forceWebsockets(true)
+//        )
+//        socket.connect()
+        
                 
         //To connect socket
         socket.on(clientEvent: .connect) { (data, ack) in
@@ -54,10 +63,20 @@ class SocketIOManager: NSObject {
             print("socket disconnected",data,ack)
         }
         
+        socket.on(clientEvent: SocketClientEvent.reconnect) { (data, eck) in
+            print(data)
+            print("socket reconnect")
+        }
+        
         socket.on("extend_call") { (dataArray, ack) in
             print(dataArray)
             NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
         }
+        
+        socket.on(clientEvent: .error) {data, ack in
+            print(data)
+        }
+        
     }
     
     func establishConnection() {
@@ -77,6 +96,20 @@ class SocketIOManager: NSObject {
             
         }
     }
+    
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+    }
+
+    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+        if let err = error {
+            print("Error: \(err.localizedDescription)")
+        } else {
+            print("Error. Giving up")
+        }
+    }
+
+    
     
     func acknowledgementMessage(completionHandler: @escaping (_ messageInfo: [String : Any]) -> Void) {
         socket.on("subscribe_channel") { ( dataArray, ack) -> Void in
