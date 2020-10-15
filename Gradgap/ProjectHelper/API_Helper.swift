@@ -13,11 +13,11 @@ struct API {
     //Development 
     //static let BASE_URL = "http://ec2-3-14-150-71.us-east-2.compute.amazonaws.com/development/api/"
     //Staging
-    static let BASE_URL = "http://54.197.250.33/staging/api/"
-    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
+//    static let BASE_URL = "http://54.197.250.33/staging/api/"
+//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-//    static let BASE_URL =  "http://3.82.95.119/development/api/" //"http://6c90fe4479e7.ngrok.io/api/"//
-//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
+    static let BASE_URL = "http://3.82.95.119/development/api/" //"http://c17819afdf3e.ngrok.io/api/"//
+    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
     struct USER {
         static let signup                 = BASE_URL + "user/signup"
@@ -27,6 +27,7 @@ struct API {
         static let update                 = BASE_URL + "user/update"
         static let details                = BASE_URL + "user/details"
         static let switchProfile          = BASE_URL + "user/switchProfile"
+        static let contactAdmin           = BASE_URL + "user/contactAdmin"
     }
     
     struct AVAILABILITY {
@@ -35,7 +36,7 @@ struct API {
         static let mentorList             = BASE_URL + "availability/mentorList"
         static let delete                 = BASE_URL + "availability/delete"
         static let update                 = BASE_URL + "availability/update"
-        static let setCustom              = BASE_URL + "customAvailability/set"//"availability/setCustom"
+        static let setCustom              = BASE_URL + "customAvailability/set" //"availability/setCustom"
     }
     
     struct FAVOURITES {
@@ -89,13 +90,18 @@ struct API {
     
     struct APPDETAIL {
         static let list                   = BASE_URL + "appDetails/list"
-        static let listFaq                = BASE_URL + "appDetails/listFaqs"
+        static let listFaq                = BASE_URL + "faq/list"
     }
     
     struct BANK {
         static let add                    = BASE_URL + "bank/add"
         static let view                   = BASE_URL + "bank/view"
         static let delete                 = BASE_URL + "bank/delete"
+    }
+    
+    struct CALL {
+        static let join                   = BASE_URL + "call/join"
+        static let extend                 = BASE_URL + "call/extend"
     }
 }
 
@@ -110,6 +116,7 @@ struct GCD{
         static let update = DispatchQueue(label: "com.app.USER_update", qos: DispatchQoS.background, attributes: DispatchQueue.Attributes.concurrent) //5
         static let details = DispatchQueue(label: "com.app.USER_details", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
         static let switchProfile = DispatchQueue(label: "com.app.USER_switchProfile", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
+        static let contactAdmin = DispatchQueue(label: "com.app.USER_contactAdmin", qos: DispatchQoS.utility, attributes: DispatchQueue.Attributes.concurrent) //6
     }
     
     struct AVAILABILITY {
@@ -180,6 +187,11 @@ struct GCD{
         static let add = DispatchQueue(label: "com.app.BANK_add", qos: .background, attributes: .concurrent) //1
         static let view = DispatchQueue(label: "com.app.BANK_view", qos: .background, attributes: .concurrent) //1
         static let delete = DispatchQueue(label: "com.app.BANK_delete", qos: .background, attributes: .concurrent) //1
+    }
+    
+    struct CALL {
+        static let join = DispatchQueue(label: "com.app.CALL_join", qos: .background, attributes: .concurrent) //1
+        static let extend = DispatchQueue(label: "com.app.CALL_extend", qos: .background, attributes: .concurrent) //1
     }
     
 }

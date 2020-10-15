@@ -113,6 +113,8 @@ extension LoginVC: LoginDelegate {
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = response.data
         
+        SocketIOManager.sharedInstance.establishConnection()
+        
         if AppModel.shared.currentUser.user?.userType == 1 {
             AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
         }

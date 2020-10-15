@@ -47,6 +47,7 @@
 		881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */; };
 		881690EB24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */; };
 		881690ED24D286E000EE427E /* EmailVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881690EC24D286E000EE427E /* EmailVerificationVC.swift */; };
+		881F045D2535C63400210426 /* Gradgap.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 882B1AD524F523280033379B /* Gradgap.entitlements */; };
 		881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FE93E25065C5800DDB411 /* MessageUI.framework */; };
 		88203115251B4159001D580C /* CustomDateAvaibilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88203114251B4159001D580C /* CustomDateAvaibilityViewModel.swift */; };
 		88203117251B49F1001D580C /* DateAvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */; };
@@ -54,7 +55,10 @@
 		88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207234250CA0F400813299 /* TransactionDetailViewModel.swift */; };
 		88207237250CA2C700813299 /* TransactionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88207236250CA2C700813299 /* TransactionListModel.swift */; };
 		88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88209765251A1A9F0038E3F3 /* EarningListRequest.swift */; };
+		8820C1792536EEC6007550FD /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C1782536EEC6007550FD /* SocketIOManager.swift */; };
+		8820C17B253712C1007550FD /* ExtendCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C17A253712C1007550FD /* ExtendCallViewModel.swift */; };
 		88220CDD2518708B0078A4F9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 88220CDC2518708A0078A4F9 /* countries.json */; };
+		882231542525A8D000312945 /* VideoCallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882231532525A8D000312945 /* VideoCallVC.swift */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
 		8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */; };
 		8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */; };
@@ -90,7 +94,32 @@
 		88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */; };
 		88269EA82514CB9C00AE36DF /* BackAccountDeleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */; };
 		88269EAA2514CC0100AE36DF /* BankViewDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */; };
+		8826B98B252C24BB00B79ED4 /* VideoTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */; };
+		8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8826B98D252C24E000B79ED4 /* VideoTileCell.xib */; };
 		8826EA4724F3776D00DC9F60 /* SwitchProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */; };
+		882817A72531975300BFC26C /* AmazonChimeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A52531975000BFC26C /* AmazonChimeSDK.framework */; };
+		882817A82531975300BFC26C /* AmazonChimeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A52531975000BFC26C /* AmazonChimeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		882817AA2531975500BFC26C /* AmazonChimeSDKMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */; };
+		882817AB2531975500BFC26C /* AmazonChimeSDKMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828AC25287D420019F322 /* JoinCallViewModel.swift */; };
+		882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B12528870D0019F322 /* VideoCallDataRequest.swift */; };
+		882828B4252887560019F322 /* VideoCallResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828B3252887560019F322 /* VideoCallResponse.swift */; };
+		882828E22528A74F0019F322 /* RosterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828D92528A7470019F322 /* RosterModel.swift */; };
+		882828E32528A74F0019F322 /* JoinRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DB2528A74A0019F322 /* JoinRequestService.swift */; };
+		882828E42528A74F0019F322 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DC2528A74A0019F322 /* ViewControllerExtension.swift */; };
+		882828E52528A74F0019F322 /* TimestampConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DD2528A74A0019F322 /* TimestampConversion.swift */; };
+		882828E62528A74F0019F322 /* HttpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DE2528A74A0019F322 /* HttpUtils.swift */; };
+		882828E72528A74F0019F322 /* CallKitOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828DF2528A74A0019F322 /* CallKitOption.swift */; };
+		882828E82528A74F0019F322 /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E02528A74D0019F322 /* MeetingModel.swift */; };
+		882828E92528A74F0019F322 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828E12528A74F0019F322 /* VideoModel.swift */; };
+		882828EB2528A7920019F322 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EA2528A7920019F322 /* AppConfiguration.swift */; };
+		882828F12528A7D00019F322 /* RosterAttendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EE2528A7D00019F322 /* RosterAttendee.swift */; };
+		882828F22528A7D00019F322 /* JoinMeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */; };
+		882828F42528A80C0019F322 /* MeetingModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F32528A80C0019F322 /* MeetingModule.swift */; };
+		882828FA2528AA470019F322 /* CallKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828F92528AA470019F322 /* CallKitManager.swift */; };
+		882828FE2528AA940019F322 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882828FD2528AA930019F322 /* Call.swift */; };
+		882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882829052528ACF40019F322 /* MeetingPresenter.swift */; };
+		8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828290B2528AECB0019F322 /* RosterTableCell.swift */; };
 		88283331250361C300C8739C /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283330250361C300C8739C /* NotificationViewModel.swift */; };
 		882833332503624300C8739C /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882833322503624300C8739C /* NotificationResponse.swift */; };
 		88283335250368BD00C8739C /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88283334250368BD00C8739C /* RatingViewModel.swift */; };
@@ -103,6 +132,7 @@
 		88294ACA250CDD8E009E3CCF /* CouponListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */; };
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
 		8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */; };
+		8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828C02528947D0019F322 /* AVFoundation.framework */; };
 		882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86F924FF725700190C0F /* TransactionTVC.swift */; };
 		882A86FC24FF725700190C0F /* TransactionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FA24FF725700190C0F /* TransactionTVC.xib */; };
 		882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */; };
@@ -127,6 +157,8 @@
 		88375A9F250F36E00002923A /* AboutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88375A9E250F36E00002923A /* AboutResponse.swift */; };
 		883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A4198250F93F1000C35E7 /* EarningViewModel.swift */; };
 		883CFEF82518ADD000177D34 /* currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 883CFEF72518ADCF00177D34 /* currency.json */; };
+		88409DA9252DBFB4003F6938 /* BankViewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88409DA8252DBFB3003F6938 /* BankViewResponse.swift */; };
+		88409DAB252DF276003F6938 /* MetricsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88409DAA252DF275003F6938 /* MetricsModel.swift */; };
 		88462C0924FF9831000D0BE5 /* MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0824FF9831000D0BE5 /* MyEarningVC.swift */; };
 		88462C0E24FF98DE000D0BE5 /* MyEarningTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */; };
 		88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */; };
@@ -137,6 +169,12 @@
 		8860AD0124DC1D3A00932B8E /* CollegeCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */; };
 		886761362502200D009BA17C /* BankListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886761352502200D009BA17C /* BankListVC.swift */; };
 		88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88687A5B24E27BA0000A62F7 /* ProfileVC.swift */; };
+		8868E6982531DC0200999DB4 /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E6962531DBFE00999DB4 /* ChatMessageCell.swift */; };
+		8868E6992531DC0200999DB4 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E6972531DC0200999DB4 /* ChatModel.swift */; };
+		8868E69B2531DC1E00999DB4 /* SegmentedControlIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E69A2531DC1E00999DB4 /* SegmentedControlIndex.swift */; };
+		8868E69F2531DC5100999DB4 /* MetricsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E69E2531DC5100999DB4 /* MetricsTableCell.swift */; };
+		8868E6A12531DC5900999DB4 /* ScreenShareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E6A02531DC5800999DB4 /* ScreenShareModel.swift */; };
+		8868E6A42531DDA900999DB4 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8868E6A32531DDA900999DB4 /* MeetingViewController.swift */; };
 		88862EA624E6584C00533CBA /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88862EA524E6584C00533CBA /* SettingVC.swift */; };
 		88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88862EAC24E65DAA00533CBA /* AboutUsVC.swift */; };
 		88862EAF24E6612600533CBA /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88862EAE24E6612600533CBA /* HelpVC.swift */; };
@@ -245,6 +283,21 @@
 		FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44303D24EA9C9D00AC9CF2 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		882817A92531975300BFC26C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				882817A82531975300BFC26C /* AmazonChimeSDK.framework in Embed Frameworks */,
+				882817AB2531975500BFC26C /* AmazonChimeSDKMedia.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		166F8A68AE108FBE30DD2524 /* Pods-Gradgap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gradgap.debug.xcconfig"; path = "Target Support Files/Pods-Gradgap/Pods-Gradgap.debug.xcconfig"; sourceTree = "<group>"; };
 		22D64A0124D149C7006C37FD /* GradGab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradGab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +344,7 @@
 		881690DC24D2820D00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Bold PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690DD24D2820E00EE427E /* MADE Tommy Soft Black PERSONAL USE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MADE Tommy Soft Black PERSONAL USE.otf"; sourceTree = "<group>"; };
 		881690EC24D286E000EE427E /* EmailVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationVC.swift; sourceTree = "<group>"; };
+		881F045E2535CB6100210426 /* Branch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Branch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		881FE93E25065C5800DDB411 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		88203114251B4159001D580C /* CustomDateAvaibilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateAvaibilityViewModel.swift; sourceTree = "<group>"; };
 		88203116251B49F1001D580C /* DateAvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAvailabilityListViewModel.swift; sourceTree = "<group>"; };
@@ -298,7 +352,10 @@
 		88207234250CA0F400813299 /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
 		88207236250CA2C700813299 /* TransactionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModel.swift; sourceTree = "<group>"; };
 		88209765251A1A9F0038E3F3 /* EarningListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListRequest.swift; sourceTree = "<group>"; };
+		8820C1782536EEC6007550FD /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		8820C17A253712C1007550FD /* ExtendCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendCallViewModel.swift; sourceTree = "<group>"; };
 		88220CDC2518708A0078A4F9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		882231532525A8D000312945 /* VideoCallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallVC.swift; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
 		8822682324ED1FDB00E88254 /* AvailabiltyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabiltyListModel.swift; sourceTree = "<group>"; };
 		8822682524ED223500E88254 /* SetAvailabilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailabilityViewModel.swift; sourceTree = "<group>"; };
@@ -334,7 +391,31 @@
 		88269EA52514CB8800AE36DF /* BankDetailAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailAddViewModel.swift; sourceTree = "<group>"; };
 		88269EA72514CB9C00AE36DF /* BackAccountDeleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackAccountDeleteViewModel.swift; sourceTree = "<group>"; };
 		88269EA92514CC0100AE36DF /* BankViewDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewDetailViewModel.swift; sourceTree = "<group>"; };
+		8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTileCell.swift; sourceTree = "<group>"; };
+		8826B98D252C24E000B79ED4 /* VideoTileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = VideoTileCell.xib; path = data/VideoTileCell.xib; sourceTree = "<group>"; };
 		8826EA4624F3776D00DC9F60 /* SwitchProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchProfileViewModel.swift; sourceTree = "<group>"; };
+		882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDKMedia.framework; sourceTree = "<group>"; };
+		882817A52531975000BFC26C /* AmazonChimeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AmazonChimeSDK.framework; sourceTree = "<group>"; };
+		882828AC25287D420019F322 /* JoinCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCallViewModel.swift; sourceTree = "<group>"; };
+		882828B12528870D0019F322 /* VideoCallDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallDataRequest.swift; sourceTree = "<group>"; };
+		882828B3252887560019F322 /* VideoCallResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallResponse.swift; sourceTree = "<group>"; };
+		882828C02528947D0019F322 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		882828D92528A7470019F322 /* RosterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterModel.swift; sourceTree = "<group>"; };
+		882828DB2528A74A0019F322 /* JoinRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRequestService.swift; sourceTree = "<group>"; };
+		882828DC2528A74A0019F322 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		882828DD2528A74A0019F322 /* TimestampConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampConversion.swift; sourceTree = "<group>"; };
+		882828DE2528A74A0019F322 /* HttpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUtils.swift; sourceTree = "<group>"; };
+		882828DF2528A74A0019F322 /* CallKitOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitOption.swift; sourceTree = "<group>"; };
+		882828E02528A74D0019F322 /* MeetingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
+		882828E12528A74F0019F322 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		882828EA2528A7920019F322 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		882828EE2528A7D00019F322 /* RosterAttendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterAttendee.swift; sourceTree = "<group>"; };
+		882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinMeetingResponse.swift; sourceTree = "<group>"; };
+		882828F32528A80C0019F322 /* MeetingModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingModule.swift; sourceTree = "<group>"; };
+		882828F92528AA470019F322 /* CallKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKitManager.swift; sourceTree = "<group>"; };
+		882828FD2528AA930019F322 /* Call.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		882829052528ACF40019F322 /* MeetingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingPresenter.swift; sourceTree = "<group>"; };
+		8828290B2528AECB0019F322 /* RosterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableCell.swift; sourceTree = "<group>"; };
 		88283330250361C300C8739C /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		882833322503624300C8739C /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		88283334250368BD00C8739C /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
@@ -372,6 +453,8 @@
 		88375A9E250F36E00002923A /* AboutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutResponse.swift; sourceTree = "<group>"; };
 		883A4198250F93F1000C35E7 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		883CFEF72518ADCF00177D34 /* currency.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currency.json; sourceTree = "<group>"; };
+		88409DA8252DBFB3003F6938 /* BankViewResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewResponse.swift; sourceTree = "<group>"; };
+		88409DAA252DF275003F6938 /* MetricsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricsModel.swift; sourceTree = "<group>"; };
 		88462C0824FF9831000D0BE5 /* MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningVC.swift; sourceTree = "<group>"; };
 		88462C0C24FF98DE000D0BE5 /* MyEarningTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningTVC.swift; sourceTree = "<group>"; };
 		88462C0D24FF98DE000D0BE5 /* MyEarningTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningTVC.xib; sourceTree = "<group>"; };
@@ -382,6 +465,12 @@
 		8860ACFF24DC1D3A00932B8E /* CollegeCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollegeCVC.xib; sourceTree = "<group>"; };
 		886761352502200D009BA17C /* BankListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListVC.swift; sourceTree = "<group>"; };
 		88687A5B24E27BA0000A62F7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		8868E6962531DBFE00999DB4 /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		8868E6972531DC0200999DB4 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		8868E69A2531DC1E00999DB4 /* SegmentedControlIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlIndex.swift; sourceTree = "<group>"; };
+		8868E69E2531DC5100999DB4 /* MetricsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricsTableCell.swift; sourceTree = "<group>"; };
+		8868E6A02531DC5800999DB4 /* ScreenShareModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenShareModel.swift; path = "../../../../../../Downloads/amazon-chime-sdk-ios-master/AmazonChimeSDKDemo/AmazonChimeSDKDemo/ScreenShareModel.swift"; sourceTree = "<group>"; };
+		8868E6A32531DDA900999DB4 /* MeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
 		88862EA524E6584C00533CBA /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		88862EAC24E65DAA00533CBA /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		88862EAE24E6612600533CBA /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
@@ -494,8 +583,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882817A72531975300BFC26C /* AmazonChimeSDK.framework in Frameworks */,
 				881FE93F25065C5800DDB411 /* MessageUI.framework in Frameworks */,
 				C049803181C81368D8775667 /* Pods_Gradgap.framework in Frameworks */,
+				882817AA2531975500BFC26C /* AmazonChimeSDKMedia.framework in Frameworks */,
+				8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,8 +777,68 @@
 			isa = PBXGroup;
 			children = (
 				88269EA32514C8FB00AE36DF /* AddBankRequest.swift */,
+				88409DA8252DBFB3003F6938 /* BankViewResponse.swift */,
 			);
 			path = Bank;
+			sourceTree = "<group>";
+		};
+		882828AE252884640019F322 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882828B12528870D0019F322 /* VideoCallDataRequest.swift */,
+				882828B3252887560019F322 /* VideoCallResponse.swift */,
+			);
+			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		882828B525288B480019F322 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882828EC2528A7D00019F322 /* data */,
+				882828DA2528A74A0019F322 /* utils */,
+				882231532525A8D000312945 /* VideoCallVC.swift */,
+				8868E6A32531DDA900999DB4 /* MeetingViewController.swift */,
+				882828F32528A80C0019F322 /* MeetingModule.swift */,
+				882828E02528A74D0019F322 /* MeetingModel.swift */,
+				882828D92528A7470019F322 /* RosterModel.swift */,
+				88409DAA252DF275003F6938 /* MetricsModel.swift */,
+				8828290B2528AECB0019F322 /* RosterTableCell.swift */,
+				8868E6A02531DC5800999DB4 /* ScreenShareModel.swift */,
+				8868E69E2531DC5100999DB4 /* MetricsTableCell.swift */,
+				882828E12528A74F0019F322 /* VideoModel.swift */,
+				882828F92528AA470019F322 /* CallKitManager.swift */,
+				882828FD2528AA930019F322 /* Call.swift */,
+				882829052528ACF40019F322 /* MeetingPresenter.swift */,
+				8826B98A252C24BB00B79ED4 /* VideoTileCell.swift */,
+				8826B98D252C24E000B79ED4 /* VideoTileCell.xib */,
+				8868E6962531DBFE00999DB4 /* ChatMessageCell.swift */,
+				8868E6972531DC0200999DB4 /* ChatModel.swift */,
+				8820C1782536EEC6007550FD /* SocketIOManager.swift */,
+			);
+			path = VideoCall;
+			sourceTree = "<group>";
+		};
+		882828DA2528A74A0019F322 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				882828EA2528A7920019F322 /* AppConfiguration.swift */,
+				882828DB2528A74A0019F322 /* JoinRequestService.swift */,
+				882828DC2528A74A0019F322 /* ViewControllerExtension.swift */,
+				882828DD2528A74A0019F322 /* TimestampConversion.swift */,
+				882828DE2528A74A0019F322 /* HttpUtils.swift */,
+				882828DF2528A74A0019F322 /* CallKitOption.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		882828EC2528A7D00019F322 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				8868E69A2531DC1E00999DB4 /* SegmentedControlIndex.swift */,
+				882828EE2528A7D00019F322 /* RosterAttendee.swift */,
+				882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 		882A86F724FF722700190C0F /* Profile */ = {
@@ -785,6 +937,15 @@
 				88375A9E250F36E00002923A /* AboutResponse.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		88409DAC252DF7AE003F6938 /* VideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				882828AC25287D420019F322 /* JoinCallViewModel.swift */,
+				8820C17A253712C1007550FD /* ExtendCallViewModel.swift */,
+			);
+			path = VideoCall;
 			sourceTree = "<group>";
 		};
 		88AEE85A24D15A78002225E9 /* Custom Class */ = {
@@ -889,6 +1050,7 @@
 				88233E8C2510CBDE00718C81 /* Splash */,
 				88AEE8CE24D169B8002225E9 /* Main */,
 				880248D824D2C5CF005539B5 /* Home */,
+				882828B525288B480019F322 /* VideoCall */,
 				88F261C124E1570F009EECE3 /* Profile */,
 			);
 			path = View;
@@ -899,6 +1061,7 @@
 			children = (
 				88D6F58024EAA95C00BAD28E /* Main */,
 				882AF39224ECF93400DCB5AB /* Home */,
+				88409DAC252DF7AE003F6938 /* VideoCall */,
 				8824D90C24EE88460041F7CE /* Profile */,
 			);
 			path = ViewModel;
@@ -909,6 +1072,7 @@
 			children = (
 				88D6F58124EAA98F00BAD28E /* Main */,
 				882AF39524ED028000DCB5AB /* Home */,
+				882828AE252884640019F322 /* VideoCall */,
 				8824D90D24EE88590041F7CE /* Profile */,
 				FA44302224EA6CE500AC9CF2 /* AppModel.swift */,
 			);
@@ -1069,6 +1233,10 @@
 		E9548580B617477EF9B90BD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				881F045E2535CB6100210426 /* Branch.framework */,
+				882817A52531975000BFC26C /* AmazonChimeSDK.framework */,
+				882817A32531972E00BFC26C /* AmazonChimeSDKMedia.framework */,
+				882828C02528947D0019F322 /* AVFoundation.framework */,
 				881FE93E25065C5800DDB411 /* MessageUI.framework */,
 				80BFE9F378CB2053FDA92EDC /* Pods_Gradgap.framework */,
 			);
@@ -1154,6 +1322,7 @@
 				22D649FF24D149C7006C37FD /* Resources */,
 				134736E2EC19D1192B179E09 /* [CP] Embed Pods Frameworks */,
 				E1FA343170630B30D38C3CBE /* [CP] Copy Pods Resources */,
+				882817A92531975300BFC26C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1202,6 +1371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881F045D2535C63400210426 /* Gradgap.entitlements in Resources */,
 				88462C0F24FF98DE000D0BE5 /* MyEarningTVC.xib in Resources */,
 				882A870024FF752F00190C0F /* TransactionHeaderTVC.xib in Resources */,
 				88D1804B24D2ABB1003603A2 /* Home.storyboard in Resources */,
@@ -1247,6 +1417,7 @@
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
+				8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */,
 				881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */,
 				88F4A21924D991CA00C780CB /* CustomHeaderTVC.xib in Resources */,
 				880248DF24D2C8D7005539B5 /* HomeBookingTVC.xib in Resources */,
@@ -1322,6 +1493,7 @@
 			files = (
 				884EC6072519CDCC00123D74 /* transactionDetailRequest.swift in Sources */,
 				886761362502200D009BA17C /* BankListVC.swift in Sources */,
+				882828FA2528AA470019F322 /* CallKitManager.swift in Sources */,
 				8825F18524F123BE004A2EC5 /* BookingDetailModel.swift in Sources */,
 				88248B8024EF99800094C375 /* MenteeDetailViewModel.swift in Sources */,
 				FA44302F24EA78F700AC9CF2 /* UpdateRequest.swift in Sources */,
@@ -1332,6 +1504,7 @@
 				88D1804724D29C4F003603A2 /* BecomeMentorVC.swift in Sources */,
 				8809DA3B24FFB921000CABA6 /* CardListVC.swift in Sources */,
 				883A4199250F93F1000C35E7 /* EarningViewModel.swift in Sources */,
+				882828B4252887560019F322 /* VideoCallResponse.swift in Sources */,
 				88207233250CA0E400813299 /* TransactionListViewModel.swift in Sources */,
 				8860ACFD24DC0E4600932B8E /* SchoolListVC.swift in Sources */,
 				8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */,
@@ -1342,10 +1515,13 @@
 				8822682E24ED316A00E88254 /* FavoriteListModel.swift in Sources */,
 				8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */,
 				88AEE8B224D15A78002225E9 /* ImageView.swift in Sources */,
+				882829062528ACF40019F322 /* MeetingPresenter.swift in Sources */,
 				8824A39724EFC69100EF3118 /* FavouriteRequest.swift in Sources */,
 				8822682824ED23D600E88254 /* AvailabilityRequest.swift in Sources */,
 				884745A9250A043C00EF6624 /* CardSelectRequest.swift in Sources */,
 				88FAB29624E29F9C0060D577 /* EditProfileVC.swift in Sources */,
+				8828290C2528AECB0019F322 /* RosterTableCell.swift in Sources */,
+				882828E32528A74F0019F322 /* JoinRequestService.swift in Sources */,
 				882378B825038B3C006AEA0E /* CardSelectViewModel.swift in Sources */,
 				88F95A8B24E1063B00DFD0E7 /* CustomBookTVC.swift in Sources */,
 				88FA2E5024E65230000C67CE /* ReferFriendVC.swift in Sources */,
@@ -1354,9 +1530,11 @@
 				FA44302324EA6CE500AC9CF2 /* AppModel.swift in Sources */,
 				88F4A20C24D973D600C780CB /* JoinCallView.swift in Sources */,
 				8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */,
+				882828E52528A74F0019F322 /* TimestampConversion.swift in Sources */,
 				88207235250CA0F400813299 /* TransactionDetailViewModel.swift in Sources */,
 				888C6CC924E12E12008E27E0 /* NotificationTVC.swift in Sources */,
 				88FAB29824E2B5BB0060D577 /* StudentEnrollVC.swift in Sources */,
+				8868E69B2531DC1E00999DB4 /* SegmentedControlIndex.swift in Sources */,
 				880248DA24D2C5E5005539B5 /* HomeVC.swift in Sources */,
 				88287A8424EE576900745DFB /* MentorListViewModel.swift in Sources */,
 				88AEE89D24D15A78002225E9 /* NSObject+Copy.swift in Sources */,
@@ -1364,14 +1542,20 @@
 				880248E524D2EBC2005539B5 /* SidemenuVC.swift in Sources */,
 				8860AD0024DC1D3A00932B8E /* CollegeCVC.swift in Sources */,
 				8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */,
+				8868E6992531DC0200999DB4 /* ChatModel.swift in Sources */,
+				8820C17B253712C1007550FD /* ExtendCallViewModel.swift in Sources */,
 				88269EA62514CB8800AE36DF /* BankDetailAddViewModel.swift in Sources */,
+				8868E6A42531DDA900999DB4 /* MeetingViewController.swift in Sources */,
+				882828F12528A7D00019F322 /* RosterAttendee.swift in Sources */,
 				FA44302024EA6C7D00AC9CF2 /* API_Helper.swift in Sources */,
 				88F65F0D24E53540004B0D9A /* MentorProfileDisplayVC.swift in Sources */,
 				88AEE8BF24D15A78002225E9 /* Utility.swift in Sources */,
 				FA44303224EA79A700AC9CF2 /* UserDetailRequest.swift in Sources */,
+				88409DAB252DF276003F6938 /* MetricsModel.swift in Sources */,
 				883076E9251B1AE700C4D2D5 /* SelectAvaibilityVC.swift in Sources */,
 				88283335250368BD00C8739C /* RatingViewModel.swift in Sources */,
 				88FE979A24E3BDB2007A9352 /* CalenderListTVC.swift in Sources */,
+				882231542525A8D000312945 /* VideoCallVC.swift in Sources */,
 				88AEE89C24D15A78002225E9 /* Array+RUI.swift in Sources */,
 				88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */,
 				883076EE251B207000C4D2D5 /* SelectDateTVC.swift in Sources */,
@@ -1404,6 +1588,7 @@
 				88862EAD24E65DAA00533CBA /* AboutUsVC.swift in Sources */,
 				88FE979D24E3C335007A9352 /* MentorBookingDetailVC.swift in Sources */,
 				88FF6ABE24D3D5E0009F5E78 /* Label.swift in Sources */,
+				8820C1792536EEC6007550FD /* SocketIOManager.swift in Sources */,
 				8824D90B24EE7D7E0041F7CE /* MentorListRequest.swift in Sources */,
 				88AEE8DD24D19E93002225E9 /* LoginVC.swift in Sources */,
 				880248E824D2EBEE005539B5 /* SideMenuTVC.swift in Sources */,
@@ -1414,6 +1599,8 @@
 				88FA2E4D24E64E40000C67CE /* CouponTVC.swift in Sources */,
 				8822682424ED1FDB00E88254 /* AvailabiltyListModel.swift in Sources */,
 				88AEE89B24D15A78002225E9 /* UIDevice+Type.swift in Sources */,
+				882828B22528870D0019F322 /* VideoCallDataRequest.swift in Sources */,
+				882828E82528A74F0019F322 /* MeetingModel.swift in Sources */,
 				88F4A21024D9855D00C780CB /* BookChatVC.swift in Sources */,
 				888C6CC524E127CE008E27E0 /* FavoriteTVC.swift in Sources */,
 				88AEE89F24D15A78002225E9 /* UIColor+RUI.swift in Sources */,
@@ -1422,6 +1609,7 @@
 				882E44FA24F4E5520012FFBF /* SocialLoginRequest.swift in Sources */,
 				88375A9F250F36E00002923A /* AboutResponse.swift in Sources */,
 				88F4A21A24D991CA00C780CB /* CustomHeaderTVC.swift in Sources */,
+				8868E6A12531DC5900999DB4 /* ScreenShareModel.swift in Sources */,
 				8828333725036A3700C8739C /* RatingAddRequest.swift in Sources */,
 				8809DA4124FFCC22000CABA6 /* AddNewCardVC.swift in Sources */,
 				88C41D1624E25E5000D10D63 /* BookingDetailVC.swift in Sources */,
@@ -1432,6 +1620,7 @@
 				8822682C24ED305E00E88254 /* FavoriteListViewModel.swift in Sources */,
 				882E44FC24F4E9A20012FFBF /* SocialLoginModel.swift in Sources */,
 				88207237250CA2C700813299 /* TransactionListModel.swift in Sources */,
+				882828E42528A74F0019F322 /* ViewControllerExtension.swift in Sources */,
 				880248DE24D2C8D7005539B5 /* HomeBookingTVC.swift in Sources */,
 				88862EAF24E6612600533CBA /* HelpVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
@@ -1439,12 +1628,18 @@
 				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
 				8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */,
+				882828EB2528A7920019F322 /* AppConfiguration.swift in Sources */,
 				880BB9F924EB922400134D1F /* MajorListModel.swift in Sources */,
+				8868E69F2531DC5100999DB4 /* MetricsTableCell.swift in Sources */,
 				88F261BC24E13DA0009EECE3 /* NotificationVC.swift in Sources */,
 				882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */,
 				88AEE8B724D15A78002225E9 /* DatePickerManager.swift in Sources */,
 				88F4A21D24D9926500C780CB /* CustomQuestionTVC.swift in Sources */,
+				88409DA9252DBFB4003F6938 /* BankViewResponse.swift in Sources */,
+				882828E72528A74F0019F322 /* CallKitOption.swift in Sources */,
+				882828E92528A74F0019F322 /* VideoModel.swift in Sources */,
 				883076EB251B1E4C00C4D2D5 /* SelectDateAvailabilityVC.swift in Sources */,
+				882828E62528A74F0019F322 /* HttpUtils.swift in Sources */,
 				882378B3250388FA006AEA0E /* CardListViewModel.swift in Sources */,
 				88269EA42514C8FB00AE36DF /* AddBankRequest.swift in Sources */,
 				22D64A0524D149C7006C37FD /* AppDelegate.swift in Sources */,
@@ -1461,6 +1656,8 @@
 				882378B6250389FA006AEA0E /* CardListResponse.swift in Sources */,
 				88862EA624E6584C00533CBA /* SettingVC.swift in Sources */,
 				88F56D5D24E5030A00C25DCA /* SetAvailabilityTVC.swift in Sources */,
+				882828AD25287D420019F322 /* JoinCallViewModel.swift in Sources */,
+				8826B98B252C24BB00B79ED4 /* VideoTileCell.swift in Sources */,
 				88294AC8250CDA93009E3CCF /* CouponListViewModel.swift in Sources */,
 				88375A9A250F33FE0002923A /* FaqListResponse.swift in Sources */,
 				88AEE8AE24D15A78002225E9 /* GradientLayer.swift in Sources */,
@@ -1475,7 +1672,9 @@
 				88862EB124E663EB00533CBA /* ContactAdminVC.swift in Sources */,
 				88248B8224EF99D60094C375 /* MenteeDetailModel.swift in Sources */,
 				88352E0524F7CF9100DF0770 /* UpdateAvailabilityVC.swift in Sources */,
+				882828FE2528AA940019F322 /* Call.swift in Sources */,
 				8824D90924EE7CA00041F7CE /* MentorDetailViewModel.swift in Sources */,
+				882828E22528A74F0019F322 /* RosterModel.swift in Sources */,
 				88F4A21624D9916900C780CB /* ConversationStarterVC.swift in Sources */,
 				8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */,
 				FA44303E24EA9C9D00AC9CF2 /* LoginViewModel.swift in Sources */,
@@ -1488,6 +1687,7 @@
 				882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,
 				88375A92250F33A00002923A /* FaqViewModel.swift in Sources */,
+				882828F22528A7D00019F322 /* JoinMeetingResponse.swift in Sources */,
 				8825CD7A24EBDB3E0079E7CB /* SchoolListView.swift in Sources */,
 				88375A9C250F36C70002923A /* AboutViewModel.swift in Sources */,
 				88203115251B4159001D580C /* CustomDateAvaibilityViewModel.swift in Sources */,
@@ -1498,9 +1698,11 @@
 				8809DA3E24FFB998000CABA6 /* CardListTVC.swift in Sources */,
 				88F8670424DA6B15002F603C /* ReuseNavigationBar.swift in Sources */,
 				88AEE8AB24D15A78002225E9 /* PlaceholderTextView.swift in Sources */,
+				8868E6982531DC0200999DB4 /* ChatMessageCell.swift in Sources */,
 				88687A5C24E27BA0000A62F7 /* ProfileVC.swift in Sources */,
 				88375A98250F33FE0002923A /* ContactAdminResponse.swift in Sources */,
 				88233E8E2510CBF900718C81 /* SplashScreenVC.swift in Sources */,
+				882828F42528A80C0019F322 /* MeetingModule.swift in Sources */,
 				88AEE8B424D15A78002225E9 /* CameraAttachment.swift in Sources */,
 				88ED40822509E26D00611100 /* SwitchProfileRequest.swift in Sources */,
 				88D1804924D2A830003603A2 /* WantToMeetVC.swift in Sources */,
@@ -1650,10 +1852,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/../AmazonChimeSDK/",
+					"$(PROJECT_DIR)/AmazonChimeSDKMedia-0.7.0",
+				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1661,7 +1870,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1674,10 +1883,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AmazonChimeSDKMedia-0.7.0",
+				);
 				INFOPLIST_FILE = Gradgap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1685,7 +1900,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
+				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

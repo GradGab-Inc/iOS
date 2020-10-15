@@ -9,6 +9,9 @@
 import UIKit
 import SainiUtils
 
+var userReferId : String = String()
+
+
 class ConfirmBookingVC: UIViewController {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
@@ -81,7 +84,7 @@ class ConfirmBookingVC: UIViewController {
         renderProfile()
         
         cardListVM.delegate = self
-//        cardListVM.getCardList()
+        cardListVM.getCardList()
         
         if isFromFavorite {
             backToHomeBtn.setTitle("Back to Favorites", for: .normal)
@@ -97,14 +100,14 @@ class ConfirmBookingVC: UIViewController {
         useWalletBtn.isSelected = false
     }
     
-    func renderProfile()  {
+    func renderProfile() {
         nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName != "" ? "\(mentorDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = mentorDetail.school.first?.name
         priceLbl.text = "$\(mentorDetail.amount)"
         dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
         durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
         useWalletBalanceLbl.text = "\(AppModel.shared.currentUser.user?.walletAmount ?? 0)"
-        
+                
         let timeZone = timeZoneOffsetInMinutes()
         let time = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone)
         let time1 = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone + selectedCallTime)
@@ -146,6 +149,7 @@ class ConfirmBookingVC: UIViewController {
     }
     
     @objc func refreshAddBankView() {
+        cardListVM.getCardList()
         addAccountBackView.isHidden = true
     }
     
@@ -155,17 +159,17 @@ class ConfirmBookingVC: UIViewController {
     }
 
     @IBAction func clickToApplyCoupon(_ sender: Any) {
-//        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
-//        if cardListArr.count == 0 {
-//            addAccountBackView.isHidden = false
-//            displaySubViewtoParentView(self.view, subview: addAccountBackView)
-//            return
-//        }
+        if cardListArr.count == 0 {
+            addAccountBackView.isHidden = false
+            displaySubViewtoParentView(self.view, subview: addAccountBackView)
+            return
+        }
         var request : CreateBookingRequest = CreateBookingRequest()
         let date = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         let str = minutesToHoursMinutes(minutes: selectedTimeSlot)
@@ -179,6 +183,9 @@ class ConfirmBookingVC: UIViewController {
         request.additionalTopics = additionalTopicTxt.text
         request.dateTimeText = getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd")
         
+        if userReferId != "" {
+            request.referralId = userReferId
+        }
         if useWalletBtn.isSelected {
             request.useWalletBalance = true
         }
@@ -188,10 +195,12 @@ class ConfirmBookingVC: UIViewController {
         if applyCouponTxt.text != "" {
             request.coupon = applyCouponTxt.text
         }
+        
         createBookingVM.createBooking(request: request)
     }
     
     @IBAction func clickToBackToHome(_ sender: Any) {
+        userReferId = ""
         if isFromFavorite {
             for controller in self.navigationController!.viewControllers as Array {
                 if controller.isKind(of: FavoriteVC.self) {

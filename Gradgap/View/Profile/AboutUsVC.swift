@@ -47,7 +47,7 @@ class AboutUsVC: UIViewController {
             AppDelegate().sharedDelegate().getAboutUsData()
         }
         else {
- //           dataSetUp()
+            dataSetUp()
         }
     }
     
@@ -56,7 +56,7 @@ class AboutUsVC: UIViewController {
             aboutTxtView.text = AppModel.shared.aboutUsData.aboutUs
         }
         else if type == 1 {
-            aboutTxtView.text = AppModel.shared.aboutUsData.termsAndConditions
+            aboutTxtView.text = AppModel.shared.aboutUsData.termsAndCondition
         }
         else if type == 2 {
             aboutTxtView.text = AppModel.shared.aboutUsData.privacyPolicy

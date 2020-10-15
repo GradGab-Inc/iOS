@@ -9,6 +9,8 @@
 import UIKit
 import SainiUtils
 
+var isFromSwitchProfile : Bool = false
+
 class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
@@ -56,12 +58,15 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
         navigationBar.headerLbl.isHidden = true
         navigationBar.filterBtn.isHidden = true
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
+        
     }
     
     //MARK: - configUI
     func configUI() {
         listVC.delegate = self
         profileUpadateVM.delegate = self
+        
+        isFromBack = isFromSwitchProfile
         
         currentPathBackView.isHidden = true
         bioBackView.isHidden = true
@@ -201,7 +206,9 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                 request.otherLanguage = selectedLanguage.id
             }
             
+            
             if isMentor {
+                request.completeProfile = true
                 request.collegePath = collegePathIndex
                 if !isFromBack {
                     request.changeUserType = 2
@@ -210,7 +217,10 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
-                else{
+                else {
+                    if isFromSwitchProfile {
+                        request.completeProfile = true
+                    }
                     let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
@@ -218,10 +228,14 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
             }
             else {
                 if !isFromBack {
+                    request.completeProfile = true
                     request.changeUserType = 1
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
                 }
                 else {
+                    if isFromSwitchProfile {
+                        request.completeProfile = true
+                    }
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
                 }
             }
@@ -262,6 +276,8 @@ extension QuestionListVC : ProfileUpdateSuccessDelegate {
         else {
             setLoginUserData(response.data!.self)
             AppModel.shared.currentUser = getLoginUserData()
+            
+            SocketIOManager.sharedInstance.establishConnection()
         }
         isFromBack = true
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "InterestDiscussVC") as! InterestDiscussVC

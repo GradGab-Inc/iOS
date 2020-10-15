@@ -42,7 +42,7 @@ struct AddBankRequest: Encodable {
     var postalCode : String
     var state : String
     var ssnLastFour : String
-    var gender : Int
+    var gender : String
     var ip : String
     var stripeToken : String
     var firstName : String

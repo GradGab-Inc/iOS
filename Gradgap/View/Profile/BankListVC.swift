@@ -17,6 +17,7 @@ class BankListVC: UIViewController {
     
     var bankListVM : BankViewDetailViewModel = BankViewDetailViewModel()
     var deleteBankVM : BackAccountDeleteViewModel = BackAccountDeleteViewModel()
+    var bankDetail : BankViewDataModel = BankViewDataModel()
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,6 +35,8 @@ class BankListVC: UIViewController {
       
     //MARK: - configUI
     func configUI() {
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshAddBank), name: NSNotification.Name.init(NOTIFICATION.UPDATE_BANKLIST_DATA), object: nil)
+        
         addAccountBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: addAccountBackView)
         
@@ -44,19 +47,27 @@ class BankListVC: UIViewController {
         
         accountNumberLbl.text = ""
     }
-      
+    
+    @objc func refreshAddBank() {
+        bankListVM.getBankDetail()
+    }
+    
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clickToDelete(_ sender: Any) {
-        deleteBankVM.deleteBankAccount()
+        showAlertWithOption("Confirmation", message: "Are you sure you want to delete bank details?", btns: ["Cancel","Ok"], completionConfirm: {
+            self.deleteBankVM.deleteBankAccount()
+        }) {
+            
+        }
     }
     
     @IBAction func clickToEdit(_ sender: Any) {
-        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "BankDetailVC") as! BankDetailVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func clickToAddBankAccount(_ sender: Any) {
@@ -75,15 +86,22 @@ class BankListVC: UIViewController {
 }
 
 extension BankListVC : BankViewDetailDelegate, BackAccountDeleteDelegate {
-    func didRecievedBankViewDetailData(response: AboutResponse) {
+    func didRecievedBankViewDetailData(response: BankViewResponse) {
+        bankDetail = response.data ?? BankViewDataModel.init()
         addAccountBackView.isHidden = true
-        
+        dataSetup()
     }
     
     func didRecievedBackAccountDeleteData(response: SuccessModel) {
         addAccountBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: addAccountBackView)
+        bankDetail = BankViewDataModel.init()
+        dataSetup()
     }
-
+    
+    func dataSetup() {
+        accountNumberLbl.text = "******\(bankDetail.lastDigitsOfAccountNo)"
+    }
+    
 }
 

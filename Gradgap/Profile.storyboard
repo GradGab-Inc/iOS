@@ -5028,7 +5028,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mmh-u6-Ld6">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="899.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnM-RB-B3B" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DnM-RB-B3B" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="30" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="hKZ-fy-r3g"/>
@@ -5059,6 +5059,7 @@
                                                         <state key="normal" title="Add to Favorites">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <state key="selected" title="Remove to Favorites"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="24"/>
@@ -5625,6 +5626,7 @@
                     </view>
                     <connections>
                         <outlet property="completedBackView" destination="3Ty-gv-edA" id="i2a-oI-AJ7"/>
+                        <outlet property="contactAdminTxtView" destination="yGR-rD-LEI" id="hf3-j0-Tpr"/>
                         <outlet property="navigationBar" destination="pNe-tG-zdr" id="hZx-aO-ul6"/>
                     </connections>
                 </viewController>
@@ -5643,6 +5645,9 @@
                                         <constraint firstAttribute="height" constant="205" id="QIi-cA-6ns"/>
                                     </constraints>
                                 </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Gbu-XL-92W">
+                                    <rect key="frame" x="0.0" y="125" width="240" height="245"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_questionsubmitted" translatesAutoresizingMaskIntoConstraints="NO" id="UZ6-CQ-X0R">
                                     <rect key="frame" x="16" y="31" width="216" height="180"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5686,8 +5691,11 @@
                             <constraints>
                                 <constraint firstItem="8gB-ak-EFf" firstAttribute="top" secondItem="pkn-ue-mUU" secondAttribute="bottom" constant="15" id="5kv-I6-4S1"/>
                                 <constraint firstItem="Yp2-6m-IaP" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" constant="25" id="5pi-dn-soA"/>
+                                <constraint firstAttribute="trailing" secondItem="Gbu-XL-92W" secondAttribute="trailing" id="7VM-XQ-EoZ"/>
+                                <constraint firstItem="Gbu-XL-92W" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" id="7nN-s3-qTS"/>
                                 <constraint firstAttribute="trailing" secondItem="EEx-RO-b6A" secondAttribute="trailing" constant="8" id="BAc-DG-zzv"/>
                                 <constraint firstItem="EEx-RO-b6A" firstAttribute="top" secondItem="8gB-ak-EFf" secondAttribute="bottom" constant="10" id="BJc-II-VJl"/>
+                                <constraint firstItem="Gbu-XL-92W" firstAttribute="top" secondItem="xZx-Tf-gaF" secondAttribute="top" constant="125" id="BMr-cE-Dou"/>
                                 <constraint firstAttribute="trailing" secondItem="8gB-ak-EFf" secondAttribute="trailing" constant="8" id="JsU-hL-H3S"/>
                                 <constraint firstItem="8gB-ak-EFf" firstAttribute="leading" secondItem="xZx-Tf-gaF" secondAttribute="leading" constant="8" id="OFv-WI-8fc"/>
                                 <constraint firstAttribute="trailing" secondItem="pkn-ue-mUU" secondAttribute="trailing" id="Vej-k9-Mk7"/>
@@ -5700,6 +5708,7 @@
                                 <constraint firstAttribute="trailing" secondItem="UZ6-CQ-X0R" secondAttribute="trailing" constant="8" id="mT2-HF-9rh"/>
                                 <constraint firstAttribute="trailing" secondItem="Yp2-6m-IaP" secondAttribute="trailing" constant="25" id="rhQ-Ns-Juw"/>
                                 <constraint firstItem="UZ6-CQ-X0R" firstAttribute="top" secondItem="xZx-Tf-gaF" secondAttribute="top" constant="31" id="sw0-Cc-6GP"/>
+                                <constraint firstAttribute="bottom" secondItem="Gbu-XL-92W" secondAttribute="bottom" constant="20" id="zAL-QX-a2V"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -6010,7 +6019,7 @@
             <objects>
                 <viewController storyboardIdentifier="BankDetailVC" id="2rN-nq-or8" customClass="BankDetailVC" customModule="GradGab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xT7-Nd-a7O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="2100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-Qn-wLy" customClass="ReuseNavigationBar" customModule="GradGab" customModuleProvider="target">
@@ -6021,7 +6030,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvW-h6-qQ6">
-                                <rect key="frame" x="0.0" y="60" width="320" height="2040"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="2290"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1a-K4-L2b">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="2280"/>
@@ -6817,11 +6826,16 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-4t-e6d">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-4t-e6d" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="WVK-YO-mXL"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caq-m1-ozC">
                                                                 <rect key="frame" x="25.5" y="108" width="49" height="17.5"/>
@@ -6861,11 +6875,16 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0E-Mf-k9o">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0E-Mf-k9o" customClass="ImageView" customModule="GradGab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="100" id="GPs-Ts-oKQ"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKW-qh-HXz">
                                                                 <rect key="frame" x="25.5" y="108" width="49" height="17.5"/>
@@ -7163,7 +7182,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="19L-6V-RQL"/>
                     </view>
-                    <size key="freeformSize" width="320" height="2100"/>
+                    <size key="freeformSize" width="320" height="2350"/>
                     <connections>
                         <outlet property="accountNumberTxt" destination="C90-Ap-0xO" id="fOO-7j-TtT"/>
                         <outlet property="address1Txt" destination="o6H-yI-3y3" id="cgO-wD-Gt4"/>

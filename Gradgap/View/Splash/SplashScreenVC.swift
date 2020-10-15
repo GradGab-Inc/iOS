@@ -52,7 +52,9 @@ class SplashScreenVC: UIViewController {
                         AppModel.shared.currentUser = UserDataModel.init()
                         AppModel.shared.currentUser = getLoginUserData()!
                         print(AppModel.shared.currentUser)
-    
+                        
+                        SocketIOManager.sharedInstance.establishConnection()
+                        
                         if AppModel.shared.currentUser.user?.userType == 1 {
                             AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
                         }

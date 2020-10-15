@@ -36,7 +36,7 @@ class HomeVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if AppModel.shared.currentUser.user?.userType == 3 {
+        if AppModel.shared.currentUser.user?.userType == 3 || AppModel.shared.currentUser.user?.profileCompleted == false {
             completeProfileBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: completeProfileBackView)
             viewAllBtn.isHidden = true

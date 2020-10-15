@@ -16,7 +16,7 @@ target 'Gradgap' do
   pod 'MFSideMenu'
   pod 'FSCalendar'
   pod 'Alamofire','4.9.1'
-  
+
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   #pod 'GooglePlaces'
@@ -26,6 +26,7 @@ target 'Gradgap' do
   
   pod 'Stripe', '~> 19.0.1'
   pod 'Branch'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   
   # Pods for Gradgap
 

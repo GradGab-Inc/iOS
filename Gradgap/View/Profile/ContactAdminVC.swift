@@ -14,7 +14,9 @@ class ContactAdminVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet var completedBackView: UIView!
     
+    @IBOutlet weak var contactAdminTxtView: TextView!
     
+    private var ContactAdminVM : ContactAdminViewModel = ContactAdminViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,7 @@ class ContactAdminVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         completedBackView.isHidden = true
+        ContactAdminVM.delegate = self
     }
     
     //MARK: - Button Click
@@ -41,11 +44,21 @@ class ContactAdminVC: UIViewController {
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
-        completedBackView.isHidden = false
-        displaySubViewtoParentView(self.view, subview: completedBackView)
+        self.view.endEditing(true)
+        
+        guard let contact = contactAdminTxtView.text else {
+           return
+        }
+        if contact.trimmed.count == 0 {
+            displayToast("Please enter message")
+        }
+        else {
+            ContactAdminVM.contactAdmin(request: ContactAdminRequest(message: contact))
+        }
     }
     
     @IBAction func clickToOk(_ sender: Any) {
+        self.view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -55,3 +68,12 @@ class ContactAdminVC: UIViewController {
     }
     
 }
+
+extension ContactAdminVC: ContactAdminDelegate {
+    func didRecievedContactAdminData(response: ContactAdminResponse) {
+        
+       completedBackView.isHidden = false
+       displaySubViewtoParentView(self.view, subview: completedBackView)
+    }
+}
+

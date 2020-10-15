@@ -42,6 +42,7 @@ class MentorBookingDetailVC: UIViewController {
     var selectedStartDate = Date()
     var subjectArr : [String] = [String]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +55,6 @@ class MentorBookingDetailVC: UIViewController {
         navigationBar.headerLbl.text = "Booking Request"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        
     }
     
     //MARK: - configUI
@@ -72,14 +72,20 @@ class MentorBookingDetailVC: UIViewController {
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
     }
-    
+        
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
-        
+        JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
+            MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                if status {
+                    print("Started")
+                }
+            }
+        }
     }
     
     @IBAction func clickToConfirm(_ sender: Any) {

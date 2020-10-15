@@ -61,7 +61,7 @@ class SetAvailabilityVC: UIViewController {
             var setArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             var updateArr : [AvailabiltyRequest] = [AvailabiltyRequest]()
             for item in availabilityListArr {
-                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == []  {
+                if item.weekDay == -1 || item.startTime == -1 || item.endTime == -1 || item.type == [] {
                     displayToast("Please fill the above data")
                     return
                 }

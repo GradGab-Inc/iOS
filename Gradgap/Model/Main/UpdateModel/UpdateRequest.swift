@@ -26,8 +26,9 @@ struct UpdateRequest: Encodable {
     var changeUserType, collegePath : Int?
     var firstName : String?
     var lastName, bio : String?
+    var completeProfile: Bool?
     
-    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Double? = nil, ethnicity:Int? = nil, scoreACT:Double? = nil, GPA:Double? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil, bio:String? = nil, collegePath:Int? = nil){
+    init(schools: [String]? = nil,anticipateYear:Int? = nil,major:String? = nil,otherLanguage:String? = nil,energyFromBeingWithOthers:Int? = nil,informationFromOthers: Int? = nil,decisionOnLogic:Int? = nil,goWithFlow:Int? = nil, scoreSAT:Double? = nil, ethnicity:Int? = nil, scoreACT:Double? = nil, GPA:Double? = nil, subjects:[Int]? = nil, changeUserType:Int? = nil, firstName:String? = nil, lastName:String? = nil, bio:String? = nil, collegePath:Int? = nil, completeProfile:Bool? = nil){
         
         self.schools = schools
         self.anticipateYear = anticipateYear
@@ -47,6 +48,7 @@ struct UpdateRequest: Encodable {
         self.lastName = lastName
         self.bio = bio
         self.collegePath = collegePath
+        self.completeProfile = false
     }
     
     

@@ -51,12 +51,12 @@ class SettingVC: UIViewController {
     }
 
     @IBAction func clickToswithToMentorApp(_ sender: Any) {
-//        if AppModel.shared.currentUser.user?.userType == 1 {
-//            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
-//        }
-//        else if AppModel.shared.currentUser.user?.userType == 2 {
-//            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
-//        }
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
+        }
     }
     
     deinit {
@@ -75,16 +75,17 @@ extension SettingVC : SwitchProfileDelegate {
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = response.data
         
+        isFromSwitchProfile = true
         if AppModel.shared.currentUser.user?.userType == 1 {
             AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
         }
         else if AppModel.shared.currentUser.user?.userType == 2 {
             AppDelegate().sharedDelegate().navigateToMentorDashBoard()
         }
-        else if AppModel.shared.currentUser.user?.userType == 3 {
-            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        else if AppModel.shared.currentUser.user?.userType == 3 {
+//            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }
 
@@ -114,23 +115,23 @@ extension SettingVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0  {
-//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-//            vc.type = 0
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            vc.type = 0
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 1 {
-//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-//            vc.type = 1
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            vc.type = 1
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2 {
-//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-//            vc.type = 2
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            vc.type = 2
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 3 {
-//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
-//            self.navigationController?.pushViewController(vc, animated: true)
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "HelpVC") as! HelpVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
             showAlertWithOption("Confirmation", message: "Are you sure you want to logout?", btns: ["Cancel","Ok"], completionConfirm: {

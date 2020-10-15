@@ -8,6 +8,7 @@
 
 import UIKit
 import SainiUtils
+import AmazonChimeSDK
 
 class BookingDetailVC: UIViewController {
 
@@ -34,6 +35,7 @@ class BookingDetailVC: UIViewController {
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
+    var joinCallVM : JoinCallViewModel = JoinCallViewModel()
     var bookingDetail : BookingDetail = BookingDetail.init()
     var type : Int = 0
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
@@ -43,6 +45,7 @@ class BookingDetailVC: UIViewController {
     var isFromTransaction : Bool = false
     var transactionDetailVM : TransactionDetailViewModel = TransactionDetailViewModel()
     var selectedTransaction : TransactionListDataModel = TransactionListDataModel.init()
+    var isRateViewNavigate : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,8 @@ class BookingDetailVC: UIViewController {
     //MARK: - configUI
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingDetail), name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
         
         joinCallBtn.isHidden = true
         cancelBookingBtn.isHidden = true
@@ -68,8 +73,10 @@ class BookingDetailVC: UIViewController {
         
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
+        joinCallVM.delegate = self
         
         if isFromTransaction {
+            navigationBar.headerLbl.text = "Transactions Details"
             transactionDetailVM.delegate = self
             transactionDetailVM.getTransactionDetail(request: transactionDetailRequest(transactionRef: selectedTransaction.id))
         }
@@ -80,11 +87,19 @@ class BookingDetailVC: UIViewController {
             bookingActionVM.delegate = self
             bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
         }
-        
     }
     
     @objc func refreshBookingDetail() {
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
+    }
+    
+    @objc func openRateReviewVC() {
+        if !isRateViewNavigate {
+            isRateViewNavigate = true
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+            vc.bookingDetail = bookingDetail
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: - Button Click
@@ -110,7 +125,16 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
-        
+        JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
+  //          bookingDetailForVideo = self.bookingDetail
+            MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                if status {
+                    print("Started")
+                    
+                    bookingDetailForVideo = self.bookingDetail
+                }
+            }
+        }
     }
     
     @IBAction func clickToCancelBooking(_ sender: Any) {
@@ -145,7 +169,6 @@ class BookingDetailVC: UIViewController {
     deinit {
         log.success("BookingDetailVC Memory deallocated!")/
     }
-    
 }
 
 extension BookingDetailVC : CreateBookingDelegate {
@@ -159,6 +182,17 @@ extension BookingDetailVC : CreateBookingDelegate {
     }
 }
 
+extension BookingDetailVC : JoinCallDelegate {
+    func didRecieveJoinCallResponse(response: MeetingModel) {
+        print(response)
+        MeetingModule.shared().prepareMeeting(meetingModel: response, option: .outgoing) { (status) in
+            if status{
+                print("Started")
+            }
+        }
+    }
+}
+
 extension BookingDetailVC : TransactionDetailDelegate {
     func didRecieveTransactionDetailResponse(response: BookingDetailModel) {
         if response.data == nil {
@@ -169,13 +203,11 @@ extension BookingDetailVC : TransactionDetailDelegate {
     }
     
     func renderDataFromTransaction() {
-        let name = bookingDetail.name.components(separatedBy: " ")
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
-//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
-        dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
+        dateTimeLbl.text = displayBookingDate(bookingDetail.transactionTime, callTime: bookingDetail.callTime) + "((\(bookingDetail.callTime)min))"
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(bookingDetail.amount) Paid"

@@ -29,7 +29,8 @@ class RateReviewVC: UIViewController {
     var selectCall : Int = 0
     var isShowRating : Bool = false
     var ratingVM : RatingViewModel = RatingViewModel()
-    
+    var bookingDetail : BookingDetail = BookingDetail.init()
+    var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +53,30 @@ class RateReviewVC: UIViewController {
         callCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         
         ratingVM.delegate = self
+        addToFavoriteVM.delegate = self
         
         if isShowRating {
             favoriteBtn.isHidden = true
             submitBtn.setTitle("Ok", for: .normal)
             callRateView.isUserInteractionEnabled = false
         }
+            
+        renderBookingDetail()
+    }
+    
+    func renderBookingDetail() {
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
+        nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
+        
+        if bookingDetail.isFavourite {
+            favoriteBtn.isSelected = true
+            favoriteBtn.backgroundColor = RedColor.withAlphaComponent(0.5)
+        }
+        else {
+            favoriteBtn.isSelected = false
+            favoriteBtn.backgroundColor = WhiteColor.withAlphaComponent(0.5)
+        }
+        
     }
       
     //MARK: - Button Click
@@ -66,7 +85,12 @@ class RateReviewVC: UIViewController {
     }
     
     @IBAction func clickToAddFavoites(_ sender: UIButton) {
-        
+        if favoriteBtn.isSelected {
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: false))
+        }
+        else {
+            addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: bookingDetail.mentorRef, status: true))
+        }
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
@@ -74,7 +98,7 @@ class RateReviewVC: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         else {
-            let request = RatingAddRequest(mentorRef: "", bookingRef: "", stars: Int(callRateView.rating), pursueThisSchool: (selectLike + 1), moreInterestedInSchool: (selectInterest + 1), insightful: (selectCall + 1))
+            let request = RatingAddRequest(mentorRef: bookingDetail.mentorRef, bookingRef: bookingDetail.id, stars: Int(callRateView.rating), pursueThisSchool: (selectLike + 1), moreInterestedInSchool: (selectInterest + 1), insightful: (selectCall + 1))
             ratingVM.addRatingReview(request: request)
         }
     }
@@ -85,9 +109,24 @@ class RateReviewVC: UIViewController {
 }
 
 
-extension RateReviewVC : RatingDelegate {
+extension RateReviewVC : RatingDelegate, SetFavoriteDelegate {
     func didRecieveRatingAddResponse(response: SuccessModel) {
-        
+        self.navigationController?.popViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+    }
+    
+    func didRecieveSetFavoriteResponse(response: SuccessModel) {
+        if favoriteBtn.isSelected {
+            favoriteBtn.isSelected = false
+            favoriteBtn.backgroundColor = WhiteColor.withAlphaComponent(0.5)
+            displayToast("Mentor removed from favorites successfully")
+        }
+        else {
+            favoriteBtn.isSelected = true
+            favoriteBtn.backgroundColor = RedColor.withAlphaComponent(0.5)
+            displayToast("Mentor marked as favorite successfully")
+        }
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
     }
 }
 

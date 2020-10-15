@@ -44,7 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Google Login
         GIDSignIn.sharedInstance().clientID = CLIENT_ID
         
-        
         // if you are using the TEST key
         Branch.setUseTestBranchKey(false)
 
@@ -54,8 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             printData("\n\n********************")
             printData(params as? [String: AnyObject] ?? {})
             printData("********************\n\n")
+            
+            if let payload : [String: Any] = params?["deepLinkPayload"] as? [String: Any] {
+                    print(payload)
+                if let id = payload["_id"] as? String {
+                    userReferId = id
+                }
+            }
         }
 
+        setStetusBarLight()
+        
         //Stripe
         STPPaymentConfiguration.shared().publishableKey = STRIPE.STRIPE_PUB_KEY
         
@@ -70,6 +78,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // handler for Universal Links
         Branch.getInstance().continue(userActivity)
         return true
+    }
+
+    func setStetusBarLight()  {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     //MARK:- Share Appdelegate
@@ -197,6 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        SocketIOManager.sharedInstance.closeConnection()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -205,6 +218,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        SocketIOManager.sharedInstance.establishConnection()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
