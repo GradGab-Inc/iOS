@@ -80,24 +80,28 @@ struct TransactionListDataModel: Codable {
     let name: String
     let school: [SchoolArr]
     let createdOn: String
-    let amount: Int?
-
+    let amount: Double?
+    let firstName: String
+    let lastName: String
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case menteeRef, mentorRef, image, name, school, createdOn, amount
+        case menteeRef, mentorRef, image, name, school, createdOn, amount, lastName, firstName
     }
         
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
+        amount = try values.decodeIfPresent(Double.self, forKey: .amount) ?? 0
         school = try values.decodeIfPresent([SchoolArr].self, forKey: .school) ?? []
         mentorRef = try values.decodeIfPresent(String.self, forKey: .mentorRef) ?? ""
         menteeRef = try values.decodeIfPresent(String.self, forKey: .menteeRef) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
         createdOn = try values.decodeIfPresent(String.self, forKey: .createdOn) ?? ""
+        firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
+        lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
     }
     
     init() {
@@ -109,6 +113,8 @@ struct TransactionListDataModel: Codable {
         name = ""
         image = ""
         createdOn = ""
+        lastName = ""
+        firstName = ""
     }
 }
 

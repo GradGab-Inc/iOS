@@ -470,8 +470,6 @@ extension MeetingViewController: ExtendCallDelegate, BookingActionDelegate {
     func didRecieveExtendCallResponse(response: SuccessModel) {
         twoMinuteLeftBackView.isHidden = true
     }
-    
-    
 }
 
 

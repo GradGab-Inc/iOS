@@ -687,6 +687,24 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
 }
 
 
+func redirectToEmail()
+{
+    var email = "hello@gradgab.com"
+    if email == "" || !email.isValidEmail {
+        displayToast("Invalid email address")
+        return
+    }
+    guard let url = URL(string: "mailto:\(email)") else {
+        displayToast("Invalid email address")
+        return
+    }
+    if #available(iOS 10.0, *) {
+        UIApplication.shared.open(url)
+    } else {
+        UIApplication.shared.openURL(url)
+    }
+}
+
 extension Date{
 //MARK:- sainiAddSecond
   public func sainiAddSecond(_ sec: Double) -> Date {
@@ -755,4 +773,18 @@ func getYearArr() -> [String] {
         yearArr.append(getDateStringFromDate1(date: fromDate!, format: "yyyy"))
     }
     return yearArr
+}
+
+
+func setUserBackgroundImage(_ button : UIButton, _ strUrl : String)
+{
+    button.sd_setBackgroundImage(with: URL(string: strUrl), for: UIControl.State.normal, completed: { (image, error, SDImageCacheType, url) in
+        if image != nil{
+            button.setBackgroundImage(image?.sainiResize(targetSize: CGSize(width: button.frame.size.width, height: button.frame.size.height)), for: .normal)
+        }
+        else
+        {
+            button.setBackgroundImage(UIImage.init(named: "ic_profile"), for: .normal)
+        }
+    })
 }

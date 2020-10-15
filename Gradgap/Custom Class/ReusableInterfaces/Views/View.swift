@@ -90,7 +90,7 @@ extension UIView {
         if applyShadow {
             self.layer.masksToBounds = false;
             self.layer.shadowOffset = CGSize(width: 0.5, height: 1.5)
-            self.layer.shadowColor = colorFromHex(hex: "#00AF80").cgColor
+            self.layer.shadowColor = BlackColor.cgColor//colorFromHex(hex: "#00AF80").cgColor
             self.layer.shadowOpacity = 0.5
             self.layer.shadowRadius = 2
         } else {

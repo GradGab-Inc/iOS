@@ -18,7 +18,9 @@ class BookingDetailVC: UIViewController {
     @IBOutlet weak var collegeNameLbl: UILabel!
     @IBOutlet weak var rateLbl: UILabel!
     @IBOutlet weak var ratingView: FloatRatingView!
+    @IBOutlet weak var dateTimeHeaderLbl: UILabel!
     @IBOutlet weak var dateTimeLbl: UILabel!
+    @IBOutlet weak var durationTitleLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var serviceLbl: UILabel!
     @IBOutlet weak var paymentLbl: UILabel!
@@ -79,6 +81,8 @@ class BookingDetailVC: UIViewController {
             navigationBar.headerLbl.text = "Transactions Details"
             transactionDetailVM.delegate = self
             transactionDetailVM.getTransactionDetail(request: transactionDetailRequest(transactionRef: selectedTransaction.id))
+            dateTimeHeaderLbl.text = "Date & Time of Transaction"
+            durationTitleLbl.text = "Date & Time Slot Booked"
         }
         else {
             createBookingVM.delegate = self
@@ -207,8 +211,8 @@ extension BookingDetailVC : TransactionDetailDelegate {
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
         ratingView.rating = bookingDetail.averageRating
-        dateTimeLbl.text = displayBookingDate(bookingDetail.transactionTime, callTime: bookingDetail.callTime) + "((\(bookingDetail.callTime)min))"
-        durationLbl.text = "\(bookingDetail.callTime) min"
+        dateTimeLbl.text = getDateStringFromDateString(strDate: bookingDetail.transactionTime, formate: "MMMM dd, yyyy, hh:mm a")
+        durationLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime) + " (\(bookingDetail.callTime)min)"
         serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(bookingDetail.amount) Paid"
 

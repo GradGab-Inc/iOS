@@ -76,7 +76,8 @@ struct EarningDataModel: Codable {
 // MARK: - Total
 struct Total: Codable {
     let id: String
-    let count, earnings: Int
+    let count: Int
+    let earnings: Double
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -88,7 +89,7 @@ struct Total: Codable {
         
         count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        earnings = try values.decodeIfPresent(Int.self, forKey: .earnings) ?? 0
+        earnings = try values.decodeIfPresent(Double.self, forKey: .earnings) ?? 0
     }
     
     init() {
