@@ -80,9 +80,12 @@ class MentorBookingDetailVC: UIViewController {
     
     @IBAction func clickToJoinCall(_ sender: Any) {
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
+            
+            bookingDetailForVideo = self.bookingDetail
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {
                     print("Started")
+                   
                 }
             }
         }

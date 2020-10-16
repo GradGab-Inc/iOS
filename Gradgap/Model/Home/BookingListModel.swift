@@ -53,10 +53,11 @@ struct BookingListModel: Codable {
 
 // MARK: - BookingListDataModel
 struct BookingListDataModel: Codable {
-    let id, menteeRef, mentorRef, name, firstName, lastName: String
+    let menteeRef, mentorRef, name, firstName, lastName: String
     let schoolName, dateTime, image: String
     let status, callTime, callType: Int
-
+    var id: String
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case menteeRef, mentorRef, name, schoolName, dateTime, status, callTime, image, callType, firstName, lastName

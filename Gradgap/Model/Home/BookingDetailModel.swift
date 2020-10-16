@@ -38,10 +38,11 @@ struct BookingDetail: Codable {
     let isFavourite: Bool
     let averageRating: Double
     let major: String
+    let email: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case menteeRef, mentorRef, image, name, schoolName, additionalTopics, dateTime, subjects, anticipateYear, status, callTime, callType, amount, isFavourite, averageRating, timeSlot, bio, transactionTime, firstName, lastName, major
+        case menteeRef, mentorRef, image, name, schoolName, additionalTopics, dateTime, subjects, anticipateYear, status, callTime, callType, amount, isFavourite, averageRating, timeSlot, bio, transactionTime, firstName, lastName, major, email
     }
     
     init(from decoder: Decoder) throws {
@@ -69,6 +70,7 @@ struct BookingDetail: Codable {
         firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
         lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
         major = try values.decodeIfPresent(String.self, forKey: .major) ?? ""
+        email = try values.decodeIfPresent(String.self, forKey: .email) ?? ""
     }
     
     
@@ -95,5 +97,6 @@ struct BookingDetail: Codable {
         firstName = ""
         lastName = ""
         major = ""
+        email = ""
     }
 }

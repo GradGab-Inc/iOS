@@ -73,11 +73,6 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
     private func profilPicGesture(){
         profileImgView.sainiAddTapGesture {
             self.uploadImage()
-//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-//            CameraAttachment.shared.imagePickedBlock = { pic in
-//                self.profileImgView.image = pic
-//                self.isNewImgUpload = true
-//            }
         }
     }
     

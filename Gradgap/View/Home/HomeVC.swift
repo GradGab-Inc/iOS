@@ -46,6 +46,8 @@ class HomeVC: UIViewController {
         }
         nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
         
+       
+        
     }
         
     //MARK: - configUI
@@ -110,7 +112,6 @@ class HomeVC: UIViewController {
     deinit {
         log.success("HomeVC Memory deallocated!")/
     }
-    
 }
 
 extension HomeVC : HomeBookingListDelegate {
@@ -160,7 +161,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
-        else{
+        else {
             guard let cell = bookingTblView.dequeueReusableCell(withIdentifier: "HomeBookingTVC", for: indexPath) as? HomeBookingTVC
                 else {
                 return UITableViewCell()

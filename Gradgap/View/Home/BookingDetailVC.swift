@@ -131,12 +131,12 @@ class BookingDetailVC: UIViewController {
     
     @IBAction func clickToJoinCall(_ sender: Any) {
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
-  //          bookingDetailForVideo = self.bookingDetail
+            bookingDetailForVideo = self.bookingDetail
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {
                     print("Started")
                     
-                    bookingDetailForVideo = self.bookingDetail
+ //                   bookingDetailForVideo = self.bookingDetail
                 }
             }
         }
@@ -193,6 +193,7 @@ extension BookingDetailVC : JoinCallDelegate {
         MeetingModule.shared().prepareMeeting(meetingModel: response, option: .outgoing) { (status) in
             if status{
                 print("Started")
+                bookingDetailForVideo = self.bookingDetail
             }
         }
     }
@@ -216,7 +217,7 @@ extension BookingDetailVC : TransactionDetailDelegate {
         dateTimeLbl.text = getDateStringFromDateString(strDate: bookingDetail.transactionTime, formate: "MMMM dd, yyyy, hh:mm a")
         durationLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime) + " (\(bookingDetail.callTime)min)"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+        paymentLbl.text = "$\(String(format: "%.01f", bookingDetail.amount)) Paid"//"$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isHidden = true
         joinCallBtn.isHidden = true
@@ -276,7 +277,7 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
         dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+        paymentLbl.text = "$\(String(format: "%.01f", bookingDetail.amount)) Paid" //"$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isSelected = bookingDetail.isFavourite
         
