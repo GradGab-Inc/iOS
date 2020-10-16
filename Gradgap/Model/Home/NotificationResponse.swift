@@ -52,12 +52,13 @@ struct NotificationResponse: Codable {
 
 // MARK: - Datum
 struct NotificationListModel: Codable {
-    let id, name, message, image: String
+    let id, name, message, image, ref, firstName, lastName: String
     let createdOn: String
+    let type: Int
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case name, message, image, createdOn
+        case name, message, image, createdOn, ref, firstName, lastName, type
     }
     
     init(from decoder: Decoder) throws {
@@ -68,6 +69,10 @@ struct NotificationListModel: Codable {
         createdOn = try values.decodeIfPresent(String.self, forKey: .createdOn) ?? ""
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
+        ref = try values.decodeIfPresent(String.self, forKey: .ref) ?? ""
+        firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
+        lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
+        type = try values.decodeIfPresent(Int.self, forKey: .type) ?? 0
     }
     
     init() {
@@ -76,6 +81,10 @@ struct NotificationListModel: Codable {
         createdOn = ""
         id = ""
         name = ""
+        ref = ""
+        firstName = ""
+        lastName = ""
+        type = 0
     }
     
 }

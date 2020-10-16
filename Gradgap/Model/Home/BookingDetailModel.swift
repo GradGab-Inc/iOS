@@ -34,7 +34,7 @@ struct BookingDetail: Codable {
     let name, schoolName, additionalTopics, dateTime, bio, transactionTime, firstName, lastName: String
     let subjects: [Int]
     let anticipateYear, status, callTime, callType, timeSlot: Int
-    let amount: Int
+    let amount: Double
     let isFavourite: Bool
     let averageRating: Double
     let major: String
@@ -60,7 +60,7 @@ struct BookingDetail: Codable {
         status = try values.decodeIfPresent(Int.self, forKey: .status) ?? 0
         anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? 0
         callType = try values.decodeIfPresent(Int.self, forKey: .callType) ?? 0
-        amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
+        amount = try values.decodeIfPresent(Double.self, forKey: .amount) ?? 0
         timeSlot = try values.decodeIfPresent(Int.self, forKey: .timeSlot) ?? 0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false

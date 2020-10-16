@@ -116,6 +116,7 @@ class BookingDetailVC: UIViewController {
         vc.selectedUserId = bookingDetail.mentorRef
         vc.bookingDetail = bookingDetail
         vc.isFromBookingDetail = true
+        vc.isFromTransaction = isFromTransaction
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -207,6 +208,7 @@ extension BookingDetailVC : TransactionDetailDelegate {
     }
     
     func renderDataFromTransaction() {
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
@@ -217,6 +219,13 @@ extension BookingDetailVC : TransactionDetailDelegate {
         paymentLbl.text = "$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isHidden = true
+        joinCallBtn.isHidden = true
+        cancelBookingBtn.isHidden = true
+        rebookCallBtn.isHidden = true
+        
+        if bookingDetail.status == BookingStatus.ADMIN_DELETED {
+            rebookCallBtn.isHidden = false
+        }
     }
 }
 
@@ -276,7 +285,7 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
             cancelBookingBtn.isHidden = false
             rebookCallBtn.isHidden = true
         }
-        else if bookingDetail.status == BookingStatus.CANCELLED || bookingDetail.status == BookingStatus.REJECT {
+        else if bookingDetail.status == BookingStatus.CANCELLED || bookingDetail.status == BookingStatus.REJECT  || bookingDetail.status == BookingStatus.ADMIN_DELETED {
             joinCallBtn.isHidden = true
             cancelBookingBtn.isHidden = true
             rebookCallBtn.isHidden = false

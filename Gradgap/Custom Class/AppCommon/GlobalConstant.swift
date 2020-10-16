@@ -131,6 +131,7 @@ struct NOTIFICATION {
     static var UPDATE_BANKLIST_DATA        =   "UPDATE_BANKLIST_DATA"
     static var ADD_RATEREVIEW_DATA         =   "ADD_RATEREVIEW_DATA"
     static var SETUP_EXTEND_DATA           =   "SETUP_EXTEND_DATA"
+    static let REDICT_TO_NOTIFICATION      =   "REDICT_TO_NOTIFICATION"
 }
 
 
@@ -264,6 +265,7 @@ struct BookingStatus {
     static let CANCELLED =  2
     static let PENDING = 3
     static let REJECT = 4
+    static let ADMIN_DELETED = 5
 }
 
 

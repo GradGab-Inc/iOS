@@ -52,6 +52,8 @@ class HomeVC: UIViewController {
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(redirectToNotification), name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
+        
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
@@ -73,6 +75,11 @@ class HomeVC: UIViewController {
     
     @objc func refreshBookingList() {
         bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+    }
+    
+    @objc func redirectToNotification() {
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: - Button Click

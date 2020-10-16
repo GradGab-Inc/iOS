@@ -49,6 +49,8 @@ class MentorsProfileVC: UIViewController {
     var subjectArr : [String] = [String]()
     var isFromBookingDetail : Bool = false
     var isFromFavorite : Bool = false
+    var isFromTransaction : Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,8 +159,6 @@ class MentorsProfileVC: UIViewController {
     
     func renderBookingDetail() {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
-        
-        let name = bookingDetail.name.components(separatedBy: " ")
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
         rateLbl.text = "\(bookingDetail.averageRating)"
@@ -209,7 +209,9 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
                 favoriteBtn.isSelected = true
                 displayToast("Mentor marked as favorite successfully")
             }
-            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+            if !isFromTransaction {
+                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
+            }
         }
         else {
             if mentorDetail.isFavourite {
