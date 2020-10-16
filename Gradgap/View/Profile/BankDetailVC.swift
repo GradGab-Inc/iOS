@@ -52,10 +52,10 @@ class BankDetailVC: UploadImageVC {
         holderNameTxt.text = "Vishal j Buha"
         firstNameTxt.text = "Vishal"
         lastNameTxt.text = "Buha"
-        accountNumberTxt.text = "000123456789"
+        accountNumberTxt.text = "123456788"
         address1Txt.text = "158, Sarita darshan"
         address2Txt.text = "Chikuwadi"
-        routingNumberTxt.text = "110000000"
+        routingNumberTxt.text = "HDFC0000261"
         cityTxt.text = "New York"
         stateTxt.text = "New York"
         postalCodeTxt.text = "395006"
@@ -82,21 +82,11 @@ class BankDetailVC: UploadImageVC {
         doc1ImgView.sainiAddTapGesture {
             self.isFrontImg = true
             self.uploadImage()
-//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-//            CameraAttachment.shared.imagePickedBlock = { pic in
-//                self.doc1ImgView.image = pic
-//                self.frontImage = pic
-//            }
         }
         
         doc2ImgView.sainiAddTapGesture {
             self.isFrontImg = false
             self.uploadImage()
-//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-//            CameraAttachment.shared.imagePickedBlock = { pic in
-//                self.doc2ImgView.image = pic
-//                self.backImage = pic
-//            }
         }
     }
     
@@ -144,7 +134,6 @@ class BankDetailVC: UploadImageVC {
             self?.view.endEditing(true)
         }
     }
-    
     
     @IBAction func clickToDOB(_ sender: Any) {
         self.view.endEditing(true)

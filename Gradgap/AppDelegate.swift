@@ -353,22 +353,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if !isUserLogin() {
             return
         }
-                
-//        if let type : String = dict["refType"] as? String, let itemRef : String = dict["itemRef"] as? String {
-//            if type == String(NotifiacetionStatusType.Outbid.rawValue) || type == String(NotifiacetionStatusType.Won.rawValue) || type == String(NotifiacetionStatusType.Lost.rawValue) || type == String(NotifiacetionStatusType.Delivered.rawValue) {
-//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TAB_BAR), object: ["tabIndex":0])
-//                delay(1.0) {
-//                    let item : [String : String] = ["itemRef":itemRef]
-//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.NOTIFICATION_TAB_CLICK), object: item)
-//                }
-//            } else if type == String(NotifiacetionStatusType.Private.rawValue) {
-//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TAB_BAR), object: ["tabIndex":0])
-//                delay(1.0) {
-//                    let item : [String : String] = ["itemRef":itemRef]
-//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.PRIVATE_AUCTION_CLICK), object: item)
-//                }
-//            }
-//        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
     }
 }
 

@@ -9,9 +9,9 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://3.82.95.119:3000" //"http://3.82.95.119/development/"
+let SOCKET_URL = "http://3.82.95.119:3000"//"http://3.82.95.119/development/" //"http://ca643948e0e7.ngrok.io/" //
 
-class SocketIOManager: NSObject, URLSessionDelegate {
+class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
     var socket: SocketIOClient!
     
@@ -40,19 +40,10 @@ class SocketIOManager: NSObject, URLSessionDelegate {
         let userId = AppModel.shared.currentUser.accessToken
         self.manager.config = SocketIOClientConfiguration(
             arrayLiteral:.connectParams(["access_token": userId]),.extraHeaders(["Authorization" : userId]),
-            .secure(true),.forceWebsockets(true) //,
-//            .reconnectAttempts(3),
-//            .reconnectWait(3),
-//            .sessionDelegate(self)
+            .secure(true), .forcePolling(true), .forceWebsockets(true)
         )
         self.socket.connect()
-        
-//        self.manager.config = SocketIOClientConfiguration(
-//            arrayLiteral: .connectParams(["access_token": "123456789"]), .secure(false),.forceWebsockets(true)
-//        )
-//        socket.connect()
-        
-                
+                        
         //To connect socket
         socket.on(clientEvent: .connect) { (data, ack) in
             print("socket connected",data,ack)
@@ -70,7 +61,12 @@ class SocketIOManager: NSObject, URLSessionDelegate {
         
         socket.on("extend_call") { (dataArray, ack) in
             print(dataArray)
-            NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+            if dataArray.count == 0 {
+                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+            }
+            else {
+                
+            }
         }
         
         socket.on(clientEvent: .error) {data, ack in
@@ -92,22 +88,22 @@ class SocketIOManager: NSObject, URLSessionDelegate {
     }
     
     func subscribeChannel(_ id : String) {
-        socket.emit("subscribe_channel", 123) {
+        socket.emit("subscribe_channel", id) {
             
         }
     }
     
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-    }
-
-    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
-        if let err = error {
-            print("Error: \(err.localizedDescription)")
-        } else {
-            print("Error. Giving up")
-        }
-    }
+//    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+//        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+//    }
+//
+//    func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
+//        if let err = error {
+//            print("Error: \(err.localizedDescription)")
+//        } else {
+//            print("Error. Giving up")
+//        }
+//    }
 
     
     

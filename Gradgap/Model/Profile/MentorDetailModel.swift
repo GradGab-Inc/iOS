@@ -41,6 +41,7 @@ struct MentorData: Codable {
     let averageRating, amount: Int
     let availableTimings: [Int]
     let isFavourite: Bool
+    let walletAmount: Double
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -48,7 +49,7 @@ struct MentorData: Codable {
         case gpa = "GPA"
         case subjects, bio, ethnicity
         case enrollmentID = "enrollmentId"
-        case personality, school, averageRating, availableTimings, isFavourite
+        case personality, school, averageRating, availableTimings, isFavourite, walletAmount
     }
     
     
@@ -64,8 +65,8 @@ struct MentorData: Codable {
         userType = try values.decodeIfPresent(Int.self, forKey: .userType) ?? 0
         studyingIn = try values.decodeIfPresent(Int.self, forKey: .studyingIn) ?? 0
         anticipateYear = try values.decodeIfPresent(Int.self, forKey: .anticipateYear) ?? 0
-        scoreSAT = try values.decodeIfPresent(Double.self, forKey: .scoreSAT) ?? 0.0
-        scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? 0.0
+        scoreSAT = try values.decodeIfPresent(Double.self, forKey: .scoreSAT) ?? 0
+        scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? 0
         gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? 0.0
         amount = try values.decodeIfPresent(Int.self, forKey: .amount) ?? 0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
@@ -77,6 +78,7 @@ struct MentorData: Codable {
         school = try values.decodeIfPresent([MajorListDataModel].self, forKey: .school) ?? []
         personality = try values.decodeIfPresent(Personality.self, forKey: .personality) ?? nil
         isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
+        walletAmount = try values.decodeIfPresent(Double.self, forKey: .walletAmount) ?? 0
     }
     
     init() {
@@ -102,7 +104,7 @@ struct MentorData: Codable {
         personality = Personality.init()
         isFavourite = false
         amount = 0
-        
+        walletAmount = 0
     }
 }
 

@@ -96,7 +96,7 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource {
         
         let dict : NotificationListModel = notificationArr[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-        cell.messagelbl.text = "\(dict.name) \(dict.message)"
+        cell.messagelbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "") \(dict.message)"
         
         return cell
     }

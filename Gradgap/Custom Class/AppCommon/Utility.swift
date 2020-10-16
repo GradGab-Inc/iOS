@@ -636,6 +636,8 @@ func getbookingType(_ tag : Int) -> String {
         return "Pending"
     case 4:
         return "Rejected"
+    case 5:
+        return "Admin Deleted"
     default:
         return ""
     }
@@ -785,6 +787,22 @@ func setUserBackgroundImage(_ button : UIButton, _ strUrl : String)
         else
         {
             button.setBackgroundImage(UIImage.init(named: "ic_profile"), for: .normal)
+        }
+    })
+}
+
+
+func setUserImageOnButton(_ button : UIButton, _ strUrl : String)
+{
+    button.sd_setImage(with: URL(string: strUrl), for: UIControl.State.normal, completed: { (image, error, SDImageCacheType, url) in
+        if image != nil{
+            button.setImage(image?.sainiResize(targetSize: CGSize(width: button.frame.size.width, height: button.frame.size.height)), for: .normal)
+        }
+        else
+        {
+            button.setImage(UIImage.init(named: "ic_profile"), for: .normal)
+            
+       //     button.setBackgroundImage(UIImage.init(named: "ic_profile"), for: .normal)
         }
     })
 }

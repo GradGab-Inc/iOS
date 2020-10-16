@@ -65,7 +65,6 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         navigationBar.headerLbl.text = "Edit Profile"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
-        renderProfile()
     }
     
     //MARK: - configUI
@@ -75,6 +74,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         enrollCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         listVC.delegate = self
         profileUpadateVM.delegate = self
+        renderProfile()
 //        profilPicGesture()
     }
     
@@ -82,40 +82,22 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         profileImgView.sainiAddTapGesture {
             self.isProImg = true
             self.uploadImage()
-//            CameraAttachment.shared.showAttachmentActionSheet(vc: self)
-//            CameraAttachment.shared.imagePickedBlock = { pic in
-//                self.profileImgView.image = pic
-//                self.isNewImgUpload = true
-//            }
         }
     }
     
     override func selectedImage(choosenImage: UIImage) {
         if isProImg {
-            self.profileImgView.image = nil
-            delay(0.1) {
-                
- //               self.profileImgView.image = self.selectedProfileImg
-                self.profileImgBtn.setBackgroundImage(choosenImage, for: .normal)
- //               self.profileImgBtn.setImage(choosenImage, for: .normal)
-                self.profileImgBtn.imageView?.contentMode = .scaleAspectFill
-                self.selectedProfileImg = choosenImage
-                self.isNewImgUpload = true
-                self.isProImg = false
-            }
+            self.selectedProfileImg = choosenImage
+            self.profileImgBtn.setImage(self.selectedProfileImg, for: .normal)
+            self.profileImgBtn.imageView?.contentMode = .scaleAspectFill
+            self.isNewImgUpload = true
+            self.isProImg = false
         }
         else {
-            delay(0.1) {
-                self.enrollImgBtn.setBackgroundImage(choosenImage, for: .normal)
-//                self.enrollImgBtn.setImage(choosenImage, for: .normal)
-                self.enrollImgBtn.imageView?.contentMode = .scaleAspectFit
-                self.selectedEnrollId = choosenImage
-                self.isNewEnrollIdUpload = true
-                
-//                self.enrollmentArr = [String]()
-//                self.enrollmentArr.append(" ")
-//                self.enrollCollectionView.reloadData()
-            }
+            self.selectedEnrollId = choosenImage
+            self.enrollImgBtn.setImage(self.selectedEnrollId, for: .normal)
+            self.enrollImgBtn.imageView?.contentMode = .scaleAspectFit
+            self.isNewEnrollIdUpload = true
         }
     }
     
@@ -123,8 +105,8 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         profileData = AppModel.shared.currentUser.user ?? User.init()
 //        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  profileData.image)
     
-        setUserBackgroundImage(profileImgBtn, API.IMAGE_URL + profileData.image)
-
+        setUserImageOnButton(profileImgBtn, API.IMAGE_URL + profileData.image)
+        self.profileImgBtn.imageView?.contentMode = .scaleAspectFill
         
         firstNameTxt.text = profileData.firstName
         lastNameTxt.text = profileData.lastName
@@ -154,7 +136,8 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
             schoolCollectionView.reloadData()
         }
         
-        setUserBackgroundImage(enrollImgBtn, API.IMAGE_URL + profileData.enrollmentId)
+        setUserImageOnButton(enrollImgBtn, API.IMAGE_URL + profileData.enrollmentId)
+        self.enrollImgBtn.imageView?.contentMode = .scaleAspectFit
   
 //        if profileData.enrollmentId != "" {
 //            enrollmentArr = [String]()
@@ -283,7 +266,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
                 }
                 
                 if isNewImgUpload && !isNewEnrollIdUpload {
-                    let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                    let imageData = sainiCompressImage(image: selectedProfileImg)
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "image")
                 }
                 else if !isNewImgUpload && isNewEnrollIdUpload {
@@ -291,7 +274,7 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
                     profileUpadateVM.updateProfile(request: request, imageData: imageData, fileName: "enrollmentId")
                 }
                 else if isNewImgUpload && isNewEnrollIdUpload {
-                    let imageData = sainiCompressImage(image: profileImgView.image ?? UIImage(named: "ic_profile")!)
+                    let imageData = sainiCompressImage(image: selectedProfileImg)
                     let imageData1 = sainiCompressImage(image: selectedEnrollId)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }

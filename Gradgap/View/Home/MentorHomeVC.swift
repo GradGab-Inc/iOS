@@ -66,6 +66,8 @@ class MentorHomeVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshCalender), name: NSNotification.Name.init(NOTIFICATION.UPDATE_SIDEMENU_DATA), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(redirectToNotification), name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
+        
         calenderBackView.isHidden = true
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
@@ -105,6 +107,11 @@ class MentorHomeVC: UIViewController {
     
     @objc func refreshBookingList() {
         bookingListVM.getBookingList(request: BookingListRequest(limit : 2))
+    }
+    
+    @objc func redirectToNotification() {
+        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func refreshCalender() {
