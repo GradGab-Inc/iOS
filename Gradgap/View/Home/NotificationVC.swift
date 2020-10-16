@@ -112,15 +112,17 @@ extension NotificationVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if AppModel.shared.currentUser.user?.userType == 1 {
-//            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
-//            vc.selectedBooking = bookingArr[indexPath.row]
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//        else if AppModel.shared.currentUser.user?.userType == 2 {
-//            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
-//             vc.selectedBooking = bookingArr[indexPath.row]
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+        var selectedNotification : BookingListDataModel = BookingListDataModel.init()
+        selectedNotification.id = notificationArr[indexPath.row].ref
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
+            vc.selectedBooking = selectedNotification
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "MentorBookingDetailVC") as! MentorBookingDetailVC
+             vc.selectedBooking = selectedNotification
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }    
 }

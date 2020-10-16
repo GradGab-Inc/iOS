@@ -195,13 +195,16 @@ extension CalenderDateListVC : HomeBookingListDelegate {
         bookingArr = response.data
         setupTimeData()
         tblView.reloadData()
+    
+        if arrSkipIndex.count != 0 {
+            tblView.scrollToRow(at: IndexPath(row: arrSkipIndex[0], section: 0), at: .top, animated: false)
+        }
         
         if selectedTab == 2 {
             noDataLbl.isHidden = bookingArr.count == 0 ? false : true
             tblView.isHidden = bookingArr.count == 0 ? true : false
             noDataLbl.text = "You don't have any booking yet."
         }
-        
    }
     
     //hide time cell if slot already booked

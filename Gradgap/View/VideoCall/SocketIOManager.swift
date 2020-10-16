@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://3.82.95.119:3000"//"http://3.82.95.119/development/" //"http://ca643948e0e7.ngrok.io/" //
+let SOCKET_URL = "http://3244e1539eb5.ngrok.io/"//"http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://3.82.95.119:3000" //"http://3.82.95.119/development/"
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
@@ -40,7 +40,7 @@ class SocketIOManager: NSObject {
         let userId = AppModel.shared.currentUser.accessToken
         self.manager.config = SocketIOClientConfiguration(
             arrayLiteral:.connectParams(["access_token": userId]),.extraHeaders(["Authorization" : userId]),
-            .secure(true), .forcePolling(true), .forceWebsockets(true)
+            .secure(false) //, .forcePolling(true), .forceWebsockets(true)
         )
         self.socket.connect()
                         
@@ -56,12 +56,13 @@ class SocketIOManager: NSObject {
         
         socket.on(clientEvent: SocketClientEvent.reconnect) { (data, eck) in
             print(data)
-            print("socket reconnect")
+                print("socket reconnect")
         }
         
         socket.on("extend_call") { (dataArray, ack) in
             print(dataArray)
             if dataArray.count == 0 {
+                displayToast("For extend call")
                 NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
             }
             else {
@@ -107,15 +108,33 @@ class SocketIOManager: NSObject {
 
     
     
-    func acknowledgementMessage(completionHandler: @escaping (_ messageInfo: [String : Any]) -> Void) {
-        socket.on("subscribe_channel") { ( dataArray, ack) -> Void in
-            let messageJsonData = dataArray.first as! [String: Any]
-            let jsonData = try? JSONSerialization.data(withJSONObject: messageJsonData["data"]!, options: [])
-            let jsonString = String(data: jsonData!, encoding: .utf8)!
-            if let dict = convertToDictionary(text: jsonString) {
-                completionHandler(dict)
+    func acknowledgementMessage(completionHandler: @escaping (_ messageStatus: Int) -> Void) {
+        socket.on("extend_call") { (dataArray, ack) in
+            print(dataArray)
+            if dataArray.count == 0 {
+                displayToast("For extend call")
+                completionHandler(3)
+//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+            }
+            else {
+                let messageJsonData = dataArray.first as! [String: Any]
+                let jsonData = try? JSONSerialization.data(withJSONObject: messageJsonData["data"]!, options: [])
+                let jsonString = String(data: jsonData!, encoding: .utf8)!
+                if let dict = convertToDictionary(text: jsonString) {
+                    completionHandler(dict["status"] as! Int)
+                }
             }
         }
+        
+        
+//        socket.on("subscribe_channel") { ( dataArray, ack) -> Void in
+//            let messageJsonData = dataArray.first as! [String: Any]
+//            let jsonData = try? JSONSerialization.data(withJSONObject: messageJsonData["data"]!, options: [])
+//            let jsonString = String(data: jsonData!, encoding: .utf8)!
+//            if let dict = convertToDictionary(text: jsonString) {
+//                completionHandler(dict)
+//            }
+//        }
     }
 
 

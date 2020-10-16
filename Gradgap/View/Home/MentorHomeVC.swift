@@ -212,6 +212,14 @@ extension MentorHomeVC : BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
         displayToast(response.message)
         refreshBookingList()
+        
+        DispatchQueue.main.async {
+            if self.calendar != nil {
+                self.calendar.removeFromSuperview()
+            }
+            self.calenderBackView.isHidden = false
+            self.setUpCalender()
+        }
     }
 }
 

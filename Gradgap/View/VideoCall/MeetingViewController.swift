@@ -10,12 +10,9 @@ import AmazonChimeSDK
 import AVFoundation
 import CallKit
 import Foundation
-//import Toast
 import UIKit
 
-
 var bookingDetailForVideo : BookingDetail = BookingDetail.init()
-
 
 class MeetingViewController: UIViewController {
     // Controls
@@ -72,6 +69,7 @@ class MeetingViewController: UIViewController {
     
     @IBOutlet weak var mentorTimeExtensionBackView: UIView!
     @IBOutlet weak var mentorMessageLbl: UILabel!
+    @IBOutlet weak var waitingLbl: UILabel!
     
     // Model
     var meetingModel: MeetingModel?
@@ -166,6 +164,7 @@ class MeetingViewController: UIViewController {
 //            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
 //            self?.videoCollection.reloadData()
             self?.ShowVideoFrame()
+            self?.waitingLbl.isHidden = true
         }
         meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
 //            self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
@@ -238,23 +237,28 @@ class MeetingViewController: UIViewController {
         headerNameLbl.text = "\(bookingDetailForVideo.firstName) \(bookingDetailForVideo.lastName != "" ? "\(bookingDetailForVideo.lastName.first!.uppercased())." : "")"
         
         nameLbl.text = "\(bookingDetailForVideo.firstName) \(bookingDetailForVideo.lastName != "" ? "\(bookingDetailForVideo.lastName.first!.uppercased())." : "")"
-        collageNameLbl.text = bookingDetailForVideo.schoolName
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            collageNameLbl.text = bookingDetailForVideo.schoolName
+        }
+        else {
+            collageNameLbl.text = bookingDetailForVideo.email
+        }
+        
     }
-    
    
     func scheduledTimerWithTimeInterval(){
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callTimer), userInfo: nil, repeats: true)
+        timer?.invalidate()
+        let seconds = 1.0
+        timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(callTimer), userInfo: nil, repeats: true)
         print("---------**********-----------")
     }
     
-    @objc func callTimer(){
+    @objc func callTimer() {
         let currentDate = Date()
         counter = counter + 1
-        print(counter)
-        print(counter / 2)
         if currentDate < callEndTime {
-            callStartTime = callStartTime.sainiAddSecond(Double(0.5))
+            callStartTime = callStartTime.sainiAddSecond(Double(1))
             DispatchQueue.main.async {
                 self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
             }
@@ -370,6 +374,7 @@ class MeetingViewController: UIViewController {
     }
 
     @IBAction func leaveButtonClicked(_: UIButton) {
+        timer?.invalidate()
         meetingModel?.endMeeting()
         deregisterFromKeyboardNotifications()
     }
@@ -443,31 +448,32 @@ class MeetingViewController: UIViewController {
         self.inputBoxBottomConstrain.constant = 0
     }
     
-    private func ShowVideoFrame(){
-      guard let meetingModel = meetingModel else {
-        return
-      }
-      if meetingModel.videoModel.videoTileCount >= 2{
-        if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)){
-          MentorVideoView.mirror = true
-          meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
-          meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
+    private func ShowVideoFrame() {
+        guard let meetingModel = meetingModel else {
+            return
         }
-      }
-      else{
-        menteeVideoView.mirror = true
-        meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
-      }
+        if meetingModel.videoModel.videoTileCount >= 2{
+            if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)){
+                MentorVideoView.mirror = true
+                meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
+                meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
+            }
+        }
+        else{
+            menteeVideoView.mirror = true
+            meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
+        }
     }
-    
 }
 
 extension MeetingViewController: ExtendCallDelegate, BookingActionDelegate {
     func didRecieveBookingActionResponse(response: SuccessModel) {
         mentorTimeExtensionBackView.isHidden = true
+        displayToast(response.message)
     }
     
     func didRecieveExtendCallResponse(response: SuccessModel) {
+        displayToast(response.message)
         twoMinuteLeftBackView.isHidden = true
     }
 }

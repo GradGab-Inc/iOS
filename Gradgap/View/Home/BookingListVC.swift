@@ -287,7 +287,6 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
              vc.selectedBooking = bookingArr[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
         
     @objc func clickToSelectFilter(_ sender : UIButton) {
