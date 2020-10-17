@@ -14,6 +14,7 @@ class BankListVC: UIViewController {
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var accountNumberLbl: UILabel!
     @IBOutlet var addAccountBackView: UIView!
+    @IBOutlet weak var addAccountPopUpMessageLbl: UILabel!
     
     var bankListVM : BankViewDetailViewModel = BankViewDetailViewModel()
     var deleteBankVM : BackAccountDeleteViewModel = BackAccountDeleteViewModel()
@@ -39,6 +40,7 @@ class BankListVC: UIViewController {
         
         addAccountBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: addAccountBackView)
+        addAccountPopUpMessageLbl.text = "Your bank account has not been added"
         
         bankListVM.delegate = self
         bankListVM.getBankDetail()
@@ -95,6 +97,7 @@ extension BankListVC : BankViewDetailDelegate, BackAccountDeleteDelegate {
     func didRecievedBackAccountDeleteData(response: SuccessModel) {
         addAccountBackView.isHidden = false
         displaySubViewtoParentView(self.view, subview: addAccountBackView)
+        addAccountPopUpMessageLbl.text = "Your Bank account has been removed."
         bankDetail = BankViewDataModel.init()
         dataSetup()
     }

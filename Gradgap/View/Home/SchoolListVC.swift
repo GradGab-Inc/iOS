@@ -59,7 +59,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         
         searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
       
-        let attributedString = NSMutableAttributedString.init(string: "Don't see a school you are interested in? let us know")
+        let attributedString = NSMutableAttributedString.init(string: "Don't see a school you are interested in? Let us know")
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString

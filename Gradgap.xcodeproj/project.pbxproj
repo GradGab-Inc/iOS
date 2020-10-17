@@ -70,6 +70,8 @@
 		8822683024ED384D00E88254 /* CreateBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */; };
 		8822683224ED3B0700E88254 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683124ED3B0700E88254 /* BookingRequest.swift */; };
 		8822683424ED3BDC00E88254 /* BookingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */; };
+		8822A8F3253B2810003FF4B3 /* EmailPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822A8F2253B280F003FF4B3 /* EmailPopupView.swift */; };
+		8822A8F5253B2827003FF4B3 /* EmailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8822A8F4253B2827003FF4B3 /* EmailPopupView.xib */; };
 		8822C81524E53EF30076D480 /* MentorProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */; };
 		88233E8B2510CB3900718C81 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88233E8A2510CB3900718C81 /* SplashScreen.storyboard */; };
 		88233E8E2510CBF900718C81 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88233E8D2510CBF900718C81 /* SplashScreenVC.swift */; };
@@ -370,6 +372,8 @@
 		8822682F24ED384D00E88254 /* CreateBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBookingViewModel.swift; sourceTree = "<group>"; };
 		8822683124ED3B0700E88254 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		8822683324ED3BDC00E88254 /* BookingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailViewModel.swift; sourceTree = "<group>"; };
+		8822A8F2253B280F003FF4B3 /* EmailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPopupView.swift; sourceTree = "<group>"; };
+		8822A8F4253B2827003FF4B3 /* EmailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailPopupView.xib; sourceTree = "<group>"; };
 		8822C81424E53EF30076D480 /* MentorProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorProfileEditVC.swift; sourceTree = "<group>"; };
 		88233E8A2510CB3900718C81 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		88233E8D2510CBF900718C81 /* SplashScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
@@ -1188,6 +1192,8 @@
 				88F8670724DA6B99002F603C /* ReuseNavigationBar.xib */,
 				8825CD7724EBDAC80079E7CB /* SchoolListView.xib */,
 				8825CD7924EBDB3E0079E7CB /* SchoolListView.swift */,
+				8822A8F2253B280F003FF4B3 /* EmailPopupView.swift */,
+				8822A8F4253B2827003FF4B3 /* EmailPopupView.xib */,
 			);
 			path = ReusableComponent;
 			sourceTree = "<group>";
@@ -1435,6 +1441,7 @@
 				881690E624D2820E00EE427E /* MADE Tommy Soft Medium Outline PERSONAL USE.otf in Resources */,
 				88F4A21E24D9926500C780CB /* CustomQuestionTVC.xib in Resources */,
 				88AEE8D924D1754F002225E9 /* OnboardingCVC.xib in Resources */,
+				8822A8F5253B2827003FF4B3 /* EmailPopupView.xib in Resources */,
 				8826B98F252C24E000B79ED4 /* VideoTileCell.xib in Resources */,
 				881690EA24D2820E00EE427E /* MADE Tommy Soft Bold PERSONAL USE.otf in Resources */,
 				88F4A21924D991CA00C780CB /* CustomHeaderTVC.xib in Resources */,
@@ -1703,6 +1710,7 @@
 				8824D90F24EE889C0041F7CE /* MentorDetailModel.swift in Sources */,
 				882D618125107812009EE3B7 /* EarningResponse.swift in Sources */,
 				882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */,
+				8822A8F3253B2810003FF4B3 /* EmailPopupView.swift in Sources */,
 				88FF6ABC24D3D431009F5E78 /* MD5.swift in Sources */,
 				882E44F924F4E5520012FFBF /* SocialLogin.swift in Sources */,
 				88FAB29A24E2CB8F0060D577 /* MentorHomeVC.swift in Sources */,

@@ -52,12 +52,12 @@ class BankDetailVC: UploadImageVC {
 //        holderNameTxt.text = "Vishal j Buha"
 //        firstNameTxt.text = "Vishal"
 //        lastNameTxt.text = "Buha"
-//        accountNumberTxt.text = "123456788"
-//        address1Txt.text = "158, Sarita darshan"
-//        address2Txt.text = "Chikuwadi"
-//        routingNumberTxt.text = "HDFC0000261"
-//        cityTxt.text = "Surat"
-//        stateTxt.text = "Gujarat"
+//        accountNumberTxt.text = "000123456789"//"123456788"
+//        address1Txt.text = "47 W 13th St"
+//        address2Txt.text = "New York"
+//        routingNumberTxt.text = "110000000"//"HDFC0000261"
+//        cityTxt.text = "New York"
+//        stateTxt.text = "New York"
 //        postalCodeTxt.text = "395006"
 //        contactNumberTxt.text = "9874563215"
 //        emailTxt.text = "buhavishal1@gmail.com"
@@ -107,7 +107,7 @@ class BankDetailVC: UploadImageVC {
     }
     
     @IBAction func clickToSelectGender(_ sender: Any) {
-        DatePickerManager.shared.showPicker(title: "Select Gender", selected: "", strings: ["Male", "Female"]) { [weak self](gender, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Gender", selected: "Male", strings: ["Male", "Female"]) { [weak self](gender, index, success) in
             if gender != nil {
                 self?.genderTxt.text = gender
                 self?.selectedGender = index
@@ -117,7 +117,7 @@ class BankDetailVC: UploadImageVC {
     }
     
     @IBAction func clickToSelectCountry(_ sender: Any) {
-        DatePickerManager.shared.showPicker(title: "Select Country", selected: "", strings: getCountryList(0)) { [weak self](country, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Country", selected: "United States", strings: getCountryList(0)) { [weak self](country, index, success) in
             if country != nil {
                 self?.countryTxt.text = country
                 self?.selectedCountry = getCountryCode(index)
@@ -127,7 +127,7 @@ class BankDetailVC: UploadImageVC {
     }
     
     @IBAction func clickToSelectCurrency(_ sender: Any) {
-        DatePickerManager.shared.showPicker(title: "Select Currency", selected: "", strings: getCurrencyList()) { [weak self](currency, index, success) in
+        DatePickerManager.shared.showPicker(title: "Select Currency", selected: "USD", strings: getCurrencyList()) { [weak self](currency, index, success) in
             if currency != nil {
                 self?.currencyTxt.text = currency
             }
@@ -149,7 +149,6 @@ class BankDetailVC: UploadImageVC {
             }
         }
     }
-    
     
     @IBAction func clickToSave(_ sender: Any) {
         guard let bankName = bankNameTxt.text, let fname = firstNameTxt.text, let lname = lastNameTxt.text, let holderName = holderNameTxt.text, let accountNumber = accountNumberTxt.text, let dob = dobTxt.text, let routingNumber = routingNumberTxt.text ,let address1 = address1Txt.text, let address2 = address2Txt.text, let city = cityTxt.text, let state = stateTxt.text, let postalCode = postalCodeTxt.text, let country = countryTxt.text, let contact = contactNumberTxt.text, let email = emailTxt.text, let ssn = ssnTxt.text, let gender = genderTxt.text, let currency = currencyTxt.text else {
@@ -180,7 +179,7 @@ class BankDetailVC: UploadImageVC {
             displayToast("Please enter your address line1")
         }
         else if address2.trimmed.count == 0 {
-            displayToast("Please enter your address line1")
+            displayToast("Please enter your address line2")
         }
         else if city.trimmed.count == 0 {
             displayToast("Please enter your city")

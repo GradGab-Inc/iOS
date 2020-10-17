@@ -18,6 +18,7 @@ class LoginVC: SocialLogin {
     @IBOutlet weak var emailTxt: TextField!
     @IBOutlet weak var passwordTxt: TextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

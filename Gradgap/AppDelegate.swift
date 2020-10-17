@@ -324,10 +324,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//        JoinCallVC.setUp(0)
         
-        
+        if let status = userInfo["status"] as? Int, status == 1 {
+            displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+            JoinCallVC.setUp()
+        }
         
         
         completionHandler([.alert, .badge, .sound])
@@ -362,7 +363,26 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             return
         }
         
-        NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
+        if let status = dict["status"] as? Int, status == 1 {
+            return
+        }
+        else {
+            if (NotificationVC.topViewController() != nil) {
+                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
+            }
+            else {
+                print("OKKKKK")
+            }
+            if let topController = UIApplication.topViewController() {
+                print(topController)
+               
+            }
+            else {
+                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
+            }
+//
+        }
+        
     }
 }
 

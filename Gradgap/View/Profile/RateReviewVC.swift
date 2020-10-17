@@ -60,7 +60,11 @@ class RateReviewVC: UIViewController {
             submitBtn.setTitle("Ok", for: .normal)
             callRateView.isUserInteractionEnabled = false
         }
-            
+        
+        bottomEmailLbl.sainiAddTapGesture {
+            redirectToEmail()
+        }
+        
         renderBookingDetail()
     }
     
