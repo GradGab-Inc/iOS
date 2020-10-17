@@ -135,8 +135,6 @@ class BookingDetailVC: UIViewController {
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {
                     print("Started")
-                    
- //                   bookingDetailForVideo = self.bookingDetail
                 }
             }
         }

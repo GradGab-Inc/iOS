@@ -54,7 +54,7 @@ class ConfirmBookingVC: UIViewController {
     var isApplyCoupon : Bool = false
     
     var disc : Double = Double()
-    var wallet : Int = Int()
+    var wallet : Double = Double()
     var cardListVM : CardListViewModel = CardListViewModel()
     var cardListArr : [CardListDataModel] = [CardListDataModel]()
     
@@ -106,7 +106,7 @@ class ConfirmBookingVC: UIViewController {
         priceLbl.text = "$\(mentorDetail.amount)"
         dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
         durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
-        useWalletBalanceLbl.text = "\(AppModel.shared.currentUser.user?.walletAmount ?? 0)"
+        useWalletBalanceLbl.text = "\(mentorDetail.walletAmount)"
                 
         let timeZone = timeZoneOffsetInMinutes()
         let time = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone)
@@ -131,15 +131,15 @@ class ConfirmBookingVC: UIViewController {
             applyDiscountLbl.text = "\(dict.amountOff)% Discount"
             discountTitleLbl.text = "Discount(\(dict.amountOff)%)"
             
-            disc = Double(Double((mentorDetail.amount) * (dict.amountOff))/100)
+            disc = Double(((mentorDetail.amount) * Double(dict.amountOff))/100)
             discountPriceLbl.text = "-$\(disc)"
             
             if useWalletBtn.isSelected {
-                if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+                if mentorDetail.walletAmount > mentorDetail.amount {
                     wallet = mentorDetail.amount
                 }
                 else {
-                    wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+                    wallet = mentorDetail.walletAmount
                 }
             }
             
@@ -226,11 +226,11 @@ class ConfirmBookingVC: UIViewController {
         discountPriceLbl.text = "$0"
         
         if useWalletBtn.isSelected {
-            if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+            if mentorDetail.walletAmount > mentorDetail.amount {
                 wallet = mentorDetail.amount
             }
             else {
-                wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+                wallet = mentorDetail.walletAmount
             }
         }
         
@@ -239,22 +239,22 @@ class ConfirmBookingVC: UIViewController {
     }
     
     @IBAction func clickToUseWallet(_ sender: UIButton) {
-        if AppModel.shared.currentUser.user?.walletAmount == 0 {
+        if mentorDetail.walletAmount == 0 {
             displayToast("You have not wallet balance")
             return
         }
         
         if isApplyCoupon {
-            disc = Double(Double((mentorDetail.amount) * (applyCoupon.amountOff))/100)
+            disc = Double(((mentorDetail.amount) * Double(applyCoupon.amountOff))/100)
             applyDiscountLbl.text = "\(applyCoupon.amountOff)% Discount"
             discountTitleLbl.text = "Discount(\(applyCoupon.amountOff)%)"
             discountPriceLbl.text = "-$\(disc)"
         }
-        if AppModel.shared.currentUser.user?.walletAmount ?? 0 > mentorDetail.amount {
+        if mentorDetail.walletAmount > Double(mentorDetail.amount) {
             wallet = mentorDetail.amount
         }
         else {
-            wallet = AppModel.shared.currentUser.user?.walletAmount ?? 0
+            wallet = mentorDetail.walletAmount
         }
         
         if sender.isSelected {

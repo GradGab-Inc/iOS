@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://3244e1539eb5.ngrok.io/"//"http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://3.82.95.119:3000" //"http://3.82.95.119/development/"
+let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://3.82.95.119:3000" //"http://3.82.95.119/development/"
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
@@ -62,11 +62,22 @@ class SocketIOManager: NSObject {
         socket.on("extend_call") { (dataArray, ack) in
             print(dataArray)
             if dataArray.count == 0 {
-                displayToast("For extend call")
                 NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
             }
             else {
+                let messageData = dataArray.first as! [String: Any]
+                if let data = messageData["status"], data as! Int == 2 {
+                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 2])
+                }
+                else if let data = messageData["status"], data as! Int == 3 {
+                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 3])
+                }
                 
+//                let jsonData = try? JSONSerialization.data(withJSONObject: dataArray, options: [])
+//                let jsonString = String(data: jsonData!, encoding: .utf8)!
+//                if let dict = convertToDictionary(text: jsonString) {
+//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: dataArray)
+//                }
             }
         }
         
@@ -88,8 +99,8 @@ class SocketIOManager: NSObject {
         socket.removeAllHandlers()
     }
     
-    func subscribeChannel(_ id : String) {
-        socket.emit("subscribe_channel", id) {
+    func subscribeChannel(_ dict : [String : String]) {
+        socket.emit("subscribe_channel", dict) {
             
         }
     }
@@ -108,23 +119,22 @@ class SocketIOManager: NSObject {
 
     
     
-    func acknowledgementMessage(completionHandler: @escaping (_ messageStatus: Int) -> Void) {
-        socket.on("extend_call") { (dataArray, ack) in
-            print(dataArray)
-            if dataArray.count == 0 {
-                displayToast("For extend call")
-                completionHandler(3)
-//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
-            }
-            else {
-                let messageJsonData = dataArray.first as! [String: Any]
-                let jsonData = try? JSONSerialization.data(withJSONObject: messageJsonData["data"]!, options: [])
-                let jsonString = String(data: jsonData!, encoding: .utf8)!
-                if let dict = convertToDictionary(text: jsonString) {
-                    completionHandler(dict["status"] as! Int)
-                }
-            }
-        }
+//    func acknowledgementMessage(completionHandler: @escaping (_ messageStatus: Int) -> Void) {
+//        socket.on("extend_call") { (dataArray, ack) in
+//            print(dataArray)
+//            if dataArray.count == 0 {
+//                displayToast("For extend call")
+//                completionHandler(3)
+//            }
+//            else {
+//                let messageJsonData = dataArray.first as! [String: Any]
+//                let jsonData = try? JSONSerialization.data(withJSONObject: messageJsonData["data"]!, options: [])
+//                let jsonString = String(data: jsonData!, encoding: .utf8)!
+//                if let dict = convertToDictionary(text: jsonString) {
+//                    completionHandler(dict["status"] as! Int)
+//                }
+//            }
+//        }
         
         
 //        socket.on("subscribe_channel") { ( dataArray, ack) -> Void in
@@ -155,9 +165,9 @@ class SocketIOManager: NSObject {
 //    }
 //
 //
-    func sendMessage(message: String) {
-        socket.emit("message",message)
-    }
+//    func sendMessage(message: String) {
+//        socket.emit("message",message)
+//    }
     
     
    
@@ -205,7 +215,7 @@ class SocketIOManager: NSObject {
 //    func sendStopTypingMessage(nickname: String) {
 //        socket.emit("stopType", nickname)
 //    }
-}
+//}
 
 
 //func delay(_ delay:Double, closure:@escaping ()->()) {

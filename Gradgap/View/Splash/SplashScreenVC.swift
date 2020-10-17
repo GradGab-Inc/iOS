@@ -27,7 +27,7 @@ class SplashScreenVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        logoVerticleConstraint.constant = 250//(SCREEN.HEIGHT/2) - 150
+        logoVerticleConstraint.constant = 250 //(SCREEN.HEIGHT/2) - 150
     }
     
     func configUI()  {

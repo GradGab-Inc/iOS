@@ -76,7 +76,7 @@ struct MentorSectionModel: Codable {
 // MARK: - Datum
 struct MentorListDataModel: Codable {
     let id: String
-    let averageRating: Int
+    let averageRating: Double
     let image, name, schoolID, schoolName, firstName, lastName: String
     let schoolShortName: String
     let availableTimings: [Int]
@@ -92,7 +92,7 @@ struct MentorListDataModel: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        averageRating = try values.decodeIfPresent(Int.self, forKey: .averageRating) ?? 0
+        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0
         availableTimings = try values.decodeIfPresent([Int].self, forKey: .availableTimings) ?? []
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
