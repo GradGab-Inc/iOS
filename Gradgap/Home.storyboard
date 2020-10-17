@@ -4420,7 +4420,7 @@ Refer some friends.</string>
                                     <rect key="frame" x="0.0" y="150" width="240" height="254"/>
                                 </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_card_add" translatesAutoresizingMaskIntoConstraints="NO" id="pTE-9T-uOO">
-                                    <rect key="frame" x="40" y="56" width="160" height="155"/>
+                                    <rect key="frame" x="35" y="56" width="170" height="155"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="155" id="lZg-UH-g7C"/>
@@ -4476,12 +4476,12 @@ Refer some friends.</string>
                                 <constraint firstAttribute="trailing" secondItem="gZQ-tn-H94" secondAttribute="trailing" id="1b9-0r-Evw"/>
                                 <constraint firstAttribute="trailing" secondItem="eWj-U2-rIJ" secondAttribute="trailing" constant="8" id="2Dg-Yc-GHw"/>
                                 <constraint firstItem="HLe-Ok-wCp" firstAttribute="top" secondItem="JWA-U3-HWq" secondAttribute="top" id="30Y-vb-YPf"/>
-                                <constraint firstItem="pTE-9T-uOO" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="40" id="3JS-j5-KDH"/>
+                                <constraint firstItem="pTE-9T-uOO" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="35" id="3JS-j5-KDH"/>
                                 <constraint firstItem="pTE-9T-uOO" firstAttribute="top" secondItem="JWA-U3-HWq" secondAttribute="top" constant="56" id="7aH-qn-gx7"/>
                                 <constraint firstAttribute="bottom" secondItem="rbs-4L-Jk9" secondAttribute="bottom" constant="60" id="FRi-Nj-pmF"/>
                                 <constraint firstItem="rbs-4L-Jk9" firstAttribute="leading" secondItem="JWA-U3-HWq" secondAttribute="leading" constant="25" id="MgR-DW-rZ3"/>
                                 <constraint firstAttribute="bottom" secondItem="gZQ-tn-H94" secondAttribute="bottom" constant="16" id="XCb-oH-8Y7"/>
-                                <constraint firstAttribute="trailing" secondItem="pTE-9T-uOO" secondAttribute="trailing" constant="40" id="XN4-4N-wQj"/>
+                                <constraint firstAttribute="trailing" secondItem="pTE-9T-uOO" secondAttribute="trailing" constant="35" id="XN4-4N-wQj"/>
                                 <constraint firstItem="eWj-U2-rIJ" firstAttribute="top" secondItem="pTE-9T-uOO" secondAttribute="bottom" constant="30" id="ZKx-uF-tbA"/>
                                 <constraint firstAttribute="height" constant="420" id="b3u-q0-3JZ"/>
                                 <constraint firstAttribute="trailing" secondItem="K20-nG-KwB" secondAttribute="trailing" constant="25" id="gqn-PG-KVz"/>
@@ -7832,86 +7832,6 @@ Refer some friends.</string>
                                     <constraint firstItem="pUI-9y-cn6" firstAttribute="top" secondItem="sk0-Jg-4ff" secondAttribute="top" id="z7b-uz-YqY"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-aK-ego">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="209.5"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-1g-zfW">
-                                        <rect key="frame" x="142.5" y="20" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Aw0-Ci-Fga"/>
-                                            <constraint firstAttribute="width" constant="35" id="SZX-Ib-9nn"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Extension Request !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER0-iJ-zkq">
-                                        <rect key="frame" x="15" y="71" width="290" height="19"/>
-                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranjit has requested to extend 15 mins for $34 ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-Dw-huM">
-                                        <rect key="frame" x="20" y="98" width="280" height="35"/>
-                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRt-gI-wne" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                        <rect key="frame" x="167.5" y="153.5" width="117.5" height="36"/>
-                                        <color key="backgroundColor" name="RedColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="cI5-DO-xB5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                        <state key="normal" title="Accept">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="19"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="clickToAccept:" destination="0jB-QW-nbA" eventType="touchUpInside" id="ogG-Wy-lzc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-Ga-Meg" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="151.5" width="117.5" height="38"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="Z4Y-8e-eT3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
-                                        <state key="normal" title="Reject">
-                                            <color key="titleColor" name="RedColor"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="24"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="clickToReject:" destination="0jB-QW-nbA" eventType="touchUpInside" id="aXN-34-Gdr"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" name="AppColor"/>
-                                <constraints>
-                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="top" secondItem="2xa-1g-zfW" secondAttribute="bottom" constant="16" id="AEN-jO-2FV"/>
-                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="top" secondItem="ER0-iJ-zkq" secondAttribute="bottom" constant="8" id="NeM-hB-r2x"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ulu-Ga-Meg" secondAttribute="bottom" constant="20" id="NlA-kF-9jL"/>
-                                    <constraint firstItem="YRt-gI-wne" firstAttribute="width" secondItem="Ulu-Ga-Meg" secondAttribute="width" id="PgK-eW-fa9"/>
-                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="top" secondItem="n9o-Dw-huM" secondAttribute="bottom" constant="18.5" id="S6y-09-hv7"/>
-                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="top" secondItem="ahb-aK-ego" secondAttribute="top" constant="20" id="TRm-TL-iW0"/>
-                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="15" id="WJk-Pn-bVh"/>
-                                    <constraint firstAttribute="bottom" secondItem="YRt-gI-wne" secondAttribute="bottom" constant="20" id="ab0-fZ-ntq"/>
-                                    <constraint firstAttribute="trailing" secondItem="n9o-Dw-huM" secondAttribute="trailing" constant="20" id="bor-ou-Y9O"/>
-                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="20" id="jAS-Mk-r7l"/>
-                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="centerX" secondItem="ahb-aK-ego" secondAttribute="centerX" id="w2L-mb-Jus"/>
-                                    <constraint firstAttribute="trailing" secondItem="ER0-iJ-zkq" secondAttribute="trailing" constant="15" id="wgi-A2-sKH"/>
-                                    <constraint firstAttribute="trailing" secondItem="YRt-gI-wne" secondAttribute="trailing" constant="35" id="wwU-eh-jhe"/>
-                                    <constraint firstItem="YRt-gI-wne" firstAttribute="leading" secondItem="Ulu-Ga-Meg" secondAttribute="trailing" constant="15" id="yij-et-oWp"/>
-                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="35" id="zeC-0a-a1B"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNv-A0-oxC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="209.5"/>
                                 <subviews>
@@ -7990,6 +7910,86 @@ Refer some friends.</string>
                                     <constraint firstAttribute="trailing" secondItem="DN4-5R-aUv" secondAttribute="trailing" constant="35" id="gSc-Ve-GrP"/>
                                     <constraint firstItem="Smt-zj-7G9" firstAttribute="centerX" secondItem="TNv-A0-oxC" secondAttribute="centerX" id="sV5-Yu-MQL"/>
                                     <constraint firstAttribute="trailing" secondItem="sub-e5-z4T" secondAttribute="trailing" constant="15" id="uBZ-uC-CM0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahb-aK-ego">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_clock" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-1g-zfW">
+                                        <rect key="frame" x="142.5" y="20" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Aw0-Ci-Fga"/>
+                                            <constraint firstAttribute="width" constant="35" id="SZX-Ib-9nn"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Extension Request !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER0-iJ-zkq">
+                                        <rect key="frame" x="15" y="71" width="290" height="19"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading...." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9o-Dw-huM">
+                                        <rect key="frame" x="20" y="98" width="280" height="17.5"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRt-gI-wne" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="167.5" y="136" width="117.5" height="36"/>
+                                        <color key="backgroundColor" name="RedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="cI5-DO-xB5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Accept">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="19"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToAccept:" destination="0jB-QW-nbA" eventType="touchUpInside" id="ogG-Wy-lzc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-Ga-Meg" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="134" width="117.5" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Z4Y-8e-eT3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
+                                        <state key="normal" title="Reject">
+                                            <color key="titleColor" name="RedColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickToReject:" destination="0jB-QW-nbA" eventType="touchUpInside" id="aXN-34-Gdr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="top" secondItem="2xa-1g-zfW" secondAttribute="bottom" constant="16" id="AEN-jO-2FV"/>
+                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="top" secondItem="ER0-iJ-zkq" secondAttribute="bottom" constant="8" id="NeM-hB-r2x"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ulu-Ga-Meg" secondAttribute="bottom" constant="20" id="NlA-kF-9jL"/>
+                                    <constraint firstItem="YRt-gI-wne" firstAttribute="width" secondItem="Ulu-Ga-Meg" secondAttribute="width" id="PgK-eW-fa9"/>
+                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="top" secondItem="n9o-Dw-huM" secondAttribute="bottom" constant="18.5" id="S6y-09-hv7"/>
+                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="top" secondItem="ahb-aK-ego" secondAttribute="top" constant="20" id="TRm-TL-iW0"/>
+                                    <constraint firstItem="ER0-iJ-zkq" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="15" id="WJk-Pn-bVh"/>
+                                    <constraint firstAttribute="bottom" secondItem="YRt-gI-wne" secondAttribute="bottom" constant="20" id="ab0-fZ-ntq"/>
+                                    <constraint firstAttribute="trailing" secondItem="n9o-Dw-huM" secondAttribute="trailing" constant="20" id="bor-ou-Y9O"/>
+                                    <constraint firstItem="n9o-Dw-huM" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="20" id="jAS-Mk-r7l"/>
+                                    <constraint firstItem="2xa-1g-zfW" firstAttribute="centerX" secondItem="ahb-aK-ego" secondAttribute="centerX" id="w2L-mb-Jus"/>
+                                    <constraint firstAttribute="trailing" secondItem="ER0-iJ-zkq" secondAttribute="trailing" constant="15" id="wgi-A2-sKH"/>
+                                    <constraint firstAttribute="trailing" secondItem="YRt-gI-wne" secondAttribute="trailing" constant="35" id="wwU-eh-jhe"/>
+                                    <constraint firstItem="YRt-gI-wne" firstAttribute="leading" secondItem="Ulu-Ga-Meg" secondAttribute="trailing" constant="15" id="yij-et-oWp"/>
+                                    <constraint firstItem="Ulu-Ga-Meg" firstAttribute="leading" secondItem="ahb-aK-ego" secondAttribute="leading" constant="35" id="zeC-0a-a1B"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for another user to join the call..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s60-sX-JPf">

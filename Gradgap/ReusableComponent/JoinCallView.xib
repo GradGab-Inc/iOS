@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="MADE Tommy Soft Medium PERSONAL USE.otf">
+            <string>MADETommySoft-Medium</string>
+        </array>
         <array key="MADE Tommy Soft Regular PERSONAL USE.otf">
             <string>MADETommySoft</string>
         </array>
@@ -16,7 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JoinCallView" customModule="Gradgap" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JoinCallView" customModule="GradGab" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -26,7 +29,7 @@
                         <action selector="clickToNotNow:" destination="iN0-l3-epB" eventType="touchUpInside" id="zBQ-uh-SEb"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bsd-mr-OvL" customClass="View" customModule="Gradgap" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bsd-mr-OvL" customClass="View" customModule="GradGab" customModuleProvider="target">
                     <rect key="frame" x="40" y="89" width="240" height="390"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-vd-Ne9">
@@ -49,7 +52,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJN-Mg-ThZ" customClass="Button" customModule="Gradgap" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJN-Mg-ThZ" customClass="Button" customModule="GradGab" customModuleProvider="target">
                             <rect key="frame" x="25" y="317" width="190" height="48"/>
                             <color key="backgroundColor" name="RedColor"/>
                             <constraints>
@@ -65,7 +68,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="clickToJoinNow:" destination="iN0-l3-epB" eventType="touchUpInside" id="PfU-Zt-ELU"/>
+                                <action selector="clickToMenteeJoinNow:" destination="iN0-l3-epB" eventType="touchUpInside" id="dBF-iR-azr"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Join link is also available on your booking screen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuF-fU-M7A">
@@ -100,27 +103,127 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5L-M4-RJs" customClass="View" customModule="GradGab" customModuleProvider="target">
+                    <rect key="frame" x="35" y="79" width="250" height="410"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jR-Y5-NR6">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="205"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="205" id="EzX-DY-y3n"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_filter_bg" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-ER-pRH">
+                            <rect key="frame" x="0.0" y="134" width="250" height="276"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_illustration_clock" translatesAutoresizingMaskIntoConstraints="NO" id="26d-Ir-are">
+                            <rect key="frame" x="40" y="31" width="170" height="169"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="169" id="Dss-6U-mOT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s about that time!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBb-hb-lLX">
+                            <rect key="frame" x="20" y="225" width="210" height="20"/>
+                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiu-7Y-BPQ" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                            <rect key="frame" x="25" y="337" width="200" height="48"/>
+                            <color key="backgroundColor" name="RedColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="oNN-h7-XUR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="15"/>
+                            <state key="normal" title="Join Now">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="clickToMentorJoinCall:" destination="iN0-l3-epB" eventType="touchUpInside" id="wgJ-tw-aED"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHb-Zp-Tvd">
+                            <rect key="frame" x="8" y="260" width="234" height="33"/>
+                            <string key="text">Your video chat with Ranjit starts in
+1 minute.</string>
+                            <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don’t be late !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWt-lD-igl">
+                            <rect key="frame" x="8" y="305" width="234" height="16.5"/>
+                            <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="AppColor"/>
+                    <constraints>
+                        <constraint firstItem="GcU-ER-pRH" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" id="1kI-uM-9gy"/>
+                        <constraint firstAttribute="trailing" secondItem="SWt-lD-igl" secondAttribute="trailing" constant="8" id="6SQ-eT-2Hj"/>
+                        <constraint firstItem="SWt-lD-igl" firstAttribute="top" secondItem="cHb-Zp-Tvd" secondAttribute="bottom" constant="12" id="Aq1-dw-EPn"/>
+                        <constraint firstAttribute="trailing" secondItem="26d-Ir-are" secondAttribute="trailing" constant="40" id="COs-Gm-hf1"/>
+                        <constraint firstAttribute="bottom" secondItem="Qiu-7Y-BPQ" secondAttribute="bottom" constant="25" id="Gqz-Yq-suD"/>
+                        <constraint firstAttribute="trailing" secondItem="9jR-Y5-NR6" secondAttribute="trailing" id="HwZ-4f-Zep"/>
+                        <constraint firstAttribute="trailing" secondItem="Qiu-7Y-BPQ" secondAttribute="trailing" constant="25" id="KZG-EF-M3w"/>
+                        <constraint firstItem="NBb-hb-lLX" firstAttribute="top" secondItem="26d-Ir-are" secondAttribute="bottom" constant="25" id="Po0-RW-3mo"/>
+                        <constraint firstItem="9jR-Y5-NR6" firstAttribute="top" secondItem="E5L-M4-RJs" secondAttribute="top" id="QIl-o8-Fl7"/>
+                        <constraint firstItem="26d-Ir-are" firstAttribute="top" secondItem="E5L-M4-RJs" secondAttribute="top" constant="31" id="X0n-GG-Z8e"/>
+                        <constraint firstItem="26d-Ir-are" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" constant="40" id="bcL-US-T8L"/>
+                        <constraint firstItem="cHb-Zp-Tvd" firstAttribute="top" secondItem="NBb-hb-lLX" secondAttribute="bottom" constant="15" id="d3G-fT-T9g"/>
+                        <constraint firstItem="SWt-lD-igl" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" constant="8" id="dKp-ss-sfW"/>
+                        <constraint firstAttribute="trailing" secondItem="GcU-ER-pRH" secondAttribute="trailing" id="h4v-m1-Cny"/>
+                        <constraint firstItem="9jR-Y5-NR6" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" id="mBa-C9-JKM"/>
+                        <constraint firstAttribute="trailing" secondItem="NBb-hb-lLX" secondAttribute="trailing" constant="20" id="nQ7-G7-DJz"/>
+                        <constraint firstAttribute="bottom" secondItem="GcU-ER-pRH" secondAttribute="bottom" id="oNa-81-PIR"/>
+                        <constraint firstItem="Qiu-7Y-BPQ" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" constant="25" id="ohv-Md-kqG"/>
+                        <constraint firstItem="NBb-hb-lLX" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" constant="20" id="oov-VW-Grw"/>
+                        <constraint firstItem="cHb-Zp-Tvd" firstAttribute="leading" secondItem="E5L-M4-RJs" secondAttribute="leading" constant="8" id="sva-wj-Bli"/>
+                        <constraint firstItem="GcU-ER-pRH" firstAttribute="top" secondItem="E5L-M4-RJs" secondAttribute="top" constant="134" id="v2V-h2-TfY"/>
+                        <constraint firstAttribute="trailing" secondItem="cHb-Zp-Tvd" secondAttribute="trailing" constant="8" id="vGk-G8-q8m"/>
+                        <constraint firstAttribute="height" constant="410" id="wlF-5W-sRx"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.60414832746478875" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ppS-dd-doo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4fO-Sb-3FZ"/>
                 <constraint firstItem="Bsd-mr-OvL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="98j-x1-lm2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="E5L-M4-RJs" secondAttribute="trailing" constant="35" id="9uC-2K-ENa"/>
+                <constraint firstItem="E5L-M4-RJs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="B3f-Az-q2K"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ppS-dd-doo" secondAttribute="trailing" id="BJd-Xr-sHF"/>
                 <constraint firstItem="ppS-dd-doo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IMm-ex-2L1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bsd-mr-OvL" secondAttribute="trailing" constant="40" id="ShM-sz-aQc"/>
+                <constraint firstItem="E5L-M4-RJs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f9n-eZ-cq9"/>
                 <constraint firstItem="Bsd-mr-OvL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gHh-QX-Icg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ppS-dd-doo" secondAttribute="bottom" id="zmP-4R-nUg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="menteeReminderBackView" destination="Bsd-mr-OvL" id="Crx-nl-bfd"/>
+                <outlet property="menteeTitleLbl" destination="s7O-ei-lhB" id="QDS-tH-xSQ"/>
+                <outlet property="mentorReminderBackView" destination="E5L-M4-RJs" id="6Pf-Lx-8t0"/>
+                <outlet property="mentorTitleLbl" destination="cHb-Zp-Tvd" id="HM8-85-hNf"/>
                 <outlet property="noteLbl" destination="QuF-fU-M7A" id="Ltz-sP-hkH"/>
-                <outlet property="startsTimeLbl" destination="s7O-ei-lhB" id="s85-jI-pb3"/>
             </connections>
             <point key="canvasLocation" x="131.25" y="153.16901408450704"/>
         </view>
     </objects>
     <resources>
         <image name="ic_callstarting" width="220.5" height="155"/>
+        <image name="ic_filter_bg" width="331" height="522"/>
+        <image name="ic_illustration_clock" width="185.5" height="166"/>
         <namedColor name="AppColor">
             <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var activityLoader : NVActivityIndicatorView!
     var container : MFSideMenuContainerViewController = MFSideMenuContainerViewController()
     var aboutVM : AboutViewModel = AboutViewModel.init()
+    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -321,7 +322,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        _ = notification.request.content.userInfo
+        let userInfo = notification.request.content.userInfo
+        
+//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+//        JoinCallVC.setUp(0)
+        
+        
+        
+        
         completionHandler([.alert, .badge, .sound])
     }
     
@@ -340,7 +348,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         completionHandler()
     }
-    
+        
     @objc func delayForNotification(tempTimer:Timer)
     {
         notificationHandler(tempTimer.userInfo as! [String : Any])

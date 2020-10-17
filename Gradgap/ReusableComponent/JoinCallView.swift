@@ -11,8 +11,13 @@ import UIKit
 
 class JoinCallView: UIView {
 
-    @IBOutlet weak var startsTimeLbl: UILabel!
+    @IBOutlet weak var menteeReminderBackView: View!
+    @IBOutlet weak var menteeTitleLbl: UILabel!
     @IBOutlet weak var noteLbl: UILabel!
+    
+    @IBOutlet weak var mentorReminderBackView: View!
+    @IBOutlet weak var mentorTitleLbl: UILabel!
+    
     
     var flag : Int = 0
     
@@ -27,22 +32,31 @@ class JoinCallView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        if startsTimeLbl == nil {
+        if menteeTitleLbl == nil {
             delay(1.0) {
-                self.setUp(0)
+                self.setUp()
             }
         }
         else{
-            setUp(0)
+            setUp()
         }
     }
     
-    func setUp(_ flag : Int) {
-        if flag == 0 {
+    func setUp() {
+        menteeReminderBackView.isHidden = true
+        mentorReminderBackView.isHidden = true
+        
+        if AppModel.shared.currentUser == nil {
+            return
+        }
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            menteeReminderBackView.isHidden = false
             noteLbl.isHidden = false
         }
-        else if flag == 1 {
-            noteLbl.isHidden = true
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            mentorReminderBackView.isHidden = false
+            
         }
     }
     
@@ -52,11 +66,20 @@ class JoinCallView: UIView {
         self.removeFromSuperview()
     }
     
-    @IBAction func clickToJoinNow(_ sender: Any) {
+    @IBAction func clickToMenteeJoinNow(_ sender: Any) {
+        self.endEditing(true)
+        self.removeFromSuperview()
+        
+    }
+    
+    @IBAction func clickToMentorJoinCall(_ sender: Any) {
         self.endEditing(true)
         self.removeFromSuperview()
         
         
     }
+    
+    
+    
 }
 

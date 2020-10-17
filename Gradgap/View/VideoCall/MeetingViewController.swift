@@ -77,10 +77,11 @@ class MeetingViewController: UIViewController {
     var callEndTime: Date = Date()
     var callStartTime: Date = Date().sainiStartOfDay
     var counter : Int = 0
+    var isAccept : Bool = false
     // Local var
     private let logger = ConsoleLogger(name: "MeetingViewController")
     var ExtendCallVM : ExtendCallViewModel = ExtendCallViewModel()
-    var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
+    var callActionVM : CallActionViewModel = CallActionViewModel()
     
     // MARK: Override functions
 
@@ -93,6 +94,8 @@ class MeetingViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(setAcceptRejectView), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(addCouponData), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: nil)
+        
         configure(meetingModel: meetingModel)
         super.viewDidLoad()
         setupUI()
@@ -102,7 +105,7 @@ class MeetingViewController: UIViewController {
         mentorTimeExtensionBackView.isHidden = true
         
         ExtendCallVM.delegate = self
-        bookingActionVM.delegate = self
+        callActionVM.delegate = self
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -129,7 +132,24 @@ class MeetingViewController: UIViewController {
     }
 
     @objc func setAcceptRejectView() {
-        mentorTimeExtensionBackView.isHidden = false
+        if AppModel.shared.currentUser.user?.userType == 2 {
+            mentorTimeExtensionBackView.isHidden = false
+            mentorMessageLbl.text = "\(bookingDetailForVideo.firstName) has requested to extend 15 mins for $4?"
+        }
+    }
+    
+    @objc func addCouponData(notification : Notification) {
+        if let dict : [String: Any] = notification.object as? [String: Any]
+        {
+            if dict["status"] as! Int == 2 {
+                print(dict["status"] as! Int)
+                self.callEndTime = callEndTime.sainiAddMinutes(Double(2))
+            }
+            else if dict["status"] as! Int == 3 {
+                print("******* \(dict["status"] as! Int) *************")
+                displayToast("Mentor not allow for extend call")
+            }
+        }
     }
     
     private func configure(meetingModel: MeetingModel) {
@@ -141,7 +161,8 @@ class MeetingViewController: UIViewController {
             meetingModel.isLocalVideoActive = true
             self?.callEndTime = Date().sainiAddMinutes(Double(3))
             self?.scheduledTimerWithTimeInterval()
-            SocketIOManager.sharedInstance.subscribeChannel(bookingDetailForVideo.id)
+            
+            SocketIOManager.sharedInstance.subscribeChannel(["bookingRef": bookingDetailForVideo.id])
         }
         meetingModel.isMutedHandler = { [weak self] isMuted in
             self?.muteButton.isSelected = isMuted
@@ -149,7 +170,7 @@ class MeetingViewController: UIViewController {
         meetingModel.isEndedHandler = {
             DispatchQueue.main.async {
                 MeetingModule.shared().dismissMeeting(meetingModel)
-                bookingDetailForVideo = BookingDetail.init()
+//                bookingDetailForVideo = BookingDetail.init()
             }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
@@ -247,7 +268,7 @@ class MeetingViewController: UIViewController {
         
     }
    
-    func scheduledTimerWithTimeInterval(){
+    func scheduledTimerWithTimeInterval() {
         timer?.invalidate()
         let seconds = 1.0
         timer = Timer.scheduledTimer(timeInterval: seconds, target: self, selector: #selector(callTimer), userInfo: nil, repeats: true)
@@ -262,7 +283,7 @@ class MeetingViewController: UIViewController {
             DispatchQueue.main.async {
                 self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
             }
-            if counter  == 60 && AppModel.shared.currentUser.user?.userType == 1 {
+            if counter  == 30 && AppModel.shared.currentUser.user?.userType == 1 {
                 twoMinuteLeftBackView.isHidden = false
             }
         }
@@ -419,13 +440,15 @@ class MeetingViewController: UIViewController {
     }
     
     @IBAction func clickToReject(_ sender: Any) {
-        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: BookingStatus.CANCELLED)
-        bookingActionVM.getBookingAction(request: request)
+        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: CallStatus.REJECTED)
+        isAccept = false
+        callActionVM.getCallAction(request: request)
     }
      
     @IBAction func clickToAccept(_ sender: Any) {
-        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: BookingStatus.BOOKED)
-        bookingActionVM.getBookingAction(request: request)
+        let request = GetBookingActionRequest(bookingRef: bookingDetailForVideo.id, status: CallStatus.APPROVED)
+        isAccept = true
+        callActionVM.getCallAction(request: request)
     }
     
 
@@ -466,10 +489,15 @@ class MeetingViewController: UIViewController {
     }
 }
 
-extension MeetingViewController: ExtendCallDelegate, BookingActionDelegate {
-    func didRecieveBookingActionResponse(response: SuccessModel) {
+extension MeetingViewController: ExtendCallDelegate, CallActionDelegate {
+    func didRecieveCallActionResponse(response: SuccessModel) {
         mentorTimeExtensionBackView.isHidden = true
         displayToast(response.message)
+        
+        if isAccept {
+            print("Accept")
+            self.callEndTime = callEndTime.sainiAddMinutes(Double(2))
+        }
     }
     
     func didRecieveExtendCallResponse(response: SuccessModel) {

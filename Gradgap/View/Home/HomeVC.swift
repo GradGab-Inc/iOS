@@ -23,7 +23,7 @@ class HomeVC: UIViewController {
     
     var titleArr = ["Chat","Virtual Tour","Interview Prep"]
     var subTitleArr = ["Video chat with a current student.","Get a live 1 hour campus tour.","45 Min Mock Interview Prep or Mock interview."]
-    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
+//    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     let backImgArr = ["Image_Chat","Image_Virtual_Tour","Image_Interview Prep"]
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
@@ -201,21 +201,6 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
                 vc.selectedType = 2
             }
             self.navigationController?.pushViewController(vc, animated: true)
-            
-//            if indexPath.row == 0 {
-//                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookChatVC") as! BookChatVC
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            else {
-//                let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookVC") as! BookVC
-//                if indexPath.row == 1 {
-//                    vc.selectedType = 3
-//                }
-//                else if indexPath.row == 2 {
-//                    vc.selectedType = 2
-//                }
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
         }
         else {
             let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "BookingDetailVC") as! BookingDetailVC
@@ -225,8 +210,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-        JoinCallVC.setUp(0)
+//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+//        JoinCallVC.setUp(0)
     }
     
 }

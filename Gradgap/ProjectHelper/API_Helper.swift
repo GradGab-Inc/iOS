@@ -16,7 +16,7 @@ struct API {
 //    static let BASE_URL = "http://54.197.250.33/staging/api/"
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
     // Local
-    static let URL_DEV = "http://3.82.95.119/development/"
+    static let URL_DEV = "http://3.82.95.119/development/" //
     static let BASE_URL = URL_DEV + "api/" //"http://c17819afdf3e.ngrok.io/api/"//
     static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
     
@@ -103,6 +103,7 @@ struct API {
     struct CALL {
         static let join                   = BASE_URL + "call/join"
         static let extend                 = BASE_URL + "call/extend"
+        static let action                 = BASE_URL + "call/action"
     }
 }
 
@@ -193,6 +194,7 @@ struct GCD{
     struct CALL {
         static let join = DispatchQueue(label: "com.app.CALL_join", qos: .background, attributes: .concurrent) //1
         static let extend = DispatchQueue(label: "com.app.CALL_extend", qos: .background, attributes: .concurrent) //1
+        static let action = DispatchQueue(label: "com.app.CALL_action", qos: .background, attributes: .concurrent) //1
     }
     
 }

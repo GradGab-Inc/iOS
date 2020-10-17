@@ -131,6 +131,7 @@ struct NOTIFICATION {
     static var UPDATE_BANKLIST_DATA        =   "UPDATE_BANKLIST_DATA"
     static var ADD_RATEREVIEW_DATA         =   "ADD_RATEREVIEW_DATA"
     static var SETUP_EXTEND_DATA           =   "SETUP_EXTEND_DATA"
+    static var SETUP_EXTEND_VERIFICATION_DATA           =   "SETUP_EXTEND_VERIFICATION_DATA"
     static let REDICT_TO_NOTIFICATION      =   "REDICT_TO_NOTIFICATION"
 }
 
@@ -272,4 +273,11 @@ struct BookingStatus {
 struct ProfileStatus {
     static let MENTEE =  1
     static let MENTOR =  2
+}
+
+
+struct CallStatus {
+    static let PENDING =  1
+    static let APPROVED =  2
+    static let REJECTED = 3
 }

@@ -57,6 +57,7 @@
 		88209766251A1A9F0038E3F3 /* EarningListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88209765251A1A9F0038E3F3 /* EarningListRequest.swift */; };
 		8820C1792536EEC6007550FD /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C1782536EEC6007550FD /* SocketIOManager.swift */; };
 		8820C17B253712C1007550FD /* ExtendCallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C17A253712C1007550FD /* ExtendCallViewModel.swift */; };
+		88215D3D253AC2CC00E69FFB /* CallActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88215D3C253AC2CC00E69FFB /* CallActionViewModel.swift */; };
 		88220CDD2518708B0078A4F9 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 88220CDC2518708A0078A4F9 /* countries.json */; };
 		882231542525A8D000312945 /* VideoCallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882231532525A8D000312945 /* VideoCallVC.swift */; };
 		8822682224ED1F7900E88254 /* AvailabilityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */; };
@@ -356,6 +357,7 @@
 		88209765251A1A9F0038E3F3 /* EarningListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningListRequest.swift; sourceTree = "<group>"; };
 		8820C1782536EEC6007550FD /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		8820C17A253712C1007550FD /* ExtendCallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendCallViewModel.swift; sourceTree = "<group>"; };
+		88215D3C253AC2CC00E69FFB /* CallActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallActionViewModel.swift; sourceTree = "<group>"; };
 		88220CDC2518708A0078A4F9 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		882231532525A8D000312945 /* VideoCallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallVC.swift; sourceTree = "<group>"; };
 		8822682124ED1F7900E88254 /* AvailabilityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailabilityListViewModel.swift; sourceTree = "<group>"; };
@@ -957,6 +959,7 @@
 			children = (
 				882828AC25287D420019F322 /* JoinCallViewModel.swift */,
 				8820C17A253712C1007550FD /* ExtendCallViewModel.swift */,
+				88215D3C253AC2CC00E69FFB /* CallActionViewModel.swift */,
 			);
 			path = VideoCall;
 			sourceTree = "<group>";
@@ -1640,6 +1643,7 @@
 				88862EAF24E6612600533CBA /* HelpVC.swift in Sources */,
 				88AEE8A024D15A78002225E9 /* String+RUI.swift in Sources */,
 				888C6CC024E10D11008E27E0 /* BookVC.swift in Sources */,
+				88215D3D253AC2CC00E69FFB /* CallActionViewModel.swift in Sources */,
 				88F261C324E15727009EECE3 /* MentorsProfileVC.swift in Sources */,
 				88AEE8A524D15A78002225E9 /* UIView+ParentController.swift in Sources */,
 				8822682624ED223500E88254 /* SetAvailabilityViewModel.swift in Sources */,
