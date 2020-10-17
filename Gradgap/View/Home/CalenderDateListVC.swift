@@ -173,6 +173,16 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
             }
         }
         availabilityTblView.reloadData()
+        
+        if availableTimeArr.count != 0 {
+            let index = timeSloteArr.firstIndex(where: { (data) -> Bool in
+                data == availableTimeArr[0]
+            })
+            if index != nil {
+                availabilityTblView.scrollToRow(at: IndexPath(row: index!, section: 0), at: .top, animated: false)
+            }
+        }
+        
         tblView.reloadData()
         
         noDataLbl.isHidden = availableTimeArr.count == 0 ? false : true

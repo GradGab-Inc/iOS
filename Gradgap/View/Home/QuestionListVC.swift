@@ -218,9 +218,9 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
                 else {
-                    if isFromSwitchProfile {
-                        request.completeProfile = true
-                    }
+//                    if isFromSwitchProfile {
+//                        request.completeProfile = true
+//                    }
                     let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)

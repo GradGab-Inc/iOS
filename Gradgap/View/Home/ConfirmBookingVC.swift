@@ -165,6 +165,7 @@ class ConfirmBookingVC: UIViewController {
     
     
     @IBAction func clickToConfirmBooking(_ sender: Any) {
+        self.view.endEditing(true)
         if cardListArr.count == 0 {
             addAccountBackView.isHidden = false
             displaySubViewtoParentView(self.view, subview: addAccountBackView)
