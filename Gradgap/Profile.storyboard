@@ -5851,10 +5851,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfw-R8-HZi">
-                                <rect key="frame" x="15" y="438" width="290" height="40"/>
+                                <rect key="frame" x="35" y="438" width="250" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZk-q9-okW" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="xa5-zu-HbE"/>
@@ -5878,10 +5878,11 @@
                                             <action selector="clickToDelete:" destination="2L1-8X-X0K" eventType="touchUpInside" id="YJb-as-6ma"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjh-nd-3fs" customClass="Button" customModule="GradGab" customModuleProvider="target">
-                                        <rect key="frame" x="155" y="0.0" width="135" height="40"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pjh-nd-3fs" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="250" y="0.0" width="0.0" height="40"/>
                                         <color key="backgroundColor" name="RedColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" id="U0C-uu-TJO"/>
                                             <constraint firstAttribute="height" constant="40" id="W36-51-esc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="16"/>
@@ -5907,20 +5908,19 @@
                                     <constraint firstItem="Pjh-nd-3fs" firstAttribute="top" secondItem="cfw-R8-HZi" secondAttribute="top" id="Pa5-kr-ieE"/>
                                     <constraint firstAttribute="trailing" secondItem="Pjh-nd-3fs" secondAttribute="trailing" id="Sdx-XQ-l6u"/>
                                     <constraint firstAttribute="height" constant="40" id="htD-IK-8VQ"/>
-                                    <constraint firstItem="Pjh-nd-3fs" firstAttribute="leading" secondItem="OZk-q9-okW" secondAttribute="trailing" constant="20" id="mQ9-hg-hC0"/>
-                                    <constraint firstItem="Pjh-nd-3fs" firstAttribute="width" secondItem="OZk-q9-okW" secondAttribute="width" id="tL1-4R-mzM"/>
+                                    <constraint firstItem="Pjh-nd-3fs" firstAttribute="leading" secondItem="OZk-q9-okW" secondAttribute="trailing" id="mQ9-hg-hC0"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="AppColor"/>
                         <constraints>
                             <constraint firstItem="j5s-5O-FTa" firstAttribute="trailing" secondItem="dTo-Nw-zar" secondAttribute="trailing" constant="15" id="2SC-jq-hbu"/>
-                            <constraint firstItem="cfw-R8-HZi" firstAttribute="leading" secondItem="j5s-5O-FTa" secondAttribute="leading" constant="15" id="7cx-Xg-OFM"/>
+                            <constraint firstItem="cfw-R8-HZi" firstAttribute="leading" secondItem="j5s-5O-FTa" secondAttribute="leading" constant="35" id="7cx-Xg-OFM"/>
                             <constraint firstItem="dTo-Nw-zar" firstAttribute="top" secondItem="N1j-j7-ik5" secondAttribute="bottom" constant="16" id="C7n-o5-dJy"/>
                             <constraint firstItem="cfw-R8-HZi" firstAttribute="top" secondItem="RLm-Iu-TEp" secondAttribute="bottom" constant="50" id="Vuw-6H-uGe"/>
                             <constraint firstItem="N1j-j7-ik5" firstAttribute="top" secondItem="fr2-PY-oWz" secondAttribute="bottom" id="X9N-Mg-cNi"/>
                             <constraint firstItem="fr2-PY-oWz" firstAttribute="top" secondItem="j5s-5O-FTa" secondAttribute="top" id="Y34-YD-4xs"/>
-                            <constraint firstItem="j5s-5O-FTa" firstAttribute="trailing" secondItem="cfw-R8-HZi" secondAttribute="trailing" constant="15" id="iWV-PV-8JV"/>
+                            <constraint firstItem="j5s-5O-FTa" firstAttribute="trailing" secondItem="cfw-R8-HZi" secondAttribute="trailing" constant="35" id="iWV-PV-8JV"/>
                             <constraint firstItem="RLm-Iu-TEp" firstAttribute="top" secondItem="dTo-Nw-zar" secondAttribute="bottom" constant="16" id="jJE-CH-YSn"/>
                             <constraint firstItem="dTo-Nw-zar" firstAttribute="leading" secondItem="j5s-5O-FTa" secondAttribute="leading" constant="15" id="myG-bm-hdR"/>
                             <constraint firstItem="fr2-PY-oWz" firstAttribute="leading" secondItem="j5s-5O-FTa" secondAttribute="leading" id="oTr-4M-5qM"/>
