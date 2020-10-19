@@ -14,11 +14,13 @@ struct EarningListRequest: Encodable {
     var dateStart: String?
     var dateEnd: String?
     var page : Int?
+    var limit: Int?
     
-    init(dateStart:String? = nil,dateEnd:String? = nil, page:Int? = nil){
+    init(dateStart:String? = nil,dateEnd:String? = nil, page:Int? = nil, limit:Int? = nil){
         
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.page = page
+        self.limit = limit
     }
 }

@@ -135,12 +135,15 @@ class ConfirmBookingVC: UIViewController {
             discountPriceLbl.text = "-$\(disc)"
             
             if useWalletBtn.isSelected {
+                wallet = 0.0
                 if mentorDetail.walletAmount > mentorDetail.amount {
                     wallet = mentorDetail.amount
                 }
                 else {
                     wallet = mentorDetail.walletAmount
                 }
+                wallet = wallet - disc
+                walletBalanceLbl.text = "$\(wallet)"
             }
             
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
@@ -233,6 +236,7 @@ class ConfirmBookingVC: UIViewController {
             else {
                 wallet = mentorDetail.walletAmount
             }
+            walletBalanceLbl.text = "$\(wallet)"
         }
         
         let total = Double(mentorDetail.amount) - Double(wallet)
@@ -244,13 +248,17 @@ class ConfirmBookingVC: UIViewController {
             displayToast("You have not wallet balance")
             return
         }
-        
+        wallet = 0.0
         if isApplyCoupon {
             disc = Double(((mentorDetail.amount) * Double(applyCoupon.amountOff))/100)
             applyDiscountLbl.text = "\(applyCoupon.amountOff)% Discount"
             discountTitleLbl.text = "Discount(\(applyCoupon.amountOff)%)"
             discountPriceLbl.text = "-$\(disc)"
         }
+        else {
+            disc = 0.0
+        }
+        
         if mentorDetail.walletAmount > Double(mentorDetail.amount) {
             wallet = mentorDetail.amount
         }
@@ -261,15 +269,15 @@ class ConfirmBookingVC: UIViewController {
         if sender.isSelected {
             sender.isSelected = false
             walletBackView.isHidden = true
-            
+            wallet = 0.0
             let total = Double(mentorDetail.amount) - disc
             toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
         }
         else {
             sender.isSelected = true
             walletBackView.isHidden = false
-            walletBalanceLbl.text = "$\(wallet)"
-            let total = Double(mentorDetail.amount) - disc - Double(wallet)
+            walletBalanceLbl.text = "$\(wallet - disc)"
+            let total = Double(mentorDetail.amount) - disc - Double(wallet - disc)
             toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
         }
     }

@@ -24,8 +24,7 @@ open class DatePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSo
     
     @objc open var timeZone: TimeZone? = TimeZone(identifier: "EN")
     
-    // MARK: - Show
-    
+    // MARK: - Show    
     @objc open func showPicker(title: String?, selected: Date?, completion:DatePickerDateCompletion?) {
         let currentDate = Date()
         let gregorian = NSCalendar(calendarIdentifier: .gregorian)

@@ -55,7 +55,7 @@ class MyEarningVC: UIViewController {
         self.toDateLbl.text = getDateStringFromDate(date: selectedEndDate, format: "MM/dd/YYYY")
         
         earningListVM.delegate = self
-        earningListVM.earningList(request: EarningListRequest(page: currentPage))
+        earningListVM.earningList(request: EarningListRequest(page: currentPage, limit: 100))
         
         refreshControl.tintColor = AppColor
         refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
@@ -67,7 +67,7 @@ class MyEarningVC: UIViewController {
     @objc func refreshDataSetUp() {
         refreshControl.endRefreshing()
         currentPage = 1
-        earningListVM.earningList(request: EarningListRequest(page: currentPage))
+        earningListVM.earningList(request: EarningListRequest(page: currentPage, limit: 100))
     }
     
     //MARK: - Button Click
@@ -195,7 +195,7 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
         if earningArr.count - 2 == indexPath.row {
             if dataModel.hasMore {
                 currentPage = currentPage + 1
-                earningListVM.earningList(request: EarningListRequest(page: currentPage))
+                earningListVM.earningList(request: EarningListRequest(page: currentPage, limit: 100))
             }
         }
     }

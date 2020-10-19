@@ -16,7 +16,7 @@ protocol TransactionListDelegate {
 struct TransactionListViewModel {
     var delegate: TransactionListDelegate?
         
-    func getTransactionList(request : MorePageRequest) {
+    func getTransactionList(request : MorePageWithLimitRequest) {
         GCD.TRANSACTION.list.async {
             APIManager.sharedInstance.I_AM_COOL(params: request.toJSON(), api: API.TRANSACTION.list, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty

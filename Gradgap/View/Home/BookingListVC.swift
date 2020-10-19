@@ -29,7 +29,6 @@ class BookingListVC: UIViewController {
     var selectedDate = Date()
     var selectedStartDate = Date()
     var selectedEndDate = Date()
-//    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     var currentPage : Int = 1
     
     var dataModel : BookingListModel = BookingListModel()
@@ -296,8 +295,7 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func clickToJoinCall(_ sender : UIButton) {
         if AppModel.shared.currentUser.user?.userType == 1 {
-//            displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//            JoinCallVC.setUp(0)
+
         }
         else  {
             let dict : BookingListDataModel = bookingArr[sender.tag]

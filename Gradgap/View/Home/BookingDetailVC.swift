@@ -136,6 +136,9 @@ class BookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
+        if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected{
+            SocketIOManager.sharedInstance.establishConnection()
+        }
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
             bookingDetailForVideo = self.bookingDetail
             self.isRateViewNavigate = false

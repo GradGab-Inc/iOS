@@ -41,7 +41,7 @@ class TransactionVC: UIViewController {
         tblView.register(UINib(nibName: "TransactionHeaderTVC", bundle: nil), forCellReuseIdentifier: "TransactionHeaderTVC")
         
         transactionVM.delegate = self
-        transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+        transactionVM.getTransactionList(request: MorePageWithLimitRequest(page: currentPage, limit: 100))
         
         refreshControl.tintColor = AppColor
         refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
@@ -52,7 +52,7 @@ class TransactionVC: UIViewController {
      @objc func refreshDataSetUp() {
          refreshControl.endRefreshing()
          currentPage = 1
-         transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+         transactionVM.getTransactionList(request: MorePageWithLimitRequest(page: currentPage, limit: 100))
      }
     
     //MARK: - Button Click
@@ -133,7 +133,7 @@ extension TransactionVC : UITableViewDelegate, UITableViewDataSource {
         if transactionListArr.count - 2 == indexPath.row {
             if dataModel.hasMore {
                 currentPage = currentPage + 1
-                transactionVM.getTransactionList(request: MorePageRequest(page: currentPage))
+                transactionVM.getTransactionList(request: MorePageWithLimitRequest(page: currentPage, limit: 100))
             }
         }
     }

@@ -17,4 +17,8 @@ struct MorePageRequest : Encodable {
     var page: Int
 }
 
+struct MorePageWithLimitRequest : Encodable {
+    var page: Int
+    var limit: Int
+}
 

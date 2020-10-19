@@ -57,12 +57,18 @@
                                             <action selector="clickToSideMenu:" destination="xEd-an-y6h" eventType="touchUpInside" id="1LM-fu-cKe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UO-oB-VbX">
-                                        <rect key="frame" x="272" y="10" width="40" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UO-oB-VbX" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                        <rect key="frame" x="276" y="12" width="36" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Ybe-yH-9Dh"/>
+                                            <constraint firstAttribute="width" constant="36" id="Ybe-yH-9Dh"/>
+                                            <constraint firstAttribute="height" constant="36" id="pki-3N-bFJ"/>
                                         </constraints>
                                         <state key="normal" image="ic_profile_home"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="clickToProfile:" destination="xEd-an-y6h" eventType="touchUpInside" id="3hw-oM-TIK"/>
                                         </connections>
@@ -75,9 +81,8 @@
                                     <constraint firstItem="Dr0-Fb-wwG" firstAttribute="centerX" secondItem="Drk-04-ckI" secondAttribute="centerX" id="Bgk-ds-cw3"/>
                                     <constraint firstAttribute="bottom" secondItem="WJB-hW-uaU" secondAttribute="bottom" constant="10" id="Moz-zt-TeA"/>
                                     <constraint firstItem="Dr0-Fb-wwG" firstAttribute="centerY" secondItem="Drk-04-ckI" secondAttribute="centerY" id="bv9-cz-SNt"/>
+                                    <constraint firstItem="5UO-oB-VbX" firstAttribute="centerY" secondItem="Drk-04-ckI" secondAttribute="centerY" id="da1-Sd-bOi"/>
                                     <constraint firstAttribute="height" constant="60" id="gL9-Mm-Nci"/>
-                                    <constraint firstAttribute="bottom" secondItem="5UO-oB-VbX" secondAttribute="bottom" constant="10" id="nFd-VP-U2k"/>
-                                    <constraint firstItem="5UO-oB-VbX" firstAttribute="top" secondItem="Drk-04-ckI" secondAttribute="top" constant="10" id="th7-fi-bEb"/>
                                     <constraint firstItem="WJB-hW-uaU" firstAttribute="leading" secondItem="Drk-04-ckI" secondAttribute="leading" constant="8" id="to3-ce-zN9"/>
                                 </constraints>
                             </view>
@@ -215,6 +220,7 @@ Book a chat or tour above!</string>
                         <outlet property="joinCallBackView" destination="oJ0-5w-zRP" id="BO1-Lm-nFL"/>
                         <outlet property="nameLbl" destination="7Zg-Rr-wGg" id="u9M-V6-jah"/>
                         <outlet property="noDataLbl" destination="fG1-y1-dhx" id="Sbs-R6-ivM"/>
+                        <outlet property="profileImgBtn" destination="5UO-oB-VbX" id="GAn-fT-zez"/>
                         <outlet property="viewAllBtn" destination="CVe-Wc-DVr" id="pvP-KV-s81"/>
                     </connections>
                 </viewController>
@@ -2435,7 +2441,7 @@ Refer some friends.</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_refer" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-4c-2kH">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get $5 for every referred friend that books a chat!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get 25% off for every referred friend that books a chat!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="www-Qm-f6H">
                                 <rect key="frame" x="30" y="377.5" width="260" height="42"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4445,7 +4451,7 @@ Refer some friends.</string>
                                         <action selector="clickToAddBankAccount:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="FkV-TN-r3G"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add a Dredit/Debit card to proceed further." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWj-U2-rIJ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please add a Dredit/Credit card to proceed further." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWj-U2-rIJ">
                                     <rect key="frame" x="8" y="241" width="224" height="37.5"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5095,7 +5101,7 @@ Refer some friends.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="net-Ih-wHd">
                                 <rect key="frame" x="0.0" y="180" width="320" height="388"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are adding mentors from new schools daily. let us know if you don't see a school you're interested in." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-7Y-cJJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are adding mentors from new schools daily. Let us know if you don't see a school you're interested in." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-7Y-cJJ">
                                         <rect key="frame" x="15" y="334.5" width="290" height="45.5"/>
                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -7629,7 +7635,7 @@ Refer some friends.</string>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-vy-fb1">
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
-                                <color key="backgroundColor" name="33C8A3"/>
+                                <color key="backgroundColor" name="AppColor"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="seU-fa-PdQ" userLabel="Video Render View" customClass="DefaultVideoRenderView" customModule="AmazonChimeSDK">
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
