@@ -7717,7 +7717,7 @@ Refer some friends.</string>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeV-Zs-PdF" userLabel="Video Render View" customClass="DefaultVideoRenderView" customModule="AmazonChimeSDK">
                                 <rect key="frame" x="195" y="318" width="110" height="160"/>
-                                <color key="backgroundColor" name="LightColor"/>
+                                <color key="backgroundColor" white="0.22106990903755866" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>

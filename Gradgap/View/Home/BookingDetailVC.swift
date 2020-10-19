@@ -58,7 +58,13 @@ class BookingDetailVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Booking Details"
+        if isFromTransaction {
+            navigationBar.headerLbl.text = "Transactions Details"
+        }
+        else {
+            navigationBar.headerLbl.text = "Booking Details"
+        }
+        
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -132,6 +138,7 @@ class BookingDetailVC: UIViewController {
     @IBAction func clickToJoinCall(_ sender: Any) {
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
             bookingDetailForVideo = self.bookingDetail
+            self.isRateViewNavigate = false
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {
                     print("Started")

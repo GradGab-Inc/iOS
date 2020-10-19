@@ -397,7 +397,7 @@ class MeetingViewController: UIViewController {
     @IBAction func leaveButtonClicked(_: UIButton) {
         timer?.invalidate()
         meetingModel?.endMeeting()
-        deregisterFromKeyboardNotifications()
+//        deregisterFromKeyboardNotifications()
     }
 
     @IBAction func inputTextChanged(_ sender: Any, forEvent event: UIEvent) {

@@ -364,25 +364,19 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         if let status = dict["status"] as? Int, status == 1 {
+            print(dict)
+            print("************/////////************")
             return
         }
         else {
-            if (NotificationVC.topViewController() != nil) {
-                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
-            }
-            else {
+            let vc : UIViewController = UIApplication.topViewController()!
+            if (vc is NotificationVC) {
                 print("OKKKKK")
             }
-            if let topController = UIApplication.topViewController() {
-                print(topController)
-               
-            }
             else {
                 NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
             }
-//
         }
-        
     }
 }
 

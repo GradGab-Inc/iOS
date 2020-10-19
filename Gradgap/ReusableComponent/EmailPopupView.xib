@@ -105,7 +105,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.3988501320422535" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ZPw-ey-GLe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Gv6-QD-WfT"/>
                 <constraint firstItem="R5D-Ao-VBq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="JTb-uq-b2J"/>
