@@ -79,8 +79,10 @@ class MentorBookingDetailVC: UIViewController {
     }
     
     @IBAction func clickToJoinCall(_ sender: Any) {
+        if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
+            SocketIOManager.sharedInstance.establishConnection()
+        }
         JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: bookingDetail.id)) { (response) in
-            
             bookingDetailForVideo = self.bookingDetail
             MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
                 if status {

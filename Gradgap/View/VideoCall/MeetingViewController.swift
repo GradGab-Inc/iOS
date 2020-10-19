@@ -170,7 +170,6 @@ class MeetingViewController: UIViewController {
         meetingModel.isEndedHandler = {
             DispatchQueue.main.async {
                 MeetingModule.shared().dismissMeeting(meetingModel)
-//                bookingDetailForVideo = BookingDetail.init()
             }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
@@ -184,8 +183,8 @@ class MeetingViewController: UIViewController {
 //            self?.prevVideoPageButton.isEnabled = meetingModel.videoModel.canGoToPrevRemoteVideoPage
 //            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
 //            self?.videoCollection.reloadData()
-            self?.ShowVideoFrame()
             self?.waitingLbl.isHidden = true
+            self?.ShowVideoFrame()
         }
         meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
 //            self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
@@ -204,7 +203,7 @@ class MeetingViewController: UIViewController {
         meetingModel.chatModel.refreshChatTableHandler = { [weak self] in
             self?.chatMessageTable.reloadData()
         }
-        
+    
     }
 
     // MARK: UI functions
@@ -475,7 +474,7 @@ class MeetingViewController: UIViewController {
         guard let meetingModel = meetingModel else {
             return
         }
-        if meetingModel.videoModel.videoTileCount >= 2{
+        if meetingModel.videoModel.videoTileCount >= 2 {
             if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)){
                 MentorVideoView.mirror = true
                 meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
@@ -483,6 +482,7 @@ class MeetingViewController: UIViewController {
             }
         }
         else{
+            waitingLbl.isHidden = false
             menteeVideoView.mirror = true
             meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
         }

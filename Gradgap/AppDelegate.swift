@@ -324,12 +324,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        
-        if let status = userInfo["status"] as? Int, status == 1 {
+        if let status = userInfo["type"], status as! String == "1" {
             displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+            JoinCallVC.dict = userInfo as! [String : Any]
             JoinCallVC.setUp()
         }
-        
         
         completionHandler([.alert, .badge, .sound])
     }
@@ -363,7 +362,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             return
         }
         
-        if let status = dict["status"] as? Int, status == 1 {
+        if let status = dict["type"], status as! String == "1" {
             print(dict)
             print("************/////////************")
             return

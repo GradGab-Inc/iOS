@@ -20,10 +20,10 @@ class HomeVC: UIViewController {
     
     @IBOutlet var completeProfileBackView: UIView!
     @IBOutlet var joinCallBackView: UIView!
+    @IBOutlet weak var profileImgBtn: UIButton!
     
     var titleArr = ["Chat","Virtual Tour","Interview Prep"]
     var subTitleArr = ["Video chat with a current student.","Get a live 1 hour campus tour.","45 Min Mock Interview Prep or Mock interview."]
-//    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     let backImgArr = ["Image_Chat","Image_Virtual_Tour","Image_Interview Prep"]
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
@@ -33,6 +33,15 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
+        
+//        let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
+//        var dict1 : [String : Any] = [String : Any]()
+//        dict1["date"] = "2020-10-19T12:15:00.000Z"
+//        dict1["name"] = "Vishal11"
+//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
+//        JoinCallVC.dict = dict1
+//        JoinCallVC.setUp()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,10 +53,13 @@ class HomeVC: UIViewController {
         else {
             completeProfileBackView.isHidden = true
         }
-        nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
         
-       
-        
+        if AppModel.shared.currentUser.user != nil {
+            setUserImageOnButton(profileImgBtn, API.IMAGE_URL + AppModel.shared.currentUser.user!.image)
+            self.profileImgBtn.imageView?.contentMode = .scaleAspectFill
+            
+            nameLbl.text = "\(AppModel.shared.currentUser.user?.firstName ?? "")"
+        }
     }
         
     //MARK: - configUI
@@ -210,8 +222,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//        JoinCallVC.setUp(0)
+
     }
     
 }

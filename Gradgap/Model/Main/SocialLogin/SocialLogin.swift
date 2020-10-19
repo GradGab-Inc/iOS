@@ -22,8 +22,6 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
     private var socialLoginVM: SocialLoginViewModel = SocialLoginViewModel()
     var isFromLogin : Bool = Bool()
     
-    let EmailPopupV : EmailPopupView = EmailPopupView.instanceFromNib() as! EmailPopupView
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -160,8 +158,8 @@ extension SocialLogin : SocialLoginSuccessDelegate {
 }
 
 extension SocialLogin : emailPopUpDelegate {
-    func getemailPopUp(_ selectedData: String) {
-        
+    func getemailPopUp(_ selectedData: SocialLoginRequest) {
+        socialLoginVM.socialLogin(request: selectedData)
     }
 }
 
@@ -186,7 +184,10 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
         guard let email = appleIDCredential.email else {
             displayToast("Kindly provide the access of your email to \(self.isFromLogin ? "Login" : "Signup")")
             
+            let EmailPopupV : EmailPopupView = EmailPopupView.instanceFromNib() as! EmailPopupView
+            EmailPopupV.delegate = self
             displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: EmailPopupV)
+            EmailPopupV.appleCredential = authorization
             EmailPopupV.setUp()
             
             return
@@ -210,8 +211,5 @@ extension SocialLogin: ASAuthorizationControllerDelegate, ASAuthorizationControl
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
-    
-    
-    
     
 }

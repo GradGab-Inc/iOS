@@ -48,20 +48,20 @@ class BankDetailVC: UploadImageVC {
 
         configUI()
         
-//        bankNameTxt.text = "ABC"
-//        holderNameTxt.text = "Vishal j Buha"
-//        firstNameTxt.text = "Vishal"
-//        lastNameTxt.text = "Buha"
-//        accountNumberTxt.text = "000123456789"//"123456788"
-//        address1Txt.text = "47 W 13th St"
-//        address2Txt.text = "New York"
-//        routingNumberTxt.text = "110000000"//"HDFC0000261"
-//        cityTxt.text = "New York"
-//        stateTxt.text = "New York"
-//        postalCodeTxt.text = "395006"
-//        contactNumberTxt.text = "9874563215"
-//        emailTxt.text = "buhavishal1@gmail.com"
-//        ssnTxt.text = "1234"
+        bankNameTxt.text = "ABC"
+        holderNameTxt.text = "Vishal j Buha"
+        firstNameTxt.text = "Vishal"
+        lastNameTxt.text = "Buha"
+        accountNumberTxt.text = "000123456789"//"123456788"
+        address1Txt.text = "47 W 13th St"
+        address2Txt.text = "New York"
+        routingNumberTxt.text = "110000000"//"HDFC0000261"
+        cityTxt.text = "New York"
+        stateTxt.text = "New York"
+        postalCodeTxt.text = "395006"
+        contactNumberTxt.text = "9874563215"
+        emailTxt.text = "buhavishal1@gmail.com"
+        ssnTxt.text = "1234"
         
     }
     

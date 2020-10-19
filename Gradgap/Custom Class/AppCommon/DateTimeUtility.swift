@@ -255,3 +255,68 @@ func getDateFromMinute(_ min: Int) -> Date {
     let timeDate = dateFormatter.date(from: "\(time.hours):\(time.leftMinutes)")!
     return timeDate
 }
+
+
+func getDifferenceFromCurrentTimeInMinute(_ newDate : String) -> Int
+{
+    let date = getDateFromDateString(strDate: newDate)
+    let interval = Date().timeIntervalSince(date)
+    
+    let minutes : Int = Int(interval/60)
+
+    if minutes < 5 && minutes > 0
+    {
+        return 1
+    }
+    else {
+        return 2
+    }
+}
+
+func getDifferenceFromCurrentTimeInHourInDays(_ timestamp : Double) -> String
+{
+    let interval : Int = getDifferenceFromCurrentTime(timestamp)
+    
+    let second : Int = interval
+    let minutes : Int = interval/60
+    let hours : Int = interval/(60*60)
+    let days : Int = interval/(60*60*24)
+    let week : Int = interval/(60*60*24*7)
+    let months : Int = interval/(60*60*24*30)
+    let years : Int = interval/(60*60*24*30*12)
+    
+    var timeAgo : String = ""
+    if  second < 60
+    {
+        timeAgo = (second < 3) ? "Just Now" : (String(second) + "s")
+    }
+    else if minutes < 60
+    {
+        timeAgo = String(minutes) + "m"
+    }
+    else if hours < 24
+    {
+        timeAgo = String(hours) + "h"
+    }
+    else if days < 30
+    {
+        timeAgo = String(days) + " "  + ((days > 1) ? "days" : "day")
+    }
+    else if week < 4
+    {
+        timeAgo = String(week) + " "  + ((week > 1) ? "weeks" : "week")
+    }
+    else if months < 12
+    {
+        timeAgo = String(months) + " "  + ((months > 1) ? "months" : "month")
+    }
+    else
+    {
+        timeAgo = String(years) + " "  + ((years > 1) ? "years" : "year")
+    }
+    
+    if second > 3 {
+        timeAgo = timeAgo + " ago"
+    }
+    return timeAgo
+}

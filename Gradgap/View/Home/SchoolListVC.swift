@@ -159,7 +159,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         let attrs2 = [NSAttributedString.Key.font : UIFont(name: "MADETommySoft", size: 13.0), NSAttributedString.Key.foregroundColor : UIColor.red]
         
         let attributedString1 = NSMutableAttributedString(string: "We are adding mentors from new schools daily. ", attributes: attrs1 as [NSAttributedString.Key : Any])
-        let attributedString2 = NSMutableAttributedString(string:"let us know ", attributes: attrs2 as [NSAttributedString.Key : Any])
+        let attributedString2 = NSMutableAttributedString(string:"Let us know ", attributes: attrs2 as [NSAttributedString.Key : Any])
         let attributedString3 = NSMutableAttributedString(string: "if you don't see a school you're interested in.", attributes: attrs1 as [NSAttributedString.Key : Any])
         
         attributedString1.append(attributedString2)
