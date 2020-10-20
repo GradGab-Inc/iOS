@@ -9,14 +9,13 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://dbf061a69506.ngrok.io/" //
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()
     var socket: SocketIOClient!
     
     // defaultNamespaceSocket and swiftSocket both share a single connection to the server
-    var manager = SocketManager(socketURL: URL(string: SOCKET_URL)!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
     
     override init() {
         super.init()
@@ -25,7 +24,7 @@ class SocketIOManager: NSObject {
     
     func reloadSocket()
     {
-        manager = SocketManager(socketURL: URL(string: SOCKET_URL)!, config: [.log(true), .compress])
+        manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
         socket = manager.defaultSocket
     }
     
