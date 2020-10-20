@@ -107,11 +107,6 @@ extension FaqVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "SchoolListVC") as! SchoolListVC
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @objc func clickToExpandCell(_ sender : UIButton) {
         if let value = expandDict[String(sender.tag)] {
             expandDict[String(sender.tag)] = !value

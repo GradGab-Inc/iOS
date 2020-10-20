@@ -200,6 +200,24 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1d-xL-ApK" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                    <rect key="frame" x="274" y="20" width="30" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="QaA-5G-y7f"/>
+                        <constraint firstAttribute="height" constant="30" id="rvg-KN-f4f"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark" catalog="system"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clickToCancelView:" destination="iN0-l3-epB" eventType="touchUpInside" id="a5E-RL-vw5"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="0.60414832746478875" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -208,10 +226,12 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="E5L-M4-RJs" secondAttribute="trailing" constant="40" id="9uC-2K-ENa"/>
                 <constraint firstItem="E5L-M4-RJs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="B3f-Az-q2K"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ppS-dd-doo" secondAttribute="trailing" id="BJd-Xr-sHF"/>
+                <constraint firstItem="m1d-xL-ApK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="HwY-Xh-BJD"/>
                 <constraint firstItem="ppS-dd-doo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IMm-ex-2L1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bsd-mr-OvL" secondAttribute="trailing" constant="40" id="ShM-sz-aQc"/>
                 <constraint firstItem="E5L-M4-RJs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f9n-eZ-cq9"/>
                 <constraint firstItem="Bsd-mr-OvL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gHh-QX-Icg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m1d-xL-ApK" secondAttribute="trailing" constant="16" id="sR1-0v-QQX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ppS-dd-doo" secondAttribute="bottom" id="zmP-4R-nUg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -229,6 +249,7 @@
         <image name="ic_callstarting" width="220.5" height="155"/>
         <image name="ic_filter_bg" width="331" height="522"/>
         <image name="ic_illustration_clock" width="185.5" height="166"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="AppColor">
             <color red="0.0080000003799796104" green="0.097999997437000275" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

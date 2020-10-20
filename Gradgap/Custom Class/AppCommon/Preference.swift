@@ -126,3 +126,19 @@ func getIsDeleteDate() -> String
     }
     return ""
 }
+
+
+
+func setExtendCallId(_ token: String)
+{
+    setDataToPreference(data: token as AnyObject, forKey: "EXTEND_CALL_ID")
+}
+
+func getExtendCallId() -> String
+{
+    if let callId : String = getDataFromPreference(key: "EXTEND_CALL_ID") as? String
+    {
+        return callId
+    }
+    return ""
+}

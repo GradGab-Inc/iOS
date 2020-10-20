@@ -9,7 +9,7 @@
 import Foundation
 import SocketIO
 
-let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://3.82.95.119:3000" //"http://3.82.95.119/development/"
+let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://dbf061a69506.ngrok.io/" //
 
 class SocketIOManager: NSObject {
     static let sharedInstance = SocketIOManager()

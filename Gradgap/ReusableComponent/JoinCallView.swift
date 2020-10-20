@@ -85,7 +85,11 @@ class JoinCallView: UIView {
     @IBAction func clickToNotNow(_ sender: Any) {
         self.endEditing(true)
         self.removeFromSuperview()
-        
+    }
+    
+    @IBAction func clickToCancelView(_ sender: Any) {
+        self.endEditing(true)
+        self.removeFromSuperview()
     }
     
     @IBAction func clickToMenteeJoinNow(_ sender: Any) {

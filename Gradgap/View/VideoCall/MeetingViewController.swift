@@ -94,7 +94,7 @@ class MeetingViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(setAcceptRejectView), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(addCouponData), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addExtendCallData), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: nil)
         
         configure(meetingModel: meetingModel)
         super.viewDidLoad()
@@ -138,12 +138,13 @@ class MeetingViewController: UIViewController {
         }
     }
     
-    @objc func addCouponData(notification : Notification) {
+    @objc func addExtendCallData(notification : Notification) {
         if let dict : [String: Any] = notification.object as? [String: Any]
         {
             if dict["status"] as! Int == 2 {
                 print(dict["status"] as! Int)
                 self.callEndTime = callEndTime.sainiAddMinutes(Double(2))
+                setExtendCallId(bookingDetailForVideo.id)
             }
             else if dict["status"] as! Int == 3 {
                 print("******* \(dict["status"] as! Int) *************")
@@ -179,7 +180,7 @@ class MeetingViewController: UIViewController {
             self?.metricsTable.reloadData()
         }
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
-//            meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
+            meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
 //            self?.prevVideoPageButton.isEnabled = meetingModel.videoModel.canGoToPrevRemoteVideoPage
 //            self?.nextVideoPageButton.isEnabled = meetingModel.videoModel.canGoToNextRemoteVideoPage
 //            self?.videoCollection.reloadData()
@@ -283,7 +284,10 @@ class MeetingViewController: UIViewController {
                 self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
             }
             if counter  == 30 && AppModel.shared.currentUser.user?.userType == 1 {
-                twoMinuteLeftBackView.isHidden = false
+                if getExtendCallId() == "" || getExtendCallId() != bookingDetailForVideo.id {
+                    twoMinuteLeftBackView.isHidden = false
+                    setExtendCallId(bookingDetailForVideo.id)
+                }
             }
         }
         else{
