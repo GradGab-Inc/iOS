@@ -96,11 +96,8 @@ extension ApplyCouponVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         let dict : CouponListDataResponse = couponArr[indexPath.row]
-        if dict.note != "" {
-            cell.noteLbl.text = "Note: \(dict.note)"
-        }
+        cell.noteLbl.text = "Note: \(dict.note)"
         cell.perecentLbl.text = "\(dict.amountOff)%"
-        
         cell.applyBtn.tag = indexPath.row
         cell.applyBtn.addTarget(self, action: #selector(self.clickToApply), for: .touchUpInside)
         

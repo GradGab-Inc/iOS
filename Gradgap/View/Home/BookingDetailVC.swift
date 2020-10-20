@@ -59,7 +59,7 @@ class BookingDetailVC: UIViewController {
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         if isFromTransaction {
-            navigationBar.headerLbl.text = "Transactions Details"
+            navigationBar.headerLbl.text = "Transaction Details"
         }
         else {
             navigationBar.headerLbl.text = "Booking Details"
@@ -83,7 +83,7 @@ class BookingDetailVC: UIViewController {
         joinCallVM.delegate = self
         
         if isFromTransaction {
-            navigationBar.headerLbl.text = "Transactions Details"
+            navigationBar.headerLbl.text = "Transaction Details"
             transactionDetailVM.delegate = self
             transactionDetailVM.getTransactionDetail(request: transactionDetailRequest(transactionRef: selectedTransaction.id))
             dateTimeHeaderLbl.text = "Date & Time of Transaction"

@@ -136,7 +136,6 @@
 		8829BED92500F3D6007F9B25 /* RateReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BED82500F3D6007F9B25 /* RateReviewVC.swift */; };
 		8829BEDB25011AFD007F9B25 /* BankDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */; };
 		8829FD3D253035FF000EC8E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 882828C02528947D0019F322 /* AVFoundation.framework */; };
-		882A213A253846970085E949 /* AuthKey_6QS7XNM2W4.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 882A2139253846960085E949 /* AuthKey_6QS7XNM2W4.p8 */; };
 		882A86FB24FF725700190C0F /* TransactionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86F924FF725700190C0F /* TransactionTVC.swift */; };
 		882A86FC24FF725700190C0F /* TransactionTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882A86FA24FF725700190C0F /* TransactionTVC.xib */; };
 		882A86FF24FF752F00190C0F /* TransactionHeaderTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */; };
@@ -436,7 +435,6 @@
 		88294AC9250CDD8E009E3CCF /* CouponListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponListResponse.swift; sourceTree = "<group>"; };
 		8829BED82500F3D6007F9B25 /* RateReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateReviewVC.swift; sourceTree = "<group>"; };
 		8829BEDA25011AFD007F9B25 /* BankDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDetailVC.swift; sourceTree = "<group>"; };
-		882A2139253846960085E949 /* AuthKey_6QS7XNM2W4.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_6QS7XNM2W4.p8; sourceTree = "<group>"; };
 		882A86F924FF725700190C0F /* TransactionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTVC.swift; sourceTree = "<group>"; };
 		882A86FA24FF725700190C0F /* TransactionTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTVC.xib; sourceTree = "<group>"; };
 		882A86FD24FF752F00190C0F /* TransactionHeaderTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeaderTVC.swift; sourceTree = "<group>"; };
@@ -644,7 +642,6 @@
 				22D64A1224D149CD006C37FD /* Info.plist */,
 				882E44FD24F4EB980012FFBF /* GoogleService-Info.plist */,
 				8823A2CA24F6666000EA5BA4 /* GradGab.mp4 */,
-				882A2138253846650085E949 /* pushNotification_p8_file */,
 			);
 			path = Gradgap;
 			sourceTree = "<group>";
@@ -850,14 +847,6 @@
 				882828EF2528A7D00019F322 /* JoinMeetingResponse.swift */,
 			);
 			path = data;
-			sourceTree = "<group>";
-		};
-		882A2138253846650085E949 /* pushNotification_p8_file */ = {
-			isa = PBXGroup;
-			children = (
-				882A2139253846960085E949 /* AuthKey_6QS7XNM2W4.p8 */,
-			);
-			path = pushNotification_p8_file;
 			sourceTree = "<group>";
 		};
 		882A86F724FF722700190C0F /* Profile */ = {
@@ -1428,7 +1417,6 @@
 				881690E824D2820E00EE427E /* MADE Tommy Soft Light PERSONAL USE.otf in Resources */,
 				881690E724D2820E00EE427E /* MADE Tommy Soft Medium PERSONAL USE.otf in Resources */,
 				888C6CC624E127CE008E27E0 /* FavoriteTVC.xib in Resources */,
-				882A213A253846970085E949 /* AuthKey_6QS7XNM2W4.p8 in Resources */,
 				880248E924D2EBEE005539B5 /* SideMenuTVC.xib in Resources */,
 				881690E424D2820E00EE427E /* MADE Tommy Soft Thin PERSONAL USE.otf in Resources */,
 				88F95A8C24E1063B00DFD0E7 /* CustomBookTVC.xib in Resources */,
@@ -1880,7 +1868,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1898,7 +1886,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
+				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1911,7 +1899,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gradgap/Gradgap.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.4;
 				DEVELOPMENT_TEAM = PXL4W58ZJA;
@@ -1928,7 +1916,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Gradgaps;
 				PRODUCT_NAME = GradGab;
-				PROVISIONING_PROFILE_SPECIFIER = Gradgap_dev;
+				PROVISIONING_PROFILE_SPECIFIER = GradGab_des;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
