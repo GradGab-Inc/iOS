@@ -12,7 +12,7 @@ import SainiUtils
 var userReferId : String = String()
 
 
-class ConfirmBookingVC: UIViewController {
+class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var nameLbl: UILabel!
@@ -42,6 +42,7 @@ class ConfirmBookingVC: UIViewController {
     @IBOutlet weak var applyCouponTxt: TextField!
     
     @IBOutlet weak var addAccountBackView: UIView!
+    @IBOutlet weak var applyCouponBtn: UIButton!
     
     var createBookingVM : CreateBookingViewModel = CreateBookingViewModel()
     var mentorDetail : MentorData = MentorData.init()
@@ -52,8 +53,10 @@ class ConfirmBookingVC: UIViewController {
     var selectedTimeSlot : Int = Int()
     var isFromFavorite : Bool = false
     var isApplyCoupon : Bool = false
+    var isApplyCode : Bool = false
     
     var disc : Double = Double()
+    var couponDisc : Double = Double()
     var wallet : Double = Double()
     var cardListVM : CardListViewModel = CardListViewModel()
     var cardListArr : [CardListDataModel] = [CardListDataModel]()
@@ -98,6 +101,8 @@ class ConfirmBookingVC: UIViewController {
         applyDiscountLbl.text = "0% Discount"
         
         useWalletBtn.isSelected = false
+        
+        applyCouponTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
     func renderProfile() {
@@ -126,11 +131,13 @@ class ConfirmBookingVC: UIViewController {
         {
             applyCoupon = dict
             isApplyCoupon = true
+            isApplyCode = false
             applyCouponBackView.isHidden = false
             discountBackView.isHidden = false
             applyDiscountLbl.text = "\(dict.amountOff)% Discount"
             discountTitleLbl.text = "Discount(\(dict.amountOff)%)"
             
+            disc = 0.0
             disc = Double(((mentorDetail.amount) * Double(dict.amountOff))/100)
             discountPriceLbl.text = "-$\(disc)"
             
@@ -143,11 +150,13 @@ class ConfirmBookingVC: UIViewController {
                     wallet = mentorDetail.walletAmount
                 }
                 wallet = wallet - disc
-                walletBalanceLbl.text = "$\(wallet)"
+                walletBalanceLbl.text = "-$\(wallet)"
             }
             
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
             toBePaidLbl.text = "$\(String(format: "%.02f", total))"
+            
+//            applyCouponTxt.isUserInteractionEnabled = false
         }
     }
     
@@ -156,14 +165,87 @@ class ConfirmBookingVC: UIViewController {
         addAccountBackView.isHidden = true
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if applyCouponTxt.text?.trimmed != "" {
+            
+        }
+        else {
+            discountBackView.isHidden = true
+            applyCouponBackView.isHidden = true
+            isApplyCoupon = false
+            discountTitleLbl.text = "Discount(0%)"
+            discountPriceLbl.text = "$0"
+            
+            if useWalletBtn.isSelected {
+                if mentorDetail.walletAmount > mentorDetail.amount {
+                    wallet = mentorDetail.amount
+                }
+                else {
+                    wallet = mentorDetail.walletAmount
+                }
+                walletBalanceLbl.text = "-$\(wallet)"
+            }
+            
+            let total = Double(mentorDetail.amount) - Double(wallet)
+            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if isApplyCoupon {
+            displayToast("Use only one coupon code")
+            return false
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text != "" {
+            isApplyCoupon = false
+            isApplyCode = true
+            applyCouponBackView.isHidden = true
+            discountBackView.isHidden = false
+            discountTitleLbl.text = "Discount(25%)"
+            
+            disc = 0.0
+            disc = Double(((mentorDetail.amount) * Double(25))/100)
+            discountPriceLbl.text = "-$\(disc)"
+            
+            if useWalletBtn.isSelected {
+                wallet = 0.0
+                if mentorDetail.walletAmount > mentorDetail.amount {
+                    wallet = mentorDetail.amount
+                }
+                else {
+                    wallet = mentorDetail.walletAmount
+                }
+                wallet = wallet - disc
+                walletBalanceLbl.text = "-$\(wallet)"
+            }
+            
+            let total = Double(mentorDetail.amount) - disc - Double(wallet)
+            toBePaidLbl.text = "$\(String(format: "%.02f", total))"
+//            applyCouponBtn.isUserInteractionEnabled = false
+        }
+        else {
+            isApplyCode = false
+        }
+        
+    }
+    
     //MARK: - Button Click
     @objc func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func clickToApplyCoupon(_ sender: Any) {
-        let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isApplyCode {
+            displayToast("Use only one coupon code")
+        }
+        else {
+            let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "ApplyCouponVC") as! ApplyCouponVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     
@@ -196,7 +278,7 @@ class ConfirmBookingVC: UIViewController {
         if isApplyCoupon {
             request.couponRef = applyCoupon.id
         }
-        if applyCouponTxt.text != "" {
+        if applyCouponTxt.text != "" && isApplyCode {
             request.coupon = applyCouponTxt.text
         }
         
@@ -236,11 +318,13 @@ class ConfirmBookingVC: UIViewController {
             else {
                 wallet = mentorDetail.walletAmount
             }
-            walletBalanceLbl.text = "$\(wallet)"
+            walletBalanceLbl.text = "-$\(wallet)"
         }
         
         let total = Double(mentorDetail.amount) - Double(wallet)
         toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+        
+//        applyCouponTxt.isUserInteractionEnabled = true
     }
     
     @IBAction func clickToUseWallet(_ sender: UIButton) {
@@ -255,8 +339,10 @@ class ConfirmBookingVC: UIViewController {
             discountTitleLbl.text = "Discount(\(applyCoupon.amountOff)%)"
             discountPriceLbl.text = "-$\(disc)"
         }
-        else {
-            disc = 0.0
+        else if isApplyCode {
+            disc = Double(((mentorDetail.amount) * Double(25))/100)
+            discountTitleLbl.text = "Discount(25%)"
+            discountPriceLbl.text = "-$\(disc)"
         }
         
         if mentorDetail.walletAmount > Double(mentorDetail.amount) {
@@ -276,7 +362,7 @@ class ConfirmBookingVC: UIViewController {
         else {
             sender.isSelected = true
             walletBackView.isHidden = false
-            walletBalanceLbl.text = "$\(wallet - disc)"
+            walletBalanceLbl.text = "-$\(wallet - disc)"
             let total = Double(mentorDetail.amount) - disc - Double(wallet - disc)
             toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
         }

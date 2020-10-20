@@ -42,7 +42,6 @@ class MentorBookingDetailVC: UIViewController {
     var selectedStartDate = Date()
     var subjectArr : [String] = [String]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +51,14 @@ class MentorBookingDetailVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Booking Request"
+//        navigationBar.headerLbl.text = "Booking Details"
+        
+        if selectedBooking.status == BookingStatus.BOOKED {
+            navigationBar.headerLbl.text = "Booking Details"
+        }
+        else {
+            navigationBar.headerLbl.text = "Booking Request"
+        }
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
@@ -194,9 +200,16 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
         scheduledLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(bookingDetail.amount) Paid"
+        paymentLbl.text = "$\(bookingDetail.mentorPaidAmount) Paid"
         additionalLbl.text = bookingDetail.additionalTopics
         anticipentLbl.text = "\(bookingDetail.anticipateYear)"
+        
+        if bookingDetail.status == BookingStatus.BOOKED {
+            navigationBar.headerLbl.text = "Booking Details"
+        }
+        else {
+            navigationBar.headerLbl.text = "Booking Request"
+        }
         
         if bookingDetail.status == BookingStatus.PENDING {
             joincallBackView.isHidden = true

@@ -34,12 +34,12 @@ class HomeVC: UIViewController {
 
         configUI()
         
+//        var dict : [String : Any] = [String : Any]()
+//        dict["name"] = "Vishal1234"
+//        dict["date"] = "2020-10-21T05:15:00.000Z"
 //        let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
-//        var dict1 : [String : Any] = [String : Any]()
-//        dict1["date"] = "2020-10-19T12:15:00.000Z"
-//        dict1["name"] = "Vishal11"
 //        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//        JoinCallVC.dict = dict1
+//        JoinCallVC.dict = dict as! [String : Any]
 //        JoinCallVC.setUp()
         
     }

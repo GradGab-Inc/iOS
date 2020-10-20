@@ -30,7 +30,7 @@ class NotificationVC: UIViewController {
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        navigationBar.headerLbl.text = "Notification"
+        navigationBar.headerLbl.text = "Notifications"
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
         navigationBar.filterBtn.isHidden = true
     }
