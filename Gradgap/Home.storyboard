@@ -443,7 +443,7 @@ schools.</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any favourite yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pd-ki-Jgc">
-                                <rect key="frame" x="15" y="274.5" width="290" height="19.5"/>
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2522,13 +2522,13 @@ Refer some friends.</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$500.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Djm-si-IMP">
-                                                <rect key="frame" x="50" y="17" width="93" height="23.5"/>
+                                                <rect key="frame" x="50" y="17" width="93" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Earnings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oF4-fy-YyX">
-                                                <rect key="frame" x="50" y="45.5" width="90" height="16"/>
+                                                <rect key="frame" x="50" y="44.5" width="90" height="16"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2557,13 +2557,13 @@ Refer some friends.</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="xcM-lj-WXI">
-                                                <rect key="frame" x="50" y="17" width="93" height="23.5"/>
+                                                <rect key="frame" x="50" y="17" width="93" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Bookings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVT-fe-vi2">
-                                                <rect key="frame" x="50" y="45.5" width="90" height="16"/>
+                                                <rect key="frame" x="50" y="44.5" width="90" height="16"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -2604,7 +2604,7 @@ Refer some friends.</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any Earning yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-2x-5OM">
-                                <rect key="frame" x="15" y="274.5" width="290" height="19.5"/>
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3586,7 +3586,7 @@ Refer some friends.</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any Notification yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAd-aM-u67">
-                                <rect key="frame" x="15" y="274.5" width="290" height="19.5"/>
+                                <rect key="frame" x="15" y="274.5" width="290" height="19"/>
                                 <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -3925,7 +3925,7 @@ Refer some friends.</string>
                                                                 <rect key="frame" x="15" y="69" width="290" height="40"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="APPLY CODE" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-Ed-igO" customClass="TextField" customModule="GradGab" customModuleProvider="target">
-                                                                        <rect key="frame" x="12" y="0.0" width="266" height="40"/>
+                                                                        <rect key="frame" x="12" y="0.0" width="207" height="40"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="15"/>
                                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -3936,14 +3936,38 @@ Refer some friends.</string>
                                                                             <outlet property="delegate" destination="Mlc-hK-Nzy" id="SRu-Ez-f3E"/>
                                                                         </connections>
                                                                     </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGt-0Y-ylI">
+                                                                        <rect key="frame" x="223" y="5" width="60" height="30"/>
+                                                                        <color key="backgroundColor" name="AppColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="60" id="BEB-09-Z2b"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="nuR-C3-ssj"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
+                                                                        <state key="normal" title="Remove">
+                                                                            <color key="titleColor" name="RedColor"/>
+                                                                        </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="20"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="clickToRemoveApplyCode:" destination="Mlc-hK-Nzy" eventType="touchUpInside" id="67R-7Q-RPh"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="AppColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="6Im-qq-1ap"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="QGt-0Y-ylI" secondAttribute="bottom" constant="5" id="DJD-TH-L4U"/>
                                                                     <constraint firstItem="gYa-Ed-igO" firstAttribute="top" secondItem="k2p-I2-qi4" secondAttribute="top" id="UsA-2a-dnC"/>
                                                                     <constraint firstAttribute="bottom" secondItem="gYa-Ed-igO" secondAttribute="bottom" id="bZM-Qg-nwR"/>
+                                                                    <constraint firstItem="QGt-0Y-ylI" firstAttribute="leading" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="4" id="geW-UP-MCV"/>
                                                                     <constraint firstItem="gYa-Ed-igO" firstAttribute="leading" secondItem="k2p-I2-qi4" secondAttribute="leading" constant="12" id="j2i-kW-8Kv"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="12" id="sSO-iy-GG7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="gYa-Ed-igO" secondAttribute="trailing" constant="71" id="sSO-iy-GG7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="QGt-0Y-ylI" secondAttribute="trailing" constant="7" id="w1J-An-2Xh"/>
+                                                                    <constraint firstItem="QGt-0Y-ylI" firstAttribute="top" secondItem="k2p-I2-qi4" secondAttribute="top" constant="5" id="z6B-Nk-Ubz"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -4524,7 +4548,7 @@ Refer some friends.</string>
                     <viewLayoutGuide key="safeArea" id="hoG-Po-1l1"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="362" y="1010"/>
+            <point key="canvasLocation" x="361.875" y="1009.8591549295775"/>
         </scene>
         <!--Booking ListVC-->
         <scene sceneID="CpL-4H-aES">

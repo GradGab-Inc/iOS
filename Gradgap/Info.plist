@@ -90,6 +90,9 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
 		<string>voip</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
@@ -113,11 +116,11 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>branch_key</key>
-	<string>key_live_oiVWUVRb7XcyeDUfmxD7gafhDylpsuy0</string>
-	<key>branch_app_domain</key>
-	<string>1lmsg.app.link</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>branch_app_domain</key>
+	<string>1lmsg.app.link</string>
+	<key>branch_key</key>
+	<string>key_live_oiVWUVRb7XcyeDUfmxD7gafhDylpsuy0</string>
 </dict>
 </plist>

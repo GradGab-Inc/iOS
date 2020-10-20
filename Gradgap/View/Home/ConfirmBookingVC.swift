@@ -172,10 +172,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         else {
             discountBackView.isHidden = true
             applyCouponBackView.isHidden = true
-            isApplyCoupon = false
+            isApplyCode = false
             discountTitleLbl.text = "Discount(0%)"
             discountPriceLbl.text = "$0"
             
+            wallet = 0.0
             if useWalletBtn.isSelected {
                 if mentorDetail.walletAmount > mentorDetail.amount {
                     wallet = mentorDetail.amount
@@ -323,9 +324,31 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         
         let total = Double(mentorDetail.amount) - Double(wallet)
         toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
-        
-//        applyCouponTxt.isUserInteractionEnabled = true
     }
+    
+    @IBAction func clickToRemoveApplyCode(_ sender: Any) {
+        applyCouponTxt.text = ""
+        discountBackView.isHidden = true
+        applyCouponBackView.isHidden = true
+        isApplyCode = false
+        discountTitleLbl.text = "Discount(0%)"
+        discountPriceLbl.text = "$0"
+        
+        wallet = 0.0
+        if useWalletBtn.isSelected {
+            if mentorDetail.walletAmount > mentorDetail.amount {
+                wallet = mentorDetail.amount
+            }
+            else {
+                wallet = mentorDetail.walletAmount
+            }
+            walletBalanceLbl.text = "-$\(wallet)"
+        }
+        
+        let total = Double(mentorDetail.amount) - Double(wallet)
+        toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+    }
+    
     
     @IBAction func clickToUseWallet(_ sender: UIButton) {
         if mentorDetail.walletAmount == 0 {
@@ -333,6 +356,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             return
         }
         wallet = 0.0
+        disc = 0.0
         if isApplyCoupon {
             disc = Double(((mentorDetail.amount) * Double(applyCoupon.amountOff))/100)
             applyDiscountLbl.text = "\(applyCoupon.amountOff)% Discount"
