@@ -100,7 +100,6 @@ class BookVC: UIViewController {
             }
         }
     }
-    
     deinit {
         log.success("BookVC Memory deallocated!")/
     }

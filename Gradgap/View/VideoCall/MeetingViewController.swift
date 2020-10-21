@@ -143,7 +143,7 @@ class MeetingViewController: UIViewController {
         {
             if dict["status"] as! Int == 2 {
                 print(dict["status"] as! Int)
-                self.callEndTime = callEndTime.sainiAddMinutes(Double(2))
+                self.callEndTime = callEndTime.sainiAddMinutes(Double(15))
                 setExtendCallId(bookingDetailForVideo.id)
             }
             else if dict["status"] as! Int == 3 {
@@ -160,7 +160,7 @@ class MeetingViewController: UIViewController {
         meetingModel.notifyHandler = { [weak self] message in
             self?.view?.makeToast(message, duration: 2.0, position: .top)
             meetingModel.isLocalVideoActive = true
-            self?.callEndTime = Date().sainiAddMinutes(Double(3))
+            self?.callEndTime = Date().sainiAddMinutes(Double(bookingDetailForVideo.callTime))
             self?.scheduledTimerWithTimeInterval()
             
             SocketIOManager.sharedInstance.subscribeChannel(["bookingRef": bookingDetailForVideo.id])
@@ -278,12 +278,13 @@ class MeetingViewController: UIViewController {
     @objc func callTimer() {
         let currentDate = Date()
         counter = counter + 1
+        print(counter)
         if currentDate < callEndTime {
             callStartTime = callStartTime.sainiAddSecond(Double(1))
             DispatchQueue.main.async {
                 self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
             }
-            if counter  == 30 && AppModel.shared.currentUser.user?.userType == 1 {
+            if counter  == ((bookingDetailForVideo.callTime * 60) - 120) && AppModel.shared.currentUser.user?.userType == 1 {
                 if getExtendCallId() == "" || getExtendCallId() != bookingDetailForVideo.id {
                     twoMinuteLeftBackView.isHidden = false
                     setExtendCallId(bookingDetailForVideo.id)
@@ -500,7 +501,7 @@ extension MeetingViewController: ExtendCallDelegate, CallActionDelegate {
         
         if isAccept {
             print("Accept")
-            self.callEndTime = callEndTime.sainiAddMinutes(Double(2))
+            self.callEndTime = callEndTime.sainiAddMinutes(Double(15))
         }
     }
     
