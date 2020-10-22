@@ -44,7 +44,7 @@ class ReferFriendVC: UIViewController {
     
     func generateLink() {
         let title = "GradGab"
-        let desc = "Click here to install the app :"
+        let desc = "Hey I'm using GradGab to chat with current students at schools I'm exploring, download the app here and check it out!"
 //        let imgURL = "https://shiftbookd.com/img/shiftbookd-app.png"
 
         let buo = BranchUniversalObject()

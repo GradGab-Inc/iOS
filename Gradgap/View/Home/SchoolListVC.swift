@@ -58,8 +58,15 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         schoolCollectionView.register(UINib(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
         
         searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-      
-        let attributedString = NSMutableAttributedString.init(string: "Don't see a school you are interested in? Let us know")
+        
+        var linkStr : String = String()
+        if isMentor {
+            linkStr = "Don't see the college you attend? Let us know"
+        }
+        else {
+            linkStr = "Don't see a school you are interested in? Let us know"
+        }
+        let attributedString = NSMutableAttributedString.init(string: linkStr)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
             NSRange.init(location: 0, length: attributedString.length));
         interetedLbl.attributedText = attributedString
@@ -170,7 +177,7 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         dataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
         if isMentor {
-            questionLbl.text = "What school do you attend?"
+            questionLbl.text = "What college do you attend?"
         }
         else {
             questionLbl.text = "What schools are you interested in?"

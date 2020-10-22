@@ -20,6 +20,10 @@ class WantToMeetVC: UIViewController {
     }
     
     //MARK: - Button Click
+    @IBAction func clickToBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func clickToCollegeStudent(_ sender: Any) {
         AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
     }

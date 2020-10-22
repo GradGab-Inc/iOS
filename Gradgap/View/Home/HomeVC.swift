@@ -33,15 +33,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         configUI()
-        
-//        var dict : [String : Any] = [String : Any]()
-//        dict["name"] = "Vishal1234"
-//        dict["date"] = "2020-10-21T05:15:00.000Z"
-//        let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
-//        displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
-//        JoinCallVC.dict = dict as! [String : Any]
-//        JoinCallVC.setUp()
-        
+                
     }
     
     override func viewWillAppear(_ animated: Bool) {
