@@ -65,10 +65,10 @@ class BookVC: UIViewController {
             mentorListVM.getMentorList(request: MentorListRequest(callType: 1, callTime: getCallTime(selectedChatTime), dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage, timezone:timeZoneOffsetInMinutes()))
         }
         else if selectedType == 2  {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 2, callTime: 60, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage, timezone:timeZoneOffsetInMinutes()))
         }
         else {
-            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: 45, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage))
+            mentorListVM.getMentorList(request: MentorListRequest(callType: 3, callTime: 45, dateTime: getDateStringFromDate(date: selectedDate, format: "YYYY-MM-dd"), page: currentPage, timezone:timeZoneOffsetInMinutes()))
         }
     }
     
@@ -179,10 +179,10 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
             vc.selectedCallTime = getCallTime(selectedChatTime)
         }
         else if selectedType == 2  {
-            vc.selectedCallTime = 60
+            vc.selectedCallTime = 45
         }
         else {
-            vc.selectedCallTime = 45
+            vc.selectedCallTime = 60
         }
         vc.selectedDate = selectedDate
         self.navigationController?.pushViewController(vc, animated: true)

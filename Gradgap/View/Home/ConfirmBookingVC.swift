@@ -109,7 +109,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName != "" ? "\(mentorDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = mentorDetail.school.first?.name
         priceLbl.text = "$\(mentorDetail.amount)"
-        dateLbl.text = getDateStringFromDate(date: selectedDate, format: "dd/MM/yy")
+        dateLbl.text = getDateStringFromDate(date: selectedDate, format: "MM/dd/yy")
         durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
         useWalletBalanceLbl.text = "\(mentorDetail.walletAmount)"
                 
