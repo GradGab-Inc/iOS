@@ -48,7 +48,7 @@ struct UpdateRequest: Encodable {
         self.lastName = lastName
         self.bio = bio
         self.collegePath = collegePath
-        self.completeProfile = false
+        self.completeProfile = completeProfile
     }
     
     

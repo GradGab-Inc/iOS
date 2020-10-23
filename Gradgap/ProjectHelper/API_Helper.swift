@@ -18,9 +18,9 @@ struct API {
     static let SOCKET_URL = "http://ec2-54-197-250-33.compute-1.amazonaws.com:3000" //"http://dbf061a69506.ngrok.io/" //
     
     // Local
-//    static let BASE_URL = "http://d82fcb4b2059.ngrok.io/api/" // "http://3.82.95.119/development/api/" //
+//    static let BASE_URL = "http://9b1a80b203e9.ngrok.io/api/" //"http://3.82.95.119/development/api/" //
 //    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
-//    static let SOCKET_URL = "http://d82fcb4b2059.ngrok.io/" //"http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //
+//    static let SOCKET_URL = "http://9b1a80b203e9.ngrok.io/" //"http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //
     
     
     struct USER {

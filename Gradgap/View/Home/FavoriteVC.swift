@@ -104,8 +104,8 @@ extension FavoriteVC : UITableViewDelegate, UITableViewDataSource {
         cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
 //        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         cell.collegeNameLbl.text = dict.schoolName
-        cell.ratinglbl.text = "\(dict.averageRating)"
-        cell.ratingView.rating = dict.averageRating
+        cell.ratinglbl.text = dict.averageRating == 0.0 ? "5.0" : "\(dict.averageRating)"
+        cell.ratingView.rating = dict.averageRating == 0.0 ? 5.0 : dict.averageRating
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
         cell.ratingBtn.tag = indexPath.row
         cell.ratingBtn.addTarget(self, action: #selector(self.clickToFavorite), for: .touchUpInside)

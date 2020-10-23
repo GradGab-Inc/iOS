@@ -38,7 +38,7 @@ struct MentorData: Codable {
     let bio, enrollmentID: String
     let personality: Personality?
     let school: [MajorListDataModel]
-    let averageRating : Int
+    let averageRating : Double
     let availableTimings: [Int]
     let isFavourite: Bool
     let walletAmount, amount: Double
@@ -68,17 +68,17 @@ struct MentorData: Codable {
         scoreSAT = try values.decodeIfPresent(Double.self, forKey: .scoreSAT) ?? 0
         scoreACT = try values.decodeIfPresent(Double.self, forKey: .scoreACT) ?? 0
         gpa = try values.decodeIfPresent(Double.self, forKey: .gpa) ?? 0.0
-        amount = try values.decodeIfPresent(Double.self, forKey: .amount) ?? 0
+        amount = try values.decodeIfPresent(Double.self, forKey: .amount) ?? 0.0
         subjects = try values.decodeIfPresent([Int].self, forKey: .subjects) ?? []
         ethnicity = try values.decodeIfPresent(Int.self, forKey: .ethnicity) ?? 0
         bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
         enrollmentID = try values.decodeIfPresent(String.self, forKey: .enrollmentID) ?? ""
-        averageRating = try values.decodeIfPresent(Int.self, forKey: .averageRating) ?? 0
+        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0.0
         availableTimings = try values.decodeIfPresent([Int].self, forKey: .availableTimings) ?? []
         school = try values.decodeIfPresent([MajorListDataModel].self, forKey: .school) ?? []
         personality = try values.decodeIfPresent(Personality.self, forKey: .personality) ?? nil
         isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
-        walletAmount = try values.decodeIfPresent(Double.self, forKey: .walletAmount) ?? 0
+        walletAmount = try values.decodeIfPresent(Double.self, forKey: .walletAmount) ?? 0.0
     }
     
     init() {
@@ -98,13 +98,13 @@ struct MentorData: Codable {
         ethnicity = 0
         bio = ""
         enrollmentID = ""
-        averageRating = 0
+        averageRating = 0.0
         availableTimings = []
         school = [MajorListDataModel].init()
         personality = Personality.init()
         isFavourite = false
-        amount = 0
-        walletAmount = 0
+        amount = 0.0
+        walletAmount = 0.0
     }
 }
 

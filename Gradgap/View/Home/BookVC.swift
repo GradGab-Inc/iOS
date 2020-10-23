@@ -153,12 +153,9 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         
         let dict : MentorListDataModel = mentorListArr[indexPath.section].data[indexPath.row]
         
-        let name = dict.name.components(separatedBy: " ")
-        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
-//        cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
-        
+        cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"        
         cell.collegeNameLbl.text = dict.schoolName
-        cell.ratingView.rating = Double(dict.averageRating)
+        cell.ratingView.rating = dict.averageRating == 0.0 ? 5.0 : dict.averageRating
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString: dict.image)
         
         cell.arrData = dict.availableTimings

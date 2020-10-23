@@ -96,7 +96,7 @@ class MentorHomeVC: UIViewController {
         homeCalender.delegate = self
         
         headerLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM yyyy")
-        topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "MMMM MM/dd/yyyy")
+        topHeaderDateLbl.text = getDateStringFromDate(date: homeCalender.currentPage, format: "EEE MM/dd/yyyy")
         
         self.view.sainiAddSwipe { (data) in
             if data == Swipe.down {
@@ -291,7 +291,7 @@ extension MentorHomeVC : FSCalendarDataSource, FSCalendarDelegate {
         print("did select date \(self.dateFormatter.string(from: date))")
         let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
         print("selected dates is \(selectedDates)")
-        topHeaderDateLbl.text = getDateStringFromDate(date: date, format: "MMMM MM/dd/yyyy")
+        topHeaderDateLbl.text = getDateStringFromDate(date: date, format: "EEE MM/dd/yyyy")
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
         }

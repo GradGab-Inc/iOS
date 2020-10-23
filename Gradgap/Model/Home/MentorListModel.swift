@@ -92,7 +92,7 @@ struct MentorListDataModel: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0
+        averageRating = try values.decodeIfPresent(Double.self, forKey: .averageRating) ?? 0.0
         availableTimings = try values.decodeIfPresent([Int].self, forKey: .availableTimings) ?? []
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
         name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
@@ -105,7 +105,7 @@ struct MentorListDataModel: Codable {
     
     init() {
         id = ""
-        averageRating = 0
+        averageRating = 0.0
         availableTimings = []
         image = ""
         name = ""

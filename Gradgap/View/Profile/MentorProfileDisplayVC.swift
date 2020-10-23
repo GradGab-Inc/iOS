@@ -78,8 +78,8 @@ class MentorProfileDisplayVC: UIViewController {
             actLbl.text =  String(format: "%.01f", profileData.scoreACT) //"\(profileData.scoreACT)"
             gpaLbl.text =  String(format: "%.01f", profileData.gpa) //"\(profileData.gpa)"
             ethinicityLbl.text = profileData.ethnicity != -1 ? ethinityArr[profileData.ethnicity] : ""
-            rateLbl.text = "\(profileData.averageRating)"
-            ratingView.rating = profileData.averageRating
+            rateLbl.text = profileData.averageRating == 0.0 ? "5.0" : "\(profileData.averageRating)"
+            ratingView.rating = profileData.averageRating == 0.0 ? 5.0 : profileData.averageRating
             collegePathLbl.text = getCollegePathString(profileData.collegePath)
             
             if profileData.subjects.count != 0 {

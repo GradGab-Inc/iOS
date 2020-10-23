@@ -102,7 +102,7 @@ class MentorsProfileVC: UIViewController {
             if favoriteBtn.isSelected {
                 addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: false))
             }
-            else{
+            else {
                 addToFavoriteVM.addRemoveFavorite(reuqest: FavouriteRequest(mentorRef: selectedUserId, status: true))
             }
         }
@@ -161,8 +161,8 @@ class MentorsProfileVC: UIViewController {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
-        rateLbl.text = "\(bookingDetail.averageRating)"
-        ratingView.rating = bookingDetail.averageRating
+        rateLbl.text = bookingDetail.averageRating == 0.0 ? "\(5.0)" : "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating == 0.0 ? 5.0 : bookingDetail.averageRating
         bioLbl.text = bookingDetail.bio
         courceNameLbl.text = bookingDetail.major
         
@@ -237,9 +237,9 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
         collegeNameLbl.text = mentorDetail.school.first?.name ?? ""
         courceNameLbl.text = mentorDetail.major
         bioLbl.text = mentorDetail.bio
-        rateLbl.text = "\(mentorDetail.averageRating)"
-        ratingView.rating = Double(mentorDetail.averageRating)
-        
+        rateLbl.text = mentorDetail.averageRating == 0.0 ? "\(5.0)" : "\(mentorDetail.averageRating)"
+        ratingView.rating = mentorDetail.averageRating == 0.0 ? 5.0 : mentorDetail.averageRating
+
         if mentorDetail.availableTimings.count != 0 {
             noDataLbl.isHidden = true
             timeDataArr = mentorDetail.availableTimings
@@ -296,10 +296,10 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
 //            let time = minutesToHoursMinutes(minutes: str + timeZone)
 //            cell.lbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
             
-            let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a")!
-            let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)!
+            let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a") ?? Date()
+            let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)
             
-            cell.lbl.text = getDateStringFromDate1(date: date1, format: "hh:mm a")
+            cell.lbl.text = getDateStringFromDate1(date: date1 ?? Date(), format: "hh:mm a")
             
             if selectedIndex == indexPath.row {
                 cell.backView.backgroundColor = LightBlueColor
