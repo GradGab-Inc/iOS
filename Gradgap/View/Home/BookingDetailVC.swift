@@ -219,8 +219,8 @@ extension BookingDetailVC : TransactionDetailDelegate {
         self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
-        rateLbl.text = "\(bookingDetail.averageRating)"
-        ratingView.rating = bookingDetail.averageRating
+        rateLbl.text = bookingDetail.averageRating == 0.0 ? "\(5.0)" : "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating == 0.0 ? 5.0 : bookingDetail.averageRating
         dateTimeLbl.text = getDateStringFromDateString(strDate: bookingDetail.transactionTime, formate: "MMMM dd, yyyy, hh:mm a")
         durationLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime) + " (\(bookingDetail.callTime)min)"
         serviceLbl.text = getCallType(bookingDetail.callType)
@@ -279,8 +279,8 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
 //        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         collegeNameLbl.text = bookingDetail.schoolName
-        rateLbl.text = "\(bookingDetail.averageRating)"
-        ratingView.rating = bookingDetail.averageRating
+        rateLbl.text = bookingDetail.averageRating == 0.0 ? "\(5.0)" : "\(bookingDetail.averageRating)"
+        ratingView.rating = bookingDetail.averageRating == 0.0 ? 5.0 : bookingDetail.averageRating
         dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)

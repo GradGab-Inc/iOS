@@ -60,11 +60,18 @@ extension CustomBookTVC : UICollectionViewDelegate, UICollectionViewDataSource, 
 //        let timeZone = timeZoneOffsetInMinutes()
 //        let time = minutesToHoursMinutes(minutes: str + timeZone)
 //        cell.lbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
+
         
-        let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a")!
-        let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)!
+        let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a") ?? Date()
+        let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)
         
-        cell.lbl.text = getDateStringFromDate1(date: date1, format: "hh:mm a")
+        cell.lbl.text = getDateStringFromDate1(date: date1 ?? Date(), format: "hh:mm a")
+
+        
+//        let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a")!
+//        let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)!
+//
+//        cell.lbl.text = getDateStringFromDate1(date: date1, format: "hh:mm a")
         
         cell.cancelBtn.isHidden = true
         return cell

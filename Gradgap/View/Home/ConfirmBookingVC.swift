@@ -188,7 +188,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             }
             
             let total = Double(mentorDetail.amount) - Double(wallet)
-            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.02f", total))" //"$\(total)"
         }
     }
     

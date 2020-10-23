@@ -48,20 +48,20 @@ class BankDetailVC: UploadImageVC {
 
         configUI()
         
-//        bankNameTxt.text = "ABC"
-//        holderNameTxt.text = "Vishal j Buha"
-//        firstNameTxt.text = "Vishal"
-//        lastNameTxt.text = "Buha"
-//        accountNumberTxt.text = "000123456789"//"123456788"
-//        address1Txt.text = "47 W 13th St"
-//        address2Txt.text = "New York"
-//        routingNumberTxt.text = "110000000"//"HDFC0000261"
-//        cityTxt.text = "New York"
-//        stateTxt.text = "New York"
-//        postalCodeTxt.text = "395006"
-//        contactNumberTxt.text = "9874563215"
-//        emailTxt.text = "buhavishal1@gmail.com"
-//        ssnTxt.text = "1234"
+        bankNameTxt.text = "ABC"
+        holderNameTxt.text = "Vishal j Buha"
+        firstNameTxt.text = "Vishal"
+        lastNameTxt.text = "Buha"
+        accountNumberTxt.text = "000123456789"//"123456788"
+        address1Txt.text = "47 W 13th St"
+        address2Txt.text = "New York"
+        routingNumberTxt.text = "110000000"//"HDFC0000261"
+        cityTxt.text = "New York"
+        stateTxt.text = "New York"
+        postalCodeTxt.text = "395006"
+        contactNumberTxt.text = "9874563215"
+        emailTxt.text = "buhavishal1@gmail.com"
+        ssnTxt.text = "0000"
         
     }
     
@@ -178,9 +178,9 @@ class BankDetailVC: UploadImageVC {
         else if address1.trimmed.count == 0 {
             displayToast("Please enter your address line1")
         }
-        else if address2.trimmed.count == 0 {
-            displayToast("Please enter your address line2")
-        }
+//        else if address2.trimmed.count == 0 {
+//            displayToast("Please enter your address line2")
+//        }
         else if city.trimmed.count == 0 {
             displayToast("Please enter your city")
         }
@@ -233,8 +233,14 @@ class BankDetailVC: UploadImageVC {
                 
                 let request = AddBankRequest(lastDigitsOfAccountNo: String(accountNumber.suffix(4)), accountHolderName: holderName, bankName: bankName, city: city, country: self.selectedCountry, line1: address1, line2: address2, postalCode: postalCode, state: state, ssnLastFour: ssn, gender: gender.lowercased(), ip: PLATFORM.isSimulator ? "192.168.0.102" : self.getMyIpAddress(), stripeToken: token.tokenId,firstName: fname, lastName: lname, phone: contact, day: getDateStringFromDate(date: self.birthDate, format: "dd"), month: getDateStringFromDate(date: self.birthDate, format: "MM"), year: getDateStringFromDate(date: self.birthDate, format: "yyyy"))
                 
-                let imageData = sainiCompressImage(image: self.frontImage)
-                let imageData1 = sainiCompressImage(image: self.backImage)
+                var imageData : Data = Data()
+                var imageData1 : Data = Data()
+                if self.frontImage.size.height != 0 {
+                    imageData = sainiCompressImage(image: self.frontImage)
+                }
+                if self.backImage.size.height != 0 {
+                    imageData1 = sainiCompressImage(image: self.backImage)
+                }
                 self.addBankDetailVM.addBankDetail(request: request, imageData: imageData, imageData1: imageData1)
             }
         }

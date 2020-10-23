@@ -126,10 +126,10 @@ public class APIManager {
                      log.ln("prettyJSON End \n")/
                      switch response.result{
                      case .success:
-                         log.result("\(String(describing: response.result.value))")/
-                         log.ln("prettyJSON Start \n")/
-                         log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
-                         log.ln("prettyJSON End \n")/
+ //                        log.result("\(String(describing: response.result.value))")/
+//                         log.ln("prettyJSON Start \n")/
+//                         log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
+//                         log.ln("prettyJSON End \n")/
                          DispatchQueue.main.async {
                              completion(response.data)
                          }
@@ -460,7 +460,7 @@ public class APIManager {
             
             switch response.result {
             case .success:
-                log.result("\(String(describing: response.result.value))")/
+             //   log.result("\(String(describing: response.result.value))")/
                 log.ln("prettyJSON Start \n")/
                 log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
                 log.ln("prettyJSON End \n")/
