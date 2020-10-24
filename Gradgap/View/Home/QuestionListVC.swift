@@ -210,7 +210,10 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
             if isMentor {
                 request.completeProfile = true
                 request.collegePath = collegePathIndex
-                if !isFromBack {
+                if AppModel.shared.currentUser.user?.userType == 2 {
+                    isFromBack = true
+                }
+                if !isFromBack && AppModel.shared.currentUser.user?.userType != 2 {
                     request.changeUserType = 2
                     request.bio = bio
                     let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
@@ -218,16 +221,16 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
                 else {
-//                    if isFromSwitchProfile {
-//                        request.completeProfile = true
-//                    }
                     let imageData = sainiCompressImage(image: selectedProfileImg ?? UIImage(named: "ic_profile")!)
                     let imageData1 = sainiCompressImage(image: selectImg)
                     profileUpadateVM.updateProfileWithTwoImage(request: request, imageData: imageData, imageData1: imageData1)
                 }
             }
             else {
-                if !isFromBack {
+                if AppModel.shared.currentUser.user?.userType == 1 {
+                    isFromBack = true
+                }
+                if !isFromBack && AppModel.shared.currentUser.user?.userType != 1 {
                     request.completeProfile = true
                     request.changeUserType = 1
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")

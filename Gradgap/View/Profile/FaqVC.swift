@@ -53,7 +53,7 @@ class FaqVC: UIViewController {
 
 extension FaqVC : FaqDelegate {
     func didRecievedFaqListData(response: FaqListResponse) {
-        FaqListData = response.data?.faqs ?? [FAQList].init()
+        FaqListData = response.data ?? [FAQList].init()
         DispatchQueue.main.async {
             self.tblView.reloadData()
         }

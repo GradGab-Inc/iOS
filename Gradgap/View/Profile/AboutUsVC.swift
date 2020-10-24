@@ -9,7 +9,7 @@
 import UIKit
 import SainiUtils
 
-class AboutUsVC: UIViewController {
+class AboutUsVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var navigationBar: ReuseNavigationBar!
     @IBOutlet weak var aboutTxtView: UITextView!
@@ -43,7 +43,9 @@ class AboutUsVC: UIViewController {
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(dataSetUp), name: NSNotification.Name.init(NOTIFICATION.GET_ABOUT_DATA), object: nil)
         
-        if AppModel.shared.aboutUsData.aboutUs == "" {
+        aboutTxtView.delegate = self
+        
+        if AppModel.shared.aboutUsData.aboutUs == "" || AppModel.shared.aboutUsData.privacyPolicy == "" || AppModel.shared.aboutUsData.termsAndCondition == "" {
             AppDelegate().sharedDelegate().getAboutUsData()
         }
         else {
@@ -53,21 +55,24 @@ class AboutUsVC: UIViewController {
     
     @objc func dataSetUp()  {
         if type == 0 {
-            aboutTxtView.text = AppModel.shared.aboutUsData.aboutUs
+            aboutTxtView.text = AppModel.shared.aboutUsData.aboutUs.html2String
         }
         else if type == 1 {
-            aboutTxtView.text = AppModel.shared.aboutUsData.termsAndCondition
+            aboutTxtView.text = AppModel.shared.aboutUsData.termsAndCondition.html2String
         }
         else if type == 2 {
-            aboutTxtView.text = AppModel.shared.aboutUsData.privacyPolicy
+            aboutTxtView.text = AppModel.shared.aboutUsData.privacyPolicy.html2String
         }
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return false
     }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-
     
     deinit {
         log.success("AboutUsVC Memory deallocated!")/

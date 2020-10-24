@@ -56,11 +56,12 @@ struct BookingListDataModel: Codable {
     let menteeRef, mentorRef, name, firstName, lastName: String
     let schoolName, dateTime, image: String
     let status, callTime, callType: Int
-    var id: String
+    var id, email: String
+    var isFavourite: Bool
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case menteeRef, mentorRef, name, schoolName, dateTime, status, callTime, image, callType, firstName, lastName
+        case menteeRef, mentorRef, name, schoolName, dateTime, status, callTime, image, callType, firstName, lastName, email, isFavourite
     }
     
     init(from decoder: Decoder) throws {
@@ -78,6 +79,8 @@ struct BookingListDataModel: Codable {
         image = try values.decodeIfPresent(String.self, forKey: .image) ?? ""
         firstName = try values.decodeIfPresent(String.self, forKey: .firstName) ?? ""
         lastName = try values.decodeIfPresent(String.self, forKey: .lastName) ?? ""
+        email = try values.decodeIfPresent(String.self, forKey: .email) ?? ""
+        isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
     }
     
     init() {
@@ -93,6 +96,8 @@ struct BookingListDataModel: Codable {
         image = ""
         firstName = ""
         lastName = ""
+        email = ""
+        isFavourite = false
     }
     
 }

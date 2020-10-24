@@ -37,6 +37,9 @@ class BookingListVC: UIViewController {
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var refreshControl : UIRefreshControl = UIRefreshControl.init()
     var isMentor : Bool = false
+    var isRateViewNavigate : Bool = false
+    var selectedJoinCallBookingDetail : BookingDetail = BookingDetail.init()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,7 @@ class BookingListVC: UIViewController {
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
@@ -85,6 +89,15 @@ class BookingListVC: UIViewController {
         refreshControl.endRefreshing()
         currentPage = 1
         bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
+    }
+    
+    @objc func openRateReviewVC() {
+        if !isRateViewNavigate {
+            isRateViewNavigate = true
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+            vc.bookingDetail = selectedJoinCallBookingDetail
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     //MARK: - Button Click
@@ -202,19 +215,23 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             
             let dict : BookingListDataModel = bookingArr[indexPath.row]
             cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
-            
-            let name = dict.name.components(separatedBy: " ")
             cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
-//            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
-            
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
             if AppModel.shared.currentUser.user?.userType == 1 {
                 cell.collegeNameLbl.text = dict.schoolName
-                cell.joinBtn.isHidden = true
-                cell.bookedBtn.isHidden = false
-                cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
-                cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+                if Calendar.current.isDateInToday(getDateFromDateString(strDate: dict.dateTime)) {
+                    cell.joinBtn.tag = indexPath.row
+                    cell.joinBtn.isHidden = false
+                    cell.bookedBtn.isHidden = true
+                    cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
+                }
+                else {
+                    cell.joinBtn.isHidden = true
+                    cell.bookedBtn.isHidden = false
+                    cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+                    cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+                }
             }
             else {
                 cell.joinBtn.isHidden = true
@@ -295,7 +312,20 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func clickToJoinCall(_ sender : UIButton) {
         if AppModel.shared.currentUser.user?.userType == 1 {
-
+            if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
+                SocketIOManager.sharedInstance.establishConnection()
+            }
+            let dict : BookingListDataModel = bookingArr[sender.tag]
+            JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: dict.id)) { (response) in
+                bookingDetailForVideo = dataModelChange(dict)
+                self.selectedJoinCallBookingDetail = dataModelChange(dict)
+                self.isRateViewNavigate = false
+                MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                    if status {
+                        print("Started")
+                    }
+                }
+            }
         }
         else  {
             let dict : BookingListDataModel = bookingArr[sender.tag]
