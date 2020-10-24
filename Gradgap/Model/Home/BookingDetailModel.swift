@@ -30,15 +30,15 @@ struct BookingDetailModel: Codable {
 
 // MARK: - BookingDetail
 struct BookingDetail: Codable {
-    let id, menteeRef, mentorRef, image: String
-    let name, schoolName, additionalTopics, dateTime, bio, transactionTime, firstName, lastName: String
+    var id, menteeRef, mentorRef, image: String
+    var name, schoolName, additionalTopics, dateTime, bio, transactionTime, firstName, lastName: String
     let subjects: [Int]
-    let anticipateYear, status, callTime, callType, timeSlot: Int
+    var anticipateYear, status, callTime, callType, timeSlot: Int
     let amount, mentorPaidAmount: Double
-    let isFavourite: Bool
+    var isFavourite: Bool
     let averageRating: Double
     let major: String
-    let email: String
+    var email: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"

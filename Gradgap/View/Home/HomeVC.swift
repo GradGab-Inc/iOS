@@ -28,6 +28,8 @@ class HomeVC: UIViewController {
     
     var bookingListVM : HomeBookingListViewModel = HomeBookingListViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
+    var isRateViewNavigate : Bool = false
+    var selectedJoinCallBookingDetail : BookingDetail = BookingDetail.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,8 @@ class HomeVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(redirectToNotification), name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
+        
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
@@ -87,6 +91,16 @@ class HomeVC: UIViewController {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func openRateReviewVC() {
+        if !isRateViewNavigate  {
+            isRateViewNavigate = true
+            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+            vc.bookingDetail = selectedJoinCallBookingDetail
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     
     //MARK: - Button Click
     @IBAction func clickToSideMenu(_ sender: Any) {
@@ -174,17 +188,22 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             let dict : BookingListDataModel = bookingArr[indexPath.row]
             cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
             
-            let name = dict.name.components(separatedBy: " ")
             cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
-//            cell.nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
-            
             cell.collegeNameLbl.text = dict.schoolName
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
-            cell.joinBtn.isHidden = true
-            cell.bookedBtn.isHidden = false
-            cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
-            cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            if Calendar.current.isDateInToday(getDateFromDateString(strDate: dict.dateTime)) {
+                cell.joinBtn.tag = indexPath.row
+                cell.joinBtn.isHidden = false
+                cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
+                cell.bookedBtn.isHidden = true
+            }
+            else {
+                cell.joinBtn.isHidden = true
+                cell.bookedBtn.isHidden = false
+                cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)
+                cell.bookedBtn.setTitleColor(getbookingColor(dict.status), for: .normal)
+            }
             
             bookingTblViewHeightConstraint.constant = bookingArr.count == 1 ? 126 : 252
             return cell
@@ -214,7 +233,19 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {
-
+        if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
+            SocketIOManager.sharedInstance.establishConnection()
+        }
+        let dict : BookingListDataModel = bookingArr[sender.tag]
+        JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: dict.id)) { (response) in
+            bookingDetailForVideo = dataModelChange(dict)
+            self.selectedJoinCallBookingDetail = dataModelChange(dict)
+            self.isRateViewNavigate = false
+            MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                if status {
+                    print("Started")
+                }
+            }
+        }
     }
-    
 }

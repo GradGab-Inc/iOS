@@ -806,3 +806,26 @@ func setUserImageOnButton(_ button : UIButton, _ strUrl : String)
         }
     })
 }
+
+
+
+
+func dataModelChange(_ dict: BookingListDataModel) -> BookingDetail {
+    var bookingDetailData : BookingDetail = BookingDetail.init()
+    
+    bookingDetailData.id = dict.id
+    bookingDetailData.firstName = dict.firstName
+    bookingDetailData.lastName = dict.lastName
+    bookingDetailData.schoolName = dict.schoolName
+    bookingDetailData.dateTime = dict.dateTime
+    bookingDetailData.image = dict.image
+    bookingDetailData.menteeRef = dict.menteeRef
+    bookingDetailData.mentorRef = dict.mentorRef
+    bookingDetailData.status = dict.status
+    bookingDetailData.callTime = dict.callTime
+    bookingDetailData.callType = dict.callType
+    bookingDetailData.email = dict.email
+    bookingDetailData.isFavourite = dict.isFavourite
+    
+    return bookingDetailData
+}

@@ -23,7 +23,7 @@ class RateReviewVC: UIViewController {
     @IBOutlet weak var interestCollectionView: UICollectionView!
     @IBOutlet weak var callCollectionView: UICollectionView!
     
-    var arr = ["Yes", "No", "Default"]
+    var arr = ["Yes", "No", "Unsure"]
     var selectLike : Int = 0
     var selectInterest : Int = 0
     var selectCall : Int = 0
@@ -127,6 +127,7 @@ extension RateReviewVC : RatingDelegate, SetFavoriteDelegate {
         }
         else {
             favoriteBtn.isSelected = true
+//            favoriteBtn.backgroundColor = WhiteColor.withAlphaComponent(0.5)
             favoriteBtn.backgroundColor = RedColor.withAlphaComponent(0.5)
             displayToast("Mentor marked as favorite successfully")
         }

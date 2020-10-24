@@ -208,12 +208,12 @@ class BankDetailVC: UploadImageVC {
 //        else if gender.trimmed.count == 0 || selectedGender == -1 {
 //            displayToast("Please enter your gender")
 //        }
-        else if frontImage.size.height == 0 {
-            displayToast("Please select document front image")
-        }
-        else if backImage.size.height == 0 {
-            displayToast("Please select document back image")
-        }
+//        else if frontImage.size.height == 0 {
+//            displayToast("Please select document front image")
+//        }
+//        else if backImage.size.height == 0 {
+//            displayToast("Please select document back image")
+//        }
         else {
             //Add Bank Details
             let bankAccount = STPBankAccountParams()

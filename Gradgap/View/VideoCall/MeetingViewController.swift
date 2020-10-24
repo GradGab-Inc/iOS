@@ -158,7 +158,7 @@ class MeetingViewController: UIViewController {
             self?.switchSubview(mode: activeMode)
         }
         meetingModel.notifyHandler = { [weak self] message in
-            self?.view?.makeToast(message, duration: 2.0, position: .top)
+//            self?.view?.makeToast(message, duration: 2.0, position: .top)
             meetingModel.isLocalVideoActive = true
             self?.callEndTime = Date().sainiAddMinutes(Double(bookingDetailForVideo.callTime))
             self?.scheduledTimerWithTimeInterval()
@@ -391,6 +391,7 @@ class MeetingViewController: UIViewController {
 
     @IBAction func cameraButtonClicked(_: UIButton) {
         cameraButton.isSelected = !cameraButton.isSelected
+        
         meetingModel?.isLocalVideoActive = cameraButton.isSelected
     }
     
@@ -480,7 +481,7 @@ class MeetingViewController: UIViewController {
             return
         }
         if meetingModel.videoModel.videoTileCount >= 2 {
-            if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)){
+            if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)) {
                 MentorVideoView.mirror = true
                 meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
                 meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
@@ -488,7 +489,7 @@ class MeetingViewController: UIViewController {
         }
         else{
             waitingLbl.isHidden = false
-            menteeVideoView.mirror = true
+            menteeVideoView.mirror = false
             meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
         }
     }
