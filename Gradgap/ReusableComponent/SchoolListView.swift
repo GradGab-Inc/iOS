@@ -66,7 +66,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
         
         tblView.register(UINib.init(nibName: "CustomQuestionTVC", bundle: nil), forCellReuseIdentifier: "CustomQuestionTVC")
         listArr = [MajorListDataModel]()
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         searchBackView.isHidden = true
         
         if flag == 1 {
@@ -76,7 +78,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
             }
             else {
                 listArr = majorListArr
-                tblView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                  self?.tblView.reloadData()
+                }
             }
         }
         else if flag == 2 {
@@ -86,7 +90,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
             }
             else {
                 listArr = languageListArr
-                tblView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                  self?.tblView.reloadData()
+                }
             }
         }
         else if flag == 3 {
@@ -94,7 +100,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
             schoolListVM.delegate = self
             searchTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
             listArr = schoolListArr
-            tblView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.tblView.reloadData()
+            }
         }
     }
     
@@ -106,7 +114,9 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
         else {
             schoolListArr = [MajorListDataModel]()
             listArr = [MajorListDataModel]()
-            self.tblView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.tblView.reloadData()
+            }
         }
     }
     
@@ -212,7 +222,9 @@ extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate
             majorListArr.append(item)
             listArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
     
     func didReceivedLanguageData(response: MajorListModel) {
@@ -225,7 +237,9 @@ extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate
             languageListArr.append(item)
             listArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
     
     func didReceivedData(response: MajorListModel) {
@@ -238,7 +252,9 @@ extension SchoolListView : MajorListSuccessDelegate, LanguageListSuccessDelegate
             schoolListArr.append(item)
             listArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
 
 }

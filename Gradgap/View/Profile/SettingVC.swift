@@ -43,6 +43,8 @@ class SettingVC: UIViewController {
         else {
             switchBtn.setTitle("Switch to Mentee App", for: .normal)
         }
+        
+        AppDelegate().sharedDelegate().getAboutUsData()
     }
     
     //MARK: - Button Click

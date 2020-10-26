@@ -81,7 +81,10 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
             schoolListBackView.isHidden = true
             selectedSchoolBackView.isHidden = false
             selectedSchoolListArr = AppModel.shared.currentUser.user?.school as! [MajorListDataModel]
-            schoolCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.schoolCollectionView.reloadData()
+            }
+            
         }
         else {
             schoolListBackView.isHidden = false
@@ -104,7 +107,10 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
             schoolListBackView.isHidden = true
             selectedSchoolBackView.isHidden = false
             schoolListArr = [MajorListDataModel]()
-            self.tblView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.tblView.reloadData()
+            }
+            
         }
     }
     
@@ -203,7 +209,9 @@ extension SchoolListVC : SchoolSearchListSuccessDelegate {
         for item in response.data {
             schoolListArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
 }
 
@@ -280,7 +288,10 @@ extension SchoolListVC : UITableViewDelegate, UITableViewDataSource {
         }
         schoolListBackView.isHidden = true
         selectedSchoolBackView.isHidden = false
-        schoolCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.schoolCollectionView.reloadData()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -22,7 +22,7 @@ struct TransactionListViewModel {
                 if response != nil{                             //if response is not empty
                     do {
                         let success = try JSONDecoder().decode(TransactionResponse.self, from: response!) // decode the response into model
-                        switch success.code{
+                        switch success.code {
                         case 100:
                             self.delegate?.didRecieveTransactionListResponse(response: success.self)
                             break

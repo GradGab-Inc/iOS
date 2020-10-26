@@ -70,7 +70,9 @@ class UpdateAvailabilityVC: UIViewController {
 extension UpdateAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate {
     func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = response.data
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         
         if availabilityListArr.count == 0 {
             self.navigationController?.popToRootViewController(animated: true)
@@ -131,7 +133,9 @@ extension UpdateAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.availableCollectionView.delegate = self
         cell.availableCollectionView.dataSource = self
         cell.availableCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-        cell.availableCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            cell.availableCollectionView.reloadData()
+        }
         
         return cell
     }

@@ -73,7 +73,9 @@ extension NotificationVC : NotificationDelegate {
         for item in response.data {
             notificationArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         noDataLbl.isHidden = notificationArr.count == 0 ? false : true
     }
 }

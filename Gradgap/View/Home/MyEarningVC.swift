@@ -132,7 +132,9 @@ extension MyEarningVC : EarningListDelegate {
         for item in response.data?.earningList ?? [TransactionListModel].init() {
             earningArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         setupData()
         noDataLbl.isHidden = earningArr.count == 0 ? false : true
     }

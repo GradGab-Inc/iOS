@@ -31,7 +31,9 @@ class OnboardingVC: UIViewController {
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         pageControll.currentPage = 0
-        infoCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.infoCollectionView.reloadData()
+        }
         
         if isUserLogin() {
             if getLoginUserData() != nil {
@@ -51,17 +53,23 @@ class OnboardingVC: UIViewController {
         infoCollectionView.register(UINib(nibName: "OnboardingCVC", bundle: nil), forCellWithReuseIdentifier: "OnboardingCVC")
         
         delay(0.01) {
-            self.infoCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.infoCollectionView.reloadData()
+            }
         }
     }
     
     //MARK: - Button Click
     @IBAction func clickToSignUp(_ sender: Any) {
+        player = nil
+        layer.removeAllAnimations()
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func clickToLogin(_ sender: Any) {
+        player = nil
+        layer.removeAllAnimations()
         let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.navigationController?.pushViewController(vc, animated: true)
     }

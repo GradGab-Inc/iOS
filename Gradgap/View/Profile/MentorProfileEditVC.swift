@@ -128,12 +128,16 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
             for i in profileData.subjects {
                 selectedIndex.append(i)
             }
-            interestCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.interestCollectionView.reloadData()
+            }
         }
         
         if profileData.school.count != 0 {
             schoolNameArr = profileData.school
-            schoolCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.schoolCollectionView.reloadData()
+            }
         }
         
         setUserImageOnButton(enrollImgBtn, API.IMAGE_URL + profileData.enrollmentId)
@@ -200,7 +204,9 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 3
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.listVC.tblView.reloadData()
+        }
     }
     
     @IBAction func clickToAddMore(_ sender: Any) {
@@ -299,7 +305,9 @@ class MentorProfileEditVC: UploadImageVC, selectedSchoolDelegate {
     func getSelectedSchoolArray(_ selectedData: MajorListDataModel) {
         schoolNameArr = [MajorListDataModel]()
         schoolNameArr.append(selectedData)
-        schoolCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.schoolCollectionView.reloadData()
+        }
     }
     
     @IBAction func clickToEthinity(_ sender: Any) {
@@ -422,7 +430,9 @@ extension MentorProfileEditVC : UICollectionViewDelegate, UICollectionViewDataSo
                 selectedIndex.append(indexPath.row + 1)
             }
             print(selectedIndex)
-            interestCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.interestCollectionView.reloadData()
+            }
         }
     }
     
@@ -441,7 +451,9 @@ extension MentorProfileEditVC : UICollectionViewDelegate, UICollectionViewDataSo
     
     @objc func clickToDelete(_ sender : UIButton) {
         schoolNameArr.remove(at: sender.tag)
-        schoolCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.schoolCollectionView.reloadData()
+        }
     }
     
 }

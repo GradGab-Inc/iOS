@@ -22,7 +22,7 @@ target 'Gradgap' do
   #pod 'GooglePlaces'
   
   pod 'Firebase/Messaging'
-  pod 'Firebase/Analytics'
+#  pod 'Firebase/Analytics'
   
   pod 'Stripe', '~> 19.0.1'
   pod 'Branch'

@@ -86,7 +86,10 @@ class MentorHomeVC: UIViewController {
         noDataLbl.isUserInteractionEnabled = true
         noDataLbl.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
         
-        bookingTblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.bookingTblView.reloadData()
+        }
+        
         bookingTblViewHeightConstraint.constant = 200
         
         bookingListVM.delegate = self
@@ -189,8 +192,11 @@ extension MentorHomeVC : HomeBookingListDelegate {
    func didRecieveHomeBookingListResponse(response: BookingListModel) {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
-        bookingTblView.reloadData()
     
+        DispatchQueue.main.async { [weak self] in
+          self?.bookingTblView.reloadData()
+        }
+        
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
         if bookingArr.count == 0 {

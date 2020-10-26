@@ -135,7 +135,9 @@ extension ConversationStarterVC : UITableViewDelegate, UITableViewDataSource {
             expandDict[String(sender.tag)] = true
         }
         
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
     
 }

@@ -41,7 +41,7 @@ class SplashScreenVC: UIViewController {
         if logoBackView.alpha <= 1 {
             logoBackView.alpha = logoBackView.alpha + 0.005
         }
-        print(logoVerticleConstraint.constant)
+//        print(logoVerticleConstraint.constant)
         if logoVerticleConstraint.constant < 0 {
             self.logoBackView.alpha = 1
             timer.invalidate()
@@ -64,8 +64,6 @@ class SplashScreenVC: UIViewController {
                         else if AppModel.shared.currentUser.user?.userType == 3 {
                             AppDelegate().sharedDelegate().navigateToLogin()
                         }
-    
-                        AppDelegate().sharedDelegate().getAboutUsData()
                     }
                     else {
                         AppModel.shared.currentUser = UserDataModel.init()

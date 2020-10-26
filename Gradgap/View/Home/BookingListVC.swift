@@ -59,7 +59,6 @@ class BookingListVC: UIViewController {
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTOR_HOME_DATA), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataSetUp), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
         
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         filterTblView.register(UINib(nibName: "FilterTVC", bundle: nil), forCellReuseIdentifier: "FilterTVC")
@@ -91,14 +90,14 @@ class BookingListVC: UIViewController {
         bookingListVM.getBookingList(request: BookingListRequest(page: currentPage))
     }
     
-    @objc func openRateReviewVC() {
-        if !isRateViewNavigate {
-            isRateViewNavigate = true
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
-            vc.bookingDetail = selectedJoinCallBookingDetail
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
+//    @objc func openRateReviewVC() {
+//        if !isRateViewNavigate {
+//            isRateViewNavigate = true
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+//            vc.bookingDetail = selectedJoinCallBookingDetail
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -173,7 +172,11 @@ extension BookingListVC : HomeBookingListDelegate {
         for item in response.data {
             bookingArr.append(item)
         }
-        bookingTblView.reloadData()
+    
+        DispatchQueue.main.async { [weak self] in
+          self?.bookingTblView.reloadData()
+        }
+        
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
    }
 }
@@ -307,7 +310,9 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
         
     @objc func clickToSelectFilter(_ sender : UIButton) {
         filterSelectIndex = sender.tag
-        filterTblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.filterTblView.reloadData()
+        }
     }
     
     @objc func clickToJoinCall(_ sender : UIButton) {

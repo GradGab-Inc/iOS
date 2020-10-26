@@ -73,7 +73,9 @@ extension ApplyCouponVC : CouponListDelegate {
         for item in response.data {
             couponArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         noDataLbl.isHidden = couponArr.count == 0 ? false : true
     }
 }

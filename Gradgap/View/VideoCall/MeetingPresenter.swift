@@ -40,7 +40,17 @@ class MeetingPresenter {
         activeMeetingViewController.dismiss(animated: true) {
             self.activeMeetingViewController = nil
             if AppModel.shared.currentUser.user?.userType == 1 {
-                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
+//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
+                let vc : UIViewController = UIApplication.topViewController()!
+                print(vc)
+                if (vc is RateReviewVC) {
+                    print("OKKKKK")
+                }
+                else {
+                    let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+                    vc.bookingDetail = bookingDetailForVideo
+                    UIApplication.topViewController()?.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             completion()
         }

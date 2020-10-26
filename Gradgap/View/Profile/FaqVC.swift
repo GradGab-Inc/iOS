@@ -114,7 +114,9 @@ extension FaqVC : UITableViewDelegate, UITableViewDataSource {
         else {
             expandDict[String(sender.tag)] = true
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
     
 }

@@ -87,21 +87,29 @@ class MentorProfileDisplayVC: UIViewController {
                 for i in profileData.subjects {
                     subjectArr.append(InterestArr[i - 1])
                 }
-                subjectCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.subjectCollectionView.reloadData()
+                }
             }
             
             if profileData.school.count != 0 {
                 schoolNameArr = profileData.school
-                schoolCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.schoolCollectionView.reloadData()
+                }
             }
             
             if profileData.enrollmentId != "" {
                 enrollmentArr = [String]()
                 enrollmentArr.append(profileData.enrollmentId)
-                enrollCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.enrollCollectionView.reloadData()
+                }
             }
             else {
-                enrollCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.enrollCollectionView.reloadData()
+                }
             }
         }
     }

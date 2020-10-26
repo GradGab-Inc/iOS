@@ -77,7 +77,9 @@ extension FavoriteVC : FavoriteListDelegate, SetFavoriteDelegate {
     func didRecieveFavoriteListResponse(response: FavoriteListModel) {
         favoriteListArr = [FavoriteDataModel]()
         favoriteListArr = response.data
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         
         noDataLbl.isHidden = favoriteListArr.count == 0 ? false : true
     }

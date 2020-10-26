@@ -40,7 +40,9 @@ class CardListVC: UIViewController {
         
          tblView.register(UINib(nibName: "CardListTVC", bundle: nil), forCellReuseIdentifier: "CardListTVC")
         
-         tblView.reloadData()
+         DispatchQueue.main.async { [weak self] in
+           self?.tblView.reloadData()
+         }
          tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
         
          cardListVM.delegate = self
@@ -73,7 +75,9 @@ extension CardListVC : CardListDelegate, CardSelectDelegate {
     func didRecieveCardListResponse(response: CardListResponse) {
         cardListArr = [CardListDataModel]()
         cardListArr = response.data
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         tblViewHeightConstraint.constant = CGFloat((cardListArr.count * 85))
     }
     

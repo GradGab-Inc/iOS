@@ -133,6 +133,7 @@ struct NOTIFICATION {
     static var SETUP_EXTEND_DATA           =   "SETUP_EXTEND_DATA"
     static var SETUP_EXTEND_VERIFICATION_DATA           =   "SETUP_EXTEND_VERIFICATION_DATA"
     static let REDICT_TO_NOTIFICATION      =   "REDICT_TO_NOTIFICATION"
+    static let CALL_DISCONNECT             =   "CALL_DISCONNECT"
 }
 
 

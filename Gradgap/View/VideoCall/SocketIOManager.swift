@@ -15,7 +15,7 @@ class SocketIOManager: NSObject {
     var socket: SocketIOClient!
     
     // defaultNamespaceSocket and swiftSocket both share a single connection to the server
-    var manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(false), .compress])
     
     override init() {
         super.init()
@@ -24,7 +24,7 @@ class SocketIOManager: NSObject {
     
     func reloadSocket()
     {
-        manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
+        manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(false), .compress])
         socket = manager.defaultSocket
     }
     

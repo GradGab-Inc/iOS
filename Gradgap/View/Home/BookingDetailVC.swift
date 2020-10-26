@@ -37,7 +37,6 @@ class BookingDetailVC: UIViewController {
     var addToFavoriteVM : SetFavoriteViewModel = SetFavoriteViewModel()
     var bookingDetailVM : BookingDetailViewModel = BookingDetailViewModel()
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
-    var joinCallVM : JoinCallViewModel = JoinCallViewModel()
     var bookingDetail : BookingDetail = BookingDetail.init()
     var type : Int = 0
     var selectedBooking : BookingListDataModel = BookingListDataModel.init()
@@ -80,7 +79,6 @@ class BookingDetailVC: UIViewController {
         
         bookingCantCancelBackView.isHidden = true
         cancelBookingBackView.isHidden = true
-        joinCallVM.delegate = self
         
         if isFromTransaction {
             navigationBar.headerLbl.text = "Transaction Details"
@@ -224,7 +222,7 @@ extension BookingDetailVC : TransactionDetailDelegate {
         dateTimeLbl.text = getDateStringFromDateString(strDate: bookingDetail.transactionTime, formate: "MMMM dd, yyyy, hh:mm a")
         durationLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime) + " (\(bookingDetail.callTime)min)"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(String(format: "%.01f", bookingDetail.amount)) Paid"//"$\(bookingDetail.amount) Paid"
+        paymentLbl.text = "$\(String(format: "%.2f", bookingDetail.amount)) Paid"//"$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isHidden = true
         joinCallBtn.isHidden = true

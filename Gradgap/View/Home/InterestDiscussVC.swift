@@ -49,7 +49,10 @@ class InterestDiscussVC: UIViewController {
         for i in 0...14 {
             selectedIndex.append(i + 1)
         }
-        interestCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.interestCollectionView.reloadData()
+        }
+        
     }
     
     @IBAction func clickToSubmit(_ sender: Any) {
@@ -121,7 +124,9 @@ extension InterestDiscussVC : UICollectionViewDelegate, UICollectionViewDataSour
             selectedIndex.append(indexPath.row + 1)
         }
         
-        interestCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.interestCollectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
