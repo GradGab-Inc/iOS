@@ -235,11 +235,15 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
             for i in bookingDetail.subjects {
                 subjectArr.append(InterestArr[i - 1])
             }
-            learnCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.learnCollectionView.reloadData()
+            }
         }
         else {
             subjectArr = [String]()
-            learnCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.learnCollectionView.reloadData()
+            }
         }
     }
 }

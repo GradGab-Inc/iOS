@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var activityLoader : NVActivityIndicatorView!
     var container : MFSideMenuContainerViewController = MFSideMenuContainerViewController()
     var aboutVM : AboutViewModel = AboutViewModel.init()
-    let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -331,6 +330,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         
         if let status = userInfo["type"], status as! String == "1" {
+            let JoinCallVC : JoinCallView = JoinCallView.instanceFromNib() as! JoinCallView
             displaySubViewtoParentView(UIApplication.topViewController()?.view, subview: JoinCallVC)
             JoinCallVC.dict = userInfo as! [String : Any]
             JoinCallVC.setUp()

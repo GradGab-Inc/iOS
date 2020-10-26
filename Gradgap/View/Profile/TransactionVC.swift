@@ -75,7 +75,9 @@ extension TransactionVC : TransactionListDelegate {
         for item in response.data {
             transactionListArr.append(item)
         }
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         noDataLbl.isHidden = transactionListArr.count == 0 ? false : true
     }
 }

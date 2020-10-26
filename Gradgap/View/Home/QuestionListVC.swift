@@ -112,7 +112,10 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 1
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.listVC.tblView.reloadData()
+        }
+        
     }
     
     @IBAction func clickToSeelctLanguage(_ sender: Any) {
@@ -120,7 +123,9 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 2
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.listVC.tblView.reloadData()
+        }
     }
     
     @IBAction func clickToCollegePath(_ sender: Any) {

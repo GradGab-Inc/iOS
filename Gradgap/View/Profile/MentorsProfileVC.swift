@@ -171,16 +171,23 @@ class MentorsProfileVC: UIViewController {
             for i in bookingDetail.subjects {
                 subjectArr.append(InterestArr[i - 1])
             }
-            mentorCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.mentorCollectionView.reloadData()
+            }
         }
         else {
             subjectArr = [String]()
-            mentorCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.mentorCollectionView.reloadData()
+            }
         }
         
         timeCollectionViewHeightConstraint.constant = 80
         timeDataArr = [Int]()
-        timeCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.timeCollectionView.reloadData()
+        }
+        
         noDataLbl.isHidden = false
         
         favoriteBtn.isSelected = bookingDetail.isFavourite
@@ -243,15 +250,18 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
         if mentorDetail.availableTimings.count != 0 {
             noDataLbl.isHidden = true
             timeDataArr = mentorDetail.availableTimings
-            timeCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.timeCollectionView.reloadData()
+            }
             timeCollectionViewHeightConstraint.constant = timeCollectionView.contentSize.height
-            
             bookMentorBtn.isHidden = false
         }
         else {
             timeCollectionViewHeightConstraint.constant = 80
             timeDataArr = [Int]()
-            timeCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.timeCollectionView.reloadData()
+            }
             noDataLbl.isHidden = false
             
             bookMentorBtn.isHidden = true
@@ -262,11 +272,15 @@ extension MentorsProfileVC : MentorDetailDelegate, SetFavoriteDelegate {
             for i in mentorDetail.subjects {
                 subjectArr.append(InterestArr[i - 1])
             }
-            mentorCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.mentorCollectionView.reloadData()
+            }
         }
         else {
             subjectArr = [String]()
-            mentorCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.mentorCollectionView.reloadData()
+            }
         }
         favoriteBtn.isSelected = mentorDetail.isFavourite
     }
@@ -329,7 +343,6 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             mentorCollectionViewHigntConstraint.constant = mentorCollectionView.contentSize.height
             return cell
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -344,7 +357,11 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
 //                selectedIndex.append(indexPath.row)
 //            }
             selectedIndex = indexPath.row
-            timeCollectionView.reloadData()
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.timeCollectionView.reloadData()
+            }
+            
         }
     }
     

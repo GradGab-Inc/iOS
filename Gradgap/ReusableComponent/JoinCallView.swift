@@ -48,13 +48,15 @@ class JoinCallView: UIView {
             }
             return
         }
+
+        if AppModel.shared.currentUser == nil {
+            return
+        }
         
         menteeReminderBackView.isHidden = true
         mentorReminderBackView.isHidden = true
         
-        if AppModel.shared.currentUser == nil {
-            return
-        }
+        
         if AppModel.shared.currentUser.user?.userType == 1 {
             menteeReminderBackView.isHidden = false
             if getDifferenceFromCurrentTimeInMinute((dict["date"] as! String)) == 1 {

@@ -112,7 +112,10 @@ class CalenderDateListVC: UIViewController {
             setBtn.isHidden = false
             availabilityTblView.isHidden = false
             tblView.isHidden = true
-            availabilityTblView.reloadData()
+            
+            DispatchQueue.main.async { [weak self] in
+              self?.availabilityTblView.reloadData()
+            }
             
             noDataLbl.isHidden = availabilityListArr.count == 0 ? false : true
             availabilityTblView.isHidden = availabilityListArr.count == 0 ? true : false
@@ -126,7 +129,9 @@ class CalenderDateListVC: UIViewController {
             setBtn.isHidden = true
             availabilityTblView.isHidden = true
             tblView.isHidden = false
-            tblView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.tblView.reloadData()
+            }
             
             noDataLbl.isHidden = bookingArr.count == 0 ? false : true
             tblView.isHidden = bookingArr.count == 0 ? true : false
@@ -172,7 +177,9 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
                 }
             }
         }
-        availabilityTblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.availabilityTblView.reloadData()
+        }
         
         if availableTimeArr.count != 0 {
             let index = timeSloteArr.firstIndex(where: { (data) -> Bool in
@@ -183,7 +190,9 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
             }
         }
         
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
         
         noDataLbl.isHidden = availableTimeArr.count == 0 ? false : true
         availabilityTblView.isHidden = availableTimeArr.count == 0 ? true : false
@@ -204,7 +213,9 @@ extension CalenderDateListVC : HomeBookingListDelegate {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
         setupTimeData()
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     
         if arrSkipIndex.count != 0 {
             tblView.scrollToRow(at: IndexPath(row: arrSkipIndex[0], section: 0), at: .top, animated: false)

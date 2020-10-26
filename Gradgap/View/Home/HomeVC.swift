@@ -61,14 +61,15 @@ class HomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingList), name: NSNotification.Name.init(NOTIFICATION.UPDATE_MENTEE_HOME_DATA), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(redirectToNotification), name: NSNotification.Name.init(NOTIFICATION.REDICT_TO_NOTIFICATION), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
-        
+                
         homeTblView.register(UINib.init(nibName: "HomeTVC", bundle: nil), forCellReuseIdentifier: "HomeTVC")
         bookingTblView.register(UINib(nibName: "HomeBookingTVC", bundle: nil), forCellReuseIdentifier: "HomeBookingTVC")
         viewAllBtn.isHidden = true
         
-        bookingTblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.bookingTblView.reloadData()
+        }
+        
         bookingTblViewHeightConstraint.constant = 160
         
         bookingListVM.delegate = self
@@ -91,16 +92,6 @@ class HomeVC: UIViewController {
         let vc = STORYBOARD.HOME.instantiateViewController(withIdentifier: "NotificationVC") as! NotificationVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc func openRateReviewVC() {
-        if !isRateViewNavigate  {
-            isRateViewNavigate = true
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
-            vc.bookingDetail = selectedJoinCallBookingDetail
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-
     
     //MARK: - Button Click
     @IBAction func clickToSideMenu(_ sender: Any) {
@@ -136,7 +127,9 @@ extension HomeVC : HomeBookingListDelegate {
     func didRecieveHomeBookingListResponse(response: BookingListModel) {
         bookingArr = [BookingListDataModel]()
         bookingArr = response.data
-        bookingTblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.bookingTblView.reloadData()
+        }
         
         noDataLbl.isHidden = bookingArr.count == 0 ? false : true
         viewAllBtn.isHidden = bookingArr.count == 0 ? true : false
@@ -145,7 +138,7 @@ extension HomeVC : HomeBookingListDelegate {
             bookingTblViewHeightConstraint.constant = 160
         }
     }
- }
+}
 
 //MARK: - TableView Delegate
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {

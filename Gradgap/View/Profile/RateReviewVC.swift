@@ -202,15 +202,21 @@ extension RateReviewVC : UICollectionViewDelegate, UICollectionViewDataSource, U
         }
         if collectionView == likeCollectionView {
             selectLike = indexPath.row
-            likeCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.likeCollectionView.reloadData()
+            }
         }
         else if collectionView == interestCollectionView {
             selectInterest = indexPath.row
-            interestCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.interestCollectionView.reloadData()
+            }
         }
         else {
             selectCall = indexPath.row
-            callCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.callCollectionView.reloadData()
+            }
         }
     }
     

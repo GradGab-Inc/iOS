@@ -95,8 +95,8 @@ public class APIManager {
          var params :[String : Any] = [String : Any] ()
          
          params["data"] = toJson(param)//Converting Array into JSON Object
-         log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-         log.info("PARAMS: \(Log.stats()) \(params)")/
+//         log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+//         log.info("PARAMS: \(Log.stats()) \(params)")/
          
          Alamofire.upload(multipartFormData: { (multipartFormData) in
              for (key, value) in params {
@@ -121,9 +121,9 @@ public class APIManager {
                      }
                      
                      log.result("\(String(describing: response.result.value))")/
-                     log.ln("prettyJSON Start \n")/
-                     log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
-                     log.ln("prettyJSON End \n")/
+//                     log.ln("prettyJSON Start \n")/
+//                     log.result("\(String(describing: response.data?.sainiPrettyJSON))")/
+//                     log.ln("prettyJSON End \n")/
                      switch response.result{
                      case .success:
  //                        log.result("\(String(describing: response.result.value))")/
@@ -170,8 +170,8 @@ public class APIManager {
         var params :[String : Any] = [String : Any] ()
         
         params["data"] = toJson(param)//Converting Array into JSON Object
-        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-        log.info("PARAMS: \(Log.stats()) \(params)")/
+//        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+//        log.info("PARAMS: \(Log.stats()) \(params)")/
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in params {
@@ -196,9 +196,9 @@ public class APIManager {
                     }
                     
                     log.result("\(String(describing: response.result.value))")/
-                    log.ln("prettyJSON Start \n")/
-                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
-                    log.ln("prettyJSON End \n")/
+//                    log.ln("prettyJSON Start \n")/
+//                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
+//                    log.ln("prettyJSON End \n")/
                     if let result = response.result.value as? [String:Any]{
                         if let code = result["code"] as? Int{
                             if(code == 100){
@@ -289,9 +289,9 @@ public class APIManager {
                     }
                     
                     log.result("\(String(describing: response.result.value))")/
-                    log.ln("prettyJSON Start \n")/
-                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
-                    log.ln("prettyJSON End \n")/
+//                    log.ln("prettyJSON Start \n")/
+//                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
+//                    log.ln("prettyJSON End \n")/
                     if let result = response.result.value as? [String:Any] {
                         if let code = result["code"] as? Int{
                             if(code == 100){
@@ -352,7 +352,7 @@ public class APIManager {
         var params :[String : Any] = [String : Any] ()
         
         params["data"] = toJson(param)//Converting Array into JSON Object
-        log.info("PARAMS: \(Log.stats()) \(params)")/
+//        log.info("PARAMS: \(Log.stats()) \(params)")/
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in params {
@@ -379,9 +379,9 @@ public class APIManager {
                     }
                     
                     log.result("\(String(describing: response.result.value))")/
-                    log.ln("prettyJSON Start \n")/
-                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
-                    log.ln("prettyJSON End \n")/
+//                    log.ln("prettyJSON Start \n")/
+//                    log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
+//                    log.ln("prettyJSON End \n")/
                     if let result = response.result.value as? [String:Any] {
                         if let code = result["code"] as? Int{
                             if(code == 100){
@@ -447,9 +447,9 @@ public class APIManager {
             headerParams  = getJsonHeaderWithToken()
             Params = params
         }
-        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-        log.info("API: \(Log.stats()) \(api)")/
-        log.info("PARAMS: \(Log.stats()) \(Params)")/
+//        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+//        log.info("API: \(Log.stats()) \(api)")/
+//        log.info("PARAMS: \(Log.stats()) \(Params)")/
         
         
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headerParams).responseJSON { (response) in
@@ -461,9 +461,9 @@ public class APIManager {
             switch response.result {
             case .success:
              //   log.result("\(String(describing: response.result.value))")/
-                log.ln("prettyJSON Start \n")/
+//                log.ln("prettyJSON Start \n")/
                 log.result("\(String(describing: response.data?.prettyPrintedJSONString))")/
-                log.ln("prettyJSON End \n")/
+//                log.ln("prettyJSON End \n")/
                 if let result = response.result.value as? [String:Any] {
                     if let code = result["code"] as? Int{
                         if(code == 100){
@@ -489,19 +489,19 @@ public class APIManager {
                         }
                     }
                     if let message = result["message"] as? String{
-                        log.error("\(Log.stats()) \(message)")/
+//                        log.error("\(Log.stats()) \(message)")/
                         displayToast(message)
                         return
                     }
                 }
                 if let error = response.result.error
                 {
-                    log.error("\(Log.stats()) \(error)")/
+//                    log.error("\(Log.stats()) \(error)")/
                     displayToast(error.localizedDescription)
                     return
                 }
             case .failure(let error):
-                log.error("\(Log.stats()) \(error)")/
+//                log.error("\(Log.stats()) \(error)")/
                 break
             }
         }

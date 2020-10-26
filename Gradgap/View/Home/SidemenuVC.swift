@@ -42,7 +42,10 @@ class SidemenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @objc func refreshList() {
         isMentor = AppModel.shared.currentUser.user?.userType == 1 ? false : true
-        sidemenuTbl.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.sidemenuTbl.reloadData()
+        }
+        
     }
     
     func setupProfileData() {

@@ -102,12 +102,16 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
             for i in profileData.subjects {
                 selectedIndex.append(i)
             }
-            interestCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.interestCollectionView.reloadData()
+            }
         }
        
         if profileData.school.count != 0 {
             schoolNameArr = profileData.school
-            schoolCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.schoolCollectionView.reloadData()
+            }
         }
    }
     
@@ -194,7 +198,9 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 1
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.listVC.tblView.reloadData()
+        }
     }
     
     @IBAction func clickToSelectLanguage(_ sender: Any) {
@@ -202,7 +208,9 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 2
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.listVC.tblView.reloadData()
+        }
     }
     
     @IBAction func clickToEthinity(_ sender: Any) {
@@ -221,7 +229,9 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         displaySubViewtoParentView(self.view, subview: listVC)
         listVC.flag = 3
         listVC.setUp()
-        listVC.tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.listVC.tblView.reloadData()
+        }
     }
 
     @IBAction func clickToDontSee(_ sender: Any) {
@@ -248,7 +258,10 @@ class EditProfileVC: UploadImageVC, selectedSchoolDelegate {
         if index == nil {
             schoolNameArr.append(selectedData)
         }
-        schoolCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.schoolCollectionView.reloadData()
+        }
+        
     }
     
     deinit {
@@ -349,7 +362,9 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
                 selectedIndex.append(indexPath.row + 1)
             }
             print(selectedIndex)
-            interestCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.interestCollectionView.reloadData()
+            }
         }
     }
     
@@ -366,7 +381,9 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
     
     @objc func clickToDelete(_ sender : UIButton)  {
         schoolNameArr.remove(at: sender.tag)
-        schoolCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.schoolCollectionView.reloadData()
+        }
     }
     
 }

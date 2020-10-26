@@ -104,14 +104,18 @@ class SetAvailabilityVC: UIViewController {
             else {
                 let availability : AvailabilityDataModel = AvailabilityDataModel.init()
                 availabilityListArr.append(availability)
-                tblView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                  self?.tblView.reloadData()
+                }
                 tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
             }
         }
         else {
             let availability : AvailabilityDataModel = AvailabilityDataModel.init()
             availabilityListArr.append(availability)
-            tblView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+              self?.tblView.reloadData()
+            }
             tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
         }
     }
@@ -124,7 +128,9 @@ class SetAvailabilityVC: UIViewController {
 extension SetAvailabilityVC : SetAvailabilityDelegate, AvailabilityListDelegate {
     func didRecieveAvailabilityListResponse(response: AvailabiltyListModel) {
         availabilityListArr = response.data
-        tblView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
     
     func didRecieveSetAvailabilityResponse(response: SuccessModel) {
@@ -198,7 +204,9 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         cell.availableCollectionView.delegate = self
         cell.availableCollectionView.dataSource = self
         cell.availableCollectionView.register(UINib.init(nibName: "CollegeCVC", bundle: nil), forCellWithReuseIdentifier: "CollegeCVC")
-        cell.availableCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            cell.availableCollectionView.reloadData()
+        }
 
         tblViewHeightConstraint.constant = CGFloat(availabilityListArr.count * 265)
         return cell
@@ -318,7 +326,9 @@ extension SetAvailabilityVC : UITableViewDelegate, UITableViewDataSource {
         else {
             showAlertWithOption("Confirmation", message: "Are you sure you want to delete this time slot?", btns: ["Cancel","Ok"], completionConfirm: {
                 self.availabilityListArr.remove(at: sender.tag)
-                self.tblView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                  self?.tblView.reloadData()
+                }
                 self.tblViewHeightConstraint.constant = CGFloat(self.availabilityListArr.count * 265)
             }) {
                 

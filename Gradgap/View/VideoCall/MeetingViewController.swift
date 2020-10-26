@@ -174,10 +174,14 @@ class MeetingViewController: UIViewController {
             }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
-            self?.rosterTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.rosterTable.reloadData()
+            }
         }
         meetingModel.metricsModel.metricsUpdatedHandler = { [weak self] in
-            self?.metricsTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.metricsTable.reloadData()
+            }
         }
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
             meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
@@ -202,7 +206,9 @@ class MeetingViewController: UIViewController {
         }
 
         meetingModel.chatModel.refreshChatTableHandler = { [weak self] in
-            self?.chatMessageTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.chatMessageTable.reloadData()
+            }
         }
     
     }
@@ -316,14 +322,23 @@ class MeetingViewController: UIViewController {
 
         switch mode {
         case .roster:
-            rosterTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.rosterTable.reloadData()
+            }
             rosterTable.isHidden = false
         case .chat:
-            chatMessageTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.chatMessageTable.reloadData()
+            }
+            
             chatView.isHidden = false
         case .video:
-            rosterTable.reloadData()
-            videoCollection.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.rosterTable.reloadData()
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.videoCollection.reloadData()
+            }
             videoCollection.isHidden = false
             videoPaginationControlView.isHidden = false
         case .screenShare:
@@ -334,7 +349,9 @@ class MeetingViewController: UIViewController {
                 noScreenViewLabel.isHidden = false
             }
         case .metrics:
-            metricsTable.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.metricsTable.reloadData()
+            }
             metricsTable.isHidden = false
         case .callKitOnHold:
             resumeCallKitMeetingButton.isHidden = false
@@ -397,6 +414,7 @@ class MeetingViewController: UIViewController {
     
     @IBAction func clickToSwitchCamera(_ sender: Any) {
         meetingModel?.currentMeetingSession.audioVideo.switchCamera()
+        menteeVideoView.mirror = false
     }
 
     @IBAction func leaveButtonClicked(_: UIButton) {
@@ -483,13 +501,14 @@ class MeetingViewController: UIViewController {
         if meetingModel.videoModel.videoTileCount >= 2 {
             if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)) {
                 MentorVideoView.mirror = true
+                menteeVideoView.mirror = false
                 meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
                 meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
             }
         }
-        else{
+        else {
             waitingLbl.isHidden = false
-            menteeVideoView.mirror = false
+            menteeVideoView.mirror = true
             meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
         }
     }

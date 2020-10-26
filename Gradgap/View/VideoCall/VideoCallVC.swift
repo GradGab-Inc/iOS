@@ -119,7 +119,9 @@ class VideoCallVC: UIViewController {
     private func configure(meetingModel: MeetingModel) {
        
         meetingModel.activeModeDidSetHandler = { [weak self] activeMode in
-            self?.videoCollection.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.videoCollection.reloadData()
+            }
             self?.videoCollection.isHidden = false
         }
         meetingModel.notifyHandler = { [weak self] message in
@@ -139,7 +141,9 @@ class VideoCallVC: UIViewController {
     
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
             meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
-            self?.videoCollection.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.videoCollection.reloadData()
+            }
         }
         meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
             self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])

@@ -116,7 +116,10 @@ extension BookVC : MentorListDelegate {
             mentorListArr.append(item)
         }
         noDataLbl.isHidden = mentorListArr.count == 0 ? false : true
-        tblView.reloadData()
+        
+        DispatchQueue.main.async { [weak self] in
+          self?.tblView.reloadData()
+        }
     }
 }
 
@@ -161,7 +164,9 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         cell.arrData = dict.availableTimings
         cell.userId = dict.id
         cell.delegate = self
-        cell.timeCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          cell.timeCollectionView.reloadData()
+        }
 
         return cell
         

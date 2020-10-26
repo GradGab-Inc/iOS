@@ -85,7 +85,9 @@ extension BookChatVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        timeCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+          self?.timeCollectionView.reloadData()
+        }
         messageLbl.text = messageArr[indexPath.row]
     }
     

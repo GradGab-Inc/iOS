@@ -78,12 +78,16 @@ class ProfileVC: UIViewController {
                 for i in profileData.subjects {
                     subjectArr.append(InterestArr[i - 1])
                 }
-                interestCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.interestCollectionView.reloadData()
+                }
             }
             
             if profileData.school.count != 0 {
                 schoolNameArr = profileData.school
-                schoolCollectionView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.schoolCollectionView.reloadData()
+                }
             }
         }
     }
