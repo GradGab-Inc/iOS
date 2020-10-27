@@ -55,4 +55,16 @@ class MeetingPresenter {
             completion()
         }
     }
+    
+    
+    func dismissViewController(completion: @escaping () -> Void) {
+        guard let activeMeetingViewController = activeMeetingViewController else {
+            completion()
+            return
+        }
+        activeMeetingViewController.dismiss(animated: true) {
+            self.activeMeetingViewController = nil
+        }
+    }
+    
 }

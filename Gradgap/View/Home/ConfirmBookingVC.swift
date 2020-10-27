@@ -108,10 +108,10 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
     func renderProfile() {
         nameLbl.text = "\(mentorDetail.firstName) \(mentorDetail.lastName != "" ? "\(mentorDetail.lastName.first!.uppercased())." : "")"
         collegeNameLbl.text = mentorDetail.school.first?.name
-        priceLbl.text = "$\(mentorDetail.amount)"
+        priceLbl.text = "$\(String(format: "%.2f", mentorDetail.amount))" //"$\(mentorDetail.amount)"
         dateLbl.text = getDateStringFromDate(date: selectedDate, format: "MM/dd/yy")
         durationLbl.text = "\(getCallType(selectedType)), Duration \(selectedCallTime) min"
-        useWalletBalanceLbl.text = "\(mentorDetail.walletAmount)"
+        useWalletBalanceLbl.text = "$\(String(format: "%.2f", mentorDetail.walletAmount))" //"\(mentorDetail.walletAmount)"
                 
         let timeZone = timeZoneOffsetInMinutes()
         let time = minutesToHoursMinutes(minutes: selectedTimeSlot + timeZone)
@@ -119,11 +119,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         
         timeLbl.text = "\(getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")) - \(getHourStringFromHoursString(strDate: "\(time1.hours):\(time1.leftMinutes)", formate: "hh:mm a"))"
         
-        subTotalLbl.text = "$\(mentorDetail.amount)"
-        walletBalanceLbl.text = "$0"
+        subTotalLbl.text = "$\(String(format: "%.2f", mentorDetail.amount))" //"$\(mentorDetail.amount)"
+        walletBalanceLbl.text = "$0.00"
         discountTitleLbl.text = "Discount(0%)"
-        discountPriceLbl.text = "$0"
-        toBePaidLbl.text = "$\(mentorDetail.amount)"
+        discountPriceLbl.text = "$0.00"
+        toBePaidLbl.text = "$\(String(format: "%.2f", mentorDetail.amount))" //"$\(mentorDetail.amount)"
     }
     
     @objc func addCouponData(notification : Notification) {
@@ -139,7 +139,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             
             disc = 0.0
             disc = Double(((mentorDetail.amount) * Double(dict.amountOff))/100)
-            discountPriceLbl.text = "-$\(disc)"
+            discountPriceLbl.text = "-$\(String(format: "%.2f", disc))"   //"-$\(disc)"
             
             if useWalletBtn.isSelected {
                 wallet = 0.0
@@ -150,13 +150,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
                     wallet = mentorDetail.walletAmount
                 }
                 wallet = wallet - disc
-                walletBalanceLbl.text = "-$\(wallet)"
+                walletBalanceLbl.text = "-$\(String(format: "%.2f", wallet))" //"-$\(wallet)"
             }
             
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
-            toBePaidLbl.text = "$\(String(format: "%.02f", total))"
-            
-//            applyCouponTxt.isUserInteractionEnabled = false
+            toBePaidLbl.text = "$\(String(format: "%.2f", total))"
         }
     }
     
@@ -174,7 +172,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             applyCouponBackView.isHidden = true
             isApplyCode = false
             discountTitleLbl.text = "Discount(0%)"
-            discountPriceLbl.text = "$0"
+            discountPriceLbl.text = "$0.00"
             
             wallet = 0.0
             if useWalletBtn.isSelected {
@@ -184,11 +182,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
                 else {
                     wallet = mentorDetail.walletAmount
                 }
-                walletBalanceLbl.text = "-$\(wallet)"
+                walletBalanceLbl.text = "-$\(String(format: "%.2f", wallet))"  //"-$\(wallet)"
             }
             
             let total = Double(mentorDetail.amount) - Double(wallet)
-            toBePaidLbl.text = "$\(String(format: "%.02f", total))" //"$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.2f", total))" //"$\(total)"
         }
     }
     
@@ -210,7 +208,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             
             disc = 0.0
             disc = Double(((mentorDetail.amount) * Double(25))/100)
-            discountPriceLbl.text = "-$\(disc)"
+            discountPriceLbl.text = "-$\(String(format: "%.2f", disc))" //"-$\(disc)"
             
             if useWalletBtn.isSelected {
                 wallet = 0.0
@@ -221,11 +219,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
                     wallet = mentorDetail.walletAmount
                 }
                 wallet = wallet - disc
-                walletBalanceLbl.text = "-$\(wallet)"
+                walletBalanceLbl.text = "-$\(String(format: "%.2f", wallet))" //"-$\(wallet)"
             }
             
             let total = Double(mentorDetail.amount) - disc - Double(wallet)
-            toBePaidLbl.text = "$\(String(format: "%.02f", total))"
+            toBePaidLbl.text = "$\(String(format: "%.2f", total))"
 //            applyCouponBtn.isUserInteractionEnabled = false
         }
         else {
@@ -310,7 +308,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         applyDiscountLbl.text = "0% Discount"
         
         discountTitleLbl.text = "Discount(0%)"
-        discountPriceLbl.text = "$0"
+        discountPriceLbl.text = "$0.00"
         
         if useWalletBtn.isSelected {
             if mentorDetail.walletAmount > mentorDetail.amount {
@@ -319,11 +317,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             else {
                 wallet = mentorDetail.walletAmount
             }
-            walletBalanceLbl.text = "-$\(wallet)"
+            walletBalanceLbl.text = "-$\(String(format: "%.2f", wallet))" //"-$\(wallet)"
         }
         
         let total = Double(mentorDetail.amount) - Double(wallet)
-        toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+        toBePaidLbl.text = "$\(String(format: "%.2f", total))" //"$\(total)"
     }
     
     @IBAction func clickToRemoveApplyCode(_ sender: Any) {
@@ -332,7 +330,7 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
         applyCouponBackView.isHidden = true
         isApplyCode = false
         discountTitleLbl.text = "Discount(0%)"
-        discountPriceLbl.text = "$0"
+        discountPriceLbl.text = "$0.00"
         
         wallet = 0.0
         if useWalletBtn.isSelected {
@@ -342,11 +340,11 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             else {
                 wallet = mentorDetail.walletAmount
             }
-            walletBalanceLbl.text = "-$\(wallet)"
+            walletBalanceLbl.text = "-$\(String(format: "%.2f", wallet))" //"-$\(wallet)"
         }
         
         let total = Double(mentorDetail.amount) - Double(wallet)
-        toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+        toBePaidLbl.text = "$\(String(format: "%.2f", total))" //"$\(total)"
     }
     
     
@@ -361,12 +359,12 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             disc = Double(((mentorDetail.amount) * Double(applyCoupon.amountOff))/100)
             applyDiscountLbl.text = "\(applyCoupon.amountOff)% Discount"
             discountTitleLbl.text = "Discount(\(applyCoupon.amountOff)%)"
-            discountPriceLbl.text = "-$\(disc)"
+            discountPriceLbl.text = "-$\(String(format: "%.2f", disc))" //"-$\(disc)"
         }
         else if isApplyCode {
             disc = Double(((mentorDetail.amount) * Double(25))/100)
             discountTitleLbl.text = "Discount(25%)"
-            discountPriceLbl.text = "-$\(disc)"
+            discountPriceLbl.text = "-$\(String(format: "%.2f", disc))" //"-$\(disc)"
         }
         
         if mentorDetail.walletAmount > Double(mentorDetail.amount) {
@@ -381,14 +379,14 @@ class ConfirmBookingVC: UIViewController, UITextFieldDelegate {
             walletBackView.isHidden = true
             wallet = 0.0
             let total = Double(mentorDetail.amount) - disc
-            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.02f", total))" //"$\(total)"
         }
         else {
             sender.isSelected = true
             walletBackView.isHidden = false
-            walletBalanceLbl.text = "-$\(wallet - disc)"
+            walletBalanceLbl.text = "-$\(String(format: "%.2f", (wallet - disc)))" //"-$\(wallet - disc)"
             let total = Double(mentorDetail.amount) - disc - Double(wallet - disc)
-            toBePaidLbl.text = "$\(String(format: "%.01f", total))" //"$\(total)"
+            toBePaidLbl.text = "$\(String(format: "%.2f", total))" //"$\(total)"
         }
     }
     

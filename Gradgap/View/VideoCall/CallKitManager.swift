@@ -17,7 +17,9 @@ class CallKitManager: NSObject {
     private let logger = ConsoleLogger(name: "CallKitManager")
     private let callController = CXCallController()
     private let provider: CXProvider
-
+    private let meetingPresenter = MeetingPresenter()
+    private(set) var activeMeeting: MeetingModel?
+    
     static func shared() -> CallKitManager {
         if sharedInstance == nil {
             sharedInstance = CallKitManager()

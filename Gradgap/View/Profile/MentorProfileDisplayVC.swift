@@ -188,7 +188,7 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = schoolNameArr[indexPath.row].shortName
+            cell.lbl.text = schoolNameArr[indexPath.row].name
             
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
@@ -217,7 +217,12 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             return CGSize(width: subjectCollectionView.frame.size.width/3, height: 65)
         }
         else if collectionView == schoolCollectionView {
-            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 45)
+            let label = UILabel(frame: CGRect.zero)
+            label.text = schoolNameArr[indexPath.row].name
+            label.sizeToFit()
+            
+            return CGSize(width: label.frame.width + 26, height: 45)
+//            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 45)
         }
         else {
             return CGSize(width: enrollCollectionView.frame.size.width/2.3, height: 90)

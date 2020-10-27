@@ -336,7 +336,7 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = schoolNameArr[indexPath.row].shortName
+            cell.lbl.text = schoolNameArr[indexPath.row].name
             cell.backView.backgroundColor = RedColor
             cell.backView.borderColorTypeAdapter = 0
             cell.backView.cornerRadius = 5
@@ -375,7 +375,14 @@ extension EditProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, 
         }
         else{
             schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
-            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
+            
+            let label = UILabel(frame: CGRect.zero)
+            label.text = schoolNameArr[indexPath.row].name
+            label.sizeToFit()
+            
+            return CGSize(width: label.frame.width + 26, height: 63)
+
+//            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
         }
     }
     

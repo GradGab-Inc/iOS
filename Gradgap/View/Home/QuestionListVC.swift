@@ -58,7 +58,6 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
         navigationBar.headerLbl.isHidden = true
         navigationBar.filterBtn.isHidden = true
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
-        
     }
     
     //MARK: - configUI
@@ -78,6 +77,11 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
             currentPathBackView.isHidden = false
             bioBackView.isHidden = false
             profileImgBackView.isHidden = false
+            
+            if AppModel.shared.currentUser.user?.image != "" {
+                self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  AppModel.shared.currentUser.user?.image ?? "")
+                selectedProfileImg = profileImgView.image ?? UIImage()
+            }
         }
     }
     

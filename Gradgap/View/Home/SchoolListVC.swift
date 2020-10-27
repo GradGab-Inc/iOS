@@ -9,6 +9,7 @@
 import UIKit
 import SainiUtils
 import MessageUI
+import IQKeyboardManagerSwift
 
 class SchoolListVC: UIViewController, UITextFieldDelegate {
 
@@ -18,12 +19,13 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var schoolCollectionView: UICollectionView!
-    @IBOutlet weak var schoolCollectionViewHeightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var schoolCollectionViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var schoolListBackView: UIView!
     @IBOutlet weak var selectedSchoolBackView: UIView!
     @IBOutlet weak var interetedLbl: UILabel!
     @IBOutlet weak var dataLbl: UILabel!
+    @IBOutlet weak var schoolListBottomConstraint: NSLayoutConstraint!
     
     var selectImg : UIImage = UIImage()
     var isMentor : Bool = false
@@ -42,6 +44,9 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
 
         configUI()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     
@@ -50,6 +55,16 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         navigationBar.headerLbl.isHidden = true
         navigationBar.filterBtn.isHidden = true
         navigationBar.backBtn.addTarget(self, action: #selector(self.clickToBack), for: .touchUpInside)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.enable = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.enable = false
     }
     
     //MARK: - configUI
@@ -131,12 +146,21 @@ class SchoolListVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        print("ok")
+        schoolListBackView.isHidden = true
+        selectedSchoolBackView.isHidden = false
+        return true
+    }
+    
     //MARK: - Button Click
     @objc func clickToBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func clickToNext(_ sender: Any) {
+        self.view.endEditing(true)
         if isMenteeUser && !isMentor {
             if isChange {
                 var request : UpdateRequest = UpdateRequest()
@@ -316,16 +340,39 @@ extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, U
             return UICollectionViewCell()
         }
         
-        cell.lbl.text = selectedSchoolListArr[indexPath.row].shortName
+        cell.lbl.text = selectedSchoolListArr[indexPath.row].name
         
         cell.cancelBtn.isHidden = true
-        schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
-        return CGSize(width: schoolCollectionView.frame.size.width/3, height: 65)
+//        schoolCollectionViewHeightConstraint.constant = schoolCollectionView.contentSize.height
+        
+        let label = UILabel(frame: CGRect.zero)
+        label.text = selectedSchoolListArr[indexPath.row].name
+        label.sizeToFit()
+        
+        return CGSize(width: label.frame.width + 26, height: 65)
     }
     
+}
+
+
+//MARK:- Keyboard Methods
+extension SchoolListVC {
+    @objc func showKeyboard(notification: Notification) {
+        if let frame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let height = frame.cgRectValue.height
+
+            DispatchQueue.main.async {
+                self.schoolListBottomConstraint.constant = height
+            }
+        }
+    }
+
+    @objc func hideKeyboard(notification: Notification) {
+        self.schoolListBottomConstraint.constant = DEVICE.IS_IPHONE_X ? 34 : 0
+    }
+
 }

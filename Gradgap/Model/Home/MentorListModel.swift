@@ -51,12 +51,12 @@ struct MentorListModel: Codable {
 
 // MARK: - WelcomeDatum
 struct MentorSectionModel: Codable {
-    let id: String
+    let id, shortName: String
     let data: [MentorListDataModel]
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case data
+        case data, shortName
     }
     
     init(from decoder: Decoder) throws {
@@ -64,11 +64,13 @@ struct MentorSectionModel: Codable {
         
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
         data = try values.decodeIfPresent([MentorListDataModel].self, forKey: .data) ?? []
+        shortName = try values.decodeIfPresent(String.self, forKey: .shortName) ?? ""
     }
     
     init() {
         id = ""
         data = [MentorListDataModel].init()
+        shortName = ""
     }
 }
 

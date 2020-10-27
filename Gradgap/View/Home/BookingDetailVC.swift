@@ -71,7 +71,7 @@ class BookingDetailVC: UIViewController {
     func configUI() {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshBookingDetail), name: NSNotification.Name.init(NOTIFICATION.UPDATE_BOOKING_DETAIL_DATA), object: nil)
        
-        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(openRateReviewVC), name: NSNotification.Name.init(NOTIFICATION.ADD_RATEREVIEW_DATA), object: nil)
         
         joinCallBtn.isHidden = true
         cancelBookingBtn.isHidden = true
@@ -100,14 +100,14 @@ class BookingDetailVC: UIViewController {
         bookingDetailVM.getBookingDetail(request: GetBookingDetailRequest(bookingRef: selectedBooking.id))
     }
     
-    @objc func openRateReviewVC() {
-        if !isRateViewNavigate {
-            isRateViewNavigate = true
-            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
-            vc.bookingDetail = bookingDetail
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
+//    @objc func openRateReviewVC() {
+//        if !isRateViewNavigate {
+//            isRateViewNavigate = true
+//            let vc = STORYBOARD.PROFILE.instantiateViewController(withIdentifier: "RateReviewVC") as! RateReviewVC
+//            vc.bookingDetail = bookingDetail
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
     
     //MARK: - Button Click
     @IBAction func clickToBack(_ sender: Any) {
@@ -223,7 +223,6 @@ extension BookingDetailVC : TransactionDetailDelegate {
         durationLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime) + " (\(bookingDetail.callTime)min)"
         serviceLbl.text = getCallType(bookingDetail.callType)
         paymentLbl.text = "$\(String(format: "%.2f", bookingDetail.amount)) Paid"//"$\(bookingDetail.amount) Paid"
-
         favoriteBtn.isHidden = true
         joinCallBtn.isHidden = true
         cancelBookingBtn.isHidden = true
@@ -282,7 +281,7 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
         dateTimeLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(String(format: "%.01f", bookingDetail.amount)) Paid" //"$\(bookingDetail.amount) Paid"
+        paymentLbl.text = "$\(String(format: "%.2f", bookingDetail.amount)) Paid" //"$\(bookingDetail.amount) Paid"
 
         favoriteBtn.isSelected = bookingDetail.isFavourite
         

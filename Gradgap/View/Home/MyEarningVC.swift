@@ -140,7 +140,7 @@ extension MyEarningVC : EarningListDelegate {
     }
     
     func setupData() {
-        earningLbl.text = "$\(dataModel.data?.total?.earnings ?? 0)"
+        earningLbl.text = "$\(String(format: "%.2f", dataModel.data?.total?.earnings ?? 0.00))" //"$\(dataModel.data?.total?.earnings ?? 0)"
         totalBookingLbl.text = "\(dataModel.data?.total?.count ?? 0)"
     }
 }
@@ -187,7 +187,7 @@ extension MyEarningVC : UITableViewDelegate, UITableViewDataSource {
         let dict : TransactionListDataModel = earningArr[indexPath.section].data[indexPath.row]
         cell.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  dict.image)
         cell.nameLbl.text = "\(dict.firstName) \(dict.lastName != "" ? "\(dict.lastName.first!.uppercased())." : "")"
-        cell.priceLbl.text = "$\(dict.amount ?? 0)"
+        cell.priceLbl.text = "$\(String(format: "%.2f", dict.amount))" //"$\(dict.amount ?? 0)"
         
         return cell
     }

@@ -61,7 +61,9 @@ class ReferFriendVC: UIViewController {
         lp.addControlParam("timeStamp", withValue: getCurrentTimeStampValue())
         buo.getShortUrl(with: lp) { (url, error) in
             if error == nil {
-                let activityViewController = UIActivityViewController(activityItems: [url!] , applicationActivities: nil)
+                let strUrl = "Hey I'm using GradGab to chat with current students at schools I'm exploring, download the app here and check it out!" + url!
+                
+                let activityViewController = UIActivityViewController(activityItems: [strUrl] , applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
                 self.present(activityViewController, animated: true, completion: nil)
             }
