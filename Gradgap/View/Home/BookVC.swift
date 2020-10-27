@@ -169,7 +169,6 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         }
 
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -201,7 +200,6 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
 }
 
 extension BookVC : CustomBookTVCDelegate {
@@ -215,10 +213,10 @@ extension BookVC : CustomBookTVCDelegate {
             vc.selectedCallTime = getCallTime(selectedChatTime)
         }
         else if selectedType == 2  {
-            vc.selectedCallTime = 60
+            vc.selectedCallTime = 45
         }
         else {
-            vc.selectedCallTime = 45
+            vc.selectedCallTime = 60
         }
         vc.selectedDate = selectedDate
         self.navigationController?.pushViewController(vc, animated: true)

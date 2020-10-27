@@ -89,13 +89,13 @@ struct Total: Codable {
         
         count = try values.decodeIfPresent(Int.self, forKey: .count) ?? 0
         id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        earnings = try values.decodeIfPresent(Double.self, forKey: .earnings) ?? 0
+        earnings = try values.decodeIfPresent(Double.self, forKey: .earnings) ?? 0.00
     }
     
     init() {
         count = 0
         id = ""
-        earnings = 0
+        earnings = 0.00
     }
     
 }

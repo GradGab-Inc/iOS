@@ -80,7 +80,7 @@ struct TransactionListDataModel: Codable {
     let name: String
     let school: [SchoolArr]
     let createdOn: String
-    let amount: Double?
+    let amount: Double
     let firstName: String
     let lastName: String
     

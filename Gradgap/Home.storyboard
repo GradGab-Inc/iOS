@@ -3422,7 +3422,7 @@ Refer some friends.</string>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to cancel the booking ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXv-2N-Hxh">
-                                    <rect key="frame" x="20" y="225" width="200" height="39"/>
+                                    <rect key="frame" x="20" y="225" width="200" height="37.5"/>
                                     <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -5126,44 +5126,12 @@ Refer some friends.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="net-Ih-wHd">
-                                <rect key="frame" x="0.0" y="180" width="320" height="388"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are adding mentors from new schools daily. Let us know if you don't see a school you're interested in." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-7Y-cJJ">
-                                        <rect key="frame" x="15" y="334.5" width="290" height="45.5"/>
-                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-Wm-ehL">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="324.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="bMM-K6-gO0" id="erb-RE-ieZ"/>
-                                            <outlet property="delegate" destination="bMM-K6-gO0" id="NA5-XN-5oM"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" name="AppColor"/>
-                                <constraints>
-                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" id="HLD-jB-ADs"/>
-                                    <constraint firstAttribute="trailing" secondItem="mA5-7Y-cJJ" secondAttribute="trailing" constant="15" id="LzH-tv-PRw"/>
-                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="top" secondItem="net-Ih-wHd" secondAttribute="top" id="M7O-pk-Hgr"/>
-                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" constant="15" id="eyU-rC-171"/>
-                                    <constraint firstAttribute="bottom" secondItem="mA5-7Y-cJJ" secondAttribute="bottom" constant="8" id="hUC-ML-pu8"/>
-                                    <constraint firstAttribute="trailing" secondItem="MIN-Wm-ehL" secondAttribute="trailing" id="iQk-Ug-AwS"/>
-                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="top" secondItem="MIN-Wm-ehL" secondAttribute="bottom" constant="10" id="nge-hV-VDW"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-oI-w0k">
                                 <rect key="frame" x="0.0" y="180" width="320" height="388"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CEn-5q-eVA">
-                                        <rect key="frame" x="0.0" y="19" width="320" height="150"/>
+                                        <rect key="frame" x="0.0" y="19" width="320" height="227"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="da6-YM-zUV"/>
-                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Axk-9B-N7g">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -5212,7 +5180,7 @@ Refer some friends.</string>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOX-bU-hwu">
-                                        <rect key="frame" x="0.0" y="184" width="320" height="49"/>
+                                        <rect key="frame" x="0.0" y="261" width="320" height="49"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't see a school you are interested in? Let us konw" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-a9-kIU">
                                                 <rect key="frame" x="39" y="8" width="261" height="33"/>
@@ -5247,7 +5215,7 @@ Refer some friends.</string>
                                 <constraints>
                                     <constraint firstItem="9sC-K1-dgz" firstAttribute="top" secondItem="BWf-oI-w0k" secondAttribute="top" constant="8" id="9cW-PZ-QtI"/>
                                     <constraint firstItem="hmq-Hg-Hm5" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" constant="45" id="Et1-wR-duj"/>
-                                    <constraint firstItem="hmq-Hg-Hm5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KOX-bU-hwu" secondAttribute="bottom" constant="10" id="Nbd-DP-hmR"/>
+                                    <constraint firstItem="hmq-Hg-Hm5" firstAttribute="top" secondItem="KOX-bU-hwu" secondAttribute="bottom" constant="10" id="Nbd-DP-hmR"/>
                                     <constraint firstAttribute="bottom" secondItem="hmq-Hg-Hm5" secondAttribute="bottom" constant="20" id="WpV-FJ-IKk"/>
                                     <constraint firstAttribute="trailing" secondItem="hmq-Hg-Hm5" secondAttribute="trailing" constant="45" id="cqx-TN-vp1"/>
                                     <constraint firstItem="KOX-bU-hwu" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" id="eak-AY-8ps"/>
@@ -5258,6 +5226,35 @@ Refer some friends.</string>
                                     <constraint firstItem="CEn-5q-eVA" firstAttribute="leading" secondItem="BWf-oI-w0k" secondAttribute="leading" id="qQx-vV-2Z3"/>
                                     <constraint firstAttribute="trailing" secondItem="KOX-bU-hwu" secondAttribute="trailing" id="s1F-Yj-S3a"/>
                                     <constraint firstItem="CEn-5q-eVA" firstAttribute="top" secondItem="9sC-K1-dgz" secondAttribute="bottom" constant="8" id="xmW-Bx-dCH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="net-Ih-wHd">
+                                <rect key="frame" x="0.0" y="180" width="320" height="383"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are adding mentors from new schools daily. Let us know if you don't see a school you're interested in." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-7Y-cJJ">
+                                        <rect key="frame" x="15" y="337.5" width="290" height="45.5"/>
+                                        <fontDescription key="fontDescription" name="MADETommySoft" family="MADE Tommy Soft" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MIN-Wm-ehL">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="327.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="bMM-K6-gO0" id="erb-RE-ieZ"/>
+                                            <outlet property="delegate" destination="bMM-K6-gO0" id="NA5-XN-5oM"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" name="AppColor"/>
+                                <constraints>
+                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" id="HLD-jB-ADs"/>
+                                    <constraint firstAttribute="trailing" secondItem="mA5-7Y-cJJ" secondAttribute="trailing" constant="15" id="LzH-tv-PRw"/>
+                                    <constraint firstItem="MIN-Wm-ehL" firstAttribute="top" secondItem="net-Ih-wHd" secondAttribute="top" id="M7O-pk-Hgr"/>
+                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="leading" secondItem="net-Ih-wHd" secondAttribute="leading" constant="15" id="eyU-rC-171"/>
+                                    <constraint firstAttribute="bottom" secondItem="mA5-7Y-cJJ" secondAttribute="bottom" id="hUC-ML-pu8"/>
+                                    <constraint firstAttribute="trailing" secondItem="MIN-Wm-ehL" secondAttribute="trailing" id="iQk-Ug-AwS"/>
+                                    <constraint firstItem="mA5-7Y-cJJ" firstAttribute="top" secondItem="MIN-Wm-ehL" secondAttribute="bottom" constant="10" id="nge-hV-VDW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -5271,6 +5268,7 @@ Refer some friends.</string>
                             <constraint firstItem="net-Ih-wHd" firstAttribute="top" secondItem="RSk-Gx-IlO" secondAttribute="bottom" constant="16" id="P2z-1k-yus"/>
                             <constraint firstItem="net-Ih-wHd" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" id="Q2s-yJ-G63"/>
                             <constraint firstItem="Rdl-G0-D9W" firstAttribute="top" secondItem="414-Nm-SaY" secondAttribute="top" id="enN-dT-SXp"/>
+                            <constraint firstItem="414-Nm-SaY" firstAttribute="bottom" secondItem="net-Ih-wHd" secondAttribute="bottom" constant="5" id="fn9-U3-a0B"/>
                             <constraint firstItem="Rdl-G0-D9W" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="kPz-aS-4Ji"/>
                             <constraint firstItem="BWf-oI-w0k" firstAttribute="top" secondItem="RSk-Gx-IlO" secondAttribute="bottom" constant="16" id="nae-P8-BAq"/>
                             <constraint firstItem="BWf-oI-w0k" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="odA-1c-7Mn"/>
@@ -5278,7 +5276,6 @@ Refer some friends.</string>
                             <constraint firstItem="R19-u5-RBB" firstAttribute="leading" secondItem="414-Nm-SaY" secondAttribute="leading" constant="15" id="qv3-rv-dTv"/>
                             <constraint firstItem="net-Ih-wHd" firstAttribute="trailing" secondItem="414-Nm-SaY" secondAttribute="trailing" id="t7h-tc-0Dd"/>
                             <constraint firstItem="414-Nm-SaY" firstAttribute="trailing" secondItem="RSk-Gx-IlO" secondAttribute="trailing" constant="15" id="v7z-50-ThE"/>
-                            <constraint firstItem="net-Ih-wHd" firstAttribute="bottom" secondItem="414-Nm-SaY" secondAttribute="bottom" id="vv1-Xi-cXv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="414-Nm-SaY"/>
                     </view>
@@ -5288,8 +5285,8 @@ Refer some friends.</string>
                         <outlet property="navigationBar" destination="Rdl-G0-D9W" id="fIr-jC-N53"/>
                         <outlet property="questionLbl" destination="R19-u5-RBB" id="kV5-c0-GYY"/>
                         <outlet property="schoolCollectionView" destination="CEn-5q-eVA" id="gZw-4w-Zqj"/>
-                        <outlet property="schoolCollectionViewHeightConstraint" destination="da6-YM-zUV" id="fek-V9-jel"/>
                         <outlet property="schoolListBackView" destination="net-Ih-wHd" id="J2c-ne-1UP"/>
+                        <outlet property="schoolListBottomConstraint" destination="fn9-U3-a0B" id="cVp-II-8Cv"/>
                         <outlet property="searchTxt" destination="HTT-II-nxS" id="6oD-4Y-oxj"/>
                         <outlet property="selectedSchoolBackView" destination="BWf-oI-w0k" id="OL9-2K-rSI"/>
                         <outlet property="tblView" destination="MIN-Wm-ehL" id="fxc-RA-yAh"/>
@@ -7672,6 +7669,24 @@ Refer some friends.</string>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhs-lx-MK4" customClass="Button" customModule="GradGab" customModuleProvider="target">
+                                <rect key="frame" x="264" y="100" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1Ja-oE-75a"/>
+                                    <constraint firstAttribute="height" constant="40" id="6zd-uM-9RS"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="meeting-speaker-1"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deviceButtonClicked:" destination="0jB-QW-nbA" eventType="touchUpInside" id="Cgm-fY-zOq"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-Jf-pmo">
                                 <rect key="frame" x="15" y="391.5" width="172" height="81.5"/>
                                 <subviews>
@@ -7837,7 +7852,6 @@ Refer some friends.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="clickToCamera:" destination="VwQ-dL-bRd" eventType="touchUpInside" id="DHH-y3-d7F"/>
                                                     <action selector="clickToSwitchCamera:" destination="0jB-QW-nbA" eventType="touchUpInside" id="2re-Na-Ff5"/>
                                                 </connections>
                                             </button>
@@ -8041,6 +8055,7 @@ Refer some friends.</string>
                             <constraint firstItem="EPn-Ox-0sq" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" constant="8" id="5Gz-uE-mii"/>
                             <constraint firstItem="cbv-Ln-pA4" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" constant="5" id="7qc-gs-MOp"/>
                             <constraint firstItem="ahb-aK-ego" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="9oZ-IY-XVK"/>
+                            <constraint firstItem="Mhs-lx-MK4" firstAttribute="top" secondItem="BRI-hx-lpX" secondAttribute="bottom" constant="20" id="ApZ-OI-dQf"/>
                             <constraint firstItem="cbv-Ln-pA4" firstAttribute="centerX" secondItem="qV5-rs-mSb" secondAttribute="centerX" id="BNy-rU-7UZ"/>
                             <constraint firstItem="Axd-vy-fb1" firstAttribute="top" secondItem="BRI-hx-lpX" secondAttribute="bottom" constant="2" id="BnK-Vm-La4"/>
                             <constraint firstItem="TNv-A0-oxC" firstAttribute="top" secondItem="tqc-S0-B6J" secondAttribute="top" id="Coe-Nf-4tL"/>
@@ -8053,6 +8068,7 @@ Refer some friends.</string>
                             <constraint firstItem="TRZ-Jf-pmo" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" constant="15" id="Pwu-wp-ezt"/>
                             <constraint firstItem="s60-sX-JPf" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" constant="40" id="QiN-Yb-pAX"/>
                             <constraint firstItem="s60-sX-JPf" firstAttribute="centerY" secondItem="qV5-rs-mSb" secondAttribute="centerY" id="RrL-Zd-de5"/>
+                            <constraint firstItem="tqc-S0-B6J" firstAttribute="trailing" secondItem="Mhs-lx-MK4" secondAttribute="trailing" constant="16" id="SXN-Z8-8Yl"/>
                             <constraint firstItem="sk0-Jg-4ff" firstAttribute="top" secondItem="TRZ-Jf-pmo" secondAttribute="bottom" constant="20" id="ShK-3J-D5B"/>
                             <constraint firstItem="sk0-Jg-4ff" firstAttribute="leading" secondItem="tqc-S0-B6J" secondAttribute="leading" id="TKI-HD-BoS"/>
                             <constraint firstItem="seU-fa-PdQ" firstAttribute="trailing" secondItem="tqc-S0-B6J" secondAttribute="trailing" id="Tla-Sd-vAB"/>
@@ -8093,7 +8109,7 @@ Refer some friends.</string>
                         <outlet property="collageNameLbl" destination="CTh-5n-FQd" id="gJn-0D-ZZF"/>
                         <outlet property="containerView" destination="vIS-uM-DgB" id="QuN-a6-OKF"/>
                         <outlet property="controlView" destination="4Lv-1U-qIb" id="Rsg-ar-enW"/>
-                        <outlet property="deviceButton" destination="DC6-vO-BxR" id="tPZ-OY-ZP0"/>
+                        <outlet property="deviceButton" destination="Mhs-lx-MK4" id="RiN-aH-7dO"/>
                         <outlet property="endButton" destination="mCB-tf-ZYh" id="d8r-h4-NJQ"/>
                         <outlet property="headerNameLbl" destination="OAP-Yf-el0" id="3Hd-88-XNc"/>
                         <outlet property="headerTimeLbl" destination="wn3-Vj-MMF" id="1bG-dW-icB"/>
@@ -8177,6 +8193,7 @@ Refer some friends.</string>
         <image name="ic_white_circle" width="100" height="100"/>
         <image name="meeting-end" width="24" height="24"/>
         <image name="meeting-speaker" width="24" height="24"/>
+        <image name="meeting-speaker-1" width="14" height="14"/>
         <image name="meeting-video" width="24" height="24"/>
         <image name="meeting-video-on" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>

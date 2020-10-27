@@ -192,15 +192,12 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
     }
     
     func renderBookingDetail() {
-        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)
-        let name = bookingDetail.name.components(separatedBy: " ")
-        
+        self.profileImgView.downloadCachedImage(placeholder: "ic_profile", urlString:  bookingDetail.image)        
         nameLbl.text = "\(bookingDetail.firstName) \(bookingDetail.lastName != "" ? "\(bookingDetail.lastName.first!.uppercased())." : "")"
-//        nameLbl.text = "\(name[0]) \(name.count == 2 ? "\(name[1].first!.uppercased())." : "")"
         scheduledLbl.text = displayBookingDate(bookingDetail.dateTime, callTime: bookingDetail.callTime)
         durationLbl.text = "\(bookingDetail.callTime) min"
         serviceLbl.text = getCallType(bookingDetail.callType)
-        paymentLbl.text = "$\(bookingDetail.mentorPaidAmount) Paid"
+        paymentLbl.text = "$\(String(format: "%.2f", bookingDetail.mentorPaidAmount)) Paid"  //"$\(bookingDetail.mentorPaidAmount) Paid"
         additionalLbl.text = bookingDetail.additionalTopics
         anticipentLbl.text = "\(bookingDetail.anticipateYear)"
         

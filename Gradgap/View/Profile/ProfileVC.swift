@@ -162,7 +162,7 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             }
             
             cell.lbl.font = UIFont(name: "MADETommySoft", size: 13.0)
-            cell.lbl.text = schoolNameArr[indexPath.row].shortName
+            cell.lbl.text = schoolNameArr[indexPath.row].name
             
             cell.backView.backgroundColor = WhiteColor.withAlphaComponent(0.20)
             cell.backView.borderColorTypeAdapter = 0
@@ -180,7 +180,13 @@ extension ProfileVC : UICollectionViewDelegate, UICollectionViewDataSource, UICo
             return CGSize(width: interestCollectionView.frame.size.width/3, height: 65)
         }
         else{
-            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
+            
+            let label = UILabel(frame: CGRect.zero)
+            label.text = schoolNameArr[indexPath.row].name
+            label.sizeToFit()
+            
+            return CGSize(width: label.frame.width + 26, height: 63)
+//            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 63)
         }
     }
 

@@ -169,19 +169,17 @@ class MeetingViewController: UIViewController {
             self?.muteButton.isSelected = isMuted
         }
         meetingModel.isEndedHandler = {
+            self.timer?.invalidate()
             DispatchQueue.main.async {
                 MeetingModule.shared().dismissMeeting(meetingModel)
             }
         }
         meetingModel.rosterModel.rosterUpdatedHandler = { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.rosterTable.reloadData()
-            }
+            self?.rosterTable.reloadData()
         }
         meetingModel.metricsModel.metricsUpdatedHandler = { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.metricsTable.reloadData()
-            }
+            self?.metricsTable.reloadData()
+            
         }
         meetingModel.videoModel.videoUpdatedHandler = { [weak self] in
             meetingModel.videoModel.resumeAllRemoteVideosInCurrentPageExceptUserPausedVideos()
@@ -206,9 +204,7 @@ class MeetingViewController: UIViewController {
         }
 
         meetingModel.chatModel.refreshChatTableHandler = { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.chatMessageTable.reloadData()
-            }
+            self?.chatMessageTable.reloadData()
         }
     
     }
@@ -322,23 +318,14 @@ class MeetingViewController: UIViewController {
 
         switch mode {
         case .roster:
-            DispatchQueue.main.async { [weak self] in
-                self?.rosterTable.reloadData()
-            }
+            self.rosterTable.reloadData()
             rosterTable.isHidden = false
         case .chat:
-            DispatchQueue.main.async { [weak self] in
-                self?.chatMessageTable.reloadData()
-            }
-            
+            self.chatMessageTable.reloadData()
             chatView.isHidden = false
         case .video:
-            DispatchQueue.main.async { [weak self] in
-                self?.rosterTable.reloadData()
-            }
-            DispatchQueue.main.async { [weak self] in
-                self?.videoCollection.reloadData()
-            }
+            self.rosterTable.reloadData()
+            self.videoCollection.reloadData()
             videoCollection.isHidden = false
             videoPaginationControlView.isHidden = false
         case .screenShare:
@@ -349,9 +336,7 @@ class MeetingViewController: UIViewController {
                 noScreenViewLabel.isHidden = false
             }
         case .metrics:
-            DispatchQueue.main.async { [weak self] in
-                self?.metricsTable.reloadData()
-            }
+            self.metricsTable.reloadData()
             metricsTable.isHidden = false
         case .callKitOnHold:
             resumeCallKitMeetingButton.isHidden = false
@@ -364,7 +349,6 @@ class MeetingViewController: UIViewController {
     }
 
     // MARK: IBAction functions
-
     @IBAction func segmentedControlClicked(_: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case SegmentedControlIndex.attendees.rawValue:
@@ -421,6 +405,12 @@ class MeetingViewController: UIViewController {
         timer?.invalidate()
         meetingModel?.endMeeting()
 //        deregisterFromKeyboardNotifications()
+        
+        DispatchQueue.main.async {
+            self.dismiss(animated: true) {
+                
+            }
+        }
     }
 
     @IBAction func inputTextChanged(_ sender: Any, forEvent event: UIEvent) {
@@ -500,7 +490,7 @@ class MeetingViewController: UIViewController {
         }
         if meetingModel.videoModel.videoTileCount >= 2 {
             if let videoTileState = meetingModel.videoModel.getCustomVideoTileState(for: IndexPath(item: 1, section: 0)) {
-                MentorVideoView.mirror = true
+                MentorVideoView.mirror = false
                 menteeVideoView.mirror = false
                 meetingModel.bind(videoRenderView: MentorVideoView, tileId: videoTileState.tileId)
                 meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
