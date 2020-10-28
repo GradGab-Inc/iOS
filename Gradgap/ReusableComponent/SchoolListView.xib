@@ -99,6 +99,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="backViewBottomCostraint" destination="4hb-pc-UGf" id="uqX-kF-A8X"/>
                 <outlet property="searchBackView" destination="Lu2-ry-8P4" id="DjI-5L-L5M"/>
                 <outlet property="searchTxt" destination="MP4-h4-zDt" id="GFv-At-L6i"/>
                 <outlet property="tblView" destination="3XJ-Mm-qX6" id="c6F-64-E3p"/>
