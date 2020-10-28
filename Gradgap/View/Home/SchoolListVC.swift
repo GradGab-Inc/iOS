@@ -353,7 +353,14 @@ extension SchoolListVC : UICollectionViewDelegate, UICollectionViewDataSource, U
         label.text = selectedSchoolListArr[indexPath.row].name
         label.sizeToFit()
         
-        return CGSize(width: label.frame.width + 26, height: 65)
+        if (label.frame.width + 26) > schoolCollectionView.frame.size.width {
+            return CGSize(width: schoolCollectionView.frame.size.width, height: 65)
+        }
+        else {
+            return CGSize(width: label.frame.width + 26, height: 65)
+        }
+        
+//        return CGSize(width: label.frame.width + 26, height: 65)
     }
     
 }

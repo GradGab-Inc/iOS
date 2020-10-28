@@ -221,7 +221,14 @@ extension MentorProfileDisplayVC : UICollectionViewDelegate, UICollectionViewDat
             label.text = schoolNameArr[indexPath.row].name
             label.sizeToFit()
             
-            return CGSize(width: label.frame.width + 26, height: 45)
+            if (label.frame.width + 26) > schoolCollectionView.frame.size.width {
+                return CGSize(width: schoolCollectionView.frame.size.width, height: 63)
+            }
+            else {
+                return CGSize(width: label.frame.width + 26, height: 63)
+            }
+            
+//            return CGSize(width: label.frame.width + 26, height: 45)
 //            return CGSize(width: schoolCollectionView.frame.size.width/3, height: 45)
         }
         else {

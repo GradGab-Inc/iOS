@@ -21,6 +21,7 @@ class SchoolListView: UIView, UITableViewDelegate, UITableViewDataSource, UIText
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var searchTxt: UITextField!
     @IBOutlet weak var searchBackView: View!
+    @IBOutlet weak var backViewBottomCostraint: NSLayoutConstraint!
     
     
     var flag : Int = 1
