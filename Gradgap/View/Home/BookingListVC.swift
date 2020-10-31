@@ -223,7 +223,7 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             
             if AppModel.shared.currentUser.user?.userType == 1 {
                 cell.collegeNameLbl.text = dict.schoolName
-                if Calendar.current.isDateInToday(getDateFromDateString(strDate: dict.dateTime)) {
+                if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
                     cell.joinBtn.tag = indexPath.row
                     cell.joinBtn.isHidden = false
                     cell.bookedBtn.isHidden = true
@@ -250,6 +250,13 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
                     cell.joinBtn.setTitle("Confirm", for: .normal)
+                    cell.joinBtn.isUserInteractionEnabled = true
+                    cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
+                }
+                else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
+                    cell.joinBtn.isHidden = false
+                    cell.joinBtn.setImage(UIImage.init(named: "ic_contactnumber"), for: .normal)
+                    cell.joinBtn.setTitle("Join the call", for: .normal)
                     cell.joinBtn.isUserInteractionEnabled = true
                     cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
                 }
@@ -334,8 +341,31 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
         }
         else  {
             let dict : BookingListDataModel = bookingArr[sender.tag]
-            let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
-            bookingActionVM.getBookingAction(request: request)
+            if dict.status == 3 {
+                let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
+                bookingActionVM.getBookingAction(request: request)
+            }
+            else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) > Date() && dict.status == 1 {
+                
+                if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
+                    SocketIOManager.sharedInstance.establishConnection()
+                }
+                JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: dict.id)) { (response) in
+                    bookingDetailForVideo = dataModelChange(dict)
+                    self.selectedJoinCallBookingDetail = dataModelChange(dict)
+                    self.isRateViewNavigate = false
+                    MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                        if status {
+                            print("Started")
+                        }
+                    }
+                }
+            }
+            else {
+                
+            }
+            
+            
         }
     }
     

@@ -164,9 +164,7 @@ extension BookVC : UITableViewDelegate, UITableViewDataSource {
         cell.arrData = dict.availableTimings
         cell.userId = dict.id
         cell.delegate = self
-        DispatchQueue.main.async { [weak self] in
-          cell.timeCollectionView.reloadData()
-        }
+        cell.timeCollectionView.reloadData()
 
         return cell
     }

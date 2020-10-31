@@ -158,7 +158,7 @@ class MeetingViewController: UIViewController {
             self?.switchSubview(mode: activeMode)
         }
         meetingModel.notifyHandler = { [weak self] message in
-//            self?.view?.makeToast(message, duration: 2.0, position: .top)
+//            self?.view?.makeToast(message, duration: 2.0, position: .top) 
             meetingModel.isLocalVideoActive = true
             self?.callEndTime = Date().sainiAddMinutes(Double(bookingDetailForVideo.callTime))
             self?.scheduledTimerWithTimeInterval()
@@ -188,6 +188,7 @@ class MeetingViewController: UIViewController {
 //            self?.videoCollection.reloadData()
             self?.waitingLbl.isHidden = true
             self?.ShowVideoFrame()
+            self?.meetingModel?.chooseAudioDevice(MediaDevice(label: "Buil-in Speaker", type: .audioBuiltInSpeaker))
         }
         meetingModel.videoModel.localVideoUpdatedHandler = { [weak self] in
 //            self?.videoCollection?.reloadItems(at: [IndexPath(item: 0, section: 0)])
@@ -498,7 +499,7 @@ class MeetingViewController: UIViewController {
         }
         else {
             waitingLbl.isHidden = false
-            menteeVideoView.mirror = true
+            menteeVideoView.mirror = false
             meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
         }
     }

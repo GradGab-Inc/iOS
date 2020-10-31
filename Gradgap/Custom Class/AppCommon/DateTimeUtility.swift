@@ -32,17 +32,27 @@ func getDateStringFromServerTimeStemp(_ timeStemp:Double) -> String {
 func getDateFromDateString(strDate : String, format : String) -> Date?
 {
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT") //Set timezone that you want
     dateFormatter.dateFormat = format
     return dateFormatter.date(from: strDate)
 }
 
 func getDateFromDateString(strDate : String) -> Date    // Today, 09:56 AM
 {
-    let dateFormatter1 = DateFormatter()
-    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-    return dateFormatter1.date(from: strDate)!
+//    let dateFormatter1 = DateFormatter()
+//    dateFormatter1.locale = NSLocale.current //Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//    dateFormatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+//    return dateFormatter1.date(from: strDate)!
+    
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+    let dt = dateFormatter.date(from: strDate)
+    dateFormatter.timeZone = TimeZone.current
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    let date1 : String = dateFormatter.string(from: dt ?? Date())
+    return dateFormatter.date(from: date1)!
 }
 
 func getDateStringFromDateString(strDate : String, formate : String) -> String    // Today, 09:56 AM
@@ -88,7 +98,7 @@ func getMinuteFromDateString1(strDate : String) -> Int
 func getDateStringFromDate1(date : Date, format : String) -> String
 {
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT") //Set timezone that you want
     dateFormatter.locale = NSLocale.current
     dateFormatter.dateFormat = format
     return dateFormatter.string(from: date)
@@ -115,9 +125,9 @@ func getDateUTCStringFromDate(date : Date, format : String) -> String
 func getHourStringFromHoursString(strDate : String, formate : String) -> String
 {
     let dateFormatter1 = DateFormatter()
-    dateFormatter1.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+    dateFormatter1.locale = NSLocale.current //Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
     dateFormatter1.dateFormat = "HH:mm"
-    let date1 =  dateFormatter1.date(from: strDate)!
+    let date1 =  dateFormatter1.date(from: strDate) ?? Date()
     dateFormatter1.dateFormat = formate //"MMMM dd"
     return dateFormatter1.string(from: date1)
 }
@@ -249,7 +259,7 @@ func utcToLocal(dateStr: String) -> String? {
 func getDateFromMinute(_ min: Int) -> Date {
     let time = minutesToHoursMinutes(minutes: min)
     let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+    dateFormatter.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT") //Set timezone that you want
     dateFormatter.locale = NSLocale.current
     dateFormatter.dateFormat = "HH:mm"
     let timeDate = dateFormatter.date(from: "\(time.hours):\(time.leftMinutes)")!
@@ -319,4 +329,31 @@ func getDifferenceFromCurrentTimeInHourInDays(_ timestamp : Double) -> String
         timeAgo = timeAgo + " ago"
     }
     return timeAgo
+}
+
+
+
+extension String {
+  //MARK:- Convert UTC To Local Date by passing date formats value
+    func UTCToLocal(incomingFormat: String, outGoingFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = incomingFormat
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        let dt = dateFormatter.date(from: self)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = outGoingFormat
+        return dateFormatter.string(from: dt ?? Date())
+    }
+    
+  //MARK:- Convert Local To UTC Date by passing date formats value
+    func localToUTC(incomingFormat: String, outGoingFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = incomingFormat
+        dateFormatter.calendar = NSCalendar.current
+        dateFormatter.timeZone = TimeZone.current
+        let dt = dateFormatter.date(from: self)
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = outGoingFormat
+        return dateFormatter.string(from: dt ?? Date())
+    }
 }
