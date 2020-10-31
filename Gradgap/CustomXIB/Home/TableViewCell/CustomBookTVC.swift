@@ -56,12 +56,7 @@ extension CustomBookTVC : UICollectionViewDelegate, UICollectionViewDataSource, 
         
         let str : Int = arrData[indexPath.row]
         cell.lbl.font = UIFont(name: "MADETommySoft", size: 12.0)
-        
-//        let timeZone = timeZoneOffsetInMinutes()
-//        let time = minutesToHoursMinutes(minutes: str + timeZone)
-//        cell.lbl.text = getHourStringFromHoursString(strDate: "\(time.hours):\(time.leftMinutes)", formate: "hh:mm a")
-
-        
+                
         let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a") ?? Date()
         let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)
         

@@ -95,8 +95,8 @@ public class APIManager {
          var params :[String : Any] = [String : Any] ()
          
          params["data"] = toJson(param)//Converting Array into JSON Object
-//         log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-//         log.info("PARAMS: \(Log.stats()) \(params)")/
+         log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+         log.info("PARAMS: \(Log.stats()) \(params)")/
          
          Alamofire.upload(multipartFormData: { (multipartFormData) in
              for (key, value) in params {
@@ -170,8 +170,8 @@ public class APIManager {
         var params :[String : Any] = [String : Any] ()
         
         params["data"] = toJson(param)//Converting Array into JSON Object
-//        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-//        log.info("PARAMS: \(Log.stats()) \(params)")/
+        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+        log.info("PARAMS: \(Log.stats()) \(params)")/
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in params {
@@ -352,7 +352,7 @@ public class APIManager {
         var params :[String : Any] = [String : Any] ()
         
         params["data"] = toJson(param)//Converting Array into JSON Object
-//        log.info("PARAMS: \(Log.stats()) \(params)")/
+        log.info("PARAMS: \(Log.stats()) \(params)")/
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in params {
@@ -447,9 +447,9 @@ public class APIManager {
             headerParams  = getJsonHeaderWithToken()
             Params = params
         }
-//        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
-//        log.info("API: \(Log.stats()) \(api)")/
-//        log.info("PARAMS: \(Log.stats()) \(Params)")/
+        log.info("HEADERS: \(Log.stats()) \(headerParams)")/
+        log.info("API: \(Log.stats()) \(api)")/
+        log.info("PARAMS: \(Log.stats()) \(Params)")/
         
         
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headerParams).responseJSON { (response) in

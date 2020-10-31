@@ -264,6 +264,13 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isUserInteractionEnabled = true
             cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
         }
+        else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
+            cell.joinBtn.isHidden = false
+            cell.joinBtn.setImage(UIImage.init(named: "ic_contactnumber"), for: .normal)
+            cell.joinBtn.setTitle("Join the call", for: .normal)
+            cell.joinBtn.isUserInteractionEnabled = true
+            cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
+        }
         else {
             cell.bookedBtn.isHidden = false
             cell.bookedBtn.setTitle(getbookingType(dict.status), for: .normal)

@@ -184,10 +184,7 @@ class MentorsProfileVC: UIViewController {
         
         timeCollectionViewHeightConstraint.constant = 80
         timeDataArr = [Int]()
-        DispatchQueue.main.async { [weak self] in
-            self?.timeCollectionView.reloadData()
-        }
-        
+        self.timeCollectionView.reloadData()
         noDataLbl.isHidden = false
         
         favoriteBtn.isSelected = bookingDetail.isFavourite
@@ -312,7 +309,6 @@ extension MentorsProfileVC : UICollectionViewDelegate, UICollectionViewDataSourc
             
             let startDate : Date = getDateFromDateString(strDate: "01-01-2001 " + "00:00 a", format: "dd-MM-yyyy hh:mm a") ?? Date()
             let date1 = Calendar.current.date(byAdding: .minute, value: timeZoneOffsetInMinutes() + str, to: startDate)
-            
             cell.lbl.text = getDateStringFromDate1(date: date1 ?? Date(), format: "hh:mm a")
             
             if selectedIndex == indexPath.row {

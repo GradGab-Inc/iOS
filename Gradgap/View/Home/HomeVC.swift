@@ -185,7 +185,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.collegeNameLbl.text = dict.schoolName
             cell.timeLbl.text = displayBookingDate(dict.dateTime, callTime: dict.callTime)
             
-            if Calendar.current.isDateInToday(getDateFromDateString(strDate: dict.dateTime)) {
+            if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
                 cell.joinBtn.tag = indexPath.row
                 cell.joinBtn.isHidden = false
                 cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)

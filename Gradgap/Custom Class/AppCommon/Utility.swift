@@ -691,7 +691,7 @@ func displayBookingDate(_ date : String, callTime : Int) -> String {
 
 func redirectToEmail()
 {
-    var email = "hello@gradgab.com"
+    let email = "hello@gradgab.com"
     if email == "" || !email.isValidEmail {
         displayToast("Invalid email address")
         return

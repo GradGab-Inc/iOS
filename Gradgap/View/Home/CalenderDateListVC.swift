@@ -164,7 +164,7 @@ extension CalenderDateListVC : DateAvailabilityListDelegate {
                 var i = 0
                 while true {
                     let date = startDate.addingTimeInterval(TimeInterval(i*15*60))
-                    formatter2.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+                    formatter2.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT") //Set timezone that you want
                     formatter2.locale = NSLocale.current
                     let string = formatter2.string(from: date)
 

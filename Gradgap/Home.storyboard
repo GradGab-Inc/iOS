@@ -2486,12 +2486,13 @@ Refer some friends.</string>
                         <viewLayoutGuide key="safeArea" id="cfb-oB-0Yz"/>
                     </view>
                     <connections>
+                        <outlet property="messageLbl" destination="www-Qm-f6H" id="lPL-Lf-XpX"/>
                         <outlet property="navigationBar" destination="rah-RW-Fec" id="Vg8-Td-Ax5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgH-6S-8Z7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5055" y="2025"/>
+            <point key="canvasLocation" x="5025" y="2011"/>
         </scene>
         <!--My EarningVC-->
         <scene sceneID="afE-tf-Fa0">
@@ -5691,7 +5692,7 @@ Refer some friends.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores SAT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWz-Z7-GOd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores SAT or GMAT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWz-Z7-GOd">
                                                 <rect key="frame" x="15" y="858.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5724,7 +5725,7 @@ Refer some friends.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores ACT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-cD-e01">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Scores ACT or GRE" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-cD-e01">
                                                 <rect key="frame" x="15" y="957.5" width="290" height="21"/>
                                                 <fontDescription key="fontDescription" name="MADETommySoft-Medium" family="MADE Tommy Soft" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
