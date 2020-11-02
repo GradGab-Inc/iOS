@@ -286,7 +286,16 @@ extension BookingDetailVC : BookingDetailDelegate, SetFavoriteDelegate, BookingA
         favoriteBtn.isSelected = bookingDetail.isFavourite
         
         if bookingDetail.status == BookingStatus.BOOKED {
-            joinCallBtn.isHidden = false
+            let startDate = getDateFromDateString(strDate: bookingDetail.dateTime)
+            let endDate = getDateFromDateString(strDate: bookingDetail.dateTime).sainiAddMinutes(Double(bookingDetail.callTime))
+            
+            if Date() >= startDate && Date() <= endDate {
+                joinCallBtn.isHidden = false
+            }
+            else {
+                joinCallBtn.isHidden = true
+            }
+            
             cancelBookingBtn.isHidden = false
             rebookCallBtn.isHidden = true
         }

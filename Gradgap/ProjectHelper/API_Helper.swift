@@ -13,14 +13,14 @@ struct API {
     //Development 
     //static let BASE_URL = "http://ec2-3-14-150-71.us-east-2.compute.amazonaws.com/development/api/"
     //Staging
-//    static let BASE_URL = "http://54.197.250.33/staging/api/"
-//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
-//    static let SOCKET_URL = "http://ec2-54-197-250-33.compute-1.amazonaws.com:3000" //"http://dbf061a69506.ngrok.io/" //
+    static let BASE_URL = "http://54.197.250.33/staging/api/"
+    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/staging/images/best/"
+    static let SOCKET_URL = "http://ec2-54-197-250-33.compute-1.amazonaws.com:3000" //"http://dbf061a69506.ngrok.io/" //
     
     // Local
-    static let BASE_URL = "http://3.82.95.119/development/api/" //"http://5019ecea4b5e.ngrok.io/api/" //
-    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
-    static let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://5019ecea4b5e.ngrok.io/" //
+//    static let BASE_URL = "http://3.82.95.119/development/api/" //"http://492f050d4d61.ngrok.io/api/" //
+//    static let IMAGE_URL  = "https://gradgab.s3.us-east-2.amazonaws.com/development/images/best/"
+//    static let SOCKET_URL = "http://ec2-3-82-95-119.compute-1.amazonaws.com:3000" //"http://492f050d4d61.ngrok.io/" //
     
     
     struct USER {
