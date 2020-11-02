@@ -217,7 +217,18 @@ extension MentorBookingDetailVC : BookingDetailDelegate, BookingActionDelegate {
         else if bookingDetail.status == BookingStatus.BOOKED {
             confirmRejectBackView.isHidden = true
             joincallBackView.isHidden = false
-            joinCallBtn.isHidden = false
+            
+            let startDate = getDateFromDateString(strDate: bookingDetail.dateTime)
+            let endDate = getDateFromDateString(strDate: bookingDetail.dateTime).sainiAddMinutes(Double(bookingDetail.callTime))
+            
+            if Date() >= startDate && Date() <= endDate {
+                joinCallBtn.isHidden = false
+            }
+            else {
+                joinCallBtn.isHidden = true
+            }
+            
+//            joinCallBtn.isHidden = false
             cancelBtn.isHidden = false
         }
         else {

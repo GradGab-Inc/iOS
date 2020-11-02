@@ -257,6 +257,9 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
         cell.joinBtn.tag = indexPath.row
         
         cell.bookedBtn.isHidden = true
+        
+        let startDate = getDateFromDateString(strDate: dict.dateTime)
+        let endDate = getDateFromDateString(strDate:dict.dateTime).sainiAddMinutes(Double(dict.callTime))
         if dict.status == 3 {
             cell.joinBtn.isHidden = false
             cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
@@ -264,7 +267,7 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
             cell.joinBtn.isUserInteractionEnabled = true
             cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
         }
-        else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
+        else if Date() >= startDate && Date() <= endDate && dict.status == 1 {
             cell.joinBtn.isHidden = false
             cell.joinBtn.setImage(UIImage.init(named: "ic_contactnumber"), for: .normal)
             cell.joinBtn.setTitle("Join the call", for: .normal)
