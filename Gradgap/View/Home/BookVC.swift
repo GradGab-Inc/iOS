@@ -46,9 +46,9 @@ class BookVC: UIViewController {
         tblView.register(UINib(nibName: "CustomBookTVC", bundle: nil), forCellReuseIdentifier: "CustomBookTVC")
         tblView.register(UINib(nibName: "BookingHeaderTVC", bundle: nil), forCellReuseIdentifier: "BookingHeaderTVC")
         
-        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: selectedDate)!
-        selectedDate = maxDate
-        dateBtn.setTitle(getDateStringFromDate(date: maxDate, format: "EEE MM/dd/YYYY"), for: .normal)
+//        let maxDate : Date = Calendar.current.date(byAdding: .day, value: 2, to: selectedDate)!
+//        selectedDate = maxDate
+        dateBtn.setTitle(getDateStringFromDate(date: Date(), format: "EEE MM/dd/YYYY"), for: .normal)
         
         noDataLbl.isHidden = false
         mentorListVM.delegate = self

@@ -223,7 +223,11 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
             
             if AppModel.shared.currentUser.user?.userType == 1 {
                 cell.collegeNameLbl.text = dict.schoolName
-                if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
+                
+                let startDate = getDateFromDateString(strDate: dict.dateTime)
+                let endDate = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+                
+                if Date() >= startDate && Date() <= endDate && dict.status == 1 {
                     cell.joinBtn.tag = indexPath.row
                     cell.joinBtn.isHidden = false
                     cell.bookedBtn.isHidden = true
@@ -246,6 +250,9 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
                 cell.collegeNameLbl.textColor = WhiteColor
                 cell.collegeNameLbl.font = UIFont(name: "MADETommySoft", size: 13.0)
                 
+                let startDate = getDateFromDateString(strDate: dict.dateTime)
+                let endDate = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+                
                 if dict.status == 3 {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: ""), for: .normal)
@@ -253,7 +260,7 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
                     cell.joinBtn.isUserInteractionEnabled = true
                     cell.joinBtn.addTarget(self, action: #selector(self.clickToJoinCall), for: .touchUpInside)
                 }
-                else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) < Date() && dict.status == 1 {
+                else if Date() >= startDate && Date() <= endDate && dict.status == 1 {
                     cell.joinBtn.isHidden = false
                     cell.joinBtn.setImage(UIImage.init(named: "ic_contactnumber"), for: .normal)
                     cell.joinBtn.setTitle("Join the call", for: .normal)
