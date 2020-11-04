@@ -348,12 +348,14 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
         }
         else  {
             let dict : BookingListDataModel = bookingArr[sender.tag]
+            let startDate = getDateFromDateString(strDate: dict.dateTime)
+            let endDate = getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+            
             if dict.status == 3 {
                 let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
                 bookingActionVM.getBookingAction(request: request)
             }
-            else if getDateFromDateString(strDate: dict.dateTime) < Date() && getDateFromDateString(strDate: dict.dateTime).sainiAddMinutes(Double(dict.callTime)) > Date() && dict.status == 1 {
-                
+            else if Date() >= startDate && Date() <= endDate && dict.status == 1 {
                 if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
                     SocketIOManager.sharedInstance.establishConnection()
                 }
@@ -368,12 +370,6 @@ extension BookingListVC : UITableViewDelegate, UITableViewDataSource {
                     }
                 }
             }
-            else {
-                
-            }
-            
-            
         }
     }
-    
 }

@@ -43,6 +43,7 @@ class JoinCallView: UIView {
     
     func setUp() {
         if dict.count == 0 {
+            print("****----****----****----****----****----****----****")
             delay(0) {
                 self.setUp()
             }

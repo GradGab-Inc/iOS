@@ -30,6 +30,9 @@ class MentorHomeVC: UIViewController {
     var bookingActionVM : BookingActionViewModel = BookingActionViewModel()
     var bookingArr : [BookingListDataModel] = [BookingListDataModel]()
     var selectedDate : Date = Date()
+    var selectedJoinCallBookingDetail : BookingDetail = BookingDetail.init()
+    var isRateViewNavigate : Bool = false
+    
     
     fileprivate lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -293,8 +296,29 @@ extension MentorHomeVC : UITableViewDelegate, UITableViewDataSource {
     
     @objc func clickToJoinCall(_ sender : UIButton) {
         let dict : BookingListDataModel = bookingArr[sender.tag]
-        let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
-        bookingActionVM.getBookingAction(request: request)
+        let startDate = getDateFromDateString(strDate: dict.dateTime)
+        let endDate = getDateFromDateString(strDate:dict.dateTime).sainiAddMinutes(Double(dict.callTime))
+        
+        if dict.status == 3 {
+            let request = GetBookingActionRequest(bookingRef: dict.id, status: BookingStatus.BOOKED)
+            bookingActionVM.getBookingAction(request: request)
+        }
+        else if Date() >= startDate && Date() <= endDate && dict.status == 1 {
+            if SocketIOManager.sharedInstance.socket.status == .disconnected || SocketIOManager.sharedInstance.socket.status == .notConnected {
+                SocketIOManager.sharedInstance.establishConnection()
+            }
+            let dict : BookingListDataModel = bookingArr[sender.tag]
+            JoinRequestService.getVideoCallData(request: VideoCallDataRequest(bookingRef: dict.id)) { (response) in
+                bookingDetailForVideo = dataModelChange(dict)
+                self.selectedJoinCallBookingDetail = dataModelChange(dict)
+                self.isRateViewNavigate = false
+                MeetingModule.shared().prepareMeeting(meetingModel: response!, option: .outgoing) { (status) in
+                    if status {
+                        print("Started")
+                    }
+                }
+            }
+        }
     }
 }
 

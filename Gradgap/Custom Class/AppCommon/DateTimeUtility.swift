@@ -274,7 +274,7 @@ func getDifferenceFromCurrentTimeInMinute(_ newDate : String) -> Int
     
     let minutes : Int = Int(interval/60)
 
-    if minutes < 5 && minutes > 0
+    if minutes < 5 && minutes >= 0
     {
         return 1
     }
