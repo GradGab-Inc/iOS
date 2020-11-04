@@ -92,9 +92,9 @@ class MeetingViewController: UIViewController {
             return
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(setAcceptRejectView), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(addExtendCallData), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(setAcceptRejectView), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(addExtendCallData), name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: nil)
         
         configure(meetingModel: meetingModel)
         super.viewDidLoad()
@@ -106,6 +106,29 @@ class MeetingViewController: UIViewController {
         
         ExtendCallVM.delegate = self
         callActionVM.delegate = self
+        
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        SocketIOManager.sharedInstance.socket.on("extend_call") { (dataArray, ack) in
+            print(dataArray)
+            if dataArray.count == 0 {
+                if AppModel.shared.currentUser.user?.userType == 2 {
+                    self.mentorTimeExtensionBackView.isHidden = false
+                    self.mentorMessageLbl.text = "\(bookingDetailForVideo.firstName) has requested to extend 15 mins for $4?"
+                }
+            }
+            else {
+                let messageData = dataArray.first as! [String: Any]
+                if let data = messageData["status"], data as! Int == 2 {
+                    self.callEndTime = self.callEndTime.sainiAddMinutes(Double(15))
+                    setExtendCallId(bookingDetailForVideo.id)
+                }
+                else if let data = messageData["status"], data as! Int == 3 {
+                    print("******* \(messageData["status"] as! Int) *************")
+                    displayToast("Mentor not allow for extend call")
+                }
+            }
+        }
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

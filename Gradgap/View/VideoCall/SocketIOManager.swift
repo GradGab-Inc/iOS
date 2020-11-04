@@ -58,27 +58,21 @@ class SocketIOManager: NSObject {
                 print("socket reconnect")
         }
         
-        socket.on("extend_call") { (dataArray, ack) in
-            print(dataArray)
-            if dataArray.count == 0 {
-                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
-            }
-            else {
-                let messageData = dataArray.first as! [String: Any]
-                if let data = messageData["status"], data as! Int == 2 {
-                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 2])
-                }
-                else if let data = messageData["status"], data as! Int == 3 {
-                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 3])
-                }
-                
-//                let jsonData = try? JSONSerialization.data(withJSONObject: dataArray, options: [])
-//                let jsonString = String(data: jsonData!, encoding: .utf8)!
-//                if let dict = convertToDictionary(text: jsonString) {
-//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: dataArray)
+//        socket.on("extend_call") { (dataArray, ack) in
+//            print(dataArray)
+//            if dataArray.count == 0 {
+//                NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_DATA), object: nil)
+//            }
+//            else {
+//                let messageData = dataArray.first as! [String: Any]
+//                if let data = messageData["status"], data as! Int == 2 {
+//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 2])
 //                }
-            }
-        }
+//                else if let data = messageData["status"], data as! Int == 3 {
+//                    NotificationCenter.default.post(name: NSNotification.Name.init(NOTIFICATION.SETUP_EXTEND_VERIFICATION_DATA), object: ["status" : 3])
+//                }
+//            }
+//        }
         
         socket.on(clientEvent: .error) {data, ack in
             print(data)
