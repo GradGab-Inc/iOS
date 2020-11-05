@@ -310,6 +310,17 @@ class MeetingViewController: UIViewController {
             DispatchQueue.main.async {
                 self.headerTimeLbl.text = getDateStringFromDate(date: self.callStartTime, format: "mm:ss")
             }
+            
+////            let startDate = getDateFromDateString(strDate: bookingDetailForVideo.dateTime)
+//            let endDate = getDateFromDateString(strDate: bookingDetailForVideo.dateTime).sainiAddMinutes(Double(bookingDetailForVideo.callTime - 2))
+//
+//            if Date() == endDate && AppModel.shared.currentUser.user?.userType == 1 {
+//                if getExtendCallId() == "" || getExtendCallId() != bookingDetailForVideo.id {
+//                    twoMinuteLeftBackView.isHidden = false
+//                    setExtendCallId(bookingDetailForVideo.id)
+//                }
+//            }
+            
             if counter  == ((bookingDetailForVideo.callTime * 60) - 120) && AppModel.shared.currentUser.user?.userType == 1 {
                 if getExtendCallId() == "" || getExtendCallId() != bookingDetailForVideo.id {
                     twoMinuteLeftBackView.isHidden = false

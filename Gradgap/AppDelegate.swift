@@ -201,6 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func continueToLogout() {
         removeUserDefaultValues()
         AppModel.shared.resetAllModel()
+        SocketIOManager.sharedInstance.closeConnection()
         self.navigateToLogin()
     }
     

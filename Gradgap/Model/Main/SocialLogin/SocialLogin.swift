@@ -144,6 +144,8 @@ extension SocialLogin : SocialLoginSuccessDelegate {
         setIsSocialUser(isUserLogin: false)
         AppModel.shared.currentUser = userData.data
         
+        SocketIOManager.sharedInstance.establishConnection()
+        
         if AppModel.shared.currentUser.user?.userType == 1 {
             AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
         }
