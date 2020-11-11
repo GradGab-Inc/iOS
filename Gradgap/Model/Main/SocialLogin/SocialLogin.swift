@@ -40,7 +40,8 @@ class SocialLogin: UIViewController, GIDSignInDelegate {
             guard let token = result?.token else {
                 return
             }
-            guard let accessToken : String = token.tokenString else {
+            
+            guard let accessToken : String = token.tokenString as? String else {
                 return
             }
             

@@ -57,7 +57,12 @@ class SettingVC: UIViewController {
             switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 2))
         }
         else if AppModel.shared.currentUser.user?.userType == 2 {
-            switchProfileVM.switchProfile(request: SwitchProfileRequest(switchUserType: 1))
+            var request : SwitchProfileRequest = SwitchProfileRequest()
+            request.switchUserType = 1
+            if userReferId != "" {
+                request.referralId = userReferId
+            }
+            switchProfileVM.switchProfile(request: request)
         }
     }
     

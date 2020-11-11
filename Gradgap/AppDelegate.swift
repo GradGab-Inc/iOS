@@ -290,11 +290,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        if getPushToken() == ""
-        {
+//        if getPushToken() == ""
+//        {
             setPushToken(fcmToken)
             print(fcmToken)
-        }
+//        }
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {

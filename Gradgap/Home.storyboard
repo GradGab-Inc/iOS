@@ -4366,6 +4366,7 @@ Refer some friends.</string>
                         <outlet property="nameLbl" destination="LSW-s4-xud" id="lqT-wE-Hwh"/>
                         <outlet property="navigationBar" destination="1we-U8-Bgg" id="4AS-zP-3Mo"/>
                         <outlet property="priceLbl" destination="2gp-ng-mvx" id="pnX-OM-zs9"/>
+                        <outlet property="removeCouponCodeBtn" destination="QGt-0Y-ylI" id="nhN-0L-YVe"/>
                         <outlet property="subTotalLbl" destination="60G-ip-BIG" id="v9r-2K-OQs"/>
                         <outlet property="timeLbl" destination="KST-a1-BFp" id="bae-5p-pgj"/>
                         <outlet property="toBePaidLbl" destination="8fL-GI-4IF" id="cNK-f6-8Mc"/>

@@ -10,5 +10,12 @@ import Foundation
 
 
 struct SwitchProfileRequest: Encodable {
-    var switchUserType: Int
+    var switchUserType: Int?
+    var referralId: String?
+    
+    init(switchUserType: Int? = nil, referralId:String? = nil) {
+        
+        self.switchUserType = switchUserType
+        self.referralId = referralId
+    }
 }

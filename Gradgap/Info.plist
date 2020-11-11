@@ -57,19 +57,19 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your camera to capture photos.</string>
+	<string>By Agreeing, you are allowing GradGab access to your camera for setup and edit user profile picture as welll as video calling.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>By Agreeing, you are allowing GradGab access to your contact for calling.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
+	<string>By Agreeing, you are allowing GradGab access to your location for search mentor list.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
+	<string>By Agreeing, you are allowing GradGab access to your location for search mentor list.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your location for serach mentor list.</string>
+	<string>By Agreeing, you are allowing GradGab access to your location for search mentor list.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to use microphone to start call</string>
+	<string>By Agreeing, you are allowing GradGab access to use microphone to start audio call.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>By Agreeing, you are allowing GradGab access to your photos to upload your pictures to the App.</string>
+	<string>By Agreeing, you are allowing GradGab access to your photo for setup and edit user profile picture.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MADE Tommy Soft Black Outline PERSONAL USE.otf</string>
