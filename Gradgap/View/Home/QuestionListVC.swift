@@ -215,7 +215,6 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                 request.otherLanguage = selectedLanguage.id
             }
             
-            
             if isMentor {
                 request.completeProfile = true
                 request.collegePath = collegePathIndex
@@ -242,6 +241,9 @@ class QuestionListVC: UploadImageVC, selectedSchoolDelegate {
                 if !isFromBack && AppModel.shared.currentUser.user?.userType != 1 {
                     request.completeProfile = true
                     request.changeUserType = 1
+                    if userReferId != "" {
+                        request.referralId = userReferId
+                    }
                     profileUpadateVM.updateProfile(request: request, imageData: Data(), fileName: "")
                 }
                 else {

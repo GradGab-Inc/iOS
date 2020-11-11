@@ -100,7 +100,7 @@ struct DEVICE {
 }
 
 struct STRIPE {
-    static var STRIPE_PUB_KEY = "pk_test_51H6iplKwq5OBZkJA8bvN8WTCD2Mrnn0YOXXOmVI6ZyzMe2atrNANwQgXVvR1RjhZuSohim5106klCeqhdjjJwrYI00F9Uaur5I"
+    static var STRIPE_PUB_KEY =  "pk_test_51H6iplKwq5OBZkJA8bvN8WTCD2Mrnn0YOXXOmVI6ZyzMe2atrNANwQgXVvR1RjhZuSohim5106klCeqhdjjJwrYI00F9Uaur5I" //"pk_live_51H6iplKwq5OBZkJAqzh8fnRFrS6Dag6KhdCb7gNhiAadqJXeCnpZKkBboOE4ePRtTfktODAdDMfASpie6DafnsDp00qyu5V1ka"
 }
 
 struct MEDIA {

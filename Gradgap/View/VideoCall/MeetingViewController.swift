@@ -304,7 +304,7 @@ class MeetingViewController: UIViewController {
     @objc func callTimer() {
         let currentDate = Date()
         counter = counter + 1
-        print(counter)
+        print("****\(counter)****")
         if currentDate < callEndTime {
             callStartTime = callStartTime.sainiAddSecond(Double(1))
             DispatchQueue.main.async {
@@ -321,7 +321,7 @@ class MeetingViewController: UIViewController {
 //                }
 //            }
             
-            if counter  == ((bookingDetailForVideo.callTime * 60) - 120) && AppModel.shared.currentUser.user?.userType == 1 {
+            if counter  == (120/*(bookingDetailForVideo.callTime * 60) - 120*/) && AppModel.shared.currentUser.user?.userType == 1 {
                 if getExtendCallId() == "" || getExtendCallId() != bookingDetailForVideo.id {
                     twoMinuteLeftBackView.isHidden = false
                     setExtendCallId(bookingDetailForVideo.id)

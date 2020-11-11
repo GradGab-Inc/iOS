@@ -40,7 +40,13 @@ class ApplyCouponVC: UIViewController {
         tblView.register(UINib(nibName: "CouponTVC", bundle: nil), forCellReuseIdentifier: "CouponTVC")
         
         couponListVM.delegate = self
-        couponListVM.couponList(request: MorePageRequest(page: currentPage))
+        
+        var request : CouponListRequest = CouponListRequest()
+        request.page = currentPage
+        if userReferId != "" {
+            request.referralId = userReferId
+        }
+        couponListVM.couponList(request: request)
         
         refreshControl.tintColor = AppColor
         refreshControl.addTarget(self, action: #selector(refreshDataSetUp) , for: .valueChanged)
@@ -51,7 +57,9 @@ class ApplyCouponVC: UIViewController {
      @objc func refreshDataSetUp() {
          refreshControl.endRefreshing()
          currentPage = 1
-         couponListVM.couponList(request: MorePageRequest(page: currentPage))
+         var request : CouponListRequest = CouponListRequest()
+         request.page = currentPage
+         couponListVM.couponList(request: request)
      }
     
     //MARK: - Button Click
@@ -111,7 +119,10 @@ extension ApplyCouponVC : UITableViewDelegate, UITableViewDataSource {
         if couponArr.count - 2 == indexPath.row {
             if dataModel.hasMore {
                 currentPage = currentPage + 1
-                couponListVM.couponList(request: MorePageRequest(page: currentPage))
+                
+                var request : CouponListRequest = CouponListRequest()
+                request.page = currentPage
+                couponListVM.couponList(request: request)
             }
         }
     }

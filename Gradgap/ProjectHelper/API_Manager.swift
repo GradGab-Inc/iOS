@@ -480,7 +480,7 @@ public class APIManager {
                             }
                             return
                         }
-                        else{
+                        else {
                             if let message = result["message"] as? String{
                                 log.error("\(Log.stats()) \(message)")/
                                 displayToast(message)

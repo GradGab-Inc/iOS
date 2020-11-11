@@ -22,3 +22,6 @@ struct MorePageWithLimitRequest : Encodable {
     var limit: Int
 }
 
+struct ApplyCouponRequest: Encodable {
+    var coupon: String
+}

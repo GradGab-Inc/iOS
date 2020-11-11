@@ -67,3 +67,14 @@ struct GetBookingActionRequest: Encodable {
     var bookingRef: String
     var status: Int
 }
+
+struct CouponListRequest: Encodable {
+    var page: Int?
+    var referralId: String?
+    
+    init(page: Int? = nil,referralId:String? = nil){
+        
+        self.page = page
+        self.referralId = referralId
+    }
+}
