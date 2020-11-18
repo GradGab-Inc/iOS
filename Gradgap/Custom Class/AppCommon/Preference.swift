@@ -54,8 +54,15 @@ func getPushToken() -> String
 {
     if let token : String = getDataFromPreference(key: "PUSH_DEVICE_TOKEN") as? String
     {
-        return token
+        let refreshToken = AppDelegate().sharedDelegate().getFCMToken()
+        if refreshToken == token{
+            return token
+        }
+        else{
+            return refreshToken
+        }
     }
+    
     return AppDelegate().sharedDelegate().getFCMToken()
 }
 
