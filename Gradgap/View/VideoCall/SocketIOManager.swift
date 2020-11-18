@@ -8,6 +8,7 @@
 
 import Foundation
 import SocketIO
+import SainiUtils
 
 
 class SocketIOManager: NSObject {
@@ -15,7 +16,7 @@ class SocketIOManager: NSObject {
     var socket: SocketIOClient!
     
     // defaultNamespaceSocket and swiftSocket both share a single connection to the server
-    var manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(false), .compress])
+    var manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
     
     override init() {
         super.init()
@@ -24,14 +25,14 @@ class SocketIOManager: NSObject {
     
     func reloadSocket()
     {
-        manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(false), .compress])
+        manager = SocketManager(socketURL: URL(string: API.SOCKET_URL)!, config: [.log(true), .compress])
         socket = manager.defaultSocket
     }
     
     //Custom Connect with userID
     func connectSocket() {
-        if socket != nil {
-            socket.disconnect()
+        if getLoginUserData() != nil {
+            AppModel.shared.currentUser = getLoginUserData()!
         }
         if AppModel.shared.currentUser == nil {
             return
@@ -42,7 +43,6 @@ class SocketIOManager: NSObject {
             .secure(false) //, .forcePolling(true), .forceWebsockets(true)
         )
         self.socket.connect()
-                        
         //To connect socket
         socket.on(clientEvent: .connect) { (data, ack) in
             print("socket connected",data,ack)
@@ -55,7 +55,7 @@ class SocketIOManager: NSObject {
         
         socket.on(clientEvent: SocketClientEvent.reconnect) { (data, eck) in
             print(data)
-                print("socket reconnect")
+            print("socket reconnect")
         }
         
 //        socket.on("extend_call") { (dataArray, ack) in
@@ -81,20 +81,16 @@ class SocketIOManager: NSObject {
     }
     
     func establishConnection() {
-        reloadSocket()
-        delay(1.0) {
-            SocketIOManager.sharedInstance.connectSocket()
-        }
+        SocketIOManager.sharedInstance.connectSocket()
     }
     
     func closeConnection() {
         socket.disconnect()
-        socket.removeAllHandlers()
     }
     
     func subscribeChannel(_ dict : [String : String]) {
         socket.emit("subscribe_channel", dict) {
-            
+            log.success("Channel Subscribed with \(dict)")/
         }
     }
     
