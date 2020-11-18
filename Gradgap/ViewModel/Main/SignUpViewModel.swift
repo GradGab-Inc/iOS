@@ -10,7 +10,7 @@ import Foundation
 import SainiUtils
 
 protocol SignUpDelegate {
-    func didRecieveSignUpResponse(response: SuccessModel)
+    func didRecieveSignUpResponse(response: LoginResponse)
 }
 
 struct SignUpViewModel {
@@ -21,7 +21,7 @@ struct SignUpViewModel {
             APIManager.sharedInstance.I_AM_COOL(params: signUpRequest.toJSON(), api: API.USER.signup, Loader: true, isMultipart: false) { (response) in
                 if response != nil{                             //if response is not empty
                     do {
-                        let success = try JSONDecoder().decode(SuccessModel.self, from: response!) // decode the response into model
+                        let success = try JSONDecoder().decode(LoginResponse.self, from: response!) // decode the response into model
                         switch success.code {
                         case 100:
                             self.delegate?.didRecieveSignUpResponse(response: success.self)

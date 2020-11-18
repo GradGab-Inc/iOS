@@ -11,6 +11,7 @@ import AVFoundation
 import CallKit
 import Foundation
 import UIKit
+import SainiUtils
 
 var bookingDetailForVideo : BookingDetail = BookingDetail.init()
 
@@ -177,6 +178,7 @@ class MeetingViewController: UIViewController {
     }
     
     private func configure(meetingModel: MeetingModel) {
+        SocketIOManager.sharedInstance.subscribeChannel(["bookingRef": bookingDetailForVideo.id])
         meetingModel.activeModeDidSetHandler = { [weak self] activeMode in
             self?.switchSubview(mode: activeMode)
         }
@@ -185,8 +187,6 @@ class MeetingViewController: UIViewController {
             meetingModel.isLocalVideoActive = true
             self?.callEndTime = Date().sainiAddMinutes(Double(bookingDetailForVideo.callTime))
             self?.scheduledTimerWithTimeInterval()
-            
-            SocketIOManager.sharedInstance.subscribeChannel(["bookingRef": bookingDetailForVideo.id])
         }
         meetingModel.isMutedHandler = { [weak self] isMuted in
             self?.muteButton.isSelected = isMuted
@@ -536,6 +536,9 @@ class MeetingViewController: UIViewController {
             menteeVideoView.mirror = false
             meetingModel.bind(videoRenderView: menteeVideoView, tileId: 0)
         }
+    }
+    deinit{
+        log.success("Memory deallocated successfully!")/
     }
 }
 

@@ -170,13 +170,32 @@ class SignUpVC: SocialLogin {
 
 //MARK: - SignUpDelegate
 extension SignUpVC: SignUpDelegate {
-    func didRecieveSignUpResponse(response: SuccessModel) {
+    func didRecieveSignUpResponse(response: LoginResponse) {
         self.view.endEditing(true)
-        log.success(response.message)/
-        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "EmailVerificationVC") as! EmailVerificationVC
-        vc.fromSignup = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        log.success("WORKING_THREAD:->>>>>>> \(Thread.current.threadName)")/
+        setLoginUserData(response.data!)
+        setIsUserLogin(isUserLogin: true)
+        setIsSocialUser(isUserLogin: false)
+        AppModel.shared.currentUser = response.data
+        
+        SocketIOManager.sharedInstance.establishConnection()
+        
+        if AppModel.shared.currentUser.user?.userType == 1 {
+            AppDelegate().sharedDelegate().navigateToMenteeDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 2 {
+            AppDelegate().sharedDelegate().navigateToMentorDashBoard()
+        }
+        else if AppModel.shared.currentUser.user?.userType == 3 {
+            let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "BecomeMentorVC") as! BecomeMentorVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
+//        log.success(response.message)/
+//        let vc = STORYBOARD.MAIN.instantiateViewController(withIdentifier: "EmailVerificationVC") as! EmailVerificationVC
+//        vc.fromSignup = true
+//        self.navigationController?.pushViewController(vc, animated: true)
+    //}
 }
 
 
